@@ -1,0 +1,15 @@
+{
+  // import setting
+  "editor.codeActionsOnSave": {
+    // "source.fixAll": true,
+    "source.sortImports": true,
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": true
+    // "source.organizeImports": true
+  },
+  // emmet
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
+}
