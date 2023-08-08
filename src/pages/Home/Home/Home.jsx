@@ -6,7 +6,6 @@ const Home = () => {
       <h2>development brach testing</h2>
       <p>Sihab Molla</p>
       <p>check out branch </p>
-      
     </div>
   );
 };
