@@ -5,3 +5,8 @@
 .nav-container {
   @apply max-w-[2550px] px-2 md:px-6 lg:px-20 mx-auto;
 }
+
+/* footer css */
+.footer-link li a:hover {
+  color: aquamarine;
+}
