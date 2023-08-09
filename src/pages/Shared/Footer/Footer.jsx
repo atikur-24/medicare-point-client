@@ -1,8 +1,12 @@
 /* eslint-disable import/no-absolute-path */
 /* eslint-disable import/no-unresolved */
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
-import chat from "../../../assets/icon/facebook-messenger.svg";
 import logo from "../../../assets/images/logo.svg";
 import google_pay from "../../../assets/payment-icon/google-pay.svg";
 import mastercard from "../../../assets/payment-icon/mastercard.svg";
@@ -16,14 +20,18 @@ const Footer = () => {
   return (
     <div>
       <div className="bg-[url('assets/images/footer.png')] bg-black bg-no-repeat  lg:h-[750px] ">
-        <div className="pb-[50px] pt-[300px] lg:pt-[150px]  mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl relative">
+        <div className="pb-[50px] pt-[300px] lg:pt-[150px]  mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl">
           <div className="px-10 lg:px-0 flex flex-col lg:flex-row justify-between gap-6  ">
             <div className="space-y-4">
               <img className="w-20" src={logo} alt="" />
-              <h2 className="text-4xl font-bold text-white mt-2 font-bubblegum">MediCare Point </h2>
+              <h2 className="text-4xl font-bold text-white mt-2 font-bubblegum">
+                MediCare Point{" "}
+              </h2>
               <p className="w-96 text-white  text-justify">
-                Lorem ipsum dolor sit amet, consectt dipiscing elit esent vestibulum molestie lacus. Aenean nonmy hendrerit mauris. Phasellus porta. Fusce suit varius mi. Cum sociis natoque penatibus
-                et magnis dis parturient montes.
+                Lorem ipsum dolor sit amet, consectt dipiscing elit esent
+                vestibulum molestie lacus. Aenean nonmy hendrerit mauris.
+                Phasellus porta. Fusce suit varius mi. Cum sociis natoque
+                penatibus et magnis dis parturient montes.
               </p>
             </div>
             <div className="text-white ">
@@ -97,7 +105,9 @@ const Footer = () => {
           <div className="mt-11 px-10 lg:px-0  flex justify-between gap-12">
             {/* payment */}
             <div>
-              <p className="text-white text-2xl font-bold">OUR PAYMENT PARTNERS</p>
+              <p className="text-white text-2xl font-bold">
+                OUR PAYMENT PARTNERS
+              </p>
               <div className="mt-8 flex gap-5 flex-col  md:flex-row">
                 <img className="w-20" src={google_pay} alt="" />
                 <img className="w-20" src={mastercard} alt="" />
@@ -123,12 +133,9 @@ const Footer = () => {
           {/* Copyright */}
           <div className="mt-11 px-10 lg:px-0 ">
             <p className="text-center text-white font-bold">
-              Copyright &copy; 2023 by <span className="text-yellow-500">MediCare Point</span>
+              Copyright &copy; 2023 by{" "}
+              <span className="text-yellow-500">MediCare Point</span>
             </p>
-          </div>
-          {/* chat */}
-          <div className="absolute bottom-1/4 -right-28">
-            <img className="w-20" src={chat} alt="" />
           </div>
         </div>
       </div>
