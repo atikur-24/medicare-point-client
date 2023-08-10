@@ -20,6 +20,7 @@ const Footer = () => {
   return (
     <div>
       <div className="bg-[url('assets/images/footer.png')] bg-black bg-no-repeat  lg:h-[750px] ">
+<<<<<<< HEAD
         <div className="pb-[50px] pt-[300px] lg:pt-[150px]  mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl">
           <div className="px-10 lg:px-0 flex flex-col lg:flex-row justify-between gap-6  ">
             <div className="space-y-4">
@@ -32,6 +33,16 @@ const Footer = () => {
                 vestibulum molestie lacus. Aenean nonmy hendrerit mauris.
                 Phasellus porta. Fusce suit varius mi. Cum sociis natoque
                 penatibus et magnis dis parturient montes.
+=======
+        <div className="pb-[50px] pt-[100px] lg:pt-[150px] md:px-16 mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl ">
+          <div className="px-10 lg:px-0 flex flex-col lg:flex-row justify-between gap-6  ">
+            <div className="space-y-4">
+              <img className="w-20" src={logo} alt="" />
+              <h2 className="text-4xl font-bold text-white mt-2 font-bubblegum">MediCare Point </h2>
+              <p className="lg:w-96 text-white  text-justify">
+                Lorem ipsum dolor sit amet, consectt dipiscing elit esent vestibulum molestie lacus. Aenean nonmy hendrerit mauris. Phasellus porta. Fusce suit varius mi. Cum sociis natoque penatibus
+                et magnis dis parturient montes.
+>>>>>>> a6d627951365017ed3d745cc9e006d5e0e1c7b8c
               </p>
             </div>
             <div className="text-white ">
@@ -102,13 +113,18 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mt-11 px-10 lg:px-0  flex justify-between gap-12">
+          <div className="mt-11 px-10 lg:px-0  flex flex-col md:flex-row  justify-between gap-12">
             {/* payment */}
             <div>
+<<<<<<< HEAD
               <p className="text-white text-2xl font-bold">
                 OUR PAYMENT PARTNERS
               </p>
               <div className="mt-8 flex gap-5 flex-col  md:flex-row">
+=======
+              <p className="text-white text-2xl font-bold">OUR PAYMENT PARTNERS</p>
+              <div className="mt-8 flex gap-5 flex-wrap  md:flex-row">
+>>>>>>> a6d627951365017ed3d745cc9e006d5e0e1c7b8c
                 <img className="w-20" src={google_pay} alt="" />
                 <img className="w-20" src={mastercard} alt="" />
                 <img className="w-20" src={visa} alt="" />
@@ -119,9 +135,9 @@ const Footer = () => {
               </div>
             </div>
             {/* social  */}
-            <div className="px-8">
+            <div className="md:px-8">
               <p className="text-white text-2xl font-bold">Follow Us</p>
-              <div className="mt-8 flex gap-5 flex-col  md:flex-row">
+              <div className="mt-8 flex gap-5   md:flex-row">
                 <FaFacebookF className="w-6 h-6 text-white" />
                 <FaInstagram className="w-6 h-6 text-white" />
                 <FaLinkedinIn className="w-6 h-6 text-white" />
