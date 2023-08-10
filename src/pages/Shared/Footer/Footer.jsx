@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <div>
       <div className="bg-[url('assets/images/footer.png')] bg-black bg-no-repeat  lg:h-[750px] ">
-        <div className="pb-[50px] pt-[100px] lg:pt-[150px] md:px-16 mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl ">
+        <div className="pb-[50px] pt-[100px] lg:pt-[150px] md:px-6 mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl ">
           <div className="px-10 lg:px-0 flex flex-col lg:flex-row justify-between gap-6  ">
             <div className="space-y-4">
               <img className="w-20" src={logo} alt="" />
