@@ -1,8 +1,8 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
-import Category from "./Category";
+import { useEffect, useState } from "react";
+
 import Heading from "../../Shared/Heading/Heading";
+import Category from "./Category";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -13,7 +13,7 @@ const Categories = () => {
 
   return (
     <div className="nav-container my-10">
-      <Heading title={"Shop by Category"} center={true} />
+      <Heading title="Shop by Category" center />
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-4">
         {categories.map((category, index) => (
           <Category key={index} category={category} />
