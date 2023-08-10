@@ -2,7 +2,7 @@ import "./AdBanner.css";
 
 const AdBanner = ({ discount, img_ad, title }) => {
   return (
-    <div className="relative hidden md:block">
+    <div className="relative ">
       <div className="flex w-full relative">
         <div className="shape_i w-[70%] h-[250px] flex items-center ">
           <div className="font-bold px-10 text-white inline-flex gap-6 items-center">

@@ -3,7 +3,7 @@ import AdBanner from "./AdBanner";
 
 const DeliveryAd = () => {
   return (
-    <div className="my-20">
+    <div className=" hidden md:block">
       <AdBanner discount="5" img_ad={delivery} title="Free Delivery" />
     </div>
   );
