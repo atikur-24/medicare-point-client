@@ -15,19 +15,19 @@ const Footer = () => {
   return (
     <div>
       <div className="bg-[url('assets/images/footer.png')] bg-black bg-no-repeat  lg:h-[750px] ">
-        <div className="pb-[50px] pt-[100px] lg:pt-[150px] px-8 mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl ">
+        <div className="pb-[50px] pt-[100px] lg:pt-[150px] lg:px-8 mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl ">
           <div className="px-10 lg:px-0 flex flex-col lg:flex-row justify-between gap-6  ">
             <div className="space-y-4">
               <img className="w-20" src={logo} alt="" />
-              <h2 className="text-4xl font-bold text-white mt-2 font-bubblegum">MediCare Point </h2>
+              <h2 className="text-4xl font-bold text-white mt-2 ">MediCare Point </h2>
               <p className="lg:w-96 text-white  text-justify">
                 Lorem ipsum dolor sit amet, consectt dipiscing elit esent vestibulum molestie lacus. Aenean nonmy hendrerit mauris. Phasellus porta. Fusce suit varius mi. Cum sociis natoque penatibus
                 et magnis dis parturient montes.
               </p>
             </div>
             <div className="text-white ">
-              <h2 className="text-2xl mb-4  font-bubblegum">services</h2>
-              <ul className="space-y-3 camp-footer font-semibold  footer-link">
+              <h2 className="text-2xl mb-4  ">services</h2>
+              <ul className="space-y-3  font-semibold  footer-link">
                 <li>
                   <Link to="/">Home</Link>
                 </li>
@@ -46,8 +46,8 @@ const Footer = () => {
               </ul>
             </div>
             <div className="text-gray-50 ">
-              <h2 className="text-2xl mb-4  font-bubblegum">OUR POLICIES</h2>
-              <ul className="space-y-3 camp-footer font-semibold footer-link">
+              <h2 className="text-2xl mb-4  ">OUR POLICIES</h2>
+              <ul className="space-y-3  font-semibold footer-link">
                 <li>
                   <Link to="/">Appointment</Link>
                 </li>
@@ -69,8 +69,8 @@ const Footer = () => {
               </ul>
             </div>
             <div className="text-white ">
-              <h2 className="text-2xl mb-4 font-bubblegum">SHOPPING</h2>
-              <ul className="space-y-3 camp-footer font-semibold footer-link">
+              <h2 className="text-2xl mb-4 ">SHOPPING</h2>
+              <ul className="space-y-3  font-semibold footer-link">
                 <li>
                   <Link to="/">Browse by A-Z</Link>
                 </li>
@@ -97,7 +97,7 @@ const Footer = () => {
             {/* payment */}
             <div>
               <p className="text-white text-2xl font-bold">OUR PAYMENT PARTNERS</p>
-              <div className="mt-8 flex gap-5 flex-col  md:flex-row">
+              <div className="mt-8 flex gap-5 flex-wrap  md:flex-row">
                 <img className="w-20" src={google_pay} alt="" />
                 <img className="w-20" src={mastercard} alt="" />
                 <img className="w-20" src={visa} alt="" />
