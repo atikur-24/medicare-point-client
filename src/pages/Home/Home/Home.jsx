@@ -6,11 +6,8 @@ import Categories from "../Categories/Categories";
 import ChooseUs from "../ChooseUs/ChooseUs";
 import Feedback from "../FeedBack/Feedback";
 import HighestSellings from "../HighestSellings/HighestSellings";
-import chatImg from "../../../assets/icon/message_icon.svg";
 import Product1 from "../Product1/Product1";
 import OtcMedicine from "../OtcMedicine/OtcMedicine";
-import OtcMedicine from "../OtcMedicine/OtcMedicine";
-import Product1 from "../Product1/Product1";
 
 const Home = () => {
   return (
