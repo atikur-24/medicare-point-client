@@ -6,9 +6,18 @@
   @apply max-w-[2550px] px-2 md:px-6 lg:px-12 mx-auto;
 }
 
-
-
 /* footer css */
 .footer-link li a:hover {
   color: aquamarine;
 }
+
+.my-container {
+  @apply px-4 md:px-24 lg:px-8  container  py-14 mx-auto    lg:py-16;
+}
+
+/* .my-btn {
+  @apply cursor-pointer bg-[#f34e3a] hover:bg-[#E24836] rounded-md px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold text-white transition duration-200;
+}
+.my-btn-outline {
+  @apply hover:bg-[#f34e3a] hover:text-white rounded-lg px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold transition duration-300 border border-[#f34e3a] text-[#f34e3a];
+} */
