@@ -2,7 +2,6 @@
 /* eslint-disable import/no-unresolved */
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import chat from "../../../assets/icon/facebook-messenger.svg";
 import logo from "../../../assets/images/logo.svg";
 import google_pay from "../../../assets/payment-icon/google-pay.svg";
 import mastercard from "../../../assets/payment-icon/mastercard.svg";
@@ -16,7 +15,7 @@ const Footer = () => {
   return (
     <div>
       <div className="bg-[url('assets/images/footer.png')] bg-black bg-no-repeat  lg:h-[750px] ">
-        <div className="pb-[50px] pt-[300px] lg:pt-[150px]  mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl relative">
+        <div className="pb-[50px] pt-[300px] lg:pt-[150px]  mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl ">
           <div className="px-10 lg:px-0 flex flex-col lg:flex-row justify-between gap-6  ">
             <div className="space-y-4">
               <img className="w-20" src={logo} alt="" />
@@ -125,10 +124,6 @@ const Footer = () => {
             <p className="text-center text-white font-bold">
               Copyright &copy; 2023 by <span className="text-yellow-500">MediCare Point</span>
             </p>
-          </div>
-          {/* chat */}
-          <div className="absolute bottom-1/4 -right-28">
-            <img className="w-20" src={chat} alt="" />
           </div>
         </div>
       </div>
