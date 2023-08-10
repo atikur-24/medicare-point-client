@@ -10,7 +10,7 @@ const HighestSellings = () => {
   }, []);
 
   return (
-    <div className="my-10 nav-container">
+    <div className="my-container">
       <Heading title="Highest selling Medicine " center />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {headingSMedicines.slice(0, 6).map((medicine, index) => (
