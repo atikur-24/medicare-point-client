@@ -1,0 +1,66 @@
+[
+  {
+    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "category_name": "Pain Relief"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "category_name": "Antihistamines"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "category_name": "Cough & Cold"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "category_name": "Digestive Health"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "category_name": "Heart Health"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "category_name": "Management"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "category_name": "Skin Care"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "category_name": "Eye Care"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "category_name": "Women's Health"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "category_name": "Men's Health"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "category_name": "Vitamins"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "category_name": "Respiratory"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "category_name": "Bone Health"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "category_name": "Weight"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "category_name": "Mental Health"
+  },
+  {
+    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "category_name": "Children's Health"
+  }
+]
