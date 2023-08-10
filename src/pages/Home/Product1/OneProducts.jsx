@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import Heading from "../../Shared/Heading/Heading";
 import axios from "axios";
-import OnProduct from "./OneProduct";
+import { useEffect, useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import moduleName from "../../../assets/images/AD/medicine.png";
+import Heading from "../../Shared/Heading/Heading";
+import OnProduct from "./OneProduct";
 
 const OneProducts = () => {
   const [products, setProducts] = useState([]);
@@ -15,7 +15,7 @@ const OneProducts = () => {
 
   return (
     <div className="nav-container my-10">
-      <Heading title={"Product 1"} center={true} />
+      <Heading title="Product 1" center />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.slice(0, 4).map((product, index) => (

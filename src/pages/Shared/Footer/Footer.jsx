@@ -35,8 +35,8 @@ const Footer = () => {
               </p>
             </div>
             <div className="text-white ">
-              <h2 className="text-2xl mb-4  font-bubblegum">services</h2>
-              <ul className="space-y-3 camp-footer font-semibold  footer-link">
+              <h2 className="text-2xl mb-4  ">services</h2>
+              <ul className="space-y-3  font-semibold  footer-link">
                 <li>
                   <Link to="/">Home</Link>
                 </li>
@@ -55,8 +55,8 @@ const Footer = () => {
               </ul>
             </div>
             <div className="text-gray-50 ">
-              <h2 className="text-2xl mb-4  font-bubblegum">OUR POLICIES</h2>
-              <ul className="space-y-3 camp-footer font-semibold footer-link">
+              <h2 className="text-2xl mb-4  ">OUR POLICIES</h2>
+              <ul className="space-y-3  font-semibold footer-link">
                 <li>
                   <Link to="/">Appointment</Link>
                 </li>
@@ -78,8 +78,8 @@ const Footer = () => {
               </ul>
             </div>
             <div className="text-white ">
-              <h2 className="text-2xl mb-4 font-bubblegum">SHOPPING</h2>
-              <ul className="space-y-3 camp-footer font-semibold footer-link">
+              <h2 className="text-2xl mb-4 ">SHOPPING</h2>
+              <ul className="space-y-3  font-semibold footer-link">
                 <li>
                   <Link to="/">Browse by A-Z</Link>
                 </li>
