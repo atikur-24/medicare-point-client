@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable import/no-unresolved */
 import axios from "axios";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Pagination } from "swiper/modules";
+import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { FreeMode, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import Rating from "react-rating";
-import Heading from "../../Shared/Heading/Heading";
 import { Link } from "react-router-dom";
+import Heading from "../../Shared/Heading/Heading";
 
 import "./styles.css";
 
@@ -21,12 +22,12 @@ const Feedback = () => {
   }, []);
 
   return (
-    <div className="py-10 mt-8">
-      <Heading title={"Feedback"} center={true} />
+    <div className=" my-container">
+      <Heading title="Feedback" center />
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
-        freeMode={true}
+        freeMode
         pagination={{
           clickable: true,
         }}
@@ -65,10 +66,12 @@ const Feedback = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="container mx-auto px-4">{/* ... */}</div>
+
       <div className="mx-auto text-center">
-        <Link>
-          <button className="btn btn-wide mt-6">Feedback Junction</button>
+        <Link to="/">
+          <button type="button" className="btn btn-wide mt-6">
+            Feedback Junction
+          </button>
         </Link>
       </div>
     </div>
