@@ -1,4 +1,4 @@
-/* eslint-disable import/no-unresolved */
+// /* eslint-disable import/no-unresolved */
 
 import "swiper/css";
 import "swiper/css/pagination";
