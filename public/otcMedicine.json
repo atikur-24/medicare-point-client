@@ -1,0 +1,34 @@
+[
+  {
+    "image": "https://raisingchildren.net.au/__data/assets/image/0022/48550/fever-anarrow.jpg",
+    "title": "Fever",
+    "description": "This is a description"
+  },
+  {
+    "image": "https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2021/03/31205824/shutterstock_1079314004-1.jpg",
+    "title": "Headache",
+    "description": "This is a second description"
+  },
+  {
+    "image": "https://media.istockphoto.com/id/1351047125/vector/having-problems-with-stomach-and-diarrhea-concept.jpg?s=612x612&w=0&k=20&c=JNPwmIrAj2rGuT0fAEfZn7HM1-nKXJwxImSIEbzX8dw=",
+    "title": "Diarrhea",
+    "description": "This is a third description"
+  },
+  { "image": "https://medlineplus.gov/images/Eczema_share.jpg", "title": "Eczema", "description": "This is a fourth description" },
+  { "image": "https://thehill.com/wp-content/uploads/sites/2/2022/08/CA_pregnant_08182022istock.jpg?strip=1", "title": "Pregnancy", "description": "This is a fifth description" },
+  { "image": "https://img.freepik.com/free-vector/medical-infographic-cold-flu-symptoms_1308-47909.jpg", "title": "Cough&Flu", "description": "This is a sixth description" },
+  { "image": "https://medicaldialogues.in/h-upload/2022/09/14/185549-nasal-irrigation.webp", "title": "Nasal", "description": "This is a seventh description" },
+  { "image": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2008/11/24/18/89453.jpg", "title": "Vitamins", "description": "This is a seventh description" },
+  { "image": "https://img.freepik.com/premium-photo/pills-long-term-sexual-health-men_118454-11608.jpg?w=2000", "title": "Sexual Med", "description": "This is a seventh description" },
+  { "image": "https://images.onlymyhealth.com//imported/images/2022/October/05_Oct_2022/main_q.jpg", "title": "Gastric", "description": "This is a seventh description" },
+  {
+    "image": "https://www.sleepfoundation.org/wp-content/uploads/2020/12/Compare-sleep-aids.jpg",
+    "title": "Sleeplessness",
+    "description": "This is a seventh description"
+  },
+  {
+    "image": "https://www.connecticutchildrens.org/kidshealth/EN/images/illustrations/constipationA-415x233-enIL.png",
+    "title": "Constipation",
+    "description": "This is a seventh description"
+  }
+]

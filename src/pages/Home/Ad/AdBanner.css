@@ -1,0 +1,14 @@
+.shape_i {
+  clip-path: polygon(0 1%, 100% 0, 80% 100%, 0 100%);
+  background-color: #10847E;
+}
+.shape_ii {
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+  background-color: antiquewhite;
+}
+.shape_iii {
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  background-color: #176B87;
+  height: 160px;
+}
+
