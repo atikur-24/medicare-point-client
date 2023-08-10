@@ -9,7 +9,6 @@ import { FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import Rating from "react-rating";
-import { Link } from "react-router-dom";
 import Heading from "../../Shared/Heading/Heading";
 
 import "./styles.css";
@@ -66,14 +65,6 @@ const Feedback = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      <div className="mx-auto text-center">
-        <Link to="/">
-          <button type="button" className="btn btn-wide mt-6">
-            Feedback Junction
-          </button>
-        </Link>
-      </div>
     </div>
   );
 };
