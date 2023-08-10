@@ -6,8 +6,8 @@ import Categories from "../Categories/Categories";
 import ChooseUs from "../ChooseUs/ChooseUs";
 import Feedback from "../FeedBack/Feedback";
 import HighestSellings from "../HighestSellings/HighestSellings";
-import OtcMedicine from "../OtcMedicine/OtcMedicine";
 import Product1 from "../Product1/Product1";
+import OtcMedicine from "../OtcMedicine/OtcMedicine";
 
 const Home = () => {
   return (
@@ -25,6 +25,9 @@ const Home = () => {
       <Feedback />
       <DeliveryAd />
       <ChooseUs />
+      <div className="fixed bottom-10 right-10 ">
+        <img className="w-12 md:w-20 hover:w-24 cursor-pointer ease-in-out duration-500" src={chatImg} alt="Message Icon" />
+      </div>
     </div>
   );
 };
