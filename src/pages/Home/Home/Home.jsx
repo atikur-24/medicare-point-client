@@ -6,28 +6,24 @@ import Categories from "../Categories/Categories";
 import ChooseUs from "../ChooseUs/ChooseUs";
 import Feedback from "../FeedBack/Feedback";
 import HighestSellings from "../HighestSellings/HighestSellings";
-import Product1 from "../Product1/Product1";
 import OtcMedicine from "../OtcMedicine/OtcMedicine";
+import Product1 from "../Product1/Product1";
 
 const Home = () => {
   return (
     <div>
+      <div className="fixed z-50 bottom-10 right-10 ">
+        <img className="w-12 md:w-20 hover:w-24 cursor-pointer ease-in-out duration-500" src={chatImg} alt="Message Icon" />
+      </div>
       <Banner />
       <Ad />
       <Categories />
       <HighestSellings />
       <Product1 />
-
-      <div className="fixed z-50 bottom-10 right-10 ">
-        <img className="w-12 md:w-20 hover:w-24 cursor-pointer ease-in-out duration-500" src={chatImg} alt="Message Icon" />
-      </div>
       <OtcMedicine />
       <Feedback />
       <DeliveryAd />
       <ChooseUs />
-      <div className="fixed bottom-10 right-10 ">
-        <img className="w-12 md:w-20 hover:w-24 cursor-pointer ease-in-out duration-500" src={chatImg} alt="Message Icon" />
-      </div>
     </div>
   );
 };

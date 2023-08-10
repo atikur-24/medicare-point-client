@@ -12,7 +12,7 @@
 }
 
 .my-container {
-  @apply px-4 md:px-24 lg:px-8  container  py-14 mx-auto    lg:py-16;
+  @apply px-4 md:px-24 lg:px-8  container  py-14 mx-auto  lg:py-16;
 }
 
 /* .my-btn {
