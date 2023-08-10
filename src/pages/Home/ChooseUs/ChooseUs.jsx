@@ -2,9 +2,9 @@ import Heading from "../../Shared/Heading/Heading";
 
 const ChooseUs = () => {
   return (
-    <div className="my-20 px-20">
+    <div className="my-container">
       <Heading title="why choose us" center />
-      <div className="w-[338px] h-[192px] bg-slate-300 py-8 px-8 rounded-br-[50%] relative">
+      <div className="w-[338px] h-[192px] bg-slate-300 py-8 px-8 rounded-br-[45%] relative">
         <div className="py-8">
           <h2 className="text-2xl font-bold">Name</h2>
           <p>Lorem, ipsum dolor sit amet consectetur </p>
