@@ -17,31 +17,25 @@ const Navbar = () => {
         <NavLink to="#">Home</NavLink>
       </li>
       <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 1</NavLink>
+        <NavLink to="#">Medicine</NavLink>
       </li>
       <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 2</NavLink>
+        <NavLink to="#">Lab Test</NavLink>
       </li>
       <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 3</NavLink>
+        <NavLink to="#">Health Tips </NavLink>
       </li>
       <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 4</NavLink>
+        <NavLink to="#">Services</NavLink>
       </li>
       <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 5</NavLink>
+        <NavLink to="#">About Us</NavLink>
       </li>
       <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 6</NavLink>
+        <NavLink to="#">Contacts</NavLink>
       </li>
       <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 7</NavLink>
-      </li>
-      <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 8</NavLink>
-      </li>
-      <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 9</NavLink>
+        <NavLink to="#">More</NavLink>
       </li>
     </>
   );
