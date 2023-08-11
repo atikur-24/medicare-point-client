@@ -1,5 +1,4 @@
-// /* eslint-disable import/no-unresolved */
-
+/* eslint-disable import/no-unresolved */
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";

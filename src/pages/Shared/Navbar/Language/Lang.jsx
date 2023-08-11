@@ -23,7 +23,7 @@ const Lang = () => {
       </button>
 
       {!donwOpen && (
-        <div className="bg-white text-center space-y-2 py-4 absolute w-32 mt-1 drop-shadow-2xl rounded-md">
+        <div className="bg-white z-10 text-center space-y-2 py-4 absolute w-32 mt-1 drop-shadow-2xl rounded-md">
           <div onClick={() => setDownOpen(!donwOpen)} className="w-full">
             <button type="button" onClick={() => setLanguage("English")}>
               English
