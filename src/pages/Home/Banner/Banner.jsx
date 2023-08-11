@@ -4,7 +4,6 @@ import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import image1 from "../../../assets/images/banner/image1.webp";
 import image2 from "../../../assets/images/banner/image2.webp";
 import image3 from "../../../assets/images/banner/image3.webp";
 import image4 from "../../../assets/images/banner/image4.webp";
@@ -29,9 +28,6 @@ const Banner = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <img className="h-1/3 w-full" src={image1} alt="" />
-        </SwiperSlide>
         <SwiperSlide>
           <img className="h-1/3 w-full" src={image2} alt="" />
         </SwiperSlide>
