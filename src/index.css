@@ -32,6 +32,9 @@
   color: aquamarine;
 }
 
+.bg {
+  background-image: linear-gradient(to right top, #176b87, #007288, #007886, #007e83, #10847e);
+}
 /* .my-btn {
   @apply cursor-pointer bg-[#f34e3a] hover:bg-[#E24836] rounded-md px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold text-white transition duration-200;
 }

@@ -14,8 +14,8 @@ const OneProducts = () => {
   // console.log(products);
 
   return (
-    <div className="nav-container my-10">
-      <Heading title="Product 1" center />
+    <div className="my-container my-10">
+      <Heading title="Pain Relief" center />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.slice(0, 4).map((product, index) => (
@@ -23,8 +23,8 @@ const OneProducts = () => {
         ))}
       </div>
 
-      <div className="bg-[#d9d9d9] w-full h-40 mt-24 rounded-xl px-10">
-        <div className=" flex justify-between items-center h-full">
+      <div className="hidden lg:block bg w-full h-40 mt-24 rounded-xl px-10">
+        <div className="flex justify-between items-center h-full">
           <div>
             <button type="button" className="btn flex items-center bap-2">
               View all
@@ -34,10 +34,10 @@ const OneProducts = () => {
             </button>
           </div>
           <div>
-            <h2 className="text-4xl font-bold">Product Name</h2>
+            <h2 className="lg:text-4xl font-bold">Pain Relief</h2>
           </div>
           <div>
-            <img className=" w-52 rounded-md" src={moduleName} alt="" />
+            <img className="w-60 rounded-md" src={moduleName} alt="" />
           </div>
         </div>
       </div>

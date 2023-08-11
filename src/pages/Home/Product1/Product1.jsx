@@ -12,7 +12,7 @@ const Product1 = () => {
 
   return (
     <div className="my-container">
-      <Heading title="Product 1" center />
+      <Heading title="Pain Relief" center />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.slice(0, 4).map((product, index) => (
