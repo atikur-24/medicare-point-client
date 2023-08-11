@@ -7,13 +7,13 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const [showPassword, setShowPassword] = useState(false);
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
@@ -35,7 +35,9 @@ const Login = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text">
+                    Email <span className="text-rose-500 font-bold">*</span>
+                  </span>
                 </label>
                 <input type="email" placeholder="email" className="input input-bordered" {...register("email", { required: true })} />
                 {errors.email && (
@@ -46,7 +48,9 @@ const Login = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text">
+                    Password <span className="text-rose-500 font-bold">*</span>
+                  </span>
                 </label>
                 <div className="join">
                   <input type={showPassword ? "text" : "password"} placeholder="Enter your password" className="input input-bordered join-item w-full" {...register("password", { required: true })} />
@@ -68,14 +72,14 @@ const Login = () => {
                 )}
               </label>
 
-              <div className="form-control mt-6">
-                <button type="submit" className="btn bg-[#D467CA]">
+              <div className="form-control">
+                <button type="submit" className="btn bg-[#D467CA] w-1/2 mx-auto">
                   LogIn
                 </button>
               </div>
               <div className="divider">OR</div>
               <div className="form-control">
-                <button type="submit" className="btn bg-[#D467CA]">
+                <button type="submit" className="btn bg-[#D467CA] w-1/2 mx-auto">
                   <FaGoogle className="inline-block" />
                   Google Sign In
                 </button>
@@ -83,7 +87,7 @@ const Login = () => {
               <label className="label">
                 <p>
                   <span>Don&apos;t Have An Account ?</span>{" "}
-                  <Link to="/register" className="underline text-red-400">
+                  <Link to="/sign-up" className="underline text-red-400">
                     Sign Up
                   </Link>
                 </p>
