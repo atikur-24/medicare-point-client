@@ -10,6 +10,7 @@ import HighestSellings from "../HighestSellings/HighestSellings";
 import OrderProcess from "../OrderProcess/OrderProcess";
 import OtcMedicine from "../OtcMedicine/OtcMedicine";
 import OneProducts from "../Product1/OneProducts";
+import Service from "../Service/Service";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
       <OneProducts />
       <OtcMedicine />
       <OrderProcess />
+      <Service />
       <Feedback />
       <DeliveryAd />
       <ChooseUs />
