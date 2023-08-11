@@ -8,7 +8,7 @@ import clockImg from "../../../assets/images/Service/time-check.png";
 
 const Service = () => {
   return (
-    <div className="mt-20">
+    <div className="my-container">
       <Heading title="Our  Service" center />
       <div className="my-container grid gap-10 lg:gap-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-[#e9f6f9] rounded-lg">
         <div className="flex flex-col justify-center items-center">
