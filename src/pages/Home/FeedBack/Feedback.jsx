@@ -47,8 +47,8 @@ const Feedback = () => {
         modules={[FreeMode, Pagination]}
         className="mySwiper"
       >
-        {feedbacks.map((feedback) => (
-          <SwiperSlide key={feedback.id}>
+        {feedbacks.map((feedback, idx) => (
+          <SwiperSlide key={idx}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 h-full mb-10 px-4">
               <div className="bg-gray-300 h-full p-6 rounded-lg shadow-xl ">
                 <div className="grid justify-center items-center mb-4">
