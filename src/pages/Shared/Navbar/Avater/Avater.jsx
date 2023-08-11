@@ -1,9 +1,9 @@
-import AvaterImg from "../../../../assets/images/placeholder.jpg";
+import AvaterImg from "../../../../assets/images/placeholder.png";
 
 const Avater = () => {
   return (
     <div className=" cursor-pointer">
-      <img src={AvaterImg} alt="" className=" rounded-full w-12 border-2 border-blue-500" />
+      <img src={AvaterImg} alt="" className=" rounded-full w-16  md:w-12 border-2 border-[#1083c4]" />
     </div>
   );
 };

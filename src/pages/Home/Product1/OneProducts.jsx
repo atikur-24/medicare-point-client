@@ -23,7 +23,7 @@ const OneProducts = () => {
         ))}
       </div>
 
-      <div className="bg-[#d9d9d9] w-full h-40 mt-16 rounded-xl px-10">
+      <div className="bg-[#d9d9d9] w-full h-40 mt-24 rounded-xl px-10">
         <div className=" flex justify-between items-center h-full">
           <div>
             <button type="button" className="btn flex items-center bap-2">
