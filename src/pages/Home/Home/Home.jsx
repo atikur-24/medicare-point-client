@@ -9,7 +9,8 @@ import Headline from "../Headline/Headline";
 import HighestSellings from "../HighestSellings/HighestSellings";
 import OrderProcess from "../OrderProcess/OrderProcess";
 import OtcMedicine from "../OtcMedicine/OtcMedicine";
-import Product1 from "../Product1/Product1";
+import OneProducts from "../Product1/OneProducts";
+import Service from "../Service/Service";
 
 const Home = () => {
   return (
@@ -19,18 +20,15 @@ const Home = () => {
       <Ad />
       <Categories />
       <HighestSellings />
-      <Product1 />
-
-      <div className="fixed z-50 bottom-10 right-10 ">
-        <img className="w-12 md:w-20 hover:w-24 cursor-pointer ease-in-out duration-500" src={chatImg} alt="Message Icon" />
-      </div>
+      <OneProducts />
       <OtcMedicine />
       <OrderProcess />
+      <Service />
       <Feedback />
       <DeliveryAd />
       <ChooseUs />
-      <div className="fixed bottom-10 right-10 ">
-        <img className="w-12 md:w-20 hover:w-24 cursor-pointer ease-in-out duration-500" src={chatImg} alt="Message Icon" />
+      <div className="fixed z-50 bottom-10 right-10 ">
+        <img className="w-16 md:w-20 hover:w-24 cursor-pointer ease-in-out duration-500" src={chatImg} alt="Message Icon" />
       </div>
     </div>
   );
