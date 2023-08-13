@@ -12,7 +12,7 @@ const Lang = () => {
       <button
         type="button"
         onClick={() => setDownOpen(!donwOpen)}
-        className=" flex gap-2 items-center btn btn-sm border-none w-32 h-10 hover:bg-[#8a8989] text-black bg-[#b4b4b4] "
+        className=" flex gap-2 items-center btn btn-sm border-none w-32 h-10"
       >
         <p> {language}</p>{" "}
         {donwOpen ? (

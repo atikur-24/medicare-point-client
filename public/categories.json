@@ -1,66 +1,66 @@
 [
   {
-    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
     "category_name": "Pain Relief"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
     "category_name": "Antihistamines"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
     "category_name": "Cough & Cold"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
     "category_name": "Digestive Health"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
     "category_name": "Heart Health"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
     "category_name": "Management"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
     "category_name": "Skin Care"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
     "category_name": "Eye Care"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
     "category_name": "Women's Health"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
     "category_name": "Men's Health"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
     "category_name": "Vitamins"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
     "category_name": "Respiratory"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
     "category_name": "Bone Health"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
     "category_name": "Weight"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category1.jpg",
+    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
     "category_name": "Mental Health"
   },
   {
-    "image_url": "../src/assets/images/categoryes/category2.jpg",
+    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
     "category_name": "Children's Health"
   }
 ]

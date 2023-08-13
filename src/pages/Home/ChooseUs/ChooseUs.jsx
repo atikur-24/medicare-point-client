@@ -2,11 +2,14 @@ import report from "../../../assets/choose-icon/analytics.png";
 import services from "../../../assets/choose-icon/insurance.png";
 import expire from "../../../assets/choose-icon/pills.png";
 import trust from "../../../assets/choose-icon/trust.png";
-import Heading from "../../Shared/Heading/Heading";
+import SectionTitle from "../../../components/SectionTitle";
 
 const ChooseUs = () => (
   <div className="my-container">
-    <Heading title="why choose us" center />
+    <SectionTitle
+      title="why choose us"
+      content="Our team of experts is dedicated to providing guidance and assistance to empower you to make informed decisions about your health. We take pride in our reliable and efficient doorstep delivery, ensuring that your essential items reach you promptly and hassle-free."
+    />
     <div className="grid mt-24 md:grid-cols-2 lg:grid-cols-4 gap-10">
       {/* one  */}
       <div className="relative">
