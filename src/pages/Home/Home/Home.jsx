@@ -1,7 +1,8 @@
 import chatImg from "../../../assets/icon/message_icon.svg";
-import Ad from "../Ad/Ad";
-import DeliveryAd from "../Ad/DeliveryAd";
+import Ads from "../Ads/Ads";
+import DeliveryAds from "../Ads/DeliveryAds";
 import Banner from "../Banner/Banner";
+import Brands from "../Brands/Brands";
 import Categories from "../Categories/Categories";
 import ChooseUs from "../ChooseUs/ChooseUs";
 import Feedback from "../FeedBack/Feedback";
@@ -14,23 +15,24 @@ import Service from "../Service/Service";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Banner />
       <Headline />
-      <Ad />
+      <Ads />
       <Categories />
       <HighestSellings />
       <OneProducts />
       <OtcMedicine />
       <OrderProcess />
       <Service />
+      <Brands />
       <Feedback />
-      <DeliveryAd />
+      <DeliveryAds />
       <ChooseUs />
       <div className="fixed z-50 bottom-10 right-10 ">
         <img className="w-16 md:w-20 hover:w-24 cursor-pointer ease-in-out duration-500" src={chatImg} alt="Message Icon" />
       </div>
-    </div>
+    </>
   );
 };
 

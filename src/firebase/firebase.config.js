@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBdxK3shgq0bZNCncrKJH47yEk5XmqJ_8U",
-  authDomain: "medicare-point.firebaseapp.com",
-  projectId: "medicare-point",
-  storageBucket: "medicare-point.appspot.com",
-  messagingSenderId: "972043707868",
-  appId: "1:972043707868:web:96acae092d8bac68491b19",
+  apiKey: "AIzaSyANWKvWikVaYEQadNkRZrF2jgrt3yvDH9s",
+  authDomain: "medicare-point-1bbbf.firebaseapp.com",
+  projectId: "medicare-point-1bbbf",
+  storageBucket: "medicare-point-1bbbf.appspot.com",
+  messagingSenderId: "353071605402",
+  appId: "1:353071605402:web:9cb55035cbad7085c4e123",
 };
 
 // Initialize Firebase

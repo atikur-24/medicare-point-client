@@ -1,24 +1,24 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
 import { RiMenu2Line } from "react-icons/ri";
-import Avater from "../Avater/Avater";
+import Avatar from "../Avatar/Avatar";
 import Logo from "../Logo/Logo";
 import Search from "../Search/Search";
 
 const ResponsiveNavbar = ({ menuItems }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  //   console.log(isOpen);
-
   return (
-    <div className="relative">
+    <div className="hidden">
       <div className="px-4 flex items-center justify-between w-[70%] py-4">
         <div onClick={() => setIsOpen(!isOpen)}>
           <RiMenu2Line className="text-4xl" />
         </div>
         <Logo />
       </div>
-      <hr className=" w-full  shadow-md   border-[#999999]" />
+      <hr className=" w-full  shadow-md" />
       <div className=" px-4 py-2">
         <Search />
       </div>
@@ -27,12 +27,12 @@ const ResponsiveNavbar = ({ menuItems }) => {
           <div className=" pt-10">
             <div className=" px-4 flex justify-between items-center mb-5">
               <div>
-                <Avater />
+                <Avatar />
               </div>
               <div className="text-3xl border-2 border-black rounded-full p-2">
-                <span onClick={() => setIsOpen(!isOpen)}>
+                <div onClick={() => setIsOpen(!isOpen)}>
                   <MdClose />
-                </span>
+                </div>
               </div>
             </div>
             <hr />
