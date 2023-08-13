@@ -28,13 +28,11 @@
   color: #4b5563;
 }
 .txt-gray-5 {
-  color: #64748b
+  color: #64748b;
 }
 .title-color {
   color: #111a28;
 }
-
-
 
 .nav-container {
   @apply max-w-[2550px] px-2 md:px-6 lg:px-12 mx-auto;
@@ -56,9 +54,27 @@
 .bg {
   background-image: linear-gradient(to right top, #176b87, #007288, #007886, #007e83, #10847e);
 }
+
+/* choose us  */
+.choose-inside {
+  clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 80%, 90% 100%, 0 100%, 0% 80%, 0% 20%);
+  border: 1px solid #10847e;
+  background-color: #fff;
+}
+.choose-outside {
+  clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 80%, 90% 100%, 0 100%, 0% 80%, 0% 20%);
+  background-color: #10847e;
+  padding: 1px;
+  border-radius: 8px;
+}
+
 .my-btn {
   @apply cursor-pointer bg-[#10847e] hover:bg-[#16b4ac] rounded-md px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold text-white transition duration-200;
 }
 .my-btn-outline {
   @apply hover:bg-[#10847e] hover:text-white rounded-lg px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold transition duration-300 border border-[#10847e] text-[#10847e];
+}
+
+.btn {
+  color: red;
 }
