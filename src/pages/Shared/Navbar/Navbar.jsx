@@ -3,44 +3,45 @@ import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { Link, NavLink } from "react-router-dom";
-import Avater from "./Avater/Avater";
 import Lang from "./Language/Lang";
 import Logo from "./Logo/Logo";
-import NavCard from "./NavCard/NavCard";
-import ResponsiveNavbar from "./ResponsivNavbar/ResponsiveNavbar";
 import Search from "./Search/Search";
+import NavCart from "./NavCard/NavCart";
+import Avatar from "./Avatar/Avatar";
+import ResponsiveNavbar from "./ResponsiveNavbar/ResponsiveNavbar";
 
 const Navbar = () => {
   const menuItems = (
     <>
-      <li className="hover:text-neutral-900 ">
+      <li>
         <NavLink to="#">Home</NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
+      <li>
         <NavLink to="#">Medicine</NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
+      <li>
         <NavLink to="#">Lab Test</NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
+      <li>
         <NavLink to="#">Health Tips </NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
+      <li>
         <NavLink to="#">Services</NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
+      <li>
         <NavLink to="#">About Us</NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
+      <li>
         <NavLink to="#">Contacts</NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
+      <li>
         <NavLink to="#">More</NavLink>
       </li>
     </>
   );
   return (
-    <div className="bg-[#d9d9d9]">
+    // TODO: bg color
+    <div className="">
       <div className="nav-container ">
         <div className=" hidden md:block">
           <div className="flex items-center justify-between py-2 ">
@@ -48,14 +49,14 @@ const Navbar = () => {
               <Logo />
               <Search />
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 lg:gap-10">
               <Lang />
-              <NavCard />
+              <NavCart />
               <div>
                 <Menu
                   menuButton={
                     <MenuButton>
-                      <Avater />
+                      <Avatar />
                     </MenuButton>
                   }
                   transition
@@ -76,11 +77,12 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <hr className=" w-full shadow-md   border-[#999999]" />
+      <hr className=" w-full shadow-md" />
       <div className="hidden md:block">
-        <div className="bg-[#d9d9d9] nav-container ">
+        {/* TODO: bg color */}
+        <div className="nav-container">
           <div className="py-2">
-            <ul className="flex items-center justify-between text-md text-neutral-600 font-semibold">{menuItems}</ul>
+            <ul className="flex items-center justify-between text-md font-semibold">{menuItems}</ul>
           </div>
         </div>
       </div>
