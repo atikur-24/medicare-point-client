@@ -74,10 +74,3 @@
 .my-btn-outline {
   @apply hover:bg-[#10847e] hover:text-white rounded-lg px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold transition duration-300 border border-[#10847e] text-[#10847e];
 }
-
-.btn {
-  color: red;
-}
-.add-cart-btn {
-  background-color: #111a28;
-}

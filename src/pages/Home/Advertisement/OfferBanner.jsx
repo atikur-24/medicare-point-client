@@ -1,6 +1,6 @@
-import "./AdsBanner.css";
+import "./OfferBanner.css";
 
-const AdsBanner = ({ discount, img_ad, title }) => {
+const OfferBanner = ({ discount, img_ad, title }) => {
   return (
     <div className="relative ">
       <div className="flex w-full relative">
@@ -28,4 +28,4 @@ const AdsBanner = ({ discount, img_ad, title }) => {
   );
 };
 
-export default AdsBanner;
+export default OfferBanner;
