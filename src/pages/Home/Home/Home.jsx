@@ -1,6 +1,7 @@
 import chatImg from "../../../assets/icon/message_icon.svg";
 import Ads from "../Ads/Ads";
 import DeliveryAds from "../Ads/DeliveryAds";
+
 import Banner from "../Banner/Banner";
 import Brands from "../Brands/Brands";
 import Categories from "../Categories/Categories";
