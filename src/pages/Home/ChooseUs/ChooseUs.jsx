@@ -12,7 +12,7 @@ const ChooseUs = () => (
     />
     <div className="grid mt-24 md:grid-cols-2 lg:grid-cols-4 gap-10">
       {/* one  */}
-      <div className="relative">
+      <div className="relative ">
         <div className="choose-outside">
           <div className="w-full choose-inside   py-8 px-8 rounded-lg">
             <div className="py-8">
