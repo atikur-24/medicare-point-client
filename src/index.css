@@ -6,14 +6,35 @@
   font-family: "Open Sans", sans-serif;
 }
 
-/* colors */
+/* ---- background color -----*/
 .bg-primary {
   background-color: #10847e;
 }
+.bgc-white {
+  background-color: #fff;
+}
+.txt-primary {
+  color: #10847e;
+}
+.bgc-salt-3 {
+  background-color: #cbd5e1;
+}
+.bgc-salt-6 {
+  background-color: #475569;
+}
 
+/*----- text color ----- */
+.txt-gray {
+  color: #4b5563;
+}
+.txt-gray-5 {
+  color: #64748b
+}
 .title-color {
   color: #111a28;
 }
+
+
 
 .nav-container {
   @apply max-w-[2550px] px-2 md:px-6 lg:px-12 mx-auto;
@@ -35,9 +56,9 @@
 .bg {
   background-image: linear-gradient(to right top, #176b87, #007288, #007886, #007e83, #10847e);
 }
-/* .my-btn {
-  @apply cursor-pointer bg-[#f34e3a] hover:bg-[#E24836] rounded-md px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold text-white transition duration-200;
+.my-btn {
+  @apply cursor-pointer bg-[#10847e] hover:bg-[#16b4ac] rounded-md px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold text-white transition duration-200;
 }
 .my-btn-outline {
-  @apply hover:bg-[#f34e3a] hover:text-white rounded-lg px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold transition duration-300 border border-[#f34e3a] text-[#f34e3a];
-} */
+  @apply hover:bg-[#10847e] hover:text-white rounded-lg px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold transition duration-300 border border-[#10847e] text-[#10847e];
+}

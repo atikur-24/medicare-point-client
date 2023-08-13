@@ -5,13 +5,11 @@ const Search = () => {
     <div>
       <form className="flex items-center relative">
         <input
-          className=" w-full lg:w-[450px] bg-[#ffffff] h-10 rounded-xl md:rounded-full focus:border-blue-500 focus:ring-blue-500 dropdown-end drop-shadow-xl px-6"
+          className="w-full lg:w-[450px] h-10 rounded-xl md:rounded-full dropdown-end drop-shadow-xl px-6 focus:input-bordered input-accent"
           type="text"
-          name=""
-          id=""
-          placeholder="Search"
+          placeholder="Search Medicines"
         />
-        <div className=" pr-3 cursor-pointer right-0  absolute">
+        <div className="pr-3 cursor-pointer right-0 absolute">
           <FiSearch className="text-3xl " />
         </div>
       </form>
