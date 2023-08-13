@@ -1,6 +1,7 @@
 import ads from "../../../assets/images/AD/ad.png";
 import AdsBanner from "./AdsBanner";
 
+
 const Ads = () => {
   return (
     <div className="my-16 hidden md:block">
