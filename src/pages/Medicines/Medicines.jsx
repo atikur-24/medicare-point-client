@@ -9,9 +9,9 @@ const Medicines = () => {
     axios.get("medicines.json").then((res) => setMedicines(res?.data));
   }, []);
   return (
-    <section className="bgc-lite">
+    <section className="bg-lite">
       <div className="my-container md:flex gap-8">
-        <div className="w-72 h-fit bgc-white rounded-md hidden md:block">
+        <div className="w-72 h-fit bg-white rounded-md hidden md:block">
           <h3 className="title-color text-xl font-bold tracking-wide py-4 px-6">Categories</h3>
           <hr />
           <div className="py-4 px-6 space-y-4 text-sm">
