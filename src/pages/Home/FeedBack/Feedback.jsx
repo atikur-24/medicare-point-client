@@ -2,16 +2,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from "react-icons/bi";
-import Rating from "react-rating";
+
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import SectionTitle from "../../../components/SectionTitle";
-import "./styles.css";
 
 const Feedback = () => {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -61,6 +61,7 @@ const Feedback = () => {
                       <img src={feedback.image} alt={feedback.name} className="rounded-full   h-20 w-20 object-cover" />
                     </figure>
                     <Rating
+                      style={{ maxWidth: 80 }}
                       className="mt-4"
                       readonly
                       initialRating={feedback.rating}
@@ -69,7 +70,7 @@ const Feedback = () => {
                     />
                   </div>
                 </div>
-                <div className="text-[#475569]  h-56 p-4 pt-20 rounded-lg bg-[#fff] border text-justify font-nunito ">
+                <div className="text-[#475569]  h-56 p-4 pt-20 rounded-lg bg-[#fff] border text-justify font-nunito border-gray-3 ">
                   <p>
                     <BiSolidQuoteAltLeft className="w-5 h-5 inline text-[#10847e]" />
                     <span> {feedback.quote.slice(0, 200)}</span> <BiSolidQuoteAltRight className="w-5 h-5 inline text-[#10847e]" />
