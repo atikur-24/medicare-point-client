@@ -2,7 +2,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from "react-icons/bi";
-import Rating from "react-rating";
+
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -59,6 +61,7 @@ const Feedback = () => {
                       <img src={feedback.image} alt={feedback.name} className="rounded-full   h-20 w-20 object-cover" />
                     </figure>
                     <Rating
+                      style={{ maxWidth: 80 }}
                       className="mt-4"
                       readonly
                       initialRating={feedback.rating}
