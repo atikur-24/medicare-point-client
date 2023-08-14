@@ -1,6 +1,6 @@
 const LabCard = ({ category }) => {
   return (
-    <div className="border w-60 p-4 rounded-2xl  ">
+    <div className="border border-gray-3 w-60 p-4 rounded-2xl  ">
       <figure className="flex justify-center ">
         <img src={category?.image_url} alt="" className="bg-[#f1f5f9]  rounded-full p-2" />
       </figure>
