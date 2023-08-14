@@ -10,13 +10,13 @@ const ChooseUs = () => (
       title="why choose us"
       content="Our team of experts is dedicated to providing guidance and assistance to empower you to make informed decisions about your health. We take pride in our reliable and efficient doorstep delivery, ensuring that your essential items reach you promptly and hassle-free."
     />
-    <div className="grid mt-24 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div className=" grid mt-24 md:grid-cols-2 lg:grid-cols-4 gap-10">
       {/* one  */}
       <div className="relative ">
         <div className="choose-outside">
-          <div className="w-full choose-inside   py-8 px-8 rounded-lg">
+          <div className="w-full choose-inside   pt-8 px-8 rounded-lg">
             <div className="py-8">
-              <h2 className="text-2xl font-bold">Best service</h2>
+              <h2 className="text-xl font-bold">Best service</h2>
               <p>Lorem, ipsum dolor sit amet consectetur </p>
             </div>
           </div>
@@ -27,11 +27,11 @@ const ChooseUs = () => (
         </div>
       </div>
       {/* two  */}
-      <div className="relative">
+      <div className="relative ">
         <div className="choose-outside">
-          <div className="w-full choose-inside   py-8 px-8 rounded-lg">
+          <div className="w-full choose-inside   pt-8 px-8 rounded-lg">
             <div className="py-8">
-              <h2 className="text-2xl font-bold">Best service</h2>
+              <h2 className="text-xl font-bold">Best service</h2>
               <p>Lorem, ipsum dolor sit amet consectetur </p>
             </div>
           </div>
@@ -44,9 +44,9 @@ const ChooseUs = () => (
       {/* three  */}
       <div className="relative">
         <div className="choose-outside">
-          <div className="w-full choose-inside   py-8 px-8 rounded-lg">
+          <div className="w-full choose-inside pt-8 px-8 rounded-lg">
             <div className="py-8">
-              <h2 className="text-2xl font-bold">Analytics and Reports</h2>
+              <h2 className="text-xl font-bold">Analytics & Reports</h2>
               <p>Lorem, ipsum dolor sit amet consectetur </p>
             </div>
           </div>
@@ -59,9 +59,9 @@ const ChooseUs = () => (
       {/* four  */}
       <div className="relative">
         <div className="choose-outside">
-          <div className="w-full choose-inside   py-8 px-8 rounded-lg">
+          <div className="w-full choose-inside   pt-8 px-8 rounded-lg">
             <div className="py-8">
-              <h2 className="text-2xl font-bold">Expiry Management</h2>
+              <h2 className="text-xl font-bold">Expiry Management</h2>
               <p>Lorem, ipsum dolor sit amet consectetur </p>
             </div>
           </div>
