@@ -2,7 +2,7 @@ import { TbCurrencyTaka } from "react-icons/tb";
 
 const HSMedicine = ({ medicine }) => {
   return (
-    <div className="card w-full bg-[#d9d9d9] shadow-xl border-[1px] border-slate-300 relative">
+    <div className="card w-full bg-[#d9d9d9] shadow-xl border border-gray-3 relative">
       <figure>
         <img src={medicine?.image_url} alt="Shoes" className=" h-36 w-full" />
       </figure>
