@@ -20,7 +20,7 @@ const Navbar = () => {
         <NavLink to="#">Medicine</NavLink>
       </li>
       <li>
-        <NavLink to="#">Lab Test</NavLink>
+        <NavLink to="/lab-test">Lab Test</NavLink>
       </li>
       <li>
         <NavLink to="#">Health Tips </NavLink>
