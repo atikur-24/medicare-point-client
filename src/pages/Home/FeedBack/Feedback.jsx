@@ -1,6 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from "react-icons/bi";
 import Rating from "react-rating";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -56,14 +57,24 @@ const Feedback = () => {
                 <div className="grid justify-center items-center mb-4">
                   <h3 className="text-lg text-center font-semibold -mb-20">{feedback.name}</h3>
                   <div className="grid items-center justify-center translate-y-[90px]">
-                    {/* Adjust the width and height of the image */}
                     <figure className="ring-offset-2 ring-2  ring-[#10847e]  rounded-full ">
-                      <img src={feedback.image} alt={feedback.name} className="rounded-full   h-20 w-20" />
+                      <img src={feedback.image} alt={feedback.name} className="rounded-full   h-20 w-20 object-cover" />
                     </figure>
-                    <Rating className="mt-4" readonly initialRating={feedback.rating} emptySymbol={<span className="text-gray-300">&#9734;</span>} fullSymbol={<span className="text-yellow-400">&#9733;</span>} />
+                    <Rating
+                      className="mt-4"
+                      readonly
+                      initialRating={feedback.rating}
+                      emptySymbol={<span className="text-gray-300">&#9734;</span>}
+                      fullSymbol={<span className="text-yellow-400">&#9733;</span>}
+                    />
                   </div>
                 </div>
-                <p className="text-[#475569]  h-56 p-4 pt-20 rounded-lg bg-[#fff] border text-justify font-nunito">{feedback.quote.slice(0, 200)}</p>
+                <div className="text-[#475569]  h-56 p-4 pt-20 rounded-lg bg-[#fff] border text-justify font-nunito ">
+                  <p>
+                    <BiSolidQuoteAltLeft className="w-5 h-5 inline text-[#10847e]" />
+                    <span> {feedback.quote.slice(0, 200)}</span> <BiSolidQuoteAltRight className="w-5 h-5 inline text-[#10847e]" />
+                  </p>
+                </div>
               </div>
             </div>
           </SwiperSlide>
