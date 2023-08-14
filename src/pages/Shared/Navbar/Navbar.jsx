@@ -14,13 +14,13 @@ const Navbar = () => {
   const menuItems = (
     <>
       <li>
-        <NavLink to="#">Home</NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="#">Medicine</NavLink>
+        <NavLink to="/medicines">Medicines</NavLink>
       </li>
       <li>
-        <NavLink to="#">Lab Test</NavLink>
+        <NavLink to="/lab-test">Lab Test</NavLink>
       </li>
       <li>
         <NavLink to="#">Health Tips </NavLink>

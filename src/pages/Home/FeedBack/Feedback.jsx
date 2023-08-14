@@ -9,9 +9,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import SectionTitle from "../../../components/SectionTitle";
-import "./styles.css";
 
 const Feedback = () => {
   const [feedbacks, setFeedbacks] = useState([]);
