@@ -122,7 +122,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="mt-11 px-10 lg:px-0 ">
             <p className="text-center text-white font-bold">
-              Copyright &copy; 2023 by <span className="text-yellow-500">MediCare Point</span>
+              Copyright &copy; 2023 by <span className="text-[#eab308]">MediCare Point</span>
             </p>
           </div>
         </div>
