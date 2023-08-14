@@ -56,14 +56,12 @@
   clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 80%, 90% 100%, 0 100%, 0% 80%, 0% 20%);
   border: 1px solid #10847e;
   background-color: #fff;
- 
 }
 .choose-outside {
   clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 80%, 90% 100%, 0 100%, 0% 80%, 0% 20%);
   background-color: #10847e;
   padding: 1px;
   border-radius: 8px;
-  
 }
 
 /* footer css */
