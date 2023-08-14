@@ -10,7 +10,7 @@ const Service = () => {
   return (
     <div className="my-container">
       <SectionTitle title="Our Service" content="Experience personalized wellness solutions that cater to your unique requirements. Our commitment to your well-being is unwavering, providing you with a trustworthy and convenient source for all your health essentials." />
-      <div className="my-container grid gap-10 lg:gap-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-card border rounded-lg">
+      <div className="my-container grid gap-10 lg:gap-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-card rounded-lg">
         <div className="flex flex-col justify-center items-center">
           <img className="w-28 hover:scale-110 transition-all duration-150" src={userImg} alt="" />
           <h3 className="text-2xl font-semibold mt-2">

@@ -6,45 +6,43 @@
 
 /* ---- background color -----*/
 .bg-primary {
-  background-color: #10847e;
+  /* background-color: #10847e; */
 }
 .bgc-teal-4 {
-  background-color: #16b4ac;
+  /* background-color: #16b4ac; */
 }
 .bgc-white {
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 .bgc-salt-3 {
-  background-color: #cbd5e1;
+  /* background-color: #cbd5e1; */
 }
 .bgc-salt-6 {
-  background-color: #475569;
+  /* background-color: #475569; */
 }
 .bgc-lite {
-  background-color: #F2F3F5;
+  /* background-color: #F2F3F5; */
 }
 
 /*----- text color ----- */
 .txt-white {
-  color: #fff;
+  /* color: #fff; */
 }
 .txt-primary {
-  color: #10847e;
+  /* color: #10847e; */
 }
 .txt-gray {
-  color: #4b5563;
+  /* color: #4b5563; */
 }
 .txt-gray-5 {
-  color: #64748b;
+  /* color: #64748b; */
 }
 .title-color {
-  color: #111a28;
+  /* color: #111a28; */
 }
-.txt-black-2 {
-  color: #1d2a38;
-}
+
 .txt-pink {
-  color: #eb3a7b;
+  /* color: #eb3a7b; */
 }
 
 .nav-container {
@@ -89,7 +87,7 @@
 }
 
 .cart-btn {
-  @apply  rounded-full py-2 text-[14px] uppercase font-medium inline-flex items-center justify-center gap-2 transition duration-300 border hover:bg-[#10847e] hover:text-white border-[#10847e] text-[#10847e]
+  @apply  rounded-full py-2 text-[14px] uppercase font-medium inline-flex items-center justify-center gap-2 transition duration-300 border hover:bg-my-primary hover:text-white border-[#10847e] text-[#10847e]
 }
 .my-btn {
   @apply bg-[#10847e] hover:bg-[#16b4ac] btn  font-medium md:font-semibold text-white transition duration-200;
