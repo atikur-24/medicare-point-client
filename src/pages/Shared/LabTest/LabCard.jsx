@@ -4,8 +4,10 @@ const LabCard = ({ category }) => {
       <figure className="flex justify-center ">
         <img src={category?.image_url} alt="" className="bg-[#f1f5f9]  rounded-full p-2" />
       </figure>
-      <h2 className="text-xl font-sans font-bold h-16">{category?.category_name}</h2>
-      <p className="text-sm text-[#10847e] font-bold font-nunito">20 tests includs</p>
+      <div className="">
+        <h2 className="text-xl font-sans font-bold h-16">{category?.category_name}</h2>
+        <p className="text-sm text-[#10847e] font-bold font-nunito">20 tests includs</p>
+      </div>
       <hr className="border border-[#10847e] my-2" />
       <div className="flex gap-2 items-center font-bold">
         <span>BDT </span>
