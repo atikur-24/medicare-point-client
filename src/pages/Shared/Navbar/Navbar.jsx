@@ -3,12 +3,12 @@ import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { Link, NavLink } from "react-router-dom";
+import Avatar from "./Avatar/Avatar";
 import Lang from "./Language/Lang";
 import Logo from "./Logo/Logo";
-import Search from "./Search/Search";
 import NavCart from "./NavCard/NavCart";
-import Avatar from "./Avatar/Avatar";
 import ResponsiveNavbar from "./ResponsiveNavbar/ResponsiveNavbar";
+import Search from "./Search/Search";
 
 const Navbar = () => {
   const menuItems = (
@@ -67,7 +67,7 @@ const Navbar = () => {
                     </Link>
                   </MenuItem>
                   <MenuItem>
-                    <Link className=" font-semibold text-neutral-600" to="/register">
+                    <Link className=" font-semibold text-neutral-600" to="/signUp">
                       Register
                     </Link>
                   </MenuItem>
