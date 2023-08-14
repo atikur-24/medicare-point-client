@@ -51,19 +51,19 @@ const Feedback = () => {
       >
         {feedbacks.map((feedback, idx) => (
           <SwiperSlide key={idx}>
-            <div className="">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4  mb-10 px-4">
-                <div className="bg-card p-6 rounded-lg shadow-xl ">
-                  <div className="grid justify-center items-center mb-4">
-                    <h3 className="text-lg font-semibold -mb-20">{feedback.name}</h3>
-                    <div className="grid items-center justify-center translate-y-20">
-                      {/* Adjust the width and height of the image */}
-                      <img src={feedback.image} alt={feedback.name} style={{ height: "80px", width: "80px" }} className="rounded-full w-16" />
-                      <Rating readonly initialRating={feedback.rating} emptySymbol={<span className="text-gray-300">&#9734;</span>} fullSymbol={<span className="text-yellow-400">&#9733;</span>} />
-                    </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4  mb-10 px-4">
+              <div className="bg-card p-6 rounded-lg shadow-xl ">
+                <div className="grid justify-center items-center mb-4">
+                  <h3 className="text-lg text-center font-semibold -mb-20">{feedback.name}</h3>
+                  <div className="grid items-center justify-center translate-y-[90px]">
+                    {/* Adjust the width and height of the image */}
+                    <figure className="ring-offset-2 ring-2  ring-[#10847e]  rounded-full ">
+                      <img src={feedback.image} alt={feedback.name} className="rounded-full   h-20 w-20" />
+                    </figure>
+                    <Rating className="mt-4" readonly initialRating={feedback.rating} emptySymbol={<span className="text-gray-300">&#9734;</span>} fullSymbol={<span className="text-yellow-400">&#9733;</span>} />
                   </div>
-                  <p className="text-gray-200 h-44 p-4 pt-20 rounded bgc-salt-6 text-justify">{feedback.quote.slice(0, 100)}</p>
                 </div>
+                <p className="text-[#475569]  h-56 p-4 pt-20 rounded-lg bg-[#fff] border text-justify font-nunito">{feedback.quote.slice(0, 200)}</p>
               </div>
             </div>
           </SwiperSlide>
