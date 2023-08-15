@@ -64,6 +64,18 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+  //   const authInfo = {
+  //     user,
+  //     loading,
+  //     setLoading,
+  //     createUser,
+  //     signIn,
+  //     signInWithGoogle,
+  //     resetPassword,
+  //     logOut,
+  //     updateUserProfile,
+  //   };
+
   const authInfo = useMemo(() => ({ user, loading, setLoading, createUser, signIn, signInWithGoogle, resetPassword, logOut, updateUserProfile }), [loading, user]);
 
   return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;

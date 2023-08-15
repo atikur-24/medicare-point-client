@@ -1,17 +1,17 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FaGoogle } from "react-icons/fa";
 import { ImWarning } from "react-icons/im";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/Authprovider";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
 
-  const { signIn, googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, singIn } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -25,22 +25,7 @@ const Login = () => {
   };
 
   const onSubmit = (data) => {
-    signIn(data.email, data.password)
-      .then((result) => {
-        // if (result.user) {
-        //   Swal.fire({
-        //     icon: "success",
-        //     title: "Your LogIn Successfully",
-        //     showConfirmButton: false,
-        //     timer: 2500,
-        //   });
-        // }
-        setError("");
-        navigate(from, { replace: true });
-      })
-      .catch((err) => {
-        setError(err.message);
-      });
+    singIn(data.email, data.password);
   };
 
   const handleGoogleSignIn = () => {
