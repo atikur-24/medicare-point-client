@@ -87,13 +87,13 @@
 }
 
 .cart-btn {
-  @apply  rounded-full py-2 text-[14px] uppercase font-medium inline-flex items-center justify-center gap-2 transition duration-300 border hover:bg-my-primary hover:text-white border-[#10847e] text-[#10847e]
+  @apply rounded-full py-2 text-[14px] uppercase font-medium inline-flex items-center justify-center gap-2 transition duration-300 border hover:bg-my-primary hover:text-white border-my-primary text-my-primary;
 }
 .my-btn {
-  @apply bg-[#10847e] hover:bg-[#16b4ac] btn  font-medium md:font-semibold text-white transition duration-200;
+  @apply bg-my-primary hover:bg-[#16b4ac] btn  font-medium md:font-semibold text-white transition duration-200;
 }
 .my-btn-outline {
-  @apply hover:bg-[#10847e] hover:text-white rounded-lg px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold transition duration-300 border border-[#10847e] text-[#10847e];
+  @apply hover:bg-my-primary hover:text-white rounded-lg px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold transition duration-300 border border-my-primary text-my-primary;
 }
 
 @layer base {
