@@ -10,7 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useMemo, useState } from "react";
-import app from "../firebase/firebase.config";
+import { app } from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
 
