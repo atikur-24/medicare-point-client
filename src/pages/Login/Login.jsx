@@ -3,24 +3,49 @@ import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FaGoogle } from "react-icons/fa";
 import { ImWarning } from "react-icons/im";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const location = useLocation();
+
+  const { signInWithGoogle, singIn } = useAuth();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  let from = location.state?.from?.pathname || "/";
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
   const onSubmit = (data) => {
-    console.log(data.email, data.password);
-    setError("");
+    singIn(data.email, data.password);
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        if (result.user) {
+          setError("");
+          Swal.fire({
+            icon: "success",
+            title: "Your Google LogIn Successfully",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        }
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   };
 
   return (
@@ -79,7 +104,7 @@ const Login = () => {
               </div>
               <div className="divider">OR</div>
               <div className="form-control">
-                <button type="submit" className="btn bg-[#D467CA] w-1/2 mx-auto">
+                <button type="submit" onClick={handleGoogleSignIn} className="btn bg-[#D467CA] w-1/2 mx-auto">
                   <FaGoogle className="inline-block" />
                   Google Sign In
                 </button>
@@ -87,7 +112,7 @@ const Login = () => {
               <label className="label">
                 <p>
                   <span>Don&apos;t Have An Account ?</span>{" "}
-                  <Link to="/sign-up" className="underline text-red-400">
+                  <Link to="/signUp" className="underline text-red-400">
                     Sign Up
                   </Link>
                 </p>
