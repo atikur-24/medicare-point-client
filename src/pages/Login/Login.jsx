@@ -65,15 +65,15 @@ const Login = () => {
   };
 
   return (
-    <div className="nav-container bg-[#FFFFFF] h-screen">
+    <div className="nav-container bg-white max-h-screen">
       <div className="mt-12">
         <Logo />
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="w-full p-12">
+          <div className="w-full md:p-12 hidden md:block">
             <img src="https://img.freepik.com/free-vector/my-password-concept-illustration_114360-4294.jpg?size=626&ext=jpg&ga=GA1.1.1613183627.1673832056&semt=robertav1_2_sidr" alt="" />
           </div>
-          <div className="card w-full p-12">
-            <h1 className="text-5xl font-semibold text-[#10847e] text-center">Sign In !!</h1>
+          <div className="card w-full md:p-12">
+            <h1 className="text-2xl md:4xl font-semibold text-my-primary text-center">Sign In !!</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -96,7 +96,7 @@ const Login = () => {
                 </label>
                 <div className="relative">
                   <input type={showPassword ? "text" : "password"} placeholder="Enter your password" className="input input-bordered w-full" {...register("password", { required: true })} />
-                  <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-4 text-[#10847e]">
+                  <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-4 text-my-primary">
                     {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
                   </button>
                 </div>
@@ -129,7 +129,7 @@ const Login = () => {
               <label className="">
                 <p>
                   <span>Don&apos;t Have An Account ?</span>{" "}
-                  <Link to="/signUp" className="underline text-error hover:text-[#10847e]">
+                  <Link to="/signUp" className="underline text-error hover:text-my-primary">
                     Sign Up
                   </Link>
                 </p>
