@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Pregnancy.png",
+    "category_name": "Pregnancy"
+  },
+  {
+    "id": 2,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Blood%20studies.png",
+    "category_name": "Blood Studies"
+  },
+  {
+    "id": 3,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Default_0.png",
+    "category_name": "Tax Saver"
+  },
+  {
+    "id": 4,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Allergy_1.png",
+    "category_name": "Allergy"
+  },
+  {
+    "id": 5,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Bone.png",
+    "category_name": "Bone"
+  },
+  {
+    "id": 6,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Men_Health.png",
+    "category_name": "Men's Health"
+  },
+  {
+    "id": 7,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Infection.png",
+    "category_name": "Infection"
+  },
+  {
+    "id": 8,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Vitamin_Deficiency.png",
+    "category_name": "Vitamins"
+  },
+  {
+    "id": 9,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Fever_1.png",
+    "category_name": "Fever"
+  },
+  {
+    "id": 10,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Covid.png",
+    "category_name": "Covid"
+  },
+  {
+    "id": 11,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Full_Body_Checkup.png",
+    "category_name": "Full Body Checkup"
+  },
+  {
+    "id": 12,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Women_Health.png",
+    "category_name": "Women Health"
+  },
+  {
+    "id": 14,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Diabetes.png",
+    "category_name": "Diabetes"
+  },
+  {
+    "id": 15,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Kidney_1.png",
+    "category_name": "Kidney"
+  },
+  {
+    "id": 16,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Heart.png",
+    "category_name": "Heart"
+  },
+  {
+    "id": 17,
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Cancer%20Screening_0.png",
+    "category_name": "X-ray MRI CT Ultrasound"
+  }
+]
