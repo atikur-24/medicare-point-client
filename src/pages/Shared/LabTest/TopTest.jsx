@@ -17,7 +17,7 @@ import LabTitle from "./LabTitle";
 const TopTest = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    axios.get("popularLab.json").then((res) => setCategories(res?.data));
+    axios.get("/public/popularLab.json").then((res) => setCategories(res?.data));
   }, []);
   return (
     <div className="mt-10">
