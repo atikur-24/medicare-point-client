@@ -89,19 +89,19 @@ const SignUp = () => {
   };
 
   return (
-    <div className="nav-container bg-[#FFFFFF] h-screen">
+    <div className="nav-container bg-white h-screen">
       <div className="mt-12">
         <Logo />
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="w-full p-8 my-auto">
+          <div className="w-full md:p-12 my-auto hidden md:block">
             <img
               src="https://img.freepik.com/free-vector/forms-concept-illustration_114360-4947.jpg?w=740&t=st=1686147636~exp=1686148236~hmac=f9d5e9e5cccc6273306dd2e8d3e4ca6f76e0dedd3e9534849c18c5d80153bf30"
               alt="sign Up"
             />
           </div>
           <div>
-            <div className="card w-full p-8">
-              <h1 className="text-5xl font-semibold text-[#10847e] text-center">Sign Up !!</h1>
+            <div className="card w-full md:p-12">
+              <h1 className="text-2xl md:text-4xl font-semibold text-my-primary text-center">Sign Up !!</h1>
               <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                 <div className="form-control">
                   <label className="label">
@@ -117,7 +117,6 @@ const SignUp = () => {
                       Upload image<span className="text-rose-500 font-bold">*</span>
                     </span>
                   </label>
-                  {/* <input type="file" className="file-input file-input-bordered file-input-primary w-full max-w-xs" /> */}
 
                   <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered file-input-accent w-full" />
                   {errors.image && <span className="text-red-600">image is required</span>}
@@ -153,7 +152,7 @@ const SignUp = () => {
                       placeholder="password"
                       className="input input-bordered w-full"
                     />
-                    <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-4 text-[#10847e]">
+                    <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-4 text-my-primary">
                       {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
                     </button>
                     {errors.password?.type === "required" && (

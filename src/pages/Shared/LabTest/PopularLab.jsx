@@ -17,7 +17,7 @@ import PopularCategories from "./PopularCategories";
 const PopularLab = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    axios.get("popularLab.json").then((res) => setCategories(res?.data));
+    axios.get("labCategories.json").then((res) => setCategories(res?.data));
   }, []);
   return (
     <div>
