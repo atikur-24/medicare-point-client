@@ -11,8 +11,8 @@ import { BiCartAdd } from "react-icons/bi";
 const MedicineCard = ({ medicine }) => {
     const { medicine_name, image, price, category, rating, discount } = medicine;
     return (
-      <div className="card card-compact bgc-white rounded-md hover:shadow-lg transition-shadow duration-200 relative">
-        {discount && <p className="bgc-teal-4 rounded-md py-1 px-2 text-xs font-medium txt-white absolute top-4 left-4">-{discount}% OFF</p>}
+      <div className="card card-compact bg-white rounded-md hover:shadow-lg transition-shadow duration-200 relative">
+        {discount && <p className="bg-my-accent rounded-md py-1 px-2 text-xs font-medium txt-white absolute top-4 left-4">-{discount}% OFF</p>}
         <figure><img className="h-72 w-full object-cover" src={image} alt="medicine" /></figure>
         <div className="card-body space-y-2 lg:space-y-3">
           <div className="space-y-1">
@@ -26,11 +26,11 @@ const MedicineCard = ({ medicine }) => {
               readOnly
             />
             <p className="inline-flex gap-1">
-              <span className="font-bold txt-pink inline-flex items-center text-[1.125rem]"><TbCurrencyTaka /> {price}</span>
+              <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]"><TbCurrencyTaka /> {price}</span>
               <span className="font-semibold inline-flex items-center text-[16px] txt-gray-5 line-through"><TbCurrencyTaka /> 500</span>
             </p>
           </div>
-          <button className="cart-btn" type="button"><BiCartAdd /> add to cart</button>
+          <button className="cart-btn " type="button"><BiCartAdd /> add to cart</button>
         </div>
       </div>
     );
