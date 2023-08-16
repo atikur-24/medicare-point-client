@@ -11,7 +11,7 @@ const LabTestPage = () => {
     <div className="my-container">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {labItems.map((cat, idx) => (
-          <LabCard key={idx} labItem={cat} />
+          <LabCard key={idx} category={cat} />
         ))}
       </div>
     </div>
