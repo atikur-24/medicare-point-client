@@ -1,3 +1,4 @@
+
 /* eslint-disable import/no-unresolved */
 import { useEffect, useState } from "react";
 // Import Swiper React components
@@ -17,7 +18,7 @@ import LabTitle from "./LabTitle";
 const TopTest = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    axios.get("popularLab.json").then((res) => setCategories(res?.data));
+    axios.get("http://localhost:5000/labPopularItems").then((res) => setCategories(res?.data));
   }, []);
   return (
     <div className="mt-10">
@@ -32,8 +33,8 @@ const TopTest = () => {
         modules={[FreeMode, Pagination]}
         className="mySwiper"
       >
-        {categories.map((category, idx) => (
-          <SwiperSlide className="swiper-slide-c mt-10" key={idx}>
+        {categories.map((category) => (
+          <SwiperSlide className="swiper-slide-c mt-10" key={category._id}>
             <div className="">
               <LabCard category={category} />
             </div>
