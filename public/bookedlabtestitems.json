@@ -1,0 +1,58 @@
+[
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Pregnancy.png",
+    "category_name": "Pregnancy",
+    "test_name": "Human Chorionic Gonadotropin (hCG) Test ",
+    "price": 1200,
+    "discount": 15,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Pregnancy.png",
+    "category_name": "Pregnancy",
+    "test_name": "Progesterone Test",
+    "price": 1000,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Pregnancy.png",
+    "category_name": "Pregnancy",
+    "test_name": "Blood Type and Rh Factor Test",
+    "price": 1100,
+    "discount": 10,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Cancer_%20Screening_0.png",
+    "category_name": "X-ray MRI CT Ultrasound",
+    "test_name": "Plain X-rays",
+    "price": 1100,
+    "discount": 10,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Cancer_%20Screening_0.png",
+    "category_name": "X-ray MRI CT Ultrasound",
+    "test_name": "Fluoroscopy",
+    "price": 1100,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Cancer_%20Screening_0.png",
+    "category_name": "X-ray MRI CT Ultrasound",
+    "test_name": "Mammography",
+    "price": 1500,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Blood%20studies.png",
+    "category_name": "Blood Studies",
+    "test_name": "Blood Typing and Crossmatching",
+    "price": 1500,
+    "discount": 5,
+    "category": "Popular"
+  }
+]

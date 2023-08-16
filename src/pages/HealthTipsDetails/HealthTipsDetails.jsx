@@ -42,11 +42,11 @@ const HealthTipsDetails = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mt-8 ">
-        <div className="shadow-xl h-full p-4 bgc-white border hover:bg-[#d0f1f0] duration-500">
+        <div className="shadow-xl h-full p-4 bgc-white border border-gray-3 hover:bg-[#d0f1f0] duration-500">
           <h3 className="text-2xl text-center font-semibold my-4">How To Prevent?</h3>
           <p>{diseaseDetails.prevention}</p>
         </div>
-        <div className="shadow-xl h-full p-4 bgc-white border hover:bg-[#d0f1f0] duration-500">
+        <div className="shadow-xl h-full p-4 bgc-white border border-gray-3 hover:bg-[#d0f1f0] duration-500">
           <h3 className="text-2xl text-center font-semibold my-4 ">What's the cure?</h3>
           <p>{diseaseDetails.cure}</p>
         </div>
