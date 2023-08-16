@@ -6,10 +6,13 @@ import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
 import {
   MdAddShoppingCart,
+  MdKeyboardArrowDown,
+  MdKeyboardArrowUp,
   MdNotificationAdd,
   MdOutlineInventory,
   MdOutlineLibraryBooks,
 } from "react-icons/md";
+
 import {
   RiFileList3Fill,
   RiFileList3Line,
@@ -19,12 +22,15 @@ import {
 
 import { RxCross1 } from "react-icons/rx";
 
+import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../../../public/medicare-logo-color.png";
 import DashBoardNavbar from "../../pages/Dashboard/DashBoardNavbar/DashBoardNavbar";
 import "./DashboardLayout.css";
 
 const DashboardLayout = () => {
+  const [doctor, setDoctor] = useState(false);
+  console.log(doctor);
   const userLinks = (
     <>
       <li>
@@ -158,11 +164,33 @@ const DashboardLayout = () => {
           <span>Available Test</span>
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/dashboard/manage-all-doctors" className="dashboard-link">
+      <li className="dashboard-link flex">
+        <NavLink
+          to="/dashboard/manage-all-doctors"
+          onClick={() => setDoctor(!doctor)}
+          className="dashboard-link flex"
+        >
           <FaUserMd className="dashboard-icon" />
-          <span>All Doctors</span>
+          <button type="button">Doctors</button>
+          <MdKeyboardArrowDown
+            className={`${doctor ? "hidden" : "block"} dashboard-icon`}
+          />
+          <MdKeyboardArrowUp
+            className={`${doctor ? "block" : "hidden"} dashboard-icon`}
+          />
         </NavLink>
+        <ul className={`${doctor ? "block" : "hidden"}`}>
+          <li>
+            <NavLink to="/dashboard/manage-all-doctors" className="">
+              All Doctors
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/add-doctor" className="">
+              Add a doctor
+            </NavLink>
+          </li>
+        </ul>
       </li>
       <li>
         <NavLink to="/dashboard/manage-all-pharmacy" className="dashboard-link">
@@ -194,7 +222,7 @@ const DashboardLayout = () => {
           {/* Sidebar content here */}
 
           <li className="relative">
-            <NavLink to="/" className=" pb-3 border-b-2">
+            <NavLink to="/" className=" pb-3">
               <img className="h-10 w-full" src={logo} alt="" />
             </NavLink>
             <label

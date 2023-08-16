@@ -15,7 +15,7 @@
 }
 
 .dashboard-ul li {
-    @apply border-b-2
+    @apply border-b border-slate-3;
 }
 
 .dashboard-ul a.active {
@@ -25,7 +25,7 @@
 }
 
 .dashboard-link {
-    @apply text-base text-[#64748b];
+    @apply text-base text-gray-5;
 }
 
 .dashboard-icon {
