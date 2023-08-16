@@ -4,7 +4,7 @@ const OnProduct = ({ product }) => {
   const isOutofStock = false;
 
   return (
-    <div className="card w-full bg-[#d9d9d9] shadow-xl border-[1px] border-slate-300 relative">
+    <div className="card w-full bg-[#d9d9d9] shadow-xl border border-gray-3 relative">
       <figure>
         <img src={product?.image_url} alt="Shoes" className=" h-52 w-full" />
         {isOutofStock && (

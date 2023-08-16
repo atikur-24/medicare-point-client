@@ -3,21 +3,24 @@ import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { Link, NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
+import Avatar from "./Avatar/Avatar";
 import Lang from "./Language/Lang";
 import Logo from "./Logo/Logo";
-import Search from "./Search/Search";
 import NavCart from "./NavCard/NavCart";
-import Avatar from "./Avatar/Avatar";
 import ResponsiveNavbar from "./ResponsiveNavbar/ResponsiveNavbar";
+import Search from "./Search/Search";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
   const menuItems = (
     <>
       <li>
-        <NavLink to="#">Home</NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="#">Medicine</NavLink>
+        <NavLink to="/medicines">Medicines</NavLink>
       </li>
       <li>
         <NavLink to="/lab-test">Lab Test</NavLink>
@@ -39,6 +42,18 @@ const Navbar = () => {
       </li>
     </>
   );
+  const handelLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "You are LogOut",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      })
+      .catch(() => {});
+  };
   return (
     // TODO: bg color
     <div className="">
@@ -61,16 +76,24 @@ const Navbar = () => {
                   }
                   transition
                 >
-                  <MenuItem>
-                    <Link className=" font-semibold text-neutral-600" to="/login">
-                      Login
-                    </Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link className=" font-semibold text-neutral-600" to="/register">
+                  {user ? (
+                    <MenuItem>
+                      <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
+                        LogOut
+                      </button>
+                    </MenuItem>
+                  ) : (
+                    <MenuItem>
+                      <Link className=" font-semibold text-neutral-600" to="/login">
+                        Login
+                      </Link>
+                    </MenuItem>
+                  )}
+                  {/* <MenuItem>
+                    <Link className=" font-semibold text-neutral-600" to="/signUp">
                       Register
                     </Link>
-                  </MenuItem>
+                  </MenuItem> */}
                 </Menu>
               </div>
             </div>
