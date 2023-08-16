@@ -1,4 +1,4 @@
-// import { Rating } from "@smastrom/react-rating";
+import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { BiCartAdd } from "react-icons/bi";
 import { TbCurrencyTaka } from "react-icons/tb";
@@ -30,7 +30,7 @@ const MedicineCard = ({ medicine }) => {
           </h2>
         </div>
         <div className="space-y-3">
-          {/* <Rating style={{ maxWidth: 70 }} value={rating} readOnly /> */}
+          <Rating style={{ maxWidth: 70 }} value={rating} readOnly />
           <p className="inline-flex gap-1">
             <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">
               <TbCurrencyTaka /> {price}

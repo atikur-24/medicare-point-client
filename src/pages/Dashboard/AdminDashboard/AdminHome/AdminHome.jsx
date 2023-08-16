@@ -27,7 +27,7 @@ const AdminHome = () => {
             alt="pharmacyImg"
           />
           <div>
-            <h4 className="text-2xl">125 Pharmacy</h4>
+            <h4 className="text-2xl">500 Pharmacy</h4>
             <p className="text-base">All Registered Pharmacy</p>
           </div>
         </div>
