@@ -3,12 +3,12 @@ import { FiSearch } from "react-icons/fi";
 
 const LabSearch = () => {
   return (
-    <div className="flex flex-col md:flex-row gap-4 md:gap-10 ">
-      <form className="flex items-center relative md:w-[60%]">
-        <input className="w-full  border h-20 rounded-xl md:rounded-lg  px-6 focus:input-bordered input-accent" type="text" placeholder="Search Test and Packages" />
-        <div className="pr-3 cursor-pointer right-0 absolute">
-          <FiSearch className="text-3xl " />
-        </div>
+    <div className="flex flex-col justify-between md:flex-row gap-4 md:gap-10 ">
+      <form className="flex items-center  md:w-[40%]">
+        <input className="w-full  border h-16   rounded-l-lg   px-6 focus:input-bordered input-accent" type="text" placeholder="Search Test and Packages" />
+        <button type="button" className=" bg-my-primary h-16 rounded-r-lg flex items-center justify-center px-4  ">
+          <FiSearch className="text-3xl text-white" />
+        </button>
       </form>
       <div className="md:w-[40%] border border-gray-3 flex items-center justify-between px-4 rounded-lg py-2 bg-white ">
         <p className="inline-flex items-center gap-4 font-medium  md:text-lg">
