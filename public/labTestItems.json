@@ -1,0 +1,339 @@
+[
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Pregnancy.png",
+    "category_name": "Pregnancy",
+    "test_name": "Human Chorionic Gonadotropin (hCG) Test ",
+    "price": 1200,
+    "discount": 15,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Pregnancy.png",
+    "category_name": "Pregnancy",
+    "test_name": "Progesterone Test",
+    "price": 1000,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Pregnancy.png",
+    "category_name": "Pregnancy",
+    "test_name": "Blood Type and Rh Factor Test",
+    "price": 1100,
+    "discount": 10,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Cancer_%20Screening_0.png",
+    "category_name": "X-ray MRI CT Ultrasound",
+    "test_name": "Plain X-rays",
+    "price": 1100,
+    "discount": 10,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Cancer_%20Screening_0.png",
+    "category_name": "X-ray MRI CT Ultrasound",
+    "test_name": "Fluoroscopy",
+    "price": 1100,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Cancer_%20Screening_0.png",
+    "category_name": "X-ray MRI CT Ultrasound",
+    "test_name": "Mammography",
+    "price": 1500,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Blood%20studies.png",
+    "category_name": "Blood Studies",
+    "test_name": "Blood Typing and Crossmatching",
+    "price": 1500,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Blood%20studies.png",
+    "category_name": "Blood Studies",
+    "test_name": "Blood Chemistry Tests",
+    "price": 1400,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Blood%20studies.png",
+    "category_name": "Blood Studies",
+    "test_name": "Blood Glucose Tests",
+    "price": 1600,
+    "discount": 10,
+    "category": "Normal"
+  },
+
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Allergy_1.png",
+    "category_name": "Allergy",
+    "test_name": "Skin Prick Test (SPT)",
+    "price": 1500,
+    "discount": 10,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Allergy_1.png",
+    "category_name": "Allergy",
+    "test_name": "Blood Tests (Serologic Tests)",
+    "price": 1500,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Allergy_1.png",
+    "category_name": "Allergy",
+    "test_name": "Patch Test:",
+    "price": 1400,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Bone.png",
+    "category_name": "Bone",
+    "test_name": "Bone Mineral Density (BMD) Test",
+    "price": 1400,
+    "discount": 10,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Bone.png",
+    "category_name": "Bone",
+    "test_name": "Serum Calcium and Phosphorus Tests:",
+    "price": 1400,
+    "discount": 10,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Bone.png",
+    "category_name": "Bone",
+    "test_name": "Serum Alkaline Phosphatase Test:",
+    "price": 1400,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Men_Health.png",
+    "category_name": "Men's Health",
+    "test_name": "Hormone Tests:",
+    "price": 1400,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Men_Health.png",
+    "category_name": "Men's Health",
+    "test_name": "Cardiovascular Health Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Men_Health.png",
+    "category_name": "Men's Health",
+    "test_name": "Vitamin and Nutrient Levels",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Infection.png",
+    "category_name": "Infection",
+    "test_name": "Microbiological Culture Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Infection.png",
+    "category_name": "Infection",
+    "test_name": "Molecular Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Infection.png",
+    "category_name": "Infection",
+    "test_name": "Serological Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Vitamin_Deficiency.png",
+    "category_name": "Vitamins",
+    "test_name": "Vitamin Deficiency Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Vitamin_Deficiency.png",
+    "category_name": "Vitamins",
+    "test_name": "Vitamin Toxicity Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Fever_1.png",
+    "category_name": "Fever",
+    "test_name": "Infectious Disease Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Fever_1.png",
+    "category_name": "Fever",
+    "test_name": "Inflammatory Marker Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Fever_1.png",
+    "category_name": "Fever",
+    "test_name": "Viral Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Covid.png",
+    "category_name": "Covid",
+    "test_name": "Molecular Tests (PCR Tests)",
+    "price": 1000,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Covid.png",
+    "category_name": "Covid",
+    "test_name": "Antigen Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Full_Body_Checkup.png",
+    "category_name": "Full Body Checkup",
+    "test_name": "Basic Blood Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Full_Body_Checkup.png",
+    "category_name": "Full Body Checkup",
+    "test_name": "Organ Function Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Full_Body_Checkup.png",
+    "category_name": "Full Body Checkup",
+    "test_name": "Nutrient and Vitamin Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Women_Health.png",
+    "category_name": "Women Health",
+    "test_name": "Hormone Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Women_Health.png",
+    "category_name": "Women Health",
+    "test_name": "Pap Smear and HPV Test",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Diabetes.png",
+    "category_name": "Diabetes",
+    "test_name": "Blood Glucose Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Diabetes.png",
+    "category_name": "Diabetes",
+    "test_name": "Kidney and Microalbumin Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Diabetes.png",
+    "category_name": "Diabetes",
+    "test_name": "Lipid Profile and Cardiovascular Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Kidney_1.png",
+    "category_name": "Kidney",
+    "test_name": "Kidney Function Tests:",
+    "price": 1000,
+    "discount": 5,
+    "category": "Normal"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Kidney_1.png",
+    "category_name": "Kidney",
+    "test_name": "Urinalysis and Proteinuria Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Kidney_1.png",
+    "category_name": "Kidney",
+    "test_name": "Electrolyte and Acid-Base Balance Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Heart.png",
+    "category_name": "Heart",
+    "test_name": "Cardiac Enzymes and Biomarkers",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Heart.png",
+    "category_name": "Heart",
+    "test_name": "Lipid Profile and Cholesterol Tests",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Heart.png",
+    "category_name": "Heart",
+    "test_name": "Coagulation and Blood Clotting Tests:",
+    "price": 1000,
+    "discount": 5,
+    "category": "Popular"
+  }
+]

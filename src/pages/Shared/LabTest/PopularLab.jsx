@@ -17,7 +17,7 @@ import PopularCategories from "./PopularCategories";
 const PopularLab = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    axios.get("popularLab.json").then((res) => setCategories(res?.data));
+    axios.get("http://localhost:5000/labCategories").then((res) => setCategories(res?.data));
   }, []);
   return (
     <div>
@@ -32,9 +32,9 @@ const PopularLab = () => {
         modules={[FreeMode, Pagination]}
         className="mySwiper"
       >
-        {categories.map((cat, idx) => (
-          <SwiperSlide className="swiper-slide-d mt-10" key={idx}>
-            <PopularCategories category={cat} />
+        {categories.map((category) => (
+          <SwiperSlide className="swiper-slide-d mt-10" key={category._id}>
+            <PopularCategories category={category} />
           </SwiperSlide>
         ))}
       </Swiper>

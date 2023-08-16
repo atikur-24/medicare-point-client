@@ -22,7 +22,7 @@ const ChooseUs = () => (
           </div>
         </div>
 
-        <div className=" w-[60px] h-[50px] md:w-[90px] md:h-[80px] border-2 bg-white  border-[#10847e] p-4 rounded-br-[50%] absolute left-5 -top-5 md:-top-10 flex justify-center items-center ">
+        <div className=" w-[60px] h-[50px] md:w-[90px] md:h-[80px] border-2 bg-white  border-my-primary p-4 rounded-br-[50%] absolute left-5 -top-5 md:-top-10 flex justify-center items-center ">
           <img className="w-20 object-cover" src={trust} alt="" />
         </div>
       </div>
