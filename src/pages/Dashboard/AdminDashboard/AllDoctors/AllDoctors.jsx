@@ -9,9 +9,9 @@ const AllDoctors = () => {
         All Doctors List
       </h3>
       <div className="overflow-x-auto mb-20  px-5">
-        <table className="table bg-emerald-500">
+        <table className="table bg-gray-3">
           {/* head */}
-          <thead className="rounded-lg bg-slate-400 text-lg">
+          <thead className="rounded-lg bg-my-accent text-lg">
             <tr className="bg-my-secondary rounded-lg">
               <th>#</th>
               <th>Photo</th>
@@ -46,10 +46,10 @@ const AllDoctors = () => {
               <td>TK.800</td>
               <td className="flex items-center gap-2">
                 <NavLink>
-                  <TiEdit className="text-2xl p-1 text-[white] bg-lime-800" />
+                  <TiEdit className="text-2xl p-1 text-white bg-my-primary" />
                 </NavLink>
                 <NavLink>
-                  <RiDeleteBinLine className="text-2xl bg-red-500 text-[white] p-1" />
+                  <RiDeleteBinLine className="text-2xl bg-red-500 text-white p-1" />
                 </NavLink>
               </td>
             </tr>
@@ -71,10 +71,10 @@ const AllDoctors = () => {
               <td>TK.800</td>
               <td className="flex items-center gap-2">
                 <NavLink>
-                  <TiEdit className="text-2xl p-1 text-[white] bg-lime-800" />
+                  <TiEdit className="text-2xl p-1 text-white bg-my-primary" />
                 </NavLink>
                 <NavLink>
-                  <RiDeleteBinLine className="text-2xl bg-red-500 text-[white] p-1" />
+                  <RiDeleteBinLine className="text-2xl bg-red-500 text-white p-1" />
                 </NavLink>
               </td>
             </tr>

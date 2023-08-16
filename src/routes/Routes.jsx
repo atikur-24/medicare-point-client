@@ -1,13 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import Main from "../layouts/Main";
+import AllAvailableTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AllAvailableTest";
+import AddDoctor from "../pages/Dashboard/AdminDashboard/AllDoctors/AddDoctor";
 import AllDoctors from "../pages/Dashboard/AdminDashboard/AllDoctors/AllDoctors";
 import AllMedicines from "../pages/Dashboard/AdminDashboard/AllMedicines/AllMedicines";
 import AllPharmacists from "../pages/Dashboard/AdminDashboard/AllPharmacists/AllPharmacists";
 import AllUsers from "../pages/Dashboard/AdminDashboard/AllUsers/AllUsers";
+import PharmacyLists from "../pages/Dashboard/AdminDashboard/PharmacyLists/PharmacyLists";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
+import Medicines from "../pages/Medicines/Medicines";
+import LabTest from "../pages/Shared/LabTest/LabTest";
 import SignUp from "../pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
@@ -18,6 +23,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "lab-test",
+        element: <LabTest />,
+      },
+      {
+        path: "medicines",
+        element: <Medicines />,
       },
     ],
   },
@@ -96,13 +109,19 @@ const router = createBrowserRouter([
       },
       {
         path: "manage-lab-test",
+        element: <AllAvailableTest />,
       },
       {
         path: "manage-all-doctors",
         element: <AllDoctors />,
       },
       {
+        path: "add-doctor",
+        element: <AddDoctor />,
+      },
+      {
         path: "manage-all-pharmacy",
+        element: <PharmacyLists />,
       },
     ],
   },

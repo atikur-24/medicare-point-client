@@ -10,28 +10,28 @@ const ChooseUs = () => (
       title="why choose us"
       content="Our team of experts is dedicated to providing guidance and assistance to empower you to make informed decisions about your health. We take pride in our reliable and efficient doorstep delivery, ensuring that your essential items reach you promptly and hassle-free."
     />
-    <div className="grid mt-24 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div className=" grid mt-24 md:grid-cols-2 lg:grid-cols-4 gap-10">
       {/* one  */}
-      <div className="relative">
+      <div className="relative ">
         <div className="choose-outside">
-          <div className="w-full choose-inside   py-8 px-8 rounded-lg">
+          <div className="w-full choose-inside   pt-8 px-8 rounded-lg">
             <div className="py-8">
-              <h2 className="text-2xl font-bold">Best service</h2>
+              <h2 className="text-xl font-bold">Best service</h2>
               <p>Lorem, ipsum dolor sit amet consectetur </p>
             </div>
           </div>
         </div>
 
-        <div className=" w-[60px] h-[50px] md:w-[90px] md:h-[80px] border-2 bg-white  border-[#10847e] p-4 rounded-br-[50%] absolute left-5 -top-5 md:-top-10 flex justify-center items-center ">
+        <div className=" w-[60px] h-[50px] md:w-[90px] md:h-[80px] border-2 bg-white  border-my-primary p-4 rounded-br-[50%] absolute left-5 -top-5 md:-top-10 flex justify-center items-center ">
           <img className="w-20 object-cover" src={trust} alt="" />
         </div>
       </div>
       {/* two  */}
-      <div className="relative">
+      <div className="relative ">
         <div className="choose-outside">
-          <div className="w-full choose-inside   py-8 px-8 rounded-lg">
+          <div className="w-full choose-inside   pt-8 px-8 rounded-lg">
             <div className="py-8">
-              <h2 className="text-2xl font-bold">Best service</h2>
+              <h2 className="text-xl font-bold">Best service</h2>
               <p>Lorem, ipsum dolor sit amet consectetur </p>
             </div>
           </div>
@@ -44,9 +44,9 @@ const ChooseUs = () => (
       {/* three  */}
       <div className="relative">
         <div className="choose-outside">
-          <div className="w-full choose-inside   py-8 px-8 rounded-lg">
+          <div className="w-full choose-inside pt-8 px-8 rounded-lg">
             <div className="py-8">
-              <h2 className="text-2xl font-bold">Analytics and Reports</h2>
+              <h2 className="text-xl font-bold">Analytics & Reports</h2>
               <p>Lorem, ipsum dolor sit amet consectetur </p>
             </div>
           </div>
@@ -59,9 +59,9 @@ const ChooseUs = () => (
       {/* four  */}
       <div className="relative">
         <div className="choose-outside">
-          <div className="w-full choose-inside   py-8 px-8 rounded-lg">
+          <div className="w-full choose-inside   pt-8 px-8 rounded-lg">
             <div className="py-8">
-              <h2 className="text-2xl font-bold">Expiry Management</h2>
+              <h2 className="text-xl font-bold">Expiry Management</h2>
               <p>Lorem, ipsum dolor sit amet consectetur </p>
             </div>
           </div>
