@@ -70,10 +70,15 @@ const Login = () => {
         <Logo />
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="w-full md:p-12 hidden md:block">
-            <img src="https://img.freepik.com/free-vector/my-password-concept-illustration_114360-4294.jpg?size=626&ext=jpg&ga=GA1.1.1613183627.1673832056&semt=robertav1_2_sidr" alt="" />
+            <img
+              src="https://img.freepik.com/free-vector/my-password-concept-illustration_114360-4294.jpg?size=626&ext=jpg&ga=GA1.1.1613183627.1673832056&semt=robertav1_2_sidr"
+              alt=""
+            />
           </div>
           <div className="card w-full md:p-12">
-            <h1 className="text-2xl md:4xl font-semibold text-my-primary text-center">Sign In !!</h1>
+            <h1 className="text-2xl md:4xl font-semibold text-my-primary text-center">
+              Sign In !!
+            </h1>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -81,7 +86,12 @@ const Login = () => {
                     Email <span className="text-rose-500 font-bold">*</span>
                   </span>
                 </label>
-                <input type="email" placeholder="email" className="input input-bordered" {...register("email", { required: true })} />
+                <input
+                  type="email"
+                  placeholder="email"
+                  className="input input-bordered"
+                  {...register("email", { required: true })}
+                />
                 {errors.email && (
                   <p className="text-red-600">
                     <ImWarning className="inline-block" /> Email is required
@@ -95,8 +105,17 @@ const Login = () => {
                   </span>
                 </label>
                 <div className="relative">
-                  <input type={showPassword ? "text" : "password"} placeholder="Enter your password" className="input input-bordered w-full" {...register("password", { required: true })} />
-                  <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-4 text-my-primary">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your password"
+                    className="input input-bordered w-full"
+                    {...register("password", { required: true })}
+                  />
+                  <button
+                    type="button"
+                    onClick={handleTogglePassword}
+                    className="absolute right-5 bottom-4 text-my-primary"
+                  >
                     {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
                   </button>
                 </div>
@@ -121,7 +140,11 @@ const Login = () => {
               </div>
               <div className="divider">OR</div>
               <div className="form-control">
-                <button type="submit" onClick={handleGoogleSignIn} className="my-btn w-full mx-auto">
+                <button
+                  type="submit"
+                  onClick={handleGoogleSignIn}
+                  className="my-btn w-full mx-auto"
+                >
                   <FaGoogle className="inline-block" />
                   Google Sign In
                 </button>
@@ -129,7 +152,10 @@ const Login = () => {
               <label className="">
                 <p>
                   <span>Don&apos;t Have An Account ?</span>{" "}
-                  <Link to="/signUp" className="underline text-error hover:text-my-primary">
+                  <Link
+                    to="/signUp"
+                    className="underline text-error hover:text-my-primary"
+                  >
                     Sign Up
                   </Link>
                 </p>
