@@ -4,47 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ---- background color -----*/
-.bg-primary {
-  /* background-color: #10847e; */
-}
-.bgc-teal-4 {
-  /* background-color: #16b4ac; */
-}
-.bgc-white {
-  /* background-color: #fff; */
-}
-.bgc-salt-3 {
-  /* background-color: #cbd5e1; */
-}
-.bgc-salt-6 {
-  /* background-color: #475569; */
-}
-.bgc-lite {
-  /* background-color: #F2F3F5; */
-}
-
-/*----- text color ----- */
-.txt-white {
-  /* color: #fff; */
-}
-.txt-primary {
-  /* color: #10847e; */
-}
-.txt-gray {
-  /* color: #4b5563; */
-}
-.txt-gray-5 {
-  /* color: #64748b; */
-}
-.title-color {
-  /* color: #111a28; */
-}
-
-.txt-pink {
-  /* color: #eb3a7b; */
-}
-
 .nav-container {
   @apply max-w-[2550px] px-2 md:px-6 lg:px-12 mx-auto;
 }
@@ -58,7 +17,6 @@
 }
 
 /* feedback  */
-
 .bg-card {
   background-color: transparent;
   background-image: linear-gradient(150deg, #eaf5ff 0%, #fff 100%);
