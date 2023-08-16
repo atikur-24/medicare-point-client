@@ -6,13 +6,14 @@ import { ImWarning } from "react-icons/im";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import Logo from "../Shared/Navbar/Logo/Logo";
 
 const Login = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
 
-  const { signInWithGoogle, singIn } = useAuth();
+  const { signInWithGoogle, signIn } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -26,7 +27,22 @@ const Login = () => {
   };
 
   const onSubmit = (data) => {
-    singIn(data.email, data.password);
+    signIn(data.email, data.password)
+      .then((result) => {
+        if (result.user) {
+          Swal.fire({
+            icon: "success",
+            title: "Your LogIn Successfully",
+            showConfirmButton: false,
+            timer: 2500,
+          });
+        }
+        setError("");
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   };
 
   const handleGoogleSignIn = () => {
@@ -49,17 +65,18 @@ const Login = () => {
   };
 
   return (
-    <div className="nav-container bg-[#FFFFFF] h-screen">
-      <div>
-        <div className="grid grid-cols-1 md:grid-cols-2 pt-20">
-          <div className="w-full p-12">
+    <div className="nav-container bg-white max-h-screen">
+      <div className="mt-12">
+        <Logo />
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <div className="w-full md:p-12 hidden md:block">
             <img
               src="https://img.freepik.com/free-vector/my-password-concept-illustration_114360-4294.jpg?size=626&ext=jpg&ga=GA1.1.1613183627.1673832056&semt=robertav1_2_sidr"
               alt=""
             />
           </div>
-          <div className="card w-full p-12">
-            <h1 className="text-5xl font-semibold text-[#D467CA] text-center">
+          <div className="card w-full md:p-12">
+            <h1 className="text-2xl md:4xl font-semibold text-my-primary text-center">
               Sign In !!
             </h1>
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -87,17 +104,17 @@ const Login = () => {
                     Password <span className="text-rose-500 font-bold">*</span>
                   </span>
                 </label>
-                <div className="join">
+                <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
-                    className="input input-bordered join-item w-full"
+                    className="input input-bordered w-full"
                     {...register("password", { required: true })}
                   />
                   <button
                     type="button"
                     onClick={handleTogglePassword}
-                    className=" bg-[#D467CA] p-2 rounded join-item"
+                    className="absolute right-5 bottom-4 text-my-primary"
                   >
                     {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
                   </button>
@@ -117,10 +134,7 @@ const Login = () => {
               </label>
 
               <div className="form-control">
-                <button
-                  type="submit"
-                  className="btn bg-[#D467CA] w-1/2 mx-auto"
-                >
+                <button type="submit" className="my-btn w-full mx-auto">
                   LogIn
                 </button>
               </div>
@@ -129,16 +143,19 @@ const Login = () => {
                 <button
                   type="submit"
                   onClick={handleGoogleSignIn}
-                  className="btn bg-[#D467CA] w-1/2 mx-auto"
+                  className="my-btn w-full mx-auto"
                 >
                   <FaGoogle className="inline-block" />
                   Google Sign In
                 </button>
               </div>
-              <label className="label">
+              <label className="">
                 <p>
                   <span>Don&apos;t Have An Account ?</span>{" "}
-                  <Link to="/signUp" className="underline text-red-400">
+                  <Link
+                    to="/signUp"
+                    className="underline text-error hover:text-my-primary"
+                  >
                     Sign Up
                   </Link>
                 </p>

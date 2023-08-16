@@ -13,6 +13,7 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Medicines from "../pages/Medicines/Medicines";
 import LabTest from "../pages/Shared/LabTest/LabTest";
+import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
 import SignUp from "../pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "lab-test",
         element: <LabTest />,
+      },
+      {
+        path: "labPage/:id",
+        element: <LabTestPage />,
       },
       {
         path: "medicines",
