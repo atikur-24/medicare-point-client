@@ -14,6 +14,7 @@ import Login from "../pages/Login/Login";
 import Medicines from "../pages/Medicines/Medicines";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
+import LabPayment from "../pages/Shared/LabTest/labPayment";
 import SignUp from "../pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "labPage/:id",
         element: <LabTestPage />,
+      },
+      {
+        path: "labPayment",
+        element: <LabPayment />,
       },
       {
         path: "medicines",
