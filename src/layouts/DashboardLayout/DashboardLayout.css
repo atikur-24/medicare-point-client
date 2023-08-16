@@ -1,0 +1,33 @@
+.toggle-dashboard-btn {
+    position: absolute;
+    /* z-index: 1; */
+    top: 30px;
+    left: 10px;
+    font-size: 18px;
+}
+
+.toggle-dashboard-btn2 {
+    position: absolute;
+    z-index: 1;
+    top: 12px;
+    right: 1px;
+    font-size: 18px;
+}
+
+.dashboard-ul li {
+    @apply border-b border-slate-3;
+}
+
+.dashboard-ul a.active {
+    color: #16b4ac !important;
+    background-color: transparent !important;
+    @apply text-lg;
+}
+
+.dashboard-link {
+    @apply text-base text-gray-5;
+}
+
+.dashboard-icon {
+    @apply text-xl;
+}
