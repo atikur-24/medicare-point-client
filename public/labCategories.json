@@ -4,10 +4,6 @@
     "category_name": "Pregnancy"
   },
   {
-    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Cancer_%20Screening_0.png",
-    "category_name": "X-ray MRI CT Ultrasound"
-  },
-  {
     "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Blood%20studies.png",
     "category_name": "Blood Studies"
   },
@@ -62,5 +58,9 @@
   {
     "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Heart.png",
     "category_name": "Heart"
+  },
+  {
+    "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Cancer%20Screening_0.png",
+    "category_name": "X-ray MRI CT Ultrasound"
   }
 ]

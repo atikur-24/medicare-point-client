@@ -44,6 +44,7 @@ module.exports = {
     indent: 0,
     "jsx-a11y/click-events-have-key-events": 1,
     "jsx-a11y/label-has-associated-control": 0,
+    "no-underscore-dangle": 0,
     quotes: [
       2,
       "double",

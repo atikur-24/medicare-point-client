@@ -1,20 +1,24 @@
 const LabCard = ({ category }) => {
+  const price = (category.price * category.discount) / 100;
+  const remaining = parseFloat(category.price - price);
+
   return (
-    <div className="border w-60 p-4 rounded-2xl  ">
+    <div className="border border-gray-3 w-60 p-4 rounded-2xl  bg-white ">
       <figure className="flex justify-center ">
         <img src={category?.image_url} alt="" className="bg-[#f1f5f9]  rounded-full p-2" />
       </figure>
-      <h2 className="text-xl font-sans font-bold h-16">{category?.category_name}</h2>
-      <p className="text-sm text-[#10847e] font-bold font-nunito">20 tests includs</p>
-      <hr className="border border-[#10847e] my-2" />
+      <div className="">
+        <h2 className="text-xl font-sans font-bold h-20">{category?.test_name}</h2>
+      </div>
+      <hr className="border border-my-primary my-2" />
       <div className="flex gap-2 items-center font-bold">
         <span>BDT </span>
-        <span className="line-through">৳300</span>
-        <span className="badge badge-accent text-white py-0.5">20% off</span>
+        <span className="line-through">৳{category.price}</span>
+        <span className="badge bg-my-primary border-0 badge-accent text-white py-0.5">{category.discount}% off</span>
       </div>
-      <p className="font-bold my-2">৳200</p>
+      <p className="font-bold my-2 text-my-pink">৳{remaining}</p>
       <div className="">
-        <button type="button" className="text-[#10847e] font-extrabold uppercase font-nunito ">
+        <button type="button" className="text-my-primary font-extrabold uppercase font-nunito ">
           Add To Cart
         </button>
       </div>
