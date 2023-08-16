@@ -6,9 +6,6 @@ const LabTitle = ({ title }) => {
           <h2 className="text-xl uppercase lg:text-2xl  font-bold  text-[#111a28]">{title}</h2>
           <hr className="border-2 border-[#10847e] w-40" />
         </div>
-        <button type="button" className="my-btn">
-          See All
-        </button>
       </div>
     </div>
   );
