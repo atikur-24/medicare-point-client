@@ -17,6 +17,8 @@ import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
 import SignUp from "../pages/SignUp/SignUp";
 import HealthTips from "../pages/HealthTips/HealthTips";
 import HealthTipsDetails from "../pages/HealthTipsDetails/HealthTipsDetails";
+import UserProfile from "../pages/Dashboard/UserDashboard/UserProfile/UserProfile";
+import ViewCart from "../pages/Dashboard/UserDashboard/ViewCart/ViewCart";
 
 const router = createBrowserRouter([
   {
@@ -69,9 +71,11 @@ const router = createBrowserRouter([
       },
       {
         path: "profile",
+        element: <UserProfile />,
       },
       {
         path: "view-cart",
+        element: <ViewCart />,
       },
       {
         path: "booked-lab-tests",
