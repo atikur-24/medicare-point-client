@@ -4,21 +4,9 @@ import { BsFillCartPlusFill, BsShop } from "react-icons/bs";
 import { FaUserMd, FaUsers } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
-import {
-  MdAddShoppingCart,
-  MdKeyboardArrowDown,
-  MdKeyboardArrowUp,
-  MdNotificationAdd,
-  MdOutlineInventory,
-  MdOutlineLibraryBooks,
-} from "react-icons/md";
+import { MdAddShoppingCart, MdKeyboardArrowDown, MdKeyboardArrowUp, MdNotificationAdd, MdOutlineInventory, MdOutlineLibraryBooks } from "react-icons/md";
 
-import {
-  RiFileList3Fill,
-  RiFileList3Line,
-  RiMessengerFill,
-  RiUserStarFill,
-} from "react-icons/ri";
+import { RiFileList3Fill, RiFileList3Line, RiMessengerFill, RiUserStarFill } from "react-icons/ri";
 
 import { RxCross1 } from "react-icons/rx";
 
@@ -66,12 +54,8 @@ const DashboardLayout = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink
-          to="/dashboard/suggestion-reminders"
-          className="dashboard-link"
-        >
-          <MdNotificationAdd className="dashboard-icon" /> Suggestions &
-          Reminders
+        <NavLink to="/dashboard/suggestion-reminders" className="dashboard-link">
+          <MdNotificationAdd className="dashboard-icon" /> Suggestions & Reminders
         </NavLink>
       </li>
       <li>
@@ -109,10 +93,7 @@ const DashboardLayout = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink
-          to="/dashboard/pharmacists-order-history"
-          className="dashboard-link"
-        >
+        <NavLink to="/dashboard/pharmacists-order-history" className="dashboard-link">
           <RiFileList3Fill className="dashboard-icon" />
           <span>Order History</span>
         </NavLink>
@@ -165,19 +146,11 @@ const DashboardLayout = () => {
         </NavLink>
       </li>
       <li className="dashboard-link flex">
-        <NavLink
-          to="/dashboard/manage-all-doctors"
-          onClick={() => setDoctor(!doctor)}
-          className="dashboard-link flex"
-        >
+        <NavLink to="/dashboard/manage-all-doctors" onClick={() => setDoctor(!doctor)} className="dashboard-link flex">
           <FaUserMd className="dashboard-icon" />
           <button type="button">Doctors</button>
-          <MdKeyboardArrowDown
-            className={`${doctor ? "hidden" : "block"} dashboard-icon`}
-          />
-          <MdKeyboardArrowUp
-            className={`${doctor ? "block" : "hidden"} dashboard-icon`}
-          />
+          <MdKeyboardArrowDown className={`${doctor ? "hidden" : "block"} dashboard-icon`} />
+          <MdKeyboardArrowUp className={`${doctor ? "block" : "hidden"} dashboard-icon`} />
         </NavLink>
         <ul className={`${doctor ? "block" : "hidden"}`}>
           <li>
@@ -208,10 +181,7 @@ const DashboardLayout = () => {
         {/* Page content here */}
         <DashBoardNavbar />
         <Outlet />
-        <label
-          htmlFor="my-drawer-2"
-          className="toggle-dashboard-btn drawer-button lg:hidden"
-        >
+        <label htmlFor="my-drawer-2" className="toggle-dashboard-btn drawer-button lg:hidden">
           <AiOutlineBars className="text-lg cursor-pointer" />
         </label>
       </div>
@@ -225,16 +195,13 @@ const DashboardLayout = () => {
             <NavLink to="/" className=" pb-3">
               <img className="h-10 w-full" src={logo} alt="" />
             </NavLink>
-            <label
-              htmlFor="my-drawer-2"
-              className="toggle-dashboard-btn2 lg:hidden"
-            >
+            <label htmlFor="my-drawer-2" className="toggle-dashboard-btn2 lg:hidden">
               <RxCross1 className="text-lg cursor-pointer" />
             </label>
           </li>
-          {/* {userLinks} */}
+          {userLinks}
           {/* {pharmacistLinks} */}
-          {adminLinks}
+          {/* {adminLinks} */}
         </ul>
       </div>
     </div>
