@@ -4,6 +4,7 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FaGoogle } from "react-icons/fa";
 import { ImWarning } from "react-icons/im";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
@@ -11,7 +12,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
 
-  const { googleSignIn, singIn } = useAuth();
+  const { signInWithGoogle, singIn } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -29,16 +30,16 @@ const Login = () => {
   };
 
   const handleGoogleSignIn = () => {
-    googleSignIn()
+    signInWithGoogle()
       .then((result) => {
         if (result.user) {
           setError("");
-          // Swal.fire({
-          //   icon: "success",
-          //   title: "Your Google LogIn Successfully",
-          //   showConfirmButton: false,
-          //   timer: 2000,
-          // });
+          Swal.fire({
+            icon: "success",
+            title: "Your Google LogIn Successfully",
+            showConfirmButton: false,
+            timer: 2000,
+          });
         }
         navigate(from, { replace: true });
       })
