@@ -9,7 +9,7 @@ const AdminHome = () => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mx-2 mt-5">
-        <div className="rounded-md shadow-xl py-3 flex items-center justify-center gap-5">
+        <div className="rounded-md shadow-md bg-card py-3 flex items-center justify-center gap-5">
           <img
             className="w-28 py-4 object-cover"
             src={usersImg}
@@ -20,7 +20,7 @@ const AdminHome = () => {
             <p className="text-base">All Registered Users</p>
           </div>
         </div>
-        <div className="rounded-md shadow-xl py-3 flex items-center justify-center gap-5 hover:bg-slate-200">
+        <div className="rounded-md hover:shadow-md bg-card py-3 flex items-center justify-center gap-5">
           <img
             className="w-28 py-4 object-cover"
             src={pharmacyImg}
@@ -31,7 +31,7 @@ const AdminHome = () => {
             <p className="text-base">All Registered Pharmacy</p>
           </div>
         </div>
-        <div className="rounded-md shadow-xl py-3 flex items-center justify-center gap-5">
+        <div className="rounded-md hover:shadow-md bg-card py-3 flex items-center justify-center gap-5">
           <img
             className="w-28 py-4 object-cover"
             src={doctorImg}
