@@ -11,9 +11,9 @@ import { TbCurrencyTaka } from "react-icons/tb";
 const MedicineCard = ({ medicine }) => {
   const { medicine_name, image, price, category, rating, discount } = medicine;
   return (
-    <div className="card card-compact bg-white rounded-md hover:shadow-lg transition-shadow duration-200 relative">
+    <div className="card card-compact bg-white rounded-md hover:shadow-lg transition-shadow relative">
       {discount && (
-        <p className="bg-my-accent rounded-md py-1 px-2 text-xs font-medium txt-white absolute top-4 left-4">
+        <p className="bg-my-accent rounded-md py-1 px-2 text-xs font-medium text-white absolute top-4 left-4">
           -{discount}% OFF
         </p>
       )}
@@ -22,7 +22,7 @@ const MedicineCard = ({ medicine }) => {
       </figure>
       <div className="card-body space-y-2 lg:space-y-3">
         <div className="space-y-1">
-          <p className="txt-gray-5 text-xs font-medium">
+          <p className="text-gray-5 text-xs font-medium">
             {category}, personal care
           </p>
           <h2 className="text-[1.125rem] font-semibold title-color tracking-wide hover:underline inline-block hover:cursor-pointer">
@@ -35,8 +35,8 @@ const MedicineCard = ({ medicine }) => {
             <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">
               <TbCurrencyTaka /> {price}
             </span>
-            <span className="font-semibold inline-flex items-center text-[16px] txt-gray-5 line-through">
-              <TbCurrencyTaka /> 500
+            <span className="font-semibold inline-flex items-center text-[16px] text-gray-5 line-through">
+              <TbCurrencyTaka /> 170
             </span>
           </p>
         </div>
