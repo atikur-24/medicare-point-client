@@ -8,7 +8,7 @@ const LabCard = ({ category }) => {
         <img src={category?.image_url} alt="" className="bg-[#f1f5f9]  rounded-full p-2" />
       </figure>
       <div className="">
-        <h2 className="text-xl font-sans font-bold h-16">{category?.category_name}</h2>
+        <h2 className="text-xl font-sans font-bold h-20">{category?.test_name}</h2>
       </div>
       <hr className="border border-my-primary my-2" />
       <div className="flex gap-2 items-center font-bold">
