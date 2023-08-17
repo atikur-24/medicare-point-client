@@ -93,7 +93,7 @@
   @apply bg-my-primary hover:bg-[#16b4ac] btn  font-medium md:font-semibold text-white transition duration-200;
 }
 .my-btn-outline {
-  @apply hover:bg-my-primary hover:text-white rounded-lg px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold transition duration-300 border border-my-primary text-my-primary;
+  @apply hover:bg-my-primary hover:text-white btn rounded-full  font-bold transition duration-300 border border-my-primary text-my-primary;
 }
 
 @layer base {

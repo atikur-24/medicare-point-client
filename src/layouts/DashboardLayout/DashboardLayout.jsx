@@ -1,6 +1,6 @@
 import { AiFillHome, AiOutlineBars, AiOutlineStar } from "react-icons/ai";
 import { BiSolidUser } from "react-icons/bi";
-import { BsFillCartPlusFill, BsShop } from "react-icons/bs";
+import { BsFillCartPlusFill } from "react-icons/bs";
 import { FaUserMd, FaUsers } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
@@ -29,7 +29,9 @@ const DashboardLayout = () => {
   };
 
   const [doctor, setDoctor] = useState(false);
-  console.log(doctor);
+  const [labtest, setLabtest] = useState(false);
+  const [medicineBtn, setMedicineBtn] = useState(false);
+  // console.log(doctor);
   const userLinks = (
     <>
       <li>
@@ -113,17 +115,33 @@ const DashboardLayout = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/dashboard/medicine-orders" className="dashboard-link">
+        <NavLink to="/dashboard/new-orders" className="dashboard-link">
           <MdAddShoppingCart className="dashboard-icon" />
-          <span>Medicine Orders</span>
+          <span>New Orders</span>
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/dashboard/medicine-inventory" className="dashboard-link">
+
+      <li className="dashboard-link flex">
+        <NavLink to="/dashboard/medicine-inventory" onClick={() => setMedicineBtn(!medicineBtn)} className="dashboard-link flex">
           <MdOutlineInventory className="dashboard-icon" />
-          <span>Medicine Inventory</span>
+          <button type="button">Medicine Inventory</button>
+          <MdKeyboardArrowDown className={`${medicineBtn ? "hidden" : "block"} dashboard-icon`} />
+          <MdKeyboardArrowUp className={`${medicineBtn ? "block" : "hidden"} dashboard-icon`} />
         </NavLink>
+        <ul className={`${medicineBtn ? "block" : "hidden"}`}>
+          <li>
+            <NavLink to="/dashboard/medicine-inventory" className="">
+              All Medicines
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/add-new-medicine" className="">
+              Add new medicine
+            </NavLink>
+          </li>
+        </ul>
       </li>
+
       <li>
         <NavLink to="/dashboard/pharmacists-order-history" className="dashboard-link">
           <RiFileList3Fill className="dashboard-icon" />
@@ -171,12 +189,28 @@ const DashboardLayout = () => {
           <span>Health Suggestions</span>
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/dashboard/manage-lab-test" className="dashboard-link">
+
+      <li className="dashboard-link flex">
+        <NavLink to="/dashboard/manage-lab-test" onClick={() => setLabtest(!labtest)} className="dashboard-link flex">
           <GiHypodermicTest className="dashboard-icon" />
-          <span>Available Test</span>
+          <button type="button">Lab Tests</button>
+          <MdKeyboardArrowDown className={`${labtest ? "hidden" : "block"} dashboard-icon`} />
+          <MdKeyboardArrowUp className={`${labtest ? "block" : "hidden"} dashboard-icon`} />
         </NavLink>
+        <ul className={`${labtest ? "block" : "hidden"}`}>
+          <li>
+            <NavLink to="/dashboard/manage-lab-test" className="">
+              Available Test
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/add-lab-test" className="">
+              Add a test
+            </NavLink>
+          </li>
+        </ul>
       </li>
+
       <li className="dashboard-link flex">
         <NavLink to="/dashboard/manage-all-doctors" onClick={() => setDoctor(!doctor)} className="dashboard-link flex">
           <FaUserMd className="dashboard-icon" />
@@ -196,12 +230,6 @@ const DashboardLayout = () => {
             </NavLink>
           </li>
         </ul>
-      </li>
-      <li>
-        <NavLink to="/dashboard/manage-all-pharmacy" className="dashboard-link">
-          <BsShop className="dashboard-icon" />
-          <span>All Pharmacy</span>
-        </NavLink>
       </li>
     </>
   );
@@ -231,9 +259,9 @@ const DashboardLayout = () => {
               <RxCross1 className="text-lg cursor-pointer" />
             </label>
           </li>
-          {userLinks}
+          {/* {userLinks} */}
           {/* {pharmacistLinks} */}
-          {/* {adminLinks} */}
+          {adminLinks}
         </ul>
       </div>
     </div>
