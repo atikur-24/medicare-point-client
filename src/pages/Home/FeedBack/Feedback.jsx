@@ -7,8 +7,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import Rating from "react-rating";
 import Heading from "../../Shared/Heading/Heading";
 
 import "./styles.css";
@@ -56,7 +54,6 @@ const Feedback = () => {
                   <div className="grid items-center justify-center translate-y-20">
                     {/* Adjust the width and height of the image */}
                     <img src={feedback.image} alt={feedback.name} style={{ height: "80px", width: "80px" }} className="rounded-full w-16" />
-                    <Rating readonly initialRating={feedback.rating} emptySymbol={<span className="text-gray-300">&#9734;</span>} fullSymbol={<span className="text-yellow-400">&#9733;</span>} />
                   </div>
                 </div>
                 <p className="text-white p-4 pt-20 rounded bg-slate-700">{feedback.quote}</p>
