@@ -93,11 +93,6 @@ const DashboardLayout = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/dashboard/chat-support" className="dashboard-link">
-          <RiMessengerFill className="dashboard-icon" /> Chat Support
-        </NavLink>
-      </li>
-      <li>
         <NavLink to="/dashboard/reward-points" className="dashboard-link">
           <AiOutlineStar className="dashboard-icon" />
           Reward Points
