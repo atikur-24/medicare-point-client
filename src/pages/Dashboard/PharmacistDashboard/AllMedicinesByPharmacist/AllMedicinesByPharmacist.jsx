@@ -2,12 +2,10 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import { NavLink } from "react-router-dom";
 
-const AllMedicines = () => {
+const AllMedicinesByPharmacist = () => {
   return (
     <div className="mx-1 md:mx-5">
-      <h3 className="text-center text-3xl my-7 font-semibold">
-        All Available Medicines
-      </h3>
+      <h3 className="text-center text-3xl my-7 font-semibold">All Medicines</h3>
 
       <div className="overflow-x-auto mb-20  px-5">
         <table className="table bg-gray-3">
@@ -21,7 +19,7 @@ const AllMedicines = () => {
               <th>Supplier</th>
 
               <th>Price</th>
-              <th>Av. Quantity</th>
+              <th>Quantity</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -107,4 +105,4 @@ const AllMedicines = () => {
   );
 };
 
-export default AllMedicines;
+export default AllMedicinesByPharmacist;
