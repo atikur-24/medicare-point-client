@@ -32,7 +32,7 @@ const Navbar = () => {
         <NavLink to="#">Services</NavLink>
       </li>
       <li>
-        <NavLink to="#">About Us</NavLink>
+        <NavLink to="/about-us">About Us</NavLink>
       </li>
       <li>
         <NavLink to="#">Contacts</NavLink>
@@ -100,7 +100,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <hr className=" w-full shadow-md" />
+      <hr className="border-gray-3" />
       <div className="hidden md:block">
         {/* TODO: bg color */}
         <div className="nav-container">
