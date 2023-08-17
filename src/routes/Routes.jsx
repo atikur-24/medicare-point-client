@@ -1,14 +1,26 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import Main from "../layouts/Main";
+import AddLabTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AddLabTest";
 import AllAvailableTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AllAvailableTest";
 import AddDoctor from "../pages/Dashboard/AdminDashboard/AllDoctors/AddDoctor";
 import AllDoctors from "../pages/Dashboard/AdminDashboard/AllDoctors/AllDoctors";
+import AllHealthSuggestion from "../pages/Dashboard/AdminDashboard/AllHealthSuggestion/AllHealthSuggestion";
 import AllMedicines from "../pages/Dashboard/AdminDashboard/AllMedicines/AllMedicines";
 import AllPharmacists from "../pages/Dashboard/AdminDashboard/AllPharmacists/AllPharmacists";
 import AllUsers from "../pages/Dashboard/AdminDashboard/AllUsers/AllUsers";
-import PharmacyLists from "../pages/Dashboard/AdminDashboard/PharmacyLists/PharmacyLists";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+import AddNewMedicine from "../pages/Dashboard/PharmacistDashboard/AddNewMedicine/AddNewMedicine";
+import AllMedicinesByPharmacist from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/AllMedicinesByPharmacist";
+import NewOrders from "../pages/Dashboard/PharmacistDashboard/NewOrders/NewOrders";
+import PharmacistOrderHistory from "../pages/Dashboard/PharmacistDashboard/PharmacistOrderHistory/PharmacistOrderHistory";
+import RequestedOrder from "../pages/Dashboard/PharmacistDashboard/RequestedOrder/RequestedOrder";
+import BookedLabTest from "../pages/Dashboard/UserDashboard/BookedLabTest/BookedLabTest";
+import OrderHistory from "../pages/Dashboard/UserDashboard/OrderHistory/OrderHistory";
+import UserProfile from "../pages/Dashboard/UserDashboard/UserProfile/UserProfile";
+import ViewCart from "../pages/Dashboard/UserDashboard/ViewCart/ViewCart";
+import HealthTips from "../pages/HealthTips/HealthTips";
+import HealthTipsDetails from "../pages/HealthTipsDetails/HealthTipsDetails";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Medicines from "../pages/Medicines/Medicines";
@@ -32,6 +44,14 @@ const router = createBrowserRouter([
       {
         path: "lab-test",
         element: <LabTest />,
+      },
+      {
+        path: "/healthtips",
+        element: <HealthTips />,
+      },
+      {
+        path: "/healthtips/:id",
+        element: <HealthTipsDetails />,
       },
       {
         path: "labPage/:id",
@@ -71,18 +91,22 @@ const router = createBrowserRouter([
       },
       {
         path: "profile",
+        element: <UserProfile />,
       },
       {
-        path: "view-cart",
+        path: "medicine-cart",
+        element: <ViewCart />,
       },
       {
         path: "booked-lab-tests",
+        element: <BookedLabTest />,
       },
       {
         path: "health-records",
       },
       {
         path: "order-history",
+        element: <OrderHistory />,
       },
       {
         path: "suggestion-reminders",
@@ -96,16 +120,24 @@ const router = createBrowserRouter([
 
       // pharmacists dashboard
       {
-        path: "medicine-orders",
+        path: "new-orders",
+        element: <NewOrders />,
       },
       {
         path: "medicine-inventory",
+        element: <AllMedicinesByPharmacist />,
+      },
+      {
+        path: "add-new-medicine",
+        element: <AddNewMedicine />,
       },
       {
         path: "pharmacists-order-history",
+        element: <PharmacistOrderHistory />,
       },
       {
         path: "requested-medicines",
+        element: <RequestedOrder />,
       },
 
       // admin dashboard
@@ -123,10 +155,15 @@ const router = createBrowserRouter([
       },
       {
         path: "health-suggestions",
+        element: <AllHealthSuggestion />,
       },
       {
         path: "manage-lab-test",
         element: <AllAvailableTest />,
+      },
+      {
+        path: "add-lab-test",
+        element: <AddLabTest />,
       },
       {
         path: "manage-all-doctors",
@@ -135,10 +172,6 @@ const router = createBrowserRouter([
       {
         path: "add-doctor",
         element: <AddDoctor />,
-      },
-      {
-        path: "manage-all-pharmacy",
-        element: <PharmacyLists />,
       },
     ],
   },

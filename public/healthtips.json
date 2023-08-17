@@ -1,0 +1,265 @@
+[
+  {
+    "id": 1,
+    "name": "Type 2 Diabetes",
+    "image": "https://img.freepik.com/free-vector/cartoon-character-with-high-blood-pressure-symptoms_1308-48157.jpg?w=2000",
+    "type": "Metabolic",
+    "cause": "Genetics, obesity, sedentary lifestyle",
+    "prevention": "Preventing Type 2 diabetes involves adopting a healthy lifestyle. Focus on a balanced diet rich in whole grains, lean proteins, fruits, and vegetables. Engage in regular physical activity, like brisk walking or cycling. Avoid excessive consumption of sugary foods. Achieving and maintaining a healthy weight is crucial. Regular check-ups are essential, especially with a family history of diabetes. The best cure for Type 2 diabetes is management. Lifestyle changes are key, including a healthy diet and exercise. In some cases, medications or insulin therapy might be necessary to control blood sugar levels. Monitoring blood sugar and routine medical check-ups are vital components of effective management.",
+    "cure": "While Type 2 diabetes doesn't have a complete cure, it can be managed effectively. Lifestyle modifications are central. A healthy diet, regular exercise, and weight management play key roles. Medications, including oral antidiabetic drugs or insulin, are often necessary to control blood sugar levels. Regular blood sugar monitoring helps in making necessary adjustments to the treatment plan. Routine medical check-ups are crucial to assess overall health and diabetes management progress. Collaborating with healthcare professionals, including doctors and dietitians, is essential to create a personalized plan that addresses specific needs. With proper care and adherence to the treatment plan, individuals with Type 2 diabetes can lead healthy lives."
+  },
+  {
+    "id": 2,
+    "name": "Hypertension (High Blood Pressure)",
+    "image": "https://img.freepik.com/free-vector/cartoon-character-with-high-blood-pressure-symptoms_1308-48157.jpg?w=2000",
+    "type": "Cardiovascular",
+    "cause": "Genetics, high salt intake, obesity, stress",
+    "prevention": "Preventing hypertension involves making gradual, sustainable lifestyle changes. Consume a diet low in sodium and rich in whole grains, fruits, vegetables, and lean proteins. Engage in regular physical activity, like brisk walking, jogging, or swimming. Limit alcohol consumption and avoid tobacco products. Managing stress through relaxation techniques and adequate sleep is beneficial. Regular blood pressure checks are crucial for early detection and prevention. By adhering to these strategies, you can significantly reduce the risk of developing high blood pressure.",
+    "cure": "While hypertension isn't completely curable, it can be effectively managed. Lifestyle changes are fundamental. Adopt the Dietary Approaches to Stop Hypertension (DASH) diet. Engage in regular exercise, maintain a healthy weight, and avoid smoking. Medications, including diuretics, ACE inhibitors, beta-blockers, or calcium channel blockers, might be prescribed to control blood pressure. Adhering to the treatment plan, routine blood pressure monitoring, and regular medical check-ups are essential for successful management. By maintaining a healthy lifestyle and working closely with healthcare professionals, individuals with hypertension can achieve better blood pressure control and overall heart health."
+  },
+  {
+    "id": 3,
+    "name": "Influenza (Flu)",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Viral",
+    "cause": "Influenza virus",
+    "prevention": "Preventing influenza involves several strategies. First, getting an annual flu vaccine is crucial. This helps protect against the most common strains of the virus. Additionally, practice good respiratory hygiene by covering your mouth and nose when sneezing or coughing. Wash your hands frequently to prevent transmission. Avoid close contact with individuals who have the flu. Maintain a strong immune system through a balanced diet, regular exercise, adequate sleep, and stress management. By adopting these preventive measures, you can significantly reduce the risk of contracting and spreading the flu.",
+    "cure": "There's no specific cure for the flu, but effective management can alleviate symptoms and speed up recovery. Rest and hydration are essential components of recovery. Over-the-counter medications like acetaminophen or ibuprofen can help reduce fever and ease body aches. Antiviral medications like oseltamivir (Tamiflu) can be prescribed by a doctor, especially if taken within the first 48 hours of symptom onset. These antivirals can help shorten the duration and severity of the illness, especially in high-risk individuals. Practicing self-care, staying isolated to prevent transmission, and seeking medical attention when needed are key to managing the flu."
+  },
+  {
+    "id": 4,
+    "name": "Common Cold",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Viral",
+    "cause": "Rhinoviruses, other viruses",
+    "prevention": "Preventing the common cold involves practicing good hygiene and taking preventive measures. Regularly wash your hands with soap and water for at least 20 seconds. Avoid touching your face, especially your eyes, nose, and mouth. Limit close contact with individuals who have a cold. Maintain a strong immune system by consuming a balanced diet rich in vitamins and minerals, staying hydrated, getting regular exercise, and managing stress.",
+    "cure": "There's no cure for the common cold, but effective management can alleviate symptoms and help you recover faster. Rest and hydration are essential for recovery. Over-the-counter cold remedies, such as decongestants and throat lozenges, can provide relief from symptoms like congestion, sore throat, and cough. Pain relievers like acetaminophen or ibuprofen can help reduce fever and discomfort. Gargling with warm saltwater can soothe a sore throat. Practicing good self-care, staying home to rest, and avoiding close contact with others help prevent the spread of the virus."
+  },
+  {
+    "id": 5,
+    "name": "Asthma",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Respiratory",
+    "cause": "Genetic predisposition, allergens, environmental factors",
+    "prevention": "Preventing asthma attacks involves several strategies. Identify and avoid triggers, such as allergens (pollen, pet dander) and irritants (tobacco smoke, air pollution). Follow your healthcare provider's asthma action plan, which may include using prescribed inhalers and medications to control inflammation and prevent symptoms. Maintain a healthy lifestyle with regular exercise, a balanced diet, and good sleep hygiene. Ensuring proper indoor air quality by reducing indoor allergens and irritants is also important.",
+    "cure": "While asthma can't be completely cured, it can be effectively managed with proper care. Quick-relief inhalers (bronchodilators) provide immediate relief during asthma attacks by relaxing the airways. Controller medications (inhaled corticosteroids, long-acting bronchodilators) are used daily to prevent inflammation and reduce the frequency of attacks. Biologic therapies that target specific immune pathways are available for severe cases. Lifestyle adjustments, such as avoiding triggers and maintaining a healthy lifestyle, contribute to successful asthma management. Regular follow-up with healthcare providers is essential to adjust treatment plans based on individual needs."
+  },
+  {
+    "id": 6,
+    "name": "Influenza (Flu)",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Viral",
+    "cause": "Influenza virus",
+    "prevention": "Preventing influenza involves several strategies. First, getting an annual flu vaccine is crucial. This helps protect against the most common strains of the virus. Additionally, practice good respiratory hygiene by covering your mouth and nose when sneezing or coughing. Wash your hands frequently to prevent transmission. Avoid close contact with individuals who have the flu. Maintain a strong immune system through a balanced diet, regular exercise, adequate sleep, and stress management. By adopting these preventive measures, you can significantly reduce the risk of contracting and spreading the flu.",
+    "cure": "There's no specific cure for the flu, but effective management can alleviate symptoms and speed up recovery. Rest and hydration are essential components of recovery. Over-the-counter medications like acetaminophen or ibuprofen can help reduce fever and ease body aches. Antiviral medications like oseltamivir (Tamiflu) can be prescribed by a doctor, especially if taken within the first 48 hours of symptom onset. These antivirals can help shorten the duration and severity of the illness, especially in high-risk individuals. Practicing self-care, staying isolated to prevent transmission, and seeking medical attention when needed are key to managing the flu."
+  },
+  {
+    "id": 7,
+    "name": "Common Cold",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Viral",
+    "cause": "Rhinoviruses, other viruses",
+    "prevention": "Preventing the common cold involves practicing good hygiene and taking preventive measures. Regularly wash your hands with soap and water for at least 20 seconds. Avoid touching your face, especially your eyes, nose, and mouth. Limit close contact with individuals who have a cold. Maintain a strong immune system by consuming a balanced diet rich in vitamins and minerals, staying hydrated, getting regular exercise, and managing stress.",
+    "cure": "There's no cure for the common cold, but effective management can alleviate symptoms and help you recover faster. Rest and hydration are essential for recovery. Over-the-counter cold remedies, such as decongestants and throat lozenges, can provide relief from symptoms like congestion, sore throat, and cough. Pain relievers like acetaminophen or ibuprofen can help reduce fever and discomfort. Gargling with warm saltwater can soothe a sore throat. Practicing good self-care, staying home to rest, and avoiding close contact with others help prevent the spread of the virus."
+  },
+  {
+    "id": 8,
+    "name": "Asthma",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Respiratory",
+    "cause": "Genetic predisposition, allergens, environmental factors",
+    "prevention": "Preventing asthma attacks involves several strategies. Identify and avoid triggers, such as allergens (pollen, pet dander) and irritants (tobacco smoke, air pollution). Follow your healthcare provider's asthma action plan, which may include using prescribed inhalers and medications to control inflammation and prevent symptoms. Maintain a healthy lifestyle with regular exercise, a balanced diet, and good sleep hygiene. Ensuring proper indoor air quality by reducing indoor allergens and irritants is also important.",
+    "cure": "While asthma can't be completely cured, it can be effectively managed with proper care. Quick-relief inhalers (bronchodilators) provide immediate relief during asthma attacks by relaxing the airways. Controller medications (inhaled corticosteroids, long-acting bronchodilators) are used daily to prevent inflammation and reduce the frequency of attacks. Biologic therapies that target specific immune pathways are available for severe cases. Lifestyle adjustments, such as avoiding triggers and maintaining a healthy lifestyle, contribute to successful asthma management. Regular follow-up with healthcare providers is essential to adjust treatment plans based on individual needs."
+  },
+
+  {
+    "id": 9,
+    "name": "Coronary Artery Disease (CAD)",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Cardiovascular",
+    "cause": "Atherosclerosis, lifestyle factors",
+    "prevention": "Preventing CAD involves a comprehensive approach. Maintain a heart-healthy diet by consuming whole grains, fruits, vegetables, lean proteins, and healthy fats. Engage in regular physical activity, aiming for at least 150 minutes of moderate-intensity exercise weekly. Avoid tobacco products and limit alcohol consumption. Manage stress through relaxation techniques and sufficient sleep. Regular check-ups and routine screenings are crucial to monitor cardiovascular health and detect risk factors.",
+    "cure": "CAD isn't completely curable, but it can be managed effectively through a combination of lifestyle changes and medical interventions. Lifestyle modifications include dietary changes, regular exercise, and weight management. Medications such as statins to lower cholesterol, antiplatelet drugs to prevent blood clots, and beta-blockers to reduce heart strain may be prescribed. In more severe cases, angioplasty with stent placement or coronary artery bypass surgery can restore blood flow to the heart, improving overall cardiac function and reducing the risk of complications."
+  },
+  {
+    "id": 10,
+    "name": "Alzheimer's Disease",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Neurological",
+    "cause": "Complex interaction of genetics and environmental factors",
+    "prevention": "While Alzheimer's prevention strategies aren't definitive, certain practices may reduce the risk. Engage in cognitive activities like puzzles and reading to keep your brain active. Follow a heart-healthy diet rich in fruits, vegetables, fish, and omega-3 fatty acids. Stay socially engaged and maintain physical exercise. Control chronic conditions like diabetes and hypertension, which can impact cognitive health.",
+    "cure": "As of now, there's no cure for Alzheimer's disease, but management strategies aim to improve quality of life and delay progression. Medications such as cholinesterase inhibitors and memantine can help manage cognitive symptoms and behavioral changes. Lifestyle changes, like creating a structured routine and a supportive environment, are beneficial. Ongoing research is focused on finding effective treatments to slow the progression of the disease and improve the quality of life for individuals and their caregivers."
+  },
+  {
+    "id": 11,
+    "name": "Osteoporosis",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Skeletal",
+    "cause": "Aging, hormonal changes, lack of calcium and vitamin D",
+    "prevention": "Preventing osteoporosis involves several measures. Ensure adequate calcium and vitamin D intake through dietary sources or supplements. Engage in weight-bearing exercises like walking and strength training to promote bone health. Avoid excessive alcohol consumption and refrain from smoking. Fall prevention strategies, such as removing hazards at home and improving lighting, reduce the risk of fractures.",
+    "cure": "While osteoporosis can't be fully cured, it can be managed to reduce fracture risk and improve bone health. Treatment involves a combination of medications, lifestyle changes, and fall prevention strategies. Medications like bisphosphonates and hormone therapy can slow bone loss and reduce fracture risk. Lifestyle adjustments, such as maintaining a balanced diet rich in bone-healthy nutrients and participating in regular exercise, contribute to long-term management. Fall prevention strategies, such as using assistive devices and ensuring a safe living environment, also play a crucial role."
+  },
+  {
+    "id": 12,
+    "name": "Cancer",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Various (e.g., lung, breast, colon)",
+    "cause": "Genetic mutations, environmental factors, lifestyle choices",
+    "prevention": "Cancer prevention involves adopting a proactive approach. Maintain a healthy lifestyle by consuming a balanced diet rich in fruits, vegetables, whole grains, and lean proteins. Limit processed and red meats, and avoid excessive alcohol consumption. Engage in regular physical activity and avoid tobacco products. Protect your skin from excessive sun exposure with clothing and sunscreen. Participate in recommended cancer screenings based on age and risk factors.",
+    "cure": "Cancer treatment varies based on the specific type, stage, and individual factors. Treatment options include surgery, chemotherapy, radiation therapy, targeted therapies, and immunotherapy. Early detection through routine screenings increases the likelihood of successful treatment outcomes. Supportive care, psychological counseling, and a strong healthcare team contribute to effectively managing cancer and improving overall quality of life."
+  },
+  {
+    "id": 13,
+    "name": "Arthritis (Osteoarthritis and Rheumatoid Arthritis)",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Joint-related",
+    "cause": "Osteoarthritis - wear and tear, Rheumatoid - autoimmune",
+    "prevention": "Preventing arthritis involves proactive measures. Maintain a healthy weight to reduce stress on joints. Engage in regular low-impact exercise, such as swimming or cycling, to strengthen muscles and maintain joint flexibility. Protect joints during activities and use ergonomic aids to reduce strain. Manage underlying health conditions and avoid joint injuries.",
+    "cure": "While arthritis isn't curable, effective management strategies improve quality of life. Osteoarthritis management focuses on pain relief, maintaining joint function, and preventing further damage. Treatment includes pain relievers, physical therapy, and lifestyle modifications. Rheumatoid arthritis management involves disease-modifying antirheumatic drugs (DMARDs) to slow disease progression and control symptoms. Biologic therapies may also be prescribed for severe cases. In some instances, joint replacement surgery can provide relief and restore function in advanced cases of joint damage."
+  },
+
+  {
+    "id": 14,
+    "name": "HIV/AIDS",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Viral",
+    "cause": "Human Immunodeficiency Virus (HIV)",
+    "prevention": "Preventing HIV transmission involves practicing safe behaviors. Use condoms during sexual activity and limit sexual partners. Avoid sharing needles or drug paraphernalia. Pre-exposure prophylaxis (PrEP) can reduce the risk of HIV transmission in high-risk individuals.",
+    "cure": "HIV/AIDS doesn't have a cure, but antiretroviral therapy (ART) can suppress the virus and improve immune function. Early diagnosis and prompt initiation of ART are crucial. Regular medical follow-ups, adherence to treatment, and healthy lifestyle practices support effective management of HIV/AIDS."
+  },
+  {
+    "id": 15,
+    "name": "Stroke",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Neurological",
+    "cause": "Blocked or ruptured blood vessel in the brain",
+    "prevention": "Preventing strokes involves several strategies. Control blood pressure, manage diabetes, and maintain a healthy weight. Follow a diet rich in fruits, vegetables, whole grains, and lean proteins. Engage in regular physical activity and avoid tobacco products. Manage stress through relaxation techniques and adequate sleep. Regular medical check-ups help monitor cardiovascular health and detect risk factors.",
+    "cure": "Stroke treatment varies based on the type and severity of the stroke. Ischemic stroke may be treated with clot-dissolving medications (thrombolytics) or mechanical clot removal. Hemorrhagic stroke management focuses on stopping bleeding and preventing complications. Rehabilitation therapies, including physical therapy, occupational therapy, and speech therapy, aid in recovery and help restore function."
+  },
+  {
+    "id": 16,
+    "name": "Chronic Obstructive Pulmonary Disease (COPD)",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Respiratory",
+    "cause": "Long-term exposure to irritants, especially tobacco smoke",
+    "prevention": "Preventing COPD involves avoiding risk factors. Refrain from smoking, both active and passive. Minimize exposure to environmental pollutants like dust and chemicals. Respiratory infections should be promptly treated to prevent exacerbations. Regular exercise and maintaining a healthy weight also support lung health.",
+    "cure": "COPD isn't curable, but effective management can improve quality of life. Lifestyle changes, such as smoking cessation and avoiding irritants, are essential. Medications like bronchodilators and inhaled corticosteroids help manage symptoms. Pulmonary rehabilitation programs improve lung function and provide education on managing COPD. In advanced cases, oxygen therapy and surgical interventions like lung volume reduction surgery or lung transplantation might be considered."
+  },
+  {
+    "id": 17,
+    "name": "Hepatitis B",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Viral",
+    "cause": "Hepatitis B virus",
+    "prevention": "Preventing hepatitis B involves several measures. Get vaccinated against hepatitis B to protect yourself from infection. Practice safe sex by using condoms and limit sexual partners. Avoid sharing needles or personal items that might be contaminated. Ensure proper sterilization of medical and tattoo equipment. Screening blood products before transfusion is crucial. If you're at high risk, consider hepatitis B antiviral treatment as a preventive measure.",
+    "cure": "Hepatitis B doesn't have a complete cure, but antiviral medications can help control the virus and prevent complications. Regular medical check-ups and monitoring liver health are important. Antiviral drugs aim to suppress viral replication and prevent liver damage. Adherence to prescribed medications and ongoing medical care are essential components of managing hepatitis B effectively."
+  },
+  {
+    "id": 18,
+    "name": "Hepatitis C",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Viral",
+    "cause": "Hepatitis C virus",
+    "prevention": "Preventing hepatitis C involves avoiding behaviors that can lead to infection. Do not share needles or other drug paraphernalia. Practice safe sex by using condoms. Avoid getting tattoos or piercings in unregulated settings. If you're a healthcare worker, follow proper infection control measures. Screening blood products before transfusion is crucial. New direct-acting antiviral medications offer effective treatment options.",
+    "cure": "Hepatitis C can be cured with newer antiviral drugs that target the virus directly, leading to sustained virologic response (SVR). Treatment aims to clear the virus from the body and prevent liver damage. Adherence to the treatment regimen is vital. Regular medical follow-ups and liver function monitoring are important to ensure successful treatment outcomes."
+  },
+  {
+    "id": 19,
+    "name": "Gastroesophageal Reflux Disease (GERD)",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Digestive",
+    "cause": "Weak lower esophageal sphincter, lifestyle factors",
+    "prevention": "Preventing GERD involves adopting healthy habits. Maintain a healthy weight to reduce pressure on the stomach and prevent acid reflux. Avoid large meals close to bedtime, and elevate the head of your bed by about 6 inches. Limit trigger foods like spicy, acidic, and fatty items. Avoid tobacco and alcohol, both of which can worsen symptoms. If you have chronic symptoms, consult a healthcare provider to create a tailored prevention plan.",
+    "cure": "GERD management involves a combination of lifestyle changes and medical interventions. Lifestyle modifications include dietary adjustments, weight control, and elevation of the head during sleep. Over-the-counter antacids can provide temporary relief. For persistent symptoms, proton pump inhibitors (PPIs) or H2 blockers may be prescribed to reduce stomach acid production. In severe cases, surgical interventions like fundoplication may be considered to reinforce the lower esophageal sphincter and prevent reflux."
+  },
+  {
+    "id": 20,
+    "name": "Depression",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Mental Health",
+    "cause": "Complex interaction of genetic, biological, environmental, and psychological factors",
+    "prevention": "Preventing depression involves proactive self-care. Maintain a strong social support network and engage in regular physical activity, which can boost mood. Practice stress reduction techniques, such as mindfulness, meditation, and relaxation exercises. Manage negative thought patterns and seek professional help if you experience persistent low mood or other symptoms of depression.",
+    "cure": "Depression treatment focuses on improving mood and functioning. Psychotherapy, including cognitive-behavioral therapy (CBT), helps individuals identify and change negative thought patterns. Medications like antidepressants can be prescribed by a healthcare provider. Lifestyle changes, such as regular exercise, proper nutrition, and sufficient sleep, play a role in managing depression. Ongoing self-care and support from mental health professionals contribute to recovery and overall well-being."
+  },
+  {
+    "id": 21,
+    "name": "Anxiety Disorders",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Mental Health",
+    "cause": "Genetics, brain chemistry, environmental stressors",
+    "prevention": "Preventing anxiety disorders involves adopting healthy coping strategies. Practice stress management techniques, such as deep breathing, mindfulness, and relaxation exercises. Limit caffeine intake, as it can exacerbate anxiety symptoms. Engage in regular physical activity to reduce stress and promote well-being. Seek support from loved ones and mental health professionals if you experience persistent anxiety.",
+    "cure": "Anxiety disorders are manageable with proper care. Treatment includes psychotherapy, such as cognitive-behavioral therapy (CBT) and exposure therapy, which help individuals develop effective coping strategies. Medications, including antidepressants and anti-anxiety medications, can be prescribed. Lifestyle adjustments, such as maintaining a balanced routine, practicing relaxation techniques, and avoiding triggers, contribute to anxiety management. A collaborative approach involving mental health professionals supports symptom reduction and improved quality of life."
+  },
+  {
+    "id": 22,
+    "name": "Epilepsy",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Neurological",
+    "cause": "Abnormal brain activity, genetics, brain injury",
+    "prevention": "Preventing epilepsy-associated injuries is crucial. Create a safe environment to minimize the risk of accidents during seizures. Adhere to prescribed medications as directed by a healthcare provider. Seek prompt medical attention for potential triggers or changes in seizure patterns. Avoid alcohol and recreational drugs, which can lower seizure threshold.",
+    "cure": "Epilepsy can be managed with medical care. Antiepileptic medications help control seizures by stabilizing brain activity. In some cases, surgical interventions may be considered to remove or disconnect the seizure focus. Ketogenic diet, which is low in carbohydrates and high in fats, is a therapeutic option. Vagus nerve stimulation and responsive neurostimulation devices are alternative treatments. Regular medical follow-ups and open communication with a healthcare team are essential for successful epilepsy management."
+  },
+  {
+    "id": 23,
+    "name": "Rheumatic Heart Disease",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Cardiovascular",
+    "cause": "Untreated streptococcal infections (strep throat)",
+    "prevention": "Preventing rheumatic heart disease starts with treating streptococcal infections promptly with antibiotics. Practicing good oral hygiene and seeking medical attention for strep throat symptoms can prevent complications. Regular dental care helps maintain oral health and reduce the risk of bacterial infections.",
+    "cure": "Management of rheumatic heart disease involves multiple approaches. Antibiotics are administered to treat streptococcal infections and prevent recurrence. Anti-inflammatory medications help control inflammation and reduce strain on the heart. Severe cases may require surgical interventions to repair or replace damaged heart valves. Regular medical follow-ups are important to monitor heart health and ensure effective treatment."
+  },
+  {
+    "id": 24,
+    "name": "Migraine",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Neurological",
+    "cause": "Triggers like stress, hormonal changes, certain foods",
+    "prevention": "Preventing migraines involves identifying and avoiding triggers. Maintain a consistent sleep schedule and manage stress through relaxation techniques. Stay hydrated and consume regular meals to prevent low blood sugar. Limit consumption of trigger foods like chocolate, aged cheeses, and processed meats. Consider keeping a migraine diary to track potential triggers.",
+    "cure": "Migraine management focuses on relieving symptoms and reducing frequency. Over-the-counter pain relievers like ibuprofen and acetaminophen can help during mild attacks. Prescription medications like triptans provide more effective pain relief. Lifestyle adjustments, such as maintaining regular sleep patterns, managing stress, and staying hydrated, contribute to migraine control. Identifying triggers and making necessary lifestyle changes play a significant role in reducing migraine occurrence and severity."
+  },
+  {
+    "id": 25,
+    "name": "Glaucoma",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Ophthalmic",
+    "cause": "Increased intraocular pressure, genetics",
+    "prevention": "Preventing glaucoma involves regular eye examinations, especially if you're at risk. Maintain a healthy lifestyle with regular exercise, a balanced diet, and not smoking. Protect your eyes from UV rays with sunglasses and hats. Manage underlying health conditions like diabetes and hypertension.",
+    "cure": "Glaucoma is manageable but not curable. Treatment focuses on lowering intraocular pressure to prevent further damage to the optic nerve. Medications, including eye drops and oral medications, help reduce eye pressure. Laser therapy or surgical interventions, like trabeculectomy or drainage implants, may be necessary to improve fluid drainage from the eye. Regular eye check-ups are essential to monitor disease progression and adjust the treatment plan."
+  },
+  {
+    "id": 26,
+    "name": "Ovarian Cancer",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Cancer",
+    "cause": "Complex interaction of genetics and environmental factors",
+    "prevention": "Preventing ovarian cancer involves awareness and risk reduction. Use oral contraceptives, have multiple pregnancies, and breastfeed to lower risk. If you have a family history of ovarian or breast cancer, consider genetic testing and risk-reducing surgeries. Regular gynecological check-ups and screenings are important for early detection.",
+    "cure": "Ovarian cancer treatment depends on the stage and type. Surgery is typically the first step, involving removal of the tumor and affected tissues. Chemotherapy is commonly used to target remaining cancer cells. Targeted therapies and immunotherapy are options for specific cases. While cure rates vary, early detection and prompt treatment improve outcomes. Regular follow-ups and ongoing surveillance are important to monitor for recurrence."
+  },
+  {
+    "id": 27,
+    "name": "Gout",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Joint-related",
+    "cause": "High uric acid levels, lifestyle factors",
+    "prevention": "Preventing gout involves lifestyle changes. Maintain a healthy weight, limit alcohol consumption, and avoid high-purine foods like organ meats and seafood. Stay hydrated and manage underlying conditions like hypertension. Limit consumption of sugary drinks and foods.",
+    "cure": "Gout management aims to control symptoms and prevent flare-ups. During acute attacks, medications like nonsteroidal anti-inflammatory drugs (NSAIDs) or colchicine relieve pain and inflammation. To manage chronic gout, medications like allopurinol or febuxostat are prescribed to lower uric acid levels. Lifestyle changes, such as dietary modifications and weight control, contribute to long-term management and prevention of complications."
+  },
+  {
+    "id": 28,
+    "name": "Cataracts",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Ophthalmic",
+    "cause": "Aging, long-term sun exposure, other factors",
+    "prevention": "Preventing cataracts involves protecting your eyes from UV light. Wear sunglasses with proper UV protection and hats. Maintain a healthy lifestyle with a balanced diet rich in antioxidants. Manage underlying health conditions like diabetes and hypertension.",
+    "cure": "Cataracts can be treated effectively through surgery. During cataract surgery, the cloudy lens is removed and replaced with an artificial intraocular lens (IOL). This outpatient procedure restores clear vision. Recovery is usually quick, and patients often experience improved vision within a few days. Regular eye check-ups are important to monitor eye health and address any concerns."
+  },
+  {
+    "id": 29,
+    "name": "Autism Spectrum Disorder (ASD)",
+    "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
+    "type": "Neurodevelopmental",
+    "cause": "Complex interaction of genetic and environmental factors",
+    "prevention": "Preventing ASD involves early intervention and support. Ensure early childhood developmental screenings. Engage in activities that promote social, emotional, and cognitive development. Seek assistance if you notice any developmental delays or unusual behaviors in your child.",
+    "cure": "There's no cure for ASD, but early intervention is essential. Behavioral therapies like applied behavior analysis (ABA) and speech therapy help develop communication and social skills. Occupational therapy addresses sensory and motor challenges. Educational support tailored to individual needs improves outcomes. Collaboration between parents, caregivers, educators, and therapists plays a critical role in helping individuals with ASD reach their full potential."
+  }
+]

@@ -26,7 +26,7 @@ const Navbar = () => {
         <NavLink to="/lab-test">Lab Test</NavLink>
       </li>
       <li>
-        <NavLink to="#">Health Tips </NavLink>
+        <NavLink to="/healthtips">Health Tips </NavLink>
       </li>
       <li>
         <NavLink to="#">Services</NavLink>
