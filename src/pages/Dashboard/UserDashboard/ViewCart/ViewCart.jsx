@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import { BiCartAdd } from "react-icons/bi";
 import { TbCurrencyTaka } from "react-icons/tb";
 
 const ViewCart = () => {
