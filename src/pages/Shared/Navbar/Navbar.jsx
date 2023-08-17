@@ -32,6 +32,9 @@ const Navbar = () => {
         <NavLink to="#">Services</NavLink>
       </li>
       <li>
+        <NavLink to="/blogs">Blogs</NavLink>
+      </li>
+      <li>
         <NavLink to="/about-us">About Us</NavLink>
       </li>
       <li>
@@ -93,11 +96,18 @@ const Navbar = () => {
                       </button>
                     </MenuItem>
                   ) : (
-                    <MenuItem>
-                      <Link className=" font-semibold text-neutral-600" to="/login">
-                        Login
-                      </Link>
-                    </MenuItem>
+                    <div>
+                      <MenuItem>
+                        <Link className=" font-semibold text-neutral-600" to="/login">
+                          Login
+                        </Link>
+                      </MenuItem>
+                      <MenuItem>
+                        <Link className=" font-semibold text-neutral-600" to="/signUp">
+                          Sign Up
+                        </Link>
+                      </MenuItem>
+                    </div>
                   )}
                   {/* <MenuItem>
                     <Link className=" font-semibold text-neutral-600" to="/signUp">
