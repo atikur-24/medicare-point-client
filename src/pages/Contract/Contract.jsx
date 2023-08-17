@@ -12,7 +12,7 @@ const Contract = () => {
       <div className="my-container">
         <div>
           <h2 className="text-4xl font-bold">Hi, How Can I help you?</h2>
-          <div className="flex gap-4 mt-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
             <div className="p-6 border-[1px] border-gray-3 w-full">
               <div className="flex gap-2 items-center">
                 <TbTruckDelivery className="text-4xl text-my-primary" />
