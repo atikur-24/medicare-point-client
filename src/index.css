@@ -4,47 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ---- background color -----*/
-.bg-primary {
-  /* background-color: #10847e; */
-}
-.bgc-teal-4 {
-  /* background-color: #16b4ac; */
-}
-.bgc-white {
-  /* background-color: #fff; */
-}
-.bgc-salt-3 {
-  /* background-color: #cbd5e1; */
-}
-.bgc-salt-6 {
-  /* background-color: #475569; */
-}
-.bgc-lite {
-  /* background-color: #F2F3F5; */
-}
-
-/*----- text color ----- */
-.txt-white {
-  /* color: #fff; */
-}
-.txt-primary {
-  /* color: #10847e; */
-}
-.txt-gray {
-  /* color: #4b5563; */
-}
-.txt-gray-5 {
-  /* color: #64748b; */
-}
-.title-color {
-  /* color: #111a28; */
-}
-
-.txt-pink {
-  /* color: #eb3a7b; */
-}
-
 .nav-container {
   @apply max-w-[2550px] px-2 md:px-6 lg:px-12 mx-auto;
 }
@@ -58,7 +17,6 @@
 }
 
 /* feedback  */
-
 .bg-card {
   background-color: transparent;
   background-image: linear-gradient(150deg, #eaf5ff 0%, #fff 100%);
@@ -87,7 +45,10 @@
 }
 
 .cart-btn {
-  @apply rounded-full py-2 text-[14px] uppercase font-medium inline-flex items-center justify-center gap-2 transition duration-300 border hover:bg-my-primary hover:text-white border-my-primary text-my-primary;
+  @apply rounded-full py-4 px-5 text-[14px] uppercase font-semibold inline-flex items-center justify-center gap-2 transition duration-300 text-white bg-my-primary hover:bg-my-accent;
+}
+.cart-btn-outline {
+  @apply rounded-full py-2 px-2 text-[14px] uppercase font-medium inline-flex items-center justify-center gap-2 transition duration-300 border hover:bg-my-primary hover:text-white border-my-primary text-my-primary;
 }
 .my-btn {
   @apply bg-my-primary hover:bg-[#16b4ac] btn  font-medium md:font-semibold text-white transition duration-200;
