@@ -32,10 +32,10 @@ const Navbar = () => {
         <NavLink to="#">Services</NavLink>
       </li>
       <li>
-        <NavLink to="#">About Us</NavLink>
+        <NavLink to="/about-us">About Us</NavLink>
       </li>
       <li>
-        <NavLink to="#">Contacts</NavLink>
+        <NavLink to="/contract">Contacts</NavLink>
       </li>
       <li>
         <NavLink to="#">More</NavLink>
@@ -100,12 +100,12 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <hr className=" w-full shadow-md" />
-      <div className="hidden md:block">
+      <hr className="border-gray-3" />
+      <div className="hidden md:block shadow-md ">
         {/* TODO: bg color */}
-        <div className="nav-container">
+        <div className="nav-container ">
           <div className="py-2">
-            <ul className="flex items-center justify-between text-md font-semibold">{menuItems}</ul>
+            <ul className="flex items-center justify-between text-md font-semibold text-gray-5 hover:text-gray-6">{menuItems}</ul>
           </div>
         </div>
       </div>
