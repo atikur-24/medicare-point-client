@@ -22,7 +22,7 @@ const Form = () => {
         </label>
         <textarea className="w-11/12 h-10 mb-4 outline-my-primary rounded-lg border-[1px] border-my-accent p-2 h-36" placeholder="Your Message" name="message" id="message" cols="30" rows="10" />
         <br />
-        <input className="my-btn w-full" type="submit" value="submit" />
+        <input className="my-btn w-11/12" type="submit" value="submit" />
       </form>
     </div>
   );
