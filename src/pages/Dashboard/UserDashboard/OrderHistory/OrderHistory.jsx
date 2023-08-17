@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { TbCurrencyTaka } from "react-icons/tb";
-import { FaCheck } from "react-icons/fa";
+// import { FaCheck } from "react-icons/fa";
 
 const OrderHistory = () => {
   const [orderHistories, setOrderHistory] = useState([]);
