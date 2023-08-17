@@ -93,11 +93,18 @@ const Navbar = () => {
                       </button>
                     </MenuItem>
                   ) : (
-                    <MenuItem>
-                      <Link className=" font-semibold text-neutral-600" to="/login">
-                        Login
-                      </Link>
-                    </MenuItem>
+                    <div>
+                      <MenuItem>
+                        <Link className=" font-semibold text-neutral-600" to="/login">
+                          Login
+                        </Link>
+                      </MenuItem>
+                      <MenuItem>
+                        <Link className=" font-semibold text-neutral-600" to="/signUp">
+                          Sign Up
+                        </Link>
+                      </MenuItem>
+                    </div>
                   )}
                   {/* <MenuItem>
                     <Link className=" font-semibold text-neutral-600" to="/signUp">
