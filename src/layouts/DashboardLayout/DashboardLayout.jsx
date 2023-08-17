@@ -277,8 +277,8 @@ const DashboardLayout = () => {
             </label>
           </li>
           {/* {userLinks} */}
-          {pharmacistLinks}
-          {/* {adminLinks} */}
+          {/* {pharmacistLinks} */}
+          {adminLinks}
         </ul>
       </div>
     </div>
