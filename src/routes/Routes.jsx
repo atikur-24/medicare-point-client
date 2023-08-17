@@ -68,17 +68,16 @@ const router = createBrowserRouter([
         element: <Medicines />,
       },
       {
-<<<<<<< HEAD
         path: "pharmacyRegistration",
         element: <PharmacyRegistrationPage />,
-=======
+      },
+      {
         path: "about-us",
         element: <AboutUs />,
       },
       {
         path: "contract",
         element: <Contract />,
->>>>>>> 98377029f6338ef1a124a818cb007d7ffb1a8179
       },
     ],
   },
