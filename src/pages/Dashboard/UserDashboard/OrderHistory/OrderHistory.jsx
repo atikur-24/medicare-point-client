@@ -4,6 +4,7 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { TbCurrencyTaka } from "react-icons/tb";
 // import { FaCheck } from "react-icons/fa";
+// import { FaCheck } from "react-icons/fa";
 
 const OrderHistory = () => {
   const [orderHistories, setOrderHistory] = useState([]);
@@ -48,7 +49,7 @@ const OrderHistory = () => {
               <td className="py-4 px-4">
                 <div className="flex items-center space-x-2">
                   <p>
-                    Order: <span className="italic">{orderHistory.order}</span>
+                    Order : <span className="italic">{orderHistory.order}</span>
                   </p>
                 </div>
               </td>
