@@ -12,6 +12,7 @@ import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Medicines from "../pages/Medicines/Medicines";
+import PharmacyRegistrationPage from "../pages/PharmacyRegistrationPage/PharmacyRegistrationPage";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import LabPayment from "../pages/Shared/LabTest/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
         path: "medicines",
         element: <Medicines />,
       },
+      {
+        path: "pharmacyRegistration",
+        element: <PharmacyRegistrationPage />,
+      },
     ],
   },
   {
@@ -54,6 +59,7 @@ const router = createBrowserRouter([
     path: "signUp",
     element: <SignUp />,
   },
+
   // dashboard
   {
     path: "/dashboard",
