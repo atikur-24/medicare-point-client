@@ -32,6 +32,7 @@ import LabPayment from "../pages/Shared/LabTest/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
 import SignUp from "../pages/SignUp/SignUp";
+import MedicineDetails from "../pages/Medicines/MedicineDetails";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,11 @@ const router = createBrowserRouter([
       {
         path: "medicines",
         element: <Medicines />,
+      },
+      {
+        path: "/details/:id",
+        element: <MedicineDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/medicines/${params?.id}`),
       },
       {
         path: "pharmacyRegistration",
