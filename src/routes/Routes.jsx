@@ -12,6 +12,8 @@ import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Medicines from "../pages/Medicines/Medicines";
+import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
+import LabPayment from "../pages/Shared/LabTest/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
 import SignUp from "../pages/SignUp/SignUp";
@@ -21,6 +23,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -33,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "labPage/:id",
         element: <LabTestPage />,
+      },
+      {
+        path: "labPayment",
+        element: <LabPayment />,
       },
       {
         path: "medicines",
