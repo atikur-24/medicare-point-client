@@ -1,7 +1,7 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { TbCurrencyTaka } from "react-icons/tb";
 
 const ViewCart = () => {
@@ -39,8 +39,12 @@ const ViewCart = () => {
               </p>
             </div>
             <div className="flex w-full space-x-4">
-              <button className="btn btn-outline btn-success">Confirm</button>
-              <button className="btn btn-outline btn-error">Delete</button>
+              <button type="button" className="btn btn-outline btn-success">
+                Confirm
+              </button>
+              <button type="button" className="btn btn-outline btn-error">
+                Delete
+              </button>
             </div>
           </div>
         </div>
