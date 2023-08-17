@@ -1,11 +1,11 @@
-// import AdminHome from "../AdminDashboard/AdminHome/AdminHome";
-import PharmacistsHome from "../PharmacistDashboard/PharmacistsHome/PharmacistsHome";
+import AdminHome from "../AdminDashboard/AdminHome/AdminHome";
+// import PharmacistsHome from "../PharmacistDashboard/PharmacistsHome/PharmacistsHome";
 
 const Dashboard = () => {
   return (
     <div>
-      {/* <AdminHome /> */}
-      <PharmacistsHome />
+      <AdminHome />
+      {/* <PharmacistsHome /> */}
     </div>
   );
 };
