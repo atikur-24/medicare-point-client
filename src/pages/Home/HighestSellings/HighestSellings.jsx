@@ -19,21 +19,59 @@ const HighestSellings = () => {
     <div className="my-container py-10">
       <Heading title="Highest selling Medicine " center />
 
-      <Swiper
-        slidesPerView={4}
-        spaceBetween={50}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="mySwiper"
-      >
-        {headingSMedicines.map((medicine, index) => (
-          <SwiperSlide key={index}>
-            <HSMedicine medicine={medicine} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="hidden lg:block">
+        <Swiper
+          slidesPerView={4}
+          spaceBetween={50}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          className="mySwiper"
+        >
+          {headingSMedicines.map((medicine, index) => (
+            <SwiperSlide key={index}>
+              <HSMedicine medicine={medicine} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      <div className="hidden md:block lg:hidden">
+        <Swiper
+          slidesPerView={2}
+          spaceBetween={50}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          className="mySwiper"
+        >
+          {headingSMedicines.map((medicine, index) => (
+            <SwiperSlide key={index}>
+              <HSMedicine medicine={medicine} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      <div className="md:hidden">
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={50}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          className="mySwiper"
+        >
+          {headingSMedicines.map((medicine, index) => (
+            <SwiperSlide key={index}>
+              <HSMedicine medicine={medicine} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };
