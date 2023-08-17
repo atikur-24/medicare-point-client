@@ -7,6 +7,9 @@ export default {
         sans: ["Open Sans", "sans-serif"],
         nunito: ["Nunito", "sans-serif"],
       },
+      backgroundImage: {
+        medicine: "url('https://img.freepik.com/free-vector/clean-medical-background_53876-97927.jpg?size=626&ext=jpg&ga=GA1.2.1613183627.1673832056&semt=ais')",
+      },
     },
     colors: {
       transparent: "transparent",
