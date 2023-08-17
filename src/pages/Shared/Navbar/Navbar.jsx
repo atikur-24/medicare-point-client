@@ -38,7 +38,17 @@ const Navbar = () => {
         <NavLink to="#">Contacts</NavLink>
       </li>
       <li>
-        <NavLink to="#">More</NavLink>
+        <details className="dropdown dropdown-end">
+          <summary className=" btn btn-ghost">More </summary>
+          <ul className="p-2 shadow menu dropdown-content z-10 bg-my-accent rounded-box w-52 space-y-4">
+            <li>
+              <NavLink to="pharmacyRegistration">Pharmacy Registration</NavLink>
+            </li>
+            <li>
+              <NavLink to="#">Item 2</NavLink>
+            </li>
+          </ul>
+        </details>
       </li>
     </>
   );
