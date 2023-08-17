@@ -11,7 +11,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="hidden">
+    <div>
       <div className="px-4 flex items-center justify-between w-[70%] py-4">
         <div onClick={() => setIsOpen(!isOpen)}>
           <RiMenu2Line className="text-4xl" />
