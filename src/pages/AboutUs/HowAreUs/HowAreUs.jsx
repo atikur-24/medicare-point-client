@@ -1,3 +1,5 @@
+import pharmacies from "../../../assets/images/AboutUs/pharmasiest.jpg";
+
 const HowAreUs = () => {
   return (
     <div className=" relative">
@@ -31,11 +33,7 @@ const HowAreUs = () => {
           </div>
         </div>
         <div className="w-full">
-          <img
-            className=" rounded-md md:h-[450px] w-full "
-            src="https://fullkit.moxcreative.com/medicashop/wp-content/uploads/sites/17/2022/09/two-pharmacists-working-together-at-pharmacy.jpg"
-            alt=""
-          />
+          <img className=" rounded-md md:h-[450px] w-full " src={pharmacies} alt="" />
         </div>
       </div>
     </div>

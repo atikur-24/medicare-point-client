@@ -14,7 +14,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
     <div>
       <div className="px-4 flex items-center justify-between w-[70%] py-4">
         <div onClick={() => setIsOpen(!isOpen)}>
-          <RiMenu2Line className="text-4xl" />
+          <RiMenu2Line className="text-4xl text-my-accent" />
         </div>
         <Logo />
       </div>
@@ -29,9 +29,9 @@ const ResponsiveNavbar = ({ menuItems }) => {
               <div>
                 <Avatar />
               </div>
-              <div className="text-3xl border-2 border-black rounded-full p-2">
+              <div className="text-2xl border-2 border-my-primary rounded-full p-1">
                 <div onClick={() => setIsOpen(!isOpen)}>
-                  <MdClose />
+                  <MdClose className="text-my-primary" />
                 </div>
               </div>
             </div>

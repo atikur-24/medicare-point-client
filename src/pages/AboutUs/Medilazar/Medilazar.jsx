@@ -11,7 +11,7 @@ const Medilazar = () => {
       <div className="mt-10 grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div className=" space-y-4  rounded-lg">
           <div>
-            <GiMedicines className="text-5xl cursor-pointer hover:text-my-primary transition delay-150 duration-300 ease-in-out mx-auto" />
+            <GiMedicines className="text-5xl hover:text-my-primary transition delay-150 duration-300 ease-in-out mx-auto" />
           </div>
           <div className=" space-y-2">
             <h4 className="text-xl font-bold text-center ">E-Pharmacy</h4>
@@ -20,7 +20,7 @@ const Medilazar = () => {
         </div>
         <div className=" space-y-4">
           <div>
-            <AiOutlineComment className="text-5xl cursor-pointer hover:text-my-primary transition delay-150 duration-300 ease-in-out mx-auto" />
+            <AiOutlineComment className="text-5xl hover:text-my-primary transition delay-150 duration-300 ease-in-out mx-auto" />
           </div>
           <div className=" space-y-2">
             <h4 className="text-xl font-bold text-center ">Online Consultations</h4>
@@ -29,7 +29,7 @@ const Medilazar = () => {
         </div>
         <div className=" space-y-4">
           <div>
-            <TbTestPipe className="text-5xl cursor-pointer hover:text-my-primary transition delay-150 duration-300 ease-in-out mx-auto" />
+            <TbTestPipe className="text-5xl hover:text-my-primary transition delay-150 duration-300 ease-in-out mx-auto" />
           </div>
           <div className=" space-y-2">
             <h4 className="text-xl font-bold text-center ">Labs Tests</h4>
@@ -38,7 +38,7 @@ const Medilazar = () => {
         </div>
         <div className=" space-y-4">
           <div>
-            <FaAward className="text-5xl cursor-pointer hover:text-my-primary transition delay-150 duration-300 ease-in-out mx-auto" />
+            <FaAward className="text-5xl hover:text-my-primary transition delay-150 duration-300 ease-in-out mx-auto" />
           </div>
           <div className=" space-y-2">
             <h4 className="text-xl font-bold text-center ">Authentic Information</h4>
