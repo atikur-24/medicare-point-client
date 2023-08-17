@@ -1,9 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import Main from "../layouts/Main";
+import AboutUs from "../pages/AboutUs/AboutUs";
 import Blogs from "../pages/Blogs/Blogs";
+import Contract from "../pages/Contract/Contract";
 import AddLabTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AddLabTest";
 import AllAvailableTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AllAvailableTest";
+import UpdateLab from "../pages/Dashboard/AdminDashboard/AllAvailableTest/UpdateLab";
 import AddDoctor from "../pages/Dashboard/AdminDashboard/AllDoctors/AddDoctor";
 import AllDoctors from "../pages/Dashboard/AdminDashboard/AllDoctors/AllDoctors";
 import AllHealthSuggestion from "../pages/Dashboard/AdminDashboard/AllHealthSuggestion/AllHealthSuggestion";
@@ -24,7 +27,9 @@ import HealthTips from "../pages/HealthTips/HealthTips";
 import HealthTipsDetails from "../pages/HealthTipsDetails/HealthTipsDetails";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
+import MedicineDetails from "../pages/Medicines/MedicineDetails";
 import Medicines from "../pages/Medicines/Medicines";
+import PharmacyRegistrationPage from "../pages/PharmacyRegistrationPage/PharmacyRegistrationPage";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import LabPayment from "../pages/Shared/LabTest/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
@@ -69,6 +74,23 @@ const router = createBrowserRouter([
         path: "medicines",
         element: <Medicines />,
       },
+      {
+        path: "/details/:id",
+        element: <MedicineDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/medicines/${params?.id}`),
+      },
+      {
+        path: "pharmacyRegistration",
+        element: <PharmacyRegistrationPage />,
+      },
+      {
+        path: "about-us",
+        element: <AboutUs />,
+      },
+      {
+        path: "contract",
+        element: <Contract />,
+      },
     ],
   },
   {
@@ -79,6 +101,7 @@ const router = createBrowserRouter([
     path: "signUp",
     element: <SignUp />,
   },
+
   // dashboard
   {
     path: "/dashboard",
@@ -172,6 +195,11 @@ const router = createBrowserRouter([
       {
         path: "add-doctor",
         element: <AddDoctor />,
+      },
+      {
+        path: "/dashboard/:id",
+        element: <UpdateLab />,
+        loader: ({ params }) => fetch(`http://localhost:5000/labAllItems/${params.id}`),
       },
     ],
   },
