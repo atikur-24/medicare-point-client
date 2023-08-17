@@ -28,9 +28,11 @@ const MedicineCard = ({ medicine }) => {
           <p className="text-gray-5 text-xs font-medium">
             {category}, personal care
           </p>
-          <h2 className="text-[1.125rem] font-semibold text-title-color tracking-wide hover:underline inline-block hover:cursor-pointer">
-            {medicine_name}
-          </h2>
+          <Link to={`/details/${_id}`}>
+            <h2 className="text-[1.125rem] font-semibold text-title-color tracking-wide hover:underline inline-block hover:cursor-pointer">
+              {medicine_name}
+            </h2>
+          </Link>
         </div>
         <div className="space-y-3">
           <Rating style={{ maxWidth: 70 }} value={rating} readOnly itemStyles={customStyles} />
