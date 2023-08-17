@@ -254,9 +254,9 @@ const DashboardLayout = () => {
               <RxCross1 className="text-lg cursor-pointer" />
             </label>
           </li>
-          {userLinks}
+          {/* {userLinks} */}
           {/* {pharmacistLinks} */}
-          {/* {adminLinks} */}
+          {adminLinks}
         </ul>
       </div>
     </div>
