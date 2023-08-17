@@ -15,6 +15,7 @@ import Medicines from "../pages/Medicines/Medicines";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
 import SignUp from "../pages/SignUp/SignUp";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "medicines",
         element: <Medicines />,
+      },
+      {
+        path: "about-us",
+        element: <AboutUs />,
       },
     ],
   },

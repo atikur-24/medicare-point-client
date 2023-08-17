@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import axios from "axios";
 import { useEffect, useState } from "react";
