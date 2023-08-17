@@ -9,8 +9,8 @@ const Search = () => {
           type="text"
           placeholder="Search Medicines"
         />
-        <div className="pr-3 cursor-pointer right-0 absolute">
-          <FiSearch className="text-3xl " />
+        <div className="pr-3 cursor-pointer right-0 absolute bg-my-primary h-full rounded-e-full">
+          <FiSearch className="text-3xl mt-1 ml-2" />
         </div>
       </form>
     </div>
