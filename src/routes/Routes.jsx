@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import Main from "../layouts/Main";
+import Blogs from "../pages/Blogs/Blogs";
 import AddLabTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AddLabTest";
 import AllAvailableTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AllAvailableTest";
 import AddDoctor from "../pages/Dashboard/AdminDashboard/AllDoctors/AddDoctor";
@@ -15,6 +16,12 @@ import AllMedicinesByPharmacist from "../pages/Dashboard/PharmacistDashboard/All
 import NewOrders from "../pages/Dashboard/PharmacistDashboard/NewOrders/NewOrders";
 import PharmacistOrderHistory from "../pages/Dashboard/PharmacistDashboard/PharmacistOrderHistory/PharmacistOrderHistory";
 import RequestedOrder from "../pages/Dashboard/PharmacistDashboard/RequestedOrder/RequestedOrder";
+import BookedLabTest from "../pages/Dashboard/UserDashboard/BookedLabTest/BookedLabTest";
+import OrderHistory from "../pages/Dashboard/UserDashboard/OrderHistory/OrderHistory";
+import UserProfile from "../pages/Dashboard/UserDashboard/UserProfile/UserProfile";
+import ViewCart from "../pages/Dashboard/UserDashboard/ViewCart/ViewCart";
+import HealthTips from "../pages/HealthTips/HealthTips";
+import HealthTipsDetails from "../pages/HealthTipsDetails/HealthTipsDetails";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Medicines from "../pages/Medicines/Medicines";
@@ -23,12 +30,6 @@ import LabPayment from "../pages/Shared/LabTest/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
 import SignUp from "../pages/SignUp/SignUp";
-import HealthTips from "../pages/HealthTips/HealthTips";
-import HealthTipsDetails from "../pages/HealthTipsDetails/HealthTipsDetails";
-import UserProfile from "../pages/Dashboard/UserDashboard/UserProfile/UserProfile";
-import ViewCart from "../pages/Dashboard/UserDashboard/ViewCart/ViewCart";
-import BookedLabTest from "../pages/Dashboard/UserDashboard/BookedLabTest/BookedLabTest";
-import OrderHistory from "../pages/Dashboard/UserDashboard/OrderHistory/OrderHistory";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/healthtips",
         element: <HealthTips />,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs />,
       },
       {
         path: "/healthtips/:id",
