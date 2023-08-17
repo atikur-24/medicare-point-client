@@ -4,7 +4,8 @@
     "category_name": "Pregnancy",
     "test_name": "Human Chorionic Gonadotropin (hCG) Test ",
     "price": 1200,
-    "discount": 15,
+    "date": "24/08/2023",
+    "time": "10:30 am",
     "category": "Popular"
   },
   {
@@ -12,7 +13,8 @@
     "category_name": "Pregnancy",
     "test_name": "Progesterone Test",
     "price": 1000,
-    "discount": 5,
+    "date": "24/08/2023",
+    "time": "10:30 am",
     "category": "Normal"
   },
   {
@@ -20,7 +22,8 @@
     "category_name": "Pregnancy",
     "test_name": "Blood Type and Rh Factor Test",
     "price": 1100,
-    "discount": 10,
+    "date": "24/08/2023",
+    "time": "10:30 am",
     "category": "Normal"
   },
   {
@@ -28,7 +31,8 @@
     "category_name": "X-ray MRI CT Ultrasound",
     "test_name": "Plain X-rays",
     "price": 1100,
-    "discount": 10,
+    "date": "24/08/2023",
+    "time": "10:30 am",
     "category": "Popular"
   },
   {
@@ -36,7 +40,8 @@
     "category_name": "X-ray MRI CT Ultrasound",
     "test_name": "Fluoroscopy",
     "price": 1100,
-    "discount": 5,
+    "date": "24/08/2023",
+    "time": "10:30 am",
     "category": "Popular"
   },
   {
@@ -44,7 +49,8 @@
     "category_name": "X-ray MRI CT Ultrasound",
     "test_name": "Mammography",
     "price": 1500,
-    "discount": 5,
+    "date": "24/08/2023",
+    "time": "10:30 am",
     "category": "Normal"
   },
   {
@@ -52,7 +58,8 @@
     "category_name": "Blood Studies",
     "test_name": "Blood Typing and Crossmatching",
     "price": 1500,
-    "discount": 5,
+    "date": "24/08/2023",
+    "time": "10:30 am",
     "category": "Popular"
   }
 ]

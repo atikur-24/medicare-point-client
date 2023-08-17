@@ -20,6 +20,8 @@ import HealthTips from "../pages/HealthTips/HealthTips";
 import HealthTipsDetails from "../pages/HealthTipsDetails/HealthTipsDetails";
 import UserProfile from "../pages/Dashboard/UserDashboard/UserProfile/UserProfile";
 import ViewCart from "../pages/Dashboard/UserDashboard/ViewCart/ViewCart";
+import BookedLabTest from "../pages/Dashboard/UserDashboard/BookedLabTest/BookedLabTest";
+import OrderHistory from "../pages/Dashboard/UserDashboard/OrderHistory/OrderHistory";
 
 const router = createBrowserRouter([
   {
@@ -79,17 +81,19 @@ const router = createBrowserRouter([
         element: <UserProfile />,
       },
       {
-        path: "view-cart",
+        path: "medicine-cart",
         element: <ViewCart />,
       },
       {
         path: "booked-lab-tests",
+        element: <BookedLabTest />,
       },
       {
         path: "health-records",
       },
       {
         path: "order-history",
+        element: <OrderHistory />,
       },
       {
         path: "suggestion-reminders",
