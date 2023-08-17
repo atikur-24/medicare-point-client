@@ -30,20 +30,20 @@ const PharmacyRegistrationForm = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="mb-4">
             <label className="block font-medium">Pharmacy name:</label>
-            <input {...register("pharmacyName")} type="text" className="w-full border rounded p-2" />
+            <input {...register("pharmacyName")} type="text" className="w-full shadow-sm rounded p-2" />
           </div>
           <div className="mb-4">
             <label className="block font-medium">Pharmacy email address:</label>
-            <input {...register("pharmacyEmailAddress")} type="email" className="w-full border rounded p-2" />
+            <input {...register("pharmacyEmailAddress")} type="email" className="w-full shadow-sm rounded p-2" />
           </div>
         </div>
         <h2 className="block font-medium">Pharmacy address:</h2>
         <div className="mb-4">
-          <textarea placeholder="Street Address" {...register("pharmacyAddress")} className="w-full border rounded p-2" />
+          <textarea placeholder="Street Address" {...register("pharmacyStreetAddress")} className="w-full shadow-sm rounded p-2" />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="mb-4">
-            <select {...register("country")} className="w-full border rounded p-2">
+            <select {...register("country")} className="w-full shadow-sm rounded p-2">
               {countries.map((country, index) => (
                 <option key={index} value={country}>
                   {country}
@@ -52,7 +52,7 @@ const PharmacyRegistrationForm = () => {
             </select>
           </div>
           <div className="mb-4">
-            <select {...register("city")} className="w-full border rounded p-2">
+            <select {...register("city")} className="w-full shadow-sm rounded p-2">
               <option value="">Select City</option>
               {cities[watch("country")]?.map((city, index) => (
                 <option key={index} value={city}>
@@ -66,48 +66,53 @@ const PharmacyRegistrationForm = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="mb-4">
             <label className="block font-medium">Pharmacy phone number:</label>
-            <input {...register("pharmacyPhoneNumber")} type="tel" className="w-full border rounded p-2" />
+            <input {...register("pharmacyPhoneNumber")} type="tel" className="w-full shadow-sm rounded p-2" />
           </div>
           <div className="mb-4">
             <label className="block font-medium">Pharmacy website:</label>
-            <input {...register("pharmacyWebsite")} type="url" className="w-full border rounded p-2" />
+            <input {...register("pharmacyWebsite")} type="url" className="w-full shadow-sm rounded p-2" />
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="mb-4">
             <label className="block font-medium">Pharmacist name:</label>
-            <input {...register("pharmacistName")} type="text" className="w-full border rounded p-2" />
+            <input {...register("pharmacistName")} type="text" className="w-full shadow-sm rounded p-2" />
           </div>
           <div className="mb-4">
             <label className="block font-medium">Pharmacist license number:</label>
-            <input {...register("pharmacistLicenseNumber")} type="text" className="w-full border rounded p-2" />
+            <input {...register("pharmacistLicenseNumber")} type="text" className="w-full shadow-sm rounded p-2" />
           </div>
           <div className="mb-4">
             <label className="block font-medium">Pharmacy registration number:</label>
-            <input {...register("pharmacyRegistrationNumber")} type="text" className="w-full border rounded p-2" />
+            <input {...register("pharmacyRegistrationNumber")} type="text" className="w-full shadow-sm rounded p-2" />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="mb-4">
+            <label className="block font-medium">Types of medicines sold:</label>
+            <input {...register("typesOfMedicinesSold")} type="text" className="w-full shadow-sm rounded p-2" />
+          </div>
+          <div className="mb-4">
+            <label className="block font-medium">Payment methods accepted:</label>
+            <input {...register("paymentMethodsAccepted")} type="text" className="w-full shadow-sm rounded p-2" />
+          </div>
+
+          <div className="mb-4">
+            <label className="block font-medium">Contact information for technical support:</label>
+            <input {...register("technicalSupportContact")} type="text" className="w-full shadow-sm rounded p-2" />
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="mb-4">
+            <label className="block font-medium">Scope of practice:</label>
+            <textarea {...register("scopeOfPractice")} className="w-full shadow-sm rounded p-2" />
+          </div>
+          <div className="mb-4">
+            <label className="block font-medium">Shipping information:</label>
+            <textarea {...register("shippingInformation")} className="w-full shadow-sm rounded p-2" />
           </div>
         </div>
 
-        <div className="mb-4">
-          <label className="block font-medium">Scope of practice:</label>
-          <textarea {...register("scopeOfPractice")} className="w-full border rounded p-2" />
-        </div>
-        <div className="mb-4">
-          <label className="block font-medium">Types of medicines sold:</label>
-          <input {...register("typesOfMedicinesSold")} type="text" className="w-full border rounded p-2" />
-        </div>
-        <div className="mb-4">
-          <label className="block font-medium">Payment methods accepted:</label>
-          <input {...register("paymentMethodsAccepted")} type="text" className="w-full border rounded p-2" />
-        </div>
-        <div className="mb-4">
-          <label className="block font-medium">Shipping information:</label>
-          <textarea {...register("shippingInformation")} className="w-full border rounded p-2" />
-        </div>
-        <div className="mb-4">
-          <label className="block font-medium">Contact information for technical support:</label>
-          <input {...register("technicalSupportContact")} type="text" className="w-full border rounded p-2" />
-        </div>
         <div className="mt-6">
           <button type="submit" className="my-btn">
             Submit
