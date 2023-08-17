@@ -1,0 +1,51 @@
+[
+  {
+    "medicine_name": "PainAway",
+    "image": "/src/assets/medicines/product-01.jpg",
+    "price": 10.99,
+    "available_quantity": 50,
+    "discount": 15,
+    "category": "Pain Relief",
+    "rating": 4.5,
+    "order": "Delivered"
+  },
+  {
+    "medicine_name": "ColdCure",
+    "image": "/src/assets/medicines/product-02.jpg",
+    "price": 8.49,
+    "available_quantity": 30,
+    "discount": 17,
+    "category": "Cold & Flu",
+    "rating": 4.2,
+    "order": "Processing"
+  },
+  {
+    "medicine_name": "HeartGuard",
+    "image": "/src/assets/medicines/product-04.jpg",
+    "price": 25.99,
+    "available_quantity": 20,
+    "category": "Heart Health",
+    "rating": 4.7,
+    "order": "Delivered"
+  },
+  {
+    "medicine_name": "AllerRelief",
+    "image": "/src/assets/medicines/product-07.jpg",
+    "price": 12.99,
+    "available_quantity": 40,
+    "discount": 12,
+    "category": "Allergy",
+    "rating": 4.3,
+    "order": "Processing"
+  },
+  {
+    "medicine_name": "DigestEase",
+    "image": "/src/assets/medicines/product-09-1.jpg",
+    "price": 14.49,
+    "available_quantity": 25,
+    "discount": 18,
+    "category": "Digestive Health",
+    "rating": 4.4,
+    "order": "Delivered"
+  }
+]
