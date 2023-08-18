@@ -26,7 +26,7 @@ const Services = () => {
       </div>
 
       <div className="services-product-bg">
-        <div className="bg-my-primary opacity-50">
+        <div className="bg-black bg-opacity-60">
           <div className="flex flex-col flex-col-reverse md:flex-row justify-between gap-6 items-center my-container ">
             <div className="w-full space-y-6">
               <h2 className="text-4xl font-bold text-white">In this website you will get some test booking options.</h2>
@@ -49,7 +49,9 @@ const Services = () => {
 
       <div className="my-container flex flex-col flex-col-reverse md:flex-row justify-between gap-6 items-center ">
         <div className="w-full md:w-[70%] space-y-6">
-          <h2 className="text-4xl font-bold">Super fast delivery by <br /> 100% protected</h2>
+          <h2 className="text-4xl font-bold">
+            Super fast delivery by <br /> 100% protected
+          </h2>
           <p className="text-gray-5">
             you can order medicine according to your needs by online. We will try to delivery it to you as soon as possible. We will deliver your product to you with utmost care.
           </p>
