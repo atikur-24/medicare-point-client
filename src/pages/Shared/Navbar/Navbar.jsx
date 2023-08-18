@@ -15,8 +15,6 @@ import Search from "./Search/Search";
 const Navbar = () => {
   const { user, logOut, setRole } = useAuth();
 
-
-
   const menuItems = (
     <>
       <li>
@@ -95,35 +93,61 @@ const Navbar = () => {
                   {user ? (
                     <div>
                       <MenuItem>
-                        <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
+                        <NavLink
+                          to="/dashboard"
+                          type="submit"
+                          className="font-semibold text-neutral-600"
+                          onClick={handelLogOut}
+                        >
                           Log Out
-                        </button>
+                        </NavLink>
                       </MenuItem>
                       <MenuItem>
-                        <button type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("User")}>
+                        <NavLink
+                          to="/dashboard"
+                          type="submit"
+                          className="font-semibold text-neutral-600"
+                          onClick={() => setRole("User")}
+                        >
                           User
-                        </button>
+                        </NavLink>
                       </MenuItem>
                       <MenuItem>
-                        <button type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Pharmacist")}>
+                        <NavLink
+                          to="/dashboard"
+                          type="submit"
+                          className="font-semibold text-neutral-600"
+                          onClick={() => setRole("Pharmacist")}
+                        >
                           Pharmacist
-                        </button>
+                        </NavLink>
                       </MenuItem>
                       <MenuItem>
-                        <button type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Admin")}>
+                        <NavLink
+                          to="/dashboard"
+                          type="submit"
+                          className="font-semibold text-neutral-600"
+                          onClick={() => setRole("Admin")}
+                        >
                           Admin
-                        </button>
+                        </NavLink>
                       </MenuItem>
                     </div>
                   ) : (
                     <div>
                       <MenuItem>
-                        <Link className=" font-semibold text-neutral-600" to="/login">
+                        <Link
+                          className=" font-semibold text-neutral-600"
+                          to="/login"
+                        >
                           Login
                         </Link>
                       </MenuItem>
                       <MenuItem>
-                        <Link className=" font-semibold text-neutral-600" to="/signUp">
+                        <Link
+                          className=" font-semibold text-neutral-600"
+                          to="/signUp"
+                        >
                           Sign Up
                         </Link>
                       </MenuItem>
@@ -145,7 +169,9 @@ const Navbar = () => {
         {/* TODO: bg color */}
         <div className="nav-container ">
           <div className="py-2">
-            <ul className="flex items-center justify-between text-md font-semibold text-gray-5 hover:text-gray-6">{menuItems}</ul>
+            <ul className="flex items-center justify-between text-md font-semibold text-gray-5 hover:text-gray-6">
+              {menuItems}
+            </ul>
           </div>
         </div>
       </div>
