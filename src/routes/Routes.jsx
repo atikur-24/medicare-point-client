@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import Main from "../layouts/Main";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import Blogs from "../pages/Blogs/Blogs";
 import Contract from "../pages/Contract/Contract";
 import AddLabTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AddLabTest";
 import AllAvailableTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AllAvailableTest";
@@ -35,6 +36,7 @@ import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
 import SignUp from "../pages/SignUp/SignUp";
 import MedicineCarts from "../pages/MedicineCarts/MedicineCarts";
+import Services from "../pages/Services/Services";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "/healthtips",
         element: <HealthTips />,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs />,
       },
       {
         path: "/healthtips/:id",
@@ -90,6 +96,10 @@ const router = createBrowserRouter([
       {
         path: "medicineCarts",
         element: <MedicineCarts />,
+      },
+      {
+        path: "services",
+        element: <Services />,
       },
     ],
   },
