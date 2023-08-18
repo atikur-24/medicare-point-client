@@ -21,7 +21,7 @@ const PopularLab = () => {
   }, []);
   return (
     <div>
-      <LabTitle title="POPULAR CATEGORIES" />
+      <LabTitle title="Lab CATEGORIES" />
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
