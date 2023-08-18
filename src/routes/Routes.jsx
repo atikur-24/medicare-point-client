@@ -35,6 +35,7 @@ import LabPayment from "../pages/Shared/LabTest/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
 import SignUp from "../pages/SignUp/SignUp";
+import Services from "../pages/Services/Services";
 
 const router = createBrowserRouter([
   {
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
       {
         path: "contract",
         element: <Contract />,
+      },
+      {
+        path: "services",
+        element: <Services />,
       },
     ],
   },

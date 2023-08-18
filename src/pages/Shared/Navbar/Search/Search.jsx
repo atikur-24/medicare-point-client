@@ -5,7 +5,7 @@ const Search = () => {
     <div>
       <form className="flex items-center relative">
         <input
-          className="w-full lg:w-[450px] h-10 rounded-xl md:rounded-full dropdown-end drop-shadow-xl px-6 focus:input-bordered input-accent"
+          className="w-full lg:w-[450px] h-10 rounded-xl md:rounded-full dropdown-end shadow-lg px-6 focus:input-bordered input-accent"
           type="text"
           placeholder="Search Medicines"
         />
