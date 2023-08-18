@@ -27,10 +27,10 @@ const HSMedicine = ({ medicine }) => {
     //   </div>
     // </div>
     <div>
-      <div className="card card-compact bg-white rounded-md hover:shadow-xl transition-shadow relative">
+      <div className="card card-compact bg-white rounded-lg hover:shadow-xl transition-shadow relative border-[1px] border-gray-3">
         {discount && <p className="bg-my-accent rounded-md py-1 px-2 text-xs font-medium text-white absolute top-4 left-4">-{discount}% OFF</p>}
         <figure>
-          <img className="h-72 w-full object-cover rounded-t-md" src={medicine?.image_url} alt="medicine" />
+          <img className="h-72 w-full rounded-t-lg object-cover " src={medicine?.image_url} alt="medicine" />
         </figure>
         <div className="card-body space-y-2 lg:space-y-3">
           <div className="space-y-1">
