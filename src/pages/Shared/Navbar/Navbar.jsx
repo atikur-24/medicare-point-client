@@ -3,50 +3,74 @@ import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { Link, NavLink } from "react-router-dom";
-import Avater from "./Avater/Avater";
+import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
+import Avatar from "./Avatar/Avatar";
 import Lang from "./Language/Lang";
 import Logo from "./Logo/Logo";
-import NavCard from "./NavCard/NavCard";
-import ResponsiveNavbar from "./ResponsivNavbar/ResponsiveNavbar";
+import NavCart from "./NavCard/NavCart";
+import ResponsiveNavbar from "./ResponsiveNavbar/ResponsiveNavbar";
 import Search from "./Search/Search";
 
 const Navbar = () => {
+  const { user, logOut, setRole } = useAuth();
+
   const menuItems = (
     <>
-      <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Home</NavLink>
+      <li>
+        <NavLink to="/">Home</NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 1</NavLink>
+      <li>
+        <NavLink to="/medicines">Medicines</NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 2</NavLink>
+      <li>
+        <NavLink to="/lab-test">Lab Test</NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 3</NavLink>
+      <li>
+        <NavLink to="/healthtips">Health Tips </NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 4</NavLink>
+      <li>
+        <NavLink to="/services">Services</NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 5</NavLink>
+      <li>
+        <NavLink to="/blogs">Blogs</NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 6</NavLink>
+      <li>
+        <NavLink to="/about-us">About Us</NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 7</NavLink>
+      <li>
+        <NavLink to="/contract">Contacts</NavLink>
       </li>
-      <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 8</NavLink>
-      </li>
-      <li className="hover:text-neutral-900 ">
-        <NavLink to="#">Route 9</NavLink>
+      <li>
+        <details className="dropdown dropdown-end">
+          <summary className=" btn btn-ghost">More </summary>
+          <ul className="p-2 shadow menu dropdown-content z-10 bg-my-accent rounded-box w-52 space-y-4">
+            <li>
+              <NavLink to="pharmacyRegistration">Pharmacy Registration</NavLink>
+            </li>
+            <li>
+              <NavLink to="#">Item 2</NavLink>
+            </li>
+          </ul>
+        </details>
       </li>
     </>
   );
+  const handelLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "You are LogOut",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      })
+      .catch(() => {});
+  };
   return (
-    <div className="bg-[#d9d9d9]">
+    // TODO: bg color
+    <div className="">
       <div className="nav-container ">
         <div className=" hidden md:block">
           <div className="flex items-center justify-between py-2 ">
@@ -54,41 +78,75 @@ const Navbar = () => {
               <Logo />
               <Search />
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 lg:gap-10">
               <Lang />
-              <NavCard />
+              <NavCart />
               <div>
                 <Menu
                   menuButton={
                     <MenuButton>
-                      <Avater />
+                      <Avatar />
                     </MenuButton>
                   }
                   transition
                 >
-                  <MenuItem>
-                    <Link className=" font-semibold text-neutral-600" to="/login">
-                      Login
-                    </Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link className=" font-semibold text-neutral-600" to="/register">
+                  {user ? (
+                    <div>
+                      <MenuItem>
+                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
+                          Log Out
+                        </NavLink>
+                      </MenuItem>
+                      <MenuItem>
+                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("User")}>
+                          User
+                        </NavLink>
+                      </MenuItem>
+                      <MenuItem>
+                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Pharmacist")}>
+                          Pharmacist
+                        </NavLink>
+                      </MenuItem>
+                      <MenuItem>
+                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Admin")}>
+                          Admin
+                        </NavLink>
+                      </MenuItem>
+                    </div>
+                  ) : (
+                    <div>
+                      <MenuItem>
+                        <Link className=" font-semibold text-neutral-600" to="/login">
+                          Login
+                        </Link>
+                      </MenuItem>
+                      <MenuItem>
+                        <Link className=" font-semibold text-neutral-600" to="/signUp">
+                          Sign Up
+                        </Link>
+                      </MenuItem>
+                    </div>
+                  )}
+                  {/* <MenuItem>
+                    <Link className=" font-semibold text-neutral-600" to="/signUp">
                       Register
                     </Link>
-                  </MenuItem>
+                  </MenuItem> */}
                 </Menu>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <hr className=" w-full shadow-md   border-[#999999]" />
-      <div className="hidden md:block">
-        <div className="bg-[#d9d9d9] nav-container ">
+      <hr className="border-gray-3" />
+      <div className="hidden md:block ">
+        {/* TODO: bg color */}
+        <div className="nav-container ">
           <div className="py-2">
-            <ul className="flex items-center justify-between text-md text-neutral-600 font-semibold">{menuItems}</ul>
+            <ul className="flex items-center justify-between text-md font-semibold text-gray-5 hover:text-gray-6">{menuItems}</ul>
           </div>
         </div>
+        <hr className=" border-1 border-gray-3 drop-shadow-xl" />
       </div>
       <div className=" md:hidden">
         <ResponsiveNavbar menuItems={menuItems} />
