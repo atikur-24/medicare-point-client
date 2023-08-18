@@ -41,3 +41,6 @@
 .my-btn-outline {
   @apply hover:bg-[#f34e3a] hover:text-white rounded-lg px-3 py-2 md:px-6 md:py-4 text-[18px] font-medium md:font-semibold transition duration-300 border border-[#f34e3a] text-[#f34e3a];
 } */
+/* .bg {
+  background-image: linear-gradient(to right top, #176b87, #007288, #007886, #007e83, #10847e);
+} */
