@@ -20,7 +20,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [role, setRole] = useState("User");
+  const [role, setRole] = useState("");
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -77,9 +77,26 @@ const AuthProvider = ({ children }) => {
   //     updateUserProfile,
   //   };
 
-  const authInfo = useMemo(() => ({ user, loading, setLoading, createUser, signIn, signInWithGoogle, resetPassword, logOut, updateUserProfile, setRole }), [loading, user]);
+  const authInfo = useMemo(
+    () => ({
+      user,
+      loading,
+      setLoading,
+      createUser,
+      signIn,
+      signInWithGoogle,
+      resetPassword,
+      logOut,
+      updateUserProfile,
+      setRole,
+      role,
+    }),
+    [loading, user, role]
+  );
 
-  return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;
