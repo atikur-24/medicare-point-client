@@ -48,7 +48,7 @@
   @apply rounded-full py-4 px-5 text-[14px] uppercase font-semibold inline-flex items-center justify-center gap-2 transition duration-300 text-white bg-my-primary hover:bg-my-accent;
 }
 .cart-btn-outline {
-  @apply rounded-full py-2 px-2 text-[14px] uppercase font-medium inline-flex items-center justify-center gap-2 transition duration-300 border hover:bg-my-primary hover:text-white border-my-primary text-my-primary;
+  @apply rounded-full w-full py-2 px-2 text-[14px] uppercase font-medium inline-flex items-center justify-center gap-2 transition duration-300 border hover:bg-my-primary hover:text-white border-my-primary text-my-primary;
 }
 .my-btn {
   @apply bg-my-primary hover:bg-[#16b4ac] btn  font-medium md:font-semibold text-white transition duration-200;

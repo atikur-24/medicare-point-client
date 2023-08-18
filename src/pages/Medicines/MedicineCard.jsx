@@ -1,9 +1,9 @@
 /* eslint-disable no-mixed-operators */
 import { Rating, StickerStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import { BiCartAdd } from "react-icons/bi";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import AddCartButton from "../../components/AddCartButton";
 
 const customStyles = {
     itemShapes: StickerStar,
@@ -13,6 +13,7 @@ const customStyles = {
 
 const MedicineCard = ({ medicine }) => {
   const { _id, medicine_name, image, price, category, rating, discount } = medicine || {};
+  const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity: 1, category };
   return (
     <div className="card card-compact bg-white rounded-md hover:shadow-lg transition-shadow relative group">
       {discount > 0 && (
@@ -47,9 +48,7 @@ const MedicineCard = ({ medicine }) => {
             )}
           </p>
         </div>
-        <button className="cart-btn-outline" type="button">
-          <BiCartAdd /> add to cart
-        </button>
+        <AddCartButton cartMedicine={cartMedicine} cls="cart-btn-outline" />
       </div>
     </div>
   );
