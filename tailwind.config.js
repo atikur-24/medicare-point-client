@@ -29,6 +29,7 @@ export default {
       "slate-3": "#cbd5e1",
       "slate-6": "#475569",
       "my-pink": "#eb3a7b",
+      "red-400": "#f47779",
       "red-500": "#ef4444",
     },
   },
