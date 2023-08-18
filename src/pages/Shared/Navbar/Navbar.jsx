@@ -30,7 +30,7 @@ const Navbar = () => {
         <NavLink to="/healthtips">Health Tips </NavLink>
       </li>
       <li>
-        <NavLink to="#">Services</NavLink>
+        <NavLink to="/services">Services</NavLink>
       </li>
       <li>
         <NavLink to="/blogs">Blogs</NavLink>
@@ -93,42 +93,22 @@ const Navbar = () => {
                   {user ? (
                     <div>
                       <MenuItem>
-                        <NavLink
-                          to="/dashboard"
-                          type="submit"
-                          className="font-semibold text-neutral-600"
-                          onClick={handelLogOut}
-                        >
+                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
                           Log Out
                         </NavLink>
                       </MenuItem>
                       <MenuItem>
-                        <NavLink
-                          to="/dashboard"
-                          type="submit"
-                          className="font-semibold text-neutral-600"
-                          onClick={() => setRole("User")}
-                        >
+                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("User")}>
                           User
                         </NavLink>
                       </MenuItem>
                       <MenuItem>
-                        <NavLink
-                          to="/dashboard"
-                          type="submit"
-                          className="font-semibold text-neutral-600"
-                          onClick={() => setRole("Pharmacist")}
-                        >
+                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Pharmacist")}>
                           Pharmacist
                         </NavLink>
                       </MenuItem>
                       <MenuItem>
-                        <NavLink
-                          to="/dashboard"
-                          type="submit"
-                          className="font-semibold text-neutral-600"
-                          onClick={() => setRole("Admin")}
-                        >
+                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Admin")}>
                           Admin
                         </NavLink>
                       </MenuItem>
@@ -136,18 +116,12 @@ const Navbar = () => {
                   ) : (
                     <div>
                       <MenuItem>
-                        <Link
-                          className=" font-semibold text-neutral-600"
-                          to="/login"
-                        >
+                        <Link className=" font-semibold text-neutral-600" to="/login">
                           Login
                         </Link>
                       </MenuItem>
                       <MenuItem>
-                        <Link
-                          className=" font-semibold text-neutral-600"
-                          to="/signUp"
-                        >
+                        <Link className=" font-semibold text-neutral-600" to="/signUp">
                           Sign Up
                         </Link>
                       </MenuItem>
@@ -165,15 +139,14 @@ const Navbar = () => {
         </div>
       </div>
       <hr className="border-gray-3" />
-      <div className="hidden md:block shadow-md ">
+      <div className="hidden md:block ">
         {/* TODO: bg color */}
         <div className="nav-container ">
           <div className="py-2">
-            <ul className="flex items-center justify-between text-md font-semibold text-gray-5 hover:text-gray-6">
-              {menuItems}
-            </ul>
+            <ul className="flex items-center justify-between text-md font-semibold text-gray-5 hover:text-gray-6">{menuItems}</ul>
           </div>
         </div>
+        <hr className=" border-1 border-gray-3 drop-shadow-xl" />
       </div>
       <div className=" md:hidden">
         <ResponsiveNavbar menuItems={menuItems} />
