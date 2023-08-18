@@ -16,7 +16,7 @@ const HighestSellings = () => {
   }, []);
 
   return (
-    <div className="my-container py-10">
+    <div className="my-container py-10 px-4 rounded-lg bg-lite">
       <Heading title="Highest selling Medicine " center />
 
       <div className="hidden lg:block">

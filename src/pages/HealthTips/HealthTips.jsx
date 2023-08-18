@@ -10,7 +10,7 @@ const HealthTips = () => {
   }, []);
   return (
     <div>
-      <h1 className="text-4xl text-center font-bold my-4">Health Tips</h1>
+      <h1 className="text-4xl text-center font-bold my-4">Health Tips:Your Guide to a Balanced Lifestyle</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 m-8 ">
         {healthTips.map((healthTip, index) => (
           <div key={index} className="grid grid-cols-3 gap-4 w-full h-full justify-center items-center rounded-md shadow-sm border border-gray-3 p-3">
