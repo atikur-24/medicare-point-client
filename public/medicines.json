@@ -1,0 +1,210 @@
+[
+    {
+        "medicine_name": "PainAway",
+        "image": "/src/assets/medicines/product-01.jpg",
+        "price": 690,
+        "available_quantity": 50,
+        "discount": 15,
+        "category": "Pain Relief",
+        "tags": "Healthy, Vegetables",
+        "rating": 4.5,
+        "features": [
+            {
+                "name": "POWERS 5 INDICATORS OF BRAIN PERFORMANCE",
+                "desc": "The ingredients of Neuriva support 5 different indicators of brain performance: focus, memory, learning, accuracy and concentration"
+            },
+            {
+                "name": "CLINICALLY PROVEN NATURAL INGREDIENTS",
+                "desc": "Clinical studies have shown that coffee cherry (neurofactor) and plant-sourced PS (phosphatidylserine) enhance brain performance"
+            },
+            {
+                "name": "NEUROFACTOR, A POWERFUL EXTRACT",
+                "desc": "Neurofactor is an extract of whole fruit of the Coffea Arabica plant and has been shown to increase levels of BDNF. BDNF is short for brain-derived neurotrophic factor. This protein (which is found in the brain) BDNF has been widely studied and is known to support the survival of existing neurons and encourage the growth of new neurons"
+            }
+        ],
+        "medicine_description": "Neuriva Brain Performance is a rather new supplement to hit the market. Despite a rather thin ingredient list, the product has seen a lot of buzz from its customers. Many are wondering if Neuriva will live up to their claims. Neuriva is offered by Schiff Vitamins and can be found both online and in stores around the nation. Neuriva brain performance supplement",
+        "product_details": "Based on what’s been uncovered so far, there are some clear pros and cons to giving Neuriva a try. Schiff does offer a full refund within 30 days if the product is in saleable condition, but opened products will serve a 15% restocking fee. The customer is also responsible for return shipping."
+    },
+    {
+        "medicine_name": "ColdCure",
+        "image": "/src/assets/medicines/product-02.jpg",
+        "price": 849,
+        "available_quantity": 30,
+        "discount": 17,
+        "category": "Cold & Flu",
+        "tags": "Healthy, Vegetables",
+        "rating": 4.2,
+        "features": [
+            {
+                "name": "POWERS 5 INDICATORS OF BRAIN PERFORMANCE",
+                "desc": "The ingredients of Neuriva support 5 different indicators of brain performance: focus, memory, learning, accuracy and concentration"
+            },
+            {
+                "name": "CLINICALLY PROVEN NATURAL INGREDIENTS",
+                "desc": "Clinical studies have shown that coffee cherry (neurofactor) and plant-sourced PS (phosphatidylserine) enhance brain performance"
+            },
+            {
+                "name": "NEUROFACTOR, A POWERFUL EXTRACT",
+                "desc": "Neurofactor is an extract of whole fruit of the Coffea Arabica plant and has been shown to increase levels of BDNF. BDNF is short for brain-derived neurotrophic factor. This protein (which is found in the brain) BDNF has been widely studied and is known to support the survival of existing neurons and encourage the growth of new neurons"
+            }
+        ],
+        "medicine_description": "Neuriva Brain Performance is a rather new supplement to hit the market. Despite a rather thin ingredient list, the product has seen a lot of buzz from its customers. Many are wondering if Neuriva will live up to their claims. Neuriva is offered by Schiff Vitamins and can be found both online and in stores around the nation. Neuriva brain performance supplement",
+        "product_details": "Based on what’s been uncovered so far, there are some clear pros and cons to giving Neuriva a try. Schiff does offer a full refund within 30 days if the product is in saleable condition, but opened products will serve a 15% restocking fee. The customer is also responsible for return shipping."
+    },
+    {
+        "medicine_name": "HeartGuard",
+        "image": "/src/assets/medicines/product-04.jpg",
+        "price": 299,
+        "available_quantity": 20,
+        "discount": 0,
+        "category": "Heart Health",
+        "tags": "Healthy, Vegetables",
+        "rating": 4.7,
+        "features": [
+            {
+                "name": "POWERS 5 INDICATORS OF BRAIN PERFORMANCE",
+                "desc": "The ingredients of Neuriva support 5 different indicators of brain performance: focus, memory, learning, accuracy and concentration"
+            },
+            {
+                "name": "CLINICALLY PROVEN NATURAL INGREDIENTS",
+                "desc": "Clinical studies have shown that coffee cherry (neurofactor) and plant-sourced PS (phosphatidylserine) enhance brain performance"
+            },
+            {
+                "name": "NEUROFACTOR, A POWERFUL EXTRACT",
+                "desc": "Neurofactor is an extract of whole fruit of the Coffea Arabica plant and has been shown to increase levels of BDNF. BDNF is short for brain-derived neurotrophic factor. This protein (which is found in the brain) BDNF has been widely studied and is known to support the survival of existing neurons and encourage the growth of new neurons"
+            }
+        ],
+        "medicine_description": "Neuriva Brain Performance is a rather new supplement to hit the market. Despite a rather thin ingredient list, the product has seen a lot of buzz from its customers. Many are wondering if Neuriva will live up to their claims. Neuriva is offered by Schiff Vitamins and can be found both online and in stores around the nation. Neuriva brain performance supplement",
+        "product_details": "Based on what’s been uncovered so far, there are some clear pros and cons to giving Neuriva a try. Schiff does offer a full refund within 30 days if the product is in saleable condition, but opened products will serve a 15% restocking fee. The customer is also responsible for return shipping."
+    },
+    {
+        "medicine_name": "AllerRelief",
+        "image": "/src/assets/medicines/product-07.jpg",
+        "price": 369,
+        "available_quantity": 40,
+        "discount": 12,
+        "category": "Allergy",
+        "tags": "Healthy, Vegetables",
+        "rating": 4.3,
+        "features": [
+            {
+                "name": "POWERS 5 INDICATORS OF BRAIN PERFORMANCE",
+                "desc": "The ingredients of Neuriva support 5 different indicators of brain performance: focus, memory, learning, accuracy and concentration"
+            },
+            {
+                "name": "CLINICALLY PROVEN NATURAL INGREDIENTS",
+                "desc": "Clinical studies have shown that coffee cherry (neurofactor) and plant-sourced PS (phosphatidylserine) enhance brain performance"
+            },
+            {
+                "name": "NEUROFACTOR, A POWERFUL EXTRACT",
+                "desc": "Neurofactor is an extract of whole fruit of the Coffea Arabica plant and has been shown to increase levels of BDNF. BDNF is short for brain-derived neurotrophic factor. This protein (which is found in the brain) BDNF has been widely studied and is known to support the survival of existing neurons and encourage the growth of new neurons"
+            }
+        ],
+        "medicine_description": "Neuriva Brain Performance is a rather new supplement to hit the market. Despite a rather thin ingredient list, the product has seen a lot of buzz from its customers. Many are wondering if Neuriva will live up to their claims. Neuriva is offered by Schiff Vitamins and can be found both online and in stores around the nation. Neuriva brain performance supplement",
+        "product_details": "Based on what’s been uncovered so far, there are some clear pros and cons to giving Neuriva a try. Schiff does offer a full refund within 30 days if the product is in saleable condition, but opened products will serve a 15% restocking fee. The customer is also responsible for return shipping."
+    },
+    {
+        "medicine_name": "DigestEase",
+        "image": "/src/assets/medicines/product-09-1.jpg",
+        "price": 700,
+        "available_quantity": 25,
+        "discount": 18,
+        "category": "Digestive Health",
+        "tags": "Healthy, Vegetables",
+        "rating": 4.4,
+        "features": [
+            {
+                "name": "POWERS 5 INDICATORS OF BRAIN PERFORMANCE",
+                "desc": "The ingredients of Neuriva support 5 different indicators of brain performance: focus, memory, learning, accuracy and concentration"
+            },
+            {
+                "name": "CLINICALLY PROVEN NATURAL INGREDIENTS",
+                "desc": "Clinical studies have shown that coffee cherry (neurofactor) and plant-sourced PS (phosphatidylserine) enhance brain performance"
+            },
+            {
+                "name": "NEUROFACTOR, A POWERFUL EXTRACT",
+                "desc": "Neurofactor is an extract of whole fruit of the Coffea Arabica plant and has been shown to increase levels of BDNF. BDNF is short for brain-derived neurotrophic factor. This protein (which is found in the brain) BDNF has been widely studied and is known to support the survival of existing neurons and encourage the growth of new neurons"
+            }
+        ],
+        "medicine_description": "Neuriva Brain Performance is a rather new supplement to hit the market. Despite a rather thin ingredient list, the product has seen a lot of buzz from its customers. Many are wondering if Neuriva will live up to their claims. Neuriva is offered by Schiff Vitamins and can be found both online and in stores around the nation. Neuriva brain performance supplement",
+        "product_details": "Based on what’s been uncovered so far, there are some clear pros and cons to giving Neuriva a try. Schiff does offer a full refund within 30 days if the product is in saleable condition, but opened products will serve a 15% restocking fee. The customer is also responsible for return shipping."
+    },
+    {
+        "medicine_name": "SleepWell",
+        "image": "/src/assets/medicines/product-12-1.jpg",
+        "price": 899,
+        "available_quantity": 15,
+        "discount": 35,
+        "category": "Sleep Aid",
+        "tags": "Healthy, Vegetables",
+        "rating": 4.1,
+        "features": [
+            {
+                "name": "POWERS 5 INDICATORS OF BRAIN PERFORMANCE",
+                "desc": "The ingredients of Neuriva support 5 different indicators of brain performance: focus, memory, learning, accuracy and concentration"
+            },
+            {
+                "name": "CLINICALLY PROVEN NATURAL INGREDIENTS",
+                "desc": "Clinical studies have shown that coffee cherry (neurofactor) and plant-sourced PS (phosphatidylserine) enhance brain performance"
+            },
+            {
+                "name": "NEUROFACTOR, A POWERFUL EXTRACT",
+                "desc": "Neurofactor is an extract of whole fruit of the Coffea Arabica plant and has been shown to increase levels of BDNF. BDNF is short for brain-derived neurotrophic factor. This protein (which is found in the brain) BDNF has been widely studied and is known to support the survival of existing neurons and encourage the growth of new neurons"
+            }
+        ],
+        "medicine_description": "Neuriva Brain Performance is a rather new supplement to hit the market. Despite a rather thin ingredient list, the product has seen a lot of buzz from its customers. Many are wondering if Neuriva will live up to their claims. Neuriva is offered by Schiff Vitamins and can be found both online and in stores around the nation. Neuriva brain performance supplement",
+        "product_details": "Based on what’s been uncovered so far, there are some clear pros and cons to giving Neuriva a try. Schiff does offer a full refund within 30 days if the product is in saleable condition, but opened products will serve a 15% restocking fee. The customer is also responsible for return shipping."
+    },
+    {
+        "medicine_name": "SkinGlow",
+        "image": "/src/assets/medicines/product-12-2.jpg",
+        "price": 299,
+        "available_quantity": 10,
+        "discount": 25,
+        "category": "Skin Care",
+        "tags": "Healthy, Vegetables",
+        "rating": 4.6,
+        "features": [
+            {
+                "name": "POWERS 5 INDICATORS OF BRAIN PERFORMANCE",
+                "desc": "The ingredients of Neuriva support 5 different indicators of brain performance: focus, memory, learning, accuracy and concentration"
+            },
+            {
+                "name": "CLINICALLY PROVEN NATURAL INGREDIENTS",
+                "desc": "Clinical studies have shown that coffee cherry (neurofactor) and plant-sourced PS (phosphatidylserine) enhance brain performance"
+            },
+            {
+                "name": "NEUROFACTOR, A POWERFUL EXTRACT",
+                "desc": "Neurofactor is an extract of whole fruit of the Coffea Arabica plant and has been shown to increase levels of BDNF. BDNF is short for brain-derived neurotrophic factor. This protein (which is found in the brain) BDNF has been widely studied and is known to support the survival of existing neurons and encourage the growth of new neurons"
+            }
+        ],
+        "medicine_description": "Neuriva Brain Performance is a rather new supplement to hit the market. Despite a rather thin ingredient list, the product has seen a lot of buzz from its customers. Many are wondering if Neuriva will live up to their claims. Neuriva is offered by Schiff Vitamins and can be found both online and in stores around the nation. Neuriva brain performance supplement",
+        "product_details": "Based on what’s been uncovered so far, there are some clear pros and cons to giving Neuriva a try. Schiff does offer a full refund within 30 days if the product is in saleable condition, but opened products will serve a 15% restocking fee. The customer is also responsible for return shipping."
+    },
+    {
+        "medicine_name": "HairRevive",
+        "image": "/src/assets/medicines/product-14.jpg",
+        "price": 679,
+        "available_quantity": 18,
+        "discount": 0,
+        "category": "Hair Care",
+        "tags": "Healthy, Vegetables",
+        "rating": 4.3,
+        "features": [
+            {
+                "name": "POWERS 5 INDICATORS OF BRAIN PERFORMANCE",
+                "desc": "The ingredients of Neuriva support 5 different indicators of brain performance: focus, memory, learning, accuracy and concentration"
+            },
+            {
+                "name": "CLINICALLY PROVEN NATURAL INGREDIENTS",
+                "desc": "Clinical studies have shown that coffee cherry (neurofactor) and plant-sourced PS (phosphatidylserine) enhance brain performance"
+            },
+            {
+                "name": "NEUROFACTOR, A POWERFUL EXTRACT",
+                "desc": "Neurofactor is an extract of whole fruit of the Coffea Arabica plant and has been shown to increase levels of BDNF. BDNF is short for brain-derived neurotrophic factor. This protein (which is found in the brain) BDNF has been widely studied and is known to support the survival of existing neurons and encourage the growth of new neurons"
+            }
+        ],
+        "medicine_description": "Neuriva Brain Performance is a rather new supplement to hit the market. Despite a rather thin ingredient list, the product has seen a lot of buzz from its customers. Many are wondering if Neuriva will live up to their claims. Neuriva is offered by Schiff Vitamins and can be found both online and in stores around the nation. Neuriva brain performance supplement",
+        "product_details": "Based on what’s been uncovered so far, there are some clear pros and cons to giving Neuriva a try. Schiff does offer a full refund within 30 days if the product is in saleable condition, but opened products will serve a 15% restocking fee. The customer is also responsible for return shipping."
+    }
+]

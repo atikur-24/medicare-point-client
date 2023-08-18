@@ -17,7 +17,7 @@ const Product1 = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.slice(0, 4).map((product, index) => (
           <div key={index}>
-            <div className="card w-full bg-[#d9d9d9] shadow-xl border-[1px] border-slate-300">
+            <div className="card w-full bg-[#d9d9d9] shadow-xl border border-gray-3">
               <figure>
                 <img src={product?.image_url} alt="Shoes" className=" h-52 w-full" />
               </figure>
