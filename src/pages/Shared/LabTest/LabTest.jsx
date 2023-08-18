@@ -1,3 +1,4 @@
+import CheckCard from "./CheckCard";
 import LabBanner from "./LabBanner";
 import LabSearch from "./LabSearch";
 import PopularLab from "./PopularLab";
@@ -7,6 +8,7 @@ const LabTest = () => {
   return (
     <div className="bg-lite">
       <LabBanner />
+      <CheckCard />
       <div className="my-container">
         <LabSearch />
         <PopularLab />
