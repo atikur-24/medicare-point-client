@@ -13,7 +13,8 @@ import ResponsiveNavbar from "./ResponsiveNavbar/ResponsiveNavbar";
 import Search from "./Search/Search";
 
 const Navbar = () => {
-  const { user, logOut } = useAuth();
+  const { user, logOut, setRole } = useAuth();
+
   const menuItems = (
     <>
       <li>
@@ -30,6 +31,9 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to="#">Services</NavLink>
+      </li>
+      <li>
+        <NavLink to="/blogs">Blogs</NavLink>
       </li>
       <li>
         <NavLink to="/about-us">About Us</NavLink>
@@ -87,17 +91,67 @@ const Navbar = () => {
                   transition
                 >
                   {user ? (
-                    <MenuItem>
-                      <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
-                        LogOut
-                      </button>
-                    </MenuItem>
+                    <div>
+                      <MenuItem>
+                        <NavLink
+                          to="/dashboard"
+                          type="submit"
+                          className="font-semibold text-neutral-600"
+                          onClick={handelLogOut}
+                        >
+                          Log Out
+                        </NavLink>
+                      </MenuItem>
+                      <MenuItem>
+                        <NavLink
+                          to="/dashboard"
+                          type="submit"
+                          className="font-semibold text-neutral-600"
+                          onClick={() => setRole("User")}
+                        >
+                          User
+                        </NavLink>
+                      </MenuItem>
+                      <MenuItem>
+                        <NavLink
+                          to="/dashboard"
+                          type="submit"
+                          className="font-semibold text-neutral-600"
+                          onClick={() => setRole("Pharmacist")}
+                        >
+                          Pharmacist
+                        </NavLink>
+                      </MenuItem>
+                      <MenuItem>
+                        <NavLink
+                          to="/dashboard"
+                          type="submit"
+                          className="font-semibold text-neutral-600"
+                          onClick={() => setRole("Admin")}
+                        >
+                          Admin
+                        </NavLink>
+                      </MenuItem>
+                    </div>
                   ) : (
-                    <MenuItem>
-                      <Link className=" font-semibold text-neutral-600" to="/login">
-                        Login
-                      </Link>
-                    </MenuItem>
+                    <div>
+                      <MenuItem>
+                        <Link
+                          className=" font-semibold text-neutral-600"
+                          to="/login"
+                        >
+                          Login
+                        </Link>
+                      </MenuItem>
+                      <MenuItem>
+                        <Link
+                          className=" font-semibold text-neutral-600"
+                          to="/signUp"
+                        >
+                          Sign Up
+                        </Link>
+                      </MenuItem>
+                    </div>
                   )}
                   {/* <MenuItem>
                     <Link className=" font-semibold text-neutral-600" to="/signUp">
@@ -115,7 +169,9 @@ const Navbar = () => {
         {/* TODO: bg color */}
         <div className="nav-container ">
           <div className="py-2">
-            <ul className="flex items-center justify-between text-md font-semibold text-gray-5 hover:text-gray-6">{menuItems}</ul>
+            <ul className="flex items-center justify-between text-md font-semibold text-gray-5 hover:text-gray-6">
+              {menuItems}
+            </ul>
           </div>
         </div>
       </div>
