@@ -100,9 +100,9 @@ const SignUp = () => {
             />
           </div>
           <div>
-            <div className="card w-full md:p-12">
+            <div className="card w-full md:p-12 card-body">
               <h1 className="text-2xl md:text-4xl font-semibold text-my-primary text-center">Sign Up !!</h1>
-              <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+              <form onSubmit={handleSubmit(onSubmit)} className="">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">
@@ -201,23 +201,23 @@ const SignUp = () => {
                     Register
                   </button>
                 </div>
-                <div className="divider">OR</div>
-                <div className="form-control">
-                  <button type="submit" onClick={handleGoogleSignIn} className="my-btn w-full mx-auto">
-                    <FaGoogle className="inline-block" />
-                    Google Sign In
-                  </button>
-                </div>
-                <label className="label">
-                  <p>
-                    Already Have An Account ?
-                    <Link to="/login" className="underline text-red-400">
-                      {" "}
-                      Login
-                    </Link>
-                  </p>
-                </label>
               </form>
+              <div className="divider">OR</div>
+              <div className="form-control">
+                <button type="submit" onClick={handleGoogleSignIn} className="my-btn w-full mx-auto">
+                  <FaGoogle className="inline-block" />
+                  Google Sign In
+                </button>
+              </div>
+              <label className="label">
+                <p>
+                  Already Have An Account ?
+                  <Link to="/login" className="underline text-red-400">
+                    {" "}
+                    Login
+                  </Link>
+                </p>
+              </label>
             </div>
           </div>
         </div>
