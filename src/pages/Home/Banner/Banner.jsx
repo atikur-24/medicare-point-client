@@ -10,10 +10,14 @@ import image4 from "../../../assets/images/banner/image4.webp";
 import image5 from "../../../assets/images/banner/image5.webp";
 import image6 from "../../../assets/images/banner/image6.webp";
 import image7 from "../../../assets/images/banner/image7.webp";
+import Search from "../../Shared/Navbar/Search/Search";
 
 const Banner = () => {
   return (
     <div className="">
+      <div className="px-4 py-2 block md:hidden">
+        <Search />
+      </div>
       <Swiper
         spaceBetween={30}
         centeredSlides
