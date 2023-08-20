@@ -8,7 +8,7 @@ const ChooseUs = () => (
   <div className="my-container">
     <SectionTitle
       title="why choose us"
-      content="Our team of experts is dedicated to providing guidance and assistance to empower you to make informed decisions about your health. We take pride in our reliable and efficient doorstep delivery, ensuring that your essential items reach you promptly and hassle-free."
+      content="Our team of experts is dedicated to providing guidance and assistance to empower you to make informed decisions about your health. We take pride in our reliable and efficient doorstep delivery."
     />
     <div className=" grid mt-24 md:grid-cols-2 lg:grid-cols-4 gap-10">
       {/* one  */}
@@ -16,8 +16,8 @@ const ChooseUs = () => (
         <div className="choose-outside">
           <div className="w-full choose-inside   pt-8 px-8 rounded-lg">
             <div className="py-8">
-              <h2 className="text-xl font-bold">Best service</h2>
-              <p>Lorem, ipsum dolor sit amet consectetur </p>
+              <h2 className="text-xl font-bold">Trusted</h2>
+              <p className="text-gray-6">Your reliable source for quality products</p>
             </div>
           </div>
         </div>
@@ -31,8 +31,8 @@ const ChooseUs = () => (
         <div className="choose-outside">
           <div className="w-full choose-inside   pt-8 px-8 rounded-lg">
             <div className="py-8">
-              <h2 className="text-xl font-bold">Best service</h2>
-              <p>Lorem, ipsum dolor sit amet consectetur </p>
+              <h2 className="text-xl font-bold">Best Service</h2>
+              <p className="text-gray-6">Exceptional care, every step of the way.</p>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@ const ChooseUs = () => (
           <div className="w-full choose-inside pt-8 px-8 rounded-lg">
             <div className="py-8">
               <h2 className="text-xl font-bold">Analytics & Reports</h2>
-              <p>Lorem, ipsum dolor sit amet consectetur </p>
+              <p className="text-gray-6">Data-driven insights for smart decisions.</p>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@ const ChooseUs = () => (
           <div className="w-full choose-inside   pt-8 px-8 rounded-lg">
             <div className="py-8">
               <h2 className="text-xl font-bold">Expiry Management</h2>
-              <p>Lorem, ipsum dolor sit amet consectetur </p>
+              <p className="text-gray-6">We are Ensuring freshness Product, always.</p>
             </div>
           </div>
         </div>
