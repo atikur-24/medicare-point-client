@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./OfferBanner.css";
 
 const OfferBanner = ({ discount, img_ad, title }) => {
@@ -20,9 +21,9 @@ const OfferBanner = ({ discount, img_ad, title }) => {
       </div>
       <div className="shape_iii absolute top-0 left-[30%] z-10 w-[50%] flex flex-col gap-4 justify-center items-center">
         <h2 className="text-2xl  text-white font-bold uppercase  ">{title}</h2>
-        <button type="button" className="btn ">
+        <Link to="/medicines" type="button" className="btn ">
           order now
-        </button>
+        </Link>
       </div>
     </div>
   );

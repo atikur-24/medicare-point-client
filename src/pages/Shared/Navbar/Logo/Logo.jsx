@@ -3,8 +3,13 @@ import logo from "../../../../assets/Logo/logo.svg";
 
 const Logo = () => {
   return (
-    <Link to="/">
-      <img className="w-32 lg:w-40" src={logo} alt="Medicare Point" height="100" width="100" />
+    <Link to="/" className="flex gap-2 items-center">
+      <img className="w-20" src={logo} alt="Medicare Point" height="100" width="100" />
+      <div
+        className=" text-center font-bold -space-y-1 text-lg"
+      >
+        <p className="text-my-primary "> Medicare</p> <p className="text-my-accent ">Point</p>
+      </div>
     </Link>
   );
 };
