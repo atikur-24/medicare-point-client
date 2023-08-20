@@ -2,18 +2,15 @@
 /* eslint-disable import/no-unresolved */
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import { FiArrowRight } from "react-icons/fi";
-// import moduleName from "../../../assets/images/AD/medicine.png";
-import medsine from "../../../assets/images/services/features.jpg";
-import SectionTitle from "../../../components/SectionTitle";
-import PainProduct from "./PainProduct";
-
-// eslint-disable-next-line import/no-unresolved
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import bannerImage from "../../../assets/images/services/01.jpg";
+import bannerBackground from "../../../assets/images/services/features.jpg";
+import SectionTitle from "../../../components/SectionTitle";
 import CommonBanner from "../../Shared/CommonBanner/CommonBanner";
+import PainProduct from "./PainProduct";
 
 const PainProducts = () => {
   const [products, setProducts] = useState([]);
@@ -84,7 +81,16 @@ const PainProducts = () => {
           </div>
         </div>
       </div>
-      <CommonBanner bgImage={medsine} height="400px" />
+      <CommonBanner
+        bgImage={bannerBackground}
+        height="400px"
+        button="this is my button"
+        image={bannerImage}
+        title="See Our Products"
+        subtitle="We have several product candidates in development that we believe have been significantly de-risked."
+        description="been significantly de-risked. At vero eos et accusam justo duo dolores etea rebuitet clita kasd gubergren nosea takimata sanctus est lorem ipsum dolor consetetur sadipscing elitr sed
+        diam nonumy eirmod tempor invidunt ut labore magna aliquyam sedam voluptua at vero eos et accusam et justo duo dolores"
+      />
     </>
   );
 };
