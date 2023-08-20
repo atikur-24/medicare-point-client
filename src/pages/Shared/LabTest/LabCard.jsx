@@ -18,7 +18,7 @@ const LabCard = ({ category }) => {
       </div>
       <p className="font-bold my-2 text-my-pink">৳{remaining}</p>
       <div className="">
-        <button type="button" className="btn cart-btn">
+        <button type="button" className="btn cart-btn w-full">
           Add To Cart
         </button>
       </div>
