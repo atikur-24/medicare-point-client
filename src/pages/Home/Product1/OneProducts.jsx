@@ -2,8 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import moduleName from "../../../assets/images/AD/medicine.png";
-import Heading from "../../Shared/Heading/Heading";
 import OnProduct from "./OneProduct";
+import SectionTitle from "../../../components/SectionTitle";
 
 const OneProducts = () => {
   const [products, setProducts] = useState([]);
@@ -15,8 +15,7 @@ const OneProducts = () => {
 
   return (
     <div className="my-container my-10">
-      <Heading title="Pain Relief" center />
-
+      <SectionTitle title="Pain Relief" content="Pain Relief medicines is like a helper for when something hurts. It's a way to make the hurt feel better." />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.slice(0, 4).map((product, index) => (
           <OnProduct key={index} product={product} />
