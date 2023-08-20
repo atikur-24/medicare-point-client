@@ -30,8 +30,8 @@ const HighestSellings = () => {
             modules={[Pagination]}
             className="mySwiper"
           >
-            {headingSMedicines.map((medicine, index) => (
-              <SwiperSlide key={index}>
+            {headingSMedicines.map((medicine) => (
+              <SwiperSlide key={medicine?._id}>
                 <HSMedicine medicine={medicine} />
               </SwiperSlide>
             ))}
