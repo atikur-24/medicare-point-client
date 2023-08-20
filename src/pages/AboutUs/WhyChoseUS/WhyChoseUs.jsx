@@ -12,7 +12,7 @@ const WhyChoseUs = () => {
         <img className="w-11/12" src={whyUs} alt="why us images" />
       </div>
       <div className="w-full space-y-8">
-        <div className="bg-white rounded-md p-6 flex gap-6">
+        <div className="bg-white rounded-md p-6 flex gap-6 border-[1px] border-gray-3 shadow-md">
           <div className=" text-my-primary text-5xl">
             <FaHeartbeat />
           </div>
@@ -21,7 +21,7 @@ const WhyChoseUs = () => {
             <p className="text-gray-5">Honesty and transparency build trust through truthful, open, and sincere interactions, fostering strong relationships.</p>
           </div>
         </div>
-        <div className="bg-white rounded-md p-6 flex gap-6">
+        <div className="bg-white rounded-md p-6 flex gap-6 border-[1px] border-gray-3 shadow-md">
           <div className=" text-my-primary text-5xl">
             <MdOutlineDiscount />
           </div>
@@ -30,7 +30,7 @@ const WhyChoseUs = () => {
             <p className="text-gray-5">Additional price reduction offered, enhancing value and incentivizing purchases, for a limited time or quantity.</p>
           </div>
         </div>
-        <div className="bg-white rounded-md p-6 flex gap-6">
+        <div className="bg-white rounded-md p-6 flex gap-6 border-[1px] border-gray-3 shadow-md">
           <div className=" text-my-primary text-5xl">
             <TbTruckDelivery />
           </div>

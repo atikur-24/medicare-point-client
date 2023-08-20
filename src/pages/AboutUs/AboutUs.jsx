@@ -5,15 +5,13 @@ import WhyChoseUs from "./WhyChoseUS/WhyChoseUs";
 
 const AboutUs = () => {
   return (
-    <section className=" bg-lite ">
-      <div className=" my-container ">
-        <HowAreUs />
-        <Medilazar />
-        <OurPromise />
-        <WhyChoseUs />
-        {/* <Values /> */}
-      </div>
-    </section>
+    <div className=" my-container ">
+      <HowAreUs />
+      <Medilazar />
+      <OurPromise />
+      <WhyChoseUs />
+      {/* <Values /> */}
+    </div>
   );
 };
 
