@@ -2,16 +2,18 @@ import { FaAngleDown } from "react-icons/fa";
 
 const LabDetails = ({ open, toggleOpen }) => {
   return (
-    <div className={`${open ? "hidden" : "block right-0 bottom-0"} z-50 fixed  bg-card border-2 border-my-primary rounded-l-lg h-[670px] md:w-96 w-full overflow-auto  `}>
-      <div className="fixed  rounded-l-lg w-full p-2 bg-lite border border-gray-3">
-        <div className="flex gap-6">
-          <p className="text-lg text-title-color font-medium">1 Item added to your cart</p>
-          <button onClick={toggleOpen} type="button" className=" capitalize text-my-primary font-bold inline-flex items-center">
-            Show Less
-            <span>
-              <FaAngleDown className="w-6 h-6" />
-            </span>
-          </button>
+    <div className={`${open ? "hidden" : "block"} z-50 fixed  bg-lite border-2 border-my-primary rounded-l-lg h-[670px] md:w-96 w-full overflow-auto right-0 bottom-0  `}>
+      <div className="relative">
+        <div className="fixed rounded-t-lg  p-2 bg-card border-b-2 border-my-primary">
+          <div className="flex gap-6">
+            <p className="text-lg text-title-color font-medium">1 Item added to your cart</p>
+            <button onClick={toggleOpen} type="button" className=" capitalize text-my-primary font-medium inline-flex items-center">
+              Show Less
+              <span>
+                <FaAngleDown className="w-6 h-6" />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
       <div className="p-4 my-10">
