@@ -75,7 +75,7 @@ const Navbar = () => {
     // TODO: bg color
     <div className="">
       <div className="nav-container ">
-        <div className=" hidden md:block">
+        <div className="hidden md:block">
           <div className="flex items-center justify-between py-2 ">
             <div className="flex items-center gap-10 justify-between">
               <Logo />
