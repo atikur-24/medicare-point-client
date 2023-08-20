@@ -4,11 +4,7 @@ const Search = () => {
   return (
     <div>
       <form className="flex items-center relative">
-        <input
-          className="w-full lg:w-[450px] h-10 rounded-xl md:rounded-full dropdown-end shadow-lg px-6 focus:input-bordered input-accent"
-          type="text"
-          placeholder="Search Medicines"
-        />
+        <input className="w-full lg:w-[450px] h-10 rounded-full  dropdown-end shadow-md border-[1px] border-gray-3 px-6 focus:input-bordered input-accent" type="text" placeholder="Search Medicines" />
         <div className="pr-3 cursor-pointer right-0 absolute bg-my-primary h-full rounded-e-full">
           <FiSearch className="text-3xl text-white mt-[5px] ml-2" />
         </div>
