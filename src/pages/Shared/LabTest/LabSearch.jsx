@@ -10,8 +10,8 @@ const LabSearch = () => {
           <FiSearch className="text-3xl text-white" />
         </button>
       </form>
-      <div className="md:w-[40%] border border-gray-3 flex items-center justify-between px-4 rounded-lg py-2 bg-white ">
-        <p className="inline-flex items-center gap-4 font-medium  md:text-lg">
+      <div className="md:w-[40%] gap-6 md:gap-0 border border-gray-3 flex md:items-center md:justify-between px-4 rounded-lg py-2 bg-white flex-col md:flex-row ">
+        <p className="inline-flex  items-center gap-4 font-medium  md:text-lg">
           <AiFillThunderbolt className="w-6 h-6 text-[#f59e0b]" />
           Upto 30% Of
         </p>
