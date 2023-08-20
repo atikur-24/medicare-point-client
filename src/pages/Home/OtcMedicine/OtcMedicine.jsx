@@ -11,7 +11,7 @@ const OtcMedicine = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-card">
       <div className="my-container">
         <SectionTitle title="Otc Medicines" content="Easy Access to OTC Medicines, Your Trusted Solution for Common Health Needs. Shop Now for Affordable and Effective Relief." />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
