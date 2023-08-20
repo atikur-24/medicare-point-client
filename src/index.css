@@ -16,6 +16,13 @@
   background: none !important;
 }
 
+.active {
+  @apply font-bold text-lg  md:text-lg tracking-wide   text-title-color  uppercase underline decoration-my-primary decoration-4 underline-offset-8;
+}
+.default {
+  @apply font-bold text-base md:text-lg px-2 text-title-color tracking-wide  uppercase  hover:text-my-primary ;
+}
+
 /* feedback  */
 .bg-card {
   background-color: transparent;
@@ -62,3 +69,4 @@
     font-family: "Inter", sans-serif;
   }
 }
+

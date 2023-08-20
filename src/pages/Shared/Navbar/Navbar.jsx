@@ -5,6 +5,7 @@ import "@szhsin/react-menu/dist/transitions/slide.css";
 import { Link, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import ActiveLink from "./ActiveLink/ActiveLink";
 import Avatar from "./Avatar/Avatar";
 import Lang from "./Language/Lang";
 import Logo from "./Logo/Logo";
@@ -18,28 +19,28 @@ const Navbar = () => {
   const menuItems = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <ActiveLink to="/">Home</ActiveLink>
       </li>
       <li>
-        <NavLink to="/medicines">Medicines</NavLink>
+        <ActiveLink to="/medicines">Medicines</ActiveLink>
       </li>
       <li>
-        <NavLink to="/lab-test">Lab Test</NavLink>
+        <ActiveLink to="/lab-test">Lab Test</ActiveLink>
       </li>
       <li>
-        <NavLink to="/healthtips">Health Tips </NavLink>
+        <ActiveLink to="/healthtips">Health Tips </ActiveLink>
       </li>
       <li>
-        <NavLink to="/services">Services</NavLink>
+        <ActiveLink to="/services">Services</ActiveLink>
       </li>
       <li>
-        <NavLink to="/blogs">Blogs</NavLink>
+        <ActiveLink to="/blogs">Blogs</ActiveLink>
       </li>
       <li>
-        <NavLink to="/about-us">About Us</NavLink>
+        <ActiveLink to="/about-us">About Us</ActiveLink>
       </li>
       <li>
-        <NavLink to="/contract">Contacts</NavLink>
+        <ActiveLink to="/contract">Contacts</ActiveLink>
       </li>
       <li>
         <details className="dropdown dropdown-end">
