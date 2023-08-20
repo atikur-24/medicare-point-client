@@ -10,13 +10,13 @@ const customStyles = {
   inactiveFillColor: "#DEE1E6",
 };
 
-const HSMedicine = ({ medicine }) => {
+const PainProduct = ({ medicine }) => {
   const { _id, medicine_name, image, price, category, rating, discount } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity: 1, category };
 
   return (
     <div>
-      <div className="card card-compact bg-white rounded-md hover:shadow-lg transition-shadow relative group">
+      <div className="card card-compact bg-white rounded-md hover:shadow-lg transition-shadow relative group border-[1px] border-gray-3">
         {discount > 0 && <p className="bg-my-accent z-10 rounded-md py-1 px-2 text-xs font-medium text-white absolute top-4 left-4">-{discount}% OFF</p>}
         <div className="card-body space-y-2 lg:space-y-3">
           <Link to={`/details/${_id}`}>
@@ -50,4 +50,4 @@ const HSMedicine = ({ medicine }) => {
   );
 };
 
-export default HSMedicine;
+export default PainProduct;
