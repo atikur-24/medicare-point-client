@@ -2,7 +2,7 @@
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import ActiveLink from "./ActiveLink/ActiveLink";
@@ -15,6 +15,7 @@ import Search from "./Search/Search";
 
 const Navbar = () => {
   const { user, logOut, setRole } = useAuth();
+  const navigate = useNavigate();
 
   const menuItems = (
     <>
@@ -66,6 +67,7 @@ const Navbar = () => {
           showConfirmButton: false,
           timer: 2000,
         });
+        navigate("/");
       })
       .catch(() => {});
   };
@@ -92,40 +94,28 @@ const Navbar = () => {
                   transition
                 >
                   {user ? (
-                    <div>
-                      <MenuItem>
-                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
-                          Log Out
-                        </NavLink>
-                      </MenuItem>
-                      <MenuItem>
-                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("User")}>
-                          User
-                        </NavLink>
-                      </MenuItem>
-                      <MenuItem>
-                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Pharmacist")}>
-                          Pharmacist
-                        </NavLink>
-                      </MenuItem>
-                      <MenuItem>
-                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Admin")}>
-                          Admin
-                        </NavLink>
-                      </MenuItem>
+                    <div className="flex flex-col">
+                      <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
+                        <MenuItem>Log Out</MenuItem>
+                      </NavLink>
+                      <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("User")}>
+                        <MenuItem>User</MenuItem>
+                      </NavLink>
+                      <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Pharmacist")}>
+                        <MenuItem>Pharmacist</MenuItem>
+                      </NavLink>
+                      <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Admin")}>
+                        <MenuItem>Admin</MenuItem>
+                      </NavLink>
                     </div>
                   ) : (
                     <div>
-                      <MenuItem>
-                        <Link className=" font-semibold text-neutral-600" to="/login">
-                          Login
-                        </Link>
-                      </MenuItem>
-                      <MenuItem>
-                        <Link className=" font-semibold text-neutral-600" to="/signUp">
-                          Sign Up
-                        </Link>
-                      </MenuItem>
+                      <Link className=" font-semibold text-neutral-600" to="/login">
+                        <MenuItem>Login</MenuItem>
+                      </Link>
+                      <Link className=" font-semibold text-neutral-600" to="/signUp">
+                        <MenuItem>Sign Up</MenuItem>
+                      </Link>
                     </div>
                   )}
                   {/* <MenuItem>
