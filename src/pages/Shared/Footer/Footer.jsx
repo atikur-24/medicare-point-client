@@ -2,7 +2,7 @@
 /* eslint-disable import/no-unresolved */
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "../../../assets/images/logo.svg";
+import logo from "../../../assets/Logo/footer.svg";
 import google_pay from "../../../assets/payment-icon/google-pay.svg";
 import mastercard from "../../../assets/payment-icon/mastercard.svg";
 import paytm from "../../../assets/payment-icon/paytm.svg";
@@ -17,9 +17,11 @@ const Footer = () => {
       <div className="bg-[url('assets/images/footer.png')] bg-black bg-no-repeat  lg:h-[750px] ">
         <div className="pb-[50px] pt-[100px] lg:pt-[150px] lg:px-8  mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl">
           <div className="px-10 lg:px-0 flex flex-col lg:flex-row justify-between gap-6  ">
-            <div className="space-y-4">
-              <img className="w-20" src={logo} alt="" />
-              <h2 className="text-4xl font-bold text-white mt-2 font-bubblegum">MediCare Point </h2>
+            <div className="space-y-6">
+              <div className="flex items-center gap-6">
+                <img className="w-28 md:w-32" src={logo} alt="" />
+                <h2 className="text-xl lg:text-3xl font-bold text-white mt-2 font-bubblegum">MediCare Point </h2>
+              </div>
               <p className="lg:w-96 text-white  text-justify">
                 Lorem ipsum dolor sit amet, consectt dipiscing elit esent vestibulum molestie lacus. Aenean nonmy hendrerit mauris. Phasellus porta. Fusce suit varius mi. Cum sociis natoque penatibus
                 et magnis dis parturient montes.
