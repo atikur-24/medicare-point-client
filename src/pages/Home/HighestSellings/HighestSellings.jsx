@@ -6,8 +6,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Heading from "../../Shared/Heading/Heading";
 import HSMedicine from "./HSMedicine";
+import SectionTitle from "../../../components/SectionTitle";
 
 const HighestSellings = () => {
   const [headingSMedicines, setHeadingSMedicines] = useState([]);
@@ -17,7 +17,7 @@ const HighestSellings = () => {
 
   return (
     <div className="my-container py-10 px-4 rounded-lg bg-lite">
-      <Heading title="Highest selling Medicine " center />
+      <SectionTitle title="Shop by Category" content="This is the most bought and used treatment for health issues. Many people trust and use it to feel better." />
 
       <div className="hidden lg:block">
         <Swiper
