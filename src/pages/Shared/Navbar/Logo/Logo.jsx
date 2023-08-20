@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../../../../public/medicare-logo-color.png";
+import logo from "../../../../assets/Logo/logo.svg";
 
 const Logo = () => {
   return (
