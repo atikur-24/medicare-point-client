@@ -39,20 +39,20 @@ const Contract = () => {
         <div className="my-16">
           <div className="flex justify-between gap-10">
             <div className="w-full hidden  md:block">
-              <h2 className="text-4xl font-bold">Get in touch</h2>
+              <h2 className="text-4xl font-bold mb-5">Get in touch</h2>
               <p className="text-gray-5">
                 We're collaborating with some of the largest brands in the world, as well as with startups. We’d love to learn your needs, vision and explore how we can assist exceeding your goals.
               </p>
             </div>
             <div className="md:block hidden w-full">
-              <h2 className="text-4xl font-bold ">Contract Us</h2>
+              <h2 className="text-4xl font-bold mb-5">Contract Us</h2>
               <p className="text-gray-5">Here are Us contract Information. Feel free to contract with us or send message by this contract form. </p>
             </div>
           </div>
           <div className="flex flex-col flex-col-reverse md:flex-row justify-between items-center gap-10">
             <div className="w-full space-y-6">
               <div className="md:hidden">
-                <h2 className="text-4xl font-bold">Get in touch</h2>
+                <h2 className="text-4xl font-bold mb-5">Get in touch</h2>
                 <p className="text-gray-5">
                   We're collaborating with some of the largest brands in the world, as well as with startups. We’d love to learn your needs, vision and explore how we can assist exceeding your goals.
                 </p>
@@ -63,7 +63,7 @@ const Contract = () => {
             </div>
             <div className="w-full space-y-6">
               <div className="md:hidden">
-                <h2 className="text-4xl font-bold ">Contract Us</h2>
+                <h2 className="text-4xl font-bold mb-5 ">Contract Us</h2>
                 <p className="text-gray-5">Here are Us contract Information. Feel free to contract with us or send message by this contract form. </p>
               </div>
               <div>
