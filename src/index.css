@@ -9,7 +9,7 @@
 }
 
 .my-container {
-  @apply px-4 md:px-6  container py-14 mx-auto lg:py-16;
+  @apply px-4 md:px-6 container py-14 mx-auto lg:py-16;
 }
 
 .swiper-slide {
@@ -17,10 +17,10 @@
 }
 
 .active {
-  @apply font-bold text-lg  md:text-lg tracking-wide   text-title-color  uppercase underline decoration-my-primary decoration-4 underline-offset-8;
+  @apply font-bold text-base tracking-wide   text-title-color  uppercase underline decoration-my-primary decoration-2 underline-offset-8;
 }
 .default {
-  @apply font-bold text-base md:text-lg px-2 text-title-color tracking-wide  uppercase  hover:text-my-primary ;
+  @apply font-bold text-base px-2 text-gray-6 tracking-wide  uppercase  hover:text-my-primary;
 }
 
 /* feedback  */
@@ -69,4 +69,3 @@
     font-family: "Inter", sans-serif;
   }
 }
-
