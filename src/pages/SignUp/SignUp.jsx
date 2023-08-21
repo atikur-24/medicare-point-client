@@ -6,6 +6,7 @@ import { ImWarning } from "react-icons/im";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { addUser } from "../../hooks/userApi";
 import Logo from "../Shared/Navbar/Logo/Logo";
 
 const SignUp = () => {
@@ -45,7 +46,7 @@ const SignUp = () => {
         } else {
           setError("");
           createUser(data?.email, data?.password)
-            .then(() => {
+            .then((result) => {
               updateUserProfile(data?.name, imageUrl)
                 .then(() => {
                   setError("");
@@ -57,6 +58,7 @@ const SignUp = () => {
                   });
 
                   navigate(from, { replace: true });
+                  addUser(result?.user);
                 })
                 .catch((err) => {
                   setError(err.message);
@@ -82,6 +84,7 @@ const SignUp = () => {
           });
         }
         navigate(from, { replace: true });
+        addUser(result?.user);
       })
       .catch((err) => {
         setError(err.message);
