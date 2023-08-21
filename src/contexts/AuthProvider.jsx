@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
