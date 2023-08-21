@@ -3,12 +3,17 @@ import { useEffect, useState } from "react";
 
 import Swal from "sweetalert2";
 import AddLabCard from "./AddLabCard";
+import UpdateLabTest from "./UpdateLabTest";
 
 // Todo
 const AllAvailableTest = () => {
   const [lab, setLab] = useState([]);
+  const [singleData, setSingleData] = useState({});
+
   useEffect(() => {
-    axios.get(`http://localhost:5000/labAllItems`).then((res) => setLab(res?.data));
+    axios
+      .get(`http://localhost:5000/labAllItems`)
+      .then((res) => setLab(res?.data));
   }, []);
 
   const handlerDelete = (id) => {
@@ -33,11 +38,19 @@ const AllAvailableTest = () => {
 
   return (
     <div className="px-2 md:px-5">
-      <h3 className="text-center text-3xl my-7 font-semibold">All Available Tests</h3>
+      <h3 className="text-center text-3xl my-7 font-semibold">
+        All Available Tests
+      </h3>
+      <UpdateLabTest singleData={singleData} />
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-5">
         {lab.map((category) => (
-          <AddLabCard key={category._id} category={category} handlerDelete={handlerDelete} />
+          <AddLabCard
+            key={category._id}
+            category={category}
+            handlerDelete={handlerDelete}
+            setSingleData={setSingleData}
+          />
         ))}
       </div>
     </div>
