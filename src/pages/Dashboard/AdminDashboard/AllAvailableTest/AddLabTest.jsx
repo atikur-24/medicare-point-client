@@ -56,6 +56,9 @@ const AddLabTest = () => {
   const onSubmit = (data) => {
     data.price = parseInt(data.price, 10);
     data.discount = parseInt(data.discount, 10);
+    const price = (data.price * data.discount) / 100;
+    const remaining = parseInt(data.price - price, 10);
+    data.remaining = remaining;
 
     // Image Upload
     const image = data.image_url[0];
@@ -74,7 +77,7 @@ const AddLabTest = () => {
           if (item.data.insertedId) {
             Swal.fire({
               title: "success",
-              text: "Lab add",
+              text: "Lab added Successfully",
               icon: "success",
               confirmButtonText: "Cool",
             });
@@ -97,7 +100,7 @@ const AddLabTest = () => {
           <div className="two-input-field lg:flex gap-5">
             <div>
               <label className="label">
-                <span className="label-text md:text-base font-bold font-nunito">Email</span>
+                <span className="label-text md:text-base font-bold font-nunito">Test Name</span>
               </label>
               <input required placeholder="Enter lab test name" type="text" {...register("test_name")} className="w-full max-w-md  outline-none" />
             </div>
