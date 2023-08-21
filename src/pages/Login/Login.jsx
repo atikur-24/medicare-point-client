@@ -6,6 +6,7 @@ import { ImWarning } from "react-icons/im";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { addUser } from "../../hooks/userApi";
 import Logo from "../Shared/Navbar/Logo/Logo";
 
 const Login = () => {
@@ -36,6 +37,7 @@ const Login = () => {
             showConfirmButton: false,
             timer: 2500,
           });
+          console.log(result.user);
         }
         setError("");
         navigate(from, { replace: true });
@@ -58,6 +60,7 @@ const Login = () => {
           });
         }
         navigate(from, { replace: true });
+        addUser(result?.user);
       })
       .catch((err) => {
         setError(err.message);
