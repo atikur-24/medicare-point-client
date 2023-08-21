@@ -26,7 +26,7 @@ const LabTestPage = () => {
         <p className="inline-flex gap-2 items-center mb-4 text-xl font-bold font-nunito">
           Lab Test <FaAngleRight /> {labCategory[0]?.category_name}
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-5 gap-4 justify-center">
           {labItems.map((category) => (
             <LabCard key={category._id} category={category} />
           ))}
