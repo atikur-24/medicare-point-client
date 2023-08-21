@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import "./LabStyle.css";
 // import required modules
 import axios from "axios";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import { FreeMode, Pagination } from "swiper/modules";
 import LabTitle from "./LabTitle";
 import PopularCategories from "./PopularCategories";
@@ -20,25 +21,66 @@ const PopularLab = () => {
     axios.get("http://localhost:5000/labCategories").then((res) => setCategories(res?.data));
   }, []);
   return (
-    <div>
-      <LabTitle title="Lab CATEGORIES" />
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        freeMode
-        pagination={{
-          clickable: true,
-        }}
-        modules={[FreeMode, Pagination]}
-        className="mySwiper"
-      >
-        {categories.map((category) => (
-          <SwiperSlide className="swiper-slide-d mt-10" key={category._id}>
-            <PopularCategories category={category} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+    <>
+      <div className="hidden md:block ">
+        <LabTitle title="Lab CATEGORIES" />
+        <Swiper
+          slidesPerView={7}
+          spaceBetween={30}
+          freeMode
+          pagination={{
+            clickable: true,
+          }}
+          modules={[FreeMode, Pagination]}
+          className="mySwiper relative"
+        >
+          {categories.map((category) => (
+            <SwiperSlide className=" mt-10 " key={category._id}>
+              <PopularCategories category={category} />
+            </SwiperSlide>
+          ))}
+          <div className="absolute top-1/2 right-4 z-10">
+            <button type="button" className=" bg-white ">
+              <FaArrowCircleRight className="w-8 h-8 text-my-primary" />
+            </button>
+          </div>
+          <div className="absolute top-1/2 left-0 z-10">
+            <button type="button" className=" bg-white ">
+              <FaArrowCircleLeft className="w-8 h-8 text-my-primary" />
+            </button>
+          </div>
+        </Swiper>
+      </div>
+      <div className="block md:hidden">
+        <LabTitle title="Lab CATEGORIES" />
+        <Swiper
+          slidesPerView={2}
+          spaceBetween={10}
+          freeMode
+          pagination={{
+            clickable: true,
+          }}
+          modules={[FreeMode, Pagination]}
+          className="mySwiper relative"
+        >
+          {categories.map((category) => (
+            <SwiperSlide className=" mt-10" key={category._id}>
+              <PopularCategories category={category} />
+            </SwiperSlide>
+          ))}
+          <div className="absolute top-1/2 right-4 z-10">
+            <button type="button" className=" bg-white ">
+              <FaArrowCircleRight className="w-6 h-6 text-my-primary" />
+            </button>
+          </div>
+          <div className="absolute top-1/2 left-0 z-10">
+            <button type="button" className=" bg-white ">
+              <FaArrowCircleLeft className="w-6 h-6 text-my-primary" />
+            </button>
+          </div>
+        </Swiper>
+      </div>
+    </>
   );
 };
 
