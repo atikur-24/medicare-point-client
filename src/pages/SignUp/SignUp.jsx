@@ -56,9 +56,8 @@ const SignUp = () => {
                     showConfirmButton: false,
                     timer: 2500,
                   });
-
-                  navigate(from, { replace: true });
                   addUser(result?.user);
+                  navigate(from, { replace: true });
                 })
                 .catch((err) => {
                   setError(err.message);
