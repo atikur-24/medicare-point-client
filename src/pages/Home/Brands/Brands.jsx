@@ -10,10 +10,10 @@ import brand8 from "../../../assets/brands/Home10_brand6.svg";
 
 const Brands = () => {
   return (
-    <section className="">
-      <SectionTitle title="Featured Brands" content="We proudly present a handpicked collection of reputable names in the health and wellness industry." />
-      <div className="bg-lite">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 my-container">
+    <section className="bg-lite">
+      <div className="my-container">
+        <SectionTitle title="Featured Brands" content="We proudly present a handpicked collection of reputable names in the health and wellness industry." />
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <div className="rounded-md bg-white  py-3 flex items-center justify-center">
             <img className="w-32 py-4 object-cover" src={brand1} alt="brand" />
           </div>

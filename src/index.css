@@ -17,10 +17,10 @@
 }
 
 .active {
-  @apply font-bold text-base tracking-wide   text-title-color  uppercase underline decoration-my-primary decoration-2 underline-offset-8;
+  @apply font-semibold text-base tracking-wide text-black-2  uppercase underline decoration-my-accent decoration-2 underline-offset-8;
 }
 .default {
-  @apply font-bold text-base px-2 text-gray-6 tracking-wide  uppercase  hover:text-my-primary;
+  @apply font-semibold text-base text-gray-5 tracking-wide  uppercase  hover:text-my-accent;
 }
 
 /* feedback  */
