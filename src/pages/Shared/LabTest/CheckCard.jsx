@@ -21,7 +21,7 @@ const CheckCard = () => {
               </Link>
             </div>
             <div>
-              <button onClick={toggleOpen} className=" capitalize text-my-primary font-bold inline-flex items-center " type="button">
+              <button onClick={toggleOpen} className=" capitalize text-my-primary font-semibold inline-flex items-center " type="button">
                 view Details
                 <span>
                   <FaAngleUp className="w-6 h-6" />
