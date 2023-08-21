@@ -37,7 +37,7 @@ const Login = () => {
             showConfirmButton: false,
             timer: 2500,
           });
-          console.log(result.user);
+          addUser(result.user);
         }
         setError("");
         navigate(from, { replace: true });
