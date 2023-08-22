@@ -79,9 +79,9 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-my-primary px-4">
+    <div className="bg-my-primary py-6 px-4">
       <div className="flex justify-center  items-center min-h-screen ">
-        <div className=" login-singUp-bg container mx-auto   bg-white   shadow-xl rounded-lg ">
+        <div className=" login-singUp-bg  bg-white   shadow-xl rounded-lg ">
           <div className="grid grid-cols-1 md:grid-cols-2 ">
             <div className="w-full hidden md:block ">
               <Lottie animationData={loginAnimation} loop />
@@ -93,30 +93,41 @@ const SignUp = () => {
                     <img className=" w-28" src={Logo} alt="logo" />
                   </Link>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} className=" space-y-5">
                   <div className="form-control">
-                    <label className="label">
+                    {/* <label className="label mb-2">
                       <span className="label-text">
                         Name <span className="text-rose-500 font-bold">*</span>
                       </span>
-                    </label>
-                    <input type="text" placeholder="name" className="input border-gray-3 w-full focus:input-bordered input-accent" required {...register("name")} />
+                    </label> */}
+                    <input
+                      type="text"
+                      placeholder="name"
+                      className="placeholder-gray-4 text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
+                      required
+                      {...register("name")}
+                    />
                   </div>
                   <div className="form-control">
-                    <label className="label">
+                    {/* <label className="label">
                       <span className="label-text">
                         Upload image<span className="text-rose-500 font-bold">*</span>
                       </span>
-                    </label>
+                    </label> */}
 
                     <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered file-input-accent w-full" />
                     {errors.image && <span className="text-red-600">image is required</span>}
                   </div>
                   <div className="form-control">
-                    <label className="label">
+                    {/* <label className="label">
                       <span className="label-text">Email</span>
-                    </label>
-                    <input type="email" placeholder="email" className="input border-gray-3 w-full focus:input-bordered input-accent" {...register("email", { required: true })} />
+                    </label> */}
+                    <input
+                      type="email"
+                      placeholder="email"
+                      className="placeholder-gray-4 text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
+                      {...register("email", { required: true })}
+                    />
                     {errors.email && (
                       <p className="text-red-600">
                         <ImWarning className="inline-block" /> Email is required
@@ -124,9 +135,9 @@ const SignUp = () => {
                     )}
                   </div>
                   <div className="form-control">
-                    <label className="label">
+                    {/* <label className="label">
                       <span className="label-text">Password</span>
-                    </label>
+                    </label> */}
                     <div className="relative">
                       <input
                         type={showPassword ? "text" : "password"}
@@ -137,10 +148,10 @@ const SignUp = () => {
                           pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                         })}
                         placeholder="password"
-                        className="input border-gray-3 w-full focus:input-bordered input-accent "
+                        className="placeholder-gray-4 text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent "
                       />
-                      <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-4 text-my-primary">
-                        {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+                      <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-2 text-my-primary">
+                        {showPassword ? <AiFillEye className="text-2xl" /> : <AiFillEyeInvisible className="text-2xl" />}
                       </button>
                       {errors.password?.type === "required" && (
                         <p className="text-red-600">
