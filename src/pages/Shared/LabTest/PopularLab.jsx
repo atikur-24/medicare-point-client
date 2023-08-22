@@ -40,12 +40,12 @@ const PopularLab = () => {
             </SwiperSlide>
           ))}
           <div className="absolute top-1/2 right-4 z-10">
-            <button type="button" className=" bg-white ">
+            <button type="button" className="bg-white rounded-full ">
               <FaArrowCircleRight className="w-8 h-8 text-my-primary" />
             </button>
           </div>
           <div className="absolute top-1/2 left-0 z-10">
-            <button type="button" className=" bg-white ">
+            <button type="button" className="bg-white rounded-full">
               <FaArrowCircleLeft className="w-8 h-8 text-my-primary" />
             </button>
           </div>
@@ -69,12 +69,12 @@ const PopularLab = () => {
             </SwiperSlide>
           ))}
           <div className="absolute top-1/2 right-4 z-10">
-            <button type="button" className=" bg-white ">
+            <button type="button" className=" bg-white rounded-full">
               <FaArrowCircleRight className="w-6 h-6 text-my-primary" />
             </button>
           </div>
           <div className="absolute top-1/2 left-0 z-10">
-            <button type="button" className=" bg-white ">
+            <button type="button" className="bg-white rounded-full">
               <FaArrowCircleLeft className="w-6 h-6 text-my-primary" />
             </button>
           </div>
