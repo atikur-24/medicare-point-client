@@ -57,9 +57,9 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-my-primary px-4 ">
+    <div className="bg-my-primary px-4 py-6 ">
       <div className="flex justify-center items-center min-h-screen">
-        <div className="login-singUp-bg container mx-auto py-6 bg-white   shadow-xl rounded-lg">
+        <div className="login-singUp-bg   py-6 bg-white   shadow-xl rounded-lg">
           <div className=" items-center grid grid-cols-1 md:grid-cols-2 ">
             <div className="w-full hidden md:block">
               <Lottie animationData={loginAnimation} loop />
@@ -70,40 +70,47 @@ const Login = () => {
                   <img className=" w-28" src={Logo} alt="logo" />
                 </Link>
               </div>
-              <form onSubmit={handleSubmit(onSubmit)} className="">
-                <div className="form-control">
-                  <label className="label">
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="space-y-5">
+                  <div className="form-control">
+                    {/* <label className="label">
                     <span className="label-text">Email</span>
-                  </label>
-                  <input type="email" placeholder="email" className="input border-gray-3 w-full focus:input-bordered input-accent" {...register("email", { required: true })} />
-                  {errors.email && (
-                    <p className="text-red-600">
-                      <ImWarning className="inline-block" /> Email is required
-                    </p>
-                  )}
-                </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text mt-3">Password</span>
-                  </label>
-                  <div className="relative">
+                  </label> */}
                     <input
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Enter your password"
-                      className="input border-gray-3 w-full focus:input-bordered input-accent"
-                      {...register("password", { required: true })}
+                      type="email"
+                      placeholder="Email"
+                      className="placeholder-gray-4 text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
+                      {...register("email", { required: true })}
                     />
-                    <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-4 text-my-primary">
-                      {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
-                    </button>
+                    {errors.email && (
+                      <p className="text-red-600">
+                        <ImWarning className="inline-block" /> Email is required
+                      </p>
+                    )}
                   </div>
-                  {errors.password && (
-                    <p className="text-red-600">
-                      <ImWarning className="inline-block" /> password is required
-                    </p>
-                  )}
+                  <div className="form-control">
+                    {/* <label className="label">
+                    <span className="label-text mt-3">Password</span>
+                  </label> */}
+                    <div className="relative">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Enter your password"
+                        className="placeholder-gray-4 text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
+                        {...register("password", { required: true })}
+                      />
+                      <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-2 text-my-primary">
+                        {showPassword ? <AiFillEye className="text-2xl" /> : <AiFillEyeInvisible className="text-2xl" />}
+                      </button>
+                    </div>
+                    {errors.password && (
+                      <p className="text-red-600">
+                        <ImWarning className="inline-block" /> password is required
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <button type="button" className="text-xs hover:underline mt-2">
+                <button type="button" className="text-xs px-2 hover:underline ">
                   Forgot password?
                 </button>
                 <label className="label">
