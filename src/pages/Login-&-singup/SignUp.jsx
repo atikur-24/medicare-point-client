@@ -137,7 +137,7 @@ const SignUp = () => {
                           pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                         })}
                         placeholder="password"
-                        className="input border-gray-3 w-full focus:input-bordered input-accent w-full"
+                        className="input border-gray-3 w-full focus:input-bordered input-accent "
                       />
                       <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-4 text-my-primary">
                         {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
@@ -188,7 +188,7 @@ const SignUp = () => {
                   )}
 
                   <div className="form-control mt-6">
-                    <button type="submit" className="my-btn w-full mx-auto form-control mt-2 tracking-widest">
+                    <button type="submit" className="login-btn w-full mx-auto form-control mt-2 tracking-widest">
                       {loading ? <TbFidgetSpinner className="text-3xl animate-spin" /> : "Register"}
                     </button>
                   </div>
