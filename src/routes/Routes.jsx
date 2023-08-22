@@ -6,7 +6,6 @@ import Blogs from "../pages/Blogs/Blogs";
 import Contract from "../pages/Contract/Contract";
 import AddLabTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AddLabTest";
 import AllAvailableTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AllAvailableTest";
-import UpdateLab from "../pages/Dashboard/AdminDashboard/AllAvailableTest/UpdateLab";
 import AddDoctor from "../pages/Dashboard/AdminDashboard/AllDoctors/AddDoctor";
 import AllDoctors from "../pages/Dashboard/AdminDashboard/AllDoctors/AllDoctors";
 import AllHealthSuggestion from "../pages/Dashboard/AdminDashboard/AllHealthSuggestion/AllHealthSuggestion";
@@ -26,6 +25,8 @@ import ViewCart from "../pages/Dashboard/UserDashboard/ViewCart/ViewCart";
 import HealthTips from "../pages/HealthTips/HealthTips";
 import HealthTipsDetails from "../pages/HealthTipsDetails/HealthTipsDetails";
 import Home from "../pages/Home/Home/Home";
+import Login from "../pages/Login-&-singup/Login";
+import SignUp from "../pages/Login-&-singup/SignUp";
 import MedicineCarts from "../pages/MedicineCarts/MedicineCarts";
 import MedicineDetails from "../pages/Medicines/MedicineDetails";
 import Medicines from "../pages/Medicines/Medicines";
@@ -35,8 +36,6 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import LabPayment from "../pages/Shared/LabTest/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
-import Login from "../pages/Login-&-singup/Login";
-import SignUp from "../pages/Login-&-singup/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -205,11 +204,6 @@ const router = createBrowserRouter([
       {
         path: "add-doctor",
         element: <AddDoctor />,
-      },
-      {
-        path: "/dashboard/:id",
-        element: <UpdateLab />,
-        loader: ({ params }) => fetch(`http://localhost:5000/labAllItems/${params.id}`),
       },
     ],
   },

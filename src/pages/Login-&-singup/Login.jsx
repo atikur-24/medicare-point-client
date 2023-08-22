@@ -1,12 +1,15 @@
 import Lottie from "lottie-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { ImWarning } from "react-icons/im";
+import { TbFidgetSpinner } from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Logo from "../../assets/Logo/logo.svg";
 import loginAnimation from "../../assets/images/login-images/login.json";
+import { AuthContext } from "../../contexts/AuthProvider";
 import useAuth from "../../hooks/useAuth";
 import { addUser } from "../../hooks/userApi";
 import "./Login.css";
@@ -17,7 +20,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
 
-  const { signIn } = useAuth();
+  const { signIn, loading, setLoading } = useAuth(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -31,6 +34,7 @@ const Login = () => {
   };
 
   const onSubmit = (data) => {
+    setLoading(true);
     signIn(data.email, data.password)
       .then((result) => {
         if (result.user) {
@@ -44,19 +48,21 @@ const Login = () => {
         }
         setError("");
         navigate(from, { replace: true });
+        setLoading(false);
       })
       .catch((err) => {
-        setError(err.message);
+        toast.error(err.message);
+        setLoading(false);
       });
   };
 
   return (
     <div className="login-singUp-bg ">
-      <div className="nav-container items-center grid grid-cols-1 md:grid-cols-2 ">
-        <div className="w-full">
+      <div className="my-container items-center grid grid-cols-1 md:grid-cols-2 ">
+        <div className="w-full hidden md:block">
           <Lottie animationData={loginAnimation} loop />
         </div>
-        <div className="card w-full ">
+        <div className="card w-full px-8 ">
           <div className="mx-auto mb-5">
             <Link to="/">
               <img className=" w-28" src={Logo} alt="logo" />
@@ -107,7 +113,7 @@ const Login = () => {
             </label>
 
             <button type="submit" className="my-btn w-full mx-auto form-control mt-2">
-              LogIn
+              {loading ? <TbFidgetSpinner className="text-3xl animate-spin" /> : "Login"}
             </button>
           </form>
           <div className="divider">OR</div>

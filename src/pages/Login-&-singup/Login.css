@@ -3,5 +3,6 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 100vh;
+  background-position: fixed;
+  height: 100%;
 }
