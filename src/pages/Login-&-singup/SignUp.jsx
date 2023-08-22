@@ -79,122 +79,132 @@ const SignUp = () => {
   };
 
   return (
-    <div className=" login-singUp-bg">
-      <div className="grid grid-cols-1 md:grid-cols-2 nav-container ">
-        <div className="w-full ">
-          <Lottie animationData={loginAnimation} loop />
-        </div>
-        <div>
-          <div className="card w-full md:p-12 card-body px-8">
-            <div className="mx-auto mb-5">
-              <Link to="/">
-                <img className=" w-28" src={Logo} alt="logo" />
-              </Link>
+    <div className="bg-my-primary px-4">
+      <div className="flex justify-center  items-center min-h-screen ">
+        <div className=" login-singUp-bg container mx-auto   bg-white   shadow-xl rounded-lg ">
+          <div className="grid grid-cols-1 md:grid-cols-2 ">
+            <div className="w-full hidden md:block ">
+              <Lottie animationData={loginAnimation} loop />
             </div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">
-                    Name <span className="text-rose-500 font-bold">*</span>
-                  </span>
-                </label>
-                <input type="text" placeholder="name" className="input border-gray-3 w-full focus:input-bordered input-accent" required {...register("name")} />
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">
-                    Upload image<span className="text-rose-500 font-bold">*</span>
-                  </span>
-                </label>
-
-                <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered file-input-accent w-full" />
-                {errors.image && <span className="text-red-600">image is required</span>}
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
-                <input type="email" placeholder="email" className="input border-gray-3 w-full focus:input-bordered input-accent" {...register("email", { required: true })} />
-                {errors.email && (
-                  <p className="text-red-600">
-                    <ImWarning className="inline-block" /> Email is required
-                  </p>
-                )}
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <div className="relative">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    {...register("password", {
-                      required: true,
-                      minLength: 6,
-                      maxLength: 20,
-                      pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
-                    })}
-                    placeholder="password"
-                    className="input border-gray-3 w-full focus:input-bordered input-accent w-full"
-                  />
-                  <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-4 text-my-primary">
-                    {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
-                  </button>
-                  {errors.password?.type === "required" && (
-                    <p className="text-red-600">
-                      <ImWarning className="inline-block" /> Password is required
-                    </p>
-                  )}
-                  {errors.password?.type === "minLength" && (
-                    <p className="text-red-600">
-                      <ImWarning className="inline-block" /> Password must be 6 characters
-                    </p>
-                  )}
-                  {errors.password?.type === "maxLength" && (
-                    <p className="text-red-600">
-                      <ImWarning className="inline-block" /> Password must be less than 20 characters
-                    </p>
-                  )}
-                  {errors.password?.type === "pattern" && (
-                    <p className="text-red-600">
-                      <ImWarning className="inline-block" /> Password must have one Uppercase one lower case, one number and one special character.
-                    </p>
-                  )}
+            <div>
+              <div className="card w-full md:p-12 card-body px-8">
+                <div className="mx-auto mb-5">
+                  <Link to="/">
+                    <img className=" w-28" src={Logo} alt="logo" />
+                  </Link>
                 </div>
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Confirm Password</span>
-                </label>
-                <input type="password" placeholder="confirmPassword" className="input border-gray-3 w-full focus:input-bordered input-accent" {...register("confirmPassword", { required: true })} />
-                {error && (
-                  <p className="text-red-600">
-                    <ImWarning className="inline-block" /> {error}
-                  </p>
-                )}
-                {errors.confirmPassword && (
-                  <p className="text-red-600">
-                    <ImWarning className="inline-block" /> Confirm password is required
-                  </p>
-                )}
-              </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">
+                        Name <span className="text-rose-500 font-bold">*</span>
+                      </span>
+                    </label>
+                    <input type="text" placeholder="name" className="input border-gray-3 w-full focus:input-bordered input-accent" required {...register("name")} />
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">
+                        Upload image<span className="text-rose-500 font-bold">*</span>
+                      </span>
+                    </label>
 
-              <div className="form-control mt-6">
-                <button type="submit" className="my-btn w-full mx-auto form-control mt-2 tracking-widest">
-                  {loading ? <TbFidgetSpinner className="text-3xl animate-spin" /> : "Register"}
-                </button>
+                    <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered file-input-accent w-full" />
+                    {errors.image && <span className="text-red-600">image is required</span>}
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Email</span>
+                    </label>
+                    <input type="email" placeholder="email" className="input border-gray-3 w-full focus:input-bordered input-accent" {...register("email", { required: true })} />
+                    {errors.email && (
+                      <p className="text-red-600">
+                        <ImWarning className="inline-block" /> Email is required
+                      </p>
+                    )}
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Password</span>
+                    </label>
+                    <div className="relative">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        {...register("password", {
+                          required: true,
+                          minLength: 6,
+                          maxLength: 20,
+                          pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                        })}
+                        placeholder="password"
+                        className="input border-gray-3 w-full focus:input-bordered input-accent w-full"
+                      />
+                      <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-4 text-my-primary">
+                        {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+                      </button>
+                      {errors.password?.type === "required" && (
+                        <p className="text-red-600">
+                          <ImWarning className="inline-block" /> Password is required
+                        </p>
+                      )}
+                      {errors.password?.type === "minLength" && (
+                        <p className="text-red-600">
+                          <ImWarning className="inline-block" /> Password must be 6 characters
+                        </p>
+                      )}
+                      {errors.password?.type === "maxLength" && (
+                        <p className="text-red-600">
+                          <ImWarning className="inline-block" /> Password must be less than 20 characters
+                        </p>
+                      )}
+                      {errors.password?.type === "pattern" && (
+                        <p className="text-red-600">
+                          <ImWarning className="inline-block" /> Password must have one Uppercase one lower case, one number and one special character.
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  {/* <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Confirm Password</span>
+                    </label>
+                    <input
+                      type="password"
+                      placeholder="confirmPassword"
+                      className="input border-gray-3 w-full focus:input-bordered input-accent"
+                      {...register("confirmPassword", { required: true })}
+                    />
+
+                    {errors.confirmPassword && (
+                      <p className="text-red-600">
+                        <ImWarning className="inline-block" /> Confirm password is required
+                      </p>
+                    )}
+                  </div> */}
+                  {error && (
+                    <p className="text-red-600">
+                      <ImWarning className="inline-block" /> {error}
+                    </p>
+                  )}
+
+                  <div className="form-control mt-6">
+                    <button type="submit" className="my-btn w-full mx-auto form-control mt-2 tracking-widest">
+                      {loading ? <TbFidgetSpinner className="text-3xl animate-spin" /> : "Register"}
+                    </button>
+                  </div>
+                </form>
+                <div className="divider">OR</div>
+                <SocialSigning />
+                <label className="label">
+                  <p>
+                    Already Have An Account ?
+                    <Link to="/login" className="underline font-semibold">
+                      Login
+                    </Link>
+                  </p>
+                </label>
               </div>
-            </form>
-            <div className="divider">OR</div>
-            <SocialSigning />
-            <label className="label">
-              <p>
-                Already Have An Account ?
-                <Link to="/login" className="underline font-semibold">
-                  Login
-                </Link>
-              </p>
-            </label>
+            </div>
           </div>
         </div>
       </div>
