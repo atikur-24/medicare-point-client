@@ -3,10 +3,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { ImWarning } from "react-icons/im";
+import { TbFidgetSpinner } from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Logo from "../../assets/Logo/logo.svg";
 import loginAnimation from "../../assets/images/login-images/login.json";
+import { AuthContext } from "../../contexts/AuthProvider";
 import useAuth from "../../hooks/useAuth";
 import { addUser } from "../../hooks/userApi";
 import SocialSigning from "./SocialSigning";
@@ -15,7 +17,7 @@ const SignUp = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
-  const { createUser, updateUserProfile } = useAuth();
+  const { createUser, updateUserProfile, loading, setLoading } = useAuth(AuthContext);
   let from = location.state?.from?.pathname || "/";
 
   const navigate = useNavigate();
@@ -30,6 +32,8 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    setLoading(true);
+
     // Image Upload
     const image = data.image[0];
     // console.log(image);
@@ -64,9 +68,11 @@ const SignUp = () => {
                 .catch((err) => {
                   setError(err.message);
                 });
+              setLoading(false);
             })
             .catch((err) => {
               setError(err.message);
+              setLoading(false);
             });
         }
       });
@@ -79,13 +85,13 @@ const SignUp = () => {
           <Lottie animationData={loginAnimation} loop />
         </div>
         <div>
-          <div className="card w-full md:p-12 card-body">
+          <div className="card w-full md:p-12 card-body px-8">
             <div className="mx-auto mb-5">
               <Link to="/">
                 <img className=" w-28" src={Logo} alt="logo" />
               </Link>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className="">
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">
@@ -174,8 +180,8 @@ const SignUp = () => {
               </div>
 
               <div className="form-control mt-6">
-                <button type="submit" className="my-btn w-full mx-auto">
-                  Register
+                <button type="submit" className="my-btn w-full mx-auto form-control mt-2 ">
+                  {loading ? <TbFidgetSpinner className="text-3xl animate-spin" /> : "Register"}
                 </button>
               </div>
             </form>
