@@ -3,6 +3,8 @@ import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import Main from "../layouts/Main";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import Blogs from "../pages/Blogs/Blogs";
+import HealthArticlesDetails from "../pages/Blogs/HealthArticlesDetails";
+import InterviewDetails from "../pages/Blogs/InterviewDetails";
 import Contract from "../pages/Contract/Contract";
 import AddLabTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AddLabTest";
 import AllAvailableTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AllAvailableTest";
@@ -58,6 +60,16 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs />,
+      },
+      {
+        path: "/interviews/:id",
+        element: <InterviewDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/interviews/${params?.id}`),
+      },
+      {
+        path: "/healthArticles/:id",
+        element: <HealthArticlesDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params?.id}`),
       },
       {
         path: "/healthtips/:id",
