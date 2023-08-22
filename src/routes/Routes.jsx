@@ -25,7 +25,8 @@ import ViewCart from "../pages/Dashboard/UserDashboard/ViewCart/ViewCart";
 import HealthTips from "../pages/HealthTips/HealthTips";
 import HealthTipsDetails from "../pages/HealthTipsDetails/HealthTipsDetails";
 import Home from "../pages/Home/Home/Home";
-import Login from "../pages/Login/Login";
+import Login from "../pages/Login-&-singup/Login";
+import SignUp from "../pages/Login-&-singup/SignUp";
 import MedicineCarts from "../pages/MedicineCarts/MedicineCarts";
 import MedicineDetails from "../pages/Medicines/MedicineDetails";
 import Medicines from "../pages/Medicines/Medicines";
@@ -35,7 +36,6 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import LabPayment from "../pages/Shared/LabTest/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
-import SignUp from "../pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
   {

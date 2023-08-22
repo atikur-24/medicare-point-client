@@ -1,0 +1,9 @@
+.login-singUp-bg {
+  background-image: url("../../assets/images/login-images/login-bg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: fixed;
+  height: 100%;
+}
+
