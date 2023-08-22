@@ -112,7 +112,7 @@ const Login = () => {
               )}
             </label>
 
-            <button type="submit" className="my-btn w-full mx-auto form-control mt-2">
+            <button type="submit" className="my-btn w-full mx-auto form-control mt-2 tracking-widest">
               {loading ? <TbFidgetSpinner className="text-3xl animate-spin" /> : "Login"}
             </button>
           </form>
