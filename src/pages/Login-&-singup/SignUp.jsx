@@ -88,11 +88,12 @@ const SignUp = () => {
             </div>
             <div>
               <div className="card w-full md:p-12 card-body px-8">
-                <div className="mx-auto mb-5">
+                <div className="mx-auto">
                   <Link to="/">
                     <img className=" w-28" src={Logo} alt="logo" />
                   </Link>
                 </div>
+                <h2 className="text-center text-2xl font-bold text-my-primary my-2">Please Login </h2>
                 <form onSubmit={handleSubmit(onSubmit)} className=" space-y-5">
                   <div className="form-control">
                     {/* <label className="label mb-2">
