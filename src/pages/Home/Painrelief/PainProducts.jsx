@@ -83,11 +83,9 @@ const PainProducts = () => {
       </div>
       <CommonBanner
         bgImage={bannerBackground}
-        height="400px"
-        button="this is my button"
+        button="View All"
         image={bannerImage}
-        title="See Our Products"
-        subtitle="We have several product candidates in development that we believe have been significantly de-risked."
+        title="PAIN RELIEF"
         description="been significantly de-risked. At vero eos et accusam justo duo dolores etea rebuitet clita kasd gubergren nosea takimata sanctus est lorem ipsum dolor consetetur sadipscing elitr sed
         diam nonumy eirmod tempor invidunt ut labore magna aliquyam sedam voluptua at vero eos et accusam et justo duo dolores"
       />
