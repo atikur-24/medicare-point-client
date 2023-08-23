@@ -29,6 +29,7 @@ const AllAvailableTest = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteLabTestApi(id));
+        dispatch(fetchAllLabTests());
       }
     });
   };
