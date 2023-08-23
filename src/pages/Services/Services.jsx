@@ -8,7 +8,7 @@ import "./services.css";
 const Services = () => {
   return (
     <div>
-      <div className="my-container flex flex-col flex-col-reverse md:flex-row justify-between gap-6 items-center ">
+      <div className="my-container flex flex-col-reverse md:flex-row justify-between gap-6 items-center ">
         <div className="w-full md:w-[70%] space-y-6">
           <h2 className="text-4xl font-bold">In this website you will got world-class service.</h2>
           <p className="text-gray-5">

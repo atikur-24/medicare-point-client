@@ -1,10 +1,12 @@
-import axios from "axios";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import { updateLabTestApi } from "../../../../Features/AllLabTests/updateLabTest";
 import "./LabTest.css";
 
 const UpdateLabTest = ({ singleData }) => {
-  // console.log("jjj", singleData);
+  // const imgURL = useSelector((state) => state.uploadImage?.response?.data?.display_url);
+  const dispatch = useDispatch();
+
   const { _id, image_url, category_name, test_name, price, discount, category, PhoneNumber, labNames, city, labTestDetails } = singleData;
 
   const labCategories = [
@@ -43,17 +45,20 @@ const UpdateLabTest = ({ singleData }) => {
 
   const labCategories2 = ["Popular", "Normal"];
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     data.price = parseInt(data.price, 10);
     data.discount = parseInt(data.discount, 10);
-    const price2 = (data.price * data.discount) / 100;
-    const remaining = parseInt(data.price - price2, 10);
-    data.remaining = remaining;
+    // const disPrice = (data.price * data.discount) / 100;
+    // const remaining = parseInt(data.price - disPrice, 10);
+    // data.remaining = remaining;
+
+    // console.log(data);
 
     const image = data.image_url[0];
 
     const formData = new FormData();
     formData.append("image", image);
+    // console.log("img", formData);
     const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
     fetch(url, {
       method: "POST",
@@ -62,19 +67,8 @@ const UpdateLabTest = ({ singleData }) => {
       .then((res) => res.json())
       .then((imageData) => {
         data.image_url = imageData.data.display_url;
-        axios
-          .patch(`http://localhost:5000/labItems/${_id}`, {
-            body: data,
-          })
-          .then((res) => {
-            if (res.data.modifiedCount > 0) {
-              Swal.fire("Updated Successfully", "success");
-            }
-            // console.log(res.data);
-          });
+        dispatch(updateLabTestApi({ _id, data })); // using redux
       });
-
-    // console.log(data);
   };
 
   const {
@@ -110,7 +104,7 @@ const UpdateLabTest = ({ singleData }) => {
             <div className="two-input-field lg:flex gap-5">
               <div>
                 <h4>Category Name</h4>
-                <select defaultValue={category_name} {...register("category_name", { required: true })} className="select select-bordered">
+                <select defaultValue={category_name} {...register("category_name")} className="select select-bordered">
                   {labCategories.map((option) => (
                     <option key={option} value={category_name}>
                       {option}
@@ -120,14 +114,14 @@ const UpdateLabTest = ({ singleData }) => {
               </div>
               <div>
                 <h4>Phone Number</h4>
-                <input defaultValue={PhoneNumber} type="text" placeholder="Enter lab's phone Number" {...register("PhoneNumber")} />
+                <input defaultValue={PhoneNumber} type="text" {...register("PhoneNumber")} />
               </div>
             </div>
 
             <div className="two-input-field lg:flex gap-5">
               <div>
                 <h4>City</h4>
-                <input type="text" placeholder="Enter city" defaultValue={city} {...register("city", { required: true })} />
+                <input type="text" defaultValue={city} {...register("city")} />
               </div>
               <div>
                 <h4>All labs (separated by &)</h4>
@@ -138,7 +132,7 @@ const UpdateLabTest = ({ singleData }) => {
             <div className="two-input-field lg:flex gap-5">
               <div>
                 <h4>Category</h4>
-                <select defaultValue={category} {...register("category", { required: true })} className="select select-bordered">
+                <select defaultValue={category} {...register("category")} className="select select-bordered">
                   {labCategories2.map((option) => (
                     <option key={option} value={category}>
                       {option}

@@ -51,6 +51,8 @@
   background-image: linear-gradient(to right top, #176b87, #007288, #007886, #007e83, #10847e);
 }
 
+/* button  */
+
 .cart-btn {
   @apply rounded-full py-4 px-5 text-[14px] uppercase font-semibold inline-flex items-center justify-center gap-2 transition duration-300 text-white bg-my-primary hover:bg-my-accent;
 }
@@ -63,6 +65,12 @@
 .my-btn-outline {
   @apply hover:bg-my-primary hover:text-white btn rounded-full  font-bold transition duration-300 border border-my-primary text-my-primary;
 }
+
+.login-btn{
+  @apply bg-my-accent hover:bg-[#16b4ac]  btn  font-medium md:font-semibold text-white transition duration-200 border-0;
+}
+
+/* button  */
 
 @layer base {
   html {
