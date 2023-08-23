@@ -24,37 +24,32 @@ const PharmacyRegistrationForm = () => {
   };
 
   return (
-    <div className="mx-auto p-6 rounded-lg border-[1px] border-gray-3 bg-white ">
+    <div className="mx-auto p-16 rounded-lg border-[1px] border-gray-3 bg-white ">
       <h2 className="text-2xl font-semibold mb-4">Pharmacy Registration Form</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="mb-4">
             <label className="block font-medium ">Pharmacy name:</label>
-            <input placeholder="Pharmacy Name" {...register("pharmacyName")} type="text" className="w-full shadow-md focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2" />
+            <input placeholder="Pharmacy Name" {...register("pharmacyName")} type="text" className="w-full focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2" />
           </div>
           <div className="mb-4">
             <label className="block font-medium">Pharmacy email address:</label>
-            <input
-              placeholder="Pharmacy Email"
-              {...register("pharmacyEmailAddress")}
-              type="email"
-              className="w-full shadow-md focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2"
-            />
+            <input placeholder="Pharmacy Email" {...register("pharmacyEmailAddress")} type="email" className="w-full focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2" />
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="mb-4">
             <label className="block font-medium ">Pharmacy phone number:</label>
-            <input
-              placeholder="Pharmacy Phone Number"
-              {...register("pharmacyName")}
-              type="number"
-              className="w-full shadow-md focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2"
-            />
+            <input placeholder="Pharmacy Phone Number" {...register("pharmacyName")} type="number" className="w-full focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2" />
           </div>
           <div className="mb-4">
-            <label className="block font-medium">Pharmacy address:</label>
-            <input {...register("pharmacyEmailAddress")} type="text" className="w-full shadow-md focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2" />
+            <label className="block font-medium">Add Full Address fo pharmacy:</label>
+            <input
+              placeholder="Provide pharmacy's full address"
+              {...register("pharmacyEmailAddress")}
+              type="text"
+              className="w-full focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2"
+            />
           </div>
         </div>
         {/* <div className="grid grid-cols-2 gap-4">
@@ -89,43 +84,58 @@ const PharmacyRegistrationForm = () => {
             <input {...register("pharmacyWebsite")} type="url" className="w-full shadow-sm rounded p-2" />
           </div>
         </div> */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="mb-4">
             <label className="block font-medium">Pharmacist name:</label>
-            <input {...register("pharmacistName")} type="text" className="w-full shadow-sm rounded p-2" />
+            <input placeholder="Pharmacy Name" {...register("pharmacistName")} type="text" className="w-full focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2" />
           </div>
           <div className="mb-4">
             <label className="block font-medium">Pharmacist license number:</label>
-            <input {...register("pharmacistLicenseNumber")} type="text" className="w-full shadow-sm rounded p-2" />
-          </div>
-          <div className="mb-4">
-            <label className="block font-medium">Pharmacy registration number:</label>
-            <input {...register("pharmacyRegistrationNumber")} type="text" className="w-full shadow-sm rounded p-2" />
+            <input
+              placeholder="0L5XXXXXXXXXXXXXXXXXXXXX"
+              {...register("pharmacistLicenseNumber")}
+              type="text"
+              className="w-full focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2"
+            />
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 ">
           <div className="mb-4">
-            <label className="block font-medium">Types of medicines sold:</label>
-            <input {...register("typesOfMedicinesSold")} type="text" className="w-full shadow-sm rounded p-2" />
+            <label className="block font-medium">Pharmacy registration number:</label>
+            <input
+              placeholder="0R3XXXXXXXXXXXXXXXXXXXXX"
+              {...register("pharmacyRegistrationNumber")}
+              type="text"
+              className="w-full focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2"
+            />
           </div>
           <div className="mb-4">
+            <label className="block font-medium">Types of medicines sold:</label>
+            <input
+              placeholder="Types of medicines sold"
+              {...register("typesOfMedicinesSold")}
+              type="text"
+              className="w-full focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2"
+            />
+          </div>
+          {/* <div className="mb-4">
             <label className="block font-medium">Payment methods accepted:</label>
-            <input {...register("paymentMethodsAccepted")} type="text" className="w-full shadow-sm rounded p-2" />
+            <input {...register("paymentMethodsAccepted")} type="text" className="w-full focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2" />
           </div>
 
           <div className="mb-4">
             <label className="block font-medium">Contact information for technical support:</label>
-            <input {...register("technicalSupportContact")} type="text" className="w-full shadow-sm rounded p-2" />
-          </div>
+            <input {...register("technicalSupportContact")} type="text" className="w-full focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2" />
+          </div> */}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="mb-4">
             <label className="block font-medium">Scope of practice:</label>
-            <textarea {...register("scopeOfPractice")} className="w-full shadow-sm rounded p-2" />
+            <textarea {...register("scopeOfPractice")} className="w-full focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2" />
           </div>
           <div className="mb-4">
             <label className="block font-medium">Shipping information:</label>
-            <textarea {...register("shippingInformation")} className="w-full shadow-sm rounded p-2" />
+            <textarea {...register("shippingInformation")} className="w-full focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2" />
           </div>
         </div>
 
