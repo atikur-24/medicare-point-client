@@ -9,7 +9,7 @@
 }
 
 .my-container {
-  @apply px-4 md:px-6 container py-14 mx-auto lg:py-16;
+  @apply px-4 md:px-6 container mx-auto py-14 lg:py-16;
 }
 
 .swiper-slide {
@@ -67,5 +67,23 @@
 @layer base {
   html {
     font-family: "Inter", sans-serif;
+  }
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 8px solid #565656;
+  border-top-color: #f34e3a;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
