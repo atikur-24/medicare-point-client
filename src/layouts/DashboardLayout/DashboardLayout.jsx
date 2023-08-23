@@ -200,7 +200,7 @@ const DashboardLayout = () => {
       <li>
         <NavLink to="/dashboard/health-suggestions" className="dashboard-link">
           <RiFileList3Line className="dashboard-icon" />
-          <span>Health Suggestions</span>
+          <span>Add Health Tips</span>
         </NavLink>
       </li>
 
