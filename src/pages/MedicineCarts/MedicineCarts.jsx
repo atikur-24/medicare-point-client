@@ -1,7 +1,8 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import axios from "axios";
-// import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { AiOutlineDelete } from "react-icons/ai";
+import { TbCurrencyTaka } from "react-icons/tb";
 import Swal from "sweetalert2";
 import useCartMedicines from "../../hooks/useCartMedicines";
 import MedicineCartItem from "./MedicineCartItem";
@@ -9,19 +10,31 @@ import MedicineCartItem from "./MedicineCartItem";
 const MedicineCarts = () => {
   const [cart, refetch] = useCartMedicines();
 
-  const itemsPrices = [];
-  let totalPrices = 0;
+  const pricesWithDiscount = [];
+  let totalPrice = 0;
+
+  const totalPrices = [];
+  let subTotal = 0;
 
   for (const items of cart) {
-    itemsPrices.push(items?.price * 2);
+    pricesWithDiscount.push(items?.quantity * (items?.price - (items?.price / 100) * items?.discount));
   }
 
-  for (const price of itemsPrices) {
-    totalPrices += price;
+  for (const price of pricesWithDiscount) {
+    totalPrice += price;
+  }
+  for (const items of cart) {
+    totalPrices.push(items?.price * items?.quantity);
   }
 
-  console.log(itemsPrices);
-  console.log("totalPrices", totalPrices);
+  for (const price of totalPrices) {
+    subTotal += price;
+  }
+
+  const saveMoney = subTotal - totalPrice;
+
+  // console.log(pricesWithDiscount);
+  // console.log(totalPrice);
 
   const handleClearCart = () => {
     Swal.fire({
@@ -58,9 +71,15 @@ const MedicineCarts = () => {
         <div className="border border-gray-3 rounded-md lg:w-4/12 lg:h-96">
           <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-title-color bg-lite py-5 px-5 lg:px-8">Cart Total</h3>
           <div className="py-5 px-5 lg:px-8 space-y-8 text-xl font-medium">
-            <h3>SubTotal: TK 650</h3>
-            <h3>Save Ammount: TK 170</h3>
-            <h3>Total: TK 890</h3>
+            <h3 className="flex items-center">
+              SubTotal: <TbCurrencyTaka /> {subTotal.toFixed(2)}
+            </h3>
+            <h3 className="flex items-center">
+              Save Ammount: <TbCurrencyTaka /> {saveMoney.toFixed(2)}
+            </h3>
+            <h3 className="flex items-center">
+              Total: <TbCurrencyTaka /> {totalPrice.toFixed(2)}
+            </h3>
             <button type="button" className="cart-btn">
               Proceed to checkout
             </button>
