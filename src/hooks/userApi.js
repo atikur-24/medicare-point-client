@@ -11,6 +11,8 @@ export const addUser = (user) => {
 };
 
 
+
+
 export const applicationForPharmacist = (application) => {
     axios.post("http://localhost:5000/pharmacyRegistrationApplication", application).then(res => {
         // console.log(res.data);
