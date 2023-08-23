@@ -13,14 +13,11 @@ const MedicineCarts = () => {
 
   const pricesWithDiscount = [];
   let totalPrice = 0;
-
   const totalPrices = [];
   let subTotal = 0;
-
   for (const items of cart) {
     pricesWithDiscount.push(items?.quantity * (items?.price - (items?.price / 100) * items?.discount));
   }
-
   for (const price of pricesWithDiscount) {
     totalPrice += price;
   }
@@ -33,9 +30,6 @@ const MedicineCarts = () => {
   }
 
   const saveMoney = subTotal - totalPrice;
-
-  // console.log(pricesWithDiscount);
-  // console.log(totalPrice);
 
   const handleClearCart = () => {
     Swal.fire({
