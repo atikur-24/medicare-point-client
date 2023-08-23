@@ -1,10 +1,12 @@
-import axios from "axios";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import { updateLabTestApi } from "../../../../Features/AllLabTests/updateLabTest";
 import "./LabTest.css";
 
 const UpdateLabTest = ({ singleData }) => {
-  // console.log("jjj", singleData);
+  // const imgURL = useSelector((state) => state.uploadImage?.response?.data?.display_url);
+  const dispatch = useDispatch();
+
   const { _id, image_url, category_name, test_name, price, discount, category, PhoneNumber, labNames, city, labTestDetails } = singleData;
 
   const labCategories = [
@@ -43,7 +45,7 @@ const UpdateLabTest = ({ singleData }) => {
 
   const labCategories2 = ["Popular", "Normal"];
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     data.price = parseInt(data.price, 10);
     data.discount = parseInt(data.discount, 10);
     const price2 = (data.price * data.discount) / 100;
@@ -54,6 +56,7 @@ const UpdateLabTest = ({ singleData }) => {
 
     const formData = new FormData();
     formData.append("image", image);
+    // console.log("img", formData);
     const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
     fetch(url, {
       method: "POST",
@@ -62,19 +65,8 @@ const UpdateLabTest = ({ singleData }) => {
       .then((res) => res.json())
       .then((imageData) => {
         data.image_url = imageData.data.display_url;
-        axios
-          .patch(`http://localhost:5000/labItems/${_id}`, {
-            body: data,
-          })
-          .then((res) => {
-            if (res.data.modifiedCount > 0) {
-              Swal.fire("Updated Successfully", "success");
-            }
-            // console.log(res.data);
-          });
+        dispatch(updateLabTestApi({ _id, data })); // using redux
       });
-
-    // console.log(data);
   };
 
   const {
