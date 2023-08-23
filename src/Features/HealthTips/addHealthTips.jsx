@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 export const addHealthTipsApi = createAsyncThunk("addHealthTips/addHealthTipsApi", async (data) => {
   // console.log(data);
-  const res = await axios.post(`http://localhost:5000/addHeathTips`, data.data);
+  const res = await axios.post(`http://localhost:5000/addHealthTips`, data.data);
 
   if (res.data.insertedId) {
     Swal.fire({
