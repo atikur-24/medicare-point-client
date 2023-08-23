@@ -6,12 +6,12 @@ const Blogs = () => {
   const [interviews, setinterviews] = useState([]);
 
   useEffect(() => {
-    axios.get("/blogs_interview.json").then((res) => setinterviews(res.data));
+    axios.get("http://localhost:5000/interviews").then((res) => setinterviews(res.data));
   }, []);
   const [healthArticles, setHealthArticles] = useState([]);
 
   useEffect(() => {
-    axios.get("/health_articles.json").then((res) => setHealthArticles(res.data));
+    axios.get("http://localhost:5000/blogs").then((res) => setHealthArticles(res.data));
   }, []);
   return (
     <div className="bg-white p-6 shadow-md rounded-lg">
@@ -24,9 +24,9 @@ const Blogs = () => {
               return (
                 <div key={index}>
                   <div className="flex justify-center">
-                    <img style={{ width: "600px", height: "350px" }} className="p-6" src={healthArticle.image} alt="" />
+                    <img className="p-6 w-[600px] h-[350px]" src={healthArticle.image} alt="" />
                     <div className="p-6 my-auto">
-                      <Link to={`/interview_details/${healthArticle.id}`}>
+                      <Link to={`/healthArticles/${healthArticle._id}`}>
                         <h2 className="text-xl font-semibold hover:text-my-primary">{healthArticle.title}</h2>
                       </Link>
                       <p>
@@ -55,7 +55,7 @@ const Blogs = () => {
                   <div className="flex justify-center">
                     <img style={{ width: "600px", height: "350px" }} className="p-6" src={interview.image} alt="" />
                     <div className="p-6 my-auto">
-                      <Link to={`/interview_details/${interview.id}`}>
+                      <Link to={`/interviews/${interview._id}`}>
                         <h2 className="text-xl font-semibold hover:text-my-primary">{interview.title}</h2>
                       </Link>
                       <p>
