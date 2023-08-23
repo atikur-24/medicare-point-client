@@ -43,7 +43,7 @@ const Navbar = () => {
       <li>
         <ActiveLink to="/contract">Contacts</ActiveLink>
       </li>
-      <li>
+      {/* <li>
         <details className="dropdown dropdown-end">
           <summary className=" btn btn-ghost">More </summary>
           <ul className="p-2 shadow menu dropdown-content z-10 bg-my-accent rounded-box w-52 space-y-4">
@@ -55,7 +55,7 @@ const Navbar = () => {
             </li>
           </ul>
         </details>
-      </li>
+      </li> */}
     </>
   );
   const handelLogOut = () => {
