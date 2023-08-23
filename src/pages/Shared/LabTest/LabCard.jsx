@@ -1,11 +1,15 @@
-// import { useState } from "react";
-// import { getStoredLabCart, labAddToDb, removeFromLabDb } from "../../../utilities/LabFakeDb";
+import useAuth from "../../../hooks/useAuth";
+import LabButton from "./LabButton";
 
 const LabCard = ({ category }) => {
-  // const ids = getStoredLabCart();
-  // const [isExist, setIsExist] = useState(true);
-  const price = (category.price * category.discount) / 100;
-  const remaining = parseFloat(category.price - price);
+  const { user } = useAuth();
+
+  const price2 = (category.price * category.discount) / 100;
+  const remaining = parseFloat(category.price - price2);
+
+  const { test_name, price, discount } = category || {};
+
+  const labAddCart = { lab_id: category._id, test_name, price, remaining, discount, name: user?.displayName, email: user?.email };
 
   // const addtoLabDb = (id) => {
   //   labAddToDb(id);
@@ -31,16 +35,7 @@ const LabCard = ({ category }) => {
         {category.discount > 0 && <span className="badge bg-my-primary border-0 badge-accent text-white py-0.5">{category.discount}% off</span>}
       </div>
       <p className="font-bold my-2 text-my-pink">৳{remaining}</p>
-      <div className="">
-        {/* {isExist ? <button onClick={() => addtoLabDb(category._id)} type="button" className="btn cart-btn w-full">
-          Add To Cart
-        </button>
-          :
-            <button onClick={() => removeToLavDb(category._id)} type="button" className="btn cart-btn w-full">
-              Removed To Cart
-            </button>
-        } */}
-      </div>
+      <LabButton labAddCart={labAddCart} />
     </div>
   );
 };
