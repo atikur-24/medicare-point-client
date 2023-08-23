@@ -72,7 +72,7 @@ const AddLabTest = () => {
       .then((res) => res.json())
       .then((imageData) => {
         data.image_url = imageData.data.display_url;
-        dispatch(addLabTestApi({ data, reset, dispatch }));
+        dispatch(addLabTestApi({ data, reset }));
       });
   };
 
