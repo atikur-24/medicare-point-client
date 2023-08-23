@@ -24,24 +24,40 @@ const PharmacyRegistrationForm = () => {
   };
 
   return (
-    <div className="mx-auto p-6 rounded shadow-lg">
+    <div className="mx-auto p-6 rounded-lg border-[1px] border-gray-3 bg-white ">
       <h2 className="text-2xl font-semibold mb-4">Pharmacy Registration Form</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="mb-4">
-            <label className="block font-medium">Pharmacy name:</label>
-            <input {...register("pharmacyName")} type="text" className="w-full shadow-sm rounded p-2" />
+            <label className="block font-medium ">Pharmacy name:</label>
+            <input placeholder="Pharmacy Name" {...register("pharmacyName")} type="text" className="w-full shadow-md focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2" />
           </div>
           <div className="mb-4">
             <label className="block font-medium">Pharmacy email address:</label>
-            <input {...register("pharmacyEmailAddress")} type="email" className="w-full shadow-sm rounded p-2" />
+            <input
+              placeholder="Pharmacy Email"
+              {...register("pharmacyEmailAddress")}
+              type="email"
+              className="w-full shadow-md focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2"
+            />
           </div>
         </div>
-        <h2 className="block font-medium">Pharmacy address:</h2>
-        <div className="mb-4">
-          <textarea placeholder="Street Address" {...register("pharmacyStreetAddress")} className="w-full shadow-sm rounded p-2" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="mb-4">
+            <label className="block font-medium ">Pharmacy phone number:</label>
+            <input
+              placeholder="Pharmacy Phone Number"
+              {...register("pharmacyName")}
+              type="number"
+              className="w-full shadow-md focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block font-medium">Pharmacy address:</label>
+            <input {...register("pharmacyEmailAddress")} type="text" className="w-full shadow-md focus:input-bordered input-accent border-[1px] rounded-lg border-my-primary p-2" />
+          </div>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        {/* <div className="grid grid-cols-2 gap-4">
           <div className="mb-4">
             <select {...register("country")} className="w-full shadow-sm rounded p-2">
               {countries.map((country, index) => (
@@ -72,7 +88,7 @@ const PharmacyRegistrationForm = () => {
             <label className="block font-medium">Pharmacy website:</label>
             <input {...register("pharmacyWebsite")} type="url" className="w-full shadow-sm rounded p-2" />
           </div>
-        </div>
+        </div> */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="mb-4">
             <label className="block font-medium">Pharmacist name:</label>
