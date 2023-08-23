@@ -1,7 +1,10 @@
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { addHealthTipsApi } from "../../../../Features/HealthTips/addHealthTips";
 
 const AllHealthSuggestion = () => {
   const { register, handleSubmit } = useForm();
+  const dispatch = useDispatch();
 
   const onSubmit = (data) => {
     // Image Upload
@@ -17,6 +20,7 @@ const AllHealthSuggestion = () => {
       .then((res) => res.json())
       .then((imageData) => {
         data.image_url = imageData.data.display_url;
+        dispatch(addHealthTipsApi({ data }));
         console.log(data);
       });
     console.log("New Health Tip:", data);
