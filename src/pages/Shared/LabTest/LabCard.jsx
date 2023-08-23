@@ -1,3 +1,5 @@
+import LabButton from "./LabButton";
+
 const LabCard = ({ category }) => {
   const price = (category.price * category.discount) / 100;
   const remaining = parseFloat(category.price - price);
@@ -17,11 +19,7 @@ const LabCard = ({ category }) => {
         {category.discount > 0 && <span className="badge bg-my-primary border-0 badge-accent text-white py-0.5">{category.discount}% off</span>}
       </div>
       <p className="font-bold my-2 text-my-pink">৳{remaining}</p>
-      <div className="">
-        <button type="button" className="btn cart-btn w-full">
-          Add To Cart
-        </button>
-      </div>
+      <LabButton />
     </div>
   );
 };
