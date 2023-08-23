@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "category": "Metabolic Diseases",
     "name": "Type 2 Diabetes",
     "image": "https://img.freepik.com/free-vector/cartoon-character-with-high-blood-pressure-symptoms_1308-48157.jpg?w=2000",
     "type": "Metabolic",
@@ -10,6 +11,7 @@
   },
   {
     "id": 2,
+    "category": "Cardiovascular Diseases",
     "name": "Hypertension (High Blood Pressure)",
     "image": "https://img.freepik.com/free-vector/cartoon-character-with-high-blood-pressure-symptoms_1308-48157.jpg?w=2000",
     "type": "Cardiovascular",
@@ -20,6 +22,7 @@
   {
     "id": 3,
     "name": "Influenza (Flu)",
+    "category": "Viral Diseases",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Viral",
     "cause": "Influenza virus",
@@ -29,6 +32,7 @@
   {
     "id": 4,
     "name": "Common Cold",
+    "category": "Viral Diseases",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Viral",
     "cause": "Rhinoviruses, other viruses",
@@ -37,6 +41,7 @@
   },
   {
     "id": 5,
+    "category": "Respiratory Diseases",
     "name": "Asthma",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Respiratory",
@@ -46,6 +51,7 @@
   },
   {
     "id": 6,
+    "category": "Viral Diseases",
     "name": "Influenza (Flu)",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Viral",
@@ -55,6 +61,7 @@
   },
   {
     "id": 7,
+    "category": "Viral Diseases",
     "name": "Common Cold",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Viral",
@@ -64,6 +71,7 @@
   },
   {
     "id": 8,
+    "category": "Respiratory Diseases",
     "name": "Asthma",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Respiratory",
@@ -74,6 +82,7 @@
 
   {
     "id": 9,
+    "category": "Cardiovascular Diseases",
     "name": "Coronary Artery Disease (CAD)",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Cardiovascular",
@@ -83,6 +92,7 @@
   },
   {
     "id": 10,
+    "category": "Neurological Diseases",
     "name": "Alzheimer's Disease",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Neurological",
@@ -92,6 +102,7 @@
   },
   {
     "id": 11,
+    "category": "Skeletal Diseases",
     "name": "Osteoporosis",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Skeletal",
@@ -101,6 +112,7 @@
   },
   {
     "id": 12,
+    "category": "Cancer",
     "name": "Cancer",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Various (e.g., lung, breast, colon)",
@@ -110,6 +122,7 @@
   },
   {
     "id": 13,
+    "category": "Joint-related Diseases",
     "name": "Arthritis (Osteoarthritis and Rheumatoid Arthritis)",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Joint-related",
@@ -120,6 +133,7 @@
 
   {
     "id": 14,
+    "category": "Viral Diseases",
     "name": "HIV/AIDS",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Viral",
@@ -129,6 +143,7 @@
   },
   {
     "id": 15,
+    "category": "Neurological Diseases",
     "name": "Stroke",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Neurological",
@@ -138,6 +153,7 @@
   },
   {
     "id": 16,
+    "category": "Digestive Diseases",
     "name": "Chronic Obstructive Pulmonary Disease (COPD)",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Respiratory",
@@ -147,6 +163,7 @@
   },
   {
     "id": 17,
+    "category": "Viral Diseases",
     "name": "Hepatitis B",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Viral",
@@ -156,6 +173,7 @@
   },
   {
     "id": 18,
+    "category": "Viral Diseases",
     "name": "Hepatitis C",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Viral",
@@ -165,6 +183,7 @@
   },
   {
     "id": 19,
+    "category": "Digestive Diseases",
     "name": "Gastroesophageal Reflux Disease (GERD)",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Digestive",
@@ -174,6 +193,7 @@
   },
   {
     "id": 20,
+    "category": "Mental Health Disorders",
     "name": "Depression",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Mental Health",
@@ -183,6 +203,7 @@
   },
   {
     "id": 21,
+    "category": "Mental Health Disorders",
     "name": "Anxiety Disorders",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Mental Health",
@@ -192,6 +213,7 @@
   },
   {
     "id": 22,
+    "category": "Mental Health Disorders",
     "name": "Epilepsy",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Neurological",
@@ -201,6 +223,7 @@
   },
   {
     "id": 23,
+    "category": "Respiratory Diseases",
     "name": "Rheumatic Heart Disease",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Cardiovascular",
@@ -210,6 +233,7 @@
   },
   {
     "id": 24,
+    "category": "Ophthalmic Diseases",
     "name": "Migraine",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Neurological",
@@ -219,6 +243,7 @@
   },
   {
     "id": 25,
+    "category": "Ophthalmic Diseases",
     "name": "Glaucoma",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Ophthalmic",
@@ -228,6 +253,7 @@
   },
   {
     "id": 26,
+    "category": "Cancer",
     "name": "Ovarian Cancer",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Cancer",
@@ -237,6 +263,7 @@
   },
   {
     "id": 27,
+    "category": "Joint-related Diseases",
     "name": "Gout",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Joint-related",
@@ -246,6 +273,7 @@
   },
   {
     "id": 28,
+    "category": "Ophthalmic Diseases",
     "name": "Cataracts",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Ophthalmic",
@@ -255,6 +283,7 @@
   },
   {
     "id": 29,
+    "category": "Neurological Diseases",
     "name": "Autism Spectrum Disorder (ASD)",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
     "type": "Neurodevelopmental",
