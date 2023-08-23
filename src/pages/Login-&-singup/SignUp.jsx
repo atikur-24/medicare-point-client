@@ -47,34 +47,30 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((imageData) => {
         const imageUrl = imageData.data.display_url;
-        if (data.password !== data.confirmPassword) {
-          setError("password dose not match");
-        } else {
-          setError("");
-          createUser(data?.email, data?.password)
-            .then((result) => {
-              updateUserProfile(data?.name, imageUrl)
-                .then(() => {
-                  setError("");
-                  Swal.fire({
-                    icon: "success",
-                    title: "Your Register Successfully",
-                    showConfirmButton: false,
-                    timer: 2500,
-                  });
-                  addUser(result?.user);
-                  navigate(from, { replace: true });
-                })
-                .catch((err) => {
-                  setError(err.message);
+        setError("");
+        createUser(data?.email, data?.password)
+          .then((result) => {
+            updateUserProfile(data?.name, imageUrl)
+              .then(() => {
+                setError("");
+                Swal.fire({
+                  icon: "success",
+                  title: "Your Register Successfully",
+                  showConfirmButton: false,
+                  timer: 2500,
                 });
-              setLoading(false);
-            })
-            .catch((err) => {
-              setError(err.message);
-              setLoading(false);
-            });
-        }
+                addUser(result?.user);
+                navigate(from, { replace: true });
+              })
+              .catch((err) => {
+                setError(err.message);
+              });
+            setLoading(false);
+          })
+          .catch((err) => {
+            setError(err.message);
+            setLoading(false);
+          });
       });
   };
 
