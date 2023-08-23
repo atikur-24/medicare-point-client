@@ -9,7 +9,7 @@ const HealthArticlesDetails = () => {
       <p>
         <small className="italic">Published Date: {published_date}</small>
       </p>
-      <img className="mx-auto" style={{ width: "600px", height: "350px" }} src={image} alt="" />
+      <img className="mx-auto w-[600px] h-[350px]" src={image} alt="" />
       <h2 className="text-3xl font-semibold">Topic:{topic}</h2>
       <p className="flex justify-center">{content_details}</p>
     </div>
