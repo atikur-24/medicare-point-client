@@ -1,6 +1,20 @@
+// import { useState } from "react";
+// import { getStoredLabCart, labAddToDb, removeFromLabDb } from "../../../utilities/LabFakeDb";
+
 const LabCard = ({ category }) => {
+  // const ids = getStoredLabCart();
+  // const [isExist, setIsExist] = useState(true);
   const price = (category.price * category.discount) / 100;
   const remaining = parseFloat(category.price - price);
+
+  // const addtoLabDb = (id) => {
+  //   labAddToDb(id);
+  //   setIsExist(!isExist);
+  // };
+  // const removeToLavDb = (id) => {
+  //   removeFromLabDb(id);
+  //   setIsExist(!isExist);
+  // };
 
   return (
     <div className="border border-gray-3 w-60 p-4 rounded-2xl  bg-white ">
@@ -18,9 +32,14 @@ const LabCard = ({ category }) => {
       </div>
       <p className="font-bold my-2 text-my-pink">৳{remaining}</p>
       <div className="">
-        <button type="button" className="btn cart-btn w-full">
+        {/* {isExist ? <button onClick={() => addtoLabDb(category._id)} type="button" className="btn cart-btn w-full">
           Add To Cart
         </button>
+          :
+            <button onClick={() => removeToLavDb(category._id)} type="button" className="btn cart-btn w-full">
+              Removed To Cart
+            </button>
+        } */}
       </div>
     </div>
   );
