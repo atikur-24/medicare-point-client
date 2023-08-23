@@ -1,6 +1,24 @@
+import useAuth from "../../../hooks/useAuth";
+import LabButton from "./LabButton";
+
 const LabCard = ({ category }) => {
-  const price = (category.price * category.discount) / 100;
-  const remaining = parseFloat(category.price - price);
+  const { user } = useAuth();
+
+  const price2 = (category.price * category.discount) / 100;
+  const remaining = parseFloat(category.price - price2);
+
+  const { test_name, price, discount } = category || {};
+
+  const labAddCart = { lab_id: category._id, test_name, price, remaining, discount, name: user?.displayName, email: user?.email };
+
+  // const addtoLabDb = (id) => {
+  //   labAddToDb(id);
+  //   setIsExist(!isExist);
+  // };
+  // const removeToLavDb = (id) => {
+  //   removeFromLabDb(id);
+  //   setIsExist(!isExist);
+  // };
 
   return (
     <div className="border border-gray-3 w-60 p-4 rounded-2xl  bg-white ">
@@ -17,11 +35,7 @@ const LabCard = ({ category }) => {
         {category.discount > 0 && <span className="badge bg-my-primary border-0 badge-accent text-white py-0.5">{category.discount}% off</span>}
       </div>
       <p className="font-bold my-2 text-my-pink">৳{remaining}</p>
-      <div className="">
-        <button type="button" className="btn cart-btn w-full">
-          Add To Cart
-        </button>
-      </div>
+      <LabButton labAddCart={labAddCart} />
     </div>
   );
 };

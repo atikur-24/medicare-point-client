@@ -13,14 +13,11 @@ const MedicineCarts = () => {
 
   const pricesWithDiscount = [];
   let totalPrice = 0;
-
   const totalPrices = [];
   let subTotal = 0;
-
   for (const items of cart) {
     pricesWithDiscount.push(items?.quantity * (items?.price - (items?.price / 100) * items?.discount));
   }
-
   for (const price of pricesWithDiscount) {
     totalPrice += price;
   }
@@ -33,9 +30,6 @@ const MedicineCarts = () => {
   }
 
   const saveMoney = subTotal - totalPrice;
-
-  // console.log(pricesWithDiscount);
-  // console.log(totalPrice);
 
   const handleClearCart = () => {
     Swal.fire({
@@ -74,21 +68,21 @@ const MedicineCarts = () => {
           <div className="py-5 px-5 lg:px-8 space-y-5 text-xl font-medium">
             <h3 className="flex justify-between font-semibold">
               SubTotal:
-              <h3 className="flex items-center">
+              <span className="flex items-center">
                 <TbCurrencyTaka /> {subTotal.toFixed(2)}
-              </h3>
+              </span>
             </h3>
             <h3 className="flex justify-between font-semibold">
               Save Amount:
-              <h3 className="flex items-center">
+              <span className="flex items-center">
                 <TbCurrencyTaka /> {saveMoney.toFixed(2)}
-              </h3>
+              </span>
             </h3>
             <h3 className="flex justify-between font-semibold">
               Total:
-              <h3 className="flex items-center">
+              <span className="flex items-center">
                 <TbCurrencyTaka /> {totalPrice.toFixed(2)}
-              </h3>
+              </span>
             </h3>
             <div className="mt-5">
               <Link to="/orderCheckOut">
