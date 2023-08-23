@@ -1,20 +1,21 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-
+import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import { fetchAllLabTests } from "../../../../Features/AllLabTests/allLabTest";
+import { deleteLabTestApi } from "../../../../Features/AllLabTests/deleteLabTest";
 import AddLabCard from "./AddLabCard";
 import UpdateLabTest from "./UpdateLabTest";
 
 // Todo
 const AllAvailableTest = () => {
-  const [lab, setLab] = useState([]);
+  const { isLoading, allLabTest } = useSelector((state) => state.allLabTest);
   const [singleData, setSingleData] = useState({});
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/labAllItems`)
-      .then((res) => setLab(res?.data));
-  }, []);
+    dispatch(fetchAllLabTests());
+  }, [dispatch]);
 
   const handlerDelete = (id) => {
     Swal.fire({
@@ -27,30 +28,24 @@ const AllAvailableTest = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/labItems/${id}`).then((data) => {
-          if (data.data.deletedCount > 0) {
-            Swal.fire("Deleted!", "lab has been deleted.", "success");
-          }
-        });
+        dispatch(deleteLabTestApi(id));
+        dispatch(fetchAllLabTests());
       }
     });
   };
 
+  if (isLoading) {
+    return <p className="text-center mt-10">Loading........</p>;
+  }
+
   return (
     <div className="px-2 md:px-5">
-      <h3 className="text-center text-3xl my-7 font-semibold">
-        All Available Tests
-      </h3>
+      <h3 className="text-center text-3xl my-7 font-semibold">All Available Tests</h3>
       <UpdateLabTest singleData={singleData} />
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-5">
-        {lab.map((category) => (
-          <AddLabCard
-            key={category._id}
-            category={category}
-            handlerDelete={handlerDelete}
-            setSingleData={setSingleData}
-          />
+        {allLabTest.map((category) => (
+          <AddLabCard key={category._id} category={category} handlerDelete={handlerDelete} setSingleData={setSingleData} />
         ))}
       </div>
     </div>

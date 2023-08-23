@@ -4,7 +4,6 @@ import useAuth from "./useAuth";
 
 const useCartMedicines = () => {
     const { user, loading } = useAuth();
-
     const { data: cart = [], refetch } = useQuery({
         queryKey: ["medicineCarts", user?.email],
         enabled: !loading,
@@ -14,7 +13,7 @@ const useCartMedicines = () => {
         },
     });
 
-    return [cart, refetch];
+  return [cart, refetch];
 };
 
 export default useCartMedicines;
