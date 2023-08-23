@@ -55,9 +55,9 @@ const AddLabTest = () => {
   const onSubmit = (data) => {
     data.price = parseInt(data.price, 10);
     data.discount = parseInt(data.discount, 10);
-    const price = (data.price * data.discount) / 100;
-    const remaining = parseInt(data.price - price, 10);
-    data.remaining = remaining;
+    // const price = (data.price * data.discount) / 100;
+    // const remaining = parseInt(data.price - price, 10);
+    // data.remaining = remaining;
 
     // Image Upload
     const image = data.image_url[0];
@@ -72,7 +72,7 @@ const AddLabTest = () => {
       .then((res) => res.json())
       .then((imageData) => {
         data.image_url = imageData.data.display_url;
-        dispatch(addLabTestApi({ data, reset, dispatch }));
+        dispatch(addLabTestApi({ data, reset }));
       });
   };
 
