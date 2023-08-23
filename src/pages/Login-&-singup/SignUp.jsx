@@ -47,34 +47,30 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((imageData) => {
         const imageUrl = imageData.data.display_url;
-        if (data.password !== data.confirmPassword) {
-          setError("password dose not match");
-        } else {
-          setError("");
-          createUser(data?.email, data?.password)
-            .then((result) => {
-              updateUserProfile(data?.name, imageUrl)
-                .then(() => {
-                  setError("");
-                  Swal.fire({
-                    icon: "success",
-                    title: "Your Register Successfully",
-                    showConfirmButton: false,
-                    timer: 2500,
-                  });
-                  addUser(result?.user);
-                  navigate(from, { replace: true });
-                })
-                .catch((err) => {
-                  setError(err.message);
+        setError("");
+        createUser(data?.email, data?.password)
+          .then((result) => {
+            updateUserProfile(data?.name, imageUrl)
+              .then(() => {
+                setError("");
+                Swal.fire({
+                  icon: "success",
+                  title: "Your Register Successfully",
+                  showConfirmButton: false,
+                  timer: 2500,
                 });
-              setLoading(false);
-            })
-            .catch((err) => {
-              setError(err.message);
-              setLoading(false);
-            });
-        }
+                addUser(result?.user);
+                navigate(from, { replace: true });
+              })
+              .catch((err) => {
+                setError(err.message);
+              });
+            setLoading(false);
+          })
+          .catch((err) => {
+            setError(err.message);
+            setLoading(false);
+          });
       });
   };
 
@@ -93,7 +89,7 @@ const SignUp = () => {
                     <img className=" w-28" src={Logo} alt="logo" />
                   </Link>
                 </div>
-                <h2 className="text-center text-2xl font-bold text-my-primary my-2">Please Login </h2>
+                <h2 className="text-center text-2xl font-bold text-my-primary my-2">Please Sign Up </h2>
                 <form onSubmit={handleSubmit(onSubmit)} className=" space-y-5">
                   <div className="form-control">
                     {/* <label className="label mb-2">
