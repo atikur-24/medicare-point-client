@@ -25,7 +25,7 @@ const TopTest = () => {
       <div className="mt-10 hidden md:block">
         <LabTitle title="TOP BOOKED TESTS" />
         <Swiper
-          slidesPerView={6}
+          slidesPerView={5}
           spaceBetween={40}
           freeMode
           pagination={{
