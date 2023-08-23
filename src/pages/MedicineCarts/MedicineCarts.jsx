@@ -33,7 +33,7 @@ const MedicineCarts = () => {
             </h3>
             <div className="p-5 lg:p-8">
               {
-                cart?.data?.map(item => <MedicineCartItem key={item._id} item={item} refetch={refetch} />)
+                cart?.map(item => <MedicineCartItem key={item._id} item={item} refetch={refetch} />)
               }
             </div>
           </div>

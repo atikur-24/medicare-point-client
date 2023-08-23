@@ -3,15 +3,16 @@ import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { TbCurrencyTaka } from "react-icons/tb";
+import { HiPlus, HiMinus } from "react-icons/hi";
 
 
 const MedicineCartItem = ({ item, refetch }) => {
-    const [quantity, setQuantity] = useState(1);
-    const { _id, image, medicine_name, category, price, discount } = item || {};
-    const handleRemoveToCart = () => {
-        axios.delete(`http://localhost:5000/medicineCarts/${_id}`).then(() => toast.error("Item Removed"));
-        refetch();
-    };
+  const { _id, image, medicine_name, category, price, discount, quantity } = item || {};
+  const [count, setCount] = useState(quantity);
+  const handleRemoveToCart = () => {
+    axios.delete(`http://localhost:5000/medicineCarts/${_id}`).then(() => toast.error("Item Removed"));
+    refetch();
+  };
     return (
       <div className="flex items-center justify-between border-b border-gray-3 py-3">
         <button onClick={handleRemoveToCart} type="button" className="bg-lite rounded-full py-1 px-3">
@@ -29,10 +30,10 @@ const MedicineCartItem = ({ item, refetch }) => {
           </p>
         </div>
         <div className="space-y-4">
-          <div className="border border-gray-3 rounded-full w-fit py-3 px-5 space-x-5">
-            <button type="button" disabled={quantity <= 1} onClick={() => setQuantity(quantity - 1)} className="cursor-pointer">-</button>
-            <span className="text-gray-5">{quantity}</span>
-            <button type="button" disabled={quantity >= 20} onClick={() => setQuantity(quantity + 1)} className="cursor-pointer">+</button>
+          <div className="border border-gray-3 rounded-full w-fit py-3 px-5 flex items-center justify-between gap-5">
+            <button type="button" disabled={count <= 1} onClick={() => setCount(count - 1)} className="cursor-pointer"><HiMinus /></button>
+            <p className="text-gray-5">{count}</p>
+            <button type="button" disabled={count >= 50} onClick={() => setCount(count + 1)} className="cursor-pointer"><HiPlus /></button>
           </div>
           <p className="text-black-2 font-medium">Total: {(quantity * (price - (price / 100 * discount))).toFixed(2)}</p>
         </div>
