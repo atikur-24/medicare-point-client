@@ -74,6 +74,7 @@ const router = createBrowserRouter([
       {
         path: "/healthtips/:id",
         element: <HealthTipsDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/allHealthTips/${params?.id}`),
       },
       {
         path: "labPage/:id",

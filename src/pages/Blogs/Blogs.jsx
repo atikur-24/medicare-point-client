@@ -53,7 +53,7 @@ const Blogs = () => {
               return (
                 <div key={index}>
                   <div className="flex justify-center">
-                    <img style={{ width: "600px", height: "350px" }} className="p-6" src={interview.image} alt="" />
+                    <img className="p-6 w-[600px] h-[350px]" src={interview.image} alt="" />
                     <div className="p-6 my-auto">
                       <Link to={`/interviews/${interview._id}`}>
                         <h2 className="text-xl font-semibold hover:text-my-primary">{interview.title}</h2>
