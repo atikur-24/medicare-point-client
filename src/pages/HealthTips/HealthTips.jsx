@@ -9,7 +9,7 @@ const HealthTips = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
-    axios.get("/healthtips.json").then((res) => {
+    axios.get("http://localhost:5000/allHealthTips").then((res) => {
       setHealthTips(res.data);
 
       // Extract unique categories from health tips data
@@ -50,7 +50,7 @@ const HealthTips = () => {
                 <h2 className="text-center items-center gap-3 font-medium text-[16px] tracking-wide">{healthTip.name}</h2>
                 <img src={healthTip.image} alt="img" className="h-32 mx-auto" />
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quaerat natus fuga tenetur quam ghfgb xfgh.</p>
-                <Link to={`/healthtips/${healthTip.id}`} className="flex justify-center">
+                <Link to={`/healthtips/${healthTip._id}`} className="flex justify-center">
                   <button type="button" className="my-btn">
                     Get Tips
                   </button>
