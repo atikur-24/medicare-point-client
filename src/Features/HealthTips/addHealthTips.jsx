@@ -13,7 +13,7 @@ export const addHealthTipsApi = createAsyncThunk("addHealthTips/addHealthTipsApi
       icon: "success",
       confirmButtonText: "Cool",
     });
-    // data.reset();
+    data.reset();
   }
 
   return res.data;
