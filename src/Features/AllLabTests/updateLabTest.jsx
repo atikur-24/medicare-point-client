@@ -3,7 +3,6 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export const updateLabTestApi = createAsyncThunk("updateLabTest/updateLabTestApi", async (data) => {
-  // console.log(data);
   const res = await axios.patch(`http://localhost:5000/labItems/${data._id}`, {
     body: data.data,
   });
