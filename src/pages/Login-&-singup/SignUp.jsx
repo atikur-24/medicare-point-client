@@ -75,7 +75,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-my-primary py-6 px-4">
+    <div className="bg-my-primary py-6 px-4 2xl:py-0">
       <div className="flex justify-center  items-center min-h-screen ">
         <div className=" login-singUp-bg  bg-white   shadow-xl rounded-lg ">
           <div className="grid grid-cols-1 md:grid-cols-2 ">
@@ -84,44 +84,32 @@ const SignUp = () => {
             </div>
             <div>
               <div className="card w-full md:p-12 card-body px-8">
-                <div className="mx-auto">
-                  <Link to="/">
-                    <img className=" w-28" src={Logo} alt="logo" />
-                  </Link>
+                <div className=" flex justify-center flex-col items-center space-y-4">
+                  <div>
+                    <Link to="/">
+                      <img className=" w-28" src={Logo} alt="logo" />
+                    </Link>
+                  </div>
+                  <h2 className=" text-2xl font-bold text-my-primary ">Please Sign Up </h2>
                 </div>
-                <h2 className="text-center text-2xl font-bold text-my-primary my-2">Please Sign Up </h2>
                 <form onSubmit={handleSubmit(onSubmit)} className=" space-y-5">
                   <div className="form-control">
-                    {/* <label className="label mb-2">
-                      <span className="label-text">
-                        Name <span className="text-rose-500 font-bold">*</span>
-                      </span>
-                    </label> */}
                     <input
                       type="text"
-                      placeholder="name"
+                      placeholder="Name"
                       className="placeholder-gray-4 text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
                       required
                       {...register("name")}
                     />
                   </div>
                   <div className="form-control">
-                    {/* <label className="label">
-                      <span className="label-text">
-                        Upload image<span className="text-rose-500 font-bold">*</span>
-                      </span>
-                    </label> */}
-
                     <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered file-input-accent w-full" />
                     {errors.image && <span className="text-red-600">image is required</span>}
                   </div>
                   <div className="form-control">
-                    {/* <label className="label">
-                      <span className="label-text">Email</span>
-                    </label> */}
                     <input
                       type="email"
-                      placeholder="email"
+                      placeholder="Email"
                       className="placeholder-gray-4 text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
                       {...register("email", { required: true })}
                     />
@@ -132,9 +120,6 @@ const SignUp = () => {
                     )}
                   </div>
                   <div className="form-control">
-                    {/* <label className="label">
-                      <span className="label-text">Password</span>
-                    </label> */}
                     <div className="relative">
                       <input
                         type={showPassword ? "text" : "password"}
@@ -144,7 +129,7 @@ const SignUp = () => {
                           maxLength: 20,
                           pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                         })}
-                        placeholder="password"
+                        placeholder="Password +6"
                         className="placeholder-gray-4 text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent "
                       />
                       <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-2 text-my-primary">
@@ -172,23 +157,7 @@ const SignUp = () => {
                       )}
                     </div>
                   </div>
-                  {/* <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Confirm Password</span>
-                    </label>
-                    <input
-                      type="password"
-                      placeholder="confirmPassword"
-                      className="input border-gray-3 w-full focus:input-bordered input-accent"
-                      {...register("confirmPassword", { required: true })}
-                    />
 
-                    {errors.confirmPassword && (
-                      <p className="text-red-600">
-                        <ImWarning className="inline-block" /> Confirm password is required
-                      </p>
-                    )}
-                  </div> */}
                   {error && (
                     <p className="text-red-600">
                       <ImWarning className="inline-block" /> {error}
@@ -203,14 +172,14 @@ const SignUp = () => {
                 </form>
                 <div className="divider">OR</div>
                 <SocialSigning />
-                <label className="label">
-                  <p>
-                    Already Have An Account ?
-                    <Link to="/login" className="underline font-semibold">
+                <div className="mt-2 ">
+                  <p className="inline-flex items-center">
+                    <span className="font-nunito font-bold">Already Have An Account ?</span>
+                    <Link to="/login" className="text-sm underline font-semibold ml-2 hover:text-my-primary">
                       Login
                     </Link>
                   </p>
-                </label>
+                </div>
               </div>
             </div>
           </div>
