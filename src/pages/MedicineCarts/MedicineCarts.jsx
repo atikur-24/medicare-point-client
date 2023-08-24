@@ -7,8 +7,10 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useCartMedicines from "../../hooks/useCartMedicines";
 import MedicineCartItem from "./MedicineCartItem";
+import useAuth from "../../hooks/useAuth";
 
 const MedicineCarts = () => {
+  const { user } = useAuth();
   const [cart, refetch] = useCartMedicines();
 
   const pricesWithDiscount = [];
@@ -42,8 +44,12 @@ const MedicineCarts = () => {
       confirmButtonText: "Yes, Clear All",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete("http://localhost:5000/medicineCarts").then(() => toast.success("All Item Removed"));
-        refetch();
+        axios.delete(`http://localhost:5000/medicineCarts?email=${user?.email}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            toast.success("All Item Removed");
+            refetch();
+          }
+        });
       }
     });
   };
