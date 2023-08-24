@@ -4,6 +4,7 @@ import "@smastrom/react-rating/style.css";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import AddCartButton from "../../components/AddCartButton";
+import useAuth from "../../hooks/useAuth";
 
 const customStyles = {
   itemShapes: StickerStar,
@@ -12,8 +13,9 @@ const customStyles = {
 };
 
 const MedicineCard = ({ medicine }) => {
+  const { user } = useAuth();
   const { _id, medicine_name, image, price, category, rating, discount } = medicine || {};
-  const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity: 1, category };
+  const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity: 1, email: user?.email, category };
   return (
     <div className="card card-compact bg-white rounded-md hover:shadow-lg transition-shadow relative group">
       {discount > 0 && <p className="bg-my-accent z-10 rounded-md py-1 px-2 text-xs font-medium text-white absolute top-4 left-4">-{discount}% OFF</p>}
