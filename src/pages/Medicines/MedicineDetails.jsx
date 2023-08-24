@@ -3,7 +3,7 @@
 /* eslint-disable no-plusplus */
 import { Rating, StickerStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BiLogoFacebook, BiLogoGooglePlus, BiLogoInstagram, BiLogoLinkedin, BiLogoPinterest, BiLogoTumblr, BiLogoTwitter, BiSolidEnvelope } from "react-icons/bi";
 import { HiMinus, HiOutlineBadgeCheck, HiOutlineChevronRight, HiPlus } from "react-icons/hi";
 import { TbCurrencyTaka } from "react-icons/tb";
@@ -25,15 +25,6 @@ const MedicineDetails = () => {
   const [quantity, setQuantity] = useState(1);
   const { _id, medicine_name, image, price, medicine_description, category, tags, rating, discount, features, product_details } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, email: user?.email, category };
-  const getProduct = localStorage.getItem("medi-cart");
-  const ids = JSON.parse(getProduct);
-  useEffect(() => {
-    for (const id in ids) {
-      if (_id === id) {
-        setQuantity(ids[id]);
-      }
-    }
-  }, [_id, ids]);
 
   return (
     <section className="bg-lite">
