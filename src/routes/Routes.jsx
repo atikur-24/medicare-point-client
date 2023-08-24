@@ -38,6 +38,7 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import LabPayment from "../pages/Shared/LabTest/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
+import CheckouForm from "../pages/MedicineCarts/CheckoutForm/CheckouForm";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,7 @@ const router = createBrowserRouter([
       {
         path: "/healthtips/:id",
         element: <HealthTipsDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/allHealthTips/${params?.id}`),
       },
       {
         path: "labPage/:id",
@@ -107,6 +109,10 @@ const router = createBrowserRouter([
       {
         path: "medicineCarts",
         element: <MedicineCarts />,
+      },
+      {
+        path: "orderCheckOut",
+        element: <CheckouForm />,
       },
       {
         path: "services",

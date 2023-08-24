@@ -11,6 +11,15 @@ const LabCard = ({ category }) => {
 
   const labAddCart = { lab_id: category._id, test_name, price, remaining, discount, name: user?.displayName, email: user?.email };
 
+  // const addtoLabDb = (id) => {
+  //   labAddToDb(id);
+  //   setIsExist(!isExist);
+  // };
+  // const removeToLavDb = (id) => {
+  //   removeFromLabDb(id);
+  //   setIsExist(!isExist);
+  // };
+
   return (
     <div className="border border-gray-3 w-60 p-4 rounded-2xl  bg-white ">
       <figure className="flex justify-center ">
