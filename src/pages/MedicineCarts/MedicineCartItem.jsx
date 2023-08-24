@@ -11,7 +11,12 @@ const MedicineCartItem = ({ item, refetch }) => {
   const total = (quantity * (price - (price / 100) * discount)).toFixed(2);
 
   const handleRemoveToCart = () => {
-    axios.delete(`http://localhost:5000/medicineCarts/${_id}`).then(() => toast.error("Item Removed"));
+    axios.delete(`http://localhost:5000/medicineCarts/${_id}`).then((result) => {
+      if (result.data.deletedCount > 0) {
+        toast.error("Item Removed");
+        refetch();
+      }
+    });
     refetch();
   };
 
