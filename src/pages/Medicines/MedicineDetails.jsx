@@ -6,9 +6,9 @@ import { useLoaderData } from "react-router";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { BiLogoFacebook, BiLogoTwitter, BiLogoTumblr, BiLogoLinkedin, BiLogoGooglePlus, BiLogoPinterest, BiLogoInstagram, BiSolidEnvelope } from "react-icons/bi";
 import "react-toastify/dist/ReactToastify.css";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineBadgeCheck, HiOutlineChevronRight, HiPlus, HiMinus } from "react-icons/hi";
+import { useState } from "react";
 import AddCartButton from "../../components/AddCartButton";
 import useAuth from "../../hooks/useAuth";
 
@@ -24,15 +24,6 @@ const MedicineDetails = () => {
   const [quantity, setQuantity] = useState(1);
   const { _id, medicine_name, image, price, medicine_description, category, tags, rating, discount, features, product_details } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, email: user?.email, category };
-  const getProduct = localStorage.getItem("medi-cart");
-  const ids = JSON.parse(getProduct);
-  useEffect(() => {
-    for (const id in ids) {
-      if (_id === id) {
-     setQuantity(ids[id]);
-      }
-    }
-  }, [_id, ids]);
 
   return (
     <section className="bg-lite">
