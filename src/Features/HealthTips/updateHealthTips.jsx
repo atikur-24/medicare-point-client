@@ -2,8 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export const updateLabTestApi = createAsyncThunk("updateLabTest/updateLabTestApi", async (data) => {
-  const res = await axios.patch(`http://localhost:5000/labItems/${data._id}`, {
+export const updateHealthTipsApi = createAsyncThunk("updateHealthTips/updateHealthTipsApi", async (data) => {
+  const res = await axios.patch(`http://localhost:5000/allHealthTips/${data._id}`, {
     body: data.data,
   });
 
@@ -14,23 +14,23 @@ export const updateLabTestApi = createAsyncThunk("updateLabTest/updateLabTestApi
   return res.data;
 });
 
-const updateLabTestsSlice = createSlice({
-  name: "updateLabTest",
+const updateHealthTipsSlice = createSlice({
+  name: "updateHealthTips",
   initialState: {
     isLoading: false,
     error: null,
     response: {},
   },
   extraReducers: (builder) => {
-    builder.addCase(updateLabTestApi.pending, (state) => {
+    builder.addCase(updateHealthTipsApi.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(updateLabTestApi.fulfilled, (state, action) => {
+    builder.addCase(updateHealthTipsApi.fulfilled, (state, action) => {
       state.isLoading = false;
       state.response = action.payload;
       state.error = null;
     });
-    builder.addCase(updateLabTestApi.rejected, (state, action) => {
+    builder.addCase(updateHealthTipsApi.rejected, (state, action) => {
       state.isLoading = false;
       state.response = {};
       state.error = action.error.message;
@@ -38,4 +38,4 @@ const updateLabTestsSlice = createSlice({
   },
 });
 
-export default updateLabTestsSlice.reducer;
+export default updateHealthTipsSlice.reducer;
