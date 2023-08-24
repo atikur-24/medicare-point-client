@@ -2,10 +2,13 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import useCartMedicines from "../../../hooks/useCartMedicines";
 
 const CheckouForm = () => {
   const { user } = useContext(AuthContext);
   //   console.log(user?.displayName);
+
+  const [cart, refetch] = useCartMedicines();
 
   const {
     register,
