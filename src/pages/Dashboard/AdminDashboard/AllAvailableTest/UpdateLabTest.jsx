@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
+// import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { updateLabTestApi } from "../../../../Features/AllLabTests/updateLabTest";
 import "./LabTest.css";
 
 const UpdateLabTest = ({ singleData }) => {
-  // const imgURL = useSelector((state) => state.uploadImage?.response?.data?.display_url);
+  // const a = useSelector((state) => state.updateLabTest.response);
+  // console.log(a);
   const dispatch = useDispatch();
 
   const { _id, image_url, category_name, test_name, price, discount, category, PhoneNumber, labNames, city, labTestDetails } = singleData;
