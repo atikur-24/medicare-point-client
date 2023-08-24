@@ -35,7 +35,9 @@ const LabCard = ({ category }) => {
         {category.discount > 0 && <span className="badge bg-my-primary border-0 badge-accent text-white py-0.5">{category.discount}% off</span>}
       </div>
       <p className="font-bold my-2 text-my-pink">৳{remaining}</p>
-      <LabButton labAddCart={labAddCart} />
+      <div>
+        <LabButton labAddCart={labAddCart} />
+      </div>
     </div>
   );
 };

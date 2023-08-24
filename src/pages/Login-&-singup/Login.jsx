@@ -52,12 +52,13 @@ const Login = () => {
       })
       .catch((err) => {
         toast.error(err.message);
+        setError(err?.message);
         setLoading(false);
       });
   };
 
   return (
-    <div className="bg-my-primary px-4 py-6 ">
+    <div className="bg-my-primary px-4 py-6 2xl:py-0 ">
       <div className="flex justify-center items-center min-h-screen">
         <div className="login-singUp-bg   py-6 bg-white   shadow-xl rounded-lg">
           <div className=" items-center grid grid-cols-1 md:grid-cols-2 ">
@@ -65,18 +66,18 @@ const Login = () => {
               <Lottie animationData={loginAnimation} loop />
             </div>
             <div className="card w-full px-8 ">
-              <div className="mx-auto ">
-                <Link to="/">
-                  <img className=" w-28" src={Logo} alt="logo" />
-                </Link>
+              <div className=" mb-4 flex justify-center flex-col items-center space-y-4">
+                <div>
+                  <Link to="/">
+                    <img className=" w-28" src={Logo} alt="logo" />
+                  </Link>
+                </div>
+                <h2 className=" text-2xl font-bold text-my-primary ">Please Login </h2>
               </div>
-              <h2 className="text-center text-2xl font-bold text-my-primary my-2">Please Login </h2>
+
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="space-y-5">
                   <div className="form-control">
-                    {/* <label className="label">
-                    <span className="label-text">Email</span>
-                  </label> */}
                     <input
                       type="email"
                       placeholder="Email"
@@ -84,15 +85,12 @@ const Login = () => {
                       {...register("email", { required: true })}
                     />
                     {errors.email && (
-                      <p className="text-red-600">
+                      <p className="text-red-500">
                         <ImWarning className="inline-block" /> Email is required
                       </p>
                     )}
                   </div>
                   <div className="form-control">
-                    {/* <label className="label">
-                    <span className="label-text mt-3">Password</span>
-                  </label> */}
                     <div className="relative">
                       <input
                         type={showPassword ? "text" : "password"}
@@ -105,7 +103,7 @@ const Login = () => {
                       </button>
                     </div>
                     {errors.password && (
-                      <p className="text-red-600">
+                      <p className="text-red-500">
                         <ImWarning className="inline-block" /> password is required
                       </p>
                     )}
@@ -116,7 +114,7 @@ const Login = () => {
                 </button>
                 <label className="label">
                   {error && (
-                    <p className="text-red-600">
+                    <p className="text-red-500">
                       <ImWarning className="inline-block" /> {error}
                     </p>
                   )}
@@ -128,14 +126,14 @@ const Login = () => {
               </form>
               <div className="divider">OR</div>
               <SocialSigning />
-              <label className="">
-                <p className=" mt-2">
-                  <span>Don&apos;t Have An Account ?</span>{" "}
-                  <Link to="/signUp" className="underline font-semibold  hover:text-my-primary">
-                    Sign Up
+              <div className="mt-4 ">
+                <p className="inline-flex items-center">
+                  <span className="font-nunito font-bold">Don&apos;t Have An Account ?</span>
+                  <Link to="/signUp" className="text-sm underline font-semibold ml-2 hover:text-my-primary">
+                    Sign up
                   </Link>
                 </p>
-              </label>
+              </div>
             </div>
           </div>
         </div>

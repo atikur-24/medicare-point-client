@@ -8,14 +8,14 @@ const Medicines = () => {
   const [medicines] = useMedicines();
   return (
     <section className="bg-lite">
-      <div className="container mx-auto py-5 md:py-8 lg:py-10">
+      <div className="container mx-auto py-5 px-4 md:py-8 lg:pt-10 lg:px-10">
         <p className="inline-flex items-center gap-1 font-medium md:font-semibold tracking-wider text-black-2 lg:text-lg">
           <Link to="/" className="hover:text-my-accent cursor-pointer transition-colors">Home</Link>
           <HiOutlineChevronRight />
           <span>Medicines</span>
         </p>
       </div>
-      <div className="my-container md:flex gap-8">
+      <div className="container mx-auto px-4 lg:px-10 pb-10 md:flex gap-8">
         <div className="w-72 h-fit bg-white rounded-md hidden md:block">
           <h3 className="text-title-color text-xl font-bold tracking-wide py-4 px-6">Categories</h3>
           <hr />
