@@ -6,10 +6,21 @@ export const addUser = (user) => {
         name: user?.displayName,
         email: user?.email,
         role: "user",
+        image: user?.photoURL,
     };
     axios.post("http://localhost:5000/users", userData).then(res => console.log(res.data));
 };
 
+
+
+export const updateUserRole = () => {
+    const userData = {
+        role: "Pharmacist",
+    };
+    axios.put("url", userData).then(res => {
+        console.log(res.data);
+    });
+};
 
 
 
