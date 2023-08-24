@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { AiOutlineDelete } from "react-icons/ai";
 import { TbCurrencyTaka } from "react-icons/tb";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useCartMedicines from "../../hooks/useCartMedicines";
 import MedicineCartItem from "./MedicineCartItem";
@@ -12,14 +13,11 @@ const MedicineCarts = () => {
 
   const pricesWithDiscount = [];
   let totalPrice = 0;
-
   const totalPrices = [];
   let subTotal = 0;
-
   for (const items of cart) {
     pricesWithDiscount.push(items?.quantity * (items?.price - (items?.price / 100) * items?.discount));
   }
-
   for (const price of pricesWithDiscount) {
     totalPrice += price;
   }
@@ -32,9 +30,6 @@ const MedicineCarts = () => {
   }
 
   const saveMoney = subTotal - totalPrice;
-
-  // console.log(pricesWithDiscount);
-  // console.log(totalPrice);
 
   const handleClearCart = () => {
     Swal.fire({
@@ -70,19 +65,32 @@ const MedicineCarts = () => {
         </div>
         <div className="border border-gray-3 rounded-md lg:w-4/12 lg:h-96">
           <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-title-color bg-lite py-5 px-5 lg:px-8">Cart Total</h3>
-          <div className="py-5 px-5 lg:px-8 space-y-8 text-xl font-medium">
-            <h3 className="flex items-center">
-              SubTotal: <TbCurrencyTaka /> {subTotal.toFixed(2)}
+          <div className="py-5 px-5 lg:px-8 space-y-5 text-xl font-medium">
+            <h3 className="flex justify-between font-semibold">
+              SubTotal:
+              <span className="flex items-center">
+                <TbCurrencyTaka /> {subTotal.toFixed(2)}
+              </span>
             </h3>
-            <h3 className="flex items-center">
-              Save Ammount: <TbCurrencyTaka /> {saveMoney.toFixed(2)}
+            <h3 className="flex justify-between font-semibold">
+              Save Amount:
+              <span className="flex items-center">
+                <TbCurrencyTaka /> {saveMoney.toFixed(2)}
+              </span>
             </h3>
-            <h3 className="flex items-center">
-              Total: <TbCurrencyTaka /> {totalPrice.toFixed(2)}
+            <h3 className="flex justify-between font-semibold">
+              Total:
+              <span className="flex items-center">
+                <TbCurrencyTaka /> {totalPrice.toFixed(2)}
+              </span>
             </h3>
-            <button type="button" className="cart-btn">
-              Proceed to checkout
-            </button>
+            <div className="mt-5">
+              <Link to="/orderCheckOut">
+                <button type="button" className="cart-btn">
+                  Proceed to checkout
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -1,28 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 
 const HealthTipsDetails = () => {
-  const { id } = useParams();
-  console.log(id);
-  const [healthTips, setHealthTips] = useState([]);
-  const [diseaseDetails, setDiseaseDetails] = useState(null);
-  console.log(diseaseDetails);
-  console.log(healthTips);
-
-  useEffect(() => {
-    axios.get("/healthtips.json").then((res) => setHealthTips(res.data));
-  }, []);
-
-  useEffect(() => {
-    const foundDisease = healthTips.find((details) => details.id === parseInt(id));
-    console.log(foundDisease);
-    setDiseaseDetails(foundDisease);
-  }, [healthTips, id]);
-
-  if (!diseaseDetails) {
-    return <div>Loading...</div>;
-  }
+  const diseaseDetails = useLoaderData();
+  // const { image, title, content_details, published_date, topic } = healthArticles;
 
   return (
     <div className="my-8 p-8">
