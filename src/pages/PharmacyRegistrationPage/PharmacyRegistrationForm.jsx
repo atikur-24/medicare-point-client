@@ -32,6 +32,7 @@ const PharmacyRegistrationForm = () => {
   const onSubmit = (data) => {
     data.pharmacistImage = user?.photoURL;
     data.email = user?.email;
+    data.applicationType = "pending";
     applicationForPharmacist(data);
     // console.log(data);
     reset();

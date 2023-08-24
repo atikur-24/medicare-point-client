@@ -12,7 +12,7 @@ const PharmacyApplications = () => {
     <div>
       <div>
         <h3 className="text-center text-3xl my-7 font-semibold">All Users List</h3>
-        <div className="overflow-x-auto mb-20  px-5">
+        <div className="overflow-x-auto mb-20   px-5">
           <table className="table bg-gray-3 ">
             {/* head */}
             <thead className="rounded-lg bg-my-primary  ">

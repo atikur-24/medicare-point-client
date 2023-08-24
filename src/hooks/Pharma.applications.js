@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -13,18 +14,23 @@ export const GetPharmacyRApplications = () => {
   return [applications, refetch];
 };
 
-export const ApprovePR = (id) => {
+
+export const ApprovePR = (id, email) => {
   const newType = {
-    applicationType: "approved",
+    email,
   };
 
+
+
   axios.put(`http://localhost:5000/pharmacyRApprove/${id}`, newType).then((res) => {
-    if (res?.data.modifiedCount > 0) {
+    console.log(res.data);
+    if (res?.data.result.modifiedCount > 0 && res?.data.result2.modifiedCount > 0) {
       Swal.fire(
         "Approved",
         "This Application Approved Successful",
         "success",
       );
+      location.reload();
     }
   });
 };
