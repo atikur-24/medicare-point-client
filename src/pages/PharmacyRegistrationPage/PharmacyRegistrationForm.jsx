@@ -30,8 +30,10 @@ const PharmacyRegistrationForm = () => {
   // };
 
   const onSubmit = (data) => {
+    data.pharmacistImage = user?.photoURL;
+    data.email = user?.email;
     applicationForPharmacist(data);
-    console.log(data);
+    // console.log(data);
     reset();
   };
 
@@ -177,7 +179,7 @@ const PharmacyRegistrationForm = () => {
             </label>
             <select
               id="district"
-              {...register("district ", { required: true })}
+              {...register("district", { required: true })}
               defaultValue="Select district"
               className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
             >
