@@ -95,9 +95,9 @@ const Navbar = () => {
                 >
                   {user ? (
                     <div className="flex flex-col">
-                      <NavLink type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
+                      <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
                         <MenuItem>Log Out</MenuItem>
-                      </NavLink>
+                      </button>
                       <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("User")}>
                         <MenuItem>User</MenuItem>
                       </NavLink>

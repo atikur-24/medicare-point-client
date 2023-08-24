@@ -21,7 +21,7 @@
 .dashboard-ul a.active {
     color: #16b4ac !important;
     background-color: transparent !important;
-    @apply text-lg;
+    @apply no-underline capitalize text-base font-semibold;
 }
 
 .dashboard-link {

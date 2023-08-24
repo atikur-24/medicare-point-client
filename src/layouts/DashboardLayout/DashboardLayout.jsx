@@ -144,13 +144,13 @@ const DashboardLayout = () => {
         </NavLink>
         <ul className={`${medicineBtn ? "block" : "hidden"}`}>
           <li>
-            <NavLink to="/dashboard/add-new-medicine" className="">
-              Add new medicine
+            <NavLink to="/dashboard/medicine-inventory" className="">
+              All Medicines
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/medicine-inventory" className="">
-              All Medicines
+            <NavLink to="/dashboard/add-new-medicine" className="">
+              Add new medicine
             </NavLink>
           </li>
         </ul>
