@@ -50,9 +50,11 @@ const UpdateLabTest = ({ singleData }) => {
   const onSubmit = async (data) => {
     data.price = parseInt(data.price, 10);
     data.discount = parseInt(data.discount, 10);
-    const price2 = (data.price * data.discount) / 100;
-    const remaining = parseInt(data.price - price2, 10);
-    data.remaining = remaining;
+    // const disPrice = (data.price * data.discount) / 100;
+    // const remaining = parseInt(data.price - disPrice, 10);
+    // data.remaining = remaining;
+
+    // console.log(data);
 
     const image = data.image_url[0];
 
@@ -104,7 +106,7 @@ const UpdateLabTest = ({ singleData }) => {
             <div className="two-input-field lg:flex gap-5">
               <div>
                 <h4>Category Name</h4>
-                <select defaultValue={category_name} {...register("category_name", { required: true })} className="select select-bordered">
+                <select defaultValue={category_name} {...register("category_name")} className="select select-bordered">
                   {labCategories.map((option) => (
                     <option key={option} value={category_name}>
                       {option}
@@ -114,14 +116,14 @@ const UpdateLabTest = ({ singleData }) => {
               </div>
               <div>
                 <h4>Phone Number</h4>
-                <input defaultValue={PhoneNumber} type="text" placeholder="Enter lab's phone Number" {...register("PhoneNumber")} />
+                <input defaultValue={PhoneNumber} type="text" {...register("PhoneNumber")} />
               </div>
             </div>
 
             <div className="two-input-field lg:flex gap-5">
               <div>
                 <h4>City</h4>
-                <input type="text" placeholder="Enter city" defaultValue={city} {...register("city", { required: true })} />
+                <input type="text" defaultValue={city} {...register("city")} />
               </div>
               <div>
                 <h4>All labs (separated by &)</h4>
@@ -132,7 +134,7 @@ const UpdateLabTest = ({ singleData }) => {
             <div className="two-input-field lg:flex gap-5">
               <div>
                 <h4>Category</h4>
-                <select defaultValue={category} {...register("category", { required: true })} className="select select-bordered">
+                <select defaultValue={category} {...register("category")} className="select select-bordered">
                   {labCategories2.map((option) => (
                     <option key={option} value={category}>
                       {option}

@@ -144,13 +144,13 @@ const DashboardLayout = () => {
         </NavLink>
         <ul className={`${medicineBtn ? "block" : "hidden"}`}>
           <li>
-            <NavLink to="/dashboard/medicine-inventory" className="">
-              All Medicines
+            <NavLink to="/dashboard/add-new-medicine" className="">
+              Add new medicine
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/add-new-medicine" className="">
-              Add new medicine
+            <NavLink to="/dashboard/medicine-inventory" className="">
+              All Medicines
             </NavLink>
           </li>
         </ul>
@@ -200,7 +200,7 @@ const DashboardLayout = () => {
       <li>
         <NavLink to="/dashboard/health-suggestions" className="dashboard-link">
           <RiFileList3Line className="dashboard-icon" />
-          <span>Health Suggestions</span>
+          <span>Add Health Tips</span>
         </NavLink>
       </li>
 
