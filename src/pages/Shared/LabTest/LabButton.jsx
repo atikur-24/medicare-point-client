@@ -44,9 +44,3 @@ const LabButton = ({ labAddCart }) => {
 
 export default LabButton;
 
-// axios.post("http://localhost:5000/pharmacyRegistrationApplication", application).then((res) => {
-//   // console.log(res.data);
-//   if (res.data.insertedId) {
-//     Swal.fire("Successful", "Your Application Success fully added", "success");
-//   }
-// });
