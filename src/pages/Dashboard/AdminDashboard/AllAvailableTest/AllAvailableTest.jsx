@@ -11,12 +11,13 @@ import UpdateLabTest from "./UpdateLabTest";
 const AllAvailableTest = () => {
   const { isLoading, allLabTest } = useSelector((state) => state.allLabTest);
   const [singleData, setSingleData] = useState({});
+  const [x, setX] = useState(0);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchAllLabTests());
-  }, []);
+  }, [x, dispatch]);
 
   const handlerDelete = (id) => {
     Swal.fire({
@@ -42,7 +43,7 @@ const AllAvailableTest = () => {
   return (
     <div className="px-2 md:px-5">
       <h3 className="text-center text-3xl my-7 font-semibold">All Available Tests</h3>
-      <UpdateLabTest singleData={singleData} />
+      <UpdateLabTest x={x} setX={setX} singleData={singleData} />
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-5">
         {allLabTest.map((category) => (
