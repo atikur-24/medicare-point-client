@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export const deleteHealthTipsApi = createAsyncThunk("updateLabTest/deleteHealthTipsApi", async (id) => {
+export const deleteHealthTipsApi = createAsyncThunk("deleteHealthTips/deleteHealthTipsApi", async (id) => {
   const res = await axios.delete(`http://localhost:5000/allHealthTips/${id}`);
 
   if (res?.data?.deletedCount > 0) {
@@ -13,7 +13,7 @@ export const deleteHealthTipsApi = createAsyncThunk("updateLabTest/deleteHealthT
 });
 
 const deleteHealthTipsSlice = createSlice({
-  name: "deleteHealthTipsApi",
+  name: "deleteHealthTips",
   initialState: {
     isLoading: false,
     error: null,
