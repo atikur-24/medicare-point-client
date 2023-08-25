@@ -220,7 +220,7 @@ const DashboardLayout = () => {
             <NavLink to="/dashboard/add-health-tips">Add Health Tip</NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/edit-health-tips">Edit Health Tips</NavLink>
+            <NavLink to="/dashboard/edit-health-tips">Manage Health Tips</NavLink>
           </li>
         </ul>
       </li>
