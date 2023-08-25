@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 /* eslint-disable react/jsx-wrap-multilines */
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
@@ -42,7 +43,7 @@ const Navbar = () => {
         <NavLink to="/contract">Contacts</NavLink>
       </li>
       <li>
-        <details className="dropdown dropdown-end">
+        {/* <details className="dropdown ">
           <summary className=" btn btn-ghost">More </summary>
           <ul className="p-2 shadow menu dropdown-content z-10 bg-my-accent rounded-box w-52 space-y-4">
             <li>
@@ -52,7 +53,20 @@ const Navbar = () => {
               <NavLink to="#">Item 2</NavLink>
             </li>
           </ul>
-        </details>
+        </details> */}
+        <div className="dropdown dropdown-end">
+          <label tabIndex={0} className="btn btn-ghost">
+            more
+          </label>
+          <ul tabIndex={0} className="p-2 shadow menu dropdown-content z-10 bg-my-accent rounded-box w-52 space-y-4">
+            <li>
+              <NavLink to="pharmacyRegistration">Pharmacy Registration</NavLink>
+            </li>
+            <li>
+              <NavLink to="#">Item 2</NavLink>
+            </li>
+          </ul>
+        </div>
       </li>
     </>
   );
