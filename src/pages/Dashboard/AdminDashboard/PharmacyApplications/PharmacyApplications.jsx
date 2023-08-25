@@ -12,7 +12,7 @@ const PharmacyApplications = () => {
     <div>
       <div>
         <h3 className="text-center text-3xl my-7 font-semibold">All Users List</h3>
-        <div className="overflow-x-auto mb-20  px-5">
+        <div className="overflow-x-auto mb-20   px-5">
           <table className="table bg-gray-3 ">
             {/* head */}
             <thead className="rounded-lg bg-my-primary  ">
@@ -22,6 +22,7 @@ const PharmacyApplications = () => {
                 <th>Pharmacy Name</th>
                 <th>Pharmacist Name</th>
                 <th>Division</th>
+                <th>Application Type</th>
                 <th>Delete</th>
                 <th>Detail</th>
               </tr>
@@ -38,6 +39,7 @@ const PharmacyApplications = () => {
                   <td>{application?.pharmacyName}</td>
                   <td>{application?.pharmacistName}</td>
                   <td>{application?.division}</td>
+                  <td className={` font-semibold ${application.applicationType === "Approved" ? "text-my-primary" : "text-[#f1b84d]"}`}>{application?.applicationType}</td>
                   <td>
                     <button type="button" onClick={() => DeleteApplication(application?._id)}>
                       <RiDeleteBinLine className="text-4xl p-2 rounded-full text-[white] bg-red-500" />
