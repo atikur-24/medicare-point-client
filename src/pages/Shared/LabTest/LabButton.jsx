@@ -20,7 +20,7 @@ const LabButton = ({ labAddCart }) => {
       });
     } else {
       Swal.fire({
-        title: "Please login for cart item",
+        title: "Please login ",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#16b4ac",
