@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 import { updateHealthTipsApi } from "../../../../Features/HealthTips/updateHealthTips";
 // import updateHealthTips, { updateHealthTipsApi } from "../../../../Features/HealthTips/updateHealthTips";
 
@@ -38,24 +39,43 @@ const UpdateHealthTips = () => {
 
   const onSubmit = async (data) => {
     const image = data.image[0];
-    console.log(data._id);
-    console.log(_id);
 
     const formData = new FormData();
     formData.append("image", image);
-    // console.log("img", formData);
+
     const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((imageData) => {
-        console.log(data);
-        data.image = imageData.data.display_url;
-        // dispatch(updateHealthTipsApi({ _id, data })); // using redux
-        axios.patch(`http://localhost:5000/allHealthTips/${data._id}`, data).then((res) => console.log(res.data));
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: formData,
       });
+
+      if (!response.ok) {
+        throw new Error("Image upload failed");
+      }
+
+      const imageData = await response.json();
+      data.image = imageData.data.display_url;
+
+      // Update health tip data using axios
+      const updateResponse = await axios.patch(`http://localhost:5000/allHealthTips/${data._id}`, data);
+
+      if (updateResponse.status === 200) {
+        Swal.fire({
+          icon: "success",
+          title: "Update Successful",
+          text: "Health tip has been updated successfully!",
+        });
+      } else {
+        throw new Error("Update failed");
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Update Failed",
+        text: "An error occurred while updating the health tip.",
+      });
+    }
   };
 
   // Set default form values with existing data
