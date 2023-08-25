@@ -13,12 +13,49 @@ export const addUser = (user) => {
 
 
 
-export const updateUserRole = () => {
+export const updateUserPharmacist = (id) => {
     const userData = {
         role: "Pharmacist",
     };
-    axios.put("url", userData).then(res => {
+    axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then(res => {
         console.log(res.data);
+        if (res?.data?.modifiedCount > 0) {
+            Swal.fire(
+                "Successful",
+                "Convert User Role to pharmacist",
+                "success",
+            );
+        }
+    });
+};
+export const updateUserAdmin = (id) => {
+    const userData = {
+        role: "admin",
+    };
+    axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then(res => {
+        console.log(res.data);
+        if (res?.data?.modifiedCount > 0) {
+            Swal.fire(
+                "Successful",
+                "Convert User Role to Admin",
+                "success",
+            );
+        }
+    });
+};
+export const updateUser = (id) => {
+    const userData = {
+        role: "user",
+    };
+    axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then(res => {
+        console.log(res.data);
+        if (res?.data?.modifiedCount > 0) {
+            Swal.fire(
+                "Successful",
+                "Convert User Role to User",
+                "success",
+            );
+        }
     });
 };
 
