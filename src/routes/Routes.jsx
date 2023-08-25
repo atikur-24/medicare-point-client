@@ -10,7 +10,9 @@ import AddLabTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AddLa
 import AllAvailableTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AllAvailableTest";
 import AddDoctor from "../pages/Dashboard/AdminDashboard/AllDoctors/AddDoctor";
 import AllDoctors from "../pages/Dashboard/AdminDashboard/AllDoctors/AllDoctors";
-import AllHealthSuggestion from "../pages/Dashboard/AdminDashboard/AllHealthSuggestion/AllHealthSuggestion";
+import AddHealthSuggestion from "../pages/Dashboard/AdminDashboard/AllHealthSuggestion/AddHealthSuggestion";
+import EditHealthSuggestion from "../pages/Dashboard/AdminDashboard/AllHealthSuggestion/EditHealthSuggestion";
+import UpdateHealthTips from "../pages/Dashboard/AdminDashboard/AllHealthSuggestion/UpdateHealthTips";
 import AllMedicines from "../pages/Dashboard/AdminDashboard/AllMedicines/AllMedicines";
 import AllPharmacists from "../pages/Dashboard/AdminDashboard/AllPharmacists/AllPharmacists";
 import AllUsers from "../pages/Dashboard/AdminDashboard/AllUsers/AllUsers";
@@ -215,8 +217,17 @@ const router = createBrowserRouter([
         element: <AllMedicines />,
       },
       {
-        path: "health-suggestions",
-        element: <AllHealthSuggestion />,
+        path: "edit-health-tips",
+        element: <EditHealthSuggestion />,
+      },
+      {
+        path: "add-health-tips",
+        element: <AddHealthSuggestion />,
+      },
+      {
+        path: "update-health-tips/:id",
+        element: <UpdateHealthTips />,
+        loader: ({ params }) => fetch(`http://localhost:5000/allHealthTips/${params?.id}`),
       },
       {
         path: "manage-lab-test",

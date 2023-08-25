@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addHealthTipsApi } from "../../../../Features/HealthTips/addHealthTips";
 
-const AllHealthSuggestion = () => {
+const AddHealthSuggestion = () => {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
 
@@ -28,9 +28,9 @@ const AllHealthSuggestion = () => {
 
   return (
     <div className="text-center">
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1">
         <div>
-          <img className="w-full" src="https://st2.depositphotos.com/1561359/6865/v/450/depositphotos_68650923-stock-illustration-doctor-writing-healthy-tips-words.jpg" alt="" />
+          <img className="w-full hidden" src="https://st2.depositphotos.com/1561359/6865/v/450/depositphotos_68650923-stock-illustration-doctor-writing-healthy-tips-words.jpg" alt="" />
         </div>
         <div className="bg-gray-3 p-2">
           <h1 className="text-2xl font-bold py-2">Add A New Health Tips</h1>
@@ -78,4 +78,4 @@ const AllHealthSuggestion = () => {
   );
 };
 
-export default AllHealthSuggestion;
+export default AddHealthSuggestion;
