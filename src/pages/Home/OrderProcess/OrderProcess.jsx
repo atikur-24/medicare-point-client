@@ -8,32 +8,42 @@ import SectionTitle from "../../../components/SectionTitle";
 const OrderProcess = () => {
   return (
     <div className="my-container">
-      <SectionTitle title="Order Process" content="Secure checkout. browse our curated selection, add your chosen items to the cart, securely check out, select your preferred payment method, receive order confirmation, and anticipate the swift delivery of your wellness essentials." />
+      <SectionTitle title="Order Process" content="Secure checkout, select your preferred payment method, receive order confirmation, and anticipate the swift delivery of your wellness essentials." />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-        <div className="space-y-4 text-center border border-gray-3 p-4 rounded-lg">
-          <img className="w-20 md:w-16 mx-auto hover:scale-110 transition-all duration-100 cursor-pointer" src={image1} alt="icon" />
-          <h1 className="text-xl font-semibold txt-gray-5">Signup for Free</h1>
-          <p className="text-justify txt-gray">Create your account through our website or mobile app with just your phone number.</p>
+        <div className="card card-compact bg-base-100 border border-gray-3 rounded-md">
+          <figure><img className="w-20 md:w-[70px] mx-auto hover:scale-110 transition-all duration-100 cursor-pointer pt-5" src={image1} alt="Shoes" /></figure>
+          <div className="card-body mt-8">
+            <h2 className="text-xl font-semibold text-gray-6 pb-4 text-center h-16">Signup for Free</h2>
+            <p className="text-justify text-base text-gray-4 leading-6">Create your account through our website or mobile app with just your phone number. simple way to signup.</p>
+          </div>
         </div>
-        <div className="space-y-4 text-center border border-gray-3 p-4 rounded-lg">
-          <img className="w-20 md:w-16 mx-auto hover:scale-110 transition-all duration-100 cursor-pointer" src={image2} alt="icon" />
-          <h1 className="text-xl font-semibold txt-gray-5">Add Profile Information</h1>
-          <p className="txt-gray text-justify">Complete your profile by providing your email and store name so that we can identify you.</p>
+        <div className="card card-compact bg-base-100 border border-gray-3 rounded-md">
+          <figure><img className="w-20 md:w-[70px] mx-auto hover:scale-110 transition-all duration-100 cursor-pointer pt-5" src={image2} alt="Shoes" /></figure>
+          <div className="card-body mt-8">
+            <h2 className="text-xl font-semibold text-gray-6 pb-4 text-center h-16">Add Profile Information</h2>
+            <p className="text-justify text-base text-gray-4 leading-6">Complete your profile by providing your email and store name so that we can identify you. simple way to info.</p>
+          </div>
         </div>
-        <div className="space-y-4 text-center border border-gray-3 p-4 rounded-lg">
-          <img className="w-20 md:w-16 mx-auto hover:scale-110 transition-all duration-100 cursor-pointer" src={image3} alt="icon" />
-          <h1 className="text-xl font-semibold txt-gray-5">Add Address Information</h1>
-          <p className="txt-gray text-justify">Provide all address details of your business</p>
+        <div className="card card-compact bg-base-100 border border-gray-3 rounded-md">
+          <figure><img className="w-20 md:w-[70px] mx-auto hover:scale-110 transition-all duration-100 cursor-pointer pt-5" src={image3} alt="Shoes" /></figure>
+          <div className="card-body mt-8">
+            <h2 className="text-xl font-semibold text-gray-6 pb-4 text-center h-16">Add Address Information</h2>
+            <p className="text-justify text-base text-gray-4 leading-6">Provide all address details of your business. carefully add your name , email and address with details.</p>
+          </div>
         </div>
-        <div className="space-y-4 text-center border border-gray-3 p-4 rounded-lg">
-          <img className="w-20 md:w-16 mx-auto hover:scale-110 transition-all duration-100 cursor-pointer" src={image4} alt="icon" />
-          <h1 className="text-xl font-semibold txt-gray-5">Add ID & Bank Information</h1>
-          <p className="txt-gray text-justify">Add in your ID & Business related details. Include necessary bank information for payments.</p>
+        <div className="card card-compact bg-base-100 border border-gray-3 rounded-md">
+          <figure><img className="w-20 md:w-[70px] mx-auto hover:scale-110 transition-all duration-100 cursor-pointer pt-5" src={image4} alt="Shoes" /></figure>
+          <div className="card-body mt-8">
+            <h2 className="text-xl font-semibold text-gray-6 pb-4 text-center h-16">Add ID & Bank Information</h2>
+            <p className="text-justify text-base text text-gray-4 leading-6">Add in your ID & Business related details. provide securely your bank information with details. payment with any digital banking system.</p>
+          </div>
         </div>
-        <div className="space-y-4 text-center border border-gray-3 p-4 rounded-lg">
-          <img className="w-20 md:w-16 mx-auto hover:scale-110 transition-all duration-100 cursor-pointer" src={image5} alt="icon" />
-          <h1 className="text-xl font-semibold txt-gray-5">List Products</h1>
-          <p className="txt-gray text-justify">Add products to your store through seller center. Start selling as soon as your products go live after going through quality control.</p>
+        <div className="card card-compact bg-base-100 border border-gray-3 rounded-md">
+          <figure><img className="w-20 md:w-[70px] mx-auto hover:scale-110 transition-all duration-100 cursor-pointer pt-5" src={image5} alt="Shoes" /></figure>
+          <div className="card-body mt-8">
+            <h2 className="text-xl font-semibold text-gray-6 pb-4 text-center h-16">List Product</h2>
+            <p className="text-justify text-base text text-gray-4 leading-6">Add products to your store through seller center. Start selling as soon as your products go live after going through quality control.</p>
+          </div>
         </div>
       </div>
     </div>
