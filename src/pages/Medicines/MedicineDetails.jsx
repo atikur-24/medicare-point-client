@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import AddCartButton from "../../components/AddCartButton";
 import useAuth from "../../hooks/useAuth";
+import MedicineReviews from "./MedicineReviews";
 
 const customStyles = {
   itemShapes: StickerStar,
@@ -23,7 +24,38 @@ const MedicineDetails = () => {
   const { user } = useAuth();
   const medicine = useLoaderData();
   const [quantity, setQuantity] = useState(1);
-  const { _id, medicine_name, image, price, medicine_description, category, tags, rating, discount, features, product_details } = medicine || {};
+  const [descrptn, setDesctiptn] = useState(true);
+  const [reviews, setReviews] = useState(false);
+  const [rating1, setRating] = useState(0);
+
+  const handleReviews = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const city = form.city.value;
+    const checkedEmail = form.checkedEmail.value;
+
+    // const a = [
+    //   { name: "AK", email: "ak@gmail.com", city: "Dhaka" },
+    //   { name: "Mamun", email: "mamun@gmail.com", city: "Faridpur" },
+    // ];
+
+    const newReview = { name, email, city, checkedEmail };
+    console.log(newReview);
+  };
+
+  const handleDescriptionBtn = () => {
+    setReviews(false);
+    setDesctiptn(true);
+  };
+
+  const handleReviewsBtn = () => {
+    setReviews(true);
+    setDesctiptn(false);
+  };
+
+  const { _id, medicine_name, image, price, medicine_description, category, tags, rating, allRatings, discount, features, product_details } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, email: user?.email, category };
 
   return (
@@ -107,37 +139,90 @@ const MedicineDetails = () => {
       {/* Description & reviews */}
       <div className="my-container bg-white mt-10 rounded-md">
         <div className="lg:flex gap-8">
-          <div className="text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-b-[3px] border-my-accent pb-3 cursor-pointer transition duration-200">
-            Description
+          <div
+            className={`${
+              descrptn ? "border-b-[3px]" : ""
+            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
+          >
+            <button type="button" onClick={handleDescriptionBtn}>
+              Description
+            </button>
           </div>
-          <div className="text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent hover:border-b-[3px] border-my-accent pb-3 cursor-pointer transition duration-200">
-            Reviews
+          <div
+            className={`${
+              reviews ? "border-b-[3px]" : ""
+            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
+          >
+            <button type="button" onClick={handleReviewsBtn}>
+              Reviews
+            </button>
           </div>
         </div>
-        <p className="text-gray-4 leading-7 lg:leading-8 pt-6 lg:pt-8">{medicine_description}</p>
-        <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
-          <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-black-2">Product Features</h3>
-          {features.map((feature, idx) => (
-            <div key={idx}>
-              <h4 className="text-xl font-medium inline-flex items-center gap-1 mb-2">
-                <HiOutlineBadgeCheck className="text-my-accent" /> {feature?.name}:
-              </h4>
-              <p className="text-gray-4">{feature?.desc}</p>
+
+        <div className="overflow-hidden relative">
+          {/* description */}
+          <div className={`${descrptn ? "block" : "hidden"} transition-all duration-500 max-w-[100vw]`}>
+            <p className="text-gray-4 leading-7 lg:leading-8 pt-6 lg:pt-8">{medicine_description}</p>
+            <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
+              <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-black-2">Product Features</h3>
+              {features.map((feature, idx) => (
+                <div key={idx}>
+                  <h4 className="text-xl font-medium inline-flex items-center gap-1 mb-2">
+                    <HiOutlineBadgeCheck className="text-my-accent" /> {feature?.name}:
+                  </h4>
+                  <p className="text-gray-4">{feature?.desc}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
-          <div className="space-y-2">
-            <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-black-2">Product Details</h3>
-            <p className="text-gray-4 leading-7 lg:leading-8">{product_details}</p>
+            <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
+              <div className="space-y-2">
+                <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-black-2">Product Details</h3>
+                <p className="text-gray-4 leading-7 lg:leading-8">{product_details}</p>
+              </div>
+              <div className="text-gray-5 font-semibold space-y-2">
+                <p>Schiff is a trusted company known for a quality product</p>
+                <p>Lack of ingredients could be good for beginners</p>
+                <p>Phosphatidylserine is vital to long-term brain health</p>
+                <p>Neuriva Plus offers Vitamins B6, B9, B12 (better option than the original formula)</p>
+                <p>Twice the amount of phosphatidylserine in the Plus version</p>
+                <p>Can be found anywhere</p>
+              </div>
+            </div>
           </div>
-          <div className="text-gray-5 font-semibold space-y-2">
-            <p>Schiff is a trusted company known for a quality product</p>
-            <p>Lack of ingredients could be good for beginners</p>
-            <p>Phosphatidylserine is vital to long-term brain health</p>
-            <p>Neuriva Plus offers Vitamins B6, B9, B12 (better option than the original formula)</p>
-            <p>Twice the amount of phosphatidylserine in the Plus version</p>
-            <p>Can be found anywhere</p>
+
+          {/* Reviews  */}
+          <div className={`${reviews ? "block" : "hidden"} mt-8 w-full max-w-[100vw] transition-all duration-500`}>
+            {allRatings && <MedicineReviews allRatings={allRatings} />}
+            <div className="lg:w-4/5">
+              <h4 className="my-5 text-gray-5">
+                Your email address will not be published. Required fields are marked <span className="text-red-500">*</span>
+              </h4>
+              <h3 className="my-1 text-xl font-semibold">Your rating</h3>
+              <Rating className="mb-5" style={{ maxWidth: 100 }} value={rating1} onChange={setRating} itemStyles={customStyles} />
+              <div>
+                <form onSubmit={handleReviews} className="">
+                  <div>
+                    <textarea placeholder="Your Review" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" name="reviewMessage" id="" rows="5" />
+                  </div>
+                  <div className="lg:grid grid-cols-3 gap-3 space-y-5 lg:space-y-0 mt-5">
+                    <div>
+                      <input placeholder="Name" type="text" name="name" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
+                    </div>
+                    <div>
+                      <input placeholder="Email" type="text" name="email" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
+                    </div>
+                    <div>
+                      <input placeholder="City" type="text" name="city" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
+                    </div>
+                  </div>
+                  <div className="my-5 space-x-2">
+                    <input type="checkbox" name="checkedEmail" id="" />
+                    <span>Save my name, email, and website in this browser for the next time I comment.</span>
+                  </div>
+                  <input className="btn rounded-3xl px-5 bg-my-accent hover:bg-my-primary text-white transition-all duration-300" type="submit" value="SUBMIT YOUR REVIEW" />
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
