@@ -12,7 +12,7 @@ import Headline from "../Headline/Headline";
 import HighestSellings from "../HighestSellings/HighestSellings";
 import OrderProcess from "../OrderProcess/OrderProcess";
 import OtcMedicine from "../OtcMedicine/OtcMedicine";
-import OneProducts from "../Product1/OneProducts";
+import PainProducts from "../Painrelief/PainProducts";
 import Service from "../Service/Service";
 
 const Home = () => {
@@ -23,7 +23,8 @@ const Home = () => {
       <MedicineAd />
       <Categories />
       <HighestSellings />
-      <OneProducts />
+      <PainProducts />
+
       <OtcMedicine />
       <OrderProcess />
       <Service />

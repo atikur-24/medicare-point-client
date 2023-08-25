@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { TbCurrencyTaka } from "react-icons/tb";
-import Heading from "../../Shared/Heading/Heading";
 
 const Product1 = () => {
   const [products, setProducts] = useState([]);
@@ -12,8 +11,6 @@ const Product1 = () => {
 
   return (
     <div className="my-container">
-      <Heading title="Pain Relief" center />
-
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.slice(0, 4).map((product, index) => (
           <div key={index}>

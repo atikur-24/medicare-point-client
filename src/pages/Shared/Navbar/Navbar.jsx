@@ -1,10 +1,12 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 /* eslint-disable react/jsx-wrap-multilines */
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import ActiveLink from "./ActiveLink/ActiveLink";
 import Avatar from "./Avatar/Avatar";
 import Lang from "./Language/Lang";
 import Logo from "./Logo/Logo";
@@ -14,34 +16,35 @@ import Search from "./Search/Search";
 
 const Navbar = () => {
   const { user, logOut, setRole } = useAuth();
+  const navigate = useNavigate();
 
   const menuItems = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <ActiveLink to="/">Home</ActiveLink>
       </li>
       <li>
-        <NavLink to="/medicines">Medicines</NavLink>
+        <ActiveLink to="/medicines">Medicines</ActiveLink>
       </li>
       <li>
-        <NavLink to="/lab-test">Lab Test</NavLink>
+        <ActiveLink to="/lab-test">Lab Test</ActiveLink>
       </li>
       <li>
-        <NavLink to="/healthtips">Health Tips </NavLink>
+        <ActiveLink to="/healthtips">Health Tips </ActiveLink>
       </li>
       <li>
-        <NavLink to="/services">Services</NavLink>
+        <ActiveLink to="/services">Services</ActiveLink>
       </li>
       <li>
-        <NavLink to="/blogs">Blogs</NavLink>
+        <ActiveLink to="/blogs">Blogs</ActiveLink>
       </li>
       <li>
-        <NavLink to="/about-us">About Us</NavLink>
+        <ActiveLink to="/about-us">About Us</ActiveLink>
       </li>
       <li>
-        <NavLink to="/contract">Contacts</NavLink>
+        <ActiveLink to="/contract">Contacts</ActiveLink>
       </li>
-      <li>
+      {/* <li>
         <details className="dropdown dropdown-end">
           <summary className=" btn btn-ghost">More </summary>
           <ul className="p-2 shadow menu dropdown-content z-10 bg-my-accent rounded-box w-52 space-y-4">
@@ -53,7 +56,7 @@ const Navbar = () => {
             </li>
           </ul>
         </details>
-      </li>
+      </li> */}
     </>
   );
   const handelLogOut = () => {
@@ -65,6 +68,7 @@ const Navbar = () => {
           showConfirmButton: false,
           timer: 2000,
         });
+        navigate("/");
       })
       .catch(() => {});
   };
@@ -72,7 +76,7 @@ const Navbar = () => {
     // TODO: bg color
     <div className="">
       <div className="nav-container ">
-        <div className=" hidden md:block">
+        <div className="hidden md:block">
           <div className="flex items-center justify-between py-2 ">
             <div className="flex items-center gap-10 justify-between">
               <Logo />
@@ -91,40 +95,28 @@ const Navbar = () => {
                   transition
                 >
                   {user ? (
-                    <div>
-                      <MenuItem>
-                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
-                          Log Out
-                        </NavLink>
-                      </MenuItem>
-                      <MenuItem>
-                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("User")}>
-                          User
-                        </NavLink>
-                      </MenuItem>
-                      <MenuItem>
-                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Pharmacist")}>
-                          Pharmacist
-                        </NavLink>
-                      </MenuItem>
-                      <MenuItem>
-                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Admin")}>
-                          Admin
-                        </NavLink>
-                      </MenuItem>
+                    <div className="flex flex-col">
+                      <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
+                        <MenuItem>Log Out</MenuItem>
+                      </button>
+                      <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("User")}>
+                        <MenuItem>User</MenuItem>
+                      </NavLink>
+                      <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Pharmacist")}>
+                        <MenuItem>Pharmacist</MenuItem>
+                      </NavLink>
+                      <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Admin")}>
+                        <MenuItem>Admin</MenuItem>
+                      </NavLink>
                     </div>
                   ) : (
                     <div>
-                      <MenuItem>
-                        <Link className=" font-semibold text-neutral-600" to="/login">
-                          Login
-                        </Link>
-                      </MenuItem>
-                      <MenuItem>
-                        <Link className=" font-semibold text-neutral-600" to="/signUp">
-                          Sign Up
-                        </Link>
-                      </MenuItem>
+                      <Link className=" font-semibold text-neutral-600" to="/login">
+                        <MenuItem>Login</MenuItem>
+                      </Link>
+                      <Link className=" font-semibold text-neutral-600" to="/signUp">
+                        <MenuItem>Sign Up</MenuItem>
+                      </Link>
                     </div>
                   )}
                   {/* <MenuItem>
