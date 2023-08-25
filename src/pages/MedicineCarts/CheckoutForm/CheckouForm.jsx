@@ -1,11 +1,34 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { AuthContext } from "../../../contexts/AuthProvider";
+import useCartMedicines from "../../../hooks/useCartMedicines";
 
 const CheckouForm = () => {
   const { user } = useContext(AuthContext);
   //   console.log(user?.displayName);
+
+  const [cart] = useCartMedicines();
+  const pricesWithDiscount = [];
+  let totalPrice = 0;
+  const totalPrices = [];
+  let subTotal = 0;
+  for (const items of cart) {
+    pricesWithDiscount.push(items?.quantity * (items?.price - (items?.price / 100) * items?.discount));
+  }
+  for (const price of pricesWithDiscount) {
+    totalPrice += price;
+  }
+  for (const items of cart) {
+    totalPrices.push(items?.price * items?.quantity);
+  }
+
+  for (const price of totalPrices) {
+    subTotal += price;
+  }
+
+  const saveMoney = subTotal - totalPrice;
 
   const {
     register,
@@ -202,25 +225,25 @@ const CheckouForm = () => {
               <span className="text-2xl font-bold bg-black text-white rounded-full px-[10px] py-1">2</span> Your Order
             </h4>
             <div className="mt-12 bg-white py-14 rounded-lg">
-              <h3 className="text-lg font-bold px-14">Your Totals Order Items: 5</h3>
+              <h3 className="text-lg font-bold px-14">Your Totals Order Items: {cart?.length}</h3>
               <hr className=" border-gray-3 my-2" />
               <div className="flex justify-between items-center px-14 font-semibold">
                 <h4>Sub Total: </h4>
                 <h4 className="flex items-center">
-                  <TbCurrencyTaka /> 500
+                  <TbCurrencyTaka /> {subTotal}
                 </h4>
               </div>
               <div className="flex justify-between items-center px-14 font-semibold mt-2">
                 <h4>Save Amount: </h4>
                 <h4 className="flex items-center">
-                  <TbCurrencyTaka /> 500
+                  <TbCurrencyTaka /> {saveMoney}
                 </h4>
               </div>
               <hr className=" border-gray-3 my-2" />
               <div className="flex justify-between items-center px-14 text-lg font-bold mt-2">
                 <h4>Total Price: </h4>
                 <h4 className="flex items-center">
-                  <TbCurrencyTaka /> 500
+                  <TbCurrencyTaka /> {totalPrice}
                 </h4>
               </div>
             </div>

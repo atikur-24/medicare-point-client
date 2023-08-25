@@ -2,10 +2,10 @@
 import { AiFillHome, AiOutlineBars, AiOutlineStar } from "react-icons/ai";
 import { BiSolidUser } from "react-icons/bi";
 import { BsFillCartPlusFill } from "react-icons/bs";
-import { FaUserMd, FaUsers } from "react-icons/fa";
+import { FaUserMd, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
-import { MdAddShoppingCart, MdKeyboardArrowDown, MdKeyboardArrowUp, MdNotificationAdd, MdOutlineInventory, MdOutlineLibraryBooks } from "react-icons/md";
+import { MdAddShoppingCart, MdKeyboardArrowDown, MdKeyboardArrowUp, MdNotificationAdd, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
 
 import { RiFileList3Fill, RiFileList3Line, RiMessengerFill, RiUserStarFill } from "react-icons/ri";
 
@@ -87,7 +87,7 @@ const DashboardLayout = () => {
       </li>
       <li>
         <NavLink to="/dashboard/order-history" className="dashboard-link">
-          <MdOutlineLibraryBooks className="dashboard-icon" /> Order History
+          <MdOutlineWorkHistory className="dashboard-icon" /> Order History
         </NavLink>
       </li>
       {/* <li className="dashboard-link flex">
@@ -117,6 +117,11 @@ const DashboardLayout = () => {
           Reward Points
         </NavLink>
       </li> */}
+      <li>
+        <NavLink to="/dashboard/pharmacyRegistration" className="dashboard-link">
+          <MdOutlineLibraryBooks className="dashboard-icon" /> Pharmacy Registration Form
+        </NavLink>
+      </li>
     </>
   );
 
@@ -203,6 +208,22 @@ const DashboardLayout = () => {
           <span>Add Health Tips</span>
         </NavLink>
       </li>
+      <li className="dashboard-link flex">
+        <div onClick={toggleDropdown2} className="dashboard-link flex cursor-pointer">
+          <RiFileList3Line className="dashboard-icon" />
+          <button type="button">Health Tips</button>
+          <MdKeyboardArrowDown className={`${showDropdown2 ? "hidden" : "block"} dashboard-icon`} />
+          <MdKeyboardArrowUp className={`${showDropdown2 ? "block" : "hidden"} dashboard-icon`} />
+        </div>
+        <ul className={`${showDropdown2 ? "block" : "hidden"}`}>
+          <li>
+            <NavLink to="/dashboard/add-health-tips">Add Health Tip</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/edit-health-tips">Manage Health Tips</NavLink>
+          </li>
+        </ul>
+      </li>
 
       <li className="dashboard-link flex">
         <NavLink to="/dashboard/manage-lab-test" onClick={() => setLabtest(!labtest)} className="dashboard-link flex">
@@ -244,6 +265,12 @@ const DashboardLayout = () => {
             </NavLink>
           </li>
         </ul>
+      </li>
+      <li>
+        <NavLink to="/dashboard/PharmacyApplications" className="dashboard-link">
+          <FaWpforms className="dashboard-icon" />
+          <span>Pharmacy Applications</span>
+        </NavLink>
       </li>
     </>
   );

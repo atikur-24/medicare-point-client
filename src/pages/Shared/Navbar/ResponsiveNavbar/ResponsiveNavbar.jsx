@@ -6,7 +6,7 @@ import "@szhsin/react-menu/dist/transitions/slide.css";
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { RiMenu2Line } from "react-icons/ri";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Avatar from "../Avatar/Avatar";
 import Logo from "../Logo/Logo";
@@ -19,6 +19,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const menuRef = useRef();
+  console.log(user)
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
@@ -49,7 +50,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
     return () => {
       document.removeEventListener("mousedown", handelOutsiteClose);
     };
-  });
+  }, []);
 
   return (
     <div className="">
