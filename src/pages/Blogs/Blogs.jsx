@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import blogImage from "../../assets/Blog/blog.png";
 
 const Blogs = () => {
   const [interviews, setinterviews] = useState([]);
@@ -14,9 +15,12 @@ const Blogs = () => {
     axios.get("http://localhost:5000/blogs").then((res) => setHealthArticles(res.data));
   }, []);
   return (
-    <div className="bg-white p-6">
-      <h1 className="text-4xl font-semibold py-6 text-center">MediCare Health Blog</h1>
+    <div className="bg-white">
       <div>
+        <img className="w-full" src={blogImage} alt="" />
+      </div>
+      {/* <h1 className="text-4xl font-semibold py-6 text-center">MediCare Health Blog</h1> */}
+      <div className="pt-6">
         <section className="">
           <div className="">
             {healthArticles.map((healthArticle, index) => {
