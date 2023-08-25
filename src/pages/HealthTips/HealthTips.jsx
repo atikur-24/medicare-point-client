@@ -26,7 +26,7 @@ const HealthTips = () => {
   return (
     <div className="bg-gray-3">
       <img src={helth} alt="" />
-      <h1 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold my-4 mx-2">Health Tips: Your Guide to a Balanced Lifestyle</h1>
+      {/* <h1 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold my-4 mx-2">Health Tips: Your Guide to a Balanced Lifestyle</h1> */}
       <div className="flex flex-col sm:flex-row">
         {/* Sidebar */}
         <div className="w-1/5 p-4 bg-white object-cover hidden md:block text-center m-4 rounded-md">
@@ -36,6 +36,7 @@ const HealthTips = () => {
             {categories.map((category, index) => (
               <li key={index} className="mb-2">
                 <button
+                  type="button"
                   className={`text-blue-600 hover:text-my-primary hover:underline ${selectedCategory === category ? "font-bold text-my-primary" : ""}`}
                   onClick={() => setSelectedCategory(category)}
                 >
