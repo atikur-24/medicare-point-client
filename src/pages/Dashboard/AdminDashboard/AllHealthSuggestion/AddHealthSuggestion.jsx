@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addHealthTipsApi } from "../../../../Features/HealthTips/addHealthTips";
 
-const AllHealthSuggestion = () => {
+const AddHealthSuggestion = () => {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
 
@@ -78,4 +78,4 @@ const AllHealthSuggestion = () => {
   );
 };
 
-export default AllHealthSuggestion;
+export default AddHealthSuggestion;

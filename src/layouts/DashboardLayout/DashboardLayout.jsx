@@ -208,6 +208,22 @@ const DashboardLayout = () => {
           <span>Add Health Tips</span>
         </NavLink>
       </li>
+      <li className="dashboard-link flex">
+        <div onClick={toggleDropdown2} className="dashboard-link flex cursor-pointer">
+          <RiFileList3Line className="dashboard-icon" />
+          <button type="button">Health Tips</button>
+          <MdKeyboardArrowDown className={`${showDropdown2 ? "hidden" : "block"} dashboard-icon`} />
+          <MdKeyboardArrowUp className={`${showDropdown2 ? "block" : "hidden"} dashboard-icon`} />
+        </div>
+        <ul className={`${showDropdown2 ? "block" : "hidden"}`}>
+          <li>
+            <NavLink to="/dashboard/add-health-tips">Add Health Tip</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/edit-health-tips">Edit Health Tips</NavLink>
+          </li>
+        </ul>
+      </li>
 
       <li className="dashboard-link flex">
         <NavLink to="/dashboard/manage-lab-test" onClick={() => setLabtest(!labtest)} className="dashboard-link flex">
