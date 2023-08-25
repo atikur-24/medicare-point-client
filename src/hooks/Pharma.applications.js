@@ -22,9 +22,9 @@ export const ApprovePR = (id, email) => {
 
 
 
-  axios.put(`http://localhost:5000/pharmacyRApprove/${id}`, newType).then((res) => {
+  axios.patch(`http://localhost:5000/pharmacyRApprove/${id}`, newType).then((res) => {
     console.log(res.data);
-    if (res?.data.result.modifiedCount > 0 && res?.data.result2.modifiedCount > 0) {
+    if (res?.data.result.modifiedCount > 0 || res?.data.result2.modifiedCount > 0) {
       Swal.fire(
         "Approved",
         "This Application Approved Successful",
@@ -36,21 +36,22 @@ export const ApprovePR = (id, email) => {
 };
 
 export const DeleteApplication = (id) => {
-  axios.delete(`http://localhost:5000/deleteRApplication/${id}`).then(res => {
-    if (res.data.deletedCount > 0) {
-      Swal.fire({
-        title: "Are you sure?",
-        text: "Are you Want delete it!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      }).then((result) => {
-        if (result.isConfirmed) {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      axios.delete(`http://localhost:5000/deleteRApplication/${id}`).then(res => {
+        console.log(res);
+        if (res.data.deleteCount > 0) {
           Swal.fire(
             "Deleted!",
-            "The Application Deleted Successful.",
+            "Your file has been deleted.",
             "success",
           );
         }
