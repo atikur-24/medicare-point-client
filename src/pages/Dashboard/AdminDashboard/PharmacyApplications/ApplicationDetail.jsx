@@ -7,7 +7,7 @@ import { ApprovePR } from "../../../../hooks/Pharma.applications";
 
 const ApplicationDetail = () => {
   const application = useLoaderData();
-  // console.log(application);
+  console.log(application);
 
   const handelApprovedAlart = () => {
     Swal.fire("Approved Application", "This Application Already Approved", "error");
@@ -29,6 +29,7 @@ const ApplicationDetail = () => {
     shippingInformation,
     _id,
     applicationType,
+    email,
   } = application;
 
   return (
@@ -83,12 +84,12 @@ const ApplicationDetail = () => {
           </h4>
         </div>
         <div>
-          {applicationType === "approved" ? (
+          {applicationType === "Approved" ? (
             <button type="button" onClick={handelApprovedAlart} className="btn btn-success mt-10">
               This Application Already Approved
             </button>
           ) : (
-            <button onClick={() => ApprovePR(_id)} type="button" className="my-btn mt-10">
+            <button onClick={() => ApprovePR(_id, email)} type="button" className="my-btn mt-10">
               Approve Pharmacy
             </button>
           )}
