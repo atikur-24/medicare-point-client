@@ -9,37 +9,39 @@ import brand7 from "../../../assets/brands/Home10_brand5.svg";
 import brand8 from "../../../assets/brands/Home10_brand6.svg";
 
 const Brands = () => {
-    return (
-      <section className="my-container">
-        <SectionTitle title="Featured Brands" content="we proudly present a handpicked collection of reputable names in the health and wellness industry." />
+  return (
+    <section className="bg-lite">
+      <div className="my-container">
+        <SectionTitle title="Featured Brands" content="We proudly present a handpicked collection of reputable names in the health and wellness industry." />
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          <div className="rounded-md shadow-lg py-3 flex items-center justify-center">
+          <div className="rounded-md bg-white  py-3 flex items-center justify-center">
             <img className="w-32 py-4 object-cover" src={brand1} alt="brand" />
           </div>
-          <div className="rounded-md shadow-xl py-3 flex items-center justify-center">
+          <div className="rounded-md bg-white py-3 flex items-center justify-center">
             <img className="w-32 py-4 object-cover" src={brand2} alt="brand" />
           </div>
-          <div className="rounded-md shadow-xl py-3 flex items-center justify-center">
+          <div className="rounded-md bg-white py-3 flex items-center justify-center">
             <img className="w-32 py-4 object-cover" src={brand3} alt="brand" />
           </div>
-          <div className="rounded-md shadow-xl py-3 flex items-center justify-center">
+          <div className="rounded-md bg-white py-3 flex items-center justify-center">
             <img className="w-32 py-4 object-cover" src={brand4} alt="brand" />
           </div>
-          <div className="rounded-md shadow-xl py-3 flex items-center justify-center">
+          <div className="rounded-md bg-white py-3 flex items-center justify-center">
             <img className="w-32 py-4 object-cover" src={brand5} alt="brand" />
           </div>
-          <div className="rounded-md shadow-xl py-3 flex items-center justify-center">
+          <div className="rounded-md bg-white py-3 flex items-center justify-center">
             <img className="w-32 py-4 object-cover" src={brand6} alt="brand" />
           </div>
-          <div className="rounded-md shadow-xl py-3 flex items-center justify-center">
+          <div className="rounded-md bg-white py-3 flex items-center justify-center">
             <img className="w-32 py-4 object-cover" src={brand7} alt="brand" />
           </div>
-          <div className="rounded-md shadow-xl py-3 flex items-center justify-center">
+          <div className="rounded-md bg-white py-3 flex items-center justify-center">
             <img className="w-32 py-4 object-cover" src={brand8} alt="brand" />
           </div>
         </div>
-      </section>
-    );
+      </div>
+    </section>
+  );
 };
 
 export default Brands;

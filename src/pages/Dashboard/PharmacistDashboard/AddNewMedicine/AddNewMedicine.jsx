@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
-
 import { useForm } from "react-hook-form";
-import addDoctorImg from "../../../../assets/Dashboard-icons/syringe.png";
+import { ImWarning } from "react-icons/im";
 
 const AddNewMedicine = () => {
   //   const imageHostingKey = import.meta.env.VITE_API_KEY;
@@ -24,20 +23,16 @@ const AddNewMedicine = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 items-center">
-        <div>
-          <img className="w-4/5 mx-auto" src={addDoctorImg} alt="" />
-        </div>
+    <div className="max-w-full mx-auto">
+      <div className="w-full">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="admission-form doctor-form"
         >
-          <h3 className="text-center text-3xl font-semibold my-5 text-my-primary">
+          <h3 className="text-center text-xl lg:text-3xl font-medium lg:font-semibold my-5 text-title-color tracking-wide">
             Add New Medicine
           </h3>
           <div className="divider" />
-
           <div className="two-input-field lg:flex gap-5">
             <div>
               <h4>Medicine Name</h4>
@@ -49,13 +44,8 @@ const AddNewMedicine = () => {
               />
             </div>
             <div>
-              <h4>Generic</h4>
-              <input
-                required
-                placeholder="Enter generic"
-                type="text"
-                {...register("generic")}
-              />
+              <h4>Medicine Photo</h4>
+              <input required type="file" {...register("photo")} />
             </div>
           </div>
           <div className="two-input-field lg:flex gap-5">
@@ -107,10 +97,6 @@ const AddNewMedicine = () => {
                 type="text"
                 {...register("price")}
               />
-            </div>
-            <div>
-              <h4>Photo</h4>
-              <input required type="file" {...register("photo")} />
             </div>
           </div>
 

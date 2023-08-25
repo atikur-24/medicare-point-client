@@ -3,16 +3,19 @@ import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import Main from "../layouts/Main";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import Blogs from "../pages/Blogs/Blogs";
+import HealthArticlesDetails from "../pages/Blogs/HealthArticlesDetails";
+import InterviewDetails from "../pages/Blogs/InterviewDetails";
 import Contract from "../pages/Contract/Contract";
 import AddLabTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AddLabTest";
 import AllAvailableTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AllAvailableTest";
-import UpdateLab from "../pages/Dashboard/AdminDashboard/AllAvailableTest/UpdateLab";
 import AddDoctor from "../pages/Dashboard/AdminDashboard/AllDoctors/AddDoctor";
 import AllDoctors from "../pages/Dashboard/AdminDashboard/AllDoctors/AllDoctors";
 import AllHealthSuggestion from "../pages/Dashboard/AdminDashboard/AllHealthSuggestion/AllHealthSuggestion";
 import AllMedicines from "../pages/Dashboard/AdminDashboard/AllMedicines/AllMedicines";
 import AllPharmacists from "../pages/Dashboard/AdminDashboard/AllPharmacists/AllPharmacists";
 import AllUsers from "../pages/Dashboard/AdminDashboard/AllUsers/AllUsers";
+import ApplicationDetail from "../pages/Dashboard/AdminDashboard/PharmacyApplications/ApplicationDetail";
+import PharmacyApplications from "../pages/Dashboard/AdminDashboard/PharmacyApplications/PharmacyApplications";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import AddNewMedicine from "../pages/Dashboard/PharmacistDashboard/AddNewMedicine/AddNewMedicine";
 import AllMedicinesByPharmacist from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/AllMedicinesByPharmacist";
@@ -26,17 +29,18 @@ import ViewCart from "../pages/Dashboard/UserDashboard/ViewCart/ViewCart";
 import HealthTips from "../pages/HealthTips/HealthTips";
 import HealthTipsDetails from "../pages/HealthTipsDetails/HealthTipsDetails";
 import Home from "../pages/Home/Home/Home";
-import Login from "../pages/Login/Login";
+import Login from "../pages/Login-&-singup/Login";
+import SignUp from "../pages/Login-&-singup/SignUp";
+import CheckouForm from "../pages/MedicineCarts/CheckoutForm/CheckouForm";
+import MedicineCarts from "../pages/MedicineCarts/MedicineCarts";
 import MedicineDetails from "../pages/Medicines/MedicineDetails";
 import Medicines from "../pages/Medicines/Medicines";
 import PharmacyRegistrationPage from "../pages/PharmacyRegistrationPage/PharmacyRegistrationPage";
+import Services from "../pages/Services/Services";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import LabPayment from "../pages/Shared/LabTest/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
-import SignUp from "../pages/SignUp/SignUp";
-import MedicineCarts from "../pages/MedicineCarts/MedicineCarts";
-import Services from "../pages/Services/Services";
 
 const router = createBrowserRouter([
   {
@@ -61,8 +65,19 @@ const router = createBrowserRouter([
         element: <Blogs />,
       },
       {
+        path: "/interviews/:id",
+        element: <InterviewDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/interviews/${params?.id}`),
+      },
+      {
+        path: "/healthArticles/:id",
+        element: <HealthArticlesDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params?.id}`),
+      },
+      {
         path: "/healthtips/:id",
         element: <HealthTipsDetails />,
+        loader: ({ params }) => fetch(`http://localhost:5000/allHealthTips/${params?.id}`),
       },
       {
         path: "labPage/:id",
@@ -82,10 +97,6 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:5000/medicines/${params?.id}`),
       },
       {
-        path: "pharmacyRegistration",
-        element: <PharmacyRegistrationPage />,
-      },
-      {
         path: "about-us",
         element: <AboutUs />,
       },
@@ -96,6 +107,10 @@ const router = createBrowserRouter([
       {
         path: "medicineCarts",
         element: <MedicineCarts />,
+      },
+      {
+        path: "orderCheckOut",
+        element: <CheckouForm />,
       },
       {
         path: "services",
@@ -125,6 +140,19 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <UserProfile />,
+      },
+      {
+        path: "pharmacyRegistration",
+        element: <PharmacyRegistrationPage />,
+      },
+      {
+        path: "PharmacyApplications",
+        element: <PharmacyApplications />,
+      },
+      {
+        path: "pharmacyRegistration/:id",
+        element: <ApplicationDetail />,
+        loader: ({ params }) => fetch(`http://localhost:5000/pharmacyRegistrationApl/${params?.id}`),
       },
       {
         path: "medicine-cart",
@@ -205,11 +233,6 @@ const router = createBrowserRouter([
       {
         path: "add-doctor",
         element: <AddDoctor />,
-      },
-      {
-        path: "/dashboard/:id",
-        element: <UpdateLab />,
-        loader: ({ params }) => fetch(`http://localhost:5000/labAllItems/${params.id}`),
       },
     ],
   },
