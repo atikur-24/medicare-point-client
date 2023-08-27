@@ -16,12 +16,6 @@ import AddCartButton from "../../components/AddCartButton";
 import useAuth from "../../hooks/useAuth";
 import MedicineReviews from "./MedicineReviews";
 
-const customStyles = {
-  itemShapes: StickerStar,
-  activeFillColor: "#fbb614",
-  inactiveFillColor: "#DEE1E6",
-};
-
 const MedicineDetails = () => {
   const [medicine, setMedicine] = useState({});
   const { user } = useAuth();
@@ -45,6 +39,12 @@ const MedicineDetails = () => {
   if (isLoading) {
     return <p className="text-center mt-10">Loading........</p>;
   }
+
+  const customStyles = {
+    itemShapes: StickerStar,
+    activeFillColor: "#fbb614",
+    inactiveFillColor: "#DEE1E6",
+  };
 
   const { _id, medicine_name, image, price, medicine_description, category, tags, rating, allRatings, discount, features, product_details } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, email: user?.email, category };
@@ -227,7 +227,9 @@ const MedicineDetails = () => {
                 Your email address will not be published. Required fields are marked <span className="text-red-500">*</span>
               </h4>
               <h3 className="my-1 text-xl font-semibold">Your rating</h3>
-              <Rating className="mb-5" style={{ maxWidth: 100 }} value={rating1} onChange={setRating} itemStyles={customStyles} />
+              <div>
+                <Rating className="mb-5" style={{ maxWidth: 100 }} value={rating1} onChange={setRating} itemStyles={customStyles} />
+              </div>
               <div>
                 <form onSubmit={handleReviews} className="">
                   <div>

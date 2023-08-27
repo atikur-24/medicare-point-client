@@ -13,7 +13,7 @@ import { RxCross1 } from "react-icons/rx";
 
 import { useContext, useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import logo from "../../../public/medicare-logo-color.png";
+import logo from "../../assets/Logo/logo-point.svg";
 import DashBoardNavbar from "../../pages/Dashboard/DashBoardNavbar/DashBoardNavbar";
 import "./DashboardLayout.css";
 
@@ -293,10 +293,10 @@ const DashboardLayout = () => {
           <AiOutlineBars className="text-lg cursor-pointer" />
         </label>
       </div>
-      <div className="drawer-side shadow-md bg-base-200">
+      <div className="drawer-side shadow-md bg-card">
         <label htmlFor="my-drawer-2" className="drawer-overlay" />
 
-        <ul className="dashboard-ul lg:pt-5 menu p-4 w-80 h-full bg-base-200 text-base-content">
+        <ul className="dashboard-ul lg:pt-5 menu p-4 w-80 h-full text-base-content">
           {/* Sidebar content here */}
 
           <li className="relative">
