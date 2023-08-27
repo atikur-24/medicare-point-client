@@ -97,20 +97,20 @@ const SignUp = () => {
                     <input
                       type="text"
                       placeholder="Name"
-                      className="placeholder-gray-4 text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
+                      className="placeholder-gray-4 rounded text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
                       required
                       {...register("name")}
                     />
                   </div>
                   <div className="form-control">
-                    <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered file-input-accent w-full" />
+                    <input type="file" {...register("image", { required: true })} className="file-input rounded file-input-bordered file-input-accent w-full" />
                     {errors.image && <span className="text-red-600">image is required</span>}
                   </div>
                   <div className="form-control">
                     <input
                       type="email"
                       placeholder="Email"
-                      className="placeholder-gray-4 text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
+                      className="placeholder-gray-4 rounded text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
                       {...register("email", { required: true })}
                     />
                     {errors.email && (
@@ -130,7 +130,7 @@ const SignUp = () => {
                           pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                         })}
                         placeholder="Password +6"
-                        className="placeholder-gray-4 text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent "
+                        className="placeholder-gray-4 rounded text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent "
                       />
                       <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-2 text-my-primary">
                         {showPassword ? <AiFillEye className="text-2xl" /> : <AiFillEyeInvisible className="text-2xl" />}
@@ -175,7 +175,7 @@ const SignUp = () => {
                 <div className="mt-2 ">
                   <p className="inline-flex items-center">
                     <span className="font-nunito font-bold">Already Have An Account ?</span>
-                    <Link to="/login" className="text-sm underline font-semibold ml-2 hover:text-my-primary">
+                    <Link to="/login" className="text-sm underline font-semibold ml-2 md:hover:text-my-primary hover:text-white transition duration-300">
                       Login
                     </Link>
                   </p>
