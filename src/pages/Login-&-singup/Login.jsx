@@ -77,11 +77,11 @@ const Login = () => {
 
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="space-y-5">
-                  <div className="form-control">
+                  <div className="form-control ">
                     <input
                       type="email"
                       placeholder="Email"
-                      className="placeholder-gray-4 text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
+                      className="placeholder-gray-4   rounded text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
                       {...register("email", { required: true })}
                     />
                     {errors.email && (
@@ -95,7 +95,7 @@ const Login = () => {
                       <input
                         type={showPassword ? "text" : "password"}
                         placeholder="Enter your password"
-                        className="placeholder-gray-4 text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
+                        className="placeholder-gray-4 rounded text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
                         {...register("password", { required: true })}
                       />
                       <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-2 text-my-primary">
@@ -129,7 +129,7 @@ const Login = () => {
               <div className="mt-4 ">
                 <p className="inline-flex items-center">
                   <span className="font-nunito font-bold">Don&apos;t Have An Account ?</span>
-                  <Link to="/signUp" className="text-sm underline font-semibold ml-2 hover:text-my-primary">
+                  <Link to="/signUp" className="text-sm underline font-semibold ml-2 md:hover:text-my-primary hover:text-white transition duration-300">
                     Sign up
                   </Link>
                 </p>
