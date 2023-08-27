@@ -1,0 +1,19 @@
+.aspect-h-5 {
+    --tw-aspect-h: 5;
+  }
+  
+  .aspect-w-8 {
+    --tw-aspect-w: 8;
+    padding-bottom: calc(var(--tw-aspect-h)/var(--tw-aspect-w)*100%);
+    position: relative;
+  }
+  
+  .aspect-w-8>* {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%
+  }
