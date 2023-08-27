@@ -19,7 +19,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const menuRef = useRef();
-  console.log(user)
+  console.log(user);
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
@@ -61,12 +61,13 @@ const ResponsiveNavbar = ({ menuItems }) => {
         <span>
           <Logo />
         </span>
-        <div>
-          <span>
-            <NavCart />
-          </span>
-        </div>
-        <div>
+
+        <div className="flex gap-10 items-center">
+          <div>
+            <span>
+              <NavCart />
+            </span>
+          </div>
           <Menu
             menuButton={
               <MenuButton>

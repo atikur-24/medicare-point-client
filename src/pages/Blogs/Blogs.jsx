@@ -1,29 +1,31 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import blogImage from "../../assets/Blog/blog.png";
+import Blog from "./Blog";
+import "./Blog.css";
 
 const Blogs = () => {
-  const [interviews, setinterviews] = useState([]);
+  // const [interviews, setinterviews] = useState([]);
+  const [blogs, setBlogs] = useState([]);
+
+  // useEffect(() => {
+  //   axios.get("http://localhost:5000/interviews").then((res) => setinterviews(res.data));
+  // }, []);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/interviews").then((res) => setinterviews(res.data));
-  }, []);
-  const [healthArticles, setHealthArticles] = useState([]);
-
-  useEffect(() => {
-    axios.get("http://localhost:5000/blogs").then((res) => setHealthArticles(res.data));
+    axios.get("http://localhost:5000/blogs").then((res) => setBlogs(res.data));
   }, []);
   return (
     <div className="bg-white">
       <div>
         <img className="w-full" src={blogImage} alt="" />
       </div>
-      {/* <h1 className="text-4xl font-semibold py-6 text-center">MediCare Health Blog</h1> */}
-      <div className="pt-6">
-        <section className="">
-          <div className="">
-            {healthArticles.map((healthArticle, index) => {
+      <section className="my-container">
+        <div className="">
+          {blogs.map((blog) => (
+            <Blog blog={blog} key={blog._id} />
+          ))}
+          {/* {healthArticles.map((healthArticle, index) => {
               return (
                 <div className="my-6 md:m-6" key={index}>
                   <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
@@ -46,11 +48,11 @@ const Blogs = () => {
                   </div>
                 </div>
               );
-            })}
-          </div>
-        </section>
-      </div>
-      <div>
+            })} */}
+        </div>
+      </section>
+
+      {/* <div>
         <h1 className="text-3xl font-semibold py-6 text-center">Interview with Experts</h1>
         <section className="">
           <div className="">
@@ -80,7 +82,7 @@ const Blogs = () => {
             })}
           </div>
         </section>
-      </div>
+      </div> */}
     </div>
   );
 };
