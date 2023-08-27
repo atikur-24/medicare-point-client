@@ -8,6 +8,7 @@ import InterviewDetails from "../pages/Blogs/InterviewDetails";
 import Contract from "../pages/Contract/Contract";
 import AddLabTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AddLabTest";
 import AllAvailableTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AllAvailableTest";
+import AddBlog from "../pages/Dashboard/AdminDashboard/AllBlogs/AddBlog";
 import AddDoctor from "../pages/Dashboard/AdminDashboard/AllDoctors/AddDoctor";
 import AllDoctors from "../pages/Dashboard/AdminDashboard/AllDoctors/AllDoctors";
 import AddHealthSuggestion from "../pages/Dashboard/AdminDashboard/AllHealthSuggestion/AddHealthSuggestion";
@@ -96,7 +97,7 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <MedicineDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/medicines/${params?.id}`),
+        // loader: ({ params }) => fetch(`http://localhost:5000/medicines/${params?.id}`),
       },
       {
         path: "about-us",
@@ -244,6 +245,10 @@ const router = createBrowserRouter([
       {
         path: "add-doctor",
         element: <AddDoctor />,
+      },
+      {
+        path: "add-blog",
+        element: <AddBlog />,
       },
     ],
   },
