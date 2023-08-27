@@ -3,30 +3,51 @@
 /* eslint-disable no-plusplus */
 import { Rating, StickerStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import { useState } from "react";
+import axios from "axios";
+import moment from "moment/moment";
+import { useEffect, useState } from "react";
 import { BiLogoFacebook, BiLogoGooglePlus, BiLogoInstagram, BiLogoLinkedin, BiLogoPinterest, BiLogoTumblr, BiLogoTwitter, BiSolidEnvelope } from "react-icons/bi";
 import { HiMinus, HiOutlineBadgeCheck, HiOutlineChevronRight, HiPlus } from "react-icons/hi";
 import { TbCurrencyTaka } from "react-icons/tb";
-import { useLoaderData } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 import AddCartButton from "../../components/AddCartButton";
 import useAuth from "../../hooks/useAuth";
 import MedicineReviews from "./MedicineReviews";
 
-const customStyles = {
-  itemShapes: StickerStar,
-  activeFillColor: "#fbb614",
-  inactiveFillColor: "#DEE1E6",
-};
-
 const MedicineDetails = () => {
+  const [medicine, setMedicine] = useState({});
   const { user } = useAuth();
-  const medicine = useLoaderData();
   const [quantity, setQuantity] = useState(1);
   const [descrptn, setDesctiptn] = useState(true);
   const [reviews, setReviews] = useState(false);
   const [rating1, setRating] = useState(0);
+  const [isLoading, setLoading] = useState(true);
+  const [isReview, setReview] = useState(0);
+
+  const params = useParams();
+  useEffect(() => {
+    setLoading(true);
+    axios.get(`http://localhost:5000/medicines/${params?.id}`).then((res) => {
+      // console.log(res.data);
+      setMedicine(res.data);
+      setLoading(false);
+    });
+  }, [params?.id, isReview]);
+
+  if (isLoading) {
+    return <p className="text-center mt-10">Loading........</p>;
+  }
+
+  const customStyles = {
+    itemShapes: StickerStar,
+    activeFillColor: "#fbb614",
+    inactiveFillColor: "#DEE1E6",
+  };
+
+  const { _id, medicine_name, image, price, medicine_description, category, tags, rating, allRatings, discount, features, product_details } = medicine || {};
+  const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, email: user?.email, category };
 
   const handleReviews = (event) => {
     event.preventDefault();
@@ -34,15 +55,26 @@ const MedicineDetails = () => {
     const name = form.name.value;
     const email = form.email.value;
     const city = form.city.value;
-    const checkedEmail = form.checkedEmail.value;
+    const reviewMessage = form.reviewMessage.value;
 
-    // const a = [
-    //   { name: "AK", email: "ak@gmail.com", city: "Dhaka" },
-    //   { name: "Mamun", email: "mamun@gmail.com", city: "Faridpur" },
-    // ];
+    const date = moment().format("Do MMM YYYY");
+    // console.log(date);
 
-    const newReview = { name, email, city, checkedEmail };
-    console.log(newReview);
+    const newReview = { name, email, date, city, rating: rating1, reviewMessage };
+    // console.log(newReview);
+    axios.post(`http://localhost:5000/medicines/${_id}`, newReview).then((res) => {
+      if (res.data.modifiedCount > 0) {
+        form.reset();
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Review added successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setReview(isReview + 1);
+      }
+    });
   };
 
   const handleDescriptionBtn = () => {
@@ -54,9 +86,6 @@ const MedicineDetails = () => {
     setReviews(true);
     setDesctiptn(false);
   };
-
-  const { _id, medicine_name, image, price, medicine_description, category, tags, rating, allRatings, discount, features, product_details } = medicine || {};
-  const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, email: user?.email, category };
 
   return (
     <section className="bg-lite">
@@ -198,21 +227,23 @@ const MedicineDetails = () => {
                 Your email address will not be published. Required fields are marked <span className="text-red-500">*</span>
               </h4>
               <h3 className="my-1 text-xl font-semibold">Your rating</h3>
-              <Rating className="mb-5" style={{ maxWidth: 100 }} value={rating1} onChange={setRating} itemStyles={customStyles} />
+              <div>
+                <Rating className="mb-5" style={{ maxWidth: 100 }} value={rating1} onChange={setRating} itemStyles={customStyles} />
+              </div>
               <div>
                 <form onSubmit={handleReviews} className="">
                   <div>
-                    <textarea placeholder="Your Review" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" name="reviewMessage" id="" rows="5" />
+                    <textarea required placeholder="Your Review" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" name="reviewMessage" id="" rows="5" />
                   </div>
                   <div className="lg:grid grid-cols-3 gap-3 space-y-5 lg:space-y-0 mt-5">
                     <div>
-                      <input placeholder="Name" type="text" name="name" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
+                      <input required placeholder="Name" type="text" name="name" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
                     </div>
                     <div>
-                      <input placeholder="Email" type="text" name="email" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
+                      <input required placeholder="Email" type="text" name="email" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
                     </div>
                     <div>
-                      <input placeholder="City" type="text" name="city" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
+                      <input required placeholder="City" type="text" name="city" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
                     </div>
                   </div>
                   <div className="my-5 space-x-2">
