@@ -21,6 +21,7 @@
     "lottie-react": "^2.4.0",
     "match-sorter": "^6.3.1",
     "moment": "^2.29.4",
+    "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-card-slider-component": "^1.0.9",
     "react-countup": "^6.4.2",
