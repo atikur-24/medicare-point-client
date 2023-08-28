@@ -2,8 +2,8 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import useAuth from "../../../hooks/useAuth";
-import useLabCart from "../../../hooks/useLabCart";
+import useAuth from "../../../../hooks/useAuth";
+import useLabCart from "../../../../hooks/useLabCart";
 
 const LabButton = ({ labAddCart }) => {
   const [, refetch] = useLabCart();
@@ -36,11 +36,10 @@ const LabButton = ({ labAddCart }) => {
   return (
     <div className="">
       <button onClick={handlerLab} type="button" className="btn cart-btn w-full">
-        Add To Cart
+        Book Now
       </button>
     </div>
   );
 };
 
 export default LabButton;
-

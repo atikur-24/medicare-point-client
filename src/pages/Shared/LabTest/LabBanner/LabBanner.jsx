@@ -1,4 +1,4 @@
-import time from "../../../assets/Lab/time.webp";
+import time from "../../../../assets/Lab/time.webp";
 
 const LabBanner = () => {
   return (
