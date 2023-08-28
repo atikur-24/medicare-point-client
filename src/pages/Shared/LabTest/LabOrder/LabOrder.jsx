@@ -1,4 +1,4 @@
-import useLabCart from "../../../hooks/useLabCart";
+import useLabCart from "../../../../hooks/useLabCart";
 
 const LabOrder = () => {
   const [labCart] = useLabCart();
