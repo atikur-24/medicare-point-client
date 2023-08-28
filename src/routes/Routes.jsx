@@ -41,9 +41,10 @@ import Medicines from "../pages/Medicines/Medicines";
 import PharmacyRegistrationPage from "../pages/PharmacyRegistrationPage/PharmacyRegistrationPage";
 import Services from "../pages/Services/Services";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
-import LabPayment from "../pages/Shared/LabTest/LabPayment";
+
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
+import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
 
 const router = createBrowserRouter([
   {

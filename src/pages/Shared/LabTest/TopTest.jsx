@@ -12,7 +12,8 @@ import "./LabStyle.css";
 import axios from "axios";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { FreeMode, Pagination } from "swiper/modules";
-import LabCard from "./LabCard";
+
+import LabCard from "./LabCard/LabCard";
 import LabTitle from "./LabTitle";
 
 const TopTest = () => {
