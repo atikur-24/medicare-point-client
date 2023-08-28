@@ -2,8 +2,8 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { FaAngleDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import useLabCart from "../../../hooks/useLabCart";
-import LabAddCard from "./LabAddCard";
+import useLabCart from "../../../../hooks/useLabCart";
+import LabAddCard from "../LabAddCard/LabAddCard";
 
 const LabDetails = ({ open, toggleOpen }) => {
   const [labCart, refetch] = useLabCart();
