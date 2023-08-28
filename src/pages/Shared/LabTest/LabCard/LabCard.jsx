@@ -1,5 +1,5 @@
-import useAuth from "../../../hooks/useAuth";
-import LabButton from "./LabButton";
+import useAuth from "../../../../hooks/useAuth";
+import LabButton from "../LabButton/LabButton";
 
 const LabCard = ({ category }) => {
   const { user } = useAuth();
