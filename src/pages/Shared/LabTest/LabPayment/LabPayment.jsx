@@ -1,5 +1,5 @@
-import LabBanner from "./LabBanner";
-import LabOrder from "./LabOrder";
+import LabBanner from "../LabBanner/LabBanner";
+import LabOrder from "../LabOrder/LabOrder";
 
 const LabPayment = () => {
   return (

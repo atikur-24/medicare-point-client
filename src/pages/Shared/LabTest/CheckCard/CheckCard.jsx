@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
 import { FaAngleUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import useLabCart from "../../../hooks/useLabCart";
-import LabDetails from "./LabDetails";
+import useLabCart from "../../../../hooks/useLabCart";
+import LabDetails from "../LabDetails/LabDetails";
 
 const CheckCard = () => {
   const [labCart] = useLabCart();
