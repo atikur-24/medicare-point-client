@@ -1,5 +1,12 @@
 /* eslint-disable no-unused-vars */
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
+import Select from "react-select";
+
+const options = [
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
+];
 
 const AddNewMedicine = () => {
   //   const imageHostingKey = import.meta.env.VITE_API_KEY;
@@ -7,6 +14,7 @@ const AddNewMedicine = () => {
 
   const {
     register,
+    control,
     handleSubmit,
     reset,
     formState: { errors },
@@ -34,7 +42,6 @@ const AddNewMedicine = () => {
           <div>
             <span>Pharmacist Name</span>
             <input
-              required
               defaultValue="John Deo"
               type="text"
               {...register("pharmacist_name")}
@@ -54,7 +61,6 @@ const AddNewMedicine = () => {
           <div>
             <span>Medicine Name</span>
             <input
-              required
               placeholder="Enter medicine name"
               type="text"
               {...register("medicine_name")}
@@ -62,14 +68,13 @@ const AddNewMedicine = () => {
           </div>
           <div>
             <span>Medicine Image</span>
-            <input required type="file" {...register("image")} />
+            <input type="file" {...register("image")} />
           </div>
         </div>
         <div className="two-input-field lg:flex gap-5">
           <div>
             <span>Medicine Category</span>
             <input
-              required
               type="text"
               placeholder="Medicine category"
               {...register("category")}
@@ -78,7 +83,6 @@ const AddNewMedicine = () => {
           <div>
             <span>Tags</span>
             <input
-              required
               placeholder="Enter tags"
               type="text"
               {...register("tags")}
@@ -90,7 +94,6 @@ const AddNewMedicine = () => {
             <span>Enter price</span>
             <input
               min={1}
-              required
               placeholder="Enter price"
               type="number"
               {...register("price")}
@@ -100,7 +103,6 @@ const AddNewMedicine = () => {
             <span>Available Quantity</span>
             <input
               min={1}
-              required
               placeholder="Enter available quantity"
               type="number"
               {...register("available_quantity")}
@@ -112,7 +114,6 @@ const AddNewMedicine = () => {
             <span>Enter Discount</span>
             <input
               min={0}
-              required
               placeholder="Enter discount"
               type="number"
               {...register("discount")}
@@ -121,12 +122,45 @@ const AddNewMedicine = () => {
           <div>
             <span>SKU</span>
             <input
-              required
               placeholder="Enter sku"
               type="text"
               {...register("sku")}
             />
           </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <div>
+            <select {...register("Title", { required: true })}>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+              <option value="Dr">Dr</option>
+            </select>
+          </div>
+          <div>
+            <Select options={options} {...register("cte")} />
+          </div>
+        </div>
+        <div>
+          {/* <Controller
+            name="firstName"
+            control={control}
+            render={({ field }) => <Input {...field} />}
+          /> */}
+          <Controller
+            name="iceCreamType"
+            control={control}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={[
+                  { value: "chocolate", label: "Chocolate" },
+                  { value: "strawberry", label: "Strawberry" },
+                  { value: "vanilla", label: "Vanilla" },
+                ]}
+              />
+            )}
+          />
         </div>
         <div>
           <input
