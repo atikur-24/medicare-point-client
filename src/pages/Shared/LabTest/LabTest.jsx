@@ -1,6 +1,6 @@
-import CheckCard from "./CheckCard";
-import LabBanner from "./LabBanner";
-import LabSearch from "./LabSearch";
+import CheckCard from "./CheckCard/CheckCard";
+import LabBanner from "./LabBanner/LabBanner";
+import LabSearch from "./LabSearch/LabSearch";
 import PopularLab from "./PopularLab";
 import TopTest from "./TopTest";
 
