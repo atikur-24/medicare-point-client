@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { AiOutlineDelete } from "react-icons/ai";
 import { TbCurrencyTaka } from "react-icons/tb";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useCartMedicines from "../../hooks/useCartMedicines";
@@ -12,10 +12,6 @@ import MedicineCartItem from "./MedicineCartItem";
 const MedicineCarts = () => {
   const { user } = useAuth();
   const [cart, refetch] = useCartMedicines();
-  const [params, setParams] = useSearchParams();
-  const category = params.get("category");
-  const query = window.location.search;
-  console.log(query);
 
   const pricesWithDiscount = [];
   let totalPrice = 0;
