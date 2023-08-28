@@ -50,7 +50,7 @@ const LabBook = () => {
                 {discount > 0 && <span className="badge bg-my-primary border-0 badge-accent text-white py-0.5">{discount}% off</span>}
               </div>
               <p className="font-bold my-2 text-my-pink mb-8">৳{remaining}</p>
-              <div className="card-actions absolute bottom-0 w-full">
+              <div className=" absolute bottom-0 w-full">
                 <button type="button" className="my-btn w-full">
                   Book Now
                 </button>
