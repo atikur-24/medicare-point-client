@@ -14,6 +14,11 @@
     font-size: 18px;
 }
 
+.dashboard-ul {
+    width: fit-content;
+    height: fit-content;
+}
+
 .dashboard-ul li {
     @apply border-b border-slate-3;
 }

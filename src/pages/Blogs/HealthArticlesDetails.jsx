@@ -1,3 +1,4 @@
+import ReactHtmlParser from "react-html-parser";
 import { useLoaderData } from "react-router-dom";
 
 const HealthArticlesDetails = () => {
@@ -11,7 +12,8 @@ const HealthArticlesDetails = () => {
         <small className="italic">Published Date: {published_date}</small>
       </p>
       <h2 className="text-3xl font-semibold">Topic: {topic}</h2>
-      <p className="flex justify-center">{content_details}</p>
+      {/* <p className="flex justify-center">{content_details}</p> */}
+      <p className="flex justify-center">{ReactHtmlParser(content_details)}</p>
     </div>
   );
 };

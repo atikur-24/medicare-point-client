@@ -5,6 +5,7 @@ import deleteLabTest from "../Features/AllLabTests/deleteLabTest";
 import updateLabTest from "../Features/AllLabTests/updateLabTest";
 import allMedicines from "../Features/AllMedicines/allMedicines";
 import allUsers from "../Features/AllUsers/allUsers";
+import addBlog from "../Features/Blogs/addBlog";
 import addHealthTips from "../Features/HealthTips/addHealthTips";
 import allHealthTips from "../Features/HealthTips/allHealthTips";
 import { deleteHealthTipsApi } from "../Features/HealthTips/deleteHealthTips";
@@ -24,6 +25,7 @@ const store = configureStore({
     allHealthTips,
     deleteHealthTipsApi,
     updateHealthTips,
+    addBlog,
   },
 });
 
