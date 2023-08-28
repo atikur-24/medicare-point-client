@@ -36,7 +36,7 @@ const LabButton = ({ labAddCart }) => {
   return (
     <div className="">
       <button onClick={handlerLab} type="button" className="btn cart-btn w-full">
-        Add To Cart
+        Book Now
       </button>
     </div>
   );
