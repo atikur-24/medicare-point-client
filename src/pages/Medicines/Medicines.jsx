@@ -1,14 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { LiaAngleRightSolid } from "react-icons/lia";
 import { RxCross1 } from "react-icons/rx";
-import { Link } from "react-router-dom";
-import useMedicines from "../../hooks/useMedicines";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useSearchParams } from "react-router-dom";
+// import allMedicines from "../../Features/AllMedicines/allMedicines";
+import axios from "axios";
+import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
 import MedicineCard from "./MedicineCard";
 
 const Medicines = () => {
-  const [medicines] = useMedicines();
+  const [r, setr] = useState([]);
+  const [medicines, setMedicines] = useState(r);
+
+  const { allData, isloading } = useSelector((state) => state?.allMedicines);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchMedicines());
+  }, [dispatch]);
+
+  useEffect(() => {
+    setMedicines(allData);
+  }, [allData]);
+
+  // console.log(allData);
+
+  const [params, setParams] = useSearchParams();
+  const category = params.get("category");
+  console.log(category);
+  // if (category) {
+  //   ;
+  // }
+
+  useEffect(() => {
+    axios.get(`http://localhost:5000/medicines/${category}`).then((res) => setMedicines(res.data));
+  }, [category]);
+
+  // const [medicines] = useMedicines();
   const [showFilter, setShowFilter] = useState("-ml-96");
   const filterItems = (
     <div className="py-4 px-6 space-y-4 text-sm">
