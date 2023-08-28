@@ -3,7 +3,7 @@ import rewordIcon from "../../../assets/Dashboard-icons/reward.png";
 
 const DashBoardNavbar = () => {
   return (
-    <div className="py-5 pl-10 pr-2 md:px-5 flex justify-between items-center bg-base-200">
+    <div className="py-5 pl-10 pr-2 md:px-5 flex justify-between items-center bg-card">
       <div>
         <div className="form-control">
           <div className="input-group rounded-2xl">
