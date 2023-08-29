@@ -19,7 +19,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const menuRef = useRef();
-  console.log(user);
+  // console.log(user);
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
@@ -70,6 +70,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
           </div>
           <Menu
             menuButton={
+              // eslint-disable-next-line react/jsx-wrap-multilines
               <MenuButton>
                 <Avatar />
               </MenuButton>

@@ -43,7 +43,9 @@ import Medicines from "../pages/Medicines/Medicines";
 import PharmacyRegistrationPage from "../pages/PharmacyRegistrationPage/PharmacyRegistrationPage";
 import Services from "../pages/Services/Services";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
-import LabPayment from "../pages/Shared/LabTest/LabPayment";
+
+import LabBook from "../pages/Shared/LabTest/LabBook/LabBook";
+import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
 
@@ -92,6 +94,7 @@ const router = createBrowserRouter([
         path: "labPayment",
         element: <LabPayment />,
       },
+      { path: "/labBook/:id", element: <LabBook />, loader: ({ params }) => fetch(`http://localhost:5000/labAllItems/${params?.id}`) },
       {
         path: "medicines",
         element: <Medicines />,
