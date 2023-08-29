@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
@@ -5,14 +6,14 @@ import { LiaAngleRightSolid } from "react-icons/lia";
 import { RxCross1 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useSearchParams } from "react-router-dom";
-// import allMedicines from "../../Features/AllMedicines/allMedicines";
-import axios from "axios";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
 import MedicineCard from "./MedicineCard";
 
 const Medicines = () => {
-  const [r, setr] = useState([]);
-  const [medicines, setMedicines] = useState(r);
+  const [medicines, setMedicines] = useState([]);
+
+  const [params, setParams] = useSearchParams();
+  const category = params.get("category");
 
   const { allData, isloading } = useSelector((state) => state?.allMedicines);
   const dispatch = useDispatch();
@@ -21,23 +22,13 @@ const Medicines = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    setMedicines(allData);
-  }, [allData]);
+    if (category) {
+      axios.get(`http://localhost:5000/medicines/${category}`).then((res) => setMedicines(res.data));
+    } else {
+      setMedicines(allData);
+    }
+  }, [allData, category]);
 
-  // console.log(allData);
-
-  const [params, setParams] = useSearchParams();
-  const category = params.get("category");
-  console.log(category);
-  // if (category) {
-  //   ;
-  // }
-
-  useEffect(() => {
-    axios.get(`http://localhost:5000/medicines/${category}`).then((res) => setMedicines(res.data));
-  }, [category]);
-
-  // const [medicines] = useMedicines();
   const [showFilter, setShowFilter] = useState("-ml-96");
   const filterItems = (
     <div className="py-4 px-6 space-y-4 text-sm">
