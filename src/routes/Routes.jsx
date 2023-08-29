@@ -46,6 +46,8 @@ import PharmacyRegistrationPage from "../pages/PharmacyRegistrationPage/Pharmacy
 import Services from "../pages/Services/Services";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 
+import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArticles";
+import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
 import LabBook from "../pages/Shared/LabTest/LabBook/LabBook";
 import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
@@ -273,6 +275,15 @@ const router = createBrowserRouter([
       {
         path: "add-interviews",
         element: <AddNewInterviews />,
+      },
+      {
+        path: "manage-health-articles",
+        element: <EditArticles />,
+      },
+      {
+        path: "update-health-articles/:id",
+        element: <UpdateHealthArticles />,
+        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params?.id}`),
       },
     ],
   },
