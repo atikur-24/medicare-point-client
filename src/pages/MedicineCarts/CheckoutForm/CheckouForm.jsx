@@ -2,11 +2,14 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { TbCurrencyTaka } from "react-icons/tb";
+import { useDispatch } from "react-redux";
+import { sslPaymentApi } from "../../../Features/PaymentGetway/PaymentGetaway";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import useCartMedicines from "../../../hooks/useCartMedicines";
 
 const CheckouForm = () => {
   const { user } = useContext(AuthContext);
+  const dispatch = useDispatch();
   //   console.log(user?.displayName);
 
   const [cart] = useCartMedicines();
@@ -37,9 +40,15 @@ const CheckouForm = () => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
-    reset();
+    const paymentDetails = { ...data, totalPayment: parseFloat(totalPrice.toFixed(2)) };
+
+    dispatch(sslPaymentApi({ paymentDetails, cart }));
+
+    // console.log(paymentDetails);
+    // reset();
   };
+
+  console.log(cart);
 
   const divisions = ["Dhaka", "Chattogram", "Barishal", "Khulna", "Rajshahi", "Rangpur", "Mymensingh", "Sylhet"];
   const districts = [
@@ -174,7 +183,7 @@ const CheckouForm = () => {
                   </label>
                   <select
                     id="district"
-                    {...register("district ", { required: true })}
+                    {...register("district", { required: true })}
                     defaultValue="Select district"
                     className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
                   >
@@ -236,14 +245,14 @@ const CheckouForm = () => {
               <div className="flex justify-between items-center px-14 font-semibold mt-2">
                 <h4>Save Amount: </h4>
                 <h4 className="flex items-center">
-                  <TbCurrencyTaka /> {saveMoney}
+                  <TbCurrencyTaka /> {saveMoney.toFixed(2)}
                 </h4>
               </div>
               <hr className=" border-gray-3 my-2" />
               <div className="flex justify-between items-center px-14 text-lg font-bold mt-2">
                 <h4>Total Price: </h4>
                 <h4 className="flex items-center">
-                  <TbCurrencyTaka /> {totalPrice}
+                  <TbCurrencyTaka /> {totalPrice.toFixed(2)}
                 </h4>
               </div>
             </div>
