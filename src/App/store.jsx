@@ -6,11 +6,18 @@ import updateLabTest from "../Features/AllLabTests/updateLabTest";
 // import allMedicines from "../Features/AllMedicines/allMedicines";
 import allUsers from "../Features/AllUsers/allUsers";
 import addBlog from "../Features/Blogs/addBlog";
+import allBlogs from "../Features/Blogs/allBlogs";
+import deleteBlog from "../Features/Blogs/deleteBlog";
+import updateBlog from "../Features/Blogs/updateBlog";
 import addHealthTips from "../Features/HealthTips/addHealthTips";
 import allHealthTips from "../Features/HealthTips/allHealthTips";
-import { deleteHealthTipsApi } from "../Features/HealthTips/deleteHealthTips";
+import deleteHealthTips from "../Features/HealthTips/deleteHealthTips";
 import updateHealthTips from "../Features/HealthTips/updateHealthTips";
+import addInterview from "../Features/Interviews/addInterview";
+import deleteInterview from "../Features/Interviews/deleteInterview";
+import updateInterview from "../Features/Interviews/updateInterview";
 import allMedicines from "../Features/Medicines/AllMedicines/allMedicines";
+import sslPayment from "../Features/PaymentGetway/PaymentGetaway";
 import uploadImage from "../Features/UploadImage/uploadImage";
 
 const store = configureStore({
@@ -23,10 +30,17 @@ const store = configureStore({
     addLabTest,
     addHealthTips,
     allHealthTips,
-    deleteHealthTipsApi,
+    deleteHealthTips,
     updateHealthTips,
     addBlog,
+    updateBlog,
+    deleteBlog,
+    addInterview,
+    updateInterview,
+    deleteInterview,
+    sslPayment,
     allMedicines,
+    allBlogs,
   },
 });
 
