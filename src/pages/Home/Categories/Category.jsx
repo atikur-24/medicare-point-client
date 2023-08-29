@@ -30,7 +30,7 @@ const Category = ({ category }) => {
     // console.log(url);
   };
 
-  console.log(value);
+  // console.log(value);
 
   return (
     <div onClick={handelClick} className="bg-white drop-shadow-2xl p-2 rounded-md cursor-pointer border border-gray-3">

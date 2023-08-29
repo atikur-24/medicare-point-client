@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
@@ -5,7 +6,6 @@ import { LiaAngleRightSolid } from "react-icons/lia";
 import { RxCross1 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useSearchParams } from "react-router-dom";
-import axios from "axios";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
 import MedicineCard from "./MedicineCard";
 
