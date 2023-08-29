@@ -1,66 +1,82 @@
 [
   {
-    "image": "https://i.ibb.co/d2jn6CM/category1.jpg",
-    "category_name": "Pain Relief"
+    "image_url": "https://i.ibb.co/rdbWgpb/pen.jpg",
+    "category_name": "Pain Relief",
+    "category": "pain-relief"
   },
   {
-    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
-    "category_name": "Antihistamines"
+    "image_url": "https://i.ibb.co/GcLgwnM/gastic.jpg",
+    "category_name": "Digestive Health",
+    "category": "digestive"
   },
   {
-    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
-    "category_name": "Cough & Cold"
+    "image_url": "https://i.ibb.co/KDq3K7X/gouth-cold.png",
+    "category_name": "Cough & Cold",
+    "category": "cough-cold"
   },
   {
-    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
-    "category_name": "Digestive Health"
+    "image_url": "https://i.ibb.co/GdyvqDy/Diabetic-care.png",
+    "category_name": "Diabetes Care",
+    "category": "diabetes"
   },
   {
-    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
-    "category_name": "Heart Health"
+    "image_url": "https://i.ibb.co/jfxDwbM/hart.webp",
+    "category_name": "Heart Health",
+    "category": "hard-health"
   },
   {
-    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
-    "category_name": "Management"
+    "image_url": "https://i.ibb.co/T2gxQZG/Laundry-Household.webp",
+    "category_name": "Laundry & Household",
+    "category": "laundry-household"
   },
   {
-    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
-    "category_name": "Skin Care"
+    "image_url": "https://i.ibb.co/xhbVW6G/scrin-care.jpg",
+    "category_name": "Skin Care",
+    "category": "skin-care"
   },
   {
-    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
-    "category_name": "Eye Care"
+    "image_url": "https://i.ibb.co/rmpmsJB/icare.webp",
+    "category_name": "Eye Care",
+    "category": "eye-care"
   },
   {
-    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
-    "category_name": "Women's Health"
+    "image_url": "https://i.ibb.co/qWrFqG6/Women-Care.png",
+    "category_name": "Women Care",
+    "category": "women-care"
   },
   {
-    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
-    "category_name": "Men's Health"
+    "image_url": "https://i.ibb.co/MpzbgDq/6-mens-care-min-1643711372407.webp",
+    "category_name": "Men's Products",
+    "category": "men-product"
   },
   {
-    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
-    "category_name": "Vitamins"
+    "image_url": "https://i.ibb.co/fn6dVvj/vitamin.png",
+    "category_name": "Vitamins",
+    "category": "vitamins"
   },
   {
-    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
-    "category_name": "Respiratory"
+    "image_url": "https://i.ibb.co/2W2cL2g/divices.webp",
+    "category_name": "Devices & Equipment",
+    "category": "devices"
   },
   {
-    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
-    "category_name": "Bone Health"
+    "image_url": "https://i.ibb.co/vBDNf2L/beno.webp",
+    "category_name": "Bone Health care",
+    "category": "bone-care"
   },
   {
-    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
-    "category_name": "Weight"
+    "image_url": "https://i.ibb.co/KzZcctG/Trimohills-1.jpg",
+    "category_name": "Weight",
+    "category": "weight"
   },
   {
-    "image_url": "https://i.ibb.co/d2jn6CM/category1.jpg",
-    "category_name": "Mental Health"
+    "image_url": "https://i.ibb.co/mHbn703/denta-care.webp",
+    "category_name": "Dental Care",
+    "category": "dental-care"
   },
   {
-    "image_url": "https://img.freepik.com/free-vector/medical-equipments-medicine-blue-background_1308-43314.jpg?w=740&t=st=1691733776~exp=1691734376~hmac=69a75cf3d4bcb95794c05bdea0fabd827429ab74060f06bd1be52d0469fe6768",
-    "category_name": "Children's Health"
+    "image_url": "https://i.ibb.co/v4rTVwc/baby-care-1660480175724.webp",
+    "category_name": "Baby Care",
+    "category": "baby-care"
   }
 ]
