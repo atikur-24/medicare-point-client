@@ -3,9 +3,10 @@ import addLabTest from "../Features/AllLabTests/addLabTest";
 import allLabTest from "../Features/AllLabTests/allLabTest";
 import deleteLabTest from "../Features/AllLabTests/deleteLabTest";
 import updateLabTest from "../Features/AllLabTests/updateLabTest";
-import allMedicines from "../Features/AllMedicines/allMedicines";
+// import allMedicines from "../Features/AllMedicines/allMedicines";
 import allUsers from "../Features/AllUsers/allUsers";
 import addBlog from "../Features/Blogs/addBlog";
+import allBlogs from "../Features/Blogs/allBlogs";
 import deleteBlog from "../Features/Blogs/deleteBlog";
 import updateBlog from "../Features/Blogs/updateBlog";
 import addHealthTips from "../Features/HealthTips/addHealthTips";
@@ -15,13 +16,13 @@ import updateHealthTips from "../Features/HealthTips/updateHealthTips";
 import addInterview from "../Features/Interviews/addInterview";
 import deleteInterview from "../Features/Interviews/deleteInterview";
 import updateInterview from "../Features/Interviews/updateInterview";
+import allMedicines from "../Features/Medicines/AllMedicines/allMedicines";
 import sslPayment from "../Features/PaymentGetway/PaymentGetaway";
 import uploadImage from "../Features/UploadImage/uploadImage";
 
 const store = configureStore({
   reducer: {
     allUsers,
-    allMedicines,
     allLabTest,
     updateLabTest,
     uploadImage,
@@ -38,6 +39,8 @@ const store = configureStore({
     updateInterview,
     deleteInterview,
     sslPayment,
+    allMedicines,
+    allBlogs,
   },
 });
 
