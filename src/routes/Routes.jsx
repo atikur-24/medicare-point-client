@@ -6,6 +6,8 @@ import Blogs from "../pages/Blogs/Blogs";
 import HealthArticlesDetails from "../pages/Blogs/HealthArticlesDetails";
 import InterviewDetails from "../pages/Blogs/InterviewDetails";
 import Contract from "../pages/Contract/Contract";
+import AddNewArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/AddNewArticles";
+import AddNewInterviews from "../pages/Dashboard/AdminDashboard/AdminBlogs/AddNewInterviews";
 import AddLabTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AddLabTest";
 import AllAvailableTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AllAvailableTest";
 import AddBlog from "../pages/Dashboard/AdminDashboard/AllBlogs/AddBlog";
@@ -249,6 +251,14 @@ const router = createBrowserRouter([
       {
         path: "add-blog",
         element: <AddBlog />,
+      },
+      {
+        path: "add-health-articles",
+        element: <AddNewArticles />,
+      },
+      {
+        path: "add-interviews",
+        element: <AddNewInterviews />,
       },
     ],
   },
