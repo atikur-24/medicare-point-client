@@ -5,9 +5,9 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 import useCartMedicines from "../../hooks/useCartMedicines";
 import MedicineCartItem from "./MedicineCartItem";
-import useAuth from "../../hooks/useAuth";
 
 const MedicineCarts = () => {
   const { user } = useAuth();
