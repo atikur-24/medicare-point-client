@@ -1,11 +1,31 @@
 /* eslint-disable no-unused-vars */
 import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
+import CreatableSelect from "react-select/creatable";
 
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
+const categories = [
+  { value: "Pain Relief", label: "Pain Relief" },
+  { value: "Digestive Health", label: "Digestive Health" },
+  { value: "Cough & Cold", label: "Cough & Cold" },
+  { value: "Diabetes Care", label: "Diabetes Care" },
+  { value: "Heart Health", label: "Heart Health" },
+  { value: "Laundry & Household", label: "Laundry & Household" },
+  { value: "Skin Care", label: "Skin Care" },
+  { value: "Eye Care", label: "Eye Care" },
+  { value: "Women Care", label: "Women Care" },
+  { value: "Men's Products", label: "Men's Products" },
+  { value: "Vitamins", label: "Vitamins" },
+  { value: "Devices & Equipment", label: "Devices & Equipment" },
+  { value: "Bone Health care", label: "Bone Health care" },
+  { value: "Weight", label: "Weight" },
+  { value: "Dental Care", label: "Dental Care" },
+  { value: "Baby Care", label: "Baby Care" },
+];
+
+const tags = [
+  { value: "Healthy", label: "Healthy" },
+  { value: "Covid", label: "Covid" },
+  { value: "Personal", label: "Personal" },
 ];
 
 const AddNewMedicine = () => {
@@ -71,21 +91,35 @@ const AddNewMedicine = () => {
             <input type="file" {...register("image")} />
           </div>
         </div>
-        <div className="two-input-field lg:flex gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           <div>
             <span>Medicine Category</span>
-            <input
-              type="text"
-              placeholder="Medicine category"
-              {...register("category")}
+            <Controller
+              name="category"
+              control={control}
+              render={({ field }) => (
+                <Select
+                  {...field}
+                  options={categories}
+                  placeholder="Select category"
+                  noOptionsMessage={() => "No category found"}
+                />
+              )}
             />
           </div>
           <div>
             <span>Tags</span>
-            <input
-              placeholder="Enter tags"
-              type="text"
-              {...register("tags")}
+            <Controller
+              name="tags"
+              control={control}
+              render={({ field }) => (
+                <CreatableSelect
+                  {...field}
+                  options={tags}
+                  isMulti
+                  placeholder="Select tags"
+                />
+              )}
             />
           </div>
         </div>
@@ -120,47 +154,13 @@ const AddNewMedicine = () => {
             />
           </div>
           <div>
-            <span>SKU</span>
+            <span>Sku No.</span>
             <input
               placeholder="Enter sku"
-              type="text"
+              type="number"
               {...register("sku")}
             />
           </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <div>
-            <select {...register("Title", { required: true })}>
-              <option value="Mr">Mr</option>
-              <option value="Mrs">Mrs</option>
-              <option value="Miss">Miss</option>
-              <option value="Dr">Dr</option>
-            </select>
-          </div>
-          <div>
-            <Select options={options} {...register("cte")} />
-          </div>
-        </div>
-        <div>
-          {/* <Controller
-            name="firstName"
-            control={control}
-            render={({ field }) => <Input {...field} />}
-          /> */}
-          <Controller
-            name="iceCreamType"
-            control={control}
-            render={({ field }) => (
-              <Select
-                {...field}
-                options={[
-                  { value: "chocolate", label: "Chocolate" },
-                  { value: "strawberry", label: "Strawberry" },
-                  { value: "vanilla", label: "Vanilla" },
-                ]}
-              />
-            )}
-          />
         </div>
         <div>
           <input
