@@ -38,6 +38,8 @@ import CheckouForm from "../pages/MedicineCarts/CheckoutForm/CheckouForm";
 import MedicineCarts from "../pages/MedicineCarts/MedicineCarts";
 import MedicineDetails from "../pages/Medicines/MedicineDetails";
 import Medicines from "../pages/Medicines/Medicines";
+import PaymentFailed from "../pages/PaymentPage/PaymentFailed";
+import PaymentSuccess from "../pages/PaymentPage/PaymentSuccess";
 import PharmacyRegistrationPage from "../pages/PharmacyRegistrationPage/PharmacyRegistrationPage";
 import Services from "../pages/Services/Services";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
@@ -118,6 +120,15 @@ const router = createBrowserRouter([
       {
         path: "services",
         element: <Services />,
+      },
+      // payment status page
+      {
+        path: "paymentSuccess/:id",
+        element: <PaymentSuccess />,
+      },
+      {
+        path: "paymentFailed/:id",
+        element: <PaymentFailed />,
       },
     ],
   },
