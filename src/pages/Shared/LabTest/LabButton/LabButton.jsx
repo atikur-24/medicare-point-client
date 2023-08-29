@@ -35,7 +35,7 @@ const LabButton = ({ labAddCart }) => {
   };
   return (
     <div className="">
-      <button onClick={handlerLab} type="button" className="btn cart-btn w-full">
+      <button onClick={handlerLab} type="button" className="my-btn w-full">
         Book Now
       </button>
     </div>
