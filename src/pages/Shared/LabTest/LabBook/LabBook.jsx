@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { FaAngleRight } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 import sample from "../../../../assets/Lab/bloodsample.webp";
@@ -5,13 +6,25 @@ import gender from "../../../../assets/Lab/gender.webp";
 import time from "../../../../assets/Lab/ic_rgt.webp";
 import call from "../../../../assets/Lab/on time_1.webp";
 import users from "../../../../assets/Lab/users.webp";
+import useAuth from "../../../../hooks/useAuth";
+import useLabCart from "../../../../hooks/useLabCart";
 import CheckCard from "../CheckCard/CheckCard";
+import LabButton from "../LabButton/LabButton";
 
 const LabBook = () => {
-  const { test_name, price, image_url, discount, category_name } = useLoaderData();
-//   console.log(test_name, price, discount, category);
+  const { test_name, price, image_url, discount, category_name, _id } = useLoaderData();
+  const [labCart] = useLabCart();
+  const [isBook, setIsBook] = useState({});
+  const { user } = useAuth();
   const price2 = (price * discount) / 100;
   const remaining = parseFloat(price - price2);
+  const labAddCart = { lab_id: _id, test_name, price, remaining, discount, email: user?.email };
+  // Todo
+  useEffect(() => {
+    const isExisting = labCart.find((lab) => lab.lab_id === _id);
+    setIsBook(isExisting);
+  }, [_id, labCart]);
+
   return (
     <div>
       <div className="container mx-auto px-4 py-10 md:px-10">
@@ -50,10 +63,14 @@ const LabBook = () => {
                 {discount > 0 && <span className="badge bg-my-primary border-0 badge-accent text-white py-0.5">{discount}% off</span>}
               </div>
               <p className="font-bold my-2 text-my-pink mb-8">৳{remaining}</p>
-              <div className="card-actions absolute bottom-0 w-full">
-                <button type="button" className="my-btn w-full">
-                  Book Now
-                </button>
+              <div className=" absolute bottom-0 w-full">
+                {isBook ? (
+                  <Link to="/labPayment" className="my-btn w-full">
+                    Proceed to Cart
+                  </Link>
+                ) : (
+                  <LabButton labAddCart={labAddCart} />
+                )}
               </div>
             </div>
           </div>
