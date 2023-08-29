@@ -1,16 +1,8 @@
 import { Link } from "react-router-dom";
-import useAuth from "../../../../hooks/useAuth";
-import LabButton from "../LabButton/LabButton";
 
 const LabCard = ({ category }) => {
-  const { user } = useAuth();
-
   const price2 = (category.price * category.discount) / 100;
   const remaining = parseFloat(category.price - price2);
-
-  const { test_name, price, discount } = category || {};
-
-  const labAddCart = { lab_id: category._id, test_name, price, remaining, discount, email: user?.email };
 
   return (
     <Link to={`/labBook/${category._id}`}>
@@ -30,7 +22,9 @@ const LabCard = ({ category }) => {
         <p className="font-bold my-2 text-my-pink text-left">৳{remaining}</p>
         <div />
 
-        <LabButton labAddCart={labAddCart} />
+        <button type="button" className="btn cart-btn w-full">
+          View Details
+        </button>
       </div>
     </Link>
   );
