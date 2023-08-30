@@ -29,7 +29,7 @@ const MedicineDetails = () => {
   const params = useParams();
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:5000/details/${params?.id}`).then((res) => {
+    axios.get(`http://localhost:5000/medicines/details/${params?.id}`).then((res) => {
       // console.log(res.data);
       setMedicine(res.data);
       setLoading(false);
@@ -149,7 +149,12 @@ const MedicineDetails = () => {
                 Categories: <span className="text-gray-4">{category.label}</span>
               </p>
               <p className="font-medium text-black-2">
-                Tags: {tags.map((tag, idx) => <span key={idx} className="text-gray-4 mr-2">{tag.label}</span>)}
+                Tags:{" "}
+                {tags.map((tag, idx) => (
+                  <span key={idx} className="text-gray-4 mr-2">
+                    {tag.label}
+                  </span>
+                ))}
               </p>
               <p className="font-medium text-black-2">
                 Share:{" "}
@@ -169,16 +174,18 @@ const MedicineDetails = () => {
       <div className="my-container bg-white mt-10 rounded-md">
         <div className="lg:flex gap-8">
           <div
-            className={`${descrptn ? "border-b-[3px]" : ""
-              } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
+            className={`${
+              descrptn ? "border-b-[3px]" : ""
+            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
           >
             <button type="button" onClick={handleDescriptionBtn}>
               Description
             </button>
           </div>
           <div
-            className={`${reviews ? "border-b-[3px]" : ""
-              } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
+            className={`${
+              reviews ? "border-b-[3px]" : ""
+            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
           >
             <button type="button" onClick={handleReviewsBtn}>
               Reviews
