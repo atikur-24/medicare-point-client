@@ -6,10 +6,10 @@ import { TbTestPipe } from "react-icons/tb";
 const Medilazar = () => {
   return (
     <div className="my-16">
-      <h2 className="text-4xl font-bold text-center">About Medilazar</h2>
+      <h2 className="text-4xl font-bold text-center">About MediCare Point</h2>
       <p className="text-center text-gray-5 mt-2">BD leading digital consumer healthcare platform</p>
       <div className="mt-10 grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        <div className=" space-y-4  rounded-lg">
+        <div className=" space-y-4  rounded-lg ">
           <div>
             <GiMedicines className="text-5xl hover:text-my-primary transition delay-150 duration-300 ease-in-out mx-auto" />
           </div>
