@@ -6,6 +6,8 @@ import Blogs from "../pages/Blogs/Blogs";
 import HealthArticlesDetails from "../pages/Blogs/HealthArticlesDetails";
 import InterviewDetails from "../pages/Blogs/InterviewDetails";
 import Contract from "../pages/Contract/Contract";
+import AddNewArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/AddNewArticles";
+import AddNewInterviews from "../pages/Dashboard/AdminDashboard/AdminBlogs/AddNewInterviews";
 import AddLabTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AddLabTest";
 import AllAvailableTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AllAvailableTest";
 import AddBlog from "../pages/Dashboard/AdminDashboard/AllBlogs/AddBlog";
@@ -38,10 +40,14 @@ import CheckouForm from "../pages/MedicineCarts/CheckoutForm/CheckouForm";
 import MedicineCarts from "../pages/MedicineCarts/MedicineCarts";
 import MedicineDetails from "../pages/Medicines/MedicineDetails";
 import Medicines from "../pages/Medicines/Medicines";
+import PaymentFailed from "../pages/PaymentPage/PaymentFailed";
+import PaymentSuccess from "../pages/PaymentPage/PaymentSuccess";
 import PharmacyRegistrationPage from "../pages/PharmacyRegistrationPage/PharmacyRegistrationPage";
 import Services from "../pages/Services/Services";
 import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 
+import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArticles";
+import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
 import LabBook from "../pages/Shared/LabTest/LabBook/LabBook";
 import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
@@ -100,7 +106,6 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <MedicineDetails />,
-        // loader: ({ params }) => fetch(`http://localhost:5000/medicines/${params?.id}`),
       },
       {
         path: "about-us",
@@ -121,6 +126,15 @@ const router = createBrowserRouter([
       {
         path: "services",
         element: <Services />,
+      },
+      // payment status page
+      {
+        path: "paymentSuccess/:id",
+        element: <PaymentSuccess />,
+      },
+      {
+        path: "paymentFailed/:id",
+        element: <PaymentFailed />,
       },
     ],
   },
@@ -252,6 +266,23 @@ const router = createBrowserRouter([
       {
         path: "add-blog",
         element: <AddBlog />,
+      },
+      {
+        path: "add-health-articles",
+        element: <AddNewArticles />,
+      },
+      {
+        path: "add-interviews",
+        element: <AddNewInterviews />,
+      },
+      {
+        path: "manage-health-articles",
+        element: <EditArticles />,
+      },
+      {
+        path: "update-health-articles/:id",
+        element: <UpdateHealthArticles />,
+        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params?.id}`),
       },
     ],
   },

@@ -47,6 +47,12 @@ const DashboardLayout = () => {
     setShowDropdown2(!showDropdown2);
   };
 
+  const [showDropdown3, setShowDropdown3] = useState(false);
+
+  const toggleDropdown3 = () => {
+    setShowDropdown3(!showDropdown3);
+  };
+
   const [doctor, setDoctor] = useState(false);
   const [labtest, setLabtest] = useState(false);
   const [medicineBtn, setMedicineBtn] = useState(false);
@@ -268,6 +274,28 @@ const DashboardLayout = () => {
       </li>
 
       {/* To do  */}
+      <li className="dashboard-link flex">
+        <NavLink to="/dashboard" onClick={toggleDropdown3} className="dashboard-link flex cursor-pointer">
+          <RiFileList3Line className="dashboard-icon" />
+          <button type="button">Blogs</button>
+          <MdKeyboardArrowDown className={`${showDropdown3 ? "hidden" : "block"} dashboard-icon`} />
+          <MdKeyboardArrowUp className={`${showDropdown3 ? "block" : "hidden"} dashboard-icon`} />
+        </NavLink>
+        <ul className={`${showDropdown3 ? "block" : "hidden"}`}>
+          <li>
+            <NavLink to="/dashboard/add-health-articles">Add Health Articles</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/manage-health-articles">Manage Health Articles</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/add-interviews">Add Interviews</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/manage-interviews">Manage Interviews</NavLink>
+          </li>
+        </ul>
+      </li>
       <li>
         <NavLink to="/dashboard/add-blog" className="dashboard-link">
           Add Blog
@@ -293,11 +321,12 @@ const DashboardLayout = () => {
           <AiOutlineBars className="text-lg cursor-pointer" />
         </label>
       </div>
-      <div className="drawer-side shadow-md bg-card">
+      <div className="drawer-side shadow-md">
         <label htmlFor="my-drawer-2" className="drawer-overlay" />
 
         <ul className="dashboard-ul lg:pt-5 menu p-4 w-80 h-full text-base-content">
           {/* Sidebar content here */}
+          
 
           <li className="relative">
             <NavLink to="/" className=" pb-3">
