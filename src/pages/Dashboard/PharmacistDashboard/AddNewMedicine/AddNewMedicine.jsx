@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
-import axios from "axios";
-import JoditEditor from "jodit-react";
-import moment from "moment";
-import { useRef, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
 import CreatableSelect from "react-select/creatable";
+import JoditEditor from "jodit-react";
+import { useRef, useState } from "react";
+import moment from "moment";
+import axios from "axios";
 import Swal from "sweetalert2";
 import useAuth from "../../../../hooks/useAuth";
 
@@ -76,11 +76,11 @@ const AddNewMedicine = () => {
       method: "POST",
       body: formData,
     })
-      .then((res) => res.json())
-      .then((imgResponse) => {
+      .then(res => res.json())
+      .then(imgResponse => {
         if (imgResponse.success) {
           const imgURL = imgResponse.data.display_url;
-          axios.post("http://localhost:5000/medicines", { ...allData, image: imgURL }).then((res) => {
+          axios.post("http://localhost:5000/medicines", { ...allData, image: imgURL }).then(res => {
             if (res.data.insertedId) {
               Swal.fire({
                 position: "top-end",
@@ -103,11 +103,21 @@ const AddNewMedicine = () => {
         <div className="two-input-field lg:flex gap-5">
           <div>
             <span>Pharmacist Name</span>
-            <input readOnly defaultValue={user?.displayName} type="text" {...register("pharmacist_name")} />
+            <input
+              readOnly
+              defaultValue={user?.displayName}
+              type="text"
+              {...register("pharmacist_name")}
+            />
           </div>
           <div>
             <span>Pharmacist Email</span>
-            <input readOnly defaultValue={user?.email} type="email" {...register("pharmacist_email")} />
+            <input
+              readOnly
+              defaultValue={user?.email}
+              type="email"
+              {...register("pharmacist_email")}
+            />
           </div>
         </div>
         <div className="two-input-field lg:flex gap-5">
@@ -126,39 +136,88 @@ const AddNewMedicine = () => {
             <Controller
               name="category"
               control={control}
-              render={({ field }) => <Select isClearable required {...field} options={categories} placeholder="Select category" noOptionsMessage={() => "No category found"} />}
+              render={({ field }) => (
+                <Select
+                  isClearable
+                  required
+                  {...field}
+                  options={categories}
+                  placeholder="Select category"
+                  noOptionsMessage={() => "No category found"}
+                />
+              )}
             />
           </div>
           <div>
-            <span>
-              Tags <small>(choose multiple tags)</small>
-            </span>
-            <Controller name="tags" control={control} render={({ field }) => <CreatableSelect required {...field} options={tags} isMulti placeholder="Select tags" />} />
+            <span>Tags <small>(choose multiple tags)</small></span>
+            <Controller
+              name="tags"
+              control={control}
+              render={({ field }) => (
+                <CreatableSelect
+                  required
+                  {...field}
+                  options={tags}
+                  isMulti
+                  placeholder="Select tags"
+                />
+              )}
+            />
           </div>
         </div>
         <div className="two-input-field lg:flex gap-5">
           <div>
             <span>Enter price</span>
-            <input required min={1} placeholder="Enter price" type="number" {...register("price")} />
+            <input
+              required
+              min={1}
+              placeholder="Enter price"
+              type="number"
+              {...register("price")}
+            />
           </div>
           <div>
             <span>Available Quantity</span>
-            <input min={1} placeholder="Enter available quantity" type="number" {...register("available_quantity")} />
+            <input
+              min={1}
+              placeholder="Enter available quantity"
+              type="number"
+              {...register("available_quantity")}
+            />
           </div>
         </div>
         <div className="two-input-field lg:flex gap-5">
           <div>
             <span>Enter Discount</span>
-            <input min={0} placeholder="Enter discount" type="number" {...register("discount")} />
+            <input
+              min={0}
+              placeholder="Enter discount"
+              type="number"
+              {...register("discount")}
+            />
           </div>
           <div>
             <span>Sku No.</span>
-            <input required placeholder="Enter sku" type="number" {...register("sku")} />
+            <input
+              required
+              placeholder="Enter sku"
+              type="number"
+              {...register("sku")}
+            />
           </div>
         </div>
         <div className="mb-5">
           <span>Medicine Description</span>
           <textarea required {...register("medicine_description", { required: true })} className="textarea textarea-bordered h-28 w-full resize-none" placeholder="Medicine description" />
+        </div>
+        <div>
+          <h4>Medicine Features & Details <small>(you can add multiple features)</small></h4>
+          <JoditEditor
+            ref={editor}
+            value={content}
+            // config={config}
+            onChange={newContent => setContent(newContent)}
+          />
         </div>
         <div>
           <h4>
