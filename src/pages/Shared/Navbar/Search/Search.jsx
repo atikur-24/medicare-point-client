@@ -1,9 +1,10 @@
 /* eslint-disable import/no-unresolved */
+import "@smastrom/react-rating/style.css";
 import { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
-import { Link } from "react-router-dom";
-import "@smastrom/react-rating/style.css";
+import { RxCross1 } from "react-icons/rx";
 import { TbCurrencyTaka } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 const Search = () => {
   const [search, setSearch] = useState("");
@@ -24,15 +25,27 @@ const Search = () => {
     setSearch(searchItem);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.target.reset();
+    // console.log(e.target.searchField.value);
+  };
+
   return (
     <div className="relative">
-      <form className="flex items-center relative">
+      <form onSubmit={handleSubmit} className="flex items-center relative">
         <input
           onChange={handleSearch}
           className="w-full lg:w-[450px] h-10 rounded-full  dropdown-end shadow-md border-[1px] border-gray-3 px-6 focus:input-bordered input-accent"
           type="text"
+          name="searchField"
+          value={search}
           placeholder="Search Medicines"
         />
+        <button type="submit" onClick={() => setSearch("")} className={`pr-3 cursor-pointer right-10 absolute h-full rounded-e-full ${search ? "" : "hidden"}`}>
+          <RxCross1 className="text-xl text-gray-5 ml-2" />
+        </button>
+
         <div className="pr-3 cursor-pointer right-0 absolute bg-my-primary h-full rounded-e-full">
           <FiSearch className="text-3xl text-white mt-[5px] ml-2" />
         </div>
@@ -46,7 +59,7 @@ const Search = () => {
         {medicines.map((m) => (
           <div key={m._id} className="flex items-center justify-around space-x-3 text-gray-6 bg-card border border-gray-3 my-2">
             <div className="relative">
-              <Link to={`/details/${m._id}`}>
+              <Link onClick={() => setSearch("")} to={`/details/${m._id}`}>
                 {m.discount > 0 && (
                   <div className="bg-my-accent z-10 rounded-md p-1 text-xs font-medium text-white absolute -top-2 -left-8 flex">
                     <p>{m.discount}</p>
@@ -60,7 +73,7 @@ const Search = () => {
             <div className="p-2 space-y-1 relative ">
               <div className="space-y-1">
                 <p className="text-gray-5 text-xs font-medium">{m.category.label}, personal care</p>
-                <Link to={`/details/${m._id}`}>
+                <Link onClick={() => setSearch("")} to={`/details/${m._id}`}>
                   <h2 className="text-[1.125rem] font-semibold text-title-color tracking-wide hover:underline inline-block hover:cursor-pointer">{m.medicine_name}</h2>
                 </Link>
               </div>
