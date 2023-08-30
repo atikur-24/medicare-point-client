@@ -1,7 +1,7 @@
+/* eslint-disable import/no-unresolved */
 import { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
-
 import "@smastrom/react-rating/style.css";
 import { TbCurrencyTaka } from "react-icons/tb";
 
@@ -10,7 +10,7 @@ const Search = () => {
   const [medicines, setMedicines] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/medicines?name=${search}&category=${search}`)
+    fetch(`http://localhost:5000/medicines?name=${search}`)
       .then((res) => res.json())
       .then((data) => {
         setMedicines(data);
@@ -59,7 +59,7 @@ const Search = () => {
 
             <div className="p-2 space-y-1 relative ">
               <div className="space-y-1">
-                <p className="text-gray-5 text-xs font-medium">{m.category}, personal care</p>
+                <p className="text-gray-5 text-xs font-medium">{m.category.label}, personal care</p>
                 <Link to={`/details/${m._id}`}>
                   <h2 className="text-[1.125rem] font-semibold text-title-color tracking-wide hover:underline inline-block hover:cursor-pointer">{m.medicine_name}</h2>
                 </Link>
