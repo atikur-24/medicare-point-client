@@ -29,7 +29,7 @@ const MedicineDetails = () => {
   const params = useParams();
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:5000/medicines/${params?.id}`).then((res) => {
+    axios.get(`http://localhost:5000/medicines/details/${params?.id}`).then((res) => {
       // console.log(res.data);
       setMedicine(res.data);
       setLoading(false);
