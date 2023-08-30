@@ -66,7 +66,7 @@
   @apply hover:bg-my-primary hover:text-white btn rounded-full  font-bold transition duration-300 border border-my-primary text-my-primary;
 }
 
-.login-btn{
+.login-btn {
   @apply bg-my-accent hover:bg-[#16b4ac]  btn  font-medium md:font-semibold text-white transition duration-200 border-0;
 }
 
@@ -96,7 +96,7 @@
   }
 }
 
- /* remove spain button of input type number */
+/* remove spain button of input type number */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

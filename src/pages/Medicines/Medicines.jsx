@@ -7,7 +7,7 @@ import { RxCross1 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useSearchParams } from "react-router-dom";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
-import MedicineCard from "./MedicineCard";
+import MediCard from "../Shared/Card/MediCard";
 
 const Medicines = () => {
   const [medicines, setMedicines] = useState([]);
@@ -98,7 +98,7 @@ const Medicines = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {medicines?.map((medicine) => (
-            <MedicineCard key={medicine._id} medicine={medicine} />
+            <MediCard key={medicine._id} medicine={medicine} />
           ))}
         </div>
       </div>
