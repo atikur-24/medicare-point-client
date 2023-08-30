@@ -46,8 +46,8 @@ const MedicineDetails = () => {
     inactiveFillColor: "#DEE1E6",
   };
 
-  const { _id, medicine_name, image, price, medicine_description, tags, rating, allRatings, discount } = medicine || {};
-  const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, email: user?.email };
+  const { _id, medicine_name, image, price, medicine_description, tags, rating, category, allRatings, discount } = medicine || {};
+  const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, category: category.label, email: user?.email };
 
   const handleReviews = (event) => {
     event.preventDefault();
@@ -146,10 +146,10 @@ const MedicineDetails = () => {
                 SKU: <span className="text-gray-4">N/A-202</span>
               </p>
               <p className="font-medium text-black-2">
-                {/* Categories: <span className="text-gray-4">{category?.label}</span> */}
+                Categories: <span className="text-gray-4">{category.label}</span>
               </p>
               <p className="font-medium text-black-2">
-                Tags: <span className="text-gray-4">{tags}</span>
+                Tags: {tags.map((tag, idx) => <span key={idx} className="text-gray-4 mr-2">{tag.label}</span>)}
               </p>
               <p className="font-medium text-black-2">
                 Share:{" "}
