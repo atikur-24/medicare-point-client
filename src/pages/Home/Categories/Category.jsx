@@ -1,11 +1,10 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable no-unused-vars */
 import queryS from "query-string";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Category = ({ category }) => {
   const [params, setParams] = useSearchParams();
-  const value = params.get("category");
-
-  // console.log(value);
 
   const navigate = useNavigate();
 
@@ -24,13 +23,11 @@ const Category = ({ category }) => {
         url: "/medicines",
         query: updatedQuery,
       },
-      { skipNull: true }
+      { skipNull: true },
     );
     navigate(url);
     // console.log(url);
   };
-
-  console.log(value);
 
   return (
     <div onClick={handelClick} className="bg-white drop-shadow-2xl p-2 rounded-md cursor-pointer border border-gray-3">
