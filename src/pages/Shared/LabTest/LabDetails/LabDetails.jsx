@@ -21,7 +21,7 @@ const LabDetails = ({ open, toggleOpen }) => {
     <div
       className={`${
         open ? "hidden" : "block"
-      } z-10 fixed  bg-[#F2FBFF] border-[3px] border-solid border-[#FCB716] rounded-l-lg max-h-[600px]  lg:max-h-[500px] 2xl:max-h-[670px]  md:w-96 w-full overflow-auto right-0 bottom-0  `}
+      } z-20 fixed  bg-[#F2FBFF] border-[3px] border-solid border-[#FCB716] rounded-l-lg max-h-[600px]  lg:max-h-[500px] 2xl:max-h-[670px]  md:w-96 w-full overflow-auto right-0 bottom-0  `}
     >
       <div className="relative">
         <div className="fixed rounded-t-lg left-1 right-4 md:left-auto md:right-auto p-4 bg-card  drop-shadow-lg z-10">
