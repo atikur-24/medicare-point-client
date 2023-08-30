@@ -28,7 +28,7 @@ const MedicineCartItem = ({ item, refetch }) => {
       <img className="w-20 h-28 object-cover" src={image} alt="medicine" />
       <div>
         <h5 className="text-xl font-medium">{medicine_name}</h5>
-        <small className="text-gray-4">By {category}</small>
+        <small className="text-gray-4">By {category?.label}</small>
         <small className="text-gray-4 block">1 Box</small>
         <p className="space-x-3 lg:space-x-5">
           TK
