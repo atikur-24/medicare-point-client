@@ -70,7 +70,7 @@ const Navbar = () => {
         });
         navigate("/");
       })
-      .catch(() => {});
+      .catch(() => { });
   };
   return (
     // TODO: bg color
