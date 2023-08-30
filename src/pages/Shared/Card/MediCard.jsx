@@ -15,8 +15,8 @@ const customStyles = {
 
 const MediCard = ({ medicine }) => {
   const { user } = useAuth();
-  const { _id, medicine_name, image, price, category, rating, discount } = medicine || {};
-  const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity: 1, email: user?.email, category };
+  const { _id, medicine_name, image, category, price, rating, discount } = medicine || {};
+  const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, category: category?.label, quantity: 1, email: user?.email };
 
   return (
     <div className="card card-compact bg-white rounded-md hover:shadow-lg transition-shadow relative group">
@@ -28,7 +28,7 @@ const MediCard = ({ medicine }) => {
           </figure>
         </Link>
         <div className="space-y-1">
-          <p className="text-gray-5 text-xs font-medium">{category}, personal care</p>
+          <p className="text-gray-5 text-xs font-medium">{category?.label}</p>
           <Link to={`/details/${_id}`}>
             <h2 className="text-[1.125rem] font-semibold text-title-color tracking-wide hover:underline inline-block hover:cursor-pointer">{medicine_name}</h2>
           </Link>
