@@ -321,7 +321,7 @@ const DashboardLayout = () => {
           <AiOutlineBars className="text-lg cursor-pointer" />
         </label>
       </div>
-      <div className="drawer-side shadow-md bg-card">
+      <div className="drawer-side shadow-md">
         <label htmlFor="my-drawer-2" className="drawer-overlay" />
 
         <ul className="dashboard-ul lg:pt-5 menu p-4 w-80 h-full text-base-content">
