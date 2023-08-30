@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SectionTitle from "../../../components/SectionTitle";
-import HSMedicine from "./HSMedicine";
+import MediCard from "../../Shared/Card/MediCard";
 
 const HighestSellings = () => {
   const [headingSMedicines, setHeadingSMedicines] = useState([]);
@@ -32,7 +32,7 @@ const HighestSellings = () => {
           >
             {headingSMedicines.map((medicine) => (
               <SwiperSlide key={medicine?._id}>
-                <HSMedicine medicine={medicine} />
+                <MediCard medicine={medicine} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -50,7 +50,7 @@ const HighestSellings = () => {
           >
             {headingSMedicines.map((medicine, index) => (
               <SwiperSlide key={index}>
-                <HSMedicine medicine={medicine} />
+                <MediCard medicine={medicine} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -68,7 +68,7 @@ const HighestSellings = () => {
           >
             {headingSMedicines.map((medicine, index) => (
               <SwiperSlide key={index}>
-                <HSMedicine medicine={medicine} />
+                <MediCard medicine={medicine} />
               </SwiperSlide>
             ))}
           </Swiper>

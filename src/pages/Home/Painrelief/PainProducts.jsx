@@ -10,15 +10,14 @@ import bannerImage from "../../../assets/images/services/01.jpg";
 import bannerBackground from "../../../assets/images/services/features.jpg";
 import SectionTitle from "../../../components/SectionTitle";
 import CommonBanner from "../../Shared/CommonBanner/CommonBanner";
-import PainProduct from "./PainProduct";
+import MediCard from "../../Shared/Card/MediCard";
 
-const PainProducts = () => {
+const MediCards = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:5000/medicines").then((res) => setProducts(res.data));
   }, []);
-  // console.log(products);
 
   return (
     <>
@@ -38,7 +37,7 @@ const PainProducts = () => {
             >
               {products.map((medicine) => (
                 <SwiperSlide key={medicine?._id}>
-                  <PainProduct medicine={medicine} />
+                  <MediCard medicine={medicine} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -56,7 +55,7 @@ const PainProducts = () => {
             >
               {products.map((medicine) => (
                 <SwiperSlide key={medicine?._id}>
-                  <PainProduct medicine={medicine} />
+                  <MediCard medicine={medicine} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -74,7 +73,7 @@ const PainProducts = () => {
             >
               {products.map((medicine) => (
                 <SwiperSlide key={medicine?._id}>
-                  <PainProduct medicine={medicine} />
+                  <MediCard medicine={medicine} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -93,4 +92,4 @@ const PainProducts = () => {
   );
 };
 
-export default PainProducts;
+export default MediCards;
