@@ -1,23 +1,84 @@
 /* eslint-disable no-unused-vars */
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
+import Select from "react-select";
+import CreatableSelect from "react-select/creatable";
+import JoditEditor from "jodit-react";
+import { useRef, useState } from "react";
+import moment from "moment";
+import axios from "axios";
+import Swal from "sweetalert2";
+import useAuth from "../../../../hooks/useAuth";
+
+const categories = [
+  { value: "Pain Relief", label: "Pain Relief" },
+  { value: "Digestive Health", label: "Digestive Health" },
+  { value: "Cough & Cold", label: "Cough & Cold" },
+  { value: "Diabetes Care", label: "Diabetes Care" },
+  { value: "Heart Health", label: "Heart Health" },
+  { value: "Laundry & Household", label: "Laundry & Household" },
+  { value: "Skin Care", label: "Skin Care" },
+  { value: "Eye Care", label: "Eye Care" },
+  { value: "Women Care", label: "Women Care" },
+  { value: "Men's Products", label: "Men's Products" },
+  { value: "Vitamins", label: "Vitamins" },
+  { value: "Devices & Equipment", label: "Devices & Equipment" },
+  { value: "Bone Health care", label: "Bone Health care" },
+  { value: "Weight", label: "Weight" },
+  { value: "Dental Care", label: "Dental Care" },
+  { value: "Baby Care", label: "Baby Care" },
+];
+
+const tags = [
+  { value: "Healthy", label: "Healthy" },
+  { value: "Covid", label: "Covid" },
+  { value: "Personal", label: "Personal" },
+];
 
 const AddNewMedicine = () => {
-  //   const imageHostingKey = import.meta.env.VITE_API_KEY;
-  //   const imageHostingURL = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
+  const imageHostingURL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
+  const { user } = useAuth();
+  const editor = useRef(null);
+  const [content, setContent] = useState("");
 
   const {
     register,
+    control,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    // console.log(data.photo[0]);
-    // const formData = new FormData();
-    // formData.append("image", data.photo[0]);
+    const date = moment().format("L");
+    data.price = parseFloat(data.price, 10);
+    data.discount = parseInt(data.discount, 10);
+    data.available_quantity = parseInt(data.available_quantity, 10);
+    const allData = { ...data, feature_with_details: content, sellQuantity: 0, allRatings: [], rating: 0, status: "pending", date };
 
-    console.log(data);
+    const formData = new FormData();
+    formData.append("image", data.image[0]);
+
+    fetch(imageHostingURL, {
+      method: "POST",
+      body: formData,
+    })
+    .then(res => res.json())
+    .then(imgResponse => {
+      if (imgResponse.success) {
+        const imgURL = imgResponse.data.display_url;
+          axios.post("http://localhost:5000/medicines", { ...allData, image: imgURL }).then(res => {
+            if (res.data.insertedId) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "New Medicine Added Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+            });
+            }
+          });
+        }
+      });
   };
 
   return (
@@ -34,8 +95,8 @@ const AddNewMedicine = () => {
           <div>
             <span>Pharmacist Name</span>
             <input
-              required
-              defaultValue="John Deo"
+              readOnly
+              defaultValue={user?.displayName}
               type="text"
               {...register("pharmacist_name")}
             />
@@ -44,7 +105,7 @@ const AddNewMedicine = () => {
             <span>Pharmacist Email</span>
             <input
               readOnly
-              defaultValue="john12@gmail.com"
+              defaultValue={user?.email}
               type="email"
               {...register("pharmacist_email")}
             />
@@ -62,26 +123,41 @@ const AddNewMedicine = () => {
           </div>
           <div>
             <span>Medicine Image</span>
-            <input required type="file" {...register("image")} />
+            <input type="file" required {...register("image")} />
           </div>
         </div>
-        <div className="two-input-field lg:flex gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
           <div>
             <span>Medicine Category</span>
-            <input
-              required
-              type="text"
-              placeholder="Medicine category"
-              {...register("category")}
+            <Controller
+              name="category"
+              control={control}
+              render={({ field }) => (
+                <Select
+                  isClearable
+                  required
+                  {...field}
+                  options={categories}
+                  placeholder="Select category"
+                  noOptionsMessage={() => "No category found"}
+                />
+              )}
             />
           </div>
           <div>
-            <span>Tags</span>
-            <input
-              required
-              placeholder="Enter tags"
-              type="text"
-              {...register("tags")}
+            <span>Tags <small>(choose multiple tags)</small></span>
+            <Controller
+              name="tags"
+              control={control}
+              render={({ field }) => (
+                <CreatableSelect
+                  required
+                  {...field}
+                  options={tags}
+                  isMulti
+                  placeholder="Select tags"
+                />
+              )}
             />
           </div>
         </div>
@@ -89,8 +165,8 @@ const AddNewMedicine = () => {
           <div>
             <span>Enter price</span>
             <input
-              min={1}
               required
+              min={1}
               placeholder="Enter price"
               type="number"
               {...register("price")}
@@ -100,7 +176,6 @@ const AddNewMedicine = () => {
             <span>Available Quantity</span>
             <input
               min={1}
-              required
               placeholder="Enter available quantity"
               type="number"
               {...register("available_quantity")}
@@ -112,21 +187,33 @@ const AddNewMedicine = () => {
             <span>Enter Discount</span>
             <input
               min={0}
-              required
               placeholder="Enter discount"
               type="number"
               {...register("discount")}
             />
           </div>
           <div>
-            <span>SKU</span>
+            <span>Sku No.</span>
             <input
               required
               placeholder="Enter sku"
-              type="text"
+              type="number"
               {...register("sku")}
             />
           </div>
+        </div>
+        <div className="mb-5">
+          <span>Medicine Description</span>
+          <textarea required {...register("medicine_description", { required: true })} className="textarea textarea-bordered h-28 w-full resize-none" placeholder="Medicine description" />
+        </div>
+        <div>
+          <h4>Medicine Features & Details <small>(you can add multiple features)</small></h4>
+          <JoditEditor
+            ref={editor}
+            value={content}
+            // config={config}
+            onChange={newContent => setContent(newContent)}
+          />
         </div>
         <div>
           <input
