@@ -29,7 +29,7 @@ const MedicineDetails = () => {
   const params = useParams();
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:5000/medicines/${params?.id}`).then((res) => {
+    axios.get(`http://localhost:5000/details/${params?.id}`).then((res) => {
       // console.log(res.data);
       setMedicine(res.data);
       setLoading(false);
@@ -62,7 +62,7 @@ const MedicineDetails = () => {
 
     const newReview = { name, email, date, city, rating: rating1, reviewMessage };
     // console.log(newReview);
-    axios.post(`http://localhost:5000/medicines/${_id}`, newReview).then((res) => {
+    axios.post(`http://localhost:5000/details/${_id}`, newReview).then((res) => {
       if (res.data.modifiedCount > 0) {
         form.reset();
         Swal.fire({
