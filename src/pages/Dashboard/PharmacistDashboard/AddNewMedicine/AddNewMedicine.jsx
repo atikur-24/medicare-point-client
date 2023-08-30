@@ -10,28 +10,42 @@ import Swal from "sweetalert2";
 import useAuth from "../../../../hooks/useAuth";
 
 const categories = [
-  { value: "Pain Relief", label: "Pain Relief" },
-  { value: "Digestive Health", label: "Digestive Health" },
-  { value: "Cough & Cold", label: "Cough & Cold" },
-  { value: "Diabetes Care", label: "Diabetes Care" },
-  { value: "Heart Health", label: "Heart Health" },
-  { value: "Laundry & Household", label: "Laundry & Household" },
-  { value: "Skin Care", label: "Skin Care" },
-  { value: "Eye Care", label: "Eye Care" },
-  { value: "Women Care", label: "Women Care" },
-  { value: "Men's Products", label: "Men's Products" },
+  { value: "Pain-Relief", label: "Pain Relief" },
+  { value: "Digestive-Health", label: "Digestive Health" },
+  { value: "Cough&Cold", label: "Cough & Cold" },
+  { value: "Diabetes-Care", label: "Diabetes Care" },
+  { value: "Heart-Health", label: "Heart Health" },
+  { value: "Laundry&Household", label: "Laundry & Household" },
+  { value: "Skin-Care", label: "Skin Care" },
+  { value: "Eye-Care", label: "Eye Care" },
+  { value: "Women-Care", label: "Women Care" },
+  { value: "Mens-Products", label: "Men's Products" },
   { value: "Vitamins", label: "Vitamins" },
-  { value: "Devices & Equipment", label: "Devices & Equipment" },
-  { value: "Bone Health care", label: "Bone Health care" },
+  { value: "Devices-Equipment", label: "Devices & Equipment" },
+  { value: "Bone-Health-care", label: "Bone Health care" },
   { value: "Weight", label: "Weight" },
-  { value: "Dental Care", label: "Dental Care" },
-  { value: "Baby Care", label: "Baby Care" },
+  { value: "Dental-Care", label: "Dental Care" },
+  { value: "Baby-Care", label: "Baby Care" },
+  { value: "Fever", label: "Fever (Otc Medicine)" },
+  { value: "Headache", label: "Headache (Otc Medicine)" },
+  { value: "Diarrhea", label: "Diarrhea (Otc Medicine)" },
+  { value: "Eczema", label: "Eczema (Otc Medicine)" },
+  { value: "Pregnancy", label: "Pregnancy (Otc Medicine)" },
+  { value: "Cough&Flu", label: "Cough&Flu (Otc Medicine)" },
+  { value: "Nasal", label: "Nasal (Otc Medicine)" },
+  { value: "Vitamins", label: "Vitamins (Otc Medicine)" },
+  { value: "Sexual-Med", label: "Sexual Med (Otc Medicine)" },
+  { value: "Gastric", label: "Gastric (Otc Medicine)" },
+  { value: "Sleeplessness", label: "Sleeplessness (Otc Medicine)" },
+  { value: "Constipation", label: "Constipation (Otc Medicine)" },
 ];
 
 const tags = [
   { value: "Healthy", label: "Healthy" },
   { value: "Covid", label: "Covid" },
   { value: "Personal", label: "Personal" },
+  { value: "Baby", label: "Baby" },
+  { value: "Fever", label: "Fever" },
 ];
 
 const AddNewMedicine = () => {
@@ -54,7 +68,7 @@ const AddNewMedicine = () => {
     data.discount = parseInt(data.discount, 10);
     data.available_quantity = parseInt(data.available_quantity, 10);
     const allData = { ...data, feature_with_details: content, sellQuantity: 0, allRatings: [], rating: 0, status: "pending", date };
-
+    console.log(allData);
     const formData = new FormData();
     formData.append("image", data.image[0]);
 
@@ -62,10 +76,10 @@ const AddNewMedicine = () => {
       method: "POST",
       body: formData,
     })
-    .then(res => res.json())
-    .then(imgResponse => {
-      if (imgResponse.success) {
-        const imgURL = imgResponse.data.display_url;
+      .then(res => res.json())
+      .then(imgResponse => {
+        if (imgResponse.success) {
+          const imgURL = imgResponse.data.display_url;
           axios.post("http://localhost:5000/medicines", { ...allData, image: imgURL }).then(res => {
             if (res.data.insertedId) {
               Swal.fire({
@@ -74,7 +88,7 @@ const AddNewMedicine = () => {
                 title: "New Medicine Added Successfully",
                 showConfirmButton: false,
                 timer: 1500,
-            });
+              });
             }
           });
         }
