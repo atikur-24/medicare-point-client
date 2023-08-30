@@ -1,74 +1,77 @@
 // import { AiFillThunderbolt } from "react-icons/ai";
+import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { HiLocationMarker } from "react-icons/hi";
+import Select from "react-select";
+
+const districts = [
+  { value: "Dhaka", label: "Dhaka" },
+  { value: "Chittagong", label: "Chittagong" },
+  { value: "Rajshahi", label: "Rajshahi" },
+  { value: "Sylhet", label: "Sylhet" },
+  { value: "Jessore", label: "Jessore" },
+  { value: "Dinajpur", label: "Dinajpur" },
+  { value: "Gopalganj", label: "Gopalganj" },
+  { value: "Gazipur", label: "Gazipur" },
+  { value: "Mymensingh", label: "Mymensingh" },
+  { value: "Comilla", label: "Comilla" },
+  { value: "Barisal", label: "Barisal" },
+  { value: "Narayanganj", label: "Narayanganj" },
+  { value: "Faridpur", label: "Faridpur" },
+  { value: "Bogra", label: "Bogra" },
+  { value: "Pabna", label: "Pabna" },
+  { value: "Rangamati", label: "Rangamati" },
+  { value: "Kushtia", label: "Kushtia" },
+  { value: "Rangpur", label: "Rangpur" },
+  { value: "Manikganj", label: "Manikganj" },
+  { value: "Noakhali", label: "Noakhali" },
+  { value: "Khulna", label: "Khulna" },
+  { value: "Tangail", label: "Tangail" },
+  { value: "Panchagarh", label: "Panchagarh" },
+  { value: "Bhola", label: "Bhola" },
+  { value: "Bandarban", label: "Bandarban" },
+  { value: "Chandpur", label: "Chandpur" },
+  { value: "Habiganj", label: "Habiganj" },
+  { value: "Lakshmipur", label: "Lakshmipur" },
+  { value: "Barguna", label: "Barguna" },
+  { value: "Jhalokati", label: "Jhalokati" },
+  { value: "Pirojpur", label: "Pirojpur" },
+  { value: "Patuakhali", label: "Patuakhali" },
+  { value: "Jhenaidah", label: "Jhenaidah" },
+  { value: "Narail", label: "Narail" },
+  { value: "Magura", label: "Magura" },
+  { value: "Lalmonirhat ", label: "Lalmonirhat" },
+  { value: "Kurigram", label: "Kurigram" },
+  { value: "Nilphamari", label: "Nilphamari" },
+  { value: "Gaibandha", label: "Gaibandha" },
+  { value: "Thakurgaon", label: "Thakurgaon" },
+  { value: "Satkhira", label: "Satkhira" },
+  { value: "Bagerhat", label: "Bagerhat" },
+  { value: "Chuadanga", label: "Chuadanga" },
+  { value: "Meherpur", label: "Meherpur" },
+  { value: "Sirajganj", label: "Sirajganj" },
+  { value: "Joypurhat", label: "Joypurhat" },
+  { value: "Natore", label: "Natore " },
+  { value: "Naogaon", label: "Naogaon" },
+  { value: "Nawabganj", label: "Nawabganj" },
+  { value: "Khagrachhari", label: "Khagrachhari" },
+  { value: "Feni", label: "Feni" },
+  { value: "Brahmanbaria", label: "Brahmanbaria" },
+  { value: "Sunamganj", label: "Sunamganj" },
+  { value: "Moulvibazar", label: "Moulvibazar" },
+  { value: "Shariatpur", label: "Shariatpur" },
+  { value: "Madaripur", label: "Madaripur" },
+  { value: "Rajbari", label: "Rajbari" },
+  { value: "Kishoreganj", label: "Kishoreganj" },
+  { value: "Jamalpur", label: "Jamalpur" },
+  { value: "Sherpur", label: "Sherpur" },
+  { value: "Netrakona", label: "Netrakona" },
+  { value: "Munshiganj", label: "Munshiganj" },
+  { value: "Narsingdi", label: "Narsingdi" },
+];
 
 const LabSearch = () => {
-  const districts = [
-    "Dhaka",
-    "Chittagong",
-    "Rajshahi",
-    "Sylhet",
-    "Jessore",
-    "Dinajpur",
-    "Gopalganj",
-    "Gazipur",
-    "Mymensingh",
-    "Comilla",
-    "Barisal",
-    "Narayanganj",
-    "Faridpur",
-    "Bogra",
-    "Pabna",
-    "Rangamati",
-    "Kushtia",
-    "Rangpur",
-    "Manikganj",
-    "Noakhali",
-    "Khulna",
-    "Tangail",
-    "Panchagarh",
-    "Bhola",
-    "Bandarban",
-    "Chandpur",
-    "Habiganj",
-    "Lakshmipur",
-    "Barguna",
-    "Jhalokati",
-    "Pirojpur",
-    "Patuakhali",
-    "Jhenaidah",
-    "Narail",
-    "Magura",
-    "Lalmonirhat ",
-    "Kurigram",
-    "Nilphamari",
-    "Gaibandha",
-    "Thakurgaon",
-    "Satkhira",
-    "Bagerhat",
-    "Chuadanga",
-    "Meherpur",
-    "Sirajganj",
-    "Joypurhat",
-    "Natore",
-    "Naogaon",
-    "Nawabganj",
-    "Khagrachhari",
-    "Feni",
-    "Brahmanbaria",
-    "Sunamganj",
-    "Cox's Bazar",
-    "Moulvibazar",
-    "Shariatpur",
-    "Madaripur",
-    "Rajbari",
-    "Kishoreganj",
-    "Jamalpur",
-    "Sherpur",
-    "Netrakona",
-    "Munshiganj",
-    "Narsingdi",
-  ];
+  const [selectedOption, setSelectedOption] = useState(null);
 
   return (
     <div className="flex flex-col md:items-center justify-between md:flex-row gap-4 md:gap-10 ">
@@ -79,22 +82,20 @@ const LabSearch = () => {
         </button>
       </form>
 
-      <div className="flex items-center gap-4 ">
+      <div className="flex items-center gap-4">
         <div>
           <HiLocationMarker className="w-10 h-10 text-my-primary" />
         </div>
-        <div className="space-y-2">
-          {/* <h2 className="font-nunito font-bold">Collect sample from</h2> */}
-          <select id="division" defaultValue="Collect sample from" className="select w-full max-w-md ">
-            <option disabled selected>
-              Collect sample from
-            </option>
-            {districts.map((division, index) => (
-              <option key={index} value={division}>
-                {division}
-              </option>
-            ))}
-          </select>
+        <div className="w-80 z-10">
+          <h2 className="font-nunito font-bold">Select Your District</h2>
+          <Select
+            isClearable
+            defaultValue={selectedOption}
+            onChange={setSelectedOption}
+            options={districts}
+            placeholder="Select your district"
+            noOptionsMessage={() => "No district found"}
+          />
         </div>
       </div>
       {/* <div className="md:w-[40%] hidden">

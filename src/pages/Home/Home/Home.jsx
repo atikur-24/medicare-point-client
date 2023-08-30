@@ -24,7 +24,6 @@ const Home = () => {
       <Categories />
       <HighestSellings />
       <PainProducts />
-
       <OtcMedicine />
       <OrderProcess />
       <Service />
