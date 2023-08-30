@@ -97,13 +97,8 @@ const AddNewMedicine = () => {
 
   return (
     <div className="">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="admission-form doctor-form"
-      >
-        <h3 className="text-center text-xl lg:text-3xl font-medium lg:font-semibold my-5 text-title-color tracking-wide">
-          Add New Medicine
-        </h3>
+      <form onSubmit={handleSubmit(onSubmit)} className="admission-form doctor-form">
+        <h3 className="text-center text-xl lg:text-3xl font-medium lg:font-semibold my-5 text-title-color tracking-wide">Add New Medicine</h3>
         <div className="divider" />
         <div className="two-input-field lg:flex gap-5">
           <div>
@@ -128,12 +123,7 @@ const AddNewMedicine = () => {
         <div className="two-input-field lg:flex gap-5">
           <div>
             <span>Medicine Name</span>
-            <input
-              required
-              placeholder="Enter medicine name"
-              type="text"
-              {...register("medicine_name")}
-            />
+            <input required placeholder="Enter medicine name" type="text" {...register("medicine_name")} />
           </div>
           <div>
             <span>Medicine Image</span>
@@ -230,12 +220,18 @@ const AddNewMedicine = () => {
           />
         </div>
         <div>
-          <input
-            required
-            className="submit-btn cursor-pointer"
-            type="submit"
-            value="Add Medicine"
+          <h4>
+            Medicine Features & Details <small>(you can add multiple features)</small>
+          </h4>
+          <JoditEditor
+            ref={editor}
+            value={content}
+            // config={config}
+            onChange={(newContent) => setContent(newContent)}
           />
+        </div>
+        <div>
+          <input required className="submit-btn cursor-pointer" type="submit" value="Add Medicine" />
         </div>
       </form>
     </div>
