@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable no-unused-vars */
 /* eslint-disable comma-dangle */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import queryS from "query-string";

@@ -28,6 +28,7 @@ const Medicines = () => {
       setMedicines(allData);
     }
   }, [allData, category]);
+  
 
   const [showFilter, setShowFilter] = useState("-ml-96");
   const filterItems = (
