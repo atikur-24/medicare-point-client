@@ -3,6 +3,7 @@ import axios from "axios";
 
 export const fetchAllBlogs = createAsyncThunk("allBlogs/fetchAllBlogs", async () => {
   const res = await axios.get("http://localhost:5000/blogs");
+  console.log(res.data);
   return res.data;
 });
 
@@ -11,7 +12,7 @@ const fetchAllBlogsSlice = createSlice({
   initialState: {
     isLoading: false,
     error: null,
-    allUsers: [],
+    allBlogs: [],
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllBlogs.pending, (state) => {
@@ -19,12 +20,12 @@ const fetchAllBlogsSlice = createSlice({
     });
     builder.addCase(fetchAllBlogs.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.allUsers = action.payload;
+      state.allBlogs = action.payload;
       state.error = null;
     });
     builder.addCase(fetchAllBlogs.rejected, (state, action) => {
       state.isLoading = false;
-      state.allUsers = [];
+      state.allBlogs = [];
       state.error = action.error.message;
     });
   },
