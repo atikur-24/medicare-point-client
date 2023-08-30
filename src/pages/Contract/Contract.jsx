@@ -49,7 +49,7 @@ const Contract = () => {
               <p className="text-gray-5">Here are Us contract Information. Feel free to contract with us or send message by this contract form. </p>
             </div>
           </div>
-          <div className="flex flex-col flex-col-reverse md:flex-row justify-between items-center gap-10">
+          <div className="flex flex-col  md:flex-row justify-between items-center gap-10">
             <div className="w-full space-y-6">
               <div className="md:hidden">
                 <h2 className="text-4xl font-bold mb-5">Get in touch</h2>
