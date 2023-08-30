@@ -94,6 +94,11 @@ const Medicines = () => {
         <div className="w-72 h-fit bg-white rounded-md hidden md:block">
           <h3 className="text-title-color text-xl font-bold tracking-wide py-4 px-6">Categories</h3>
           <hr />
+          <div className="flex items-center">
+            <Link className="px-6" to="/medicines">
+              All Medicines
+            </Link> <div className="my-btn">button</div>
+          </div>
           {filterItems}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
