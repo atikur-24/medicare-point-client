@@ -215,23 +215,11 @@ const AddNewMedicine = () => {
           <JoditEditor
             ref={editor}
             value={content}
-            // config={config}
             onChange={newContent => setContent(newContent)}
           />
         </div>
-        <div>
-          <h4>
-            Medicine Features & Details <small>(you can add multiple features)</small>
-          </h4>
-          <JoditEditor
-            ref={editor}
-            value={content}
-            // config={config}
-            onChange={(newContent) => setContent(newContent)}
-          />
-        </div>
-        <div>
-          <input required className="submit-btn cursor-pointer" type="submit" value="Add Medicine" />
+        <div className="pt-5 lg:pt-10">
+          <input className="submit-btn" type="submit" value="Add Medicine" />
         </div>
       </form>
     </div>
