@@ -327,6 +327,7 @@ const DashboardLayout = () => {
         <ul className="dashboard-ul lg:pt-5 menu p-4 w-80 h-full text-base-content">
           {/* Sidebar content here */}
 
+
           <li className="relative">
             <NavLink to="/" className=" pb-3">
               <img className="h-10 w-full" src={logo} alt="" />
