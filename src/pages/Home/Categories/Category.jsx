@@ -5,9 +5,6 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 
 const Category = ({ category }) => {
   const [params, setParams] = useSearchParams();
-  const value = params.get("category");
-
-  // console.log(value);
 
   const navigate = useNavigate();
 
@@ -26,7 +23,7 @@ const Category = ({ category }) => {
         url: "/medicines",
         query: updatedQuery,
       },
-      { skipNull: true }
+      { skipNull: true },
     );
     navigate(url);
     // console.log(url);
