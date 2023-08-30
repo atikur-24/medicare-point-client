@@ -106,7 +106,6 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <MedicineDetails />,
-        // loader: ({ params }) => fetch(`http://localhost:5000/medicines/${params?.id}`),
       },
       {
         path: "about-us",
