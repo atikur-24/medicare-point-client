@@ -10,7 +10,7 @@ const AddBlog = () => {
   const editor = useRef(null);
   const [blogDetails, setBlogDetails] = useState("");
   //   const jsxContent = ReactHtmlParser(blogDetails);
-  //   console.log("a", jsxContent);
+  //   console.log("aa", jsxContent);
 
   const dispatch = useDispatch();
 
