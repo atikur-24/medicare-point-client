@@ -68,7 +68,6 @@ const AddNewMedicine = () => {
     data.discount = parseInt(data.discount, 10);
     data.available_quantity = parseInt(data.available_quantity, 10);
     const allData = { ...data, feature_with_details: content, sellQuantity: 0, allRatings: [], rating: 0, status: "pending", date };
-    console.log(allData);
     const formData = new FormData();
     formData.append("image", data.image[0]);
 
@@ -89,6 +88,15 @@ const AddNewMedicine = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
+              reset();
+            }
+          }).catch((err) => {
+            if (err) {
+              Swal.fire({
+                icon: "error",
+                title: "Medicine Add Failed",
+                text: "Something went wrong!",
+              });
             }
           });
         }
@@ -96,7 +104,7 @@ const AddNewMedicine = () => {
   };
 
   return (
-    <div className="">
+    <div>
       <form onSubmit={handleSubmit(onSubmit)} className="admission-form doctor-form">
         <h3 className="text-center text-xl lg:text-3xl font-medium lg:font-semibold my-5 text-title-color tracking-wide">Add New Medicine</h3>
         <div className="divider" />
