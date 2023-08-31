@@ -198,6 +198,7 @@ const AddNewMedicine = () => {
           <div>
             <span>Enter Discount</span>
             <input
+              required
               min={0}
               placeholder="Enter discount"
               type="number"
