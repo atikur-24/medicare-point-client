@@ -13,7 +13,7 @@ const LabAddCard = ({ cart, handlerLabRemove }) => {
             <div className="badge  bg-my-primary border-0 badge-accent text-white py-0.5 font-bold">{discount}% Off</div>
 
             <div>
-              <button onClick={() => handlerLabRemove(_id)} type="button" className="btn text-xs btn-error">
+              <button onClick={() => handlerLabRemove(_id)} type="button" className="btn text-xs btn-error ">
                 Remove
               </button>
             </div>

@@ -25,6 +25,7 @@ const Blogs = () => {
           {blogs.map((blog) => (
             <Blog blog={blog} key={blog._id} />
           ))}
+
           {/* {healthArticles.map((healthArticle, index) => {
               return (
                 <div className="my-6 md:m-6" key={index}>
