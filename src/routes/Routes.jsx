@@ -4,7 +4,6 @@ import Main from "../layouts/Main";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import Blogs from "../pages/Blogs/Blogs";
 import HealthArticlesDetails from "../pages/Blogs/HealthArticlesDetails";
-import InterviewDetails from "../pages/Blogs/InterviewDetails";
 import Contract from "../pages/Contract/Contract";
 import AddNewArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/AddNewArticles";
 import AddNewInterviews from "../pages/Dashboard/AdminDashboard/AdminBlogs/AddNewInterviews";
@@ -74,11 +73,6 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs />,
-      },
-      {
-        path: "/interviews/:id",
-        element: <InterviewDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/interviews/${params?.id}`),
       },
       {
         path: "/healthArticles/:id",
