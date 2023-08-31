@@ -1,5 +1,10 @@
+/* eslint-disable react/jsx-wrap-multilines */
+import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
+import "@szhsin/react-menu/dist/index.css";
+import "@szhsin/react-menu/dist/transitions/slide.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { AiOutlineDown } from "react-icons/ai";
 import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { LiaAngleRightSolid } from "react-icons/lia";
@@ -28,7 +33,10 @@ const Medicines = () => {
       setMedicines(allData);
     }
   }, [allData, category]);
-  
+
+  const handelSort = (sort) => {
+    axios.get(`http://localhost:5000/medicines?sort=${sort}`).then((res) => setMedicines(res.data));
+  };
 
   const [showFilter, setShowFilter] = useState("-ml-96");
   const filterItems = (
@@ -71,13 +79,41 @@ const Medicines = () => {
         <button onClick={() => setShowFilter("")} className="lg:hidden" type="button">
           <BsFilterLeft className="text-lg font-bold text-my-primary mr-2" />
         </button>
-        <p className="inline-flex items-center gap-1 font-medium md:font-semibold tracking-wider text-black-2 lg:text-lg">
-          <Link to="/" className="hover:text-my-accent cursor-pointer transition-colors">
-            Home
-          </Link>
-          <HiOutlineChevronRight />
-          <span>Medicines</span>
-        </p>
+        <div className="flex items-center justify-between w-full">
+          <p className="inline-flex items-center gap-1 font-medium md:font-semibold tracking-wider text-black-2 lg:text-lg">
+            <Link to="/" className="hover:text-my-accent cursor-pointer transition-colors">
+              Home
+            </Link>
+            <HiOutlineChevronRight />
+            <span>Medicines</span>
+          </p>
+          <div>
+            <Menu
+              menuButton={
+                <MenuButton className="flex items-center gap-2 bg-my-accent hover:bg-my-primary text-white p-2 rounded-md  ease-in duration-150">
+                  Filter Medicines <AiOutlineDown />
+                </MenuButton>
+              }
+              transition
+            >
+              <MenuItem onClick={() => handelSort("phtl")} className="font-semibold">
+                From Low Price
+              </MenuItem>
+              <MenuItem onClick={() => handelSort("plth")} className="font-semibold">
+                From Heigh Price
+              </MenuItem>
+              <MenuItem onClick={() => handelSort("byRating")} className="font-semibold">
+                From Height selling
+              </MenuItem>
+              <MenuItem onClick={() => handelSort("fNew")} className="font-semibold">
+                From New Product
+              </MenuItem>
+              <MenuItem onClick={() => handelSort("fOld")} className="font-semibold">
+                From Old product
+              </MenuItem>
+            </Menu>
+          </div>
+        </div>
       </div>
 
       <div className={`w-72 bg-white rounded-md lg:hidden absolute top-0 z-30 h-screen ${showFilter} transition-all duration-500`}>
@@ -98,7 +134,7 @@ const Medicines = () => {
           <div className="flex items-center">
             <Link className="px-6" to="/medicines">
               All Medicines
-            </Link> <div className="my-btn">button</div>
+            </Link>
           </div>
           {filterItems}
         </div>
