@@ -19,11 +19,6 @@ const ResponsiveNavbar = ({ menuItems }) => {
   const [isOpen, setIsOpen] = useState("-ml-96");
   const navigate = useNavigate();
   const menuRef = useRef();
-  // console.log(user);
-
-  // const toggleOpen = useCallback(() => {
-  //   setIsOpen((value) => !value);
-  // }, []);
 
   const handelLogOut = () => {
     logOut()
@@ -42,7 +37,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
   useEffect(() => {
     const handelOutsiteClose = (e) => {
       if (!menuRef?.current?.contains(e?.target)) {
-        setIsOpen("-ml-96");
+        setIsOpen(false);
       }
     };
     document.addEventListener("mousedown", handelOutsiteClose);
