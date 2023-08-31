@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { updateHealthTipsApi } from "../../../../Features/HealthTips/updateHealthTips";
-// import updateHealthTips, { updateHealthTipsApi } from "../../../../Features/HealthTips/updateHealthTips";
 
 const UpdateHealthTips = () => {
   const existingData = useLoaderData();
@@ -13,29 +12,6 @@ const UpdateHealthTips = () => {
   const { register, handleSubmit, setValue } = useForm();
   const dispatch = useDispatch();
 
-  //   const onSubmit = (data) => {
-  //     // Update the fields you want to change in existingData
-  //     const updatedData = {
-  //       ...existingData,
-  //       ...data,
-  //     };
-
-  //     // Image Upload (similar to the AddHealthSuggestion component)
-  //     const image = data.image[0];
-  //     const formData = new FormData();
-  //     formData.append("image", image);
-  //     const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
-  //     fetch(url, {
-  //       method: "POST",
-  //       body: formData,
-  //     })
-  //       .then((res) => res.json())
-  //       .then((imageData) => {
-  //         updatedData.image = imageData.data.display_url;
-  //         dispatch(updateHealthTipsApi({ updatedData }));
-  //         console.log("Updated Health Tip:", updatedData);
-  //       });
-  //   };
 
   const onSubmit = async (data) => {
     const image = data.image[0];
