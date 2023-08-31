@@ -12,7 +12,7 @@ const AllMedicinesByPharmacist = () => {
     queryKey: ["medicines", user?.email],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axios(`http://localhost:5000/medicines?email=/${user?.email}`);
+      const res = await axios(`http://localhost:5000/phamacistMedicines?email=${user?.email}`);
       return res.data;
     },
   });
