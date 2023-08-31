@@ -5,7 +5,7 @@ const PaymentSuccess = () => {
   const params = useParams();
   return (
     <div className="w-full">
-      <div className="w-1/2 mx-auto flex flex-col justify-center items-center bg-card py-10 my-5 space-y-4">
+      <div className="text-center lg:w-1/2 mx-5 px-3 lg:mx-auto flex flex-col justify-center items-center bg-card py-10 my-5 space-y-4">
         <img className="h-40 w-40" src={img} alt="" />
         <h3 className="text-xl font-semibold text-my-primary">Your payment has been received</h3>
         <div className="divider" />
@@ -15,10 +15,10 @@ const PaymentSuccess = () => {
         <div className="divider" />
         <h4>You will receive an order confirmation mail soon</h4>
         <div className="flex gap-3">
-          <Link to="l" className="btn">
+          <Link to="/dashboard" className="my-btn-outline">
             My Account
           </Link>
-          <Link to="l" className="btn">
+          <Link to="/medicines" className="my-btn" style={{ borderRadius: "50px" }}>
             Continue Shopping
           </Link>
         </div>
