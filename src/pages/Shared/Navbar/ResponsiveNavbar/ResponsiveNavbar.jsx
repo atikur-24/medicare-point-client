@@ -41,7 +41,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
 
   useEffect(() => {
     const handelOutsiteClose = (e) => {
-      if (!menuRef.current.contains(e.target)) {
+      if (!menuRef?.current?.contains(e?.target)) {
         setIsOpen(false);
       }
     };
