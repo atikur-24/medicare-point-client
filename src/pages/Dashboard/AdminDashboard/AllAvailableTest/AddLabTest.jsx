@@ -142,6 +142,8 @@ const AddLabTest = () => {
         data.image_url = imageData.data.display_url;
         dispatch(addLabTestApi({ data, reset }));
       });
+
+      console.log(data);
   };
 
   return (
@@ -214,7 +216,7 @@ const AddLabTest = () => {
               <select {...register("gender")} className="select select-bordered w-full max-w-md outline-none">
                 <option value="female">female</option>
                 <option value="male">male</option>
-                <option value="other">other</option>
+                <option value="both">both</option>
               </select>
             </div>
             <div>
@@ -249,7 +251,7 @@ const AddLabTest = () => {
             <label className="label">
               <span className="label-text md:text-base font-bold font-nunito">Details About The Test</span>
             </label>
-            <textarea name="labTest-details" placeholder="Write details about the test" cols="30" rows="5" className="labtest-details" {...register("labTest-details")} />
+            <textarea name="labTestDetails" placeholder="Write details about the test" cols="30" rows="5" className="labtest-details" {...register("labTestDetails")} />
           </div>
 
           <div>
