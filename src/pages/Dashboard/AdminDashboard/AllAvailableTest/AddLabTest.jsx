@@ -1,8 +1,75 @@
 /* eslint-disable no-unused-vars */
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import CreatableSelect from "react-select/creatable";
 import { addLabTestApi } from "../../../../Features/AllLabTests/addLabTest";
 import addTestImg from "../../../../assets/Dashboard-icons/pharmaceutical2.png";
+
+const cities = [
+  { value: "Dhaka", label: "Dhaka" },
+  { value: "Chittagong", label: "Chittagong" },
+  { value: "Rajshahi", label: "Rajshahi" },
+  { value: "Sylhet", label: "Sylhet" },
+  { value: "Jessore", label: "Jessore" },
+  { value: "Dinajpur", label: "Dinajpur" },
+  { value: "Gopalganj", label: "Gopalganj" },
+  { value: "Gazipur", label: "Gazipur" },
+  { value: "Mymensingh", label: "Mymensingh" },
+  { value: "Comilla", label: "Comilla" },
+  { value: "Barisal", label: "Barisal" },
+  { value: "Narayanganj", label: "Narayanganj" },
+  { value: "Faridpur", label: "Faridpur" },
+  { value: "Bogra", label: "Bogra" },
+  { value: "Pabna", label: "Pabna" },
+  { value: "Rangamati", label: "Rangamati" },
+  { value: "Kushtia", label: "Kushtia" },
+  { value: "Rangpur", label: "Rangpur" },
+  { value: "Manikganj", label: "Manikganj" },
+  { value: "Noakhali", label: "Noakhali" },
+  { value: "Khulna", label: "Khulna" },
+  { value: "Tangail", label: "Tangail" },
+  { value: "Panchagarh", label: "Panchagarh" },
+  { value: "Bhola", label: "Bhola" },
+  { value: "Bandarban", label: "Bandarban" },
+  { value: "Chandpur", label: "Chandpur" },
+  { value: "Habiganj", label: "Habiganj" },
+  { value: "Lakshmipur", label: "Lakshmipur" },
+  { value: "Barguna", label: "Barguna" },
+  { value: "Jhalokati", label: "Jhalokati" },
+  { value: "Pirojpur", label: "Pirojpur" },
+  { value: "Patuakhali", label: "Patuakhali" },
+  { value: "Jhenaidah", label: "Jhenaidah" },
+  { value: "Narail", label: "Narail" },
+  { value: "Magura", label: "Magura" },
+  { value: "Lalmonirhat ", label: "Lalmonirhat" },
+  { value: "Kurigram", label: "Kurigram" },
+  { value: "Nilphamari", label: "Nilphamari" },
+  { value: "Gaibandha", label: "Gaibandha" },
+  { value: "Thakurgaon", label: "Thakurgaon" },
+  { value: "Satkhira", label: "Satkhira" },
+  { value: "Bagerhat", label: "Bagerhat" },
+  { value: "Chuadanga", label: "Chuadanga" },
+  { value: "Meherpur", label: "Meherpur" },
+  { value: "Sirajganj", label: "Sirajganj" },
+  { value: "Joypurhat", label: "Joypurhat" },
+  { value: "Natore", label: "Natore " },
+  { value: "Naogaon", label: "Naogaon" },
+  { value: "Nawabganj", label: "Nawabganj" },
+  { value: "Khagrachhari", label: "Khagrachhari" },
+  { value: "Feni", label: "Feni" },
+  { value: "Brahmanbaria", label: "Brahmanbaria" },
+  { value: "Sunamganj", label: "Sunamganj" },
+  { value: "Moulvibazar", label: "Moulvibazar" },
+  { value: "Shariatpur", label: "Shariatpur" },
+  { value: "Madaripur", label: "Madaripur" },
+  { value: "Rajbari", label: "Rajbari" },
+  { value: "Kishoreganj", label: "Kishoreganj" },
+  { value: "Jamalpur", label: "Jamalpur" },
+  { value: "Sherpur", label: "Sherpur" },
+  { value: "Netrakona", label: "Netrakona" },
+  { value: "Munshiganj", label: "Munshiganj" },
+  { value: "Narsingdi", label: "Narsingdi" },
+];
 
 // ToDo Page Design
 const AddLabTest = () => {
@@ -49,6 +116,7 @@ const AddLabTest = () => {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm();
 
@@ -128,14 +196,30 @@ const AddLabTest = () => {
             </div>
           </div>
 
-          <div className="two-input-field lg:flex gap-5">
-            <div>
+          <div className=" lg:flex gap-5">
+            <div className="md:w-1/2">
               <h4>City</h4>
-              <input type="text" placeholder="Enter city" {...register("city", { required: true })} />
+              <div>
+                <Controller name="city" control={control} render={({ field }) => <CreatableSelect required {...field} options={cities} isMulti placeholder="Select city" />} />
+              </div>
             </div>
-            <div>
+            <div className="md:w-1/2">
               <h4>All labs (separated by &)</h4>
               <input type="text" placeholder="Enter lab names" {...register("labNames")} />
+            </div>
+          </div>
+          <div className="two-input-field lg:flex gap-5">
+            <div>
+              <h4>Gender</h4>
+              <select {...register("gender")} className="select select-bordered w-full max-w-md outline-none">
+                <option value="female">female</option>
+                <option value="male">male</option>
+                <option value="other">other</option>
+              </select>
+            </div>
+            <div>
+              <h4>Age</h4>
+              <input type="number" placeholder="Enter Age" {...register("age")} />
             </div>
           </div>
 
