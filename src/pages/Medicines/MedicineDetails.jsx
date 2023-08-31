@@ -12,6 +12,7 @@ import { TbCurrencyTaka } from "react-icons/tb";
 import { Link, useParams } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
+import HtmlParser from "react-html-parser";
 import AddCartButton from "../../components/AddCartButton";
 import useAuth from "../../hooks/useAuth";
 import MedicineReviews from "./MedicineReviews";
@@ -29,7 +30,7 @@ const MedicineDetails = () => {
   const params = useParams();
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:5000/details/${params?.id}`).then((res) => {
+    axios.get(`http://localhost:5000/medicines/details/${params?.id}`).then((res) => {
       // console.log(res.data);
       setMedicine(res.data);
       setLoading(false);
@@ -46,7 +47,7 @@ const MedicineDetails = () => {
     inactiveFillColor: "#DEE1E6",
   };
 
-  const { _id, medicine_name, image, price, medicine_description, tags, rating, category, allRatings, discount } = medicine || {};
+  const { _id, medicine_name, image, price, medicine_description, tags, rating, feature_with_details, category, allRatings, discount } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, category: category.label, email: user?.email };
 
   const handleReviews = (event) => {
@@ -149,7 +150,12 @@ const MedicineDetails = () => {
                 Categories: <span className="text-gray-4">{category.label}</span>
               </p>
               <p className="font-medium text-black-2">
-                Tags: {tags.map((tag, idx) => <span key={idx} className="text-gray-4 mr-2">{tag.label}</span>)}
+                Tags:{" "}
+                {tags.map((tag, idx) => (
+                  <span key={idx} className="text-gray-4 mr-2">
+                    {tag.label}
+                  </span>
+                ))}
               </p>
               <p className="font-medium text-black-2">
                 Share:{" "}
@@ -169,16 +175,18 @@ const MedicineDetails = () => {
       <div className="my-container bg-white mt-10 rounded-md">
         <div className="lg:flex gap-8">
           <div
-            className={`${descrptn ? "border-b-[3px]" : ""
-              } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
+            className={`${
+              descrptn ? "border-b-[3px]" : ""
+            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
           >
             <button type="button" onClick={handleDescriptionBtn}>
               Description
             </button>
           </div>
           <div
-            className={`${reviews ? "border-b-[3px]" : ""
-              } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
+            className={`${
+              reviews ? "border-b-[3px]" : ""
+            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
           >
             <button type="button" onClick={handleReviewsBtn}>
               Reviews
@@ -192,27 +200,8 @@ const MedicineDetails = () => {
             <p className="text-gray-4 leading-7 lg:leading-8 pt-6 lg:pt-8">{medicine_description}</p>
             <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
               <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-black-2">Product Features</h3>
-              {/* {features.map((feature, idx) => (
-                <div key={idx}>
-                  <h4 className="text-xl font-medium inline-flex items-center gap-1 mb-2">
-                    <HiOutlineBadgeCheck className="text-my-accent" /> {feature?.name}:
-                  </h4>
-                  <p className="text-gray-4">{feature?.desc}</p>
-                </div>
-              ))} */}
-            </div>
-            <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
-              <div className="space-y-2">
-                <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-black-2">Product Details</h3>
-                {/* <p className="text-gray-4 leading-7 lg:leading-8">{product_details}</p> */}
-              </div>
-              <div className="text-gray-5 font-semibold space-y-2">
-                <p>Schiff is a trusted company known for a quality product</p>
-                <p>Lack of ingredients could be good for beginners</p>
-                <p>Phosphatidylserine is vital to long-term brain health</p>
-                <p>Neuriva Plus offers Vitamins B6, B9, B12 (better option than the original formula)</p>
-                <p>Twice the amount of phosphatidylserine in the Plus version</p>
-                <p>Can be found anywhere</p>
+              <div>
+                {HtmlParser(feature_with_details)}
               </div>
             </div>
           </div>
