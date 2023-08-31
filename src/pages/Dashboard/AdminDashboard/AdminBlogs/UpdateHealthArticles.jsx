@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-import { updateHealthTipsApi } from "../../../../Features/HealthTips/updateHealthTips";
 
 const UpdateHealthArticles = () => {
   const existingData = useLoaderData();
@@ -13,6 +12,7 @@ const UpdateHealthArticles = () => {
   const dispatch = useDispatch();
 
   const onSubmit = async (data) => {
+    delete data._id;
     const image = data.image[0];
 
     const formData = new FormData();
@@ -33,13 +33,13 @@ const UpdateHealthArticles = () => {
       data.image = imageData.data.display_url;
 
       // Update health tip data using axios
-      const updateResponse = await axios.patch(`http://localhost:5000/blogs/${data._id}`, data);
+      const updateResponse = await axios.put(`http://localhost:5000/blogs/${_id}`, data);
 
       if (updateResponse.status === 200) {
         Swal.fire({
           icon: "success",
           title: "Update Successful",
-          text: "Health tip has been updated successfully!",
+          text: "Health Article has been updated successfully!",
         });
       } else {
         throw new Error("Update failed");
@@ -48,7 +48,7 @@ const UpdateHealthArticles = () => {
       Swal.fire({
         icon: "error",
         title: "Update Failed",
-        text: "An error occurred while updating the health tip.",
+        text: "An error occurred while updating the health article.",
       });
     }
   };
