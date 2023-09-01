@@ -52,7 +52,7 @@ const Search = () => {
       </form>
 
       <div className={`${search ? "block" : "hidden"} w-full lg:w-[420px] absolute right-[15px] bg-slate-1 p-2 z-50 rounded-b-lg`}>
-        {medicines.length === 0 && <p className="text-black-2 text-center font-semibold">Sorry, we could not find what you are looking for. Please search by wright name</p>}
+        {medicines.length === 0 && <p className="text-black-2 text-center font-semibold">Sorry, we could not find what you are looking for. Please search by right name</p>}
 
         <p className={`text-gray-5 ${medicines.length === 0 && "hidden"}`}>(Showing {medicines.length} results)</p>
 
