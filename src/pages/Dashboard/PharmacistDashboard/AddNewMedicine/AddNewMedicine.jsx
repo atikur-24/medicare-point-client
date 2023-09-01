@@ -12,10 +12,10 @@ import useAuth from "../../../../hooks/useAuth";
 const categories = [
   { value: "Pain-Relief", label: "Pain Relief" },
   { value: "Digestive-Health", label: "Digestive Health" },
-  { value: "Cough&Cold", label: "Cough & Cold" },
+  { value: "Cough-Cold", label: "Cough & Cold" },
   { value: "Diabetes-Care", label: "Diabetes Care" },
   { value: "Heart-Health", label: "Heart Health" },
-  { value: "Laundry&Household", label: "Laundry & Household" },
+  { value: "Laundry-Household", label: "Laundry & Household" },
   { value: "Skin-Care", label: "Skin Care" },
   { value: "Eye-Care", label: "Eye Care" },
   { value: "Women-Care", label: "Women Care" },
