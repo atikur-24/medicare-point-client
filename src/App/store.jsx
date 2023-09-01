@@ -17,6 +17,7 @@ import addInterview from "../Features/Interviews/addInterview";
 import deleteInterview from "../Features/Interviews/deleteInterview";
 import updateInterview from "../Features/Interviews/updateInterview";
 import allMedicines from "../Features/Medicines/AllMedicines/allMedicines";
+import pageCounterSlice from "../Features/Medicines/AllMedicines/pageCounterSlice";
 import sslPayment from "../Features/PaymentGetway/PaymentGetaway";
 import uploadImage from "../Features/UploadImage/uploadImage";
 
@@ -41,6 +42,7 @@ const store = configureStore({
     sslPayment,
     allMedicines,
     allBlogs,
+    pageCount: pageCounterSlice,
   },
 });
 

@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchMedicines = createAsyncThunk("allData/fetchMedicines", async () => {
-    const res = await axios.get("http://localhost:5000/medicines");
+export const fetchMedicines = createAsyncThunk("allData/fetchMedicines", async (n) => {
+    const res = await axios.get(`http://localhost:5000/medicines?page=${n}`);
     // console.log(res.data);
     return res.data;
 });
