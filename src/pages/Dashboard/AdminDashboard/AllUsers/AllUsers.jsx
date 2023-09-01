@@ -71,7 +71,7 @@ const AllUsers = () => {
                     <MenuItem onClick={() => updateRole(user?._id, "admin")} disabled={user?.role === "admin"} className="font-semibold text-gray-6">
                       Admin
                     </MenuItem>
-                    <MenuItem onClick={() => updateRole(user?._id, "Pharmacist")} disabled={user?.role === "admin"} className="font-semibold text-gray-6">
+                    <MenuItem onClick={() => updateRole(user?._id, "Pharmacist")} disabled={user?.role === "Pharmacist"} className="font-semibold text-gray-6">
                       Pharmacist
                     </MenuItem>
                   </Menu>
