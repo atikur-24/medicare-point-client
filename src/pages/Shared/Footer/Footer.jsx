@@ -89,7 +89,7 @@ const Footer = () => {
                   <Link to="/">Offers / Coupons</Link>
                 </li>
                 <li>
-                  <Link to="/">FAQs</Link>
+                  <Link to="faqs">FAQs</Link>
                 </li>
               </ul>
             </div>
