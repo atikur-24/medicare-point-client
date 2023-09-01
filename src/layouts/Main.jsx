@@ -7,11 +7,16 @@ import Footer from "../pages/Shared/Footer/Footer";
 import Navbar from "../pages/Shared/Navbar/Navbar";
 
 const Main = () => {
-  const [isPopUp, setPopUp] = useState("-top-[1000px]");
+  const [isPopUp, setPopUp] = useState("hidden");
+
   useEffect(() => {
+    if (sessionStorage.getItem("popup") > 0) {
+      return;
+    }
     setTimeout(() => {
-      setPopUp("top-[100px]");
-    }, 3000);
+      setPopUp("block");
+      sessionStorage.setItem("popup", 1);
+    }, 1000);
   }, []);
   return (
     <>
