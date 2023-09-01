@@ -52,6 +52,7 @@ import LabBook from "../pages/Shared/LabTest/LabBook/LabBook";
 import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
+import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
 
 const router = createBrowserRouter([
   {
@@ -206,6 +207,10 @@ const router = createBrowserRouter([
       {
         path: "medicine-inventory",
         element: <AllMedicinesByPharmacist />,
+      },
+      {
+        path: "update-medicine",
+        element: <UpdateMedicine />,
       },
       {
         path: "add-new-medicine",

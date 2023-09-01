@@ -46,6 +46,7 @@ const tags = [
   { value: "Personal", label: "Personal" },
   { value: "Baby", label: "Baby" },
   { value: "Fever", label: "Fever" },
+  { value: "Skin", label: "Skin" },
 ];
 
 const AddNewMedicine = () => {
@@ -61,6 +62,7 @@ const AddNewMedicine = () => {
     reset,
     formState: { errors },
   } = useForm();
+
 
   const onSubmit = (data) => {
     const date = moment().format("L");
@@ -82,12 +84,13 @@ const AddNewMedicine = () => {
           axios.post("http://localhost:5000/medicines", { ...allData, image: imgURL }).then(res => {
             if (res.data.insertedId) {
               Swal.fire({
-                position: "top-end",
+                position: "top-center",
                 icon: "success",
                 title: "New Medicine Added Successfully",
                 showConfirmButton: false,
                 timer: 1500,
               });
+              setContent("");
               reset();
             }
           }).catch((err) => {
@@ -212,6 +215,17 @@ const AddNewMedicine = () => {
               placeholder="Enter sku"
               type="number"
               {...register("sku")}
+            />
+          </div>
+        </div>
+        <div className="two-input-field lg:flex gap-5">
+          <div>
+            <span>Brand Name</span>
+            <input
+              required
+              placeholder="Enter brand name"
+              type="text"
+              {...register("brand")}
             />
           </div>
         </div>
