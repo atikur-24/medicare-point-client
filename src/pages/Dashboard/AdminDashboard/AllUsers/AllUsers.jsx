@@ -1,23 +1,34 @@
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
+import axios from "axios";
 import { useEffect } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
 import { fetchAllUsers } from "../../../../Features/AllUsers/allUsers";
-import { updateUser, updateUserAdmin, updateUserPharmacist } from "../../../../hooks/userApi";
 
 const AllUsers = () => {
   const { allUsers } = useSelector((state) => state.allUsers);
-  // const a = useSelector((state) => state);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllUsers());
-  }, []);
+  }, [dispatch]);
 
-  console.log(allUsers);
+  const updateRole = (id, role) => {
+    const userData = {
+      role,
+    };
+    axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then((res) => {
+      // console.log(res.data);
+      if (res?.data?.modifiedCount > 0) {
+        dispatch(fetchAllUsers());
+        Swal.fire("Successful", "Convert User Role to Admin", "success");
+      }
+    });
+  };
 
   return (
     <div>
@@ -50,22 +61,18 @@ const AllUsers = () => {
                   <Menu
                     menuButton={
                       // eslint-disable-next-line react/jsx-wrap-multilines
-                      <MenuButton>
-                        <button type="button" className="btn btn-sm bg-my-accent hover:bg-my-primary hover:text-white w-full">
-                          {user?.role}
-                        </button>
-                      </MenuButton>
+                      <MenuButton className="btn btn-sm bg-my-accent hover:bg-my-primary hover:text-white w-7/12">{user?.role}</MenuButton>
                     }
                     transition
                   >
-                    <MenuItem onClick={() => updateUser(user?._id)} disabled={user?.role === "user"} className="font-semibold text-gray-6">
+                    <MenuItem onClick={() => updateRole(user?._id, "user")} disabled={user?.role === "user"} className="font-semibold text-gray-6">
                       User
                     </MenuItem>
-                    <MenuItem onClick={() => updateUserPharmacist(user?._id)} disabled={user?.role === "Pharmacist"} className="font-semibold text-gray-6">
-                      Pharmacist
-                    </MenuItem>
-                    <MenuItem onClick={() => updateUserAdmin(user?._id)} disabled={user?.role === "admin"} className="font-semibold text-gray-6">
+                    <MenuItem onClick={() => updateRole(user?._id, "admin")} disabled={user?.role === "admin"} className="font-semibold text-gray-6">
                       Admin
+                    </MenuItem>
+                    <MenuItem onClick={() => updateRole(user?._id, "Pharmacist")} disabled={user?.role === "Pharmacist"} className="font-semibold text-gray-6">
+                      Pharmacist
                     </MenuItem>
                   </Menu>
                 </td>

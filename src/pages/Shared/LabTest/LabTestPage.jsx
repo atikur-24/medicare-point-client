@@ -2,9 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaAngleRight } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
-import CheckCard from "./CheckCard";
-import LabBanner from "./LabBanner";
-import LabCard from "./LabCard";
+import LabBanner from "./LabBanner/LabBanner";
+import LabCard from "./LabCard/LabCard";
+import CheckCard from "./CheckCard/CheckCard";
+
 
 const LabTestPage = () => {
   const [labCategory, setLabCategory] = useState([]);

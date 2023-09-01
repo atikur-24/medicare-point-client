@@ -7,11 +7,12 @@ import axios from "axios";
 import moment from "moment/moment";
 import { useEffect, useState } from "react";
 import { BiLogoFacebook, BiLogoGooglePlus, BiLogoInstagram, BiLogoLinkedin, BiLogoPinterest, BiLogoTumblr, BiLogoTwitter, BiSolidEnvelope } from "react-icons/bi";
-import { HiMinus, HiOutlineBadgeCheck, HiOutlineChevronRight, HiPlus } from "react-icons/hi";
+import { HiMinus, HiOutlineChevronRight, HiPlus } from "react-icons/hi";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { Link, useParams } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
+import HtmlParser from "react-html-parser";
 import AddCartButton from "../../components/AddCartButton";
 import useAuth from "../../hooks/useAuth";
 import MedicineReviews from "./MedicineReviews";
@@ -29,7 +30,7 @@ const MedicineDetails = () => {
   const params = useParams();
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:5000/medicines/${params?.id}`).then((res) => {
+    axios.get(`http://localhost:5000/medicines/details/${params?.id}`).then((res) => {
       // console.log(res.data);
       setMedicine(res.data);
       setLoading(false);
@@ -46,8 +47,8 @@ const MedicineDetails = () => {
     inactiveFillColor: "#DEE1E6",
   };
 
-  const { _id, medicine_name, image, price, medicine_description, category, tags, rating, allRatings, discount, features, product_details } = medicine || {};
-  const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, email: user?.email, category };
+  const { _id, medicine_name, image, price, medicine_description, tags, rating, feature_with_details, category, allRatings, discount } = medicine || {};
+  const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, category: category.label, email: user?.email };
 
   const handleReviews = (event) => {
     event.preventDefault();
@@ -62,7 +63,7 @@ const MedicineDetails = () => {
 
     const newReview = { name, email, date, city, rating: rating1, reviewMessage };
     // console.log(newReview);
-    axios.post(`http://localhost:5000/medicines/${_id}`, newReview).then((res) => {
+    axios.post(`http://localhost:5000/details/${_id}`, newReview).then((res) => {
       if (res.data.modifiedCount > 0) {
         form.reset();
         Swal.fire({
@@ -127,7 +128,7 @@ const MedicineDetails = () => {
             <p className="font-medium text-black-2 tracking-wide">
               Availability: <span className="text-my-primary">In Stock</span>
             </p>
-            <p className="text-gray-4 text-justify leading-7">{medicine_description.slice(0, 200)}</p>
+            <p className="text-gray-4 text-justify leading-7">{medicine_description}</p>
             <div className="border border-gray-3 py-5 px-3 rounded-md font-semibold flex items-center justify-around">
               <span className="text-lg tracking-wide">Quantity:</span>
               <div className="border border-gray-3 rounded-full w-fit py-3 px-5 flex items-center justify-between gap-5">
@@ -146,10 +147,15 @@ const MedicineDetails = () => {
                 SKU: <span className="text-gray-4">N/A-202</span>
               </p>
               <p className="font-medium text-black-2">
-                Categories: <span className="text-gray-4">{category}</span>
+                Categories: <span className="text-gray-4">{category.label}</span>
               </p>
               <p className="font-medium text-black-2">
-                Tags: <span className="text-gray-4">{tags}</span>
+                Tags:{" "}
+                {tags.map((tag, idx) => (
+                  <span key={idx} className="text-gray-4 mr-2">
+                    {tag.label}
+                  </span>
+                ))}
               </p>
               <p className="font-medium text-black-2">
                 Share:{" "}
@@ -194,27 +200,8 @@ const MedicineDetails = () => {
             <p className="text-gray-4 leading-7 lg:leading-8 pt-6 lg:pt-8">{medicine_description}</p>
             <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
               <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-black-2">Product Features</h3>
-              {features.map((feature, idx) => (
-                <div key={idx}>
-                  <h4 className="text-xl font-medium inline-flex items-center gap-1 mb-2">
-                    <HiOutlineBadgeCheck className="text-my-accent" /> {feature?.name}:
-                  </h4>
-                  <p className="text-gray-4">{feature?.desc}</p>
-                </div>
-              ))}
-            </div>
-            <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
-              <div className="space-y-2">
-                <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-black-2">Product Details</h3>
-                <p className="text-gray-4 leading-7 lg:leading-8">{product_details}</p>
-              </div>
-              <div className="text-gray-5 font-semibold space-y-2">
-                <p>Schiff is a trusted company known for a quality product</p>
-                <p>Lack of ingredients could be good for beginners</p>
-                <p>Phosphatidylserine is vital to long-term brain health</p>
-                <p>Neuriva Plus offers Vitamins B6, B9, B12 (better option than the original formula)</p>
-                <p>Twice the amount of phosphatidylserine in the Plus version</p>
-                <p>Can be found anywhere</p>
+              <div>
+                {HtmlParser(feature_with_details)}
               </div>
             </div>
           </div>
