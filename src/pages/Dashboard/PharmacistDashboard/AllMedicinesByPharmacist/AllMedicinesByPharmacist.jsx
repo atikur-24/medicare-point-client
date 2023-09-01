@@ -82,17 +82,16 @@ const AllMedicinesByPharmacist = () => {
 
                   <td className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"} capitalize font-medium`}>{medicine?.status}</td>
                   <td className="flex items-center gap-3 mt-4">
-                    <Link to="/update-medicine">
-                      <TiEdit className="text-2xl p-1 text-white bg-my-primary" />
+                    <Link to="/dashboard/update-medicine">
+                      <TiEdit className="text-2xl p-1 text-white bg-my-primary rounded-sm" />
                     </Link>
                     <button type="button" onClick={() => handleDeleteMedicine(medicine?._id)}>
-                      <RiDeleteBinLine className="text-2xl bg-red-500 text-white p-1" />
+                      <RiDeleteBinLine className="text-2xl bg-red-500 text-white p-1 rounded-sm" />
                     </button>
                   </td>
                 </tr>
               ))
             }
-
           </tbody>
         </table>
       </div>
