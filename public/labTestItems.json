@@ -5,7 +5,24 @@
     "test_name": "Human Chorionic Gonadotropin (hCG) Test ",
     "price": 1200,
     "discount": 15,
-    "category": "Popular"
+    "category": "Popular",
+    "gender": "other",
+    "age": "23",
+    "labTestDetails": "comming soon",
+    "city": [
+      {
+        "value": "Dhaka",
+        "label": "Dhaka"
+      },
+      {
+        "value": "Rajshahi",
+        "label": "Rajshahi"
+      },
+      {
+        "value": "Sylhet",
+        "label": "Sylhet"
+      }
+    ]
   },
   {
     "image_url": "https://images.apollo247.in/pd-cms/cms/2023-07/Pregnancy.png",

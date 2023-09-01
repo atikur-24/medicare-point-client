@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import helth from "../../assets/Blog/helth.png";
+import HealthCard from "./HealthCard";
 
 const HealthTips = () => {
   const [healthTips, setHealthTips] = useState([]);
@@ -24,17 +25,17 @@ const HealthTips = () => {
   };
 
   return (
-    <div className="bg-gray-3">
+    <div className="bg-card ">
       <img src={helth} alt="" />
       {/* <h1 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold my-4 mx-2">Health Tips: Your Guide to a Balanced Lifestyle</h1> */}
-      <div className="flex flex-col sm:flex-row">
+      <div className="flex flex-col sm:flex-row container mx-auto py-10">
         {/* Sidebar */}
-        <div className="w-1/5 p-4 bg-white object-cover hidden md:block text-center m-4 rounded-md">
-          <h2 className="text-lg font-bold mb-2">Categories</h2>
-          <hr />
-          <ul>
+        <div className="w-1/5 p-6 bg-white border border-gray-3 h-full object-cover hidden md:block  m-4 rounded-md">
+          <h2 className="text-2xl uppercase font-extrabold mb-2 font-nunito">Categories</h2>
+          <hr className="border border-my-accent my-4" />
+          <ul className="divide-y divide-my-accent ">
             {categories.map((category, index) => (
-              <li key={index} className="mb-2">
+              <li key={index} className="font-semibold text-title-color py-2">
                 <button
                   type="button"
                   className={`text-blue-600 hover:text-my-primary hover:underline ${selectedCategory === category ? "font-bold text-my-primary" : ""}`}
@@ -46,12 +47,12 @@ const HealthTips = () => {
             ))}
           </ul>
         </div>
-        <div className="w-full md:w-1/5 p-4 bg-gray-3 object-cover block md:hidden text-center">
-          <h2 className="text-lg font-bold mb-2">Categories</h2>
-          <select className="w-full border p-1 rounded-md mb-2" value={selectedCategory || ""} onChange={handleCategoryChange}>
-            <option value="">All Categories</option>
+        <div className="w-full md:w-1/5 p-4    block md:hidden ">
+          <h2 className="text-2xl uppercase font-extrabold mb-2 font-nunito">Categories</h2>
+          <select className="w-full border z-10  overflow-hidden rounded-md mb-2 select select-bordered" value={selectedCategory || ""} onChange={handleCategoryChange}>
+            <option value="" className="z-10">All Categories</option>
             {categories.map((category, index) => (
-              <option key={index} value={category}>
+              <option className="z-10" key={index} value={category}>
                 {category}
               </option>
             ))}
@@ -60,18 +61,9 @@ const HealthTips = () => {
 
         {/* Main Content */}
         <div className="md:w-4/5 w-full p-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:mx-8 md:mx-2 mx-auto items-center">
-            {filteredHealthTips.map((healthTip, index) => (
-              <div key={index} className="grid grid-cols-1 gap-4 justify-center items-center rounded-md shadow-sm p-2 border bg-white border-gray-3 h-full">
-                <h2 className="text-center items-center gap-3 font-medium text-[16px] tracking-wide">{healthTip.name}</h2>
-                <img src={healthTip.image} alt="img" className="h-32 mx-auto" />
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quaerat natus fuga tenetur quam ghfgb xfgh.</p>
-                <Link to={`/healthtips/${healthTip._id}`} className="flex justify-center">
-                  <button type="button" className="my-btn">
-                    Get Tips
-                  </button>
-                </Link>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:mx-8 md:mx-2 mx-auto items-center">
+            {filteredHealthTips.map((healthTip) => (
+              <HealthCard key={healthTip._id} healthTip={healthTip} />
             ))}
           </div>
         </div>
