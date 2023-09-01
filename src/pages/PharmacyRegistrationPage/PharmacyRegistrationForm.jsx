@@ -13,28 +13,12 @@ const PharmacyRegistrationForm = () => {
     formState: { errors },
     reset,
   } = useForm();
-  // const countries = [
-  //   "Select Country",
-  //   "United States",
-  //   "Canada",
-  //   "United Kingdom",
-  //   "Australia",
-  //   // Add more countries here
-  // ];
-  // const cities = {
-  //   "United States": ["New York", "Los Angeles", "Chicago", "Houston"],
-  //   Canada: ["Toronto", "Vancouver", "Montreal", "Calgary"],
-  //   "United Kingdom": ["London", "Manchester", "Birmingham", "Edinburgh"],
-  //   Australia: ["Sydney", "Melbourne", "Brisbane", "Perth"],
-  //   // Add more cities here
-  // };
 
   const onSubmit = (data) => {
     data.pharmacistImage = user?.photoURL;
     data.email = user?.email;
     data.applicationType = "pending";
     applicationForPharmacist(data);
-    // console.log(data);
     reset();
   };
 
