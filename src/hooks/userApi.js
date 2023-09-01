@@ -1,6 +1,8 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
+// const dispatch = useDispatch();
+
 export const addUser = (user) => {
     const userData = {
         name: user?.displayName,
@@ -28,6 +30,7 @@ export const updateUserPharmacist = (id) => {
         }
     });
 };
+
 export const updateUserAdmin = (id) => {
     const userData = {
         role: "admin",
@@ -35,6 +38,7 @@ export const updateUserAdmin = (id) => {
     axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then(res => {
         console.log(res.data);
         if (res?.data?.modifiedCount > 0) {
+            // dispatch(fetchAllUsers());
             Swal.fire(
                 "Successful",
                 "Convert User Role to Admin",
@@ -43,6 +47,7 @@ export const updateUserAdmin = (id) => {
         }
     });
 };
+
 export const updateUser = (id) => {
     const userData = {
         role: "user",
@@ -50,6 +55,7 @@ export const updateUser = (id) => {
     axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then(res => {
         console.log(res.data);
         if (res?.data?.modifiedCount > 0) {
+            // dispatch(fetchAllUsers());
             Swal.fire(
                 "Successful",
                 "Convert User Role to User",
