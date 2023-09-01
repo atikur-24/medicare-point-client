@@ -32,6 +32,7 @@ export default {
       "my-pink": "#eb3a7b",
       "red-400": "#f47779",
       "red-500": "#ef4444",
+      "yellow-500": "#fbb614",
     },
   },
   daisyui: {
@@ -39,4 +40,3 @@ export default {
   },
   plugins: [require("daisyui")],
 };
-
