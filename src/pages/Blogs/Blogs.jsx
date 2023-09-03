@@ -18,7 +18,7 @@ const Blogs = () => {
       <section className="my-container">
         <div className="">
           {blogs.map((blog) => (
-            <Blog blog={blog} key={blog._id} />
+            <Blog range={300} blog={blog} key={blog._id} />
           ))}
         </div>
       </section>
