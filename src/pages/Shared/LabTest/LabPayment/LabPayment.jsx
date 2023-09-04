@@ -7,17 +7,24 @@ import LabBanner from "../LabBanner/LabBanner";
 import LabOrder from "../LabOrder/LabOrder";
 
 const LabPayment = () => {
-  const [selectesDate, setSelectedDate] = useState("");
-  // const [startDate, setStartDate] = useState(new Date());
-  const [startDate, setStartDate] = useState(setHours(setMinutes(new Date(), 30), 17));
-  // const [startDate, setStartDate] = useState((new Date(), 30), 17);
+  const [selectDate, setSelectedDate] = useState("");
+
+  const [startDate, setStartDate] = useState("");
+  const filterPassedTime = (time) => {
+    const currentDate = new Date();
+    const selectedDate = new Date(time);
+    return currentDate.getTime() < selectedDate.getTime();
+  };
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data, e) => {
+    data.date = e.target.date.value;
+    data.time = e.target.time.value;
     console.log(data);
   };
 
@@ -58,7 +65,9 @@ const LabPayment = () => {
                       <span className="label-text md:text-base font-semibold text-my-primary">Date</span>
                     </label>
                     <DatePicker
-                      selected={selectesDate}
+                      {...register("date")}
+                      required
+                      selected={selectDate}
                       onChange={(date) => setSelectedDate(date)}
                       dateFormat="dd-MM-yyyy"
                       minDate={new Date()}
@@ -72,18 +81,39 @@ const LabPayment = () => {
                     </label>
 
                     <DatePicker
+                      {...register("time")}
+                      required
+                      placeholderText="Select Time"
                       className="w-full max-w-md  input input-bordered"
                       selected={startDate}
                       onChange={(date) => setStartDate(date)}
                       showTimeSelect
-                      minTime={setHours(setMinutes(new Date(), 0), 17)}
-                      maxTime={setHours(setMinutes(new Date(), 30), 20)}
                       showTimeSelectOnly
-                      timeIntervals={15}
+                      timeIntervals={30}
                       timeCaption="Time"
                       dateFormat="h:mm aa"
+                      includeTimes={[
+                        setHours(setMinutes(new Date(), 0), 9),
+                        setHours(setMinutes(new Date(), 30), 9),
+                        setHours(setMinutes(new Date(), 0), 10),
+                        setHours(setMinutes(new Date(), 30), 10),
+                        setHours(setMinutes(new Date(), 0), 11),
+                        setHours(setMinutes(new Date(), 30), 11),
+                        setHours(setMinutes(new Date(), 0), 12),
+                        setHours(setMinutes(new Date(), 30), 12),
+                        setHours(setMinutes(new Date(), 0), 13),
+                        setHours(setMinutes(new Date(), 0), 16),
+                        setHours(setMinutes(new Date(), 30), 16),
+                        setHours(setMinutes(new Date(), 0), 17),
+                        setHours(setMinutes(new Date(), 30), 17),
+                        setHours(setMinutes(new Date(), 0), 18),
+                        setHours(setMinutes(new Date(), 30), 18),
+                        setHours(setMinutes(new Date(), 0), 19),
+                        setHours(setMinutes(new Date(), 30), 19),
+                        setHours(setMinutes(new Date(), 0), 20),
+                      ]}
+                      filterTime={filterPassedTime}
                     />
-                    
                   </div>
                 </div>
 
@@ -100,18 +130,16 @@ const LabPayment = () => {
                     <option>Padma Diagnostic Center</option>
                   </select>
                 </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text md:text-base font-semibold text-my-primary">Mobile*</span>
-                  </label>
-                  <input type="text" placeholder="Mobile Number" className="input input-bordered w-full max-w-md" />
-                </div>
               </div>
               <div className="form-control mt-6">
                 <h2 className="text-2xl font-bold">Additional information</h2>
                 <p className="text-gray-5 mt-2 font-semibold">notes (optional)</p>
                 <textarea placeholder="Spacial note" className="textarea textarea-bordered textarea-lg w-full max-w-md" />
               </div>
+
+              <button type="submit" className="my-btn w-full max-w-md mt-8">
+                Payment
+              </button>
             </form>
           </div>
           {/* payment  */}
