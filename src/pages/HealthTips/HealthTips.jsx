@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import helth from "../../assets/Blog/helth.png";
 import HealthCard from "./HealthCard";
 
