@@ -3,7 +3,7 @@ import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiOutlineDown } from "react-icons/ai";
 import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
@@ -12,30 +12,37 @@ import { RxCross1 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useSearchParams } from "react-router-dom";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
+import Loader from "../../components/Loader";
+import { AuthContext } from "../../contexts/AuthProvider";
 import MediCard from "../Shared/Card/MediCard";
+import PaginationButton from "./PaginationButton";
 
 const Medicines = () => {
   const [medicines, setMedicines] = useState([]);
-
+  const { loading, setLoading } = useContext(AuthContext);
   const [params, setParams] = useSearchParams();
   const category = params.get("category");
-
   const { allData, isloading } = useSelector((state) => state?.allMedicines);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchMedicines());
   }, [dispatch]);
 
   useEffect(() => {
+    setLoading(true);
     if (category) {
       axios.get(`http://localhost:5000/medicines/${category}`).then((res) => setMedicines(res.data));
     } else {
       setMedicines(allData);
     }
+    setLoading(false);
   }, [allData, category]);
 
   const handelSort = (sort) => {
+    setLoading(true);
     axios.get(`http://localhost:5000/medicines?sort=${sort}`).then((res) => setMedicines(res.data));
+    setLoading(false);
   };
 
   const [showFilter, setShowFilter] = useState("-ml-96");
@@ -73,6 +80,7 @@ const Medicines = () => {
       </p>
     </div>
   );
+
   return (
     <section className="bg-lite relative">
       <div className="container flex items-center mx-auto py-5 px-4 md:py-8 lg:pt-10 lg:px-10">
@@ -90,25 +98,25 @@ const Medicines = () => {
           <div>
             <Menu
               menuButton={
-                <MenuButton className="flex items-center gap-2 bg-my-accent hover:bg-my-primary text-white p-2 rounded-md  ease-in duration-150">
+                <MenuButton className="flex items-center gap-2 bg-white font-semibold p-2 rounded-md  ease-in duration-150">
                   Filter Medicines <AiOutlineDown />
                 </MenuButton>
               }
               transition
             >
-              <MenuItem onClick={() => handelSort("phtl")} className="font-semibold">
+              <MenuItem onClick={() => handelSort("phtl")} className="font-medium text-gray-5">
                 From Low Price
               </MenuItem>
-              <MenuItem onClick={() => handelSort("plth")} className="font-semibold">
+              <MenuItem onClick={() => handelSort("plth")} className="font-medium text-gray-5">
                 From Heigh Price
               </MenuItem>
-              <MenuItem onClick={() => handelSort("byRating")} className="font-semibold">
+              <MenuItem onClick={() => handelSort("byRating")} className="font-medium text-gray-5">
                 From Height selling
               </MenuItem>
-              <MenuItem onClick={() => handelSort("fNew")} className="font-semibold">
+              <MenuItem onClick={() => handelSort("fNew")} className="font-medium text-gray-5">
                 From New Product
               </MenuItem>
-              <MenuItem onClick={() => handelSort("fOld")} className="font-semibold">
+              <MenuItem onClick={() => handelSort("fOld")} className="font-medium text-gray-5">
                 From Old product
               </MenuItem>
             </Menu>
@@ -138,12 +146,17 @@ const Medicines = () => {
           </div>
           {filterItems}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {medicines?.map((medicine) => (
-            <MediCard key={medicine._id} medicine={medicine} />
-          ))}
-        </div>
+        {isloading || loading ? (
+          <Loader />
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {medicines?.map((medicine) => (
+              <MediCard key={medicine._id} medicine={medicine} />
+            ))}
+          </div>
+        )}
       </div>
+      {/* <PaginationButton /> */}
     </section>
   );
 };
