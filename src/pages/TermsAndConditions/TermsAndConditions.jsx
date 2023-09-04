@@ -31,7 +31,8 @@ const TermsAndConditions = () => {
       <h2 className="text-xl font-semibold mt-4 mb-2">2. Privacy</h2>
       <p className="mb-2">
         We understand the significance of safeguarding your personal information and data. Your use of this website is subject to our Privacy Policy, a cornerstone of our dedication to transparency
-        and your trust. To acquaint yourself with our data handling practices, we encourage you to refer to our detailed Privacy Policy, accessible on the dedicated{" "}
+        and your trust.We understand the significance of safeguarding your personal information and data. Your use of this website is subject to our Privacy Policy, a cornerstone of our dedication to
+        transparency and your trust. To acquaint yourself with our data handling practices, we encourage you to refer to our detailed Privacy Policy, accessible on the dedicated{" "}
         <Link className="text-my-primary font-semibold" to="privacy">
           Privacy Policy
         </Link>{" "}
