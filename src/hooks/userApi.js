@@ -1,6 +1,8 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
+// const dispatch = useDispatch();
+
 export const addUser = (user) => {
   const userData = {
     name: user?.displayName,
@@ -22,6 +24,7 @@ export const updateUserPharmacist = (id) => {
     }
   });
 };
+
 export const updateUserAdmin = (id) => {
   const userData = {
     role: "admin",
@@ -33,6 +36,7 @@ export const updateUserAdmin = (id) => {
     }
   });
 };
+
 export const updateUser = (id) => {
   const userData = {
     role: "user",
