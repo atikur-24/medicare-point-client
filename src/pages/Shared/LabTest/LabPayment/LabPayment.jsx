@@ -9,7 +9,7 @@ import LabOrder from "../LabOrder/LabOrder";
 const LabPayment = () => {
   const [selectDate, setSelectedDate] = useState("");
 
-  const [startDate, setStartDate] = useState("");
+  const [startDate, setStartDate] = useState(setHours(setMinutes(new Date(), 0), 9));
   const filterPassedTime = (time) => {
     const currentDate = new Date();
     const selectedDate = new Date(time);
@@ -32,13 +32,13 @@ const LabPayment = () => {
     <div>
       <LabBanner />
       <div className="my-container">
-        <div className="bg-lite p-4 md:p-14 rounded-lg flex flex-col md:flex-row justify-center ">
+        <div className="bg-lite p-4 md:p-14 rounded-lg flex flex-col-reverse  md:flex-row-reverse  justify-between gap-8">
           <div className=" md:w-1/2">
-            <div className="space-y-4">
+            {/* <div className="space-y-4">
               <p className="font-semibold">PATHOLOGY TESTS (1)</p>
-              {/* <p className="text-lg font-bold">Tata 1mg Labs (Tata 1mg Technologies Private Limited )</p> */}
-            </div>
-            <form onSubmit={handleSubmit(onSubmit)} className="mt-6" action="">
+              <p className="text-lg font-bold">Tata 1mg Labs (Tata 1mg Technologies Private Limited )</p>
+            </div> */}
+            <form onSubmit={handleSubmit(onSubmit)} className="" action="">
               <div>
                 <div className="form-control">
                   <label className="label">
@@ -62,7 +62,7 @@ const LabPayment = () => {
                 <div className="flex  w-full gap-3 max-w-md">
                   <div className="form-control">
                     <label className="label">
-                      <span className="label-text md:text-base font-semibold text-my-primary">Date</span>
+                      <span className="label-text md:text-base font-semibold text-my-primary">Date*</span>
                     </label>
                     <DatePicker
                       {...register("date")}
@@ -77,7 +77,7 @@ const LabPayment = () => {
                   </div>
                   <div className="form-control">
                     <label className="label">
-                      <span className="label-text md:text-base font-semibold text-my-primary">Time</span>
+                      <span className="label-text md:text-base font-semibold text-my-primary">Time*</span>
                     </label>
 
                     <DatePicker
