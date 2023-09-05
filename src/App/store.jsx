@@ -14,6 +14,7 @@ import addHealthTips from "../Features/HealthTips/addHealthTips";
 import allHealthTips from "../Features/HealthTips/allHealthTips";
 import deleteHealthTips from "../Features/HealthTips/deleteHealthTips";
 import updateHealthTips from "../Features/HealthTips/updateHealthTips";
+import deleteImage from "../Features/Images/deleteImage";
 import fetchAllImages from "../Features/Images/fetchAllImages";
 import uploadImages, { addImageApi } from "../Features/Images/uploadImages";
 import addInterview from "../Features/Interviews/addInterview";
@@ -48,6 +49,7 @@ const store = configureStore({
     pageCount: pageCounterSlice,
     allImages: fetchAllImages,
     uploadImages,
+    deleteImage,
   },
 });
 
