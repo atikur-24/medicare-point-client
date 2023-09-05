@@ -1,8 +1,10 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import useAuth from "../../../../hooks/useAuth";
 
 const AllMedicinesByPharmacist = () => {
@@ -17,6 +19,31 @@ const AllMedicinesByPharmacist = () => {
     },
   });
 
+  const handleDeleteMedicine = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Permanent deleted medicine",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#16b4ac",
+      cancelButtonColor: "#ef4444",
+      confirmButtonText: "Yes, Delete It",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:5000/medicines/${_id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            Swal.fire(
+              "Deleted!",
+              "Your Medicine has been deleted.",
+              "success",
+            );
+            refetch();
+          }
+        });
+      }
+    });
+  };
+
   return (
     <div className="mx-1 md:mx-5">
       <h3 className="text-center text-2xl lg:text-3xl my-7 font-semibold tracking-wide">All Medicines</h3>
@@ -28,9 +55,9 @@ const AllMedicinesByPharmacist = () => {
               <th>#</th>
               <th>Photo</th>
               <th>Name</th>
-              <th>Sell</th>
+              <th>Brand</th>
               <th>Price</th>
-              <th>Quantity</th>
+              <th>Av. Quantity</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -39,33 +66,32 @@ const AllMedicinesByPharmacist = () => {
             {/* rows */}
             {
               medicines?.map((medicine, idx) => (
-                <tr key={medicine._id} className="border-b border-gray-6">
+                <tr key={medicine?._id} className="border-b border-slate-3">
                   <td>{idx + 1}</td>
                   <td>
                     <img
-                      className="w-10 h-10 rounded-full"
+                      className="mask rounded w-14 h-14"
                       src={medicine?.image}
                       alt="medicine"
                     />
                   </td>
-                  <td>NAPA EXTEND 665 TAB</td>
-                  <td>PARACETAMOL BP</td>
-                  <td>BEXIMCO PHARMACEUTICALS</td>
-                  <td>6.50Tk</td>
+                  <td className="font-medium">{medicine?.medicine_name}</td>
+                  <td>{medicine?.brand}</td>
+                  <td>৳ {medicine?.price}</td>
+                  <td className="font-medium"><span className="text-my-pink">{medicine?.available_quantity - medicine?.sellQuantity}</span> / {medicine?.available_quantity}</td>
 
-                  <td>800</td>
-                  <td className="flex items-center gap-2">
-                    <Link to="/">
-                      <TiEdit className="text-2xl p-1 text-white bg-my-primary" />
+                  <td className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"} capitalize font-medium`}>{medicine?.status}</td>
+                  <td className="flex items-center gap-3 mt-4">
+                    <Link to="/dashboard/update-medicine">
+                      <TiEdit className="text-2xl p-1 text-white bg-my-primary rounded-sm" />
                     </Link>
-                    <button type="button">
-                      <RiDeleteBinLine className="text-2xl bg-red-500 text-white p-1" />
+                    <button type="button" onClick={() => handleDeleteMedicine(medicine?._id)}>
+                      <RiDeleteBinLine className="text-2xl bg-red-500 text-white p-1 rounded-sm" />
                     </button>
                   </td>
                 </tr>
               ))
             }
-
           </tbody>
         </table>
       </div>

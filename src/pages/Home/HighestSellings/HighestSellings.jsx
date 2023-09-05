@@ -18,7 +18,7 @@ const HighestSellings = () => {
   return (
     <div className=" pb-10 px-4 rounded-lg bg-lite">
       <div className="my-container">
-        <SectionTitle title="Shop by Category" content="This is the most bought and used treatment for health issues. Many people trust and use it to feel better." />
+        <SectionTitle title="Height selling Medicines" content="This is the most bought and used treatment for health issues. Many people trust and use it to feel better." />
 
         <div className="hidden lg:block">
           <Swiper
