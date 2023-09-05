@@ -47,6 +47,7 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 
 import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArticles";
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
+import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
 import Faqs from "../pages/Faqs/Faqs";
 import LabBook from "../pages/Shared/LabTest/LabBook/LabBook";
@@ -162,11 +163,15 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <DashboardLayout />,
     children: [
-      // user dashboard
       {
         path: "",
         element: <Dashboard />,
       },
+      {
+        path: "images",
+        element: <UploadImages />,
+      },
+      // user dashboard
       {
         path: "profile",
         element: <UserProfile />,
