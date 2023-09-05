@@ -1,13 +1,13 @@
 /* eslint-disable no-nested-ternary */
-import { AiFillHome, AiOutlineBars, AiOutlineStar } from "react-icons/ai";
+import { AiFillHome, AiOutlineBars } from "react-icons/ai";
 import { BiSolidUser } from "react-icons/bi";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import { FaUserMd, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
-import { MdAddShoppingCart, MdKeyboardArrowDown, MdKeyboardArrowUp, MdNotificationAdd, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
+import { MdAddShoppingCart, MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
 
-import { RiFileList3Fill, RiFileList3Line, RiMessengerFill, RiUserStarFill } from "react-icons/ri";
+import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
 
 import { RxCross1 } from "react-icons/rx";
 
