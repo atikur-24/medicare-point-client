@@ -48,7 +48,7 @@ const CheckouForm = () => {
     // reset();
   };
 
-  console.log(cart);
+  // console.log(cart);
 
   const divisions = ["Dhaka", "Chattogram", "Barishal", "Khulna", "Rajshahi", "Rangpur", "Mymensingh", "Sylhet"];
   const districts = [
