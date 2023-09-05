@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 import { configureStore } from "@reduxjs/toolkit";
 import addLabTest from "../Features/AllLabTests/addLabTest";
 import allLabTest from "../Features/AllLabTests/allLabTest";
@@ -13,6 +14,8 @@ import addHealthTips from "../Features/HealthTips/addHealthTips";
 import allHealthTips from "../Features/HealthTips/allHealthTips";
 import deleteHealthTips from "../Features/HealthTips/deleteHealthTips";
 import updateHealthTips from "../Features/HealthTips/updateHealthTips";
+import fetchAllImages from "../Features/Images/fetchAllImages";
+import uploadImages, { addImageApi } from "../Features/Images/uploadImages";
 import addInterview from "../Features/Interviews/addInterview";
 import deleteInterview from "../Features/Interviews/deleteInterview";
 import updateInterview from "../Features/Interviews/updateInterview";
@@ -43,6 +46,8 @@ const store = configureStore({
     allMedicines,
     allBlogs,
     pageCount: pageCounterSlice,
+    allImages: fetchAllImages,
+    uploadImages,
   },
 });
 

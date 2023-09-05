@@ -8,7 +8,7 @@ const LabCard = ({ category }) => {
     <Link to={`/labBook/${category._id}`}>
       <div className="border border-gray-3 w-60 p-4 rounded-2xl  bg-white ">
         <figure className="flex justify-center ">
-          <img src={category?.image_url} alt="" className="bg-[#f1f5f9]  rounded-full p-2 w-24 h-24" />
+          <img src={category?.image_url} alt="" className="bg-[#f1f5f9]  rounded-full p-2 w-24 h-24 object-contain" />
         </figure>
         <div className="">
           <h2 className="text-xl font-sans font-bold h-20">{category?.test_name}</h2>
