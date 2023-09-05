@@ -275,7 +275,7 @@ const DashboardLayout = () => {
 
       {/* To do  */}
       <li className="dashboard-link flex">
-        <NavLink to="/dashboard" onClick={toggleDropdown3} className="dashboard-link flex cursor-pointer">
+        <NavLink to="/dashboard/add-blog" onClick={toggleDropdown3} className="dashboard-link flex cursor-pointer">
           <RiFileList3Line className="dashboard-icon" />
           <button type="button">Blogs</button>
           <MdKeyboardArrowDown className={`${showDropdown3 ? "hidden" : "block"} dashboard-icon`} />
@@ -283,24 +283,25 @@ const DashboardLayout = () => {
         </NavLink>
         <ul className={`${showDropdown3 ? "block" : "hidden"}`}>
           <li>
+            <NavLink to="/dashboard/add-blog" className="dashboard-link">
+              Add Blog
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/dashboard/add-health-articles">Add Health Articles</NavLink>
           </li>
           <li>
             <NavLink to="/dashboard/manage-health-articles">Manage Health Articles</NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/dashboard/add-interviews">Add Interviews</NavLink>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <NavLink to="/dashboard/manage-interviews">Manage Interviews</NavLink>
-          </li>
+          </li> */}
         </ul>
       </li>
-      <li>
-        <NavLink to="/dashboard/add-blog" className="dashboard-link">
-          Add Blog
-        </NavLink>
-      </li>
+
       <li>
         <NavLink to="/dashboard/PharmacyApplications" className="dashboard-link">
           <FaWpforms className="dashboard-icon" />
@@ -326,7 +327,6 @@ const DashboardLayout = () => {
 
         <ul className="dashboard-ul lg:pt-5 menu p-4 w-80 h-full text-base-content">
           {/* Sidebar content here */}
-
 
           <li className="relative">
             <NavLink to="/" className=" pb-3">
