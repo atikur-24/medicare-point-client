@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FaAngleRight } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 import sample from "../../../../assets/Lab/bloodsample.webp";
-import gender from "../../../../assets/Lab/gender.webp";
+import gen from "../../../../assets/Lab/gender.webp";
 import time from "../../../../assets/Lab/ic_rgt.webp";
 import call from "../../../../assets/Lab/on time_1.webp";
 import users from "../../../../assets/Lab/users.webp";
@@ -12,7 +12,7 @@ import CheckCard from "../CheckCard/CheckCard";
 import LabButton from "../LabButton/LabButton";
 
 const LabBook = () => {
-  const { test_name, price, image_url, discount, category_name, _id } = useLoaderData();
+  const { test_name, price, image_url, discount, category_name, _id, gender, age, labTestDetails, report } = useLoaderData();
   const [labCart] = useLabCart();
   const [isBook, setIsBook] = useState({});
   const { user } = useAuth();
@@ -53,7 +53,7 @@ const LabBook = () => {
               <img src={time} alt={test_name} className="w-10 h-10" />
               <p className="flex flex-col text-left">
                 <span className="text-sm font-semibold text-my-accent">Get reports </span>
-                <span className="font-bold text-my-primary">Within 1 hours </span>
+                <span className="font-bold text-my-primary">Within {report} hours </span>
               </p>
             </div>
             <div className="card-body items-center   ">
@@ -88,11 +88,11 @@ const LabBook = () => {
               </div>
               <div className="flex gap-4 items-center justify-center py-4">
                 <figure>
-                  <img src={gender} alt={test_name} />
+                  <img src={gen} alt={test_name} />
                 </figure>
                 <p className="flex flex-col text-left">
                   <span className="text-sm font-semibold text-my-accent">Gender </span>
-                  <span className="font-bold text-my-primary text-sm">Both</span>
+                  <span className="font-bold text-my-primary text-sm">{gender}</span>
                 </p>
               </div>
               <div className="flex gap-4 items-center justify-center py-4">
@@ -101,17 +101,12 @@ const LabBook = () => {
                 </figure>
                 <p className="flex flex-col text-left">
                   <span className="text-sm font-semibold text-my-accent">Age group </span>
-                  <span className="font-bold text-my-primary text-sm">Above 10 years</span>
+                  <span className="font-bold text-my-primary text-sm">Above {age} years</span>
                 </p>
               </div>
             </div>
             <div className="card-body items-center text-center p-0 mt-6">
-              <p className="text-justify text-black-2  tracking-wide">
-                The liver function test (LFT) is a comprehensive package to assess the function of your liver by examining the levels of various enzymes and proteins in your blood. These enzymes,
-                proteins, and bilirubin collectively determine the health of the liver. Any variation from the normal range of these enzymes can indicate a problem in your liver. On the basis of the
-                results, your physician can start treatment or request further tests. Apollo 24|7’s liver function test price is extremely competitive and the brand utilises the latest technologies to
-                assess the results.
-              </p>
+              <p className="text-justify text-black-2  tracking-wide">{labTestDetails}</p>
             </div>
           </div>
         </div>
