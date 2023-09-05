@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 export const addImageApi = createAsyncThunk("addImage/addImageApi", async (data) => {
   // console.log(data);
-  const res = await axios.post(`http://localhost:5000/images`, data.data);
+  const res = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`, data);
 
   if (res.data.insertedId) {
     Swal.fire({

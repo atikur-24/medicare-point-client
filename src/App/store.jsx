@@ -15,7 +15,7 @@ import allHealthTips from "../Features/HealthTips/allHealthTips";
 import deleteHealthTips from "../Features/HealthTips/deleteHealthTips";
 import updateHealthTips from "../Features/HealthTips/updateHealthTips";
 import fetchAllImages from "../Features/Images/fetchAllImages";
-import uploadImages from "../Features/Images/uploadImages";
+import uploadImages, { addImageApi } from "../Features/Images/uploadImages";
 import addInterview from "../Features/Interviews/addInterview";
 import deleteInterview from "../Features/Interviews/deleteInterview";
 import updateInterview from "../Features/Interviews/updateInterview";
