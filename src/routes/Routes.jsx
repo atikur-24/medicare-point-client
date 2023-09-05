@@ -4,7 +4,6 @@ import Main from "../layouts/Main";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import Blogs from "../pages/Blogs/Blogs";
 import HealthArticlesDetails from "../pages/Blogs/HealthArticlesDetails";
-import InterviewDetails from "../pages/Blogs/InterviewDetails";
 import Contract from "../pages/Contract/Contract";
 import AddNewArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/AddNewArticles";
 import AddNewInterviews from "../pages/Dashboard/AdminDashboard/AdminBlogs/AddNewInterviews";
@@ -48,10 +47,14 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 
 import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArticles";
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
+import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
+import Faqs from "../pages/Faqs/Faqs";
 import LabBook from "../pages/Shared/LabTest/LabBook/LabBook";
 import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
+import Privacy from "../pages/TermsAndConditions/Privacy";
+import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
 
 const router = createBrowserRouter([
   {
@@ -76,9 +79,16 @@ const router = createBrowserRouter([
         element: <Blogs />,
       },
       {
-        path: "/interviews/:id",
-        element: <InterviewDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/interviews/${params?.id}`),
+        path: "terms",
+        element: <TermsAndConditions />,
+      },
+      {
+        path: "terms/privacy",
+        element: <Privacy />,
+      },
+      {
+        path: "/faqs",
+        element: <Faqs />,
       },
       {
         path: "/healthArticles/:id",
@@ -207,6 +217,10 @@ const router = createBrowserRouter([
       {
         path: "medicine-inventory",
         element: <AllMedicinesByPharmacist />,
+      },
+      {
+        path: "update-medicine",
+        element: <UpdateMedicine />,
       },
       {
         path: "add-new-medicine",
