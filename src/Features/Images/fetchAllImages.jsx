@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchAllImages = createAsyncThunk("allImages/fetchAllImages", async (email) => {
-  const res = await axios.get(`http://localhost:5000/images?email=${email}`);
+export const fetchAllImages = createAsyncThunk("allImages/fetchAllImages", async (data) => {
+  const res = await axios.get(`http://localhost:5000/images?email=${data?.email}&name=${data?.searchBy}`);
   //   console.log(res.data);
   return res.data;
 });
