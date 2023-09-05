@@ -21,7 +21,6 @@ const districts = [
   { value: "Barisal", label: "Barisal" },
   { value: "Narayanganj", label: "Narayanganj" },
   { value: "Faridpur", label: "Faridpur" },
-  
 ];
 
 const LabPayment = () => {
@@ -45,8 +44,8 @@ const LabPayment = () => {
   } = useForm();
 
   const onSubmit = (data, e) => {
-    // data.date = e.target.date.value;
-    data.time = e.target.time.value;
+    data.dateTime = e.target.dateTime.value;
+    data.area = selectedOption.value;
     console.log(data);
   };
 
@@ -102,14 +101,14 @@ const LabPayment = () => {
                       <span className="label-text md:text-base font-semibold text-my-primary">Time*</span>
                     </label>
                     <DatePicker
-                      {...register("time")}
+                      {...register("dateTime")}
                       required
                       className="w-full max-w-md  input input-bordered"
                       selected={startDate}
                       onChange={(date) => setStartDate(date)}
                       showTimeSelect
                       filterTime={filterPassedTime}
-                      dateFormat="MMMM d, yyyy h:mm aa"
+                      dateFormat="MM-dd-yyy , h:mm aa"
                       includeTimes={[
                         setHours(setMinutes(new Date(), 0), 9),
                         setHours(setMinutes(new Date(), 30), 9),
@@ -176,6 +175,7 @@ const LabPayment = () => {
                   </label>
 
                   <Select
+                    name="area"
                     className=" w-full max-w-md   input-bordered "
                     isClearable
                     defaultValue={selectedOption}
