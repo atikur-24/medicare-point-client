@@ -30,19 +30,15 @@ const Medicines = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    setLoading(true);
     if (category) {
       axios.get(`http://localhost:5000/medicines/${category}`).then((res) => setMedicines(res.data));
     } else {
       setMedicines(allData);
     }
-    setLoading(false);
   }, [allData, category]);
 
   const handelSort = (sort) => {
-    setLoading(true);
     axios.get(`http://localhost:5000/medicines?sort=${sort}`).then((res) => setMedicines(res.data));
-    setLoading(false);
   };
 
   const [showFilter, setShowFilter] = useState("-ml-96");
