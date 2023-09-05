@@ -106,9 +106,7 @@ const LabBook = () => {
               </div>
             </div>
             <div className="card-body items-center text-center p-0 mt-6">
-              <p className="text-justify text-black-2  tracking-wide">
-               {labTestDetails}
-              </p>
+              <p className="text-justify text-black-2  tracking-wide">{labTestDetails}</p>
             </div>
           </div>
         </div>

@@ -32,12 +32,12 @@ const LabOrder = () => {
         <hr className="border-x border-my-accent" />
         <p className="flex justify-between font-semibold">
           <span>Hard copy of reports</span>
-          <span>৳50</span>
+          <span>৳{`${labCart.length > 0 ? 50 : 0}`}</span>
         </p>
         <hr className="border-x border-my-accent" />
         <p className="flex justify-between font-extrabold">
           <span>TO BE PAID</span>
-          <span>৳{copy}</span>
+          <span>৳ {`${labCart.length > 0 ? copy : 0}`}</span>
         </p>
         {/* <p className="font-bold text-my-primary">Total Savings ৳{saveMoney}</p> */}
       </div>
