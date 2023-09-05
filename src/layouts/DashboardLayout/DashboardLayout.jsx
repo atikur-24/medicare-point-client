@@ -293,12 +293,12 @@ const DashboardLayout = () => {
           <li>
             <NavLink to="/dashboard/manage-health-articles">Manage Health Articles</NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/dashboard/add-interviews">Add Interviews</NavLink>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <NavLink to="/dashboard/manage-interviews">Manage Interviews</NavLink>
-          </li>
+          </li> */}
         </ul>
       </li>
 

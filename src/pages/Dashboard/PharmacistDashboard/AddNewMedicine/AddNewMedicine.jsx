@@ -12,10 +12,10 @@ import useAuth from "../../../../hooks/useAuth";
 const categories = [
   { value: "Pain-Relief", label: "Pain Relief" },
   { value: "Digestive-Health", label: "Digestive Health" },
-  { value: "Cough&Cold", label: "Cough & Cold" },
+  { value: "Cough-Cold", label: "Cough & Cold" },
   { value: "Diabetes-Care", label: "Diabetes Care" },
   { value: "Heart-Health", label: "Heart Health" },
-  { value: "Laundry&Household", label: "Laundry & Household" },
+  { value: "Laundry-Household", label: "Laundry & Household" },
   { value: "Skin-Care", label: "Skin Care" },
   { value: "Eye-Care", label: "Eye Care" },
   { value: "Women-Care", label: "Women Care" },
@@ -46,6 +46,7 @@ const tags = [
   { value: "Personal", label: "Personal" },
   { value: "Baby", label: "Baby" },
   { value: "Fever", label: "Fever" },
+  { value: "Skin", label: "Skin" },
 ];
 
 const AddNewMedicine = () => {
@@ -61,6 +62,7 @@ const AddNewMedicine = () => {
     reset,
     formState: { errors },
   } = useForm();
+
 
   const onSubmit = (data) => {
     const date = moment().format("L");
@@ -82,12 +84,13 @@ const AddNewMedicine = () => {
           axios.post("http://localhost:5000/medicines", { ...allData, image: imgURL }).then(res => {
             if (res.data.insertedId) {
               Swal.fire({
-                position: "top-end",
+                position: "top-center",
                 icon: "success",
                 title: "New Medicine Added Successfully",
                 showConfirmButton: false,
                 timer: 1500,
               });
+              setContent("");
               reset();
             }
           }).catch((err) => {
@@ -212,6 +215,17 @@ const AddNewMedicine = () => {
               placeholder="Enter sku"
               type="number"
               {...register("sku")}
+            />
+          </div>
+        </div>
+        <div className="two-input-field lg:flex gap-5">
+          <div>
+            <span>Brand Name</span>
+            <input
+              required
+              placeholder="Enter brand name"
+              type="text"
+              {...register("brand")}
             />
           </div>
         </div>
