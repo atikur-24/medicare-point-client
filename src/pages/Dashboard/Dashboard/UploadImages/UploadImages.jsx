@@ -4,9 +4,9 @@ import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Toaster, toast } from "react-hot-toast";
 import { BiLinkAlt, BiSolidCloudUpload } from "react-icons/bi";
-import { MdDeleteForever, MdImageSearch } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import { deleteImageApi } from "../../../../Features/Images/deleteImage";
 import { fetchAllImages } from "../../../../Features/Images/fetchAllImages";
 import deleteIcon from "../../../../assets/Lottie/deleteIcon.json";
 import searchIcon from "../../../../assets/Lottie/search.json";
@@ -25,10 +25,6 @@ const UploadImages = () => {
     const email = user?.email || "";
     dispatch(fetchAllImages({ email, searchBy }));
   }, [user?.email, dispatch, searchBy]);
-
-  if (isLoading) {
-    <p className="text-center mt-10">Loading........</p>;
-  }
 
   const copyURl = (url) => {
     navigator.clipboard.writeText(url);
@@ -85,6 +81,29 @@ const UploadImages = () => {
       });
   };
 
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(deleteImageApi(id)).then((res) => {
+          if (res.payload?.deletedCount > 0);
+          dispatch(fetchAllImages());
+        });
+      }
+    });
+  };
+
+  if (isLoading) {
+    return <p className="text-center mt-10">Loading........</p>;
+  }
+
   return (
     <div className="px-5">
       <Toaster position="top-center" reverseOrder={false} />
@@ -127,7 +146,7 @@ const UploadImages = () => {
             </button>
             <div className="rounded-b-md flex justify-center gap-2 py-1 bg-[#475569] bg-opacity-60 items-center absolute bottom-0 left-0 right-0">
               <BiLinkAlt onClick={() => copyURl(i?.photoURL)} title="Copy Image URL" className="text-2xl text-white rounded-full  hover:bg-my-accent bg-my-primary p-1 " />
-              <Lottie animationData={deleteIcon} className="h-8 w-8" loop />
+              <Lottie onClick={() => handleDelete(i._id)} animationData={deleteIcon} className="h-8 w-8 cursor-pointer" loop />
               {/* <MdDeleteForever onClick={() => copyURl(i?.photoURL)} title="Copy Image URL" className="text-2xl text-white rounded-full bg-[#dc2626] bg-opacity-50 hover:bg-red-400 p-1 " /> */}
             </div>
           </div>
