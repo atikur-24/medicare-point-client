@@ -1,13 +1,11 @@
 /* eslint-disable no-unsafe-optional-chaining */
-import { RiDeleteBinLine } from "react-icons/ri";
-import { TiEdit } from "react-icons/ti";
-import useMedicines from "../../../../hooks/useMedicines";
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import { useState } from "react";
+import useAllMedicines from "../../../../hooks/useAllMedicines";
 
 const AllMedicines = () => {
-  const [medicines] = useMedicines();
+  const [allMedicines] = useAllMedicines();
   const [showDropdown2, setShowDropdown2] = useState(false);
 
   const toggleDropdown2 = () => {
@@ -32,13 +30,13 @@ const AllMedicines = () => {
               <th>Price</th>
               <th>Av. Quantity</th>
               <th>Status</th>
-              <th>Action</th>
+              <th>View</th>
             </tr>
           </thead>
           <tbody>
             {/* rows */}
             {
-              medicines?.map((medicine, idx) => (
+              allMedicines?.map((medicine, idx) => (
                 <tr key={medicine?._id} className="border-b border-slate-3">
                   <td>{idx + 1}</td>
                   <td>
