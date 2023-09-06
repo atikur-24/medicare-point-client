@@ -26,16 +26,3 @@
 .two-input-field div {
   width: 100%;
 }
-
-.submit-btn {
-  background-color: #006f70 !important;
-  border: none;
-  transition: all 0.5s ease;
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 0.025em;
-}
-
-.submit-btn:hover {
-  background-color: #10b6a8 !important;
-}
