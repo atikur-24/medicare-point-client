@@ -133,7 +133,7 @@ const UploadImages = () => {
 
       {allImages.length === 0 && (
         <div className="flex justify-center items-center">
-          <img className="max-w-sm" src="https://i.ibb.co/4Wd3BdR/no-results.png" alt="No data found" />
+          <img className="lg:max-w-sm" src="https://i.ibb.co/4Wd3BdR/no-results.png" alt="No data found" />
         </div>
       )}
 
