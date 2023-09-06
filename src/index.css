@@ -63,13 +63,19 @@
   @apply bg-my-primary hover:bg-[#16b4ac] btn  font-medium md:font-semibold text-white transition duration-200 border-0  active:hover:transform-none active:focus:transform-none ;
 
 }
-
 .my-btn-outline {
   @apply hover:bg-my-primary hover:text-white btn rounded-full  font-bold transition duration-300 border border-my-primary text-my-primary active:hover:transform-none active:focus:transform-none;
 }
 
 .login-btn {
   @apply bg-my-accent hover:bg-[#16b4ac]  btn  font-medium md:font-semibold text-white transition duration-200 border-0 active:hover:transform-none active:focus:transform-none;
+}
+
+.submit-btn {
+  @apply bg-my-primary hover:bg-my-accent text-white py-2 lg:py-3 px-3 lg:px-6 text-sm lg:text-base font-medium lg:font-semibold tracking-wide rounded-md transition-all uppercase
+}
+.reset-btn {
+  @apply bg-red-500 hover:bg-red-400 text-white py-2 lg:py-3 px-3 lg:px-6 text-sm lg:text-base font-medium lg:font-semibold tracking-wide rounded-md transition-all uppercase
 }
 
 /* button  */
