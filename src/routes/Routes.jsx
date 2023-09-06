@@ -48,6 +48,7 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArticles";
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
+import EditProfile from "../pages/Dashboard/UserDashboard/UserProfile/EditProfile";
 import Faqs from "../pages/Faqs/Faqs";
 import LabBook from "../pages/Shared/LabTest/LabBook/LabBook";
 import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
@@ -170,6 +171,11 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <UserProfile />,
+      },
+      {
+        path: "/dashboard/edit-profile/:email",
+        element: <EditProfile />,
+        loader: ({ params }) => fetch(`http://localhost:5000/users/${params?.email}`),
       },
       {
         path: "pharmacyRegistration",
