@@ -1,9 +1,13 @@
 import { setHours, setMinutes } from "date-fns";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import Select from "react-select";
+import { labSSLPaymentApi } from "../../../../Features/PaymentGetway/labPayment";
+import { AuthContext } from "../../../../contexts/AuthProvider";
+import useLabCart from "../../../../hooks/useLabCart";
 import LabBanner from "../LabBanner/LabBanner";
 import LabOrder from "../LabOrder/LabOrder";
 
@@ -24,6 +28,10 @@ const districts = [
 ];
 
 const LabPayment = () => {
+  const [labCart] = useLabCart();
+  const dispatch = useDispatch();
+  const { user } = useContext(AuthContext);
+  // console.log(labCart);
   // const [selectDate, setSelectedDate] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
   let today = new Date();
@@ -46,7 +54,9 @@ const LabPayment = () => {
   const onSubmit = (data, e) => {
     data.dateTime = e.target.dateTime.value;
     data.area = selectedOption.value;
-    console.log(data);
+    data.email = user.email;
+    // console.log(data);
+    dispatch(labSSLPaymentApi({ personalInfo: data, cart: labCart }));
   };
 
   return (

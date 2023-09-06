@@ -19,7 +19,7 @@ const UploadImages = () => {
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
-  const { allImages, isLoading } = useSelector((state) => state.allImages);
+  const { allImages } = useSelector((state) => state.allImages);
 
   useEffect(() => {
     const email = user?.email || "";
@@ -100,9 +100,9 @@ const UploadImages = () => {
     });
   };
 
-  if (isLoading) {
-    return <p className="text-center mt-10">Loading........</p>;
-  }
+  //   if (isLoading) {
+  //     return <p className="text-center mt-10">Loading........</p>;
+  //   }
 
   return (
     <div className="px-5">
@@ -133,13 +133,13 @@ const UploadImages = () => {
 
       {allImages.length === 0 && (
         <div className="flex justify-center items-center">
-          <img className="max-w-sm" src="https://i.ibb.co/4Wd3BdR/no-results.png" alt="No data found" />
+          <img className="lg:max-w-sm" src="https://i.ibb.co/4Wd3BdR/no-results.png" alt="No data found" />
         </div>
       )}
 
       <div className="grid grid-cols-2 lg:grid-cols-8 gap-2 mb-10">
         {allImages.map((i) => (
-          <div key={i._id} className="border border-gray-3 p-2 relative text-center rounded-md space-y-2 ">
+          <div key={i._id} className=" border border-gray-3 p-2 relative text-center rounded-md space-y-2 ">
             <button type="button" className="relative mb-9" onClick={() => copyURl(i?.photoURL)}>
               <h5 className="text-base font-semibold font-nunito text-title-color uppercase mt-1">{i?.name}</h5>
               <img className="h-20" src={i?.photoURL} alt="" />
