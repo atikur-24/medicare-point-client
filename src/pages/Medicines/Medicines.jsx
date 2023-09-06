@@ -9,6 +9,7 @@ import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { LiaAngleRightSolid } from "react-icons/lia";
 import { RxCross1 } from "react-icons/rx";
+import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useSearchParams } from "react-router-dom";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
@@ -19,6 +20,7 @@ import PaginationButton from "./PaginationButton";
 
 const Medicines = () => {
   const [medicines, setMedicines] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
   const { loading, setLoading } = useContext(AuthContext);
   const [params, setParams] = useSearchParams();
   const category = params.get("category");
@@ -76,6 +78,16 @@ const Medicines = () => {
       </p>
     </div>
   );
+
+  const medicineParpage = 1;
+  const startIndex = currentPage * medicineParpage;
+  const endIndex = startIndex + medicineParpage;
+  const PaginationMedicines = medicines.slice(startIndex, endIndex);
+  const pageCount = Math.ceil(medicines.length / medicineParpage);
+
+  const handlePageClick = (seletedPage) => {
+    setCurrentPage(seletedPage.selected);
+  };
 
   return (
     <section className="bg-lite relative">
@@ -146,13 +158,23 @@ const Medicines = () => {
           <Loader />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {medicines?.map((medicine) => (
+            {PaginationMedicines?.map((medicine) => (
               <MediCard key={medicine._id} medicine={medicine} />
             ))}
           </div>
         )}
       </div>
       {/* <PaginationButton /> */}
+      <ReactPaginate
+        className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  mb-5 align-middle"
+        activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
+        breakLabel="..."
+        nextLabel="Next"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        previousLabel="Previous"
+      />
     </section>
   );
 };
