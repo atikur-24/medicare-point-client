@@ -2,8 +2,6 @@
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import { useEffect, useState } from "react";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
-import { RiDeleteBinLine } from "react-icons/ri";
-import { TiEdit } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllMedicines } from "../../../../Features/Medicines/AllMedicines/medicines";
 import Loader from "../../../../components/Loader";
