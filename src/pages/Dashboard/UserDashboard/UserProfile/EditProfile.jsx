@@ -19,6 +19,29 @@ const EditProfile = () => {
     postcode: "",
     // Add other fields as needed
   });
+  useEffect(() => {
+    // Fetch user data based on the email and update the formData state
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/users/${email}`);
+        if (response.status === 200) {
+          const userData = response.data; // Assuming the user data is returned as an object
+          setFormData(userData);
+        } else {
+          console.error("Failed to fetch user data");
+        }
+      } catch (error) {
+        console.error("An error occurred while fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, [email]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
   return (
     <div className="text-center">
       <div className="grid grid-cols-1">
