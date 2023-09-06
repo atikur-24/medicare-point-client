@@ -17,8 +17,11 @@ const DashBoardNavbar = () => {
         </div>
       </div>
       <div className="flex items-center gap-2">
+        <NavLink to="/dashboard/images">
+          <img title="Upload Images" className="w-10 h-10 ml-2" src="https://i.ibb.co/sqVY4RR/gallery.png" alt="upload images" />
+        </NavLink>
         <NavLink to="/dashboard/reward-points">
-          <img title="Reword" className="w-10 h-10" src={rewordIcon} alt="" />
+          <img title="Reword" className="w-10 h-10" src={rewordIcon} alt="reword points" />
         </NavLink>
         <NavLink to="/dashboard/profile">
           <img className="rounded-full w-10 h-10" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="" />
