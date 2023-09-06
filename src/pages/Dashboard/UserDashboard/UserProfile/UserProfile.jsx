@@ -1,61 +1,63 @@
-import React from "react";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const UserProfile = () => {
+  const [currentUserData, setCurrentUserData] = useState({});
+  console.log(currentUserData);
+  const { user } = useContext(AuthContext); // Access the user object from the context
+  useEffect(() => {
+    axios.get("http://localhost:5000/users").then((res) => {
+      // Find the current user's data based on their email
+      const currentUser = res.data.find((userData) => userData.email === user.email);
+
+      if (currentUser) {
+        setCurrentUserData(currentUser);
+      }
+    });
+  }, [user.email]);
   return (
-    <div className="bg-white rounded-lg shadow p-6 px-10">
-      <div className="flex items-center justify-center">
-        <img
-          src="https://img.freepik.com/premium-photo/headshot-portrait-happy-young-man-looking-camera-standing-indoors-home-modern-office-profile-picture-smiling-millennial-male-making-online-call-by-video-link-posing-digital-webcam_774935-2104.jpg?w=2000"
-          alt="Nafees"
-          className="w-1/3 h-60 rounded-2xl mb-4"
-        />
-      </div>
-      <h2 className="text-xl font-semibold text-center">Nafees Imtiaz</h2>
-      <p className="text-gray-600 mb-4 text-center">I am an engineer.</p>
+    <div>
+      {currentUserData && (
+        <div className="bg-white rounded-lg shadow p-6 px-10">
+          <div className="flex items-center justify-center">
+            <img src={user.photoURL} alt="Nafees" className="w-1/3 h-60 rounded-2xl mb-4" />
+          </div>
+          <h2 className="text-xl font-semibold text-center">{currentUserData.name}</h2>
+          <p className="text-gray-600 mb-4 text-center">Role: {currentUserData.role ? currentUserData.role : "User"}</p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center">
-        <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
-          <div>
-            <h3 className="text-lg font-semibold mb-1">Basic Information</h3>
-            <p>Email: user786@gmail.com</p>
-            <p>Phone: 0190000000</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 items-center">
+            <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Basic Information</h3>
+                <p>Email:{currentUserData.email}</p>
+                <p>Phone: {currentUserData.phone ? currentUserData.phone : "N/A"}</p>
+                <p>Gender: {currentUserData.gender ? currentUserData.gender : "N/A"}</p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-1 ">Professional Information</h3>
+                <p>Company: {currentUserData.company ? currentUserData.company : "N/A"}</p>
+                <p>Job Title: {currentUserData.title ? currentUserData.title : "N/A"} </p>
+              </div>
+            </div>
+            <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Location</h3>
+                <p>Current Location: {currentUserData.currentlocation ? currentUserData.currentlocation : "N/A"}</p>
+                <p>Hometown: {currentUserData.hometown ? currentUserData.hometown : "N/A"}</p>
+                <p>Post Offiice: {currentUserData.po ? currentUserData.po : "N/A"} </p>
+                <p>Post Code: {currentUserData.postcode ? currentUserData.postcode : "N/A"} </p>
+              </div>
+            </div>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-1">Personal Details</h3>
-            <p>Username: user786</p>
-            <p>Date of Birth: 24/8/1998</p>
-            <p>Gender: Male</p>
-          </div>
+          <Link to={`/dashboard/edit-profile/${currentUserData.email}`} type="button" className="btn btn-block btn-outline btn-accent mt-8">
+            Edit Profile
+          </Link>
         </div>
-        <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
-          <div>
-            <h3 className="text-lg font-semibold mb-1">Location</h3>
-            <p>Current Location: Dhaka</p>
-            <p>Hometown: Cumilla</p>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-1 ">Professional Information</h3>
-            <p>Occupation: Web Developer</p>
-            <p>Company: Programming Hero</p>
-            <p>Job Title: Front End Developer</p>
-          </div>
-        </div>
-        <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
-          <div className="mt-6">
-            <h3 className="text-lg font-semibold mb-1">Activity and History</h3>
-            <p>Registration Date: 16/08/2023</p>
-            <p>Last Login: 17/08/2023</p>
-          </div>
-          <div className="mt-6">
-            <h3 className="text-lg font-semibold mb-1">Privacy and Security</h3>
-            <button className="btn btn-outline btn-accent">Password Management</button>
-          </div>
-        </div>
-      </div>
-
-      <button className="btn btn-block btn-outline btn-accent mt-8">Edit Profile</button>
+      )}
     </div>
   );
 };
