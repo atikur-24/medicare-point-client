@@ -8,7 +8,16 @@ const UserProfile = () => {
   const [currentUserData, setCurrentUserData] = useState({});
   console.log(currentUserData);
   const { user } = useContext(AuthContext); // Access the user object from the context
+  useEffect(() => {
+    axios.get("http://localhost:5000/users").then((res) => {
+      // Find the current user's data based on their email
+      const currentUser = res.data.find((userData) => userData.email === user.email);
 
+      if (currentUser) {
+        setCurrentUserData(currentUser);
+      }
+    });
+  }, [user.email]);
   return (
     <div>
       {currentUserData && (
