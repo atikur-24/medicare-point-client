@@ -69,6 +69,7 @@ const EditProfile = () => {
       console.error("An error occurred while updating the profile:", error);
     }
   };
+
   return (
     <div className="text-center">
       <div className="grid grid-cols-1">
