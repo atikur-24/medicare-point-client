@@ -49,6 +49,7 @@ import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArtic
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
+import RewardPoints from "../pages/Dashboard/UserDashboard/RewardPoints/RewardPoints";
 import Faqs from "../pages/Faqs/Faqs";
 import LabBook from "../pages/Shared/LabTest/LabBook/LabBook";
 import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
@@ -212,6 +213,7 @@ const router = createBrowserRouter([
       },
       {
         path: "reward-points",
+        element: <RewardPoints />,
       },
 
       // pharmacists dashboard
