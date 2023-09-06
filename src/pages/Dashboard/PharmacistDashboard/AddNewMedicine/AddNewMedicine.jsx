@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
 import CreatableSelect from "react-select/creatable";
@@ -50,70 +49,78 @@ const tags = [
 ];
 
 const AddNewMedicine = () => {
-  const imageHostingURL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
   const { user } = useAuth();
   const editor = useRef(null);
   const [content, setContent] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const {
     register,
     control,
     handleSubmit,
     reset,
-    formState: { errors },
+    setValue,
   } = useForm();
+
+  const clearSelectValues = () => {
+    setValue("category", null);
+    setValue("tags", null);
+  };
 
 
   const onSubmit = (data) => {
+    setLoading(true);
+    if (!content) {
+      setError("Please fill out medicine feature field");
+      return;
+    }
+    setError("");
     const date = moment().format("L");
     data.price = parseFloat(data.price, 10);
     data.discount = parseInt(data.discount, 10);
     data.available_quantity = parseInt(data.available_quantity, 10);
-    const allData = { ...data, feature_with_details: content, sellQuantity: 0, allRatings: [], rating: 0, status: "pending", date };
-    const formData = new FormData();
-    formData.append("image", data.image[0]);
+    const allData = { ...data, feature_with_details: content, sellQuantity: 0, allRatings: [], rating: 0, status: "pending", feedback: "", date };
+    axios.post("http://localhost:5000/medicines", allData).then(res => {
+      if (res.data.insertedId) {
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "New Medicine Added Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setContent("");
+        reset();
+        clearSelectValues();
+        setLoading(false);
+      }
+    }).catch((err) => {
+      if (err) {
+        Swal.fire({
+          icon: "error",
+          title: "Medicine Add Failed",
+          text: "Something went wrong!",
+        });
+        setLoading(false);
+      }
+    });
+  };
 
-    fetch(imageHostingURL, {
-      method: "POST",
-      body: formData,
-    })
-      .then(res => res.json())
-      .then(imgResponse => {
-        if (imgResponse.success) {
-          const imgURL = imgResponse.data.display_url;
-          axios.post("http://localhost:5000/medicines", { ...allData, image: imgURL }).then(res => {
-            if (res.data.insertedId) {
-              Swal.fire({
-                position: "top-center",
-                icon: "success",
-                title: "New Medicine Added Successfully",
-                showConfirmButton: false,
-                timer: 1500,
-              });
-              setContent("");
-              reset();
-            }
-          }).catch((err) => {
-            if (err) {
-              Swal.fire({
-                icon: "error",
-                title: "Medicine Add Failed",
-                text: "Something went wrong!",
-              });
-            }
-          });
-        }
-      });
+  const handleReset = () => {
+    reset();
+    setContent("");
+    clearSelectValues();
   };
 
   return (
-    <div>
+    <section>
       <form onSubmit={handleSubmit(onSubmit)} className="admission-form doctor-form">
         <h3 className="text-center text-xl lg:text-3xl font-medium lg:font-semibold my-5 text-title-color tracking-wide">Add New Medicine</h3>
         <div className="divider" />
         <div className="two-input-field lg:flex gap-5">
           <div>
-            <span>Pharmacist Name</span>
+            <span>Pharmacist Name <small>(read only)</small></span>
             <input
               readOnly
               defaultValue={user?.displayName}
@@ -122,7 +129,7 @@ const AddNewMedicine = () => {
             />
           </div>
           <div>
-            <span>Pharmacist Email</span>
+            <span>Pharmacist Email <small>(read only)</small></span>
             <input
               readOnly
               defaultValue={user?.email}
@@ -137,8 +144,8 @@ const AddNewMedicine = () => {
             <input required placeholder="Enter medicine name" type="text" {...register("medicine_name")} />
           </div>
           <div>
-            <span>Medicine Image</span>
-            <input type="file" required {...register("image")} />
+            <span>Medicine Image Url</span>
+            <input required type="text" placeholder="Enter medicine image url" {...register("image")} />
           </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
@@ -199,10 +206,11 @@ const AddNewMedicine = () => {
         </div>
         <div className="two-input-field lg:flex gap-5">
           <div>
-            <span>Enter Discount</span>
+            <span>Enter Discount (%)</span>
             <input
               required
               min={0}
+              max={100}
               placeholder="Enter discount"
               type="number"
               {...register("discount")}
@@ -234,18 +242,20 @@ const AddNewMedicine = () => {
           <textarea required {...register("medicine_description", { required: true })} className="textarea textarea-bordered h-28 w-full resize-none" placeholder="Medicine description" />
         </div>
         <div>
-          <h4>Medicine Features & Details <small>(you can add multiple features)</small></h4>
+          <h4>Medicine Features & Details <small>(you can write multiple features with details)</small></h4>
           <JoditEditor
             ref={editor}
             value={content}
             onChange={newContent => setContent(newContent)}
           />
+          <small className="text-red-500">{error}</small>
         </div>
-        <div className="pt-5 lg:pt-10">
-          <input className="submit-btn" type="submit" value="Add Medicine" />
+        <div className="pt-5 lg:pt-10 flex items-center justify-center gap-10">
+          <button className="submit-btn" type="submit">Add Medicine</button>
+          <button onClick={handleReset} className="reset-btn" type="button">Reset</button>
         </div>
       </form>
-    </div>
+    </section>
   );
 };
 
