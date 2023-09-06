@@ -39,7 +39,13 @@ const PharmacyApplications = () => {
                   <td>{application?.pharmacyName}</td>
                   <td>{application?.pharmacistName}</td>
                   <td>{application?.division}</td>
-                  <td className={` font-semibold ${application.applicationType === "Approved" ? "text-my-primary" : "text-[#f1b84d]"}`}>{application?.applicationType}</td>
+                  <td
+                    className={` font-semibold text-[#f1b84d] ${application.applicationType === "Approved" ? "text-my-primary" : ""} ${
+                      application?.applicationType === "deny" ? "text-red-500" : ""
+                    } `}
+                  >
+                    {application?.applicationType}
+                  </td>
                   <td>
                     <button type="button" onClick={() => DeleteApplication(application?._id)}>
                       <RiDeleteBinLine className="text-4xl p-2 rounded-full text-[white] bg-red-500" />
