@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, range }) => {
   const { image, title, published_date, topic, content, _id } = blog || {};
 
   return (
@@ -37,7 +37,7 @@ const Blog = ({ blog }) => {
           </time>
 
           <div className="max-w-2xl mt-4 text-justify lg:text-lg  tracking-wide">
-            <p>{content.slice(0, 300)}...</p>
+            <p>{content.slice(0, range)}...</p>
           </div>
         </div>
       </div>
