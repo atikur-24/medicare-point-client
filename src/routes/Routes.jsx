@@ -49,6 +49,8 @@ import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArtic
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
+import RewardPoints from "../pages/Dashboard/UserDashboard/RewardPoints/RewardPoints";
+import EditProfile from "../pages/Dashboard/UserDashboard/UserProfile/EditProfile";
 import Faqs from "../pages/Faqs/Faqs";
 import LabBook from "../pages/Shared/LabTest/LabBook/LabBook";
 import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
@@ -177,6 +179,11 @@ const router = createBrowserRouter([
         element: <UserProfile />,
       },
       {
+        path: "/dashboard/edit-profile/:email",
+        element: <EditProfile />,
+        loader: ({ params }) => fetch(`http://localhost:5000/users/${params?.email}`),
+      },
+      {
         path: "pharmacyRegistration",
         element: <PharmacyRegistrationPage />,
       },
@@ -212,6 +219,7 @@ const router = createBrowserRouter([
       },
       {
         path: "reward-points",
+        element: <RewardPoints />,
       },
 
       // pharmacists dashboard
@@ -224,8 +232,9 @@ const router = createBrowserRouter([
         element: <AllMedicinesByPharmacist />,
       },
       {
-        path: "update-medicine",
+        path: "update-medicine/:id",
         element: <UpdateMedicine />,
+        loader: ({ params }) => fetch(`http://localhost:5000/medicines/details/${params.id}`),
       },
       {
         path: "add-new-medicine",
