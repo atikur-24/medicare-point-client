@@ -66,8 +66,8 @@ const RewardPoints = () => {
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 my-5">
         <div className="reward-card2 p-5 flex justify-between rounded-md">
           <div className="space-y-2 text-white ">
-            <h3 className="text-3xl font-bold">Earn MCP Rewards</h3>
-            <p className="font-medium text-lg">Book Lab Test & Earn Points</p>
+            <h3 className="text-xl lg:text-3xl font-bold">Earn MCP Rewards</h3>
+            <p className="font-medium text-md lg:text-lg">Book Lab Test & Earn Points</p>
             <p className="font-medium">Reward points will be 10% of your order amount</p>
             <Link to="/lab-test" className="text-slate-1 transition-all duration-300 btn btn-sm border-none px-5 bg-my-accent hover:bg-opacity-80 hover:bg-my-accent">
               Book LabTest
@@ -78,8 +78,8 @@ const RewardPoints = () => {
 
         <div className="reward-card2 p-5 flex justify-between rounded-md">
           <div className="space-y-2 text-white ">
-            <h3 className="text-3xl font-bold">Earn MCP Rewards</h3>
-            <p className="font-medium text-lg">Buy medicines & Earn Points</p>
+            <h3 className="text-xl lg:text-3xl font-bold">Earn MCP Rewards</h3>
+            <p className="font-medium text-md lg:text-lg">Buy medicines & Earn Points</p>
             <p className="font-medium">Reward points will be 5% of your order amount</p>
             <Link to="/medicines" className="text-slate-1 transition-all duration-300 btn btn-sm border-none px-5 bg-my-accent hover:bg-opacity-80 hover:bg-my-accent">
               Buy Medicines
