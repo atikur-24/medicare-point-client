@@ -19,6 +19,7 @@ const EditProfile = () => {
     postcode: "",
     // Add other fields as needed
   });
+
   useEffect(() => {
     // Fetch user data based on the email and update the formData state
     const fetchUserData = async () => {
@@ -41,6 +42,32 @@ const EditProfile = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const { _id, ...formDataWithoutId } = formData; // Remove _id property
+
+      // Send a PUT request to update the user's profile without _id
+      const response = await axios.put(`http://localhost:5000/users/${email}`, formDataWithoutId);
+
+      // Check the response status to handle success or error
+      if (response.status === 200) {
+        // Update successful, you can add logic here for handling success
+        console.log("Profile updated successfully");
+
+        // Redirect the user back to the profile page, you can use React Router or another method for this
+        // Example: history.push('/profile');
+      } else {
+        // Handle any errors or display an error message to the user
+        console.error("Failed to update profile");
+      }
+    } catch (error) {
+      // Handle network errors or other exceptions
+      console.error("An error occurred while updating the profile:", error);
+    }
   };
   return (
     <div className="text-center">
