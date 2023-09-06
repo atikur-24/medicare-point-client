@@ -232,8 +232,9 @@ const router = createBrowserRouter([
         element: <AllMedicinesByPharmacist />,
       },
       {
-        path: "update-medicine",
+        path: "update-medicine/:id",
         element: <UpdateMedicine />,
+        loader: ({ params }) => fetch(`http://localhost:5000/medicines/details/${params.id}`),
       },
       {
         path: "add-new-medicine",
