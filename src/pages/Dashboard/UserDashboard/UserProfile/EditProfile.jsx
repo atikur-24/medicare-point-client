@@ -3,6 +3,22 @@ import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 
 const EditProfile = () => {
+  const { email } = useParams();
+  const existingData = useLoaderData();
+  console.log(existingData);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "", // Add missing fields
+    gender: "",
+    company: "",
+    title: "",
+    currentlocation: "",
+    hometown: "",
+    po: "",
+    postcode: "",
+    // Add other fields as needed
+  });
   return (
     <div className="text-center">
       <div className="grid grid-cols-1">
