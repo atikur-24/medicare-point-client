@@ -11,7 +11,7 @@ const Search = () => {
   const [medicines, setMedicines] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/medicines?name=${search}`)
+    fetch(`http://localhost:5000/searchMedicinesByName?name=${search}`)
       .then((res) => res.json())
       .then((data) => {
         setMedicines(data);
