@@ -13,10 +13,14 @@ const EditProfile = () => {
     gender: "",
     company: "",
     title: "",
-    currentlocation: "",
-    hometown: "",
-    po: "",
-    postcode: "",
+    currentdivision: "",
+    currentdistrict: "",
+    currentpostoffice: "",
+    currentpostcode: "",
+    parmanentdivision: "",
+    parmanentdistrict: "",
+    parmanentpostoffice: "",
+    parmanentpostcode: "",
     // Add other fields as needed
   });
 
@@ -83,7 +87,7 @@ const EditProfile = () => {
               </div>
               <div>
                 <label className="text-sm font-semibold">Email:</label>
-                <input type="email" name="email" className="input input-bordered w-full" value={formData.email} onChange={handleChange} />
+                <input disabled type="email" name="email" className="input input-bordered w-full" value={formData.email} onChange={handleChange} />
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2">
@@ -108,19 +112,41 @@ const EditProfile = () => {
             </div>
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-sm font-semibold">Current Location:</label>
-                <input type="text" name="currentlocation" className="input input-bordered w-full" value={formData.currentlocation} onChange={handleChange} />
+                <label className="text-sm font-semibold">Current Division:</label>
+                <input type="text" name="currentlocation" className="input input-bordered w-full" value={formData.currentdivision} onChange={handleChange} />
               </div>
               <div>
-                <label className="text-sm font-semibold">Post Office:</label>
-                <input type="text" name="po" className="input input-bordered w-full" value={formData.po} onChange={handleChange} />
+                <label className="text-sm font-semibold">Current District:</label>
+                <input type="text" name="currentlocation" className="input input-bordered w-full" value={formData.currentdistrict} onChange={handleChange} />
+              </div>
+              <div>
+                <label className="text-sm font-semibold">Current Post Office:</label>
+                <input type="text" name="po" className="input input-bordered w-full" value={formData.currentpostoffice} onChange={handleChange} />
+              </div>
+              <div>
+                <label className="text-sm font-semibold">Current Postcode:</label>
+                <input type="text" name="postcode" className="input input-bordered w-full" value={formData.currentpostcode} onChange={handleChange} />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <label className="text-sm font-semibold">Parmanent Division:</label>
+                <input type="text" name="currentlocation" className="input input-bordered w-full" value={formData.parmanentdivision} onChange={handleChange} />
+              </div>
+              <div>
+                <label className="text-sm font-semibold">Parmanent District:</label>
+                <input type="text" name="currentlocation" className="input input-bordered w-full" value={formData.parmanentdistrict} onChange={handleChange} />
+              </div>
+              <div>
+                <label className="text-sm font-semibold">Parmanent Post Office:</label>
+                <input type="text" name="po" className="input input-bordered w-full" value={formData.parmanentpostoffice} onChange={handleChange} />
+              </div>
+              <div>
+                <label className="text-sm font-semibold">Parmanent Postcode:</label>
+                <input type="text" name="postcode" className="input input-bordered w-full" value={formData.parmanentpostcode} onChange={handleChange} />
               </div>
             </div>
 
-            <div>
-              <label className="text-sm font-semibold">Postcode:</label>
-              <input type="text" name="postcode" className="input input-bordered w-full" value={formData.postcode} onChange={handleChange} />
-            </div>
             {/* Add other fields similarly */}
             {/* Add other fields similarly */}
             <button type="submit" className="my-btn">
