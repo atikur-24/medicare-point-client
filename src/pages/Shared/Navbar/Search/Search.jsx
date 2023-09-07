@@ -18,8 +18,6 @@ const Search = () => {
       });
   }, [search]);
 
-  // console.log(medicines);
-
   const handleSearch = (e) => {
     const searchItem = e.target.value;
     setSearch(searchItem);
@@ -28,7 +26,6 @@ const Search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     e.target.reset();
-    // console.log(e.target.searchField.value);
   };
 
   return (

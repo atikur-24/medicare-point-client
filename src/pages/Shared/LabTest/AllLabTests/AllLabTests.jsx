@@ -1,30 +1,16 @@
 /* eslint-disable import/no-unresolved */
 
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
+import { FaArrowCircleRight } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-// import "./styles.css";
-// import "./LabStyle.css";
-// import required modules
-import { useEffect } from "react";
-import { FaArrowCircleRight } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
 import { FreeMode, Pagination } from "swiper/modules";
-import { fetchAllLabTests } from "../../../../Features/AllLabTests/allLabTest";
+import { Swiper, SwiperSlide } from "swiper/react";
 import LabCard from "../LabCard/LabCard";
 import LabTitle from "../LabTitle";
 
-const AllLabTests = () => {
-  const { isLoading, allLabTest } = useSelector((state) => state.allLabTest);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchAllLabTests());
-  }, [dispatch]);
-
+const AllLabTests = ({ isLoading, allLabTest }) => {
   if (isLoading) {
     return <p className="text-center mt-10">Loading........</p>;
   }
@@ -43,6 +29,12 @@ const AllLabTests = () => {
           modules={[FreeMode, Pagination]}
           className="mySwiper relative"
         >
+          {allLabTest.length === 0 && (
+            <div className="flex flex-col justify-center items-center">
+              <img className="w-32" src="https://i.ibb.co/4Wd3BdR/no-results.png" alt="No data found" />
+              <p>Sorry, we could not find what you are looking for. Please search by right name</p>
+            </div>
+          )}
           {allLabTest?.map((category) => (
             <SwiperSlide className=" mt-10" key={category._id}>
               <div className="">
