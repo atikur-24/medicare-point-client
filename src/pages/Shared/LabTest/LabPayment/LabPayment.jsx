@@ -1,9 +1,13 @@
 import { setHours, setMinutes } from "date-fns";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import Select from "react-select";
+import { labSSLPaymentApi } from "../../../../Features/PaymentGetway/labPayment";
+import { AuthContext } from "../../../../contexts/AuthProvider";
+import useLabCart from "../../../../hooks/useLabCart";
 import LabBanner from "../LabBanner/LabBanner";
 import LabOrder from "../LabOrder/LabOrder";
 
@@ -21,59 +25,13 @@ const districts = [
   { value: "Barisal", label: "Barisal" },
   { value: "Narayanganj", label: "Narayanganj" },
   { value: "Faridpur", label: "Faridpur" },
-  { value: "Bogra", label: "Bogra" },
-  { value: "Pabna", label: "Pabna" },
-  { value: "Rangamati", label: "Rangamati" },
-  { value: "Kushtia", label: "Kushtia" },
-  { value: "Rangpur", label: "Rangpur" },
-  { value: "Manikganj", label: "Manikganj" },
-  { value: "Noakhali", label: "Noakhali" },
-  { value: "Khulna", label: "Khulna" },
-  { value: "Tangail", label: "Tangail" },
-  { value: "Panchagarh", label: "Panchagarh" },
-  { value: "Bhola", label: "Bhola" },
-  { value: "Bandarban", label: "Bandarban" },
-  { value: "Chandpur", label: "Chandpur" },
-  { value: "Habiganj", label: "Habiganj" },
-  { value: "Lakshmipur", label: "Lakshmipur" },
-  { value: "Barguna", label: "Barguna" },
-  { value: "Jhalokati", label: "Jhalokati" },
-  { value: "Pirojpur", label: "Pirojpur" },
-  { value: "Patuakhali", label: "Patuakhali" },
-  { value: "Jhenaidah", label: "Jhenaidah" },
-  { value: "Narail", label: "Narail" },
-  { value: "Magura", label: "Magura" },
-  { value: "Lalmonirhat ", label: "Lalmonirhat" },
-  { value: "Kurigram", label: "Kurigram" },
-  { value: "Nilphamari", label: "Nilphamari" },
-  { value: "Gaibandha", label: "Gaibandha" },
-  { value: "Thakurgaon", label: "Thakurgaon" },
-  { value: "Satkhira", label: "Satkhira" },
-  { value: "Bagerhat", label: "Bagerhat" },
-  { value: "Chuadanga", label: "Chuadanga" },
-  { value: "Meherpur", label: "Meherpur" },
-  { value: "Sirajganj", label: "Sirajganj" },
-  { value: "Joypurhat", label: "Joypurhat" },
-  { value: "Natore", label: "Natore " },
-  { value: "Naogaon", label: "Naogaon" },
-  { value: "Nawabganj", label: "Nawabganj" },
-  { value: "Khagrachhari", label: "Khagrachhari" },
-  { value: "Feni", label: "Feni" },
-  { value: "Brahmanbaria", label: "Brahmanbaria" },
-  { value: "Sunamganj", label: "Sunamganj" },
-  { value: "Moulvibazar", label: "Moulvibazar" },
-  { value: "Shariatpur", label: "Shariatpur" },
-  { value: "Madaripur", label: "Madaripur" },
-  { value: "Rajbari", label: "Rajbari" },
-  { value: "Kishoreganj", label: "Kishoreganj" },
-  { value: "Jamalpur", label: "Jamalpur" },
-  { value: "Sherpur", label: "Sherpur" },
-  { value: "Netrakona", label: "Netrakona" },
-  { value: "Munshiganj", label: "Munshiganj" },
-  { value: "Narsingdi", label: "Narsingdi" },
 ];
 
 const LabPayment = () => {
+  const [labCart] = useLabCart();
+  const dispatch = useDispatch();
+  const { user } = useContext(AuthContext);
+  // console.log(labCart);
   // const [selectDate, setSelectedDate] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
   let today = new Date();
@@ -94,9 +52,11 @@ const LabPayment = () => {
   } = useForm();
 
   const onSubmit = (data, e) => {
-    // data.date = e.target.date.value;
-    data.time = e.target.time.value;
-    console.log(data);
+    data.dateTime = e.target.dateTime.value;
+    data.area = selectedOption.value;
+    data.email = user.email;
+    // console.log(data);
+    dispatch(labSSLPaymentApi({ personalInfo: data, cart: labCart }));
   };
 
   return (
@@ -130,7 +90,7 @@ const LabPayment = () => {
                   <input type="number" placeholder="Age" className="input input-bordered w-full max-w-md" {...register("age", { required: true })} />
                 </div>
 
-                <div className="flex  w-full gap-3 max-w-md">
+                <div className="  w-full  max-w-md">
                   {/* <div className="form-control">
                     <label className="label">
                       <span className="label-text md:text-base font-semibold text-my-primary">Date*</span>
@@ -151,14 +111,14 @@ const LabPayment = () => {
                       <span className="label-text md:text-base font-semibold text-my-primary">Time*</span>
                     </label>
                     <DatePicker
-                      {...register("time")}
+                      {...register("dateTime")}
                       required
                       className="w-full max-w-md  input input-bordered"
                       selected={startDate}
                       onChange={(date) => setStartDate(date)}
                       showTimeSelect
                       filterTime={filterPassedTime}
-                      dateFormat="MMMM d, yyyy h:mm aa"
+                      dateFormat="MM-dd-yyy , h:mm aa"
                       includeTimes={[
                         setHours(setMinutes(new Date(), 0), 9),
                         setHours(setMinutes(new Date(), 30), 9),
@@ -225,6 +185,7 @@ const LabPayment = () => {
                   </label>
 
                   <Select
+                    name="area"
                     className=" w-full max-w-md   input-bordered "
                     isClearable
                     defaultValue={selectedOption}
@@ -248,7 +209,7 @@ const LabPayment = () => {
                 <label className="label">
                   <span className="label-text md:text-base font-semibold text-my-primary">Street / Nearby / Building:*</span>
                 </label>
-                <input type="text" placeholder="Area" className="input input-bordered w-full max-w-md" {...register("address", { required: true })} />
+                <input type="text" placeholder="Nearby / Building etc" className="input input-bordered w-full max-w-md" {...register("address", { required: true })} />
               </div>
               <div className="form-control mt-6">
                 <h2 className="text-2xl font-bold">Additional information</h2>
