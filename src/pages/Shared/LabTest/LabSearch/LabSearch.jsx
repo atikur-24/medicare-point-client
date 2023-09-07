@@ -1,8 +1,10 @@
 // import { AiFillThunderbolt } from "react-icons/ai";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { HiLocationMarker } from "react-icons/hi";
+import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
+import { fetchAllLabTests } from "../../../../Features/AllLabTests/allLabTest";
 
 const districts = [
   { value: "Dhaka", label: "Dhaka" },
@@ -70,13 +72,31 @@ const districts = [
   { value: "Narsingdi", label: "Narsingdi" },
 ];
 
-const LabSearch = () => {
+const LabSearch = ({ setAllLabTests, setIsLoading }) => {
   const [selectedOption, setSelectedOption] = useState(null);
+  const [searchData, setSearchData] = useState("");
+
+  const { isLoading, allLabTest } = useSelector((state) => state.allLabTest);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAllLabTests(searchData));
+  }, [dispatch, searchData]);
+
+  useEffect(() => {
+    setAllLabTests(allLabTest);
+    setIsLoading(isLoading);
+  }, [allLabTest, isLoading]);
+
+  const handleSearch = (e) => {
+    const searchItem = e.target.value;
+    setSearchData(searchItem);
+  };
 
   return (
     <div className="flex flex-col md:items-center justify-between md:flex-row gap-4 md:gap-10 ">
       <form className="flex items-center  md:w-[40%]">
-        <input className="w-full  border h-16   rounded-l-lg   px-6 focus:input-bordered input-accent" type="text" placeholder="Search Test and Packages" />
+        <input onChange={handleSearch} className="w-full  border h-16   rounded-l-lg   px-6 focus:input-bordered input-accent" type="search" placeholder="Search Test and Packages" />
         <button type="button" className=" bg-my-primary h-16 rounded-r-lg flex items-center justify-center px-4  ">
           <FiSearch className="text-3xl text-white" />
         </button>
@@ -88,14 +108,7 @@ const LabSearch = () => {
         </div>
         <div className="w-80 z-10">
           <h2 className="font-nunito font-bold">Our sevices Area</h2>
-          <Select
-            isClearable
-            defaultValue={selectedOption}
-            onChange={setSelectedOption}
-            options={districts}
-            placeholder="Select your district"
-            noOptionsMessage={() => "No district found"}
-          />
+          <Select isClearable defaultValue={selectedOption} onChange={setSelectedOption} options={districts} placeholder="Select your district" noOptionsMessage={() => "No district found"} />
         </div>
       </div>
       {/* <div className="md:w-[40%] hidden">
