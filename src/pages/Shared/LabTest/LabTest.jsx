@@ -1,3 +1,4 @@
+import AllLabTests from "./AllLabTests/AllLabTests";
 import CheckCard from "./CheckCard/CheckCard";
 import LabBanner from "./LabBanner/LabBanner";
 import LabSearch from "./LabSearch/LabSearch";
@@ -11,6 +12,7 @@ const LabTest = () => {
       <CheckCard />
       <div className="my-container">
         <LabSearch />
+        <AllLabTests />
         <PopularLab />
         <TopTest />
       </div>
