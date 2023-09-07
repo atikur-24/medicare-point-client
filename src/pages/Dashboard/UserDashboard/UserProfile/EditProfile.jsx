@@ -122,6 +122,7 @@ const EditProfile = () => {
               <input type="text" name="postcode" className="input input-bordered w-full" value={formData.postcode} onChange={handleChange} />
             </div>
             {/* Add other fields similarly */}
+            {/* Add other fields similarly */}
             <button type="submit" className="my-btn">
               Save Changes
             </button>

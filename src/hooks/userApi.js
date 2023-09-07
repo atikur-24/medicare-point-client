@@ -18,7 +18,6 @@ export const updateUserPharmacist = (id) => {
     role: "Pharmacist",
   };
   axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then((res) => {
-    console.log(res.data);
     if (res?.data?.modifiedCount > 0) {
       Swal.fire("Successful", "Convert User Role to pharmacist", "success");
     }
@@ -30,7 +29,6 @@ export const updateUserAdmin = (id) => {
     role: "admin",
   };
   axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then((res) => {
-    console.log(res.data);
     if (res?.data?.modifiedCount > 0) {
       Swal.fire("Successful", "Convert User Role to Admin", "success");
     }
@@ -42,7 +40,6 @@ export const updateUser = (id) => {
     role: "user",
   };
   axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then((res) => {
-    console.log(res.data);
     if (res?.data?.modifiedCount > 0) {
       Swal.fire("Successful", "Convert User Role to User", "success");
     }

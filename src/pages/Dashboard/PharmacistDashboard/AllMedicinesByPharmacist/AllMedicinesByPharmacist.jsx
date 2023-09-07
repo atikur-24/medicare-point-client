@@ -77,16 +77,25 @@ const AllMedicinesByPharmacist = () => {
                   </td>
                   <td className="font-medium">{medicine?.medicine_name}</td>
                   <td>{medicine?.brand}</td>
-                  <td>৳ {medicine?.price}</td>
+                  <td className="space-x-1">
+                    <span className="font-medium">
+                      ৳ {medicine?.discount > 0 ? (medicine?.price - (medicine?.price / 100) * medicine?.discount).toFixed(2) : medicine?.price.toFixed(2)}
+                    </span>
+                    {medicine?.discount > 0 && (
+                      <span className="text-gray-4 line-through">
+                        {medicine?.price}
+                      </span>
+                    )}
+                  </td>
                   <td className="font-medium"><span className="text-my-pink">{medicine?.available_quantity - medicine?.sellQuantity}</span> / {medicine?.available_quantity}</td>
 
                   <td className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"} capitalize font-medium`}>{medicine?.status}</td>
                   <td className="flex items-center gap-3 mt-4">
-                    <Link to="/dashboard/update-medicine">
-                      <TiEdit className="text-2xl p-1 text-white bg-my-primary rounded-sm" />
+                    <Link to={`/dashboard/update-medicine/${medicine?._id}`}>
+                      <TiEdit className="text-2xl p-1 text-white bg-my-primary hover:bg-my-accent transition-colors rounded-sm" />
                     </Link>
                     <button type="button" onClick={() => handleDeleteMedicine(medicine?._id)}>
-                      <RiDeleteBinLine className="text-2xl bg-red-500 text-white p-1 rounded-sm" />
+                      <RiDeleteBinLine className="text-2xl bg-red-500 hover:bg-red-400 transition-colors text-white p-1 rounded-sm" />
                     </button>
                   </td>
                 </tr>

@@ -15,21 +15,28 @@ export const GetPharmacyRApplications = () => {
 };
 
 
-export const ApprovePR = (id, email) => {
+export const ApprovePR = (id, email, apt, newRole) => {
   const newType = {
     email,
+    role: newRole,
+    applicationType: apt,
   };
-
-
-
   axios.patch(`http://localhost:5000/pharmacyRApprove/${id}`, newType).then((res) => {
     console.log(res.data);
     if (res?.data.result.modifiedCount > 0 || res?.data.result2.modifiedCount > 0) {
-      Swal.fire(
-        "Approved",
-        "This Application Approved Successful",
-        "success",
-      );
+      if (newRole) {
+        Swal.fire(
+          "Approved",
+          "This Application Approved Successful",
+          "success",
+        );
+      } else {
+        Swal.fire(
+          "Rejected",
+          "This Application Rejected Successful",
+          "error",
+        );
+      }
       location.reload();
     }
   });
