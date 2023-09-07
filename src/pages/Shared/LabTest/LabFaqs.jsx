@@ -1,7 +1,7 @@
 const LabFaqs = () => {
   return (
-    <div className="my-16">
-      <h1 className="text-2xl text-center font-bold my-8">FAQs</h1>
+    <div className="my-container">
+      <h1 className="text-xl text-center uppercase lg:text-2xl  font-bold  text-[#111a28] mb-16">FAQs</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="collapse collapse-plus bg-gray-3">
           <input type="radio" name="my-accordion-3" />

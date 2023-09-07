@@ -86,7 +86,7 @@ const LabSearch = ({ setAllLabTests, setIsLoading }) => {
   useEffect(() => {
     setAllLabTests(allLabTest);
     setIsLoading(isLoading);
-  }, [allLabTest, isLoading]);
+  }, [allLabTest, isLoading, setAllLabTests, setIsLoading]);
 
   const handleSearch = (e) => {
     const searchItem = e.target.value;
