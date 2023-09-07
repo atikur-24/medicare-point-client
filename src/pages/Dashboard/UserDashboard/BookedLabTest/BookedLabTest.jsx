@@ -7,8 +7,8 @@ const BookedLabTest = () => {
   }, []);
   return (
     <div className="p-6">
-      <div className="border shadow-lg  bg-card rounded-md border-gray-3 p-4 md:flex flex-row    items-center">
-        <div className="p-4 rounded ">
+      <div className="border shadow-lg  bg-[#F2FBFF] rounded-md border-gray-3 p-4 md:flex flex-row    items-center">
+        <div className="p-4 rounded lg:w-[35%] 2xl:w-[30%]">
           <div className=" divide-y-2 divide-gray-3">
             <h2 className="font-bold font-nunito uppercase pb-2">Vomitus For Occult Blood</h2>
             <p className="flex justify-between items-center font-bold py-2">
