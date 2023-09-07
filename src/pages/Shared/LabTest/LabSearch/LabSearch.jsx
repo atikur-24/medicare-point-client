@@ -87,7 +87,7 @@ const LabSearch = () => {
           <HiLocationMarker className="w-10 h-10 text-my-primary" />
         </div>
         <div className="w-80 z-10">
-          <h2 className="font-nunito font-bold">Select Your District</h2>
+          <h2 className="font-nunito font-bold">Our sevices Area</h2>
           <Select
             isClearable
             defaultValue={selectedOption}
