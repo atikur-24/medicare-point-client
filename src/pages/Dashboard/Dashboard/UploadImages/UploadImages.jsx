@@ -24,7 +24,7 @@ const UploadImages = () => {
   useEffect(() => {
     const email = user?.email || "";
     dispatch(fetchAllImages({ email, searchBy }));
-  }, [user?.email, dispatch, searchBy]);
+  }, [user?.email, dispatch, searchBy, loading]);
 
   const copyURl = (url) => {
     navigator.clipboard.writeText(url);
@@ -73,7 +73,6 @@ const UploadImages = () => {
               timer: 1500,
             });
             setLoading(false);
-            dispatch(fetchAllImages(user?.email || ""));
             window.my_modal_ImageUpload.close();
             reset();
           }
@@ -92,9 +91,10 @@ const UploadImages = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
+        setLoading(true);
         dispatch(deleteImageApi(id)).then((res) => {
           if (res.payload?.deletedCount > 0);
-          dispatch(fetchAllImages());
+          setLoading(false);
         });
       }
     });

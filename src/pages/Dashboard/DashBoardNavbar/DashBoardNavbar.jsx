@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import rewordIcon from "../../../assets/Dashboard-icons/reward.png";
 
-const DashBoardNavbar = () => {
+const DashBoardNavbar = ({ setShowNotification, showNotification }) => {
   return (
     <div className="py-5 pl-10 pr-2 md:px-5 flex justify-between items-center bg-card">
       <div>
@@ -17,6 +17,15 @@ const DashBoardNavbar = () => {
         </div>
       </div>
       <div className="flex items-center gap-2">
+        {/* <NavLink to="/dashboard/notification"> */}
+        <button type="button" onClick={() => setShowNotification(!showNotification)}>
+          <img
+            title="Notification"
+            className={` ml-2 transition-all duration-300 ${showNotification ? "bg-slate-3 p-2 rounded-full w-12 h-12" : "w-10 h-10"}`}
+            src="https://i.ibb.co/8zxdmM6/notification.png"
+            alt="upload images"
+          />
+        </button>
         <NavLink to="/dashboard/images">
           <img title="Upload Images" className="w-10 h-10 ml-2" src="https://i.ibb.co/sqVY4RR/gallery.png" alt="upload images" />
         </NavLink>
