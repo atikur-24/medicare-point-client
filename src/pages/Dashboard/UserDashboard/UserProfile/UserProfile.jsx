@@ -28,7 +28,7 @@ const UserProfile = () => {
           <h2 className="text-xl font-semibold text-center">{currentUserData.name}</h2>
           <p className="text-gray-600 mb-4 text-center">Role: {currentUserData.role ? currentUserData.role : "User"}</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center">
             <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
               <div>
                 <h3 className="text-lg font-semibold mb-1">Basic Information</h3>
@@ -44,11 +44,20 @@ const UserProfile = () => {
             </div>
             <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
               <div>
-                <h3 className="text-lg font-semibold mb-1">Location</h3>
-                <p>Current Location: {currentUserData.currentlocation ? currentUserData.currentlocation : "N/A"}</p>
-                <p>Hometown: {currentUserData.hometown ? currentUserData.hometown : "N/A"}</p>
+                <h3 className="text-lg font-semibold mb-1">Current Address</h3>
+                <p>Current Division: {currentUserData.currentdivision ? currentUserData.currentdivision : "N/A"}</p>
+                <p>Current District: {currentUserData.currentdistrict ? currentUserData.currentdistrict : "N/A"}</p>
                 <p>Post Offiice: {currentUserData.po ? currentUserData.po : "N/A"} </p>
-                <p>Post Code: {currentUserData.postcode ? currentUserData.postcode : "N/A"} </p>
+                <p>Post Code: {currentUserData.currentpostcode ? currentUserData.currentpostcode : "N/A"} </p>
+              </div>
+            </div>
+            <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Parmanent Address</h3>
+                <p>Parmanent Division: {currentUserData.parmanentdivision ? currentUserData.parmanentdivision : "N/A"}</p>
+                <p>Parmanent District: {currentUserData.parmanentdistrict ? currentUserData.parmanentdistrict : "N/A"}</p>
+                <p>Post Offiice: {currentUserData.parmanentpo ? currentUserData.parmanentpo : "N/A"} </p>
+                <p>Post Code: {currentUserData.parmanentpostcode ? currentUserData.parmanentpostcode : "N/A"} </p>
               </div>
             </div>
           </div>

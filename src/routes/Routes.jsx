@@ -58,6 +58,7 @@ import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
 import Privacy from "../pages/TermsAndConditions/Privacy";
 import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -109,7 +110,11 @@ const router = createBrowserRouter([
       },
       {
         path: "labPayment",
-        element: <LabPayment />,
+        element: (
+          <PrivateRoute>
+            <LabPayment />
+          </PrivateRoute>
+        ),
       },
       { path: "/labBook/:id", element: <LabBook />, loader: ({ params }) => fetch(`http://localhost:5000/labAllItems/${params?.id}`) },
       {
