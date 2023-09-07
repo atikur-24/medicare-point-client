@@ -1,0 +1,269 @@
+[33mcommit 2d13b5e4e3135314dfa618590f24feb039a02b5a[m[33m ([m[1;36mHEAD -> [m[1;32mNafees[m[33m, [m[1;31morigin/Nafees[m[33m)[m
+Author: NafeesIS <nafeesshawon555@gmail.com>
+Date:   Wed Sep 6 16:15:24 2023 +0600
+
+    edit profile
+
+[33mcommit 57bd16fc6c844e9e960e3ab4ec5a5ce19f5fa437[m
+Author: NafeesIS <nafeesshwaon555@gmail.com>
+Date:   Wed Sep 6 16:09:24 2023 +0600
+
+    edit profile
+
+[33mcommit bd7fe166dc4ee63a7749a8720384a4fd83a3eb0d[m
+Author: NafeesIS <nafeesshwaon555@gmail.com>
+Date:   Wed Sep 6 16:07:44 2023 +0600
+
+    edit profile
+
+[33mcommit cfecf14857c42b0cb38abe43a8a3b30fc91154d4[m
+Author: NafeesIS <nafeesshwaon555@gmail.com>
+Date:   Wed Sep 6 16:06:16 2023 +0600
+
+    edit profile
+
+[33mcommit 2f394d70c8373c9bd1e002cc455608f38caecd87[m
+Author: NafeesIS <nafeesshwaon555@gmail.com>
+Date:   Wed Sep 6 16:03:52 2023 +0600
+
+    user profile
+
+[33mcommit 41452b6c9962318115ecb14927f5463e6035ca07[m
+Author: NafeesIS <nafeesshwaon555@gmail.com>
+Date:   Wed Sep 6 16:02:09 2023 +0600
+
+    user profile
+
+[33mcommit 4fc4d312e4898f3d910775442f3f55ba4307fa21[m
+Merge: ad27dba 5eb5f38
+Author: NafeesIS <nafeesshwaon555@gmail.com>
+Date:   Wed Sep 6 15:58:37 2023 +0600
+
+    Merge branch 'development' of https://github.com/atikur-24/medicare-point-client into Nafees
+
+[33mcommit ad27dba236432d3fcdb28a8dc741d31d40ac60fa[m
+Author: NafeesIS <nafeesshwaon555@gmail.com>
+Date:   Wed Sep 6 15:58:25 2023 +0600
+
+    user profile
+
+[33mcommit 5eb5f3828a54e36170c1da619d9b85495e0188e1[m
+Merge: 8521da6 4671164
+Author: Abdullah Al Mamun <121846138+tapfer-abdullah@users.noreply.github.com>
+Date:   Wed Sep 6 15:40:16 2023 +0600
+
+    Merge pull request #194 from atikur-24/Mamun
+    
+    Mamun
+
+[33mcommit 46711642f568a8b378e7d743aaec131f1149715d[m
+Merge: 82ca4f3 8521da6
+Author: tapfer-abdullah <tapfer.abdullah@gmail.com>
+Date:   Wed Sep 6 15:37:28 2023 +0600
+
+    Merge branch 'development' of https://github.com/atikur-24/medicare-point-client into Mamun
+
+[33mcommit 82ca4f368ca2b6a7a2ab674888231ea2d8ab8cfd[m
+Author: tapfer-abdullah <tapfer.abdullah@gmail.com>
+Date:   Wed Sep 6 15:36:22 2023 +0600
+
+    labtest payment system added
+
+[33mcommit 8521da67e15b5c402bda92237a49f070c7f721e0[m
+Merge: afddad5 dc1b65c
+Author: Abdullah Al Masud <abdullah149081@hotmail.com>
+Date:   Wed Sep 6 14:14:00 2023 +0600
+
+    Merge pull request #176 from atikur-24/safayat
+    
+    Safayat
+
+[33mcommit afddad53102751a6a5708794d53900d2cc3ddb2c[m
+Merge: 73a2ae7 f63150c
+Author: Abdullah Al Masud <abdullah149081@hotmail.com>
+Date:   Wed Sep 6 14:12:05 2023 +0600
+
+    Merge pull request #193 from atikur-24/masud
+    
+    Masud
+
+[33mcommit f63150c742d410f745b73e87dd54b3c980da14cc[m
+Merge: 77961a2 73a2ae7
+Author: Abdullah149081 <masudmd425@gmail.com>
+Date:   Wed Sep 6 14:08:59 2023 +0600
+
+    Merge branch 'development' of https://github.com/atikur-24/medicare-point-client into masud
+
+[33mcommit 77961a2eadf7519849de9460505885330ff5897f[m
+Author: Abdullah149081 <masudmd425@gmail.com>
+Date:   Wed Sep 6 14:08:47 2023 +0600
+
+    lab banner add
+
+[33mcommit 73a2ae7bfcf2bb2599e5fde56fc5f8a95e46eca0[m
+Merge: 3f73043 d3e1a51
+Author: Abdullah Al Masud <abdullah149081@hotmail.com>
+Date:   Wed Sep 6 13:07:36 2023 +0600
+
+    Merge pull request #192 from atikur-24/masud
+    
+    Masud
+
+[33mcommit d3e1a513af8e6d8a814951575f15b34ddb9ba334[m
+Merge: a066d8b 3f73043
+Author: Abdullah149081 <masudmd425@gmail.com>
+Date:   Wed Sep 6 13:06:02 2023 +0600
+
+    Merge branch 'development' of https://github.com/atikur-24/medicare-point-client into masud
+
+[33mcommit a066d8bf82d797b2505894737ef8917405a819c4[m
+Author: Abdullah149081 <masudmd425@gmail.com>
+Date:   Wed Sep 6 13:05:46 2023 +0600
+
+    banner change
+
+[33mcommit 3f730434502b1c6c959eec71b2720566ba3ccbb8[m
+Merge: 1ef3c5a 336f033
+Author: Sihab Uddin Molla <121824187+SihabMolla11@users.noreply.github.com>
+Date:   Wed Sep 6 06:46:37 2023 +0600
+
+    Merge pull request #191 from atikur-24/SihabMolla
+    
+    Sihab molla
+
+[33mcommit 336f033393865ce59ace5487c50d5778d5f89582[m
+Merge: 2ba2d33 1ef3c5a
+Author: unknown <sihabuddinmolla11@gmail.com>
+Date:   Wed Sep 6 06:45:31 2023 +0600
+
+    pagination done
+
+[33mcommit 2ba2d339934d677eabb23935b3c5fb7f79331349[m
+Author: unknown <sihabuddinmolla11@gmail.com>
+Date:   Wed Sep 6 06:44:03 2023 +0600
+
+    pagination done
+
+[33mcommit 1ef3c5a195f0bf94e780b65a834fb8a1356cbe59[m
+Merge: d56effa 3c57599
+Author: Abdullah Al Mamun <121846138+tapfer-abdullah@users.noreply.github.com>
+Date:   Wed Sep 6 00:49:40 2023 +0600
+
+    Merge pull request #190 from atikur-24/Mamun
+    
+    update delete image
+
+[33mcommit 3c575992a937809e56c5a9008e983ce792a87564[m
+Author: tapfer-abdullah <tapfer.abdullah@gmail.com>
+Date:   Wed Sep 6 00:48:35 2023 +0600
+
+    update delete image
+
+[33mcommit d56effa564cf6d3fd6eff54db6467cac1c70d0c5[m
+Merge: eff7257 72286e4
+Author: Abdullah Al Mamun <121846138+tapfer-abdullah@users.noreply.github.com>
+Date:   Wed Sep 6 00:28:38 2023 +0600
+
+    Merge pull request #189 from atikur-24/Mamun
+    
+    Mamun
+
+[33mcommit 72286e462ef8de8ab28ad0c69aa0b83accec0870[m
+Merge: 1e56342 eff7257
+Author: tapfer-abdullah <tapfer.abdullah@gmail.com>
+Date:   Wed Sep 6 00:27:44 2023 +0600
+
+    Merge branch 'development' of https://github.com/atikur-24/medicare-point-client into Mamun
+
+[33mcommit 1e5634211f9e4a6956ac7980201f204a272cc29e[m
+Author: tapfer-abdullah <tapfer.abdullah@gmail.com>
+Date:   Wed Sep 6 00:27:32 2023 +0600
+
+    upload image page desing change
+
+[33mcommit c4c0c9154e15f3269cde3bf60ff729a5dfe48fbe[m
+Merge: 43a515f eff7257
+Author: unknown <sihabuddinmolla11@gmail.com>
+Date:   Tue Sep 5 20:21:54 2023 +0600
+
+    Merge branch 'development' of https://github.com/atikur-24/medicare-point-client into SihabMolla
+
+[33mcommit 43a515fb5fddf96be09dda83eaa66ab0b22b2be3[m
+Author: unknown <sihabuddinmolla11@gmail.com>
+Date:   Tue Sep 5 20:21:29 2023 +0600
+
+    pull commit
+
+[33mcommit eff725720d4245e127d23fac3ada56f01d47c693[m
+Merge: ac8867d d5e56fb
+Author: Abdullah Al Masud <abdullah149081@hotmail.com>
+Date:   Tue Sep 5 19:56:41 2023 +0600
+
+    Merge pull request #188 from atikur-24/masud
+    
+    Masud
+
+[33mcommit d5e56fba3c08e630af79a1e6e9847e78d3b5f820[m
+Merge: 41ab4bc ac8867d
+Author: Abdullah149081 <masudmd425@gmail.com>
+Date:   Tue Sep 5 19:54:46 2023 +0600
+
+    Merge branch 'development' of https://github.com/atikur-24/medicare-point-client into masud
+
+[33mcommit 41ab4bcd2c45e77bc9b667fdda8d15b1415a3263[m
+Author: Abdullah149081 <masudmd425@gmail.com>
+Date:   Tue Sep 5 19:54:34 2023 +0600
+
+    change button lab test page
+
+[33mcommit 7deb7f8a1178769d6df65b00e6dd98317cf30714[m
+Author: Abdullah149081 <masudmd425@gmail.com>
+Date:   Tue Sep 5 19:34:50 2023 +0600
+
+    lab checkout page date fix
+
+[33mcommit ac8867dbea084a512765672235785422597089a4[m
+Merge: e967477 535e7f0
+Author: Abdullah Al Mamun <121846138+tapfer-abdullah@users.noreply.github.com>
+Date:   Tue Sep 5 19:28:31 2023 +0600
+
+    Merge pull request #187 from atikur-24/Mamun
+    
+    Mamun
+
+[33mcommit 535e7f02f5f1a69d52fe15e01b91209fa31f8638[m
+Merge: fbafa71 e967477
+Author: tapfer-abdullah <tapfer.abdullah@gmail.com>
+Date:   Tue Sep 5 19:20:22 2023 +0600
+
+    Merge branch 'development' of https://github.com/atikur-24/medicare-point-client into Mamun
+
+[33mcommit fbafa710f2a11bbf482fc4a338d77986e338ec2e[m
+Author: tapfer-abdullah <tapfer.abdullah@gmail.com>
+Date:   Tue Sep 5 19:20:08 2023 +0600
+
+    image add option done
+
+[33mcommit e9674770f4edc4d7b299a065cb2bbcf0e9a7b945[m
+Merge: f4af467 df89036
+Author: Abdullah Al Masud <abdullah149081@hotmail.com>
+Date:   Tue Sep 5 18:57:48 2023 +0600
+
+    Merge pull request #186 from atikur-24/masud
+    
+    Masud
+
+[33mcommit df89036f132f76418c9c854221c4c151891c2281[m
+Author: Abdullah149081 <masudmd425@gmail.com>
+Date:   Tue Sep 5 18:56:25 2023 +0600
+
+    lab order conditional
+
+[33mcommit 910e715bbed915cad7a2ae18ea5b6cef2e533d34[m
+Merge: 5216570 f4af467
+Author: Abdullah149081 <masudmd425@gmail.com>
+Date:   Tue Sep 5 18:40:44 2023 +0600
+
+    Merge branch 'development' of https://github.com/atikur-24/medicare-point-client into masud
+
+[33mcommit 52165706b42c21eb04361be59553de435105a3
