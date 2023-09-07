@@ -93,7 +93,7 @@ const HealthTips = () => {
       </div>
       <div className="text-center mt-4">
         <ReactPaginate
-          className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  mb-5 align-middle"
+          className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
           activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
           breakLabel="..."
           nextLabel="Next"

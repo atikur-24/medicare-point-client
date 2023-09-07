@@ -30,7 +30,7 @@ export default {
       "slate-6": "#475569",
       "slate-7": "#475569",
       "my-pink": "#eb3a7b",
-      "red-400": "#f47779",
+      "red-400": "#f87171",
       "red-500": "#ef4444",
       "yellow-500": "#fbb614",
     },
