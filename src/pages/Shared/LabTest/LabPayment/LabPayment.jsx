@@ -118,7 +118,7 @@ const LabPayment = () => {
                       onChange={(date) => setStartDate(date)}
                       showTimeSelect
                       filterTime={filterPassedTime}
-                      dateFormat="MM-dd-yyy , h:mm aa"
+                      dateFormat="MMMM d, yyyy h:mm aa"
                       includeTimes={[
                         setHours(setMinutes(new Date(), 0), 9),
                         setHours(setMinutes(new Date(), 30), 9),
