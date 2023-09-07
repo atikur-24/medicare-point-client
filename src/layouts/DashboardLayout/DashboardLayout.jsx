@@ -18,8 +18,10 @@ import DashBoardNavbar from "../../pages/Dashboard/DashBoardNavbar/DashBoardNavb
 import "./DashboardLayout.css";
 
 import { AuthContext } from "../../contexts/AuthProvider";
+import Notification from "../../pages/Dashboard/Dashboard/Notification/Notification";
 
 const DashboardLayout = () => {
+  const [showNotification, setShowNotification] = useState(false);
   const { role } = useContext(AuthContext);
   const [isUser, setUser] = useState(false);
   const [isPharmacist, setPharmacist] = useState(false);
@@ -314,9 +316,10 @@ const DashboardLayout = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">
+      <div className="drawer-content relative">
         {/* Page content here */}
-        <DashBoardNavbar />
+        <DashBoardNavbar setShowNotification={setShowNotification} showNotification={showNotification} />
+        {showNotification && <Notification />}
         <Outlet />
         <label htmlFor="my-drawer-2" className="toggle-dashboard-btn drawer-button lg:hidden">
           <AiOutlineBars className="text-lg cursor-pointer" />
