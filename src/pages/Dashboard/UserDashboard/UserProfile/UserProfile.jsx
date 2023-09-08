@@ -1,12 +1,10 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const UserProfile = () => {
   const [currentUserData, setCurrentUserData] = useState({});
-  console.log(currentUserData);
   const { user } = useContext(AuthContext); // Access the user object from the context
   useEffect(() => {
     axios.get("http://localhost:5000/users").then((res) => {
@@ -42,15 +40,6 @@ const UserProfile = () => {
                 <p>Job Title: {currentUserData.title ? currentUserData.title : "N/A"} </p>
               </div>
             </div>
-            {/* <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
-              <div>
-                <h3 className="text-lg font-semibold mb-1">Current Address</h3>
-                <p>Current Division: {currentUserData.currentdivision ? currentUserData.currentdivision : "N/A"}</p>
-                <p>Current District: {currentUserData.currentdistrict ? currentUserData.currentdistrict : "N/A"}</p>
-                <p>Post Offiice: {currentUserData.currentpostoffice ? currentUserData.currentpostoffice : "N/A"} </p>
-                <p>Post Code: {currentUserData.currentpostcode ? currentUserData.currentpostcode : "N/A"} </p>
-              </div>
-            </div> */}
             <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
               <div>
                 <h3 className="text-lg font-semibold mb-1"> Address</h3>
