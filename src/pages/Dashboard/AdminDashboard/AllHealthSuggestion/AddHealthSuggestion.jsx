@@ -49,6 +49,10 @@ const AddHealthSuggestion = () => {
               <label className="text-sm font-semibold">Image</label>
               <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered file-input-accent w-full" />
             </div>
+            <div>
+              <label className="text-sm font-semibold">Image</label>
+              <input type="text" {...register("image")} className="input input-bordered w-full" />
+            </div>
             {/* Repeat for other fields */}
             <div className="grid grid-cols-2 gap-2">
               <div>
