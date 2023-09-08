@@ -17,7 +17,6 @@ const CheckouForm = () => {
     setCurrentUserData(allcurrentUserData);
     toast.success("Information Fill up Success", { position: "top-center", theme: "colored", autoClose: 3000, pauseOnHover: false });
   };
-  console.log(currentUserData);
   const { user } = useContext(AuthContext); // Access the user object from the context
   useEffect(() => {
     axios.get("http://localhost:5000/users").then((res) => {
