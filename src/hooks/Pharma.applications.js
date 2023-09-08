@@ -44,7 +44,6 @@ export const DeleteApplication = (id) => {
   }).then((result) => {
     if (result.isConfirmed) {
       axios.delete(`http://localhost:5000/deleteRApplication/${id}`).then((res) => {
-        console.log(res);
         if (res.data.deleteCount > 0) {
           Swal.fire("Deleted!", "Your file has been deleted.", "success");
         }
