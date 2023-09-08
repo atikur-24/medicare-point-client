@@ -214,27 +214,6 @@ const DashboardLayout = () => {
         </ul>
       </li>
 
-      <li className="dashboard-link flex">
-        <NavLink to="/dashboard/manage-all-doctors" onClick={() => setDoctor(!doctor)} className="dashboard-link flex">
-          <FaUserMd className="dashboard-icon" />
-          <button type="button">Doctors</button>
-          <MdKeyboardArrowDown className={`${doctor ? "hidden" : "block"} dashboard-icon`} />
-          <MdKeyboardArrowUp className={`${doctor ? "block" : "hidden"} dashboard-icon`} />
-        </NavLink>
-        <ul className={`${doctor ? "block" : "hidden"}`}>
-          <li>
-            <NavLink to="/dashboard/manage-all-doctors" className="">
-              All Doctors
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/add-doctor" className="">
-              Add a doctor
-            </NavLink>
-          </li>
-        </ul>
-      </li>
-
       {/* To do  */}
       <li className="dashboard-link flex">
         <NavLink to="/dashboard/add-blog" onClick={toggleDropdown3} className="dashboard-link flex cursor-pointer">
@@ -255,12 +234,6 @@ const DashboardLayout = () => {
           <li>
             <NavLink to="/dashboard/manage-health-articles">Manage Health Articles</NavLink>
           </li>
-          {/* <li>
-            <NavLink to="/dashboard/add-interviews">Add Interviews</NavLink>
-          </li> */}
-          {/* <li>
-            <NavLink to="/dashboard/manage-interviews">Manage Interviews</NavLink>
-          </li> */}
         </ul>
       </li>
 
