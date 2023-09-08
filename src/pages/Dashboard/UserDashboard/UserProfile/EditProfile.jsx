@@ -13,6 +13,7 @@ const EditProfile = () => {
     gender: "",
     company: "",
     title: "",
+    image: "",
     // currentdivision: "",
     // currentdistrict: "",
     // currentpostoffice: "",
@@ -110,6 +111,10 @@ const EditProfile = () => {
                 <label className="text-sm font-semibold">Title:</label>
                 <input type="text" name="title" className="input input-bordered w-full" value={formData.title} onChange={handleChange} />
               </div>
+            </div>
+            <div>
+              <label className="text-sm font-semibold w-full">Image:</label>
+              <input type="text" name="image" className="input input-bordered w-full" value={formData.image} onChange={handleChange} />
             </div>
             {/* <div>
               <h1 className="text 3xl font-semibold">Current Address</h1>
