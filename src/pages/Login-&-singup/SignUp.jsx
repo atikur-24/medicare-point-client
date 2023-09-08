@@ -17,7 +17,7 @@ const SignUp = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
-  const { createUser, updateUserProfile, loading, setLoading } = useAuth(AuthContext);
+  const { createUser, updateUserProfile, loading, setLoading, emailVerifacation } = useAuth(AuthContext);
   let from = location.state?.from?.pathname || "/";
 
   const navigate = useNavigate();
@@ -50,6 +50,9 @@ const SignUp = () => {
         setError("");
         createUser(data?.email, data?.password)
           .then((result) => {
+            emailVerifacation(result?.user).then(() => {
+              // console.log("verifyed");
+            });
             updateUserProfile(data?.name, imageUrl)
               .then(() => {
                 setError("");
