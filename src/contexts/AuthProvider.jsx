@@ -11,6 +11,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useMemo, useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchUserByEmail } from "../Features/AllUsers/userByEmail";
 import { app } from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
@@ -20,6 +22,7 @@ const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [userInfo, setUserInfo] = useState({});
   const [loading, setLoading] = useState(true);
   const [role, setRole] = useState("");
 
@@ -66,17 +69,15 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  //   const authInfo = {
-  //     user,
-  //     loading,
-  //     setLoading,
-  //     createUser,
-  //     signIn,
-  //     signInWithGoogle,
-  //     resetPassword,
-  //     logOut,
-  //     updateUserProfile,
-  //   };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (!loading) {
+      dispatch(fetchUserByEmail(user?.email || "")).then((res) => {
+        setRole(res?.payload?.role);
+        setUserInfo(res?.payload);
+      });
+    }
+  }, [dispatch, user?.email]);
 
   const authInfo = useMemo(
     () => ({
@@ -91,6 +92,7 @@ const AuthProvider = ({ children }) => {
       updateUserProfile,
       setRole,
       role,
+      userInfo,
     }),
     [loading, user, role]
   );
