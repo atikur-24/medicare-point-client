@@ -51,6 +51,7 @@ const CheckouForm = () => {
   }
 
   const saveMoney = subTotal - totalPrice;
+  const allTotal = totalPrice + 75;
 
   const {
     register,
@@ -278,11 +279,18 @@ const CheckouForm = () => {
                   <TbCurrencyTaka /> {saveMoney.toFixed(2)}
                 </h4>
               </div>
+              <div className="flex justify-between items-center px-14 font-semibold mt-2">
+                <h4>Shipping Charge: </h4>
+                <h4 className="flex items-center">
+                  <TbCurrencyTaka /> 75
+                </h4>
+              </div>
               <hr className=" border-gray-3 my-2" />
               <div className="flex justify-between items-center px-14 text-lg font-bold mt-2">
                 <h4>Total Price: </h4>
                 <h4 className="flex items-center">
                   <TbCurrencyTaka /> {totalPrice.toFixed(2)}
+                  <TbCurrencyTaka /> {allTotal.toFixed(2)}
                 </h4>
               </div>
             </div>
