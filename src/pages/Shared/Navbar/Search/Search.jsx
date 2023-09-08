@@ -11,14 +11,12 @@ const Search = () => {
   const [medicines, setMedicines] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/medicines?name=${search}`)
+    fetch(`http://localhost:5000/searchMedicinesByName?name=${search}`)
       .then((res) => res.json())
       .then((data) => {
         setMedicines(data);
       });
   }, [search]);
-
-  // console.log(medicines);
 
   const handleSearch = (e) => {
     const searchItem = e.target.value;
@@ -28,7 +26,6 @@ const Search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     e.target.reset();
-    // console.log(e.target.searchField.value);
   };
 
   return (

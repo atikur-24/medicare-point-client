@@ -208,6 +208,7 @@ const UpdateMedicine = () => {
             <input
               required
               min={0}
+              max={100}
               placeholder="Enter discount"
               type="number"
               {...register("discount")}

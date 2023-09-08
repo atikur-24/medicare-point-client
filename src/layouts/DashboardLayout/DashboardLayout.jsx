@@ -1,4 +1,5 @@
 /* eslint-disable no-nested-ternary */
+import { useContext, useEffect, useState } from "react";
 import { AiFillHome, AiOutlineBars } from "react-icons/ai";
 import { BiSolidUser } from "react-icons/bi";
 import { BsFillCartPlusFill } from "react-icons/bs";
@@ -6,35 +7,32 @@ import { FaUserMd, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
 import { MdAddShoppingCart, MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
-
 import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
-
 import { RxCross1 } from "react-icons/rx";
-
-import { useContext, useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../../assets/Logo/logo-point.svg";
+import Loader from "../../components/Loader";
+import { AuthContext } from "../../contexts/AuthProvider";
 import DashBoardNavbar from "../../pages/Dashboard/DashBoardNavbar/DashBoardNavbar";
+import Notification from "../../pages/Dashboard/Dashboard/Notification/Notification";
 import "./DashboardLayout.css";
 
-import { AuthContext } from "../../contexts/AuthProvider";
-
 const DashboardLayout = () => {
+  const [showNotification, setShowNotification] = useState(false);
   const { role } = useContext(AuthContext);
   const [isUser, setUser] = useState(false);
   const [isPharmacist, setPharmacist] = useState(false);
   const [isAdmin, setAdmin] = useState(false);
 
   useEffect(() => {
-    if (role === "User") {
+    if (role === "user") {
       setUser(true);
     } else if (role === "Pharmacist") {
       setPharmacist(true);
-    } else if (role === "Admin") {
+    } else if (role === "admin") {
       setAdmin(true);
     }
-  }, []);
-  // console.log(role);
+  }, [role]);
 
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -56,6 +54,7 @@ const DashboardLayout = () => {
   const [doctor, setDoctor] = useState(false);
   const [labtest, setLabtest] = useState(false);
   const [medicineBtn, setMedicineBtn] = useState(false);
+
   // console.log(doctor);
   const userLinks = (
     <>
@@ -311,12 +310,17 @@ const DashboardLayout = () => {
     </>
   );
 
+  if (!role) {
+    return <Loader />;
+  }
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">
+      <div className="drawer-content relative">
         {/* Page content here */}
-        <DashBoardNavbar />
+        <DashBoardNavbar setShowNotification={setShowNotification} showNotification={showNotification} />
+        {showNotification && <Notification />}
         <Outlet />
         <label htmlFor="my-drawer-2" className="toggle-dashboard-btn drawer-button lg:hidden">
           <AiOutlineBars className="text-lg cursor-pointer" />

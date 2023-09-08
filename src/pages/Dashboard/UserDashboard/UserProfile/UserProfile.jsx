@@ -42,12 +42,22 @@ const UserProfile = () => {
                 <p>Job Title: {currentUserData.title ? currentUserData.title : "N/A"} </p>
               </div>
             </div>
+            {/* <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Current Address</h3>
+                <p>Current Division: {currentUserData.currentdivision ? currentUserData.currentdivision : "N/A"}</p>
+                <p>Current District: {currentUserData.currentdistrict ? currentUserData.currentdistrict : "N/A"}</p>
+                <p>Post Offiice: {currentUserData.currentpostoffice ? currentUserData.currentpostoffice : "N/A"} </p>
+                <p>Post Code: {currentUserData.currentpostcode ? currentUserData.currentpostcode : "N/A"} </p>
+              </div>
+            </div> */}
             <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
               <div>
-                <h3 className="text-lg font-semibold mb-1">Location</h3>
-                <p>Current Location: {currentUserData.currentlocation ? currentUserData.currentlocation : "N/A"}</p>
-                <p>Hometown: {currentUserData.hometown ? currentUserData.hometown : "N/A"}</p>
-                <p>Post Offiice: {currentUserData.po ? currentUserData.po : "N/A"} </p>
+                <h3 className="text-lg font-semibold mb-1"> Address</h3>
+                <p>Division: {currentUserData.division ? currentUserData.division : "N/A"}</p>
+                <p>District: {currentUserData.district ? currentUserData.district : "N/A"}</p>
+                <p>Detail Area: {currentUserData.area ? currentUserData.area : "N/A"}</p>
+                <p>Post Offiice: {currentUserData.postoffice ? currentUserData.postoffice : "N/A"} </p>
                 <p>Post Code: {currentUserData.postcode ? currentUserData.postcode : "N/A"} </p>
               </div>
             </div>
