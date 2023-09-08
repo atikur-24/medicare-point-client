@@ -61,7 +61,6 @@ const CheckouForm = () => {
   } = useForm();
   const onSubmit = (data, event) => {
     event.preventDefault();
-    console.log(data);
     const paymentDetails = { ...data, totalPayment: parseFloat(totalPrice.toFixed(2)) };
 
     dispatch(sslPaymentApi({ paymentDetails, cart }));
@@ -197,7 +196,7 @@ const CheckouForm = () => {
                     defaultValue={currentUserData?.division}
                     className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
                   >
-                    <option value="">Select Your Division Name</option>
+                    <option value={currentUserData ? currentUserData.division : ""}>{currentUserData ? currentUserData.division : "Select Your Division Name"}</option>
                     {divisions.map((division, index) => (
                       <option key={index} value={division}>
                         {division}
@@ -217,7 +216,7 @@ const CheckouForm = () => {
                     defaultValue={currentUserData?.district}
                     className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
                   >
-                    <option value="">Select Your District Name</option>
+                    <option value={currentUserData ? currentUserData.district : ""}>{currentUserData ? currentUserData.district : "Select Your Division Name"}</option>
                     {districts.map((district, index) => (
                       <option key={index} value={district}>
                         {district}
