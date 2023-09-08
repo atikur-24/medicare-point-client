@@ -69,22 +69,6 @@ const DashboardLayout = () => {
           <BiSolidUser className="dashboard-icon" /> User Profile
         </NavLink>
       </li>
-      <li className="dashboard-link flex">
-        <div onClick={toggleDropdown} className="dashboard-link flex cursor-pointer">
-          <BsFillCartPlusFill className="dashboard-icon" />
-          <button type="button">View Carts</button>
-          <MdKeyboardArrowDown className={`${showDropdown ? "hidden" : "block"} dashboard-icon`} />
-          <MdKeyboardArrowUp className={`${showDropdown ? "block" : "hidden"} dashboard-icon`} />
-        </div>
-        <ul className={`${showDropdown ? "block" : "hidden"}`}>
-          <li>
-            <NavLink to="/dashboard/medicine-cart">Medicine Cart</NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/lab-cart">Lab Cart</NavLink>
-          </li>
-        </ul>
-      </li>
       <li>
         <NavLink to="/dashboard/booked-lab-tests" className="dashboard-link">
           <HiClipboardList className="dashboard-icon" /> Booked lab tests
