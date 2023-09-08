@@ -26,16 +26,13 @@ const MedicineCartItem = ({ item, refetch }) => {
       quantity: newQuan,
     };
     axios.patch(`http://localhost:5000/update-quantity/${_id}`, newQuantity).then(() => {
-      // console.log(res.data);
       refetch();
     });
   };
 
-  // console.log(item);
-
   return (
     <div className="flex items-center justify-between border-b border-gray-3 py-3">
-      <div className="flex items-center gap-16">
+      <div className="flex items-center gap-3 lg:gap-16">
         <div>
           <button onClick={handleRemoveToCart} type="button" className="bg-lite rounded-full py-1 px-3">
             <span className="text-red-500">X</span>
@@ -59,7 +56,7 @@ const MedicineCartItem = ({ item, refetch }) => {
         </div>
       </div>
       <div className="space-y-4">
-        <div className="border border-gray-3 rounded-full w-fit py-3 px-5 space-x-5">
+        <div className="border border-gray-3 rounded-full w-fit py-3 px-5 space-x-5 flex">
           <button type="button" disabled={count <= 1} onClick={() => handelQuantity(count - 1)} className="cursor-pointer">
             <HiMinus />
           </button>

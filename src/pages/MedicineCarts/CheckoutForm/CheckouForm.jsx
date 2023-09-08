@@ -64,6 +64,9 @@ const CheckouForm = () => {
     const paymentDetails = { ...data, totalPayment: parseFloat(totalPrice.toFixed(2)) };
 
     dispatch(sslPaymentApi({ paymentDetails, cart }));
+
+    // console.log(paymentDetails);
+    // reset();
   };
 
   // console.log(cart);
@@ -286,6 +289,7 @@ const CheckouForm = () => {
               <div className="flex justify-between items-center px-14 text-lg font-bold mt-2">
                 <h4>Total Price: </h4>
                 <h4 className="flex items-center">
+                  <TbCurrencyTaka /> {totalPrice.toFixed(2)}
                   <TbCurrencyTaka /> {allTotal.toFixed(2)}
                 </h4>
               </div>
