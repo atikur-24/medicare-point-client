@@ -176,12 +176,6 @@ const DashboardLayout = () => {
           <span>All Medicines</span>
         </NavLink>
       </li>
-      {/* <li>
-        <NavLink to="/dashboard/health-suggestions" className="dashboard-link">
-          <RiFileList3Line className="dashboard-icon" />
-          <span>Add Health Tips</span>
-        </NavLink>
-      </li> */}
       <li className="dashboard-link flex">
         <NavLink to="/dashboard/edit-health-tips" onClick={toggleDropdown2} className="dashboard-link flex cursor-pointer">
           <RiFileList3Line className="dashboard-icon" />
