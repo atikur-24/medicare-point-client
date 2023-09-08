@@ -47,7 +47,6 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 
 import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArticles";
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
-import Notification from "../pages/Dashboard/Dashboard/Notification/Notification";
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
 import RewardPoints from "../pages/Dashboard/UserDashboard/RewardPoints/RewardPoints";
@@ -179,10 +178,6 @@ const router = createBrowserRouter([
         path: "images",
         element: <UploadImages />,
       },
-      // {
-      //   path: "notification",
-      //   element: <Notification />,
-      // },
       // user dashboard
       {
         path: "profile",
