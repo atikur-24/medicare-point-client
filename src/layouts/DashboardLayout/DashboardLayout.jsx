@@ -1,40 +1,38 @@
 /* eslint-disable no-nested-ternary */
-import { AiFillHome, AiOutlineBars, AiOutlineStar } from "react-icons/ai";
+import { useContext, useEffect, useState } from "react";
+import { AiFillHome, AiOutlineBars } from "react-icons/ai";
 import { BiSolidUser } from "react-icons/bi";
-import { BsFillCartPlusFill } from "react-icons/bs";
+import { BsFillCartPlusFill, BsImage } from "react-icons/bs";
 import { FaUserMd, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
-import { MdAddShoppingCart, MdKeyboardArrowDown, MdKeyboardArrowUp, MdNotificationAdd, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
-
-import { RiFileList3Fill, RiFileList3Line, RiMessengerFill, RiUserStarFill } from "react-icons/ri";
-
+import { MdAddShoppingCart, MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
+import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
-
-import { useContext, useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../../assets/Logo/logo-point.svg";
+import Loader from "../../components/Loader";
+import { AuthContext } from "../../contexts/AuthProvider";
 import DashBoardNavbar from "../../pages/Dashboard/DashBoardNavbar/DashBoardNavbar";
+import Notification from "../../pages/Dashboard/Dashboard/Notification/Notification";
 import "./DashboardLayout.css";
 
-import { AuthContext } from "../../contexts/AuthProvider";
-
 const DashboardLayout = () => {
+  const [showNotification, setShowNotification] = useState(false);
   const { role } = useContext(AuthContext);
   const [isUser, setUser] = useState(false);
   const [isPharmacist, setPharmacist] = useState(false);
   const [isAdmin, setAdmin] = useState(false);
 
   useEffect(() => {
-    if (role === "User") {
+    if (role === "user") {
       setUser(true);
     } else if (role === "Pharmacist") {
       setPharmacist(true);
-    } else if (role === "Admin") {
+    } else if (role === "admin") {
       setAdmin(true);
     }
-  }, []);
-  // console.log(role);
+  }, [role]);
 
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -53,9 +51,9 @@ const DashboardLayout = () => {
     setShowDropdown3(!showDropdown3);
   };
 
-  const [doctor, setDoctor] = useState(false);
   const [labtest, setLabtest] = useState(false);
   const [medicineBtn, setMedicineBtn] = useState(false);
+
   // console.log(doctor);
   const userLinks = (
     <>
@@ -70,22 +68,6 @@ const DashboardLayout = () => {
           <BiSolidUser className="dashboard-icon" /> User Profile
         </NavLink>
       </li>
-      <li className="dashboard-link flex">
-        <div onClick={toggleDropdown} className="dashboard-link flex cursor-pointer">
-          <BsFillCartPlusFill className="dashboard-icon" />
-          <button type="button">View Carts</button>
-          <MdKeyboardArrowDown className={`${showDropdown ? "hidden" : "block"} dashboard-icon`} />
-          <MdKeyboardArrowUp className={`${showDropdown ? "block" : "hidden"} dashboard-icon`} />
-        </div>
-        <ul className={`${showDropdown ? "block" : "hidden"}`}>
-          <li>
-            <NavLink to="/dashboard/medicine-cart">Medicine Cart</NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/lab-cart">Lab Cart</NavLink>
-          </li>
-        </ul>
-      </li>
       <li>
         <NavLink to="/dashboard/booked-lab-tests" className="dashboard-link">
           <HiClipboardList className="dashboard-icon" /> Booked lab tests
@@ -96,33 +78,6 @@ const DashboardLayout = () => {
           <MdOutlineWorkHistory className="dashboard-icon" /> Order History
         </NavLink>
       </li>
-      {/* <li className="dashboard-link flex">
-        <div onClick={toggleDropdown2} className="dashboard-link flex cursor-pointer">
-          <BsFillCartPlusFill className="dashboard-icon" />
-          <button type="button">Order History</button>
-          <MdKeyboardArrowDown className={`${showDropdown2 ? "hidden" : "block"} dashboard-icon`} />
-          <MdKeyboardArrowUp className={`${showDropdown2 ? "block" : "hidden"} dashboard-icon`} />
-        </div>
-        <ul className={`${showDropdown2 ? "block" : "hidden"}`}>
-          <li>
-            <NavLink to="/dashboard/active-order">Active Order</NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/delivered-order">Delivered Order</NavLink>
-          </li>
-        </ul>
-      </li> */}
-      {/* <li>
-        <NavLink to="/dashboard/suggestion-reminders" className="dashboard-link">
-          <MdNotificationAdd className="dashboard-icon" /> Suggestions & Reminders
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/reward-points" className="dashboard-link">
-          <AiOutlineStar className="dashboard-icon" />
-          Reward Points
-        </NavLink>
-      </li> */}
       <li>
         <NavLink to="/dashboard/pharmacyRegistration" className="dashboard-link">
           <MdOutlineLibraryBooks className="dashboard-icon" /> Pharmacy Registration Form
@@ -137,6 +92,12 @@ const DashboardLayout = () => {
         <NavLink to="/dashboard" className="dashboard-link">
           <AiFillHome className="dashboard-icon" />
           <span>Pharmacist Dashboard</span>
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/dashboard/images" className="dashboard-link">
+          <BsImage className="dashboard-icon" />
+          <span>Image Gallery</span>
         </NavLink>
       </li>
       <li>
@@ -191,6 +152,12 @@ const DashboardLayout = () => {
         </NavLink>
       </li>
       <li>
+        <NavLink to="/dashboard/images" className="dashboard-link">
+          <BsImage className="dashboard-icon" />
+          <span>Image Gallery</span>
+        </NavLink>
+      </li>
+      <li>
         <NavLink to="/dashboard/all-users" className="dashboard-link">
           <FaUsers className="dashboard-icon" />
           <span>All Users</span>
@@ -208,12 +175,6 @@ const DashboardLayout = () => {
           <span>All Medicines</span>
         </NavLink>
       </li>
-      {/* <li>
-        <NavLink to="/dashboard/health-suggestions" className="dashboard-link">
-          <RiFileList3Line className="dashboard-icon" />
-          <span>Add Health Tips</span>
-        </NavLink>
-      </li> */}
       <li className="dashboard-link flex">
         <NavLink to="/dashboard/edit-health-tips" onClick={toggleDropdown2} className="dashboard-link flex cursor-pointer">
           <RiFileList3Line className="dashboard-icon" />
@@ -252,27 +213,6 @@ const DashboardLayout = () => {
         </ul>
       </li>
 
-      <li className="dashboard-link flex">
-        <NavLink to="/dashboard/manage-all-doctors" onClick={() => setDoctor(!doctor)} className="dashboard-link flex">
-          <FaUserMd className="dashboard-icon" />
-          <button type="button">Doctors</button>
-          <MdKeyboardArrowDown className={`${doctor ? "hidden" : "block"} dashboard-icon`} />
-          <MdKeyboardArrowUp className={`${doctor ? "block" : "hidden"} dashboard-icon`} />
-        </NavLink>
-        <ul className={`${doctor ? "block" : "hidden"}`}>
-          <li>
-            <NavLink to="/dashboard/manage-all-doctors" className="">
-              All Doctors
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/add-doctor" className="">
-              Add a doctor
-            </NavLink>
-          </li>
-        </ul>
-      </li>
-
       {/* To do  */}
       <li className="dashboard-link flex">
         <NavLink to="/dashboard/add-blog" onClick={toggleDropdown3} className="dashboard-link flex cursor-pointer">
@@ -293,12 +233,6 @@ const DashboardLayout = () => {
           <li>
             <NavLink to="/dashboard/manage-health-articles">Manage Health Articles</NavLink>
           </li>
-          {/* <li>
-            <NavLink to="/dashboard/add-interviews">Add Interviews</NavLink>
-          </li> */}
-          {/* <li>
-            <NavLink to="/dashboard/manage-interviews">Manage Interviews</NavLink>
-          </li> */}
         </ul>
       </li>
 
@@ -311,12 +245,17 @@ const DashboardLayout = () => {
     </>
   );
 
+  if (!role) {
+    return <Loader />;
+  }
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">
+      <div className="drawer-content relative">
         {/* Page content here */}
-        <DashBoardNavbar />
+        <DashBoardNavbar setShowNotification={setShowNotification} showNotification={showNotification} />
+        {showNotification && <Notification />}
         <Outlet />
         <label htmlFor="my-drawer-2" className="toggle-dashboard-btn drawer-button lg:hidden">
           <AiOutlineBars className="text-lg cursor-pointer" />

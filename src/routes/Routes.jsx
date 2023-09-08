@@ -47,12 +47,18 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 
 import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArticles";
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
+import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
+import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
+import RewardPoints from "../pages/Dashboard/UserDashboard/RewardPoints/RewardPoints";
+import EditProfile from "../pages/Dashboard/UserDashboard/UserProfile/EditProfile";
 import Faqs from "../pages/Faqs/Faqs";
 import LabBook from "../pages/Shared/LabTest/LabBook/LabBook";
 import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
-import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
+import Privacy from "../pages/TermsAndConditions/Privacy";
+import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +83,14 @@ const router = createBrowserRouter([
         element: <Blogs />,
       },
       {
+        path: "terms",
+        element: <TermsAndConditions />,
+      },
+      {
+        path: "terms/privacy",
+        element: <Privacy />,
+      },
+      {
         path: "/faqs",
         element: <Faqs />,
       },
@@ -96,7 +110,11 @@ const router = createBrowserRouter([
       },
       {
         path: "labPayment",
-        element: <LabPayment />,
+        element: (
+          <PrivateRoute>
+            <LabPayment />
+          </PrivateRoute>
+        ),
       },
       { path: "/labBook/:id", element: <LabBook />, loader: ({ params }) => fetch(`http://localhost:5000/labAllItems/${params?.id}`) },
       {
@@ -152,14 +170,23 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <DashboardLayout />,
     children: [
-      // user dashboard
       {
         path: "",
         element: <Dashboard />,
       },
       {
+        path: "images",
+        element: <UploadImages />,
+      },
+      // user dashboard
+      {
         path: "profile",
         element: <UserProfile />,
+      },
+      {
+        path: "/dashboard/edit-profile/:email",
+        element: <EditProfile />,
+        loader: ({ params }) => fetch(`http://localhost:5000/users/${params?.email}`),
       },
       {
         path: "pharmacyRegistration",
@@ -197,6 +224,7 @@ const router = createBrowserRouter([
       },
       {
         path: "reward-points",
+        element: <RewardPoints />,
       },
 
       // pharmacists dashboard
@@ -209,8 +237,9 @@ const router = createBrowserRouter([
         element: <AllMedicinesByPharmacist />,
       },
       {
-        path: "update-medicine",
+        path: "update-medicine/:id",
         element: <UpdateMedicine />,
+        loader: ({ params }) => fetch(`http://localhost:5000/medicines/details/${params.id}`),
       },
       {
         path: "add-new-medicine",

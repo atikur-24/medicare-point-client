@@ -37,7 +37,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
   useEffect(() => {
     const handelOutsiteClose = (e) => {
       if (!menuRef?.current?.contains(e?.target)) {
-        setIsOpen(false);
+        setIsOpen("-ml-96");
       }
     };
     document.addEventListener("mousedown", handelOutsiteClose);
@@ -78,13 +78,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
                   <MenuItem>Log Out</MenuItem>
                 </button>
                 <Link to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("User")}>
-                  <MenuItem>User</MenuItem>
-                </Link>
-                <Link to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Pharmacist")}>
-                  <MenuItem>Pharmacist</MenuItem>
-                </Link>
-                <Link to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Admin")}>
-                  <MenuItem>Admin</MenuItem>
+                  <MenuItem>My Dashboard</MenuItem>
                 </Link>
               </div>
             ) : (
@@ -102,8 +96,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
       </div>
       <hr className="w-full  shadow-md border border-my-primary" />
 
-      {/* {isOpen && ( */}
-      <div className={`z-50 shadow-2xl bg-white w-[50%] h-full border-2 rounded-lg border-gray-3 absolute top-0 left-0 ${isOpen} transition-all duration-500`} ref={menuRef}>
+      <div className={`z-50 shadow-2xl bg-white w-[70%] h-full border-2 rounded-lg border-gray-3 absolute top-0 left-0 ${isOpen} transition-all duration-500`} ref={menuRef}>
         <div className=" pt-[37px] ">
           <div className=" px-4 flex justify-between items-center mb-5">
             <div>
@@ -124,7 +117,6 @@ const ResponsiveNavbar = ({ menuItems }) => {
           </div>
         </div>
       </div>
-      {/* )} */}
     </div>
   );
 };

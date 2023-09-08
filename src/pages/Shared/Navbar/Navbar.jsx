@@ -15,7 +15,7 @@ import ResponsiveNavbar from "./ResponsiveNavbar/ResponsiveNavbar";
 import Search from "./Search/Search";
 
 const Navbar = () => {
-  const { user, logOut, setRole } = useAuth();
+  const { user, logOut } = useAuth();
   const navigate = useNavigate();
 
   const menuItems = (
@@ -70,7 +70,7 @@ const Navbar = () => {
         });
         navigate("/");
       })
-      .catch(() => { });
+      .catch(() => {});
   };
   return (
     // TODO: bg color
@@ -99,14 +99,8 @@ const Navbar = () => {
                       <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
                         <MenuItem>Log Out</MenuItem>
                       </button>
-                      <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("User")}>
-                        <MenuItem>User</MenuItem>
-                      </NavLink>
-                      <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Pharmacist")}>
-                        <MenuItem>Pharmacist</MenuItem>
-                      </NavLink>
-                      <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Admin")}>
-                        <MenuItem>Admin</MenuItem>
+                      <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
+                        <MenuItem>My Dashboard</MenuItem>
                       </NavLink>
                     </div>
                   ) : (
