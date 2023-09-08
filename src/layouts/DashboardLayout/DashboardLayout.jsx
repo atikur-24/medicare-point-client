@@ -79,33 +79,6 @@ const DashboardLayout = () => {
           <MdOutlineWorkHistory className="dashboard-icon" /> Order History
         </NavLink>
       </li>
-      {/* <li className="dashboard-link flex">
-        <div onClick={toggleDropdown2} className="dashboard-link flex cursor-pointer">
-          <BsFillCartPlusFill className="dashboard-icon" />
-          <button type="button">Order History</button>
-          <MdKeyboardArrowDown className={`${showDropdown2 ? "hidden" : "block"} dashboard-icon`} />
-          <MdKeyboardArrowUp className={`${showDropdown2 ? "block" : "hidden"} dashboard-icon`} />
-        </div>
-        <ul className={`${showDropdown2 ? "block" : "hidden"}`}>
-          <li>
-            <NavLink to="/dashboard/active-order">Active Order</NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/delivered-order">Delivered Order</NavLink>
-          </li>
-        </ul>
-      </li> */}
-      {/* <li>
-        <NavLink to="/dashboard/suggestion-reminders" className="dashboard-link">
-          <MdNotificationAdd className="dashboard-icon" /> Suggestions & Reminders
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/reward-points" className="dashboard-link">
-          <AiOutlineStar className="dashboard-icon" />
-          Reward Points
-        </NavLink>
-      </li> */}
       <li>
         <NavLink to="/dashboard/pharmacyRegistration" className="dashboard-link">
           <MdOutlineLibraryBooks className="dashboard-icon" /> Pharmacy Registration Form
