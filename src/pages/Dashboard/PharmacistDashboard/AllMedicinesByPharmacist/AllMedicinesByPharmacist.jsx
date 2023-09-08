@@ -32,12 +32,14 @@ const AllMedicinesByPharmacist = () => {
       if (result.isConfirmed) {
         axios.delete(`http://localhost:5000/medicines/${_id}`).then((res) => {
           if (res.data.deletedCount > 0) {
-            Swal.fire(
-              "Deleted!",
-              "Your Medicine has been deleted.",
-              "success",
-            );
             refetch();
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Your Medicine has been deleted.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           }
         });
       }

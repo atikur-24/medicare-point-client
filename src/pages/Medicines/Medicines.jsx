@@ -61,7 +61,7 @@ const Medicines = () => {
     console.log(filterData);
   };
 
-  const medicineParpage = 1;
+  const medicineParpage = 9;
   const startIndex = currentPage * medicineParpage;
   const endIndex = startIndex + medicineParpage;
   const PaginationMedicines = medicines.slice(startIndex, endIndex);
