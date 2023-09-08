@@ -12,8 +12,8 @@ import image2 from "../../../assets/Lab/TestPro.png";
 
 const LabPartner = () => {
   return (
-    <div className="my-16 grid md:grid-cols-3 grid-cols-1 md:gap-8">
-      <div className="rounded-lg bg-my-accent w-full h-36 md:h-full flex items-center justify-center text-3xl font-semibold mb-6">Lab Partner</div>
+    <div className="my-contaiiner grid md:grid-cols-3 grid-cols-1 md:gap-8">
+      <div className="rounded-lg bg-my-primary text-white w-full h-36 md:h-full flex items-center justify-center text-3xl font-semibold mb-6">Lab Partner</div>
       <div className="col-span-2">
         <Swiper
           slidesPerView={3}
@@ -28,25 +28,25 @@ const LabPartner = () => {
           <SwiperSlide>
             <div className="py-4 object-cover border border-my-accent rounded-lg text-center space-y-4 h-44">
               <img src={image1} alt="" className="w-20 mx-auto" />
-              <h3 className="text-lg font-medium">HealthLab</h3>
+              <h3 className="text-sm md:text-lg font-medium">HealthLab</h3>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="py-4 object-cover border border-my-accent rounded-lg text-center space-y-4 h-44">
               <img src={image2} alt="" className="w-20 mx-auto" />
-              <h3 className="text-lg font-medium">LifeScan Laboratories</h3>
+              <h3 className="text-sm md:text-lg font-medium">LifeScan Laboratories</h3>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="py-4 object-cover border border-my-accent rounded-lg text-center space-y-4 h-44">
               <img src={image3} alt="" className="w-20 mx-auto" />
-              <h3 className="text-lg font-medium">ProHealth Labs</h3>
+              <h3 className="text-sm md:text-lg font-medium">ProHealth Labs</h3>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="py-4 object-cover border border-my-accent rounded-lg text-center space-y-4 h-44">
               <img src={image1} alt="" className="w-20 mx-auto" />
-              <h3 className="text-lg font-medium">DiagnoTech Solutions</h3>
+              <h3 className="text-sm md:text-lg font-medium">DiagnoTech Solutions</h3>
             </div>
           </SwiperSlide>
         </Swiper>
