@@ -78,7 +78,6 @@ const MedicineCarts = () => {
                 <TbCurrencyTaka /> {subTotal.toFixed(2)}
               </span>
             </h3>
-
             <h3 className="flex justify-between font-semibold">
               Save Amount:
               <span className="flex items-center">

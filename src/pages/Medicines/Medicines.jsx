@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+>>>>>>> 7dffd6317cc75b70705a5fb59972e848893a37b3
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/jsx-wrap-multilines */
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
@@ -56,10 +59,17 @@ const Medicines = () => {
 
   const handelCategoryFilter = (fCategory) => {
     // dispatch(fetchMedicines());
+<<<<<<< HEAD
+    const filterData = medicines.filter((item) => item?.category?.value === fCategory);
+    setMedicines(filterData);
+    setIsopen(fCategory);
+    console.log(filterData);
+=======
     const filterData = allData.filter((item) => item?.category?.value === fCategory);
     setMedicines(filterData);
     setIsopen(fCategory);
     // console.log(filterData);
+>>>>>>> 7dffd6317cc75b70705a5fb59972e848893a37b3
   };
 
   const medicineParpage = 9;
@@ -235,7 +245,11 @@ const Medicines = () => {
 
       <div className={`w-72 bg-white rounded-md lg:hidden absolute top-0 z-30 h-screen ${showFilter} transition-all duration-500`}>
         <div className="flex justify-between items-center">
+<<<<<<< HEAD
+          <h3 className="text-title-color text-xl font-bold tracking-wide py-4 px-6">Categories</h3>
+=======
           <h3 className="text-title-color text-xl font-bold tracking-wide py-4 px-6  ">Categories</h3>
+>>>>>>> 7dffd6317cc75b70705a5fb59972e848893a37b3
           <button onClick={() => setShowFilter("-ml-96")} className="lg:hidden" type="button">
             <RxCross1 className="text-lg font-bold text-my-primary mr-2 btn btn-circle btn-sm p-1" />
           </button>
@@ -246,6 +260,15 @@ const Medicines = () => {
 
       <div className="container mx-auto px-4 lg:px-10 pb-10 md:flex gap-8">
         <div className="w-72 h-fit bg-white rounded-md hidden md:block">
+<<<<<<< HEAD
+          <h3 className="text-title-color text-xl font-bold tracking-wide py-4 px-6">Categories</h3>
+          <hr />
+          <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
+            <Link className="px-6" to="/medicines">
+              All Medicines
+            </Link>
+          </button>
+=======
           <h3 className="text-title-color text-xl font-bold tracking-wide py-4 uppercase font-nunito   px-6">Categories</h3>
           <hr />
           <div onClick={() => setIsopen(null)}>
@@ -255,6 +278,7 @@ const Medicines = () => {
               </Link>
             </button>
           </div>
+>>>>>>> 7dffd6317cc75b70705a5fb59972e848893a37b3
           {filterItems}
         </div>
         {isloading ? (
