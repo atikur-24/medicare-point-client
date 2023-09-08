@@ -2,7 +2,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AiFillHome, AiOutlineBars } from "react-icons/ai";
 import { BiSolidUser } from "react-icons/bi";
-import { BsFillCartPlusFill } from "react-icons/bs";
+import { BsFillCartPlusFill, BsImage } from "react-icons/bs";
 import { FaUserMd, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
@@ -139,6 +139,12 @@ const DashboardLayout = () => {
         </NavLink>
       </li>
       <li>
+        <NavLink to="/dashboard/images" className="dashboard-link">
+          <BsImage className="dashboard-icon" />
+          <span>Image Gallery</span>
+        </NavLink>
+      </li>
+      <li>
         <NavLink to="/dashboard/new-orders" className="dashboard-link">
           <MdAddShoppingCart className="dashboard-icon" />
           <span>New Orders</span>
@@ -187,6 +193,12 @@ const DashboardLayout = () => {
         <NavLink to="/dashboard" className="dashboard-link">
           <AiFillHome className="dashboard-icon" />
           <span>Admin Dashboard</span>
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/dashboard/images" className="dashboard-link">
+          <BsImage className="dashboard-icon" />
+          <span>Image Gallery</span>
         </NavLink>
       </li>
       <li>
