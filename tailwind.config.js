@@ -23,6 +23,7 @@ export default {
       "gray-4": "#7d879c",
       "gray-5": "#64748b",
       "gray-6": "#4b5563",
+      "gray-7": "#374151",
       "my-accent": "#10B6A8",
       "my-primary": "#006F70",
       "slate-1": "#f1f5f9",
