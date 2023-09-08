@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -9,11 +8,9 @@ const UpdateHealthArticles = () => {
   const existingData = useLoaderData();
   const { _id } = existingData;
   const { register, handleSubmit, setValue } = useForm();
-  const dispatch = useDispatch();
 
   const onSubmit = async (data) => {
     delete data._id;
-    // const image = data.image[0];
 
     const formData = new FormData();
     // formData.append("image", image);
