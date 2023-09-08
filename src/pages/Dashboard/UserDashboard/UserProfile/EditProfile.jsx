@@ -13,14 +13,15 @@ const EditProfile = () => {
     gender: "",
     company: "",
     title: "",
-    currentdivision: "",
-    currentdistrict: "",
-    currentpostoffice: "",
-    currentpostcode: "",
-    parmanentdivision: "",
-    parmanentdistrict: "",
-    parmanentpostoffice: "",
-    parmanentpostcode: "",
+    // currentdivision: "",
+    // currentdistrict: "",
+    // currentpostoffice: "",
+    // currentpostcode: "",
+    division: "",
+    district: "",
+    postoffice: "",
+    postcode: "",
+    area: "",
     // Add other fields as needed
   });
 
@@ -110,40 +111,50 @@ const EditProfile = () => {
                 <input type="text" name="title" className="input input-bordered w-full" value={formData.title} onChange={handleChange} />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-2">
-              <div>
-                <label className="text-sm font-semibold">Current Division:</label>
-                <input type="text" name="currentlocation" className="input input-bordered w-full" value={formData.currentdivision} onChange={handleChange} />
+            {/* <div>
+              <h1 className="text 3xl font-semibold">Current Address</h1>
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="text-sm font-semibold">Current Division:</label>
+                  <input type="text" name="currentlocation" className="input input-bordered w-full" value={formData.currentdivision} onChange={handleChange} />
+                </div>
+                <div>
+                  <label className="text-sm font-semibold">Current District:</label>
+                  <input type="text" name="currentlocation" className="input input-bordered w-full" value={formData.currentdistrict} onChange={handleChange} />
+                </div>
+                <div>
+                  <label className="text-sm font-semibold">Current Post Office:</label>
+                  <input type="text" name="po" className="input input-bordered w-full" value={formData.currentpostoffice} onChange={handleChange} />
+                </div>
+                <div>
+                  <label className="text-sm font-semibold">Current Postcode:</label>
+                  <input type="text" name="postcode" className="input input-bordered w-full" value={formData.currentpostcode} onChange={handleChange} />
+                </div>
+              </div>
+            </div> */}
+            <div>
+              <h1 className="text 3xl font-semibold"> Address</h1>
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="text-sm font-semibold"> Division:</label>
+                  <input type="text" name="division" className="input input-bordered w-full" value={formData.division} onChange={handleChange} />
+                </div>
+                <div>
+                  <label className="text-sm font-semibold"> District:</label>
+                  <input type="text" name="district" className="input input-bordered w-full" value={formData.district} onChange={handleChange} />
+                </div>
+                <div>
+                  <label className="text-sm font-semibold"> Post Office:</label>
+                  <input type="text" name="postoffice" className="input input-bordered w-full" value={formData.postoffice} onChange={handleChange} />
+                </div>
+                <div>
+                  <label className="text-sm font-semibold"> Postcode:</label>
+                  <input type="text" name="postcode" className="input input-bordered w-full" value={formData.postcode} onChange={handleChange} />
+                </div>
               </div>
               <div>
-                <label className="text-sm font-semibold">Current District:</label>
-                <input type="text" name="currentlocation" className="input input-bordered w-full" value={formData.currentdistrict} onChange={handleChange} />
-              </div>
-              <div>
-                <label className="text-sm font-semibold">Current Post Office:</label>
-                <input type="text" name="po" className="input input-bordered w-full" value={formData.currentpostoffice} onChange={handleChange} />
-              </div>
-              <div>
-                <label className="text-sm font-semibold">Current Postcode:</label>
-                <input type="text" name="postcode" className="input input-bordered w-full" value={formData.currentpostcode} onChange={handleChange} />
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <div>
-                <label className="text-sm font-semibold">Parmanent Division:</label>
-                <input type="text" name="currentlocation" className="input input-bordered w-full" value={formData.parmanentdivision} onChange={handleChange} />
-              </div>
-              <div>
-                <label className="text-sm font-semibold">Parmanent District:</label>
-                <input type="text" name="currentlocation" className="input input-bordered w-full" value={formData.parmanentdistrict} onChange={handleChange} />
-              </div>
-              <div>
-                <label className="text-sm font-semibold">Parmanent Post Office:</label>
-                <input type="text" name="po" className="input input-bordered w-full" value={formData.parmanentpostoffice} onChange={handleChange} />
-              </div>
-              <div>
-                <label className="text-sm font-semibold">Parmanent Postcode:</label>
-                <input type="text" name="postcode" className="input input-bordered w-full" value={formData.parmanentpostcode} onChange={handleChange} />
+                <label className="text-sm font-semibold w-full">Detail Area:</label>
+                <input type="text" name="area" className="input input-bordered w-full" value={formData.area} onChange={handleChange} />
               </div>
             </div>
 
