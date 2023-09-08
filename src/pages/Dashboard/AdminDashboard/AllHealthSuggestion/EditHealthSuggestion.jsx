@@ -7,14 +7,10 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2"; // Import SweetAlert library
 import { fetchAllHealthTips } from "../../../../Features/HealthTips/allHealthTips";
 import { deleteHealthTipsApi } from "../../../../Features/HealthTips/deleteHealthTips";
-// import { deleteHealthTipsApi } from "../../../../Features/HealthTips/deleteHealthTips";
-// import deleteHealthTips from "../../../../Features/HealthTips/deleteHealthTips";
-// import deleteHealthTips from "../../../../Features/HealthTips/deleteHealthTips";
 
 const EditHealthSuggestion = () => {
   const [healthTips, setHealthTips] = useState([]);
   const { allHealthTips } = useSelector((state) => state.allHealthTips);
-  console.log(allHealthTips);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllHealthTips());
