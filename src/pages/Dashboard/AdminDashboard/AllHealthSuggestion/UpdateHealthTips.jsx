@@ -7,9 +7,7 @@ import Swal from "sweetalert2";
 
 const UpdateHealthTips = () => {
   const existingData = useLoaderData();
-  const { _id } = existingData;
   const { register, handleSubmit, setValue } = useForm();
-  const dispatch = useDispatch();
 
   const onSubmit = async (data) => {
     // const image = data.image[0];
