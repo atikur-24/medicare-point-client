@@ -59,7 +59,9 @@ const CheckouForm = () => {
     formState: { errors },
     reset,
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = (data, event) => {
+    event.preventDefault();
+    console.log(data);
     const paymentDetails = { ...data, totalPayment: parseFloat(totalPrice.toFixed(2)) };
 
     dispatch(sslPaymentApi({ paymentDetails, cart }));
@@ -144,12 +146,12 @@ const CheckouForm = () => {
         <div className="px-10 grid gap-12 grid-cols-1 md:grid-cols-3">
           <div className="w-full md:col-span-2 ">
             <h4 className="text-xl font-bold ">
-              <span className="lg:text-2xl md:text-base font-bold bg-black text-white rounded-full px-1 lg:px-3 py-1">1</span> Please Give you information
+              <span className="text-2xl font-bold bg-black text-white rounded-full px-3 py-1">1</span> Please Give you information
             </h4>
-            <div className="m-1 mt-2 lg:m-3">
+            <div>
               <p>
                 Fill The Boxes From Profile Information
-                <button onClick={setValue} type="button" className="my-btn m-1 mt-2 lg:m-3">
+                <button onClick={setValue} type="button" className="my-btn m-3">
                   Ok
                 </button>
               </p>
@@ -195,7 +197,7 @@ const CheckouForm = () => {
                     defaultValue={currentUserData?.division}
                     className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
                   >
-                    <option value="">{currentUserData ? currentUserData.division : "Select Your Division Name"} </option>
+                    <option value="">Select Your Division Name</option>
                     {divisions.map((division, index) => (
                       <option key={index} value={division}>
                         {division}
@@ -212,10 +214,10 @@ const CheckouForm = () => {
                   <select
                     id="district"
                     {...register("district", { required: true })}
-                    defaultValue=" Select Your District Name"
+                    defaultValue={currentUserData?.district}
                     className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
                   >
-                    <option value="">{currentUserData ? currentUserData.district : " Select Your District Name"}</option>
+                    <option value="">Select Your District Name</option>
                     {districts.map((district, index) => (
                       <option key={index} value={district}>
                         {district}
