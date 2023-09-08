@@ -23,27 +23,27 @@ const Footer = () => {
                 <h2 className="text-xl lg:text-3xl font-bold text-white mt-2 font-bubblegum">MediCare Point </h2>
               </div>
               <p className="lg:w-96 text-white  text-justify">
-                Lorem ipsum dolor sit amet, consectt dipiscing elit esent vestibulum molestie lacus. Aenean nonmy hendrerit mauris. Phasellus porta. Fusce suit varius mi. Cum sociis natoque penatibus
-                et magnis dis parturient montes.
+                Welcome to MediCare Point, your trusted destination for all your pharmaceutical needs. As an online medicine shop, we're dedicated to providing you with a seamless and convenient way
+                to access essential medications and healthcare products from the comfort of your home.
               </p>
             </div>
             <div className="text-white ">
-              <h2 className="text-2xl mb-4  ">services</h2>
+              <h2 className="text-2xl mb-4 uppercase ">Services</h2>
               <ul className="space-y-3  font-semibold  footer-link">
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/">HOME</Link>
                 </li>
                 <li>
-                  <Link to="/">Pages</Link>
+                  <Link to="/medicines" className="capitalize">MEDICINES</Link>
                 </li>
                 <li>
-                  <Link to="/">Team</Link>
+                  <Link to="/lab-test" className="capitalize">LAB TEST</Link>
                 </li>
                 <li>
-                  <Link to="/">Appointment</Link>
+                  <Link to="/healthtips" className="capitalize">HEALTH TIPS</Link>
                 </li>
                 <li>
-                  <Link to="/">Contact</Link>
+                  <Link to="/blogs" className="capitalize">BLOGS</Link>
                 </li>
               </ul>
             </div>
