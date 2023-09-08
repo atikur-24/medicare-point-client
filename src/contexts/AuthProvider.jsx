@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -11,6 +12,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useMemo, useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchUserByEmail } from "../Features/AllUsers/userByEmail";
 import { app } from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
@@ -20,6 +23,7 @@ const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [userInfo, setUserInfo] = useState({});
   const [loading, setLoading] = useState(true);
   const [role, setRole] = useState("");
 
@@ -36,6 +40,11 @@ const AuthProvider = ({ children }) => {
   const signInWithGoogle = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
+  };
+
+  const emailVerifacation = (currentUser) => {
+    setLoading(true);
+    return sendEmailVerification(currentUser);
   };
 
   const resetPassword = (email) => {
@@ -66,17 +75,15 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  //   const authInfo = {
-  //     user,
-  //     loading,
-  //     setLoading,
-  //     createUser,
-  //     signIn,
-  //     signInWithGoogle,
-  //     resetPassword,
-  //     logOut,
-  //     updateUserProfile,
-  //   };
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (!loading) {
+      dispatch(fetchUserByEmail(user?.email || "")).then((res) => {
+        setRole(res?.payload?.role);
+        setUserInfo(res?.payload);
+      });
+    }
+  }, [dispatch, user?.email]);
 
   const authInfo = useMemo(
     () => ({
@@ -91,8 +98,10 @@ const AuthProvider = ({ children }) => {
       updateUserProfile,
       setRole,
       role,
+      emailVerifacation,
+      userInfo,
     }),
-    [loading, user, role]
+    [user, loading, role, userInfo]
   );
 
   return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;

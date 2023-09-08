@@ -13,10 +13,7 @@ const EditProfile = () => {
     gender: "",
     company: "",
     title: "",
-    // currentdivision: "",
-    // currentdistrict: "",
-    // currentpostoffice: "",
-    // currentpostcode: "",
+    image: "",
     division: "",
     district: "",
     postoffice: "",
@@ -111,27 +108,10 @@ const EditProfile = () => {
                 <input type="text" name="title" className="input input-bordered w-full" value={formData.title} onChange={handleChange} />
               </div>
             </div>
-            {/* <div>
-              <h1 className="text 3xl font-semibold">Current Address</h1>
-              <div className="grid grid-cols-2 gap-2">
-                <div>
-                  <label className="text-sm font-semibold">Current Division:</label>
-                  <input type="text" name="currentlocation" className="input input-bordered w-full" value={formData.currentdivision} onChange={handleChange} />
-                </div>
-                <div>
-                  <label className="text-sm font-semibold">Current District:</label>
-                  <input type="text" name="currentlocation" className="input input-bordered w-full" value={formData.currentdistrict} onChange={handleChange} />
-                </div>
-                <div>
-                  <label className="text-sm font-semibold">Current Post Office:</label>
-                  <input type="text" name="po" className="input input-bordered w-full" value={formData.currentpostoffice} onChange={handleChange} />
-                </div>
-                <div>
-                  <label className="text-sm font-semibold">Current Postcode:</label>
-                  <input type="text" name="postcode" className="input input-bordered w-full" value={formData.currentpostcode} onChange={handleChange} />
-                </div>
-              </div>
-            </div> */}
+            <div>
+              <label className="text-sm font-semibold w-full">Image:</label>
+              <input type="text" name="image" className="input input-bordered w-full" value={formData.image} onChange={handleChange} />
+            </div>
             <div>
               <h1 className="text 3xl font-semibold"> Address</h1>
               <div className="grid grid-cols-2 gap-2">
@@ -157,8 +137,6 @@ const EditProfile = () => {
                 <input type="text" name="area" className="input input-bordered w-full" value={formData.area} onChange={handleChange} />
               </div>
             </div>
-
-            {/* Add other fields similarly */}
             {/* Add other fields similarly */}
             <button type="submit" className="my-btn">
               Save Changes

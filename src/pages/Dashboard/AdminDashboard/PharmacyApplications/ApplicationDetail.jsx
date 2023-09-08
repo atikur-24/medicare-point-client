@@ -95,8 +95,8 @@ const ApplicationDetail = () => {
               </button>
             )}
           </div>
-          {applicationType === "pending" ? (
-            <button onClick={() => ApprovePR(_id, email, "deny")} type="button" className="reset-btn">
+          {applicationType !== "pending" ? (
+            <button onClick={() => ApprovePR(_id, email, "deny", "user")} type="button" className="reset-btn">
               Adeny
             </button>
           ) : (

@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import rewordIcon from "../../../assets/Dashboard-icons/reward.png";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
-const DashBoardNavbar = () => {
+const DashBoardNavbar = ({ setShowNotification, showNotification }) => {
+  const { role } = useContext(AuthContext);
+  if (!role) {
+    return <p>loading........</p>;
+  }
   return (
     <div className="py-5 pl-10 pr-2 md:px-5 flex justify-between items-center bg-card">
       <div>
@@ -17,12 +23,27 @@ const DashBoardNavbar = () => {
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <NavLink to="/dashboard/images">
-          <img title="Upload Images" className="w-10 h-10 ml-2" src="https://i.ibb.co/sqVY4RR/gallery.png" alt="upload images" />
-        </NavLink>
-        <NavLink to="/dashboard/reward-points">
-          <img title="Reword" className="w-10 h-10" src={rewordIcon} alt="reword points" />
-        </NavLink>
+        {/* <NavLink to="/dashboard/notification"> */}
+        <button type="button" onClick={() => setShowNotification(!showNotification)}>
+          <img
+            title="Notification"
+            className={` ml-2 transition-all duration-300 ${showNotification ? "bg-slate-3 p-2 rounded-full w-12 h-12" : "w-10 h-10"}`}
+            src="https://i.ibb.co/8zxdmM6/notification.png"
+            alt="upload images"
+          />
+        </button>
+        {role !== "user" && (
+          <NavLink to="/dashboard/images">
+            <img title="Upload Images" className="w-10 h-10 ml-2" src="https://i.ibb.co/sqVY4RR/gallery.png" alt="upload images" />
+          </NavLink>
+        )}
+
+        {role === "user" && (
+          <NavLink to="/dashboard/reward-points">
+            <img title="Reword" className="w-10 h-10" src={rewordIcon} alt="reword points" />
+          </NavLink>
+        )}
+
         <NavLink to="/dashboard/profile">
           <img className="rounded-full w-10 h-10" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="" />
         </NavLink>

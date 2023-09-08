@@ -23,6 +23,8 @@ import deleteInterview from "../Features/Interviews/deleteInterview";
 import updateInterview from "../Features/Interviews/updateInterview";
 import allMedicines from "../Features/Medicines/AllMedicines/allMedicines";
 import medicines from "../Features/Medicines/AllMedicines/medicines";
+import deleteNotifications from "../Features/Notifications/deleteNotifications";
+import fetchNotificationsByEmail from "../Features/Notifications/fetchNotificationsByEmail";
 import sslPayment from "../Features/PaymentGetway/PaymentGetaway";
 import labSSLPayment from "../Features/PaymentGetway/labPayment";
 import uploadImage from "../Features/UploadImage/uploadImage";
@@ -54,6 +56,8 @@ const store = configureStore({
     medicines,
     deleteImage,
     labSSLPayment,
+    notificationsByEmail: fetchNotificationsByEmail,
+    deleteNotifications,
   },
 });
 

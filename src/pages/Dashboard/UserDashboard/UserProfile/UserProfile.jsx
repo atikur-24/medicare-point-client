@@ -1,12 +1,10 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const UserProfile = () => {
   const [currentUserData, setCurrentUserData] = useState({});
-  console.log(currentUserData);
   const { user } = useContext(AuthContext); // Access the user object from the context
   useEffect(() => {
     axios.get("http://localhost:5000/users").then((res) => {
@@ -23,7 +21,7 @@ const UserProfile = () => {
       {currentUserData && (
         <div className="bg-white rounded-lg shadow p-6 px-10">
           <div className="flex items-center justify-center">
-            <img src={user.photoURL} alt="Nafees" className="w-1/3 h-60 rounded-2xl mb-4" />
+            <img src={currentUserData.image} alt="Nafees" className="w-1/3 h-60 rounded-2xl mb-4" />
           </div>
           <h2 className="text-xl font-semibold text-center">{currentUserData.name}</h2>
           <p className="text-gray-600 mb-4 text-center">Role: {currentUserData.role ? currentUserData.role : "User"}</p>
@@ -42,15 +40,6 @@ const UserProfile = () => {
                 <p>Job Title: {currentUserData.title ? currentUserData.title : "N/A"} </p>
               </div>
             </div>
-            {/* <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
-              <div>
-                <h3 className="text-lg font-semibold mb-1">Current Address</h3>
-                <p>Current Division: {currentUserData.currentdivision ? currentUserData.currentdivision : "N/A"}</p>
-                <p>Current District: {currentUserData.currentdistrict ? currentUserData.currentdistrict : "N/A"}</p>
-                <p>Post Offiice: {currentUserData.currentpostoffice ? currentUserData.currentpostoffice : "N/A"} </p>
-                <p>Post Code: {currentUserData.currentpostcode ? currentUserData.currentpostcode : "N/A"} </p>
-              </div>
-            </div> */}
             <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
               <div>
                 <h3 className="text-lg font-semibold mb-1"> Address</h3>

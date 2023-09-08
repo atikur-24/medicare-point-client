@@ -1,27 +1,22 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-import { updateHealthTipsApi } from "../../../../Features/HealthTips/updateHealthTips";
 
 const UpdateHealthTips = () => {
   const existingData = useLoaderData();
-  const { _id } = existingData;
   const { register, handleSubmit, setValue } = useForm();
-  const dispatch = useDispatch();
-
 
   const onSubmit = async (data) => {
-    const image = data.image[0];
+    // const image = data.image[0];
 
     const formData = new FormData();
-    formData.append("image", image);
+    // formData.append("image", image);
 
-    const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
+    // const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
     try {
-      const response = await fetch(url, {
+      const response = await fetch({
         method: "POST",
         body: formData,
       });
@@ -30,8 +25,8 @@ const UpdateHealthTips = () => {
         throw new Error("Image upload failed");
       }
 
-      const imageData = await response.json();
-      data.image = imageData.data.display_url;
+      // const imageData = await response.json();
+      // data.image = imageData.data.display_url;
 
       // Update health tip data using axios
       const updateResponse = await axios.patch(`http://localhost:5000/allHealthTips/${data._id}`, data);
@@ -81,9 +76,13 @@ const UpdateHealthTips = () => {
               </div>
             </div>
             {/* Other input fields */}
-            <div>
+            {/* <div>
               <label className="text-sm font-semibold">Image</label>
               <input type="file" {...register("image")} className="file-input file-input-bordered file-input-accent w-full" />
+            </div> */}
+            <div>
+              <label className="text-sm font-semibold">Image</label>
+              <input type="text" {...register("image")} className="input input-bordered w-full" />
             </div>
             {/* ... Repeat for other fields */}
             <div className="grid grid-cols-2 gap-2">

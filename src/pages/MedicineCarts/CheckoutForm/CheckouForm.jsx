@@ -17,7 +17,6 @@ const CheckouForm = () => {
     setCurrentUserData(allcurrentUserData);
     toast.success("Information Fill up Success", { position: "top-center", theme: "colored", autoClose: 3000, pauseOnHover: false });
   };
-  console.log(currentUserData);
   const { user } = useContext(AuthContext); // Access the user object from the context
   useEffect(() => {
     axios.get("http://localhost:5000/users").then((res) => {
@@ -52,6 +51,7 @@ const CheckouForm = () => {
   }
 
   const saveMoney = subTotal - totalPrice;
+  const allTotal = totalPrice + 75;
 
   const {
     register,
@@ -59,13 +59,11 @@ const CheckouForm = () => {
     formState: { errors },
     reset,
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = (data, event) => {
+    event.preventDefault();
     const paymentDetails = { ...data, totalPayment: parseFloat(totalPrice.toFixed(2)) };
 
     dispatch(sslPaymentApi({ paymentDetails, cart }));
-
-    // console.log(paymentDetails);
-    // reset();
   };
 
   // console.log(cart);
@@ -144,12 +142,12 @@ const CheckouForm = () => {
         <div className="px-10 grid gap-12 grid-cols-1 md:grid-cols-3">
           <div className="w-full md:col-span-2 ">
             <h4 className="text-xl font-bold ">
-              <span className="lg:text-2xl md:text-base font-bold bg-black text-white rounded-full px-1 lg:px-3 py-1">1</span> Please Give you information
+              <span className="text-2xl font-bold bg-black text-white rounded-full px-3 py-1">1</span> Please Give you information
             </h4>
-            <div className="m-1 mt-2 lg:m-3">
+            <div>
               <p>
                 Fill The Boxes From Profile Information
-                <button onClick={setValue} type="button" className="my-btn m-1 mt-2 lg:m-3">
+                <button onClick={setValue} type="button" className="my-btn m-3">
                   Ok
                 </button>
               </p>
@@ -195,7 +193,7 @@ const CheckouForm = () => {
                     defaultValue={currentUserData?.division}
                     className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
                   >
-                    <option value="">{currentUserData ? currentUserData.division : "Select Your Division Name"} </option>
+                    <option value={currentUserData ? currentUserData.division : ""}>{currentUserData ? currentUserData.division : "Select Your Division Name"}</option>
                     {divisions.map((division, index) => (
                       <option key={index} value={division}>
                         {division}
@@ -212,10 +210,10 @@ const CheckouForm = () => {
                   <select
                     id="district"
                     {...register("district", { required: true })}
-                    defaultValue=" Select Your District Name"
+                    defaultValue={currentUserData?.district}
                     className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
                   >
-                    <option value="">{currentUserData ? currentUserData.district : " Select Your District Name"}</option>
+                    <option value={currentUserData ? currentUserData.district : ""}>{currentUserData ? currentUserData.district : "Select Your Division Name"}</option>
                     {districts.map((district, index) => (
                       <option key={index} value={district}>
                         {district}
@@ -278,11 +276,17 @@ const CheckouForm = () => {
                   <TbCurrencyTaka /> {saveMoney.toFixed(2)}
                 </h4>
               </div>
+              <div className="flex justify-between items-center px-14 font-semibold mt-2">
+                <h4>Shipping Charge: </h4>
+                <h4 className="flex items-center">
+                  <TbCurrencyTaka /> 75
+                </h4>
+              </div>
               <hr className=" border-gray-3 my-2" />
               <div className="flex justify-between items-center px-14 text-lg font-bold mt-2">
                 <h4>Total Price: </h4>
                 <h4 className="flex items-center">
-                  <TbCurrencyTaka /> {totalPrice.toFixed(2)}
+                  <TbCurrencyTaka /> {allTotal.toFixed(2)}
                 </h4>
               </div>
             </div>
