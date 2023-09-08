@@ -51,7 +51,6 @@ const DashboardLayout = () => {
     setShowDropdown3(!showDropdown3);
   };
 
-  const [doctor, setDoctor] = useState(false);
   const [labtest, setLabtest] = useState(false);
   const [medicineBtn, setMedicineBtn] = useState(false);
 
