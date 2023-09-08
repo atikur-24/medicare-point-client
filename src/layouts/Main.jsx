@@ -20,7 +20,7 @@ const Main = () => {
   }, []);
   return (
     <>
-      {/* <PopUp isPopUp={isPopUp} setPopUp={setPopUp} /> */}
+      <PopUp isPopUp={isPopUp} setPopUp={setPopUp} />
       <Navbar />
       <div className="min-h-[calc(100vh-100px)] bg-white">
         <Outlet />

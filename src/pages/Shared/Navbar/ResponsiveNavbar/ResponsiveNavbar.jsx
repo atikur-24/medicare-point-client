@@ -78,13 +78,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
                   <MenuItem>Log Out</MenuItem>
                 </button>
                 <Link to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("User")}>
-                  <MenuItem>User</MenuItem>
-                </Link>
-                <Link to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Pharmacist")}>
-                  <MenuItem>Pharmacist</MenuItem>
-                </Link>
-                <Link to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Admin")}>
-                  <MenuItem>Admin</MenuItem>
+                  <MenuItem>My Dashboard</MenuItem>
                 </Link>
               </div>
             ) : (
