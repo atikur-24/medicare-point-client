@@ -23,9 +23,6 @@ const UpdateHealthArticles = () => {
         throw new Error("Image upload failed");
       }
 
-      // const imageData = await response.json();
-      // data.image = imageData.data.display_url;
-
       // Update health tip data using axios
       const updateResponse = await axios.put(`http://localhost:5000/blogs/${_id}`, data);
 
@@ -93,10 +90,6 @@ const UpdateHealthArticles = () => {
               <label className="text-sm font-semibold">Content details</label>
               <textarea {...register("content_details")} className="textarea textarea-bordered w-full" />
             </div>
-            {/* <div>
-              <label className="text-sm font-semibold">Cure</label>
-              <textarea {...register("cure")} className="textarea textarea-bordered w-full" />
-            </div> */}
             <button type="submit" className="my-btn">
               Update Health Articles
             </button>
