@@ -13,9 +13,6 @@ const UpdateHealthArticles = () => {
     delete data._id;
 
     const formData = new FormData();
-    // formData.append("image", image);
-
-    // const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
     try {
       const response = await fetch({
         method: "POST",
@@ -81,10 +78,6 @@ const UpdateHealthArticles = () => {
               <label className="text-sm font-semibold">Image</label>
               <input type="text" {...register("image")} className="input input-bordered w-full" />
             </div>
-            {/* <div>
-              <label className="text-sm font-semibold">Image</label>
-              <input type="file" {...register("image")} className="file-input file-input-bordered file-input-accent w-full" />
-            </div> */}
             {/* ... Repeat for other fields */}
             <div className="grid grid-cols-2 gap-2">
               <div>
