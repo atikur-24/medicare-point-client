@@ -5,7 +5,7 @@ const useMedicines = () => {
   const { data: medicines = [], refetch } = useQuery({
     queryKey: ["medicines"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/all-medicines");
+      const res = await axios.get("http://localhost:5000/medicines");
       return res?.data;
     },
   });

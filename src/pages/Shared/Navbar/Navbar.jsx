@@ -102,12 +102,6 @@ const Navbar = () => {
                       <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
                         <MenuItem>My Dashboard</MenuItem>
                       </NavLink>
-                      {/* <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Pharmacist")}>
-                        <MenuItem>Pharmacist</MenuItem>
-                      </NavLink>
-                      <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("Admin")}>
-                        <MenuItem>Admin</MenuItem>
-                      </NavLink> */}
                     </div>
                   ) : (
                     <div>

@@ -22,7 +22,6 @@ export const ApprovePR = (id, email, apt, newRole) => {
     applicationType: apt,
   };
   axios.patch(`http://localhost:5000/pharmacyRApprove/${id}`, newType).then((res) => {
-    console.log(res.data);
     if (res?.data.result.modifiedCount > 0 || res?.data.result2.modifiedCount > 0) {
       if (apt === "Approved") {
         Swal.fire(
@@ -54,7 +53,6 @@ export const DeleteApplication = (id) => {
   }).then((result) => {
     if (result.isConfirmed) {
       axios.delete(`http://localhost:5000/deleteRApplication/${id}`).then(res => {
-        console.log(res);
         if (res.data.deleteCount > 0) {
           Swal.fire(
             "Deleted!",
