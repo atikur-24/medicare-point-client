@@ -66,7 +66,7 @@ const LabBook = () => {
               <div className=" absolute bottom-0 w-full">
                 {isBook ? (
                   <Link to="/labPayment" className="my-btn w-full">
-                    Proceed to Cart
+                    Proceed to checkout
                   </Link>
                 ) : (
                   <LabButton labAddCart={labAddCart} />
