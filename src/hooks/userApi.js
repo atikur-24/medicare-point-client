@@ -1,8 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-// const dispatch = useDispatch();
-
 export const addUser = (user) => {
   const userData = {
     name: user?.displayName,
@@ -10,7 +8,7 @@ export const addUser = (user) => {
     role: "user",
     image: user?.photoURL,
   };
-  axios.post("http://localhost:5000/users", userData).then((res) => console.log(res.data));
+  axios.post("http://localhost:5000/users", userData);
 };
 
 export const updateUserPharmacist = (id) => {
