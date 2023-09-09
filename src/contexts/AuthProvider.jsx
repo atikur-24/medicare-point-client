@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  const emailVerifacation = (currentUser) => {
+  const emailVerification = (currentUser) => {
     setLoading(true);
     return sendEmailVerification(currentUser);
   };
@@ -67,7 +67,6 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      //   console.log("current user", currentUser);
       setLoading(false);
     });
     return () => {
@@ -98,7 +97,7 @@ const AuthProvider = ({ children }) => {
       updateUserProfile,
       setRole,
       role,
-      emailVerifacation,
+      emailVerification,
       userInfo,
     }),
     [user, loading, role, userInfo]
