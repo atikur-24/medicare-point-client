@@ -6,14 +6,15 @@ import "@smastrom/react-rating/style.css";
 import axios from "axios";
 import moment from "moment/moment";
 import { useEffect, useState } from "react";
+import HtmlParser from "react-html-parser";
 import { BiLogoFacebook, BiLogoGooglePlus, BiLogoInstagram, BiLogoLinkedin, BiLogoPinterest, BiLogoTumblr, BiLogoTwitter, BiSolidEnvelope } from "react-icons/bi";
 import { HiMinus, HiOutlineChevronRight, HiPlus } from "react-icons/hi";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { Link, useParams } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
-import HtmlParser from "react-html-parser";
 import AddCartButton from "../../components/AddCartButton";
+import Loader from "../../components/Loader";
 import useAuth from "../../hooks/useAuth";
 import MedicineReviews from "./MedicineReviews";
 
@@ -38,7 +39,7 @@ const MedicineDetails = () => {
   }, [params?.id, isReview]);
 
   if (isLoading) {
-    return <p className="text-center mt-10">Loading........</p>;
+    return <Loader spinner />;
   }
 
   const customStyles = {
@@ -200,9 +201,7 @@ const MedicineDetails = () => {
             <p className="text-gray-4 leading-7 lg:leading-8 pt-6 lg:pt-8">{medicine_description}</p>
             <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
               <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-black-2">Product Features</h3>
-              <div>
-                {HtmlParser(feature_with_details)}
-              </div>
+              <div>{HtmlParser(feature_with_details)}</div>
             </div>
           </div>
 
