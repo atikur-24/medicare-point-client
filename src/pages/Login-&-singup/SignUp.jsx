@@ -46,8 +46,7 @@ const SignUp = () => {
         setError("");
         createUser(data?.email, data?.password)
           .then((result) => {
-            emailVerification(result?.user).then(() => {
-            });
+            emailVerification(result?.user);
             updateUserProfile(data?.name, imageUrl)
               .then(() => {
                 setError("");

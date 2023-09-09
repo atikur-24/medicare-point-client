@@ -23,7 +23,6 @@ const Medicines = () => {
   const [medicines, setMedicines] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [isOpen, setIsOpen] = useState(null);
-  // const { loading, setLoading } = useContext(AuthContext);
   const [params, setParams] = useSearchParams();
   const category = params.get("category");
   const { allData, isloading } = useSelector((state) => state?.allMedicines);

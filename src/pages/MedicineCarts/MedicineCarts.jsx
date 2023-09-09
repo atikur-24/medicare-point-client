@@ -2,7 +2,7 @@
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { AiOutlineDelete } from "react-icons/ai";
-import { TbCurrencyTaka } from "react-icons/tb";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
@@ -56,17 +56,30 @@ const MedicineCarts = () => {
   return (
     <section className="my-container">
       <div className="lg:flex gap-8">
-        <div className="border border-gray-3 rounded-md flex-grow">
+        <div className=" rounded-md flex-grow">
           <h3 className="text-xl lg:text-2xl font-semibold bg-lite tracking-wide text-title-color py-5 px-5 lg:px-8 flex justify-between">
             <span>{cart?.length} Item in Your Cart</span>
-            <button onClick={handleClearCart} type="button" className="lg:text-xl flex items-center gap-1 text-red-400 font-medium cursor-pointer">
-              <AiOutlineDelete /> Clear All
-            </button>
+            {cart.length > 0 && (
+              <button onClick={handleClearCart} type="button" className="lg:text-xl flex items-center gap-1 text-red-400 font-medium cursor-pointer">
+                <AiOutlineDelete /> Clear All
+              </button>
+            )}
           </h3>
-          <div className="p-5 lg:p-8">
-            {cart?.map((item) => (
-              <MedicineCartItem key={item._id} item={item} refetch={refetch} />
-            ))}
+          <div className=" border-gray-3 border p-5 lg:p-8">
+            {cart.length > 0 ? (
+              <div>
+                {cart?.map((item) => (
+                  <MedicineCartItem key={item._id} item={item} refetch={refetch} />
+                ))}
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center gap-3 lg:gap-6 h-full">
+                <h1 className="text-xl lg:text-2xl font-medium lg:font-semibold tracking-wide text-gray-6">Cart is Empty !</h1>
+                <Link to="/medicines" className="my-btn tracking-wide">
+                  <HiOutlineShoppingBag className="text-xl" /> Shopping
+                </Link>
+              </div>
+            )}
           </div>
         </div>
         <div className="border flex flex-col justify-between border-gray-3 rounded-md lg:w-4/12 lg:h-96">
@@ -74,27 +87,19 @@ const MedicineCarts = () => {
           <div className="py-5 px-5 lg:px-8 space-y-5 text-xl font-medium">
             <h3 className="flex justify-between font-semibold">
               SubTotal:
-              <span className="flex items-center">
-                <TbCurrencyTaka /> {subTotal.toFixed(2)}
-              </span>
+              <span className="flex items-center">৳ {subTotal.toFixed(2)}</span>
             </h3>
             <h3 className="flex justify-between font-semibold">
               Save Amount:
-              <span className="flex items-center">
-                <TbCurrencyTaka /> {saveMoney.toFixed(2)}
-              </span>
+              <span className="flex items-center">৳ {saveMoney.toFixed(2)}</span>
             </h3>
             <h3 className="flex justify-between font-semibold">
-              Shipping Charge:
-              <span className="flex items-center">
-                <TbCurrencyTaka /> 75
-              </span>
+              Delivery Charge:
+              <span className="flex items-center">৳ 75</span>
             </h3>
             <h3 className="flex justify-between font-semibold">
               Total:
-              <span className="flex items-center">
-                <TbCurrencyTaka /> {mainPrice.toFixed(2)}
-              </span>
+              <span className="flex items-center">৳ {mainPrice.toFixed(2)}</span>
             </h3>
           </div>
           <div className="text-center ">
