@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { ImWarning } from "react-icons/im";
 import { TbFidgetSpinner } from "react-icons/tb";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Logo from "../../assets/Logo/logo.svg";
 import loginAnimation from "../../assets/images/login-images/login.json";
@@ -16,9 +16,7 @@ import SocialSigning from "./SocialSigning";
 const SignUp = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const location = useLocation();
-  const { createUser, updateUserProfile, loading, setLoading, emailVerifacation } = useAuth(AuthContext);
-  let from = location.state?.from?.pathname || "/";
+  const { createUser, updateUserProfile, loading, setLoading, emailVerification, logOut } = useAuth(AuthContext);
 
   const navigate = useNavigate();
 
@@ -34,9 +32,7 @@ const SignUp = () => {
   const onSubmit = (data) => {
     setLoading(true);
 
-    // Image Upload
     const image = data.image[0];
-    // console.log(image);
     const formData = new FormData();
     formData.append("image", image);
     const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
@@ -50,20 +46,20 @@ const SignUp = () => {
         setError("");
         createUser(data?.email, data?.password)
           .then((result) => {
-            emailVerifacation(result?.user).then(() => {
-              // console.log("verifyed");
+            emailVerification(result?.user).then(() => {
             });
             updateUserProfile(data?.name, imageUrl)
               .then(() => {
                 setError("");
                 Swal.fire({
-                  icon: "success",
-                  title: "Your Register Successfully",
-                  showConfirmButton: false,
-                  timer: 2500,
+                  icon: "info",
+                  title: "Email Verification",
+                  text: "Check your email and verify account",
+                  showConfirmButton: true,
                 });
+                logOut();
                 addUser(result?.user);
-                navigate(from, { replace: true });
+                navigate("/login");
               })
               .catch((err) => {
                 setError(err.message);

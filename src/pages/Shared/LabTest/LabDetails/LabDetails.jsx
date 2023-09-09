@@ -26,8 +26,10 @@ const LabDetails = ({ open, toggleOpen }) => {
       <div className="relative">
         <div className="fixed rounded-t-lg left-1 right-4 md:left-auto md:right-auto p-4 bg-card  drop-shadow-lg z-10">
           <div className="flex gap-6 justify-evenly">
-            <p className="text-lg text-title-color font-medium">{labCart?.length || 0} Item added to your cart</p>
-            <button onClick={toggleOpen} type="button" className=" capitalize text-my-primary font-medium inline-flex items-center">
+            <p className="text-base text-title-color font-bold capitalize font-nunito">
+              <span className="bg-my-primary text-white  rounded-full py-1 px-2">{labCart?.length || 0}</span> Item added to your cart
+            </p>
+            <button onClick={toggleOpen} type="button" className=" capitalize text-my-primary font-medium inline-flex items-center text-sm">
               Show Less
               <span>
                 <FaAngleDown className="w-6 h-6" />
@@ -44,7 +46,7 @@ const LabDetails = ({ open, toggleOpen }) => {
         <div className=" w-full md:w-96 fixed  bottom-0  right-0 p-4 bg-card   z-10 border-x-[3px] border-solid  border-b-[3px] border-[#FCB716]">
           <Link to="/labPayment">
             <button type="button" className="my-btn w-full">
-              Proceed
+              Proceed checkout
             </button>
           </Link>
         </div>

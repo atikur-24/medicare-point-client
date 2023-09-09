@@ -19,7 +19,9 @@ const CheckCard = () => {
     <div className="container mx-auto ">
       <div className="relative">
         <div className={`bg-white  w-full md:w-96  rounded-l-lg border-[3px]  border-[#FCB716] z-40  fixed  p-6 bottom-0 right-0  ${isOpen ? "block" : "hidden"}`}>
-          <p className="text-lg text-my-primary font-medium">{labCart?.length || 0} Items added to your cart</p>
+          <p className="text-lg text-my-primary font-bold capitalize font-nunito">
+            <span className="bg-my-primary text-white  rounded-full py-1 px-2">{labCart?.length || 0}</span> Items added to your cart
+          </p>
           <div className="flex justify-between mt-6 items-center">
             <div className="space-y-2">
               <Link to="/labPayment" className="my-btn">
