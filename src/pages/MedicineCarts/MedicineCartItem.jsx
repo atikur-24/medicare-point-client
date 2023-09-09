@@ -31,28 +31,27 @@ const MedicineCartItem = ({ item, refetch }) => {
   };
 
   return (
-    <div className="flex items-center justify-between border-b border-gray-3 py-3">
-      <div className="flex items-center gap-3 lg:gap-16">
-        <div>
+    <div className="flex items-end md:items-center justify-between border-b border-gray-3 py-3">
+      <div className="flex flex-col md:flex-row items-center gap-3 lg:gap-16">
+        <div className="flex justify-between items-center ">
           <button onClick={handleRemoveToCart} type="button" className="bg-lite rounded-full py-1 px-3">
             <span className="text-red-500">X</span>
           </button>
+          <img className=" w-full h-28 object-cover" src={image} alt="medicine" />
         </div>
-        <img className="w-20 h-28 object-cover" src={image} alt="medicine" />
         <div>
           <h5 className="text-xl font-medium">{medicine_name}</h5>
           <small className="text-gray-4">By {category?.label}</small>
           <small className="text-gray-4 block">1 Box</small>
-          <p className="space-x-3 lg:space-x-5">
-            TK
-            <span className="text-gray-4 inline-flex items-center line-through">
-              <TbCurrencyTaka /> {price.toFixed(2)}
-            </span>
-            <span className="text-black-2 font-medium inline-flex items-center">
-              <TbCurrencyTaka /> {price - discount}
-            </span>
-            {discount !== 0 ? <span className="text-red-400 font-medium">- {discount} OFF</span> : ""}
-          </p>
+          <div className="flex flex-col md:flex-row gap-1 md:gap-8 ">
+            <p className="text-gray-4 inline-flex items-center ">
+              TK <TbCurrencyTaka /> <strike>{price.toFixed(2)}</strike>
+            </p>
+            {discount !== 0 ? <p className="text-red-400 font-medium">- {discount} OFF</p> : ""}
+            <p className="text-black-2 font-medium inline-flex items-center">
+              TK <TbCurrencyTaka /> {price - discount}
+            </p>
+          </div>
         </div>
       </div>
       <div className="space-y-4">
