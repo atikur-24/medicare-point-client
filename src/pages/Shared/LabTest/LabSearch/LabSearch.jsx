@@ -1,26 +1,28 @@
 // import { AiFillThunderbolt } from "react-icons/ai";
 import { useEffect, useState } from "react";
+import Marquee from "react-fast-marquee";
+// import { AiFillThunderbolt } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
-import { HiLocationMarker } from "react-icons/hi";
+// import { HiLocationMarker } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
-import Select from "react-select";
+// import Select from "react-select";
 import { fetchAllLabTests } from "../../../../Features/AllLabTests/allLabTest";
 
-const districts = [
-  { value: "Badda", label: "Badda" },
-  { value: "Demra", label: "Demra" },
-  { value: "Dhanmondi", label: "Dhanmondi" },
-  { value: "Gulshan", label: "Gulshan" },
-  { value: "Mirpur", label: "Mirpur" },
-  { value: "Savar", label: "Savar" },
-  { value: "Uttara", label: "Uttara" },
-  { value: "Mohammadpur", label: "Mohammadpur" },
-  { value: "shyamoli", label: "shyamoli" },
-  { value: "kallyanpur", label: "kallyanpur" },
-];
+// const districts = [
+//   { value: "Badda", label: "Badda" },
+//   { value: "Demra", label: "Demra" },
+//   { value: "Dhanmondi", label: "Dhanmondi" },
+//   { value: "Gulshan", label: "Gulshan" },
+//   { value: "Mirpur", label: "Mirpur" },
+//   { value: "Savar", label: "Savar" },
+//   { value: "Uttara", label: "Uttara" },
+//   { value: "Mohammadpur", label: "Mohammadpur" },
+//   { value: "shyamoli", label: "shyamoli" },
+//   { value: "kallyanpur", label: "kallyanpur" },
+// ];
 
 const LabSearch = ({ setAllLabTests, setIsLoading }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  // const [selectedOption, setSelectedOption] = useState(null);
   const [searchData, setSearchData] = useState("");
 
   const { isLoading, allLabTest } = useSelector((state) => state.allLabTest);
@@ -50,25 +52,26 @@ const LabSearch = ({ setAllLabTests, setIsLoading }) => {
       </form>
 
       <div className="flex items-center gap-4">
-        <div>
+        {/* <div>
           <HiLocationMarker className="w-10 h-10 text-my-primary" />
-        </div>
-        <div className="w-80 z-10">
+        </div> */}
+        {/* <div className="w-80 z-10">
           <h2 className="font-nunito font-bold">Our sevices Area</h2>
           <Select isClearable defaultValue={selectedOption} onChange={setSelectedOption} options={districts} placeholder="Select your district" noOptionsMessage={() => "No district found"} />
-        </div>
+        </div> */}
       </div>
-      {/* <div className="md:w-[40%] hidden">
-        <div className="  gap-6 md:gap-0 border border-gray-3 flex md:items-center md:justify-between px-4 rounded-lg py-2 bg-white flex-col md:flex-row ">
-          <p className="inline-flex  items-center gap-4 font-medium  md:text-lg">
+      <div className="md:w-[40%] ">
+        <div className=" border border-gray-3 flex md:items-center  px-4 rounded-lg py-2 bg-white  ">
+          <p className="bg-my-primary text-white w-80 font-nunito uppercase font-bold rounded  py-4 flex items-center justify-center text-sm md:text-base">Our Services Area</p>
+          {/* <p className="inline-flex  items-center gap-4 font-medium  md:text-lg">
             <AiFillThunderbolt className="w-6 h-6 text-[#f59e0b]" />
             Upto 30% Of
-          </p>
-          <button type="button" className="btn my-btn ">
-            Book Test From Prescription
-          </button>
+          </p> */}
+          <Marquee className="font-medium capitalize text-title-color" pauseOnClick speed={30}>
+            Badda,Demra,Dhanmondi,Gulshan,Mirpur,Savar,Uttara,Mohammadpur,shyamoli ,kallyanpur,
+          </Marquee>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
