@@ -50,7 +50,7 @@ const AllLabTests = ({ isLoading, allLabTest }) => {
         </Swiper>
       </div>
       <div className="mt-10 block md:hidden">
-        <LabTitle title="TOP BOOKED TESTS" />
+        <LabTitle title="All TESTS" />
         <Swiper
           slidesPerView={2}
           spaceBetween={180}

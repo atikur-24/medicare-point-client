@@ -12,19 +12,16 @@ import LabBanner from "../LabBanner/LabBanner";
 import LabOrder from "../LabOrder/LabOrder";
 
 const districts = [
-  { value: "Dhaka", label: "Dhaka" },
-  { value: "Chittagong", label: "Chittagong" },
-  { value: "Rajshahi", label: "Rajshahi" },
-  { value: "Sylhet", label: "Sylhet" },
-  { value: "Jessore", label: "Jessore" },
-  { value: "Dinajpur", label: "Dinajpur" },
-  { value: "Gopalganj", label: "Gopalganj" },
-  { value: "Gazipur", label: "Gazipur" },
-  { value: "Mymensingh", label: "Mymensingh" },
-  { value: "Comilla", label: "Comilla" },
-  { value: "Barisal", label: "Barisal" },
-  { value: "Narayanganj", label: "Narayanganj" },
-  { value: "Faridpur", label: "Faridpur" },
+  { value: "Badda", label: "Badda" },
+  { value: "Demra", label: "Demra" },
+  { value: "Dhanmondi", label: "Dhanmondi" },
+  { value: "Gulshan", label: "Gulshan" },
+  { value: "Mirpur", label: "Mirpur" },
+  { value: "Savar", label: "Savar" },
+  { value: "Uttara", label: "Uttara" },
+  { value: "Mohammadpur", label: "Mohammadpur" },
+  { value: "shyamoli", label: "shyamoli" },
+  { value: "kallyanpur", label: "kallyanpur" },
 ];
 
 const LabPayment = () => {
@@ -118,7 +115,7 @@ const LabPayment = () => {
                       onChange={(date) => setStartDate(date)}
                       showTimeSelect
                       filterTime={filterPassedTime}
-                      dateFormat="MM-dd-yyy , h:mm aa"
+                      dateFormat="MMMM d, yyyy h:mm aa"
                       includeTimes={[
                         setHours(setMinutes(new Date(), 0), 9),
                         setHours(setMinutes(new Date(), 30), 9),

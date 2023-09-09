@@ -55,7 +55,7 @@ const MedicineCartItem = ({ item, refetch }) => {
         </div>
       </div>
       <div className="space-y-4">
-        <div className="border border-gray-3 rounded-full flex justify-between px-3 md:py-2  ">
+        <div className="border border-gray-3 rounded-full w-fit py-3 px-5 space-x-5 flex">
           <button type="button" disabled={count <= 1} onClick={() => handelQuantity(count - 1)} className="cursor-pointer">
             <HiMinus />
           </button>

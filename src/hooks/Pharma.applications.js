@@ -14,7 +14,6 @@ export const GetPharmacyRApplications = () => {
   return [applications, refetch];
 };
 
-
 export const ApprovePR = (id, email, apt, newRole) => {
   const newType = {
     email,
@@ -22,20 +21,11 @@ export const ApprovePR = (id, email, apt, newRole) => {
     applicationType: apt,
   };
   axios.patch(`http://localhost:5000/pharmacyRApprove/${id}`, newType).then((res) => {
-    console.log(res.data);
     if (res?.data.result.modifiedCount > 0 || res?.data.result2.modifiedCount > 0) {
       if (apt === "Approved") {
-        Swal.fire(
-          "Approved",
-          "This Application Approved Successful",
-          "success",
-        );
+        Swal.fire("Approved", "This Application Approved Successful", "success");
       } else {
-        Swal.fire(
-          "Rejected",
-          "This Application Rejected Successful",
-          "error",
-        );
+        Swal.fire("Rejected", "This Application Rejected Successful", "error");
       }
       location.reload();
     }
@@ -53,14 +43,9 @@ export const DeleteApplication = (id) => {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      axios.delete(`http://localhost:5000/deleteRApplication/${id}`).then(res => {
-        console.log(res);
+      axios.delete(`http://localhost:5000/deleteRApplication/${id}`).then((res) => {
         if (res.data.deleteCount > 0) {
-          Swal.fire(
-            "Deleted!",
-            "Your file has been deleted.",
-            "success",
-          );
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
         }
       });
     }

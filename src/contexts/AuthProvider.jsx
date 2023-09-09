@@ -83,7 +83,7 @@ const AuthProvider = ({ children }) => {
         setUserInfo(res?.payload);
       });
     }
-  }, [dispatch, user?.email]);
+  }, [dispatch, loading, user?.email]);
 
   const authInfo = useMemo(
     () => ({

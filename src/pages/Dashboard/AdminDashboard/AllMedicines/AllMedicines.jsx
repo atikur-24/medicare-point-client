@@ -1,14 +1,13 @@
 /* eslint-disable no-unsafe-optional-chaining */
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
-import { useEffect, useState } from "react";
-import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { useEffect } from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 import { fetchAllMedicines } from "../../../../Features/Medicines/AllMedicines/medicines";
 import Loader from "../../../../components/Loader";
 
 const AllMedicines = () => {
-  const [showDropdown2, setShowDropdown2] = useState(false);
-
   const { isLoading, medicines } = useSelector((state) => state.medicines);
   const dispatch = useDispatch();
 
@@ -16,8 +15,11 @@ const AllMedicines = () => {
     dispatch(fetchAllMedicines());
   }, [dispatch]);
 
-  const toggleDropdown2 = () => {
-    setShowDropdown2(!showDropdown2);
+
+
+  const handleApproved = (id) => {
+    const statusApproved = { status: "approved" };
+    axios.patch(`http://localhost:5000/medicine-status/${id}`, statusApproved).then(res => console.log(res));
   };
 
   return (
@@ -61,9 +63,8 @@ const AllMedicines = () => {
                   </td>
 
                   <td
-                    className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${
-                      medicine.status === "pending" && "text-yellow-500"
-                    } capitalize font-medium`}
+                    className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"
+                      } capitalize font-medium`}
                   >
                     {medicine?.status}
                   </td>
@@ -71,18 +72,15 @@ const AllMedicines = () => {
                     <Menu
                       menuButton={
                         // eslint-disable-next-line react/jsx-wrap-multilines
-                        <MenuButton>
-                          <button onClick={toggleDropdown2} type="button" className="btn-sm inline-flex items-center bg-my-accent text-white w-full">
-                            <span>Pending</span>
-                            <MdKeyboardArrowDown className={`${showDropdown2 ? "hidden" : "block"} dashboard-icon`} />
-                            <MdKeyboardArrowUp className={`${showDropdown2 ? "block" : "hidden"} dashboard-icon`} />
-                          </button>
+                        <MenuButton className="btn-sm inline-flex items-center bg-my-accent text-white w-full capitalize">
+                          {medicine.status}
+                          <MdKeyboardArrowDown />
                         </MenuButton>
                       }
                       transition
                     >
-                      <MenuItem className="font-semibold text-gray-6">Approve</MenuItem>
-                      <MenuItem className="font-semibold text-gray-6">Deny</MenuItem>
+                      <MenuItem disabled={medicine.status === "approved"} onClick={() => handleApproved(medicine._id)} className="font-semibold text-gray-6">Approve</MenuItem>
+                      <MenuItem disabled={medicine.status === "denied"} className="font-semibold text-gray-6">Deny</MenuItem>
                     </Menu>
                   </td>
                 </tr>
