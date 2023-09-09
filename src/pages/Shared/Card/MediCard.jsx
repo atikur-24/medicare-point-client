@@ -1,11 +1,10 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-mixed-operators */
 import { Rating, StickerStar } from "@smastrom/react-rating";
-import { TbCurrencyTaka } from "react-icons/tb";
-import { Link } from "react-router-dom";
-import useAuth from "../../../hooks/useAuth";
 import "@smastrom/react-rating/style.css";
+import { Link } from "react-router-dom";
 import AddCartButton from "../../../components/AddCartButton";
+import useAuth from "../../../hooks/useAuth";
 
 const customStyles = {
   itemShapes: StickerStar,
@@ -36,14 +35,8 @@ const MediCard = ({ medicine }) => {
         <div className="space-y-3">
           <Rating style={{ maxWidth: 70 }} value={rating} readOnly itemStyles={customStyles} />
           <p className="inline-flex gap-1">
-            <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">
-              <TbCurrencyTaka /> {discount > 0 ? (price - (price / 100) * discount).toFixed(2) : price.toFixed(2)}
-            </span>
-            {discount > 0 && (
-              <span className="font-medium inline-flex items-center text-[16px] text-gray-5 line-through">
-                <TbCurrencyTaka /> {price}
-              </span>
-            )}
+            <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">৳ {discount > 0 ? (price - (price / 100) * discount).toFixed(2) : price.toFixed(2)}</span>
+            {discount > 0 && <span className="font-medium inline-flex items-center text-[16px] text-gray-5 line-through">৳ {price}</span>}
           </p>
         </div>
         <AddCartButton cartMedicine={cartMedicine} cls="cart-btn-outline" />

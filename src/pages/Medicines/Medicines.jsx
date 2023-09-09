@@ -23,7 +23,6 @@ const Medicines = () => {
   const [medicines, setMedicines] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [isOpen, setIsopen] = useState(null);
-  // const { loading, setLoading } = useContext(AuthContext);
   const [params, setParams] = useSearchParams();
   const category = params.get("category");
   const { allData, isloading } = useSelector((state) => state?.allMedicines);
@@ -33,7 +32,6 @@ const Medicines = () => {
     dispatch(fetchMedicines());
   }, [dispatch]);
 
- 
   useEffect(() => {
     if (category) {
       axios.get(`http://localhost:5000/medicinesc?category=${category}`).then((res) => setMedicines(res.data));
@@ -42,20 +40,14 @@ const Medicines = () => {
     }
   }, [allData, category]);
 
-  // const handelSort = (sort) => {
-  //   axios.get(`http://localhost:5000/medicines?sort=${sort}`).then((res) => setMedicines(res.data));
-  // };
-
   const handelSort = (sort) => {
     dispatch(fetchMedicines({ sort }));
   };
 
   const handelCategoryFilter = (fCategory) => {
-    // dispatch(fetchMedicines());
     const filterData = allData.filter((item) => item?.category?.value === fCategory);
     setMedicines(filterData);
     setIsopen(fCategory);
-    // console.log(filterData);
   };
 
   const medicineParpage = 9;
