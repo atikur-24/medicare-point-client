@@ -101,7 +101,7 @@ const UploadImages = () => {
   };
 
   //   if (isLoading) {
-  //     return <p className="text-center mt-10">Loading........</p>;
+  //     return <Loader spinner />;
   //   }
 
   return (
