@@ -33,11 +33,7 @@ const Medicines = () => {
     dispatch(fetchMedicines());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(fetchMedicines(category));
-  //   setMedicines(allData);
-  // }, [allData, category, dispatch]);
-
+ 
   useEffect(() => {
     if (category) {
       axios.get(`http://localhost:5000/medicinesc?category=${category}`).then((res) => setMedicines(res.data));

@@ -2,22 +2,30 @@
 /* eslint-disable import/no-unresolved */
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { fetchMedicines } from "../../../Features/Medicines/AllMedicines/allMedicines";
 import bannerImage from "../../../assets/images/services/01.jpg";
 import bannerBackground from "../../../assets/images/services/features.jpg";
 import SectionTitle from "../../../components/SectionTitle";
-import CommonBanner from "../../Shared/CommonBanner/CommonBanner";
 import MediCard from "../../Shared/Card/MediCard";
+import CommonBanner from "../../Shared/CommonBanner/CommonBanner";
 
 const MediCards = () => {
-  const [products, setProducts] = useState([]);
-
+  const { isloading, allData } = useSelector((state) => state?.allMedicines);
+  const dispatch = useDispatch();
   useEffect(() => {
-    axios.get("http://localhost:5000/medicines").then((res) => setProducts(res.data));
-  }, []);
+    dispatch(fetchMedicines());
+  }, [dispatch]);
+
+  const PainRefilMedicins = allData.filter((item) => item?.category?.value === "Pain-Relief");
+
+  if (isloading) {
+    return <div className="my-container text-center">Loging .............</div>;
+  }
 
   return (
     <>
@@ -35,7 +43,7 @@ const MediCards = () => {
               modules={[Pagination]}
               className="mySwiper"
             >
-              {products.map((medicine) => (
+              {PainRefilMedicins?.map((medicine) => (
                 <SwiperSlide key={medicine?._id}>
                   <MediCard medicine={medicine} />
                 </SwiperSlide>
@@ -53,7 +61,7 @@ const MediCards = () => {
               modules={[Pagination]}
               className="mySwiper"
             >
-              {products.map((medicine) => (
+              {PainRefilMedicins.map((medicine) => (
                 <SwiperSlide key={medicine?._id}>
                   <MediCard medicine={medicine} />
                 </SwiperSlide>
@@ -71,7 +79,7 @@ const MediCards = () => {
               modules={[Pagination]}
               className="mySwiper"
             >
-              {products.map((medicine) => (
+              {PainRefilMedicins.map((medicine) => (
                 <SwiperSlide key={medicine?._id}>
                   <MediCard medicine={medicine} />
                 </SwiperSlide>
