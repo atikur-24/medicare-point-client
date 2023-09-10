@@ -61,7 +61,7 @@ const AddBlog = () => {
 
           <div>
             <h4>Image URL</h4>
-            <input type="text" name="image" id="" className="date" placeholder="Paste Here" />
+            <input required type="text" name="image" id="" className="date" placeholder="Paste Here" />
           </div>
         </div>
         <div>
