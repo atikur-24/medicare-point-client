@@ -29,6 +29,9 @@
   border-radius: 0;
   @apply no-underline  text-base  !bg-my-primary !bg-opacity-10  font-bold uppercase;
 }
+.dashboard-ul li a:hover {
+  @apply bg-my-primary bg-opacity-10 text-title-color;
+}
 
 .dashboard-link {
   @apply text-base text-[#363949] font-medium gap-4;
@@ -50,4 +53,12 @@
 
 .menu :where(li ul):before {
   background-color: transparent !important;
+}
+
+.menu li > *:not(ul):not(.menu-title):not(details):active,
+.menu li > *:not(ul):not(.menu-title):not(details).active,
+.menu li > details > summary:active {
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  @apply bg-my-primary bg-opacity-10 text-title-color;
 }
