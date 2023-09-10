@@ -3,7 +3,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2"; // Import SweetAlert library
+import Swal from "sweetalert2";
 import { fetchAllHealthTips } from "../../../../Features/HealthTips/allHealthTips";
 import { deleteHealthTipsApi } from "../../../../Features/HealthTips/deleteHealthTips";
 
