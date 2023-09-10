@@ -54,7 +54,7 @@ const HealthTipsDetails = () => {
           </div>
         </div>
       </div>
-      <h2 className="text-3xl font-bold text-center m-4">Explore Tips for Similar Health Conditions</h2>
+      <h2 className="text-3xl font-bold text-center m-9 p-6">Explore Tips for Similar Health Conditions</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:mx-8 md:mx-2 mx-auto items-center">
         {categories.map((healthTip) => (
           <div key={healthTip._id} className=" rounded relative bg-white shadow   h-full">
