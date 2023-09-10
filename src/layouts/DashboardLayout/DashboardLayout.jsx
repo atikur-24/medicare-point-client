@@ -35,11 +35,6 @@ const DashboardLayout = () => {
     }
   }, [role]);
 
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
   const [showDropdown2, setShowDropdown2] = useState(false);
 
   const toggleDropdown2 = () => {
