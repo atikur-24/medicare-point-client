@@ -8,8 +8,6 @@ const AddBlog = () => {
   const [reset, setReset] = useState(false);
   const editor = useRef(null);
   const [blogDetails, setBlogDetails] = useState("");
-  //   const jsxContent = ReactHtmlParser(blogDetails);
-  //   console.log("aa", jsxContent);
 
   const dispatch = useDispatch();
 
