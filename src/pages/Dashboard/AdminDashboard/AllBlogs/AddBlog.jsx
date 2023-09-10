@@ -29,7 +29,6 @@ const AddBlog = () => {
     const content_details = blogDetails;
 
     const data = { title, topic, content, published_date, image, content_details };
-    // console.log(newBlog);
     dispatch(addBlogApi({ data, form }));
     form.reset();
   };
