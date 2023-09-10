@@ -139,7 +139,7 @@ const UploadImages = () => {
 
       <div className="grid grid-cols-2 lg:grid-cols-8 gap-2 mb-10">
         {allImages.map((i) => (
-          <div key={i._id} className=" border border-gray-3 p-2 relative text-center rounded-md space-y-2 ">
+          <div key={i._id} className=" border bg-white border-gray-3 p-2 relative text-center rounded-md box-shadow space-y-2 ">
             <button type="button" className="relative mb-9" onClick={() => copyURl(i?.photoURL)}>
               <h5 className="text-base font-semibold font-nunito text-title-color uppercase mt-1">{i?.name}</h5>
               <img className="h-20" src={i?.photoURL} alt="" />

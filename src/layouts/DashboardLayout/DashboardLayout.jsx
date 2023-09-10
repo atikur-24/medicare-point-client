@@ -2,13 +2,14 @@
 import { useContext, useEffect, useState } from "react";
 import { AiFillHome, AiOutlineBars } from "react-icons/ai";
 import { BiSolidUser } from "react-icons/bi";
-import { BsFillCartPlusFill, BsImage } from "react-icons/bs";
-import { FaUserMd, FaUsers, FaWpforms } from "react-icons/fa";
+import { BsGrid1X2Fill, BsImage } from "react-icons/bs";
+import { FaCaretDown, FaUsers, FaWpforms,FaCaretUp } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
 import { MdAddShoppingCart, MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
 import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
+import { TfiMenu } from "react-icons/tfi";
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../../assets/Logo/logo-point.svg";
 import Loader from "../../components/Loader";
@@ -147,7 +148,7 @@ const DashboardLayout = () => {
     <>
       <li>
         <NavLink to="/dashboard" className="dashboard-link">
-          <AiFillHome className="dashboard-icon" />
+          <BsGrid1X2Fill className="dashboard-icon" />
           <span>Admin Dashboard</span>
         </NavLink>
       </li>
@@ -179,8 +180,8 @@ const DashboardLayout = () => {
         <NavLink to="/dashboard/edit-health-tips" onClick={toggleDropdown2} className="dashboard-link flex cursor-pointer">
           <RiFileList3Line className="dashboard-icon" />
           <button type="button">Health Tips</button>
-          <MdKeyboardArrowDown className={`${showDropdown2 ? "hidden" : "block"} dashboard-icon`} />
-          <MdKeyboardArrowUp className={`${showDropdown2 ? "block" : "hidden"} dashboard-icon`} />
+          <FaCaretDown className={`${showDropdown2 ? "hidden" : "block"} dashboard-icon`} />
+          <FaCaretUp className={`${showDropdown2 ? "block" : "hidden"} dashboard-icon`} />
         </NavLink>
         <ul className={`${showDropdown2 ? "block" : "hidden"}`}>
           <li>
@@ -196,8 +197,8 @@ const DashboardLayout = () => {
         <NavLink to="/dashboard/manage-lab-test" onClick={() => setLabtest(!labtest)} className="dashboard-link flex">
           <GiHypodermicTest className="dashboard-icon" />
           <button type="button">Lab Tests</button>
-          <MdKeyboardArrowDown className={`${labtest ? "hidden" : "block"} dashboard-icon`} />
-          <MdKeyboardArrowUp className={`${labtest ? "block" : "hidden"} dashboard-icon`} />
+          <FaCaretDown className={`${labtest ? "hidden" : "block"} dashboard-icon`} />
+          <FaCaretUp className={`${labtest ? "block" : "hidden"} dashboard-icon`} />
         </NavLink>
         <ul className={`${labtest ? "block" : "hidden"}`}>
           <li>
@@ -218,8 +219,8 @@ const DashboardLayout = () => {
         <NavLink to="/dashboard/add-blog" onClick={toggleDropdown3} className="dashboard-link flex cursor-pointer">
           <RiFileList3Line className="dashboard-icon" />
           <button type="button">Blogs</button>
-          <MdKeyboardArrowDown className={`${showDropdown3 ? "hidden" : "block"} dashboard-icon`} />
-          <MdKeyboardArrowUp className={`${showDropdown3 ? "block" : "hidden"} dashboard-icon`} />
+          <FaCaretDown className={`${showDropdown3 ? "hidden" : "block"} dashboard-icon`} />
+          <FaCaretUp className={`${showDropdown3 ? "block" : "hidden"} dashboard-icon`} />
         </NavLink>
         <ul className={`${showDropdown3 ? "block" : "hidden"}`}>
           <li>
@@ -252,19 +253,19 @@ const DashboardLayout = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content relative">
+      <div className="drawer-content relative  bg-[#f6f6f6] md:px-20">
         {/* Page content here */}
         <DashBoardNavbar setShowNotification={setShowNotification} showNotification={showNotification} />
         {showNotification && <Notification />}
         <Outlet />
         <label htmlFor="my-drawer-2" className="toggle-dashboard-btn drawer-button lg:hidden">
-          <AiOutlineBars className="text-lg cursor-pointer" />
+          <TfiMenu className="text-lg cursor-pointer" />
         </label>
       </div>
-      <div className="drawer-side  bg-[#f6f6f6] ">
+      <div className="drawer-side   md:bg-[#f6f6f6]  md:shadow-2xl ">
         <label htmlFor="my-drawer-2" className="drawer-overlay" />
 
-        <ul className="dashboard-ul lg:pt-5 menu p-4 w-80 h-full text-base-content">
+        <ul className="dashboard-ul bg-white md:bg-[#f6f6f6]   menu p-4 w-80 !h-full text-base-content space-y-4 !z-50">
           {/* Sidebar content here */}
 
           <li className="relative">

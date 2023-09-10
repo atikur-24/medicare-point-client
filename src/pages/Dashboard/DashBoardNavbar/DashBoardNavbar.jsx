@@ -10,11 +10,11 @@ const DashBoardNavbar = ({ setShowNotification, showNotification }) => {
   }
   return (
     <div className="py-5 pl-10 pr-2 md:px-5 flex justify-between items-center bg-[#f6f6f6] ">
-      <div>
-        <div className="form-control">
+      <div className="">
+        <div className="form-control hidden lg:block">
           <div className="input-group rounded-2xl">
             <input type="text" placeholder="Search…" className="input input-bordered input-sm md:input-md" />
-            <p className="btn btn-square hover:bg-[#16b4acb9] bg-[#16b4ac] btn-sm md:btn-md">
+            <p className="btn btn-square hover:bg-my-primary bg-my-primary text-white  btn-sm md:btn-md">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
