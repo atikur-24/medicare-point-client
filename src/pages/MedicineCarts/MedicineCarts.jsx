@@ -67,7 +67,7 @@ const MedicineCarts = () => {
           </h3>
           <div className=" border-gray-3 border p-5 lg:p-8">
             {cart.length > 0 ? (
-              <div>
+              <div className="divide-y">
                 {cart?.map((item) => (
                   <MedicineCartItem key={item._id} item={item} refetch={refetch} />
                 ))}
@@ -75,7 +75,7 @@ const MedicineCarts = () => {
             ) : (
               <div className="flex flex-col items-center justify-center gap-3 lg:gap-6 h-full">
                 <h1 className="text-xl lg:text-2xl font-medium lg:font-semibold tracking-wide text-gray-6">Cart is Empty !</h1>
-                <Link to="/medicines" className="my-btn tracking-wide">
+                <Link to="/medicines" className="my-btn-outline tracking-wide">
                   <HiOutlineShoppingBag className="text-xl" /> Shopping
                 </Link>
               </div>
@@ -104,7 +104,7 @@ const MedicineCarts = () => {
           </div>
           <div className="text-center ">
             <Link to="/orderCheckOut">
-              <button type="button" className="cart-btn w-full ">
+              <button type="button" className="checkout-btn w-full ">
                 Proceed to checkout
               </button>
             </Link>
