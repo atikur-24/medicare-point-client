@@ -1,13 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
-import { Link, useLoaderData, useParams } from "react-router-dom";
-import HealthCard from "../HealthTips/HealthCard";
-import HealthCardCategory from "../HealthTips/HealthCardCategory";
+import { Link, useLoaderData } from "react-router-dom";
 
 const HealthTipsDetails = () => {
   const diseaseDetails = useLoaderData();
-  // const { image, title, content_details, published_date, topic } = healthArticles;
   const [healthTips, setHealthTips] = useState([]);
   console.log(healthTips);
   const [categories, setCategories] = useState([]);
