@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-// import { updateBlogApi } from "your-redux-actions";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { updateBlogApi } from "../../../../Features/Blogs/updateBlog";
@@ -10,7 +9,7 @@ const UpdateHealthArticles = () => {
   const existingData = useLoaderData();
   const { _id } = existingData;
   const { register, handleSubmit, setValue } = useForm();
-  const dispatch = useDispatch(); // Get access to the Redux store's dispatch function
+  const dispatch = useDispatch();
 
   const onSubmit = async (data) => {
     delete data._id;
