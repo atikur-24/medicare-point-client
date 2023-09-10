@@ -3,8 +3,6 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { FaCheck } from "react-icons/fa";
-import { TbCurrencyTaka } from "react-icons/tb";
 import { useDispatch } from "react-redux";
 import { sslPaymentApi } from "../../../Features/PaymentGetway/PaymentGetaway";
 import { AuthContext } from "../../../contexts/AuthProvider";
@@ -269,28 +267,21 @@ const CheckouForm = () => {
               <hr className=" border-gray-3 my-2" />
               <div className="flex justify-between items-center px-14 font-semibold">
                 <h4>Sub Total: </h4>
-                <h4 className="flex items-center">
-                  <TbCurrencyTaka /> {subTotal}
-                </h4>
+                <h4 className="flex items-center">৳ {subTotal}</h4>
               </div>
               <div className="flex justify-between items-center px-14 font-semibold mt-2">
                 <h4>Save Amount: </h4>
-                <h4 className="flex items-center">
-                  <TbCurrencyTaka /> {saveMoney.toFixed(2)}
-                </h4>
+                <h4 className="flex items-center">৳ {saveMoney.toFixed(2)}</h4>
               </div>
               <div className="flex justify-between items-center px-14 font-semibold mt-2">
                 <h4>Shipping Charge: </h4>
-                <h4 className="flex items-center">
-                  <TbCurrencyTaka /> 75
-                </h4>
+                <h4 className="flex items-center">৳ 75</h4>
               </div>
               <hr className=" border-gray-3 my-2" />
               <div className="flex justify-between items-center px-14 text-lg font-bold mt-2">
                 <h4>Total Price: </h4>
                 <h4 className="flex items-center">
-                  <TbCurrencyTaka /> {totalPrice.toFixed(2)}
-                  <TbCurrencyTaka /> {allTotal.toFixed(2)}
+                  ৳ {totalPrice.toFixed(2)}৳ {allTotal.toFixed(2)}
                 </h4>
               </div>
             </div>

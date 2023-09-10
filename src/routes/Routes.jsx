@@ -139,7 +139,7 @@ const router = createBrowserRouter([
       },
       {
         path: "orderCheckOut",
-        element: <CheckouForm />,
+        element: <PrivateRoute> <CheckouForm /> </PrivateRoute>,
       },
       {
         path: "services",

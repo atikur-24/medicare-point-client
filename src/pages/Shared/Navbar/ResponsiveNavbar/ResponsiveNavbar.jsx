@@ -35,15 +35,15 @@ const ResponsiveNavbar = ({ menuItems }) => {
   };
 
   useEffect(() => {
-    const handelOutsiteClose = (e) => {
+    const handelOutsideClose = (e) => {
       if (!menuRef?.current?.contains(e?.target)) {
         setIsOpen("-ml-96");
       }
     };
-    document.addEventListener("mousedown", handelOutsiteClose);
+    document.addEventListener("mousedown", handelOutsideClose);
 
     return () => {
-      document.removeEventListener("mousedown", handelOutsiteClose);
+      document.removeEventListener("mousedown", handelOutsideClose);
     };
   }, []);
 

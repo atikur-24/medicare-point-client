@@ -2,8 +2,8 @@ import { Accordion, AccordionItem, AccordionItemButton, AccordionItemHeading, Ac
 
 import Lottie from "lottie-react";
 import "react-accessible-accordion/dist/fancy-example.css"; // Import the default styles
-import faqsAnimation from "../../../public/faqs.json";
-import faqsAnimation2 from "../../../public/faqs2.json";
+import faqsAnimation from "../../assets/Lottie/faqs.json";
+import faqsAnimation2 from "../../assets/Lottie/faqs2.json";
 
 const Faqs = () => {
   const faqsData = [
@@ -98,8 +98,6 @@ const Faqs = () => {
 
   return (
     <div className="my-container">
-      {/* <h2 className="text-2xl font-semibold mb-4">Frequently Asked Questions</h2> */}
-
       <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-center gap-4">
         <div>
           <div className="my-10">

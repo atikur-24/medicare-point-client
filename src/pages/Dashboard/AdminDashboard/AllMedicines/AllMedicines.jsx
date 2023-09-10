@@ -1,9 +1,9 @@
 /* eslint-disable no-unsafe-optional-chaining */
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
+import axios from "axios";
 import { useEffect } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
 import { fetchAllMedicines } from "../../../../Features/Medicines/AllMedicines/medicines";
 import Loader from "../../../../components/Loader";
 
@@ -15,11 +15,9 @@ const AllMedicines = () => {
     dispatch(fetchAllMedicines());
   }, [dispatch]);
 
-
-
   const handleApproved = (id) => {
     const statusApproved = { status: "approved" };
-    axios.patch(`http://localhost:5000/medicine-status/${id}`, statusApproved).then(res => console.log(res));
+    axios.patch(`http://localhost:5000/medicine-status/${id}`, statusApproved).then((res) => console.log(res));
   };
 
   return (
@@ -28,7 +26,7 @@ const AllMedicines = () => {
 
       <div className=" mb-20 px-5">
         {isLoading ? (
-          <Loader />
+          <Loader spinner />
         ) : (
           <table className="overflow-x-auto table rounded bg-lite">
             {/* head */}
@@ -63,8 +61,9 @@ const AllMedicines = () => {
                   </td>
 
                   <td
-                    className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"
-                      } capitalize font-medium`}
+                    className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${
+                      medicine.status === "pending" && "text-yellow-500"
+                    } capitalize font-medium`}
                   >
                     {medicine?.status}
                   </td>
@@ -79,8 +78,12 @@ const AllMedicines = () => {
                       }
                       transition
                     >
-                      <MenuItem disabled={medicine.status === "approved"} onClick={() => handleApproved(medicine._id)} className="font-semibold text-gray-6">Approve</MenuItem>
-                      <MenuItem disabled={medicine.status === "denied"} className="font-semibold text-gray-6">Deny</MenuItem>
+                      <MenuItem disabled={medicine.status === "approved"} onClick={() => handleApproved(medicine._id)} className="font-semibold text-gray-6">
+                        Approve
+                      </MenuItem>
+                      <MenuItem disabled={medicine.status === "denied"} className="font-semibold text-gray-6">
+                        Deny
+                      </MenuItem>
                     </Menu>
                   </td>
                 </tr>
