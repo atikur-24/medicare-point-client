@@ -22,7 +22,7 @@ const AllUsers = () => {
       role,
     };
     axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then((res) => {
-      // console.log(res.data);
+      console.log(res?.data);
       if (res?.data?.modifiedCount > 0) {
         dispatch(fetchAllUsers());
         Swal.fire("Successful", "Convert User Role to Admin", "success");
@@ -30,23 +30,28 @@ const AllUsers = () => {
     });
   };
 
+  const totalAdmin = allUsers.filter((admin) => admin?.role === "admin");
+  const totalPharmacist = allUsers.filter((admin) => admin?.role === "Pharmacist");
+  const totalUsers = allUsers.filter((admin) => admin?.role === "user");
+  // console.log(allUsers);
+
   return (
     <div>
       <div className="flex px-6 mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Admin</div>
-            <div className="stat-value">31K</div>
+            <div className="stat-value">{totalAdmin?.length}</div>
+          </div>
+
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pharmacist</div>
+            <div className="stat-value text-my-primary">{totalPharmacist?.length}</div>
           </div>
 
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Users</div>
-            <div className="stat-value text-my-primary">4,200</div>
-          </div>
-
-          <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">New Registers</div>
-            <div className="stat-value">1,200</div>
+            <div className="stat-value">{totalUsers?.length}</div>
           </div>
         </div>
       </div>
@@ -78,7 +83,7 @@ const AllUsers = () => {
                   <Menu
                     menuButton={
                       // eslint-disable-next-line react/jsx-wrap-multilines
-                      <MenuButton className="my-btn btn !btn-sm  !rounded w-7/12">{user?.role}</MenuButton>
+                      <MenuButton className="my-btn !btn-sm  !rounded w-8/12">{user?.role}</MenuButton>
                     }
                     transition
                   >
