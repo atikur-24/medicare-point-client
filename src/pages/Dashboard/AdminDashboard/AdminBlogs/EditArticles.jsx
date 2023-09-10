@@ -10,7 +10,6 @@ import { deleteBlogApi } from "../../../../Features/Blogs/deleteBlog";
 
 const EditArticles = () => {
   const { allBlogs } = useSelector((state) => state.allBlogs);
-  console.log(allBlogs);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllBlogs());
@@ -40,7 +39,7 @@ const EditArticles = () => {
           <div key={allBlog._id} className="grid grid-cols-1 gap-4 justify-center items-center  shadow-sm p-2 border border-gray-3 bg-white box-shadow rounded-2xl">
             <h2 className="text-center items-center gap-3 font-medium text-[16px] tracking-wide">{allBlog.title}</h2>
             <img src={allBlog.image} alt="img" className="h-32 mx-auto" />
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <p className="text-justify md:h-32">{allBlog.content.slice(0, 100)}...</p>
             <div className="space-x-1 flex justify-center gap-4">
               <Link to={`/dashboard/update-health-articles/${allBlog._id}`}>
                 <label className="btn btn-circle btn-sm bg-my-primary text-white hover:bg-my-accent">
