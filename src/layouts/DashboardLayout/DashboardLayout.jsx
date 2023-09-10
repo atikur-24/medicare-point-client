@@ -261,7 +261,7 @@ const DashboardLayout = () => {
           <AiOutlineBars className="text-lg cursor-pointer" />
         </label>
       </div>
-      <div className="drawer-side shadow-md">
+      <div className="drawer-side  bg-[#f6f6f6] ">
         <label htmlFor="my-drawer-2" className="drawer-overlay" />
 
         <ul className="dashboard-ul lg:pt-5 menu p-4 w-80 h-full text-base-content">
@@ -275,9 +275,10 @@ const DashboardLayout = () => {
               <RxCross1 className="text-lg cursor-pointer" />
             </label>
           </li>
-          {isUser && userLinks}
-          {isPharmacist && pharmacistLinks}
+          {/* {isUser && userLinks}
+          {isPharmacist && pharmacistLinks} */}
           {isAdmin && adminLinks}
+          {/* {isAdmin } */}
         </ul>
       </div>
     </div>

@@ -9,7 +9,7 @@ const DashBoardNavbar = ({ setShowNotification, showNotification }) => {
     return <p>loading........</p>;
   }
   return (
-    <div className="py-5 pl-10 pr-2 md:px-5 flex justify-between items-center bg-card">
+    <div className="py-5 pl-10 pr-2 md:px-5 flex justify-between items-center bg-[#f6f6f6] ">
       <div>
         <div className="form-control">
           <div className="input-group rounded-2xl">
