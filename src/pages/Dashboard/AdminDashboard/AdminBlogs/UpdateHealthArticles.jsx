@@ -1,32 +1,26 @@
-import axios from "axios";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+// import { updateBlogApi } from "your-redux-actions";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { updateBlogApi } from "../../../../Features/Blogs/updateBlog";
 
 const UpdateHealthArticles = () => {
   const existingData = useLoaderData();
   const { _id } = existingData;
   const { register, handleSubmit, setValue } = useForm();
+  const dispatch = useDispatch(); // Get access to the Redux store's dispatch function
 
   const onSubmit = async (data) => {
     delete data._id;
 
-    const formData = new FormData();
     try {
-      const response = await fetch({
-        method: "POST",
-        body: formData,
-      });
+      // Dispatch the Redux action to update the health article data
+      const updateResponse = await dispatch(updateBlogApi({ _id, data }));
 
-      if (!response.ok) {
-        throw new Error("Image upload failed");
-      }
-
-      // Update health tip data using axios
-      const updateResponse = await axios.put(`http://localhost:5000/blogs/${_id}`, data);
-
-      if (updateResponse.status === 200) {
+      // Check the response from the Redux action
+      if (updateResponse.payload.modifiedCount > 0) {
         Swal.fire({
           icon: "success",
           title: "Update Successful",
