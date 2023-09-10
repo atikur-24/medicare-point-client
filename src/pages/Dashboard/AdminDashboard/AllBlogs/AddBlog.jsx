@@ -43,20 +43,20 @@ const AddBlog = () => {
       <form onSubmit={handleBlog} className="add-blog-form space-y-3">
         <div>
           <h4>Blog Title</h4>
-          <input type="text" name="title" id="" placeholder="Type Here" />
+          <input required type="text" name="title" id="" placeholder="Type Here" />
         </div>
         <div>
           <h4>Blog Topic</h4>
-          <input type="text" name="topic" id="" placeholder="Type Here" />
+          <input required type="text" name="topic" id="" placeholder="Type Here" />
         </div>
         <div>
           <h4>Blog Content</h4>
-          <input type="text" name="content" id="" placeholder="Type Here" />
+          <input required type="text" name="content" id="" placeholder="Type Here" />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <h4>Date</h4>
-            <input type="date" name="published_date" id="" className="date" />
+            <input required type="date" name="published_date" id="" className="date" />
           </div>
 
           <div>
