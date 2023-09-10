@@ -107,33 +107,53 @@ const UploadImages = () => {
   return (
     <div className="px-5">
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="lg:flex justify-between items-center mt-10 mb-5 px-2">
-        <BiSolidCloudUpload onClick={() => window.my_modal_ImageUpload.showModal()} className="text-5xl text-my-primary cursor-pointer" />
-        <h3 className="text-xl lg:text-3xl font-bold uppercase font-nunito">All Uploaded Images</h3>
+      <div className="flex justify-between items-center md:mt-10 md:mb-5 md:px-2">
+        <div className=" mb-8">
+          <div className="stats shadow">
+            <div className="stat place-items-center space-y-2">
+              <div className="stat-title text-title-color font-nunito font-bold uppercase ">Image </div>
+              <div className="stat-value text-my-primary">{allImages.length || 0}</div>
+            </div>
+          </div>
+        </div>
 
-        <div className="relative">
-          <input
-            onChange={handleSearch}
-            className={`border py-1 pr-10 pl-3 border-slate-3 outline-my-primary rounded-3xl transition-all duration-500 ${isearch ? "block" : "hidden"}`}
-            type="search"
-            name="imgSearch"
-            id=""
-            placeholder="Search image by name"
-          />
-          {/* <MdImageSearch title="Search image" onClick={() => setISearch(true)} className={` absolute right-2 text-my-primary cursor-pointer ${!isearch ? "text-4xl -top-4" : "text-2xl top-1"}`} /> */}
-          <Lottie
-            animationData={searchIcon}
-            title="Search image"
-            onClick={() => setISearch(true)}
-            className={` absolute right-2  cursor-pointer ${!isearch ? "h-14 w-14 -top-4" : "h-8 w-8 top-0"}`}
-            loop
-          />
+        <div className="md:hidden">
+          <BiSolidCloudUpload onClick={() => window.my_modal_ImageUpload.showModal()} className="text-5xl text-my-primary cursor-pointer" />
+        </div>
+
+        <div className="hidden lg:block">
+          <div className="md:flex md:justify-around items-center gap-10">
+            <div className="">
+              <BiSolidCloudUpload onClick={() => window.my_modal_ImageUpload.showModal()} className="text-5xl text-my-primary cursor-pointer" />
+            </div>
+
+            <div className="relative">
+              <input
+                onChange={handleSearch}
+                className={`border py-1 pr-10 pl-3 border-slate-3 outline-my-primary rounded-3xl transition-all duration-500 ${isearch ? "block" : "hidden"}`}
+                type="search"
+                name="imgSearch"
+                id=""
+                placeholder="Search image by name"
+              />
+              {/* <MdImageSearch title="Search image" onClick={() => setISearch(true)} className={` absolute right-2 text-my-primary cursor-pointer ${!isearch ? "text-4xl -top-4" : "text-2xl top-1"}`} /> */}
+              <div>
+                <Lottie
+                  animationData={searchIcon}
+                  title="Search image"
+                  onClick={() => setISearch(true)}
+                  className={`  right-2  cursor-pointer ${!isearch ? " h-14 w-14 -top-4" : "h-8 w-8 top-0 absolute"}`}
+                  loop
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {allImages.length === 0 && (
-        <div className="flex justify-center items-center">
-          <img className="lg:max-w-sm" src="https://i.ibb.co/4Wd3BdR/no-results.png" alt="No data found" />
+        <div className="flex justify-center items-center ">
+          <img className="w-64" src="https://i.ibb.co/4Wd3BdR/no-results.png" alt="No data found" />
         </div>
       )}
 
