@@ -8,17 +8,23 @@ const HealthTipsDetails = () => {
   const [healthTips, setHealthTips] = useState([]);
   console.log(healthTips);
   const [categories, setCategories] = useState([]);
-  // const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     axios.get("http://localhost:5000/allHealthTips").then((res) => {
       setHealthTips(res.data);
-
-      // Extract unique categories from health tips data
-      // const uniqueCategories = [...new Set(res.data.map((tip) => tip.category))];
-      // setCategories(uniqueCategories);
     });
   }, []);
+  useEffect(() => {
+    // Extract the category from the diseaseDetails object
+    const diseaseCategory = diseaseDetails.category;
+
+    // Filter healthTips based on the diseaseCategory
+    const filteredTips = healthTips.filter((tip) => tip.category === diseaseCategory);
+
+    // Set the categories state with the filtered tips
+    setCategories(filteredTips);
+  }, [diseaseDetails, healthTips]);
+
   return (
     <div className="my-8 p-8">
       <div className="container">
@@ -49,7 +55,7 @@ const HealthTipsDetails = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:mx-8 md:mx-2 mx-auto items-center">
-        {healthTips.map((healthTip) => (
+        {categories.map((healthTip) => (
           <div key={healthTip._id} className=" rounded relative bg-white shadow   h-full">
             <div className=" absolute h-20  border-l-4  bg-white border-my-accent " />
             <div className="px-8 py-4 space-y-8 ">
