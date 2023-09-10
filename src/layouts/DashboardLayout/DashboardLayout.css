@@ -51,3 +51,11 @@
 .menu :where(li ul):before {
   background-color: transparent !important;
 }
+
+.menu li > *:not(ul):not(.menu-title):not(details):active,
+.menu li > *:not(ul):not(.menu-title):not(details).active,
+.menu li > details > summary:active {
+  --tw-bg-opacity: 1;
+  --tw-text-opacity: 1;
+  @apply bg-my-primary bg-opacity-10 text-black;
+}
