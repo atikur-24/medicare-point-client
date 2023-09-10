@@ -7,23 +7,11 @@ const AddHealthSuggestion = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    // Image Upload
-    const image = data.image[0];
-    // console.log(image);
-    const formData = new FormData();
-    formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((imageData) => {
-        data.image_url = imageData.data.display_url;
-        dispatch(addHealthTipsApi({ data }));
-      });
-  };
+    // Remove any image-related code if you don't want to upload images
 
+    // Dispatch the action to add the health tip data
+    dispatch(addHealthTipsApi({ data }));
+  };
   return (
     <div className=" mt-8 bg-white box-shadow rounded-2xl p-10">
       <div className="grid grid-cols-1">
@@ -48,11 +36,15 @@ const AddHealthSuggestion = () => {
                 <input type="text" placeholder="Type here" {...register("name")} className="input input-bordered w-full" />
               </div>
             </div>
-            <div>
+            {/* <div>
               <label className="label">
                 <span className="label-text font-bold">Image</span>
               </label>
               <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered file-input-accent w-full" />
+            </div> */}
+            <div>
+              <label className="text-sm font-semibold">Image</label>
+              <input placeholder="Type Image Url Here" type="text" {...register("image")} className="input input-bordered w-full" />
             </div>
             {/* Repeat for other fields */}
             <div className="grid grid-cols-2 gap-2">
