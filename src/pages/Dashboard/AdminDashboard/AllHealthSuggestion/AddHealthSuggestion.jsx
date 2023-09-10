@@ -44,7 +44,7 @@ const AddHealthSuggestion = () => {
             </div> */}
             <div>
               <label className="text-sm font-semibold">Image</label>
-              <input placeholder="Type Image Url Here" type="text" {...register("image")} className="input input-bordered w-full" />
+              <input placeholder="Type Image URL Here" type="text" {...register("image")} className="input input-bordered w-full" />
             </div>
             {/* Repeat for other fields */}
             <div className="grid grid-cols-2 gap-2">
