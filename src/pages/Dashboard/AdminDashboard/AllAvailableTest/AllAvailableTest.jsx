@@ -17,7 +17,7 @@ const AllAvailableTest = () => {
 
   useEffect(() => {
     dispatch(fetchAllLabTests());
-  }, [x, dispatch]);
+  }, [dispatch]);
 
   const handlerDelete = (id) => {
     Swal.fire({
