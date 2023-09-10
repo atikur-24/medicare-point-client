@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import HtmlParser from "react-html-parser";
 import { BiLogoFacebook, BiLogoGooglePlus, BiLogoInstagram, BiLogoLinkedin, BiLogoPinterest, BiLogoTumblr, BiLogoTwitter, BiSolidEnvelope } from "react-icons/bi";
 import { HiMinus, HiOutlineChevronRight, HiPlus } from "react-icons/hi";
-import { TbCurrencyTaka } from "react-icons/tb";
 import { Link, useParams } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
@@ -117,14 +116,8 @@ const MedicineDetails = () => {
             </div>
             <Rating style={{ maxWidth: 80 }} value={rating} readOnly itemStyles={customStyles} />
             <p className="inline-flex gap-1">
-              <span className="font-bold text-my-pink inline-flex items-center text-xl lg:text-2xl">
-                <TbCurrencyTaka /> {discount > 0 ? (price - (price / 100) * discount).toFixed(2) : price.toFixed(2)}
-              </span>
-              {discount > 0 && (
-                <span className="font-medium inline-flex items-center text-[17px] lg:text-xl text-gray-5 line-through">
-                  <TbCurrencyTaka /> {price}
-                </span>
-              )}
+              <span className="font-bold text-my-pink inline-flex items-center text-xl lg:text-2xl">৳ {discount > 0 ? (price - (price / 100) * discount).toFixed(2) : price.toFixed(2)}</span>
+              {discount > 0 && <span className="font-medium inline-flex items-center text-[17px] lg:text-xl text-gray-5 line-through">৳ {price}</span>}
             </p>
             <p className="font-medium text-black-2 tracking-wide">
               Availability: <span className="text-my-primary">In Stock</span>
