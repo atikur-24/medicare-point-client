@@ -15,9 +15,12 @@ const AllMedicines = () => {
     dispatch(fetchAllMedicines());
   }, [dispatch]);
 
-  const handleApproved = (id) => {
-    const statusApproved = { status: "approved" };
-    axios.patch(`http://localhost:5000/medicine-status/${id}`, statusApproved).then((res) => console.log(res));
+  const handelChangeStatus = (id, newStatus) => {
+    const statusApproved = { status: newStatus };
+    axios.patch(`http://localhost:5000/medicine-status/${id}`, statusApproved).then((res) => {
+      console.log(res);
+      dispatch(fetchAllMedicines());
+    });
   };
 
   return (
@@ -78,11 +81,14 @@ const AllMedicines = () => {
                       }
                       transition
                     >
-                      <MenuItem disabled={medicine.status === "approved"} onClick={() => handleApproved(medicine._id)} className="font-semibold text-gray-6">
+                      <MenuItem disabled={medicine.status === "approved"} onClick={() => handelChangeStatus(medicine?._id, "approved")} className="font-semibold text-gray-6">
                         Approve
                       </MenuItem>
-                      <MenuItem disabled={medicine.status === "denied"} className="font-semibold text-gray-6">
+                      <MenuItem disabled={medicine.status === "denied"} onClick={() => handelChangeStatus(medicine?._id, "denied")} className="font-semibold text-gray-6">
                         Deny
+                      </MenuItem>
+                      <MenuItem disabled={medicine.status === "pending"} onClick={() => handelChangeStatus(medicine?._id, "pending")} className="font-semibold text-gray-6">
+                        Pending
                       </MenuItem>
                     </Menu>
                   </td>

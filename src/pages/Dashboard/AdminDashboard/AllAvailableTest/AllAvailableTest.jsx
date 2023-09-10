@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { fetchAllLabTests } from "../../../../Features/AllLabTests/allLabTest";
 import { deleteLabTestApi } from "../../../../Features/AllLabTests/deleteLabTest";
+import Loader from "../../../../components/Loader";
 import AddLabCard from "./AddLabCard";
 import UpdateLabTest from "./UpdateLabTest";
 
@@ -16,7 +17,7 @@ const AllAvailableTest = () => {
 
   useEffect(() => {
     dispatch(fetchAllLabTests());
-  }, [x, dispatch]);
+  }, [dispatch]);
 
   const handlerDelete = (id) => {
     Swal.fire({

@@ -22,7 +22,6 @@ const AllUsers = () => {
       role,
     };
     axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then((res) => {
-      // console.log(res.data);
       if (res?.data?.modifiedCount > 0) {
         dispatch(fetchAllUsers());
         Swal.fire("Successful", "Convert User Role to Admin", "success");
