@@ -130,7 +130,7 @@ const UploadImages = () => {
             <div className="relative">
               <input
                 onChange={handleSearch}
-                className={`border py-1 pr-10 pl-3 border-slate-3 outline-my-primary rounded-3xl transition-all duration-500 ${isearch ? "block" : "hidden"}`}
+                className={`border py-2 pr-10 pl-3 border-slate-3 outline-my-primary rounded-3xl transition-all duration-500 ${isearch ? "block" : "hidden"}`}
                 type="search"
                 name="imgSearch"
                 id=""
@@ -142,7 +142,7 @@ const UploadImages = () => {
                   animationData={searchIcon}
                   title="Search image"
                   onClick={() => setISearch(true)}
-                  className={`  right-2  cursor-pointer ${!isearch ? " h-14 w-14 -top-4" : "h-8 w-8 top-0 absolute"}`}
+                  className={`  right-2  cursor-pointer ${!isearch ? " h-14 w-14 -top-4" : "h-8 w-8 top-1 absolute"}`}
                   loop
                 />
               </div>
@@ -160,9 +160,11 @@ const UploadImages = () => {
       <div className="grid grid-cols-2 lg:grid-cols-8 gap-2 mb-10">
         {allImages.map((i) => (
           <div key={i._id} className=" border bg-white border-gray-3 p-2 relative text-center rounded-md box-shadow space-y-2 ">
-            <button type="button" className="relative mb-9" onClick={() => copyURl(i?.photoURL)}>
-              <h5 className="text-base font-semibold font-nunito text-title-color uppercase mt-1">{i?.name}</h5>
-              <img className="h-20" src={i?.photoURL} alt="" />
+            <button type="button" className="relative mb-12 space-y-2" onClick={() => copyURl(i?.photoURL)}>
+              <h2 className="text-base font-semibold font-nunito text-title-color uppercase mt-1">{i?.name}</h2>
+              <figure className="flex justify-center">
+                <img className="h-20 " src={i?.photoURL} alt="" />
+              </figure>
             </button>
             <div className="rounded-b-md flex justify-center gap-2 py-1 bg-[#475569] bg-opacity-60 items-center absolute bottom-0 left-0 right-0">
               <BiLinkAlt onClick={() => copyURl(i?.photoURL)} title="Copy Image URL" className="text-2xl text-white rounded-full  hover:bg-my-accent bg-my-primary p-1 " />
