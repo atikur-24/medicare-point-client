@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "serial": 1,
     "category": "Metabolic Diseases",
     "name": "Type 2 Diabetes",
     "image": "https://img.freepik.com/free-vector/cartoon-character-with-high-blood-pressure-symptoms_1308-48157.jpg?w=2000",
@@ -10,7 +10,7 @@
     "cure": "While Type 2 diabetes doesn't have a complete cure, it can be managed effectively. Lifestyle modifications are central. A healthy diet, regular exercise, and weight management play key roles. Medications, including oral antidiabetic drugs or insulin, are often necessary to control blood sugar levels. Regular blood sugar monitoring helps in making necessary adjustments to the treatment plan. Routine medical check-ups are crucial to assess overall health and diabetes management progress. Collaborating with healthcare professionals, including doctors and dietitians, is essential to create a personalized plan that addresses specific needs. With proper care and adherence to the treatment plan, individuals with Type 2 diabetes can lead healthy lives."
   },
   {
-    "id": 2,
+    "serial": 2,
     "category": "Cardiovascular Diseases",
     "name": "Hypertension (High Blood Pressure)",
     "image": "https://img.freepik.com/free-vector/cartoon-character-with-high-blood-pressure-symptoms_1308-48157.jpg?w=2000",
@@ -20,7 +20,7 @@
     "cure": "While hypertension isn't completely curable, it can be effectively managed. Lifestyle changes are fundamental. Adopt the Dietary Approaches to Stop Hypertension (DASH) diet. Engage in regular exercise, maintain a healthy weight, and avoid smoking. Medications, including diuretics, ACE inhibitors, beta-blockers, or calcium channel blockers, might be prescribed to control blood pressure. Adhering to the treatment plan, routine blood pressure monitoring, and regular medical check-ups are essential for successful management. By maintaining a healthy lifestyle and working closely with healthcare professionals, individuals with hypertension can achieve better blood pressure control and overall heart health."
   },
   {
-    "id": 3,
+    "serial": 3,
     "name": "Influenza (Flu)",
     "category": "Viral Diseases",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -30,7 +30,7 @@
     "cure": "There's no specific cure for the flu, but effective management can alleviate symptoms and speed up recovery. Rest and hydration are essential components of recovery. Over-the-counter medications like acetaminophen or ibuprofen can help reduce fever and ease body aches. Antiviral medications like oseltamivir (Tamiflu) can be prescribed by a doctor, especially if taken within the first 48 hours of symptom onset. These antivirals can help shorten the duration and severity of the illness, especially in high-risk individuals. Practicing self-care, staying isolated to prevent transmission, and seeking medical attention when needed are key to managing the flu."
   },
   {
-    "id": 4,
+    "serial": 4,
     "name": "Common Cold",
     "category": "Viral Diseases",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -40,7 +40,7 @@
     "cure": "There's no cure for the common cold, but effective management can alleviate symptoms and help you recover faster. Rest and hydration are essential for recovery. Over-the-counter cold remedies, such as decongestants and throat lozenges, can provide relief from symptoms like congestion, sore throat, and cough. Pain relievers like acetaminophen or ibuprofen can help reduce fever and discomfort. Gargling with warm saltwater can soothe a sore throat. Practicing good self-care, staying home to rest, and avoiding close contact with others help prevent the spread of the virus."
   },
   {
-    "id": 5,
+    "serial": 5,
     "category": "Respiratory Diseases",
     "name": "Asthma",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -50,7 +50,7 @@
     "cure": "While asthma can't be completely cured, it can be effectively managed with proper care. Quick-relief inhalers (bronchodilators) provide immediate relief during asthma attacks by relaxing the airways. Controller medications (inhaled corticosteroids, long-acting bronchodilators) are used daily to prevent inflammation and reduce the frequency of attacks. Biologic therapies that target specific immune pathways are available for severe cases. Lifestyle adjustments, such as avoiding triggers and maintaining a healthy lifestyle, contribute to successful asthma management. Regular follow-up with healthcare providers is essential to adjust treatment plans based on individual needs."
   },
   {
-    "id": 6,
+    "serial": 6,
     "category": "Viral Diseases",
     "name": "Influenza (Flu)",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -60,7 +60,7 @@
     "cure": "There's no specific cure for the flu, but effective management can alleviate symptoms and speed up recovery. Rest and hydration are essential components of recovery. Over-the-counter medications like acetaminophen or ibuprofen can help reduce fever and ease body aches. Antiviral medications like oseltamivir (Tamiflu) can be prescribed by a doctor, especially if taken within the first 48 hours of symptom onset. These antivirals can help shorten the duration and severity of the illness, especially in high-risk individuals. Practicing self-care, staying isolated to prevent transmission, and seeking medical attention when needed are key to managing the flu."
   },
   {
-    "id": 7,
+    "serial": 7,
     "category": "Viral Diseases",
     "name": "Common Cold",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -70,7 +70,7 @@
     "cure": "There's no cure for the common cold, but effective management can alleviate symptoms and help you recover faster. Rest and hydration are essential for recovery. Over-the-counter cold remedies, such as decongestants and throat lozenges, can provide relief from symptoms like congestion, sore throat, and cough. Pain relievers like acetaminophen or ibuprofen can help reduce fever and discomfort. Gargling with warm saltwater can soothe a sore throat. Practicing good self-care, staying home to rest, and avoiding close contact with others help prevent the spread of the virus."
   },
   {
-    "id": 8,
+    "serial": 8,
     "category": "Respiratory Diseases",
     "name": "Asthma",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -81,7 +81,7 @@
   },
 
   {
-    "id": 9,
+    "serial": 9,
     "category": "Cardiovascular Diseases",
     "name": "Coronary Artery Disease (CAD)",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -91,7 +91,7 @@
     "cure": "CAD isn't completely curable, but it can be managed effectively through a combination of lifestyle changes and medical interventions. Lifestyle modifications include dietary changes, regular exercise, and weight management. Medications such as statins to lower cholesterol, antiplatelet drugs to prevent blood clots, and beta-blockers to reduce heart strain may be prescribed. In more severe cases, angioplasty with stent placement or coronary artery bypass surgery can restore blood flow to the heart, improving overall cardiac function and reducing the risk of complications."
   },
   {
-    "id": 10,
+    "serial": 10,
     "category": "Neurological Diseases",
     "name": "Alzheimer's Disease",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -101,7 +101,7 @@
     "cure": "As of now, there's no cure for Alzheimer's disease, but management strategies aim to improve quality of life and delay progression. Medications such as cholinesterase inhibitors and memantine can help manage cognitive symptoms and behavioral changes. Lifestyle changes, like creating a structured routine and a supportive environment, are beneficial. Ongoing research is focused on finding effective treatments to slow the progression of the disease and improve the quality of life for individuals and their caregivers."
   },
   {
-    "id": 11,
+    "serial": 11,
     "category": "Skeletal Diseases",
     "name": "Osteoporosis",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -111,7 +111,7 @@
     "cure": "While osteoporosis can't be fully cured, it can be managed to reduce fracture risk and improve bone health. Treatment involves a combination of medications, lifestyle changes, and fall prevention strategies. Medications like bisphosphonates and hormone therapy can slow bone loss and reduce fracture risk. Lifestyle adjustments, such as maintaining a balanced diet rich in bone-healthy nutrients and participating in regular exercise, contribute to long-term management. Fall prevention strategies, such as using assistive devices and ensuring a safe living environment, also play a crucial role."
   },
   {
-    "id": 12,
+    "serial": 12,
     "category": "Cancer",
     "name": "Cancer",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -121,7 +121,7 @@
     "cure": "Cancer treatment varies based on the specific type, stage, and individual factors. Treatment options include surgery, chemotherapy, radiation therapy, targeted therapies, and immunotherapy. Early detection through routine screenings increases the likelihood of successful treatment outcomes. Supportive care, psychological counseling, and a strong healthcare team contribute to effectively managing cancer and improving overall quality of life."
   },
   {
-    "id": 13,
+    "serial": 13,
     "category": "Joint-related Diseases",
     "name": "Arthritis (Osteoarthritis and Rheumatoid Arthritis)",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -132,7 +132,7 @@
   },
 
   {
-    "id": 14,
+    "serial": 14,
     "category": "Viral Diseases",
     "name": "HIV/AIDS",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -142,7 +142,7 @@
     "cure": "HIV/AIDS doesn't have a cure, but antiretroviral therapy (ART) can suppress the virus and improve immune function. Early diagnosis and prompt initiation of ART are crucial. Regular medical follow-ups, adherence to treatment, and healthy lifestyle practices support effective management of HIV/AIDS."
   },
   {
-    "id": 15,
+    "serial": 15,
     "category": "Neurological Diseases",
     "name": "Stroke",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -152,7 +152,7 @@
     "cure": "Stroke treatment varies based on the type and severity of the stroke. Ischemic stroke may be treated with clot-dissolving medications (thrombolytics) or mechanical clot removal. Hemorrhagic stroke management focuses on stopping bleeding and preventing complications. Rehabilitation therapies, including physical therapy, occupational therapy, and speech therapy, aid in recovery and help restore function."
   },
   {
-    "id": 16,
+    "serial": 16,
     "category": "Digestive Diseases",
     "name": "Chronic Obstructive Pulmonary Disease (COPD)",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -162,7 +162,7 @@
     "cure": "COPD isn't curable, but effective management can improve quality of life. Lifestyle changes, such as smoking cessation and avoiding irritants, are essential. Medications like bronchodilators and inhaled corticosteroids help manage symptoms. Pulmonary rehabilitation programs improve lung function and provide education on managing COPD. In advanced cases, oxygen therapy and surgical interventions like lung volume reduction surgery or lung transplantation might be considered."
   },
   {
-    "id": 17,
+    "serial": 17,
     "category": "Viral Diseases",
     "name": "Hepatitis B",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -172,7 +172,7 @@
     "cure": "Hepatitis B doesn't have a complete cure, but antiviral medications can help control the virus and prevent complications. Regular medical check-ups and monitoring liver health are important. Antiviral drugs aim to suppress viral replication and prevent liver damage. Adherence to prescribed medications and ongoing medical care are essential components of managing hepatitis B effectively."
   },
   {
-    "id": 18,
+    "serial": 18,
     "category": "Viral Diseases",
     "name": "Hepatitis C",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -182,7 +182,7 @@
     "cure": "Hepatitis C can be cured with newer antiviral drugs that target the virus directly, leading to sustained virologic response (SVR). Treatment aims to clear the virus from the body and prevent liver damage. Adherence to the treatment regimen is vital. Regular medical follow-ups and liver function monitoring are important to ensure successful treatment outcomes."
   },
   {
-    "id": 19,
+    "serial": 19,
     "category": "Digestive Diseases",
     "name": "Gastroesophageal Reflux Disease (GERD)",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -192,7 +192,7 @@
     "cure": "GERD management involves a combination of lifestyle changes and medical interventions. Lifestyle modifications include dietary adjustments, weight control, and elevation of the head during sleep. Over-the-counter antacids can provide temporary relief. For persistent symptoms, proton pump inhibitors (PPIs) or H2 blockers may be prescribed to reduce stomach acid production. In severe cases, surgical interventions like fundoplication may be considered to reinforce the lower esophageal sphincter and prevent reflux."
   },
   {
-    "id": 20,
+    "serial": 20,
     "category": "Mental Health Disorders",
     "name": "Depression",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -202,7 +202,7 @@
     "cure": "Depression treatment focuses on improving mood and functioning. Psychotherapy, including cognitive-behavioral therapy (CBT), helps individuals identify and change negative thought patterns. Medications like antidepressants can be prescribed by a healthcare provider. Lifestyle changes, such as regular exercise, proper nutrition, and sufficient sleep, play a role in managing depression. Ongoing self-care and support from mental health professionals contribute to recovery and overall well-being."
   },
   {
-    "id": 21,
+    "serial": 21,
     "category": "Mental Health Disorders",
     "name": "Anxiety Disorders",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -212,7 +212,7 @@
     "cure": "Anxiety disorders are manageable with proper care. Treatment includes psychotherapy, such as cognitive-behavioral therapy (CBT) and exposure therapy, which help individuals develop effective coping strategies. Medications, including antidepressants and anti-anxiety medications, can be prescribed. Lifestyle adjustments, such as maintaining a balanced routine, practicing relaxation techniques, and avoiding triggers, contribute to anxiety management. A collaborative approach involving mental health professionals supports symptom reduction and improved quality of life."
   },
   {
-    "id": 22,
+    "serial": 22,
     "category": "Mental Health Disorders",
     "name": "Epilepsy",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -222,7 +222,7 @@
     "cure": "Epilepsy can be managed with medical care. Antiepileptic medications help control seizures by stabilizing brain activity. In some cases, surgical interventions may be considered to remove or disconnect the seizure focus. Ketogenic diet, which is low in carbohydrates and high in fats, is a therapeutic option. Vagus nerve stimulation and responsive neurostimulation devices are alternative treatments. Regular medical follow-ups and open communication with a healthcare team are essential for successful epilepsy management."
   },
   {
-    "id": 23,
+    "serial": 23,
     "category": "Respiratory Diseases",
     "name": "Rheumatic Heart Disease",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -232,7 +232,7 @@
     "cure": "Management of rheumatic heart disease involves multiple approaches. Antibiotics are administered to treat streptococcal infections and prevent recurrence. Anti-inflammatory medications help control inflammation and reduce strain on the heart. Severe cases may require surgical interventions to repair or replace damaged heart valves. Regular medical follow-ups are important to monitor heart health and ensure effective treatment."
   },
   {
-    "id": 24,
+    "serial": 24,
     "category": "Ophthalmic Diseases",
     "name": "Migraine",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -242,7 +242,7 @@
     "cure": "Migraine management focuses on relieving symptoms and reducing frequency. Over-the-counter pain relievers like ibuprofen and acetaminophen can help during mild attacks. Prescription medications like triptans provide more effective pain relief. Lifestyle adjustments, such as maintaining regular sleep patterns, managing stress, and staying hydrated, contribute to migraine control. Identifying triggers and making necessary lifestyle changes play a significant role in reducing migraine occurrence and severity."
   },
   {
-    "id": 25,
+    "serial": 25,
     "category": "Ophthalmic Diseases",
     "name": "Glaucoma",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -252,7 +252,7 @@
     "cure": "Glaucoma is manageable but not curable. Treatment focuses on lowering intraocular pressure to prevent further damage to the optic nerve. Medications, including eye drops and oral medications, help reduce eye pressure. Laser therapy or surgical interventions, like trabeculectomy or drainage implants, may be necessary to improve fluid drainage from the eye. Regular eye check-ups are essential to monitor disease progression and adjust the treatment plan."
   },
   {
-    "id": 26,
+    "serial": 26,
     "category": "Cancer",
     "name": "Ovarian Cancer",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -262,7 +262,7 @@
     "cure": "Ovarian cancer treatment depends on the stage and type. Surgery is typically the first step, involving removal of the tumor and affected tissues. Chemotherapy is commonly used to target remaining cancer cells. Targeted therapies and immunotherapy are options for specific cases. While cure rates vary, early detection and prompt treatment improve outcomes. Regular follow-ups and ongoing surveillance are important to monitor for recurrence."
   },
   {
-    "id": 27,
+    "serial": 27,
     "category": "Joint-related Diseases",
     "name": "Gout",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -272,7 +272,7 @@
     "cure": "Gout management aims to control symptoms and prevent flare-ups. During acute attacks, medications like nonsteroidal anti-inflammatory drugs (NSAIDs) or colchicine relieve pain and inflammation. To manage chronic gout, medications like allopurinol or febuxostat are prescribed to lower uric acid levels. Lifestyle changes, such as dietary modifications and weight control, contribute to long-term management and prevention of complications."
   },
   {
-    "id": 28,
+    "serial": 28,
     "category": "Ophthalmic Diseases",
     "name": "Cataracts",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
@@ -282,7 +282,7 @@
     "cure": "Cataracts can be treated effectively through surgery. During cataract surgery, the cloudy lens is removed and replaced with an artificial intraocular lens (IOL). This outpatient procedure restores clear vision. Recovery is usually quick, and patients often experience improved vision within a few days. Regular eye check-ups are important to monitor eye health and address any concerns."
   },
   {
-    "id": 29,
+    "serial": 29,
     "category": "Neurological Diseases",
     "name": "Autism Spectrum Disorder (ASD)",
     "image": "https://www.narayanahealth.org/blog/wp-content/uploads/2023/05/High-blood-pressure.jpeg",
