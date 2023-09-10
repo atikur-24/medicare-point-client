@@ -47,7 +47,7 @@ const AddBlog = () => {
         </div>
         <div>
           <h4>Blog Topic</h4>
-          <input type="text" name="topic" id="" />
+          <input type="text" name="topic" id="" placeholder="Type Here" />
         </div>
         <div>
           <h4>Blog Content</h4>
