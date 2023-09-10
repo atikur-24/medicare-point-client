@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { AiFillHome, AiOutlineBars } from "react-icons/ai";
 import { BiSolidUser } from "react-icons/bi";
 import { BsGrid1X2Fill, BsImage } from "react-icons/bs";
-import { FaCaretDown, FaUsers, FaWpforms,FaCaretUp } from "react-icons/fa";
+import { FaCaretDown, FaCaretUp, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
 import { MdAddShoppingCart, MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
@@ -258,8 +258,8 @@ const DashboardLayout = () => {
         <DashBoardNavbar setShowNotification={setShowNotification} showNotification={showNotification} />
         {showNotification && <Notification />}
         <Outlet />
-        <label htmlFor="my-drawer-2" className="toggle-dashboard-btn drawer-button lg:hidden">
-          <TfiMenu className="text-lg cursor-pointer" />
+        <label htmlFor="my-drawer-2" className="toggle-dashboard-btn ml-4 drawer-button lg:hidden">
+          <TfiMenu className="text-2xl  cursor-pointer" />
         </label>
       </div>
       <div className="drawer-side   md:bg-[#f6f6f6]  md:shadow-2xl ">
@@ -276,10 +276,9 @@ const DashboardLayout = () => {
               <RxCross1 className="text-lg cursor-pointer" />
             </label>
           </li>
-          {/* {isUser && userLinks}
-          {isPharmacist && pharmacistLinks} */}
+          {isUser && userLinks}
+          {isPharmacist && pharmacistLinks}
           {isAdmin && adminLinks}
-          {/* {isAdmin } */}
         </ul>
       </div>
     </div>
