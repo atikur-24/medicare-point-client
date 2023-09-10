@@ -45,72 +45,6 @@ const UpdateLabTest = ({ singleData }) => {
     "X-ray MRI CT Ultrasound",
   ];
 
-  // const cities = [
-  //   { value: "Dhaka", label: "Dhaka" },
-  //   { value: "Chittagong", label: "Chittagong" },
-  //   { value: "Rajshahi", label: "Rajshahi" },
-  //   { value: "Sylhet", label: "Sylhet" },
-  //   { value: "Jessore", label: "Jessore" },
-  //   { value: "Dinajpur", label: "Dinajpur" },
-  //   { value: "Gopalganj", label: "Gopalganj" },
-  //   { value: "Gazipur", label: "Gazipur" },
-  //   { value: "Mymensingh", label: "Mymensingh" },
-  //   { value: "Comilla", label: "Comilla" },
-  //   { value: "Barisal", label: "Barisal" },
-  //   { value: "Narayanganj", label: "Narayanganj" },
-  //   { value: "Faridpur", label: "Faridpur" },
-  //   { value: "Bogra", label: "Bogra" },
-  //   { value: "Pabna", label: "Pabna" },
-  //   { value: "Rangamati", label: "Rangamati" },
-  //   { value: "Kushtia", label: "Kushtia" },
-  //   { value: "Rangpur", label: "Rangpur" },
-  //   { value: "Manikganj", label: "Manikganj" },
-  //   { value: "Noakhali", label: "Noakhali" },
-  //   { value: "Khulna", label: "Khulna" },
-  //   { value: "Tangail", label: "Tangail" },
-  //   { value: "Panchagarh", label: "Panchagarh" },
-  //   { value: "Bhola", label: "Bhola" },
-  //   { value: "Bandarban", label: "Bandarban" },
-  //   { value: "Chandpur", label: "Chandpur" },
-  //   { value: "Habiganj", label: "Habiganj" },
-  //   { value: "Lakshmipur", label: "Lakshmipur" },
-  //   { value: "Barguna", label: "Barguna" },
-  //   { value: "Jhalokati", label: "Jhalokati" },
-  //   { value: "Pirojpur", label: "Pirojpur" },
-  //   { value: "Patuakhali", label: "Patuakhali" },
-  //   { value: "Jhenaidah", label: "Jhenaidah" },
-  //   { value: "Narail", label: "Narail" },
-  //   { value: "Magura", label: "Magura" },
-  //   { value: "Lalmonirhat ", label: "Lalmonirhat" },
-  //   { value: "Kurigram", label: "Kurigram" },
-  //   { value: "Nilphamari", label: "Nilphamari" },
-  //   { value: "Gaibandha", label: "Gaibandha" },
-  //   { value: "Thakurgaon", label: "Thakurgaon" },
-  //   { value: "Satkhira", label: "Satkhira" },
-  //   { value: "Bagerhat", label: "Bagerhat" },
-  //   { value: "Chuadanga", label: "Chuadanga" },
-  //   { value: "Meherpur", label: "Meherpur" },
-  //   { value: "Sirajganj", label: "Sirajganj" },
-  //   { value: "Joypurhat", label: "Joypurhat" },
-  //   { value: "Natore", label: "Natore " },
-  //   { value: "Naogaon", label: "Naogaon" },
-  //   { value: "Nawabganj", label: "Nawabganj" },
-  //   { value: "Khagrachhari", label: "Khagrachhari" },
-  //   { value: "Feni", label: "Feni" },
-  //   { value: "Brahmanbaria", label: "Brahmanbaria" },
-  //   { value: "Sunamganj", label: "Sunamganj" },
-  //   { value: "Moulvibazar", label: "Moulvibazar" },
-  //   { value: "Shariatpur", label: "Shariatpur" },
-  //   { value: "Madaripur", label: "Madaripur" },
-  //   { value: "Rajbari", label: "Rajbari" },
-  //   { value: "Kishoreganj", label: "Kishoreganj" },
-  //   { value: "Jamalpur", label: "Jamalpur" },
-  //   { value: "Sherpur", label: "Sherpur" },
-  //   { value: "Netrakona", label: "Netrakona" },
-  //   { value: "Munshiganj", label: "Munshiganj" },
-  //   { value: "Narsingdi", label: "Narsingdi" },
-  // ];
-
   const labCategories2 = ["Popular", "Normal"];
 
   const onSubmit = async (data) => {
@@ -243,7 +177,9 @@ const UpdateLabTest = ({ singleData }) => {
             </div>
 
             <div>
-              <input className="submit-btn cursor-pointer" type="submit" value="UPDATE" />
+              <button className="my-btn  w-full" type="submit">
+                UPDATE
+              </button>
             </div>
           </form>
 
