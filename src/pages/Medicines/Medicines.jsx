@@ -8,7 +8,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { AiOutlineDown } from "react-icons/ai";
 import { BsFilterLeft } from "react-icons/bs";
-import { FiChevronDown } from "react-icons/fi";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { LiaAngleRightSolid } from "react-icons/lia";
 import { RxCross1 } from "react-icons/rx";
@@ -63,117 +62,122 @@ const Medicines = () => {
   const [showFilter, setShowFilter] = useState("-ml-96");
   const filterItems = (
     <div className="py-4 px-6 space-y-4 text-sm">
+      <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
+        <Link to="/medicines" className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "" ? "text-my-accent underline" : ""}`}>
+          <LiaAngleRightSolid /> All Medicines
+        </Link>
+      </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Pain-Relief")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Pain-Relief" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Pain-Relief" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Pain-Relief" ? <FiChevronDown /> : <LiaAngleRightSolid />} Pain Relief
+        <LiaAngleRightSolid /> Pain Relief
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Digestive-Health")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Digestive-Health" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Digestive-Health" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Digestive-Health" ? <FiChevronDown /> : <LiaAngleRightSolid />} Digestive Health
+        <LiaAngleRightSolid /> Digestive Health
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Cough-Cold")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Cough-Cold" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Cough-Cold" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Cough-Cold" ? <FiChevronDown /> : <LiaAngleRightSolid />} Cough & Cold
+        <LiaAngleRightSolid /> Cough & Cold
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Diabetes-Care")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Diabetes-Care" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Diabetes-Care" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Diabetes-Care" ? <FiChevronDown /> : <LiaAngleRightSolid />} Diabetes Care
+        <LiaAngleRightSolid /> Diabetes Care
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Heart-Health")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Heart-Health" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Heart-Health" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Heart-Health" ? <FiChevronDown /> : <LiaAngleRightSolid />} Heart Health
+        <LiaAngleRightSolid /> Heart Health
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Laundry-Household")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Laundry-Household" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Laundry-Household" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Laundry-Household" ? <FiChevronDown /> : <LiaAngleRightSolid />} Laundry Household
+        <LiaAngleRightSolid /> Laundry Household
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Skin-Care")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Skin-Care" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Skin-Care" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Skin-Care" ? <FiChevronDown /> : <LiaAngleRightSolid />} Skin Care
+        <LiaAngleRightSolid /> Skin Care
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Eye-Care")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Eye-Care" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Eye-Care" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Eye-Care" ? <FiChevronDown /> : <LiaAngleRightSolid />} Eye Care
+        <LiaAngleRightSolid /> Eye Care
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Women-Care")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Women-Care" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Women-Care" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Women-Care" ? <FiChevronDown /> : <LiaAngleRightSolid />} Women Care
+        <LiaAngleRightSolid /> Women Care
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Mens-Products")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Mens-Products" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Mens-Products" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Mens-Products" ? <FiChevronDown /> : <LiaAngleRightSolid />} Men's Products
+        <LiaAngleRightSolid /> Men's Products
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Vitamins")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Vitamins" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Vitamins" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Vitamins" ? <FiChevronDown /> : <LiaAngleRightSolid />} Vitamins
+        <LiaAngleRightSolid /> Vitamins
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Devices-Equipment")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Devices-Equipment" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Devices-Equipment" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Devices-Equipment" ? <FiChevronDown /> : <LiaAngleRightSolid />} Devices & Equipment
+        <LiaAngleRightSolid /> Devices & Equipment
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Bone-Health-care")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Bone-Health-care" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Bone-Health-care" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Bone-Health-care" ? <FiChevronDown /> : <LiaAngleRightSolid />} Bone Health care
+        <LiaAngleRightSolid /> Bone Health care
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Weight")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Weight" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Weight" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Weight" ? <FiChevronDown /> : <LiaAngleRightSolid />} Weight
+        <LiaAngleRightSolid /> Weight
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Dental-Care")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Dental-Care" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Dental-Care" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Dental-Care" ? <FiChevronDown /> : <LiaAngleRightSolid />} Dental Care
+        <LiaAngleRightSolid /> Dental Care
       </button>
       <button
         type="button"
         onClick={() => handelCategoryFilter("Baby-Care")}
-        className={`inline-flex items-center gap-1 w-full hover:txt-primary hover:cursor-pointer ${isOpen === "Baby-Care" ? "text-lg font-bold underline" : ""}`}
+        className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "Baby-Care" ? "text-my-accent underline" : ""}`}
       >
-        {isOpen === "Baby-Care" ? <FiChevronDown /> : <LiaAngleRightSolid />} Baby Care
+        <LiaAngleRightSolid /> Baby Care
       </button>
     </div>
   );
@@ -221,28 +225,26 @@ const Medicines = () => {
         </div>
       </div>
 
-      <div className={`w-72 bg-white rounded-md lg:hidden absolute top-0 z-30 h-screen ${showFilter} transition-all duration-500`}>
+      <div className={`w-64 bg-white rounded-md lg:hidden absolute top-0 z-30 h-screen ${showFilter} transition-all duration-500`}>
         <div className="flex justify-between items-center">
-          <h3 className="text-title-color text-xl font-bold tracking-wide py-4 px-6  ">Categories</h3>
+          <h3 className="text-title-color text-xl font-bold tracking-wide py-4 px-6 uppercase border-b border-gray-3">Categories</h3>
           <button onClick={() => setShowFilter("-ml-96")} className="lg:hidden" type="button">
             <RxCross1 className="text-lg font-bold text-my-primary mr-2 btn btn-circle btn-sm p-1" />
           </button>
         </div>
-        <hr />
         {filterItems}
       </div>
 
       <div className="container mx-auto px-4 lg:px-10 pb-10 md:flex gap-8">
-        <div className="w-72 h-fit bg-white rounded-md hidden md:block">
-          <h3 className="text-title-color text-xl font-bold tracking-wide py-4 uppercase font-nunito   px-6">Categories</h3>
-          <hr />
-          <div onClick={() => setIsOpen(null)}>
+        <div className="w-80 h-fit bg-white rounded-md hidden md:block">
+          <h3 className="text-title-color text-xl font-bold tracking-wide py-4 uppercase font-nunito px-6 border-b border-gray-3">Categories</h3>
+          {/* <div onClick={() => setIsOpen(null)}>
             <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
               <Link className="px-6" to="/medicines">
                 All Medicines
               </Link>
             </button>
-          </div>
+          </div> */}
           {filterItems}
         </div>
         {isloading ? (
