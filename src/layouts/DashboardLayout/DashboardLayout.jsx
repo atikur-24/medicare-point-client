@@ -253,7 +253,7 @@ const DashboardLayout = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content relative  bg-[#f6f6f6]  md:px-20">
+      <div className="drawer-content relative  bg-[#F1F6FA]   md:px-20">
         {/* Page content here */}
         <DashBoardNavbar setShowNotification={setShowNotification} showNotification={showNotification} />
         {showNotification && <Notification />}
@@ -262,10 +262,10 @@ const DashboardLayout = () => {
           <TfiMenu className="text-2xl  cursor-pointer" />
         </label>
       </div>
-      <div className="drawer-side   md:bg-[#f6f6f6]  md:shadow-2xl ">
+      <div className="drawer-side   md:bg-[#F1F6FA]  md:shadow-2xl ">
         <label htmlFor="my-drawer-2" className="drawer-overlay" />
 
-        <ul className="dashboard-ul bg-white md:bg-[#f6f6f6]   menu p-4 w-80 !h-full text-base-content space-y-4 !z-50">
+        <ul className="dashboard-ul bg-white   menu p-4 w-80 !h-full text-base-content space-y-4 !z-50">
           {/* Sidebar content here */}
 
           <li className="relative">

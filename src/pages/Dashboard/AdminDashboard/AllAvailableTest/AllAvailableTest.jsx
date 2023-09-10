@@ -41,8 +41,15 @@ const AllAvailableTest = () => {
   }
 
   return (
-    <div className="px-2 md:px-5">
-      <h3 className="text-center text-3xl my-7 font-semibold">All Available Tests</h3>
+    <div className="px-2 md:px-5 py-10">
+      <div className=" mb-8">
+        <div className="stats shadow">
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Total Lab</div>
+            <div className="stat-value text-my-primary">{allLabTest.length || 0}</div>
+          </div>
+        </div>
+      </div>
       <UpdateLabTest x={x} setX={setX} singleData={singleData} />
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-5">
