@@ -21,19 +21,19 @@ const AddHealthSuggestion = () => {
                 <label className="label">
                   <span className="label-text font-bold">Category</span>
                 </label>
-                <input type="text" placeholder="Type here" {...register("category")} className="input input-bordered w-full" />
+                <input required type="text" placeholder="Type here" {...register("category")} className="input input-bordered w-full" />
               </div>
               <div>
                 <label className="label">
                   <span className="label-text font-bold">Name</span>
                 </label>
 
-                <input type="text" placeholder="Type here" {...register("name")} className="input input-bordered w-full" />
+                <input required type="text" placeholder="Type here" {...register("name")} className="input input-bordered w-full" />
               </div>
             </div>
             <div>
               <label className="text-sm font-semibold">Image</label>
-              <input placeholder="Type Image URL Here" type="text" {...register("image")} className="input input-bordered w-full" />
+              <input required placeholder="Type Image URL Here" type="text" {...register("image")} className="input input-bordered w-full" />
             </div>
             <div className="grid grid-cols-2 gap-2">
               <div>
@@ -41,7 +41,7 @@ const AddHealthSuggestion = () => {
                   <span className="label-text font-bold">Type</span>
                 </label>
 
-                <input type="text" placeholder="Type here" {...register("type")} className="input input-bordered w-full" />
+                <input required type="text" placeholder="Type here" {...register("type")} className="input input-bordered w-full" />
               </div>
               <div>
                 <label className="label">
