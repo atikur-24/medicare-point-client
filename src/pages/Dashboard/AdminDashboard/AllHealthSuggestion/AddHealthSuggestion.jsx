@@ -7,8 +7,6 @@ const AddHealthSuggestion = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    // Remove any image-related code if you don't want to upload images
-
     // Dispatch the action to add the health tip data
     dispatch(addHealthTipsApi({ data }));
   };
@@ -37,7 +35,6 @@ const AddHealthSuggestion = () => {
               <label className="text-sm font-semibold">Image</label>
               <input placeholder="Type Image URL Here" type="text" {...register("image")} className="input input-bordered w-full" />
             </div>
-            {/* Repeat for other fields */}
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label className="label">
