@@ -31,7 +31,6 @@ const MedicineDetails = () => {
   useEffect(() => {
     setLoading(true);
     axios.get(`http://localhost:5000/medicines/details/${params?.id}`).then((res) => {
-      // console.log(res.data);
       setMedicine(res.data);
       setLoading(false);
     });
@@ -122,7 +121,7 @@ const MedicineDetails = () => {
             <p className="font-medium text-black-2 tracking-wide">
               Availability: <span className="text-my-primary">In Stock</span>
             </p>
-            <p className="text-gray-4 text-justify leading-7">{medicine_description}</p>
+            <p className="text-gray-4 text-justify leading-7">{medicine_description.slice(0, 200)}</p>
             <div className="border border-gray-3 py-5 px-3 rounded-md font-semibold flex items-center justify-around">
               <span className="text-lg tracking-wide">Quantity:</span>
               <div className="border border-gray-3 rounded-full w-fit py-3 px-5 flex items-center justify-between gap-5">
