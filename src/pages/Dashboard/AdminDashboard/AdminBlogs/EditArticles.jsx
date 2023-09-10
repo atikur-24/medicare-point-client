@@ -4,7 +4,6 @@ import { TiEdit } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2"; // Import SweetAlert library
-// import { fetchAllBlogs } from "../../../../Features/Blogs/allBlogs";
 import { fetchAllBlogs } from "../../../../Features/Blogs/allBlogs";
 import { deleteBlogApi } from "../../../../Features/Blogs/deleteBlog";
 
