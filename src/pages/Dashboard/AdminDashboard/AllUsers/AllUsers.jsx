@@ -34,18 +34,18 @@ const AllUsers = () => {
     <div>
       <div className="flex px-6 mb-8">
         <div className="stats shadow">
-          <div className="stat place-items-center">
-            <div className="stat-title">Admin</div>
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Admin</div>
             <div className="stat-value">31K</div>
           </div>
 
-          <div className="stat place-items-center">
-            <div className="stat-title">Users</div>
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Users</div>
             <div className="stat-value text-my-primary">4,200</div>
           </div>
 
-          <div className="stat place-items-center">
-            <div className="stat-title">New Registers</div>
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">New Registers</div>
             <div className="stat-value">1,200</div>
           </div>
         </div>
