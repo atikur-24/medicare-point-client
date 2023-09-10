@@ -18,7 +18,7 @@ const MediCard = ({ medicine }) => {
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, category: category?.label, quantity: 1, email: user?.email };
 
   return (
-    <div className="card card-compact bg-white rounded-md hover:shadow-lg transition-shadow relative group">
+    <div className="card card-compact bg-white rounded-md hover:shadow-lg transition-shadow relative group h-fit">
       {discount > 0 && <p className="bg-my-accent z-10 rounded-md py-1 px-2 text-xs font-medium text-white absolute top-4 left-4">-{discount}% OFF</p>}
       <div className="card-body space-y-2 lg:space-y-3">
         <Link to={`/details/${_id}`}>
