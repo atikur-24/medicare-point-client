@@ -22,8 +22,7 @@ import MediCard from "../Shared/Card/MediCard";
 const Medicines = () => {
   const [medicines, setMedicines] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
-  const [isOpen, setIsopen] = useState(null);
-  // const { loading, setLoading } = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(null);
   const [params, setParams] = useSearchParams();
   const category = params.get("category");
   const { allData, isloading } = useSelector((state) => state?.allMedicines);
@@ -33,7 +32,6 @@ const Medicines = () => {
     dispatch(fetchMedicines());
   }, [dispatch]);
 
- 
   useEffect(() => {
     if (category) {
       axios.get(`http://localhost:5000/medicinesc?category=${category}`).then((res) => setMedicines(res.data));
@@ -42,30 +40,24 @@ const Medicines = () => {
     }
   }, [allData, category]);
 
-  // const handelSort = (sort) => {
-  //   axios.get(`http://localhost:5000/medicines?sort=${sort}`).then((res) => setMedicines(res.data));
-  // };
-
   const handelSort = (sort) => {
     dispatch(fetchMedicines({ sort }));
   };
 
   const handelCategoryFilter = (fCategory) => {
-    // dispatch(fetchMedicines());
     const filterData = allData.filter((item) => item?.category?.value === fCategory);
     setMedicines(filterData);
-    setIsopen(fCategory);
-    // console.log(filterData);
+    setIsOpen(fCategory);
   };
 
-  const medicineParpage = 9;
-  const startIndex = currentPage * medicineParpage;
-  const endIndex = startIndex + medicineParpage;
+  const medicineParPage = 9;
+  const startIndex = currentPage * medicineParPage;
+  const endIndex = startIndex + medicineParPage;
   const PaginationMedicines = medicines.slice(startIndex, endIndex);
-  const pageCount = Math.ceil(medicines.length / medicineParpage);
+  const pageCount = Math.ceil(medicines.length / medicineParPage);
 
-  const handlePageClick = (seletedPage) => {
-    setCurrentPage(seletedPage.selected);
+  const handlePageClick = (sleetedPage) => {
+    setCurrentPage(sleetedPage.selected);
   };
 
   const [showFilter, setShowFilter] = useState("-ml-96");
@@ -244,7 +236,7 @@ const Medicines = () => {
         <div className="w-72 h-fit bg-white rounded-md hidden md:block">
           <h3 className="text-title-color text-xl font-bold tracking-wide py-4 uppercase font-nunito   px-6">Categories</h3>
           <hr />
-          <div onClick={() => setIsopen(null)}>
+          <div onClick={() => setIsOpen(null)}>
             <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
               <Link className="px-6" to="/medicines">
                 All Medicines
@@ -254,7 +246,7 @@ const Medicines = () => {
           {filterItems}
         </div>
         {isloading ? (
-          <Loader />
+          <Loader spinner />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PaginationMedicines?.map((medicine) => (

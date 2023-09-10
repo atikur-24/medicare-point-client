@@ -20,7 +20,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
 
-  const { signIn, loading, setLoading } = useAuth(AuthContext);
+  const { signIn, loading, setLoading, logOut } = useAuth(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -37,6 +37,16 @@ const Login = () => {
     setLoading(true);
     signIn(data.email, data.password)
       .then((result) => {
+        if (!result.user.emailVerified) {
+          Swal.fire({
+            icon: "error",
+            title: "Verify email",
+            showConfirmButton: false,
+            timer: 2500,
+          });
+          logOut();
+          return;
+        }
         if (result.user) {
           Swal.fire({
             icon: "success",

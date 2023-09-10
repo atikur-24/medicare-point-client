@@ -246,7 +246,7 @@ const DashboardLayout = () => {
   );
 
   if (!role) {
-    return <Loader />;
+    return <Loader spinner />;
   }
 
   return (

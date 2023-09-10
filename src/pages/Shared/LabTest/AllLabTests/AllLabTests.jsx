@@ -7,12 +7,13 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Loader from "../../../../components/Loader";
 import LabCard from "../LabCard/LabCard";
 import LabTitle from "../LabTitle";
 
 const AllLabTests = ({ isLoading, allLabTest }) => {
   if (isLoading) {
-    return <p className="text-center mt-10">Loading........</p>;
+    return <Loader spinner />;
   }
 
   return (
