@@ -47,20 +47,20 @@ const AddHealthSuggestion = () => {
                 <label className="label">
                   <span className="label-text font-bold">Cause</span>
                 </label>
-                <input type="text" placeholder="Type here" {...register("cause")} className="input input-bordered w-full" />
+                <input required type="text" placeholder="Type here" {...register("cause")} className="input input-bordered w-full" />
               </div>
             </div>
             <div>
               <label className="label">
                 <span className="label-text font-bold">Prevention</span>
               </label>
-              <textarea {...register("prevention")} placeholder="Type here" className="textarea textarea-bordered w-full" />
+              <textarea required {...register("prevention")} placeholder="Type here" className="textarea textarea-bordered w-full" />
             </div>
             <div>
               <label className="label">
                 <span className="label-text font-bold">Cure</span>
               </label>
-              <textarea {...register("cure")} placeholder="Type here" className="textarea textarea-bordered w-full" />
+              <textarea required {...register("cure")} placeholder="Type here" className="textarea textarea-bordered w-full" />
             </div>
             <button type="submit" className="my-btn">
               Add Health Tip
