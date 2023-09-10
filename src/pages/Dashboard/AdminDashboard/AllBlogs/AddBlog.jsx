@@ -1,6 +1,5 @@
 import JoditEditor from "jodit-react";
 import { useRef, useState } from "react";
-// import ReactHtmlParser from "react-html-parser";
 import { useDispatch } from "react-redux";
 import { addBlogApi } from "../../../../Features/Blogs/addBlog";
 import "./Allblogs.css";
@@ -44,7 +43,7 @@ const AddBlog = () => {
       <form onSubmit={handleBlog} className="add-blog-form space-y-3">
         <div>
           <h4>Blog Title</h4>
-          <input type="text" name="title" id="" />
+          <input type="text" name="title" id="" placeholder="Type Here" />
         </div>
         <div>
           <h4>Blog Topic</h4>
