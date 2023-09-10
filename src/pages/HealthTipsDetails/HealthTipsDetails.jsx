@@ -1,11 +1,27 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { MdOutlineTipsAndUpdates } from "react-icons/md";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+import HealthCard from "../HealthTips/HealthCard";
+import HealthCardCategory from "../HealthTips/HealthCardCategory";
 
 const HealthTipsDetails = () => {
   const diseaseDetails = useLoaderData();
   // const { image, title, content_details, published_date, topic } = healthArticles;
+  const [healthTips, setHealthTips] = useState([]);
+  console.log(healthTips);
+  const [categories, setCategories] = useState([]);
+  // const [selectedCategory, setSelectedCategory] = useState(null);
 
+  useEffect(() => {
+    axios.get("http://localhost:5000/allHealthTips").then((res) => {
+      setHealthTips(res.data);
+
+      // Extract unique categories from health tips data
+      // const uniqueCategories = [...new Set(res.data.map((tip) => tip.category))];
+      // setCategories(uniqueCategories);
+    });
+  }, []);
   return (
     <div className="my-8 p-8">
       <div className="container">
@@ -34,6 +50,23 @@ const HealthTipsDetails = () => {
             <p>{diseaseDetails.cure}</p>
           </div>
         </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:mx-8 md:mx-2 mx-auto items-center">
+        {healthTips.map((healthTip) => (
+          <div key={healthTip._id} className=" rounded relative bg-white shadow   h-full">
+            <div className=" absolute h-20  border-l-4  bg-white border-my-accent " />
+            <div className="px-8 py-4 space-y-8 ">
+              <h2 className="h-10 font-bold  text-lg ">{healthTip.name}</h2>
+              <img src={healthTip.image} alt="img" className="h-32  w-full object-cover" />
+              <p className="text-justify md:h-32">{healthTip.prevention.slice(0, 150)}...</p>
+              <Link to={`/healthtips/${healthTip._id}`} className="flex justify-center mt-auto">
+                <button type="button" className="my-btn w-full" style={{ borderRadius: "50px" }}>
+                  <MdOutlineTipsAndUpdates className="text-2xl" /> Get Tips
+                </button>
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
