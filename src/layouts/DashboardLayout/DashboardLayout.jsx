@@ -228,9 +228,9 @@ const DashboardLayout = () => {
               Add Blog
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/dashboard/add-health-articles">Add Health Articles</NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink to="/dashboard/manage-health-articles">Manage Health Articles</NavLink>
           </li>
