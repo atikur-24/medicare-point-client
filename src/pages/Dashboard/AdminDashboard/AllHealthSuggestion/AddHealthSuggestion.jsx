@@ -15,9 +15,6 @@ const AddHealthSuggestion = () => {
   return (
     <div className=" mt-8 bg-white box-shadow rounded-2xl p-10">
       <div className="grid grid-cols-1">
-        {/* <div>
-          <img className="w-full hidden" src="https://st2.depositphotos.com/1561359/6865/v/450/depositphotos_68650923-stock-illustration-doctor-writing-healthy-tips-words.jpg" alt="" />
-        </div> */}
         <div className="">
           <h1 className="text-2xl text-center font-bold mb-10 font-nunito uppercase">Add A New Health Tips</h1>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -36,12 +33,6 @@ const AddHealthSuggestion = () => {
                 <input type="text" placeholder="Type here" {...register("name")} className="input input-bordered w-full" />
               </div>
             </div>
-            {/* <div>
-              <label className="label">
-                <span className="label-text font-bold">Image</span>
-              </label>
-              <input type="file" {...register("image", { required: true })} className="file-input file-input-bordered file-input-accent w-full" />
-            </div> */}
             <div>
               <label className="text-sm font-semibold">Image</label>
               <input placeholder="Type Image URL Here" type="text" {...register("image")} className="input input-bordered w-full" />
