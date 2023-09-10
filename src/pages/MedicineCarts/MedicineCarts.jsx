@@ -104,7 +104,7 @@ const MedicineCarts = () => {
           </div>
           <div className="text-center ">
             <Link to="/orderCheckOut">
-              <button type="button" className="checkout-btn w-full ">
+              <button type="button" className="my-btn !rounded-t-none !rounded w-full ">
                 Proceed to checkout
               </button>
             </Link>
