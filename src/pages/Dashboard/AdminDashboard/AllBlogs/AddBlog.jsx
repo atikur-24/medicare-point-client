@@ -51,7 +51,7 @@ const AddBlog = () => {
         </div>
         <div>
           <h4>Blog Content</h4>
-          <input type="text" name="content" id="" />
+          <input type="text" name="content" id="" placeholder="Type Here" />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -61,7 +61,7 @@ const AddBlog = () => {
 
           <div>
             <h4>Image URL</h4>
-            <input type="text" name="image" id="" className="date" />
+            <input type="text" name="image" id="" className="date" placeholder="Paste Here" />
           </div>
         </div>
         <div>
