@@ -54,40 +54,47 @@ const UpdateHealthArticles = () => {
   }, [existingData, setValue]);
 
   return (
-    <div className="text-center">
+    <div className="mt-8 bg-white box-shadow rounded-2xl p-10">
       <div className="grid grid-cols-1">
-        <div className="bg-gray-3 p-2">
-          <h1 className="text-2xl font-bold py-2">Update Health Articles</h1>
+        <div className="">
+          <h1 className="text-2xl text-center font-bold mb-10 font-nunito uppercase">Update Health Articles</h1>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            {/* Similar input fields with pre-filled values */}
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-sm font-semibold">Title</label>
+                <label className="label">
+                  <span className="label-text font-bold">Title</span>
+                </label>
                 <input type="text" {...register("title")} className="input input-bordered w-full" />
               </div>
               <div>
-                <label className="text-sm font-semibold">Topic</label>
+                <label className="label">
+                  <span className="label-text font-bold">Topic</span>
+                </label>
                 <input type="text" {...register("topic")} className="input input-bordered w-full" />
               </div>
             </div>
-            {/* Other input fields */}
             <div>
               <label className="text-sm font-semibold">Image</label>
               <input type="text" {...register("image")} className="input input-bordered w-full" />
             </div>
-            {/* ... Repeat for other fields */}
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-sm font-semibold">Published date</label>
+                <label className="label">
+                  <span className="label-text font-bold">Published date</span>
+                </label>
                 <input type="text" {...register("published_date")} className="input input-bordered w-full" />
               </div>
               <div>
-                <label className="text-sm font-semibold">Content</label>
+                <label className="label">
+                  <span className="label-text font-bold">Content</span>
+                </label>
                 <input type="text" {...register("content")} className="input input-bordered w-full" />
               </div>
             </div>
             <div>
-              <label className="text-sm font-semibold">Content details</label>
+              <label className="label">
+                <span className="label-text font-bold">Content details</span>
+              </label>
               <textarea {...register("content_details")} className="textarea textarea-bordered w-full" />
             </div>
             <button type="submit" className="my-btn">
