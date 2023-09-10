@@ -253,7 +253,7 @@ const DashboardLayout = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content relative  bg-[#f6f6f6] md:px-20">
+      <div className="drawer-content relative  bg-[#f6f6f6]  md:px-20">
         {/* Page content here */}
         <DashBoardNavbar setShowNotification={setShowNotification} showNotification={showNotification} />
         {showNotification && <Notification />}
