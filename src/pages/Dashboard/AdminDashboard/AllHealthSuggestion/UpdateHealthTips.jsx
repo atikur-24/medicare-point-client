@@ -17,7 +17,7 @@ const UpdateHealthTips = () => {
     // const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
     try {
       const response = await fetch({
-        method: "POST",
+        method: "PATCH",
         body: formData,
       });
 
