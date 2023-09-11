@@ -108,6 +108,21 @@ const UpdateHealthTips = () => {
               </label>
               <textarea {...register("cure")} className="textarea textarea-bordered w-full" />
             </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <label className="label">
+                  <span className="label-text font-bold">Name of Doctor</span>
+                </label>
+
+                <input type="text" placeholder="Type here" {...register("doctorName")} className="input input-bordered w-full" />
+              </div>
+              <div>
+                <label className="label">
+                  <span className="label-text font-bold">Speciality of Doctor</span>
+                </label>
+                <input type="text" placeholder="Type here" {...register("doctorDepartment")} className="input input-bordered w-full" />
+              </div>
+            </div>
             <button type="submit" className="my-btn">
               Update Health Tip
             </button>
