@@ -96,12 +96,12 @@ const Navbar = () => {
                 >
                   {user ? (
                     <div className="flex flex-col">
-                      <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
-                        <MenuItem>Log Out</MenuItem>
-                      </button>
                       <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
                         <MenuItem>My Dashboard</MenuItem>
                       </NavLink>
+                      <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
+                        <MenuItem>Log Out</MenuItem>
+                      </button>
                     </div>
                   ) : (
                     <div>
@@ -113,11 +113,6 @@ const Navbar = () => {
                       </Link>
                     </div>
                   )}
-                  {/* <MenuItem>
-                    <Link className=" font-semibold text-neutral-600" to="/signUp">
-                      Register
-                    </Link>
-                  </MenuItem> */}
                 </Menu>
               </div>
             </div>

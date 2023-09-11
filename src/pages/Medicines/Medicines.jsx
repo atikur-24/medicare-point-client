@@ -22,7 +22,7 @@ const Medicines = () => {
   const [medicines, setMedicines] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [isOpen, setIsOpen] = useState(null);
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
   const category = params.get("category");
   const { allData, isloading } = useSelector((state) => state?.allMedicines);
   const dispatch = useDispatch();
@@ -66,7 +66,11 @@ const Medicines = () => {
         <h3 className="text-title-color text-xl font-bold tracking-wide py-4 px-6 uppercase border-b-2 border-gray-3">Categories</h3>
         <div className="py-4 px-6 space-y-4 text-sm">
           <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
-            <Link to="/medicines" className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "" ? "text-my-accent underline" : ""}`}>
+            <Link
+              onClick={() => setIsOpen("allMedicine")}
+              to="/medicines"
+              className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "allMedicine" ? "text-my-accent underline" : ""}`}
+            >
               <LiaAngleRightSolid /> All Medicines
             </Link>
           </button>
@@ -269,16 +273,7 @@ const Medicines = () => {
       </div>
 
       <div className="container mx-auto px-4 lg:px-10 pb-10 md:flex gap-8">
-        <div className="w-80 h-fit bg-white rounded-md hidden md:block">
-          {/* <div onClick={() => setIsOpen(null)}>
-            <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
-              <Link className="px-6" to="/medicines">
-                All Medicines
-              </Link>
-            </button>
-          </div> */}
-          {filterItems}
-        </div>
+        <div className="w-80 h-fit bg-white rounded-md hidden md:block">{filterItems}</div>
         {isloading ? (
           <Loader spinner />
         ) : (
