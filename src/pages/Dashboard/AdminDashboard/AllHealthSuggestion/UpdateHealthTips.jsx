@@ -59,48 +59,53 @@ const UpdateHealthTips = () => {
   }, [existingData, setValue]);
 
   return (
-    <div className="text-center">
+    <div className="mt-8 bg-white box-shadow rounded-2xl p-10">
       <div className="grid grid-cols-1">
-        <div className="bg-gray-3 p-2">
-          <h1 className="text-2xl font-bold py-2">Update Health Tip</h1>
+        <div className="">
+          <h1 className="text-2xl text-center font-bold mb-10 font-nunito uppercase">Update Health Tip</h1>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            {/* Similar input fields with pre-filled values */}
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-sm font-semibold">Category</label>
+                <label className="label">
+                  <span className="label-text font-bold">Category</span>
+                </label>
                 <input type="text" {...register("category")} className="input input-bordered w-full" />
               </div>
               <div>
-                <label className="text-sm font-semibold">Name</label>
+                <label className="label">
+                  <span className="label-text font-bold">Name</span>
+                </label>
                 <input type="text" {...register("name")} className="input input-bordered w-full" />
               </div>
             </div>
-            {/* Other input fields */}
-            {/* <div>
-              <label className="text-sm font-semibold">Image</label>
-              <input type="file" {...register("image")} className="file-input file-input-bordered file-input-accent w-full" />
-            </div> */}
             <div>
               <label className="text-sm font-semibold">Image</label>
               <input type="text" {...register("image")} className="input input-bordered w-full" />
             </div>
-            {/* ... Repeat for other fields */}
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-sm font-semibold">Type</label>
+                <label className="label">
+                  <span className="label-text font-bold">Type</span>
+                </label>
                 <input type="text" {...register("type")} className="input input-bordered w-full" />
               </div>
               <div>
-                <label className="text-sm font-semibold">Cause</label>
+                <label className="label">
+                  <span className="label-text font-bold">Cause</span>
+                </label>
                 <input type="text" {...register("cause")} className="input input-bordered w-full" />
               </div>
             </div>
             <div>
-              <label className="text-sm font-semibold">Prevention</label>
+              <label className="label">
+                <span className="label-text font-bold">Prevention</span>
+              </label>
               <textarea {...register("prevention")} className="textarea textarea-bordered w-full" />
             </div>
             <div>
-              <label className="text-sm font-semibold">Cure</label>
+              <label className="label">
+                <span className="label-text font-bold">Cure</span>
+              </label>
               <textarea {...register("cure")} className="textarea textarea-bordered w-full" />
             </div>
             <button type="submit" className="my-btn">

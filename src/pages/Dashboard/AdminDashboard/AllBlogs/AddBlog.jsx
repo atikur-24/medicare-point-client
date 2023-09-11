@@ -1,6 +1,5 @@
 import JoditEditor from "jodit-react";
 import { useRef, useState } from "react";
-// import ReactHtmlParser from "react-html-parser";
 import { useDispatch } from "react-redux";
 import { addBlogApi } from "../../../../Features/Blogs/addBlog";
 import "./Allblogs.css";
@@ -9,8 +8,6 @@ const AddBlog = () => {
   const [reset, setReset] = useState(false);
   const editor = useRef(null);
   const [blogDetails, setBlogDetails] = useState("");
-  //   const jsxContent = ReactHtmlParser(blogDetails);
-  //   console.log("aa", jsxContent);
 
   const dispatch = useDispatch();
 
@@ -32,7 +29,6 @@ const AddBlog = () => {
     const content_details = blogDetails;
 
     const data = { title, topic, content, published_date, image, content_details };
-    // console.log(newBlog);
     dispatch(addBlogApi({ data, form }));
     form.reset();
   };
@@ -44,25 +40,25 @@ const AddBlog = () => {
       <form onSubmit={handleBlog} className="add-blog-form space-y-3">
         <div>
           <h4>Blog Title</h4>
-          <input type="text" name="title" id="" />
+          <input required type="text" name="title" id="" placeholder="Type Here" />
         </div>
         <div>
           <h4>Blog Topic</h4>
-          <input type="text" name="topic" id="" />
+          <input required type="text" name="topic" id="" placeholder="Type Here" />
         </div>
         <div>
           <h4>Blog Content</h4>
-          <input type="text" name="content" id="" />
+          <input required type="text" name="content" id="" placeholder="Type Here" />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <h4>Date</h4>
-            <input type="date" name="published_date" id="" className="date" />
+            <input required type="date" name="published_date" id="" className="date" />
           </div>
 
           <div>
             <h4>Image URL</h4>
-            <input type="text" name="image" id="" className="date" />
+            <input required type="text" name="image" id="" className="date" placeholder="Paste Here" />
           </div>
         </div>
         <div>

@@ -35,11 +35,6 @@ const DashboardLayout = () => {
     }
   }, [role]);
 
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
   const [showDropdown2, setShowDropdown2] = useState(false);
 
   const toggleDropdown2 = () => {
@@ -228,11 +223,11 @@ const DashboardLayout = () => {
               Add Blog
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink to="/dashboard/add-health-articles">Add Health Articles</NavLink>
-          </li>
+          </li> */}
           <li>
-            <NavLink to="/dashboard/manage-health-articles">Manage Health Articles</NavLink>
+            <NavLink to="/dashboard/manage-health-articles">Manage Blogs</NavLink>
           </li>
         </ul>
       </li>
@@ -253,7 +248,7 @@ const DashboardLayout = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content relative  bg-[#F1F6FA]   md:px-20">
+      <div className="drawer-content relative  bg-[#F1F6FA]   2xl:px-20">
         {/* Page content here */}
         <DashBoardNavbar setShowNotification={setShowNotification} showNotification={showNotification} />
         {showNotification && <Notification />}
@@ -262,10 +257,10 @@ const DashboardLayout = () => {
           <TfiMenu className="text-2xl  cursor-pointer" />
         </label>
       </div>
-      <div className="drawer-side   md:bg-[#F1F6FA]  md:shadow-2xl ">
+      <div className="drawer-side  md:bg-[#F1F6FA]  md:shadow-2xl ">
         <label htmlFor="my-drawer-2" className="drawer-overlay" />
 
-        <ul className="dashboard-ul bg-white   menu p-4 w-80 !h-full text-base-content space-y-4 !z-50">
+        <ul className="dashboard-ul bg-white flex-nowrap  menu p-4 w-80 !h-full text-base-content space-y-4 !z-50">
           {/* Sidebar content here */}
 
           <li className="relative">

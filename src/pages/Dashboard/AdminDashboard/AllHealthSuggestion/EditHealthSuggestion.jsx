@@ -3,7 +3,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2"; // Import SweetAlert library
+import Swal from "sweetalert2";
 import { fetchAllHealthTips } from "../../../../Features/HealthTips/allHealthTips";
 import { deleteHealthTipsApi } from "../../../../Features/HealthTips/deleteHealthTips";
 
@@ -33,12 +33,20 @@ const EditHealthSuggestion = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4 m-8 ">
+      <div className="m-8">
+        <div className="stats shadow">
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Total Health Tips</div>
+            <div className="stat-value text-my-primary">{allHealthTips.length || 0}</div>
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4 m-8">
         {allHealthTips.map((healthTip) => (
           <div key={healthTip._id} className="grid grid-cols-1 gap-4 justify-center items-center rounded-2xl box-shadow p-4 border border-gray-3 bg-white">
             <h2 className="text-center items-center gap-3 font-medium text-[16px] tracking-wide">{healthTip.name}</h2>
             <img src={healthTip.image} alt="img" className="h-32 mx-auto" />
-            <p className="">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <p className="text-justify md:h-32">{healthTip.prevention.slice(0, 100)}...</p>
             <div className="space-x-1 flex justify-center gap-4">
               <Link to={`/dashboard/update-health-tips/${healthTip._id}`}>
                 <label className="btn btn-circle btn-sm bg-my-primary text-white hover:bg-my-accent">
