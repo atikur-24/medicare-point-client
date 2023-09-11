@@ -53,7 +53,7 @@ const SignUp = () => {
                 Swal.fire({
                   icon: "info",
                   title: "Email Verification",
-                  text: "Check your email and verify account",
+                  text: "Check your email and verify your account",
                   showConfirmButton: true,
                 });
                 logOut();
