@@ -27,11 +27,13 @@ const DashboardLayout = () => {
 
   useEffect(() => {
     if (role === "user") {
-      setUser(true);
+      // setUser(true);
+      setPharmacist(true);
     } else if (role === "Pharmacist") {
       setPharmacist(true);
     } else if (role === "admin") {
-      setAdmin(true);
+      // setAdmin(true);
+      setPharmacist(true);
     }
   }, [role]);
 
@@ -86,7 +88,7 @@ const DashboardLayout = () => {
     <>
       <li>
         <NavLink to="/dashboard" className="dashboard-link">
-          <AiFillHome className="dashboard-icon" />
+          <BsGrid1X2Fill className="dashboard-icon" />
           <span>Pharmacist Dashboard</span>
         </NavLink>
       </li>
@@ -107,8 +109,8 @@ const DashboardLayout = () => {
         <NavLink to="/dashboard/medicine-inventory" onClick={() => setMedicineBtn(!medicineBtn)} className="dashboard-link flex">
           <MdOutlineInventory className="dashboard-icon" />
           <button type="button">Medicine Inventory</button>
-          <MdKeyboardArrowDown className={`${medicineBtn ? "hidden" : "block"} dashboard-icon`} />
-          <MdKeyboardArrowUp className={`${medicineBtn ? "block" : "hidden"} dashboard-icon`} />
+          <FaCaretDown className={`${medicineBtn ? "hidden" : "block"} dashboard-icon`} />
+          <FaCaretUp className={`${medicineBtn ? "block" : "hidden"} dashboard-icon`} />
         </NavLink>
         <ul className={`${medicineBtn ? "block" : "hidden"}`}>
           <li>
