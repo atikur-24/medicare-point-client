@@ -201,34 +201,17 @@ const MedicineDetails = () => {
           <div className={`${reviews ? "block" : "hidden"} mt-8 w-full max-w-[100vw] transition-all duration-500`}>
             {allRatings && <MedicineReviews allRatings={allRatings} />}
             <div className="lg:w-4/5">
-              <h4 className="my-5 text-gray-5">
-                Your email address will not be published. Required fields are marked <span className="text-red-500">*</span>
-              </h4>
-              <h3 className="my-1 text-xl font-semibold">Your rating</h3>
+              <h4 className="my-5 text-gray-5">Your feedback is invaluable.Share your thoughts and experiences with a quick review.</h4>
+              <h3 className="my-1 text-xl font-semibold">Your Rating</h3>
               <div>
                 <Rating className="mb-5" style={{ maxWidth: 100 }} value={rating1} onChange={setRating} itemStyles={customStyles} />
               </div>
               <div>
-                <form onSubmit={handleReviews} className="">
-                  <div>
-                    <textarea required placeholder="Your Review" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" name="reviewMessage" id="" rows="5" />
+                <form onSubmit={handleReviews}>
+                  <div className="pb-6">
+                    <textarea required placeholder="Your Review" className="w-full outline-my-primary rounded-md border-[1px] border-gray-3 p-2" name="reviewMessage" rows="5" />
                   </div>
-                  <div className="lg:grid grid-cols-3 gap-3 space-y-5 lg:space-y-0 mt-5">
-                    <div>
-                      <input required placeholder="Name" type="text" name="name" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
-                    </div>
-                    <div>
-                      <input required placeholder="Email" type="text" name="email" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
-                    </div>
-                    <div>
-                      <input required placeholder="City" type="text" name="city" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
-                    </div>
-                  </div>
-                  <div className="my-5 space-x-2">
-                    <input type="checkbox" name="checkedEmail" id="" />
-                    <span>Save my name, email, and website in this browser for the next time I comment.</span>
-                  </div>
-                  <input className="btn rounded-3xl px-5 bg-my-accent hover:bg-my-primary text-white transition-all duration-300" type="submit" value="SUBMIT YOUR REVIEW" />
+                  <input className="circle-btn" type="submit" value="SUBMIT YOUR REVIEW" />
                 </form>
               </div>
             </div>

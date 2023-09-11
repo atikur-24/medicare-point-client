@@ -60,16 +60,17 @@
   @apply rounded-full w-full py-2 px-2 text-[14px] uppercase font-medium inline-flex items-center justify-center gap-2 transition duration-300 border hover:bg-my-primary hover:text-white border-my-primary text-my-primary;
 }
 .my-btn {
-  @apply bg-my-primary hover:bg-[#16b4ac] btn tracking-wide  font-medium md:font-semibold text-white transition duration-200 border-0  active:hover:transform-none active:focus:transform-none;
+  @apply bg-my-primary hover:bg-[#16b4ac] btn tracking-wide font-medium md:font-semibold text-white transition duration-200 border-0  active:hover:transform-none active:focus:transform-none;
 }
 .my-btn-outline {
-  @apply hover:bg-my-primary hover:text-white btn rounded-full  font-bold transition duration-300 border border-my-primary text-my-primary active:hover:transform-none active:focus:transform-none;
+  @apply hover:bg-my-primary hover:text-white btn rounded-full font-bold transition duration-300 border border-my-primary text-my-primary active:hover:transform-none active:focus:transform-none;
 }
-
+.circle-btn {
+  @apply bg-my-primary hover:bg-[#16b4ac] tracking-wide hover:text-white btn rounded-full font-bold transition duration-300 border text-white active:hover:transform-none active:focus:transform-none;
+}
 .login-btn {
   @apply bg-my-accent hover:bg-[#16b4ac]  btn  font-medium md:font-semibold text-white transition duration-200 border-0 active:hover:transform-none active:focus:transform-none;
 }
-
 .submit-btn {
   @apply bg-my-primary hover:bg-my-accent text-white py-2 lg:py-3 px-3 lg:px-6 text-sm lg:text-base font-medium lg:font-semibold tracking-wide rounded-md transition-all uppercase;
 }
