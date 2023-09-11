@@ -78,10 +78,17 @@ const UpdateHealthTips = () => {
                 <input type="text" {...register("name")} className="input input-bordered w-full" />
               </div>
             </div>
-            <div>
-              <label className="text-sm font-semibold">Image</label>
-              <input type="text" {...register("image")} className="input input-bordered w-full" />
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <label className="text-sm font-semibold">Image</label>
+                <input type="text" {...register("image")} className="input input-bordered w-full" />
+              </div>
+              <div>
+                <label className="text-sm font-semibold">Date</label>
+                <input type="date" {...register("date")} className="input input-bordered w-full" />
+              </div>
             </div>
+
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label className="label">
