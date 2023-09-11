@@ -27,8 +27,8 @@ const DashboardLayout = () => {
 
   useEffect(() => {
     if (role === "user") {
-      // setUser(true);
-      setPharmacist(true);
+      setUser(true);
+      // setPharmacist(true);
     } else if (role === "Pharmacist") {
       setPharmacist(true);
     } else if (role === "admin") {

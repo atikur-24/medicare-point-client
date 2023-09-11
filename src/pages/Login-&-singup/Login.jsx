@@ -44,7 +44,7 @@ const Login = () => {
             showConfirmButton: false,
             timer: 2500,
           });
-          // logOut();
+          logOut();
           return;
         }
         if (result.user) {
