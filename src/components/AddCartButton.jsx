@@ -1,8 +1,8 @@
 import axios from "axios";
 import { BiCartAdd } from "react-icons/bi";
-import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
 import useCartMedicines from "../hooks/useCartMedicines";
 
@@ -29,18 +29,16 @@ const AddCartButton = ({ cartMedicine, cls }) => {
         confirmButtonText: "Login Now",
       }).then((result) => {
         if (result.isConfirmed) {
-            navigate("/login", { state: { from: location } });
+          navigate("/login", { state: { from: location } });
         }
       });
     }
   };
 
   return (
-    <div>
-      <button onClick={handleAddToCart} className={cls} type="button">
-        <BiCartAdd className="text-xl" /> add to cart
-      </button>
-    </div>
+    <button onClick={handleAddToCart} className={cls} type="button">
+      <BiCartAdd className="text-xl" /> add to cart
+    </button>
   );
 };
 

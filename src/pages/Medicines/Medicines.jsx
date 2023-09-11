@@ -273,11 +273,11 @@ const Medicines = () => {
       </div>
 
       <div className="container mx-auto px-4 lg:px-10 pb-10 md:flex gap-8">
-        <div className="w-80 h-fit bg-white rounded-md hidden md:block">{filterItems}</div>
+        <div className="lg:max-w-[25%] h-fit bg-white rounded-md hidden lg:block">{filterItems}</div>
         {isloading ? (
           <Loader spinner />
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="lg:max-w-[75%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PaginationMedicines?.map((medicine) => (
               <MediCard key={medicine._id} medicine={medicine} />
             ))}

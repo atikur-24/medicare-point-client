@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 import AddCartButton from "../../components/AddCartButton";
 import Loader from "../../components/Loader";
+import ReqToStockButton from "../../components/ReqToStockButton";
 import useAuth from "../../hooks/useAuth";
 import MedicineReviews from "./MedicineReviews";
 
@@ -44,9 +45,9 @@ const MedicineDetails = () => {
     inactiveFillColor: "#DEE1E6",
   };
 
-  const { _id, medicine_name, image, price, medicine_description, tags, rating, feature_with_details, category, allRatings, discount } = medicine || {};
+  const { _id, medicine_name, image, price, available_quantity, medicine_description, tags, rating, feature_with_details, category, allRatings, discount } = medicine || {};
+  console.log(available_quantity);
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, category: category.label, email: user?.email };
-
   const handleReviews = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -119,15 +120,15 @@ const MedicineDetails = () => {
             <div className="border border-gray-3 py-5 px-3 rounded-md font-semibold flex items-center justify-around">
               <span className="text-lg tracking-wide">Quantity:</span>
               <div className="border border-gray-3 rounded-full w-fit py-3 px-5 flex items-center justify-between gap-5">
-                <button type="button" disabled={quantity <= 1} onClick={() => setQuantity(quantity - 1)} className="cursor-pointer">
+                <button type="button" disabled={quantity <= 1} onClick={() => setQuantity(quantity - 1)} className="cursor-no-drop">
                   <HiMinus />
                 </button>
                 <span className="text-gray-5">{quantity}</span>
-                <button type="button" disabled={quantity >= 50} onClick={() => setQuantity(quantity + 1)} className="cursor-pointer">
+                <button type="button" disabled={quantity >= 5} onClick={() => setQuantity(quantity + 1)} className={`${quantity} == 5 ? "cursor-none" : "cursor-no-drop"`}>
                   <HiPlus />
                 </button>
               </div>
-              <AddCartButton cartMedicine={cartMedicine} cls="cart-btn" />
+              {available_quantity > 0 ? <AddCartButton cartMedicine={cartMedicine} cls="cart-btn" /> : <ReqToStockButton />}
             </div>
             <div className="text-[14px] space-y-1 md:space-y-2">
               <p className="font-medium text-black-2">
