@@ -32,8 +32,8 @@ const DashboardLayout = () => {
     } else if (role === "Pharmacist") {
       setPharmacist(true);
     } else if (role === "admin") {
-      // setAdmin(true);
-      setPharmacist(true);
+      setAdmin(true);
+      // setPharmacist(true);
     }
   }, [role]);
 
