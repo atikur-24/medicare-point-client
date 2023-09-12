@@ -26,9 +26,11 @@ const AddBlog = () => {
     const content = form.content.value;
     const published_date = form.published_date.value;
     const image = form.image.value;
+    const authorImage = form.authorImage.value;
+    const author = form.author.value;
     const content_details = blogDetails;
 
-    const data = { title, topic, content, published_date, image, content_details };
+    const data = { title, topic, content, published_date, image, content_details, authorImage, author };
     dispatch(addBlogApi({ data, form }));
     form.reset();
   };
@@ -58,12 +60,24 @@ const AddBlog = () => {
 
           <div>
             <h4>Image URL</h4>
-            <input required type="text" name="image" id="" className="date" placeholder="Paste Here" />
+            <input required type="text" name="image" id="" placeholder="Paste Here" />
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <h4>Author Name</h4>
+            <input required type="text" name="author" id="" placeholder="Type Here" />
+          </div>
+
+          <div>
+            <h4>Author Image</h4>
+            <input required type="text" name="authorImage" id="" placeholder="Paste Here" />
           </div>
         </div>
         <div>
           <h4>Blog Details</h4>
           <JoditEditor
+            name="content_details"
             ref={editor}
             value={blogDetails}
             // config={config}
