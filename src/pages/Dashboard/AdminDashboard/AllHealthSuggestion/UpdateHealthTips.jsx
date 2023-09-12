@@ -9,8 +9,6 @@ const UpdateHealthTips = () => {
   const { register, handleSubmit, setValue } = useForm();
 
   const onSubmit = async (data) => {
-    // const image = data.image[0];
-
     const formData = new FormData();
     // formData.append("image", image);
 

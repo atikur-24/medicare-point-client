@@ -47,6 +47,7 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 
 import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArticles";
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
+import DashboardMedicineDetail from "../pages/Dashboard/AdminDashboard/AllMedicines/DashboardMedicineDetail";
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
 import RewardPoints from "../pages/Dashboard/UserDashboard/RewardPoints/RewardPoints";
@@ -102,7 +103,7 @@ const router = createBrowserRouter([
       {
         path: "/healthtips/:id",
         element: <HealthTipsDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/allHealthTips/${params?.id}`),
+        // loader: ({ params }) => fetch(`http://localhost:5000/allHealthTips/${params?.id}`),
       },
       {
         path: "labPage/:id",
@@ -116,7 +117,11 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      { path: "/labBook/:id", element: <LabBook />, loader: ({ params }) => fetch(`http://localhost:5000/labAllItems/${params?.id}`) },
+      {
+        path: "/labBook/:id",
+        element: <LabBook />,
+        // loader: ({ params }) => fetch(`http://localhost:5000/labAllItems/${params?.id}`)
+      },
       {
         path: "medicines",
         element: <Medicines />,
@@ -139,7 +144,12 @@ const router = createBrowserRouter([
       },
       {
         path: "orderCheckOut",
-        element: <PrivateRoute> <CheckouForm /> </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <CheckouForm />{" "}
+          </PrivateRoute>
+        ),
       },
       {
         path: "services",
@@ -266,6 +276,10 @@ const router = createBrowserRouter([
       {
         path: "all-medicines",
         element: <AllMedicines />,
+      },
+      {
+        path: "medicine-detail/:id",
+        element: <DashboardMedicineDetail />,
       },
       {
         path: "edit-health-tips",
