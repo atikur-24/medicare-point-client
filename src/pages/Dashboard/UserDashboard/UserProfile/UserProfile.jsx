@@ -34,11 +34,11 @@ const UserProfile = () => {
           </div>
           <h2 className="text-2xl mt-12   font-semibold text-center">{currentUserData.name}</h2>
 
-          <div className="bg-white rounded-2xl  py-2  px-4 md:px-10">
-            <div className="grid mt-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 items-center">
-              <div className="  h-full  ">
-                <div className="flex flex-col gap-4">
-                  <div className="divide-y rounded-md divide-gray-3 border border-gray-3  ">
+          <div className="bg-white rounded-2xl  py-6  px-4 md:px-10">
+            <div className="flex  gap-4 md:flex-row flex-col">
+              <div className="  h-full  md:w-1/2 ">
+                <div className="flex flex-col gap-4 ">
+                  <div className="divide-y  rounded-md divide-gray-3 border border-gray-3  ">
                     <h3 className="text-lg font-semibold mb-1 p-4">Personal Information</h3>
                     <div className="py-3 px-4 space-y-2">
                       <div className="flex gap-2 items-center text-gray-6">
@@ -63,7 +63,7 @@ const UserProfile = () => {
                     </div>
                   </div>
 
-                  <div className="divide-y rounded-md divide-gray-3 border border-gray-3 ">
+                  <div className="divide-y  rounded-md divide-gray-3 border border-gray-3 ">
                     <h3 className="text-lg font-semibold px-4 py-2">Professional Information</h3>
                     <div className="py-3 px-4 space-y-2">
                       <div className="flex gap-2 items-center text-gray-6">
@@ -82,7 +82,7 @@ const UserProfile = () => {
                   </div>
                 </div>
               </div>
-              <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
+              <div className=" md:w-1/2 p-4 h-full rounded-md border border-gray-3">
                 <div>
                   <h3 className="text-lg font-semibold mb-1"> Address</h3>
                   <p>Division: {currentUserData.division ? currentUserData.division : "N/A"}</p>
