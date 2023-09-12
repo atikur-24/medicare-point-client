@@ -139,22 +139,27 @@ const router = createBrowserRouter([
       },
       {
         path: "orderCheckOut",
-        element: <PrivateRoute> <CheckouForm /> </PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <CheckouForm />{" "}
+          </PrivateRoute>
+        ),
       },
       {
         path: "services",
         element: <Services />,
       },
-      // payment status page
-      {
-        path: "paymentSuccess/:id",
-        element: <PaymentSuccess />,
-      },
-      {
-        path: "paymentFailed/:id",
-        element: <PaymentFailed />,
-      },
     ],
+  },
+  // payment status page
+  {
+    path: "paymentSuccess/:id",
+    element: <PaymentSuccess />,
+  },
+  {
+    path: "paymentFailed/:id",
+    element: <PaymentFailed />,
   },
   {
     path: "login",
