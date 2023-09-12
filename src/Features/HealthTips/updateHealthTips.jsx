@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export const updateHealthTipsApi = createAsyncThunk("updateHealthTips/updateHealthTipsApi", async (data) => {
-  const res = await axios.put(`http://localhost:5000/allHealthTips/${data._id}`, {
+  const res = await axios.patch(`http://localhost:5000/allHealthTips/${data._id}`, {
     body: data.data,
   });
 

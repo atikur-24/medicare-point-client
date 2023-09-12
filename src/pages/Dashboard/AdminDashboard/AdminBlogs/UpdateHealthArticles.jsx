@@ -75,7 +75,7 @@ const UpdateHealthArticles = () => {
                 <label className="label">
                   <span className="label-text font-bold">Published date</span>
                 </label>
-                <input type="date" {...register("published_date")} className="input input-bordered w-full" />
+                <input type="text" {...register("published_date")} className="input input-bordered w-full" />
               </div>
               <div>
                 <label className="label">
