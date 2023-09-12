@@ -1,22 +1,21 @@
 import axios from "axios";
-import { BiCartAdd } from "react-icons/bi";
+import moment from "moment";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
-import useCartMedicines from "../hooks/useCartMedicines";
 
-const AddCartButton = ({ cartMedicine, cls }) => {
-  const [, refetch] = useCartMedicines();
+const ReqToStockButton = ({ reqToStock, cls }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const handleAddToCart = () => {
+  const date = moment().format("L");
+  const handleReqToStock = () => {
     if (user) {
-      axios.post("http://localhost:5000/medicineCarts", cartMedicine).then((result) => {
+      axios.post("http://localhost:5000/requestToStock", { ...reqToStock, date }).then((result) => {
+        console.log(result);
         if (result.data.insertedId || result.data.modifiedCount) {
-          toast.success("Item Added Success", { position: "top-center", theme: "colored", autoClose: 3000, pauseOnHover: false });
-          refetch();
+          toast.success("Request To Stock Successfully", { position: "top-center", autoClose: 3000, pauseOnHover: false });
         }
       });
     } else {
@@ -34,12 +33,11 @@ const AddCartButton = ({ cartMedicine, cls }) => {
       });
     }
   };
-
   return (
-    <button onClick={handleAddToCart} className={cls} type="button">
-      <BiCartAdd className="text-xl" /> add to cart
+    <button onClick={handleReqToStock} className={cls} type="button">
+      Request to stock
     </button>
   );
 };
 
-export default AddCartButton;
+export default ReqToStockButton;

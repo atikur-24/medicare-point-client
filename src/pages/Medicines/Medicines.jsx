@@ -278,7 +278,7 @@ const Medicines = () => {
         {isloading ? (
           <Loader spinner />
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="lg:max-w-[75%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PaginationMedicines?.map((medicine) => (
               <MediCard key={medicine._id} medicine={medicine} />
             ))}
