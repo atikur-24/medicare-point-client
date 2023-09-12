@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
+import { HiOutlineMail } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 
@@ -17,20 +18,30 @@ const UserProfile = () => {
     });
   }, [user.email]);
   return (
-    <div>
+    <div className="px-4">
       {currentUserData && (
-        <div className="bg-white rounded-lg shadow p-6 px-10">
-          <div className="flex items-center justify-center">
-            <img src={currentUserData.image} alt="Nafees" className="w-1/3 h-60 rounded-2xl mb-4" />
-          </div>
-          <h2 className="text-xl font-semibold text-center">{currentUserData.name}</h2>
-          <p className="text-gray-600 mb-4 text-center">Role: {currentUserData.role ? currentUserData.role : "User"}</p>
+        <div className="bg-white rounded-2xl my-10 shadow py-10 px-4 md:px-10">
+          <div className="flex gap-6">
+            <figure>
+              <img src={currentUserData.image} alt={currentUserData.name} className=" h40  mb-4 rounded-full" />
+            </figure>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 items-center">
-            <div className="shadow-xl p-4 h-full rounded-lg border border-gray-3">
-              <div>
-                <h3 className="text-lg font-semibold mb-1">Basic Information</h3>
-                <p>Email:{currentUserData.email}</p>
+            <h2 className="text-2xl mt-6  font-semibold text-center">{currentUserData.name}</h2>
+          </div>
+
+          <div className="grid mt-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 items-center">
+            <div className="  h-full rounded-md border border-gray-3">
+              <div className="divide-y-2 divide-gray-3">
+                <h3 className="text-lg font-semibold mb-1 p-4">Personal Information</h3>
+                <div className="py-3 px-4 space-y-2">
+                  <div className="flex gap-2 items-center text-gray-6">
+                    <HiOutlineMail className="text-2xl" />
+                    <span> Email</span>
+                  </div>
+                  <p className="">
+                    {currentUserData.email}
+                  </p>
+                </div>
                 <p>Phone: {currentUserData.phone ? currentUserData.phone : "N/A"}</p>
                 <p>Gender: {currentUserData.gender ? currentUserData.gender : "N/A"}</p>
               </div>
