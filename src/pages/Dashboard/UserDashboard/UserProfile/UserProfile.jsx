@@ -4,6 +4,8 @@ import { AiOutlinePhone } from "react-icons/ai";
 import { BsBuildingFillGear, BsGenderAmbiguous } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { IoIosStarHalf } from "react-icons/io";
+import { MdLocationCity, MdOutlineLocationOn, MdOutlineShareLocation } from "react-icons/md";
+
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 
@@ -82,19 +84,37 @@ const UserProfile = () => {
                   </div>
                 </div>
               </div>
-              <div className=" md:w-1/2 p-4 h-full rounded-md border border-gray-3">
-                <div>
-                  <h3 className="text-lg font-semibold mb-1"> Address</h3>
-                  <p>Division: {currentUserData.division ? currentUserData.division : "N/A"}</p>
-                  <p>District: {currentUserData.district ? currentUserData.district : "N/A"}</p>
-                  <p>Detail Area: {currentUserData.area ? currentUserData.area : "N/A"}</p>
-                  <p>Post Offiice: {currentUserData.postoffice ? currentUserData.postoffice : "N/A"} </p>
-                  <p>Post Code: {currentUserData.postcode ? currentUserData.postcode : "N/A"} </p>
+              <div className=" md:w-1/2  h-full rounded-md border border-gray-3">
+                <div className="divide-y  rounded-md divide-gray-3   ">
+                  <h3 className="text-lg font-semibold mb-1 p-4"> Address</h3>
+                  <div className="py-3 px-4 space-y-2">
+                    <div className="flex gap-2 items-center text-gray-6">
+                      <MdLocationCity className="text-2xl" />
+                      <span>Division</span>
+                    </div>
+                    <p>{currentUserData.division ? currentUserData.division : "N/A"}</p>
+                  </div>
+                  <div className="py-3 px-4 space-y-2">
+                    <div className="flex gap-2 items-center text-gray-6">
+                      <MdOutlineShareLocation className="text-2xl" />
+                      <span>District</span>
+                    </div>
+                    <p> {currentUserData.district ? currentUserData.district : "N/A"}</p>
+                  </div>
+                  <div className="py-3 px-4 space-y-2">
+                    <div className="flex gap-2 items-center text-gray-6">
+                      <MdOutlineLocationOn className="text-2xl" />
+                      <span>Area</span>
+                    </div>
+                    <p>
+                      {currentUserData.area ? currentUserData.area : "N/A"} ,{currentUserData.postoffice ? currentUserData.postoffice : ""} ,{currentUserData.postcode ? currentUserData.postcode : ""}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <Link to={`/dashboard/edit-profile/${currentUserData.email}`} type="button" className="btn btn-block btn-outline btn-accent mt-8">
+            <Link to={`/dashboard/edit-profile/${currentUserData.email}`} className=" my-btn-outline mt-8">
               Edit Profile
             </Link>
           </div>
