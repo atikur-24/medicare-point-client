@@ -11,7 +11,8 @@ import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const UserProfile = () => {
   const [currentUserData, setCurrentUserData] = useState({});
-  const { user } = useContext(AuthContext); // Access the user object from the context
+  const { user } = useContext(AuthContext);
+  console.log(user); // Access the user object from the context
   useEffect(() => {
     axios.get("http://localhost:5000/users").then((res) => {
       // Find the current user's data based on their email
@@ -26,11 +27,11 @@ const UserProfile = () => {
     <div className="px-4">
       {currentUserData && (
         <div className="bg-white rounded-2xl my-6 pb-8">
-          {/* TO DO  */}
+          {/* TODO  */}
           <div className="bg-my-primary bg-opacity-70 h-28 relative rounded-t-2xl ">
             <div className="left-[calc(50%-40px)] absolute top-[40%]">
               <figure>
-                <img src={currentUserData.image} alt={currentUserData.name} className=" h40  mb-4 rounded-full ring-4 ring-white ring-offset-2 ring-offset-white" />
+                <img src={user?.photoURL ? user?.photoURL : currentUserData.image} alt={currentUserData.name} className="h-[96px] w-[96px]  mb-4 rounded-full ring-4 ring-white ring-offset-2 ring-offset-white" />
               </figure>
             </div>
           </div>

@@ -13,7 +13,6 @@ const ReqToStockButton = ({ reqToStock, cls }) => {
   const handleReqToStock = () => {
     if (user) {
       axios.post("http://localhost:5000/requestToStock", { ...reqToStock, date }).then((result) => {
-        console.log(result);
         if (result.data.insertedId || result.data.modifiedCount) {
           toast.success("Request To Stock Successfully", { position: "top-center", autoClose: 3000, pauseOnHover: false });
         }

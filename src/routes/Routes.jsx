@@ -155,16 +155,16 @@ const router = createBrowserRouter([
         path: "services",
         element: <Services />,
       },
-      // payment status page
-      {
-        path: "paymentSuccess/:id",
-        element: <PaymentSuccess />,
-      },
-      {
-        path: "paymentFailed/:id",
-        element: <PaymentFailed />,
-      },
     ],
+  },
+  // payment status page
+  {
+    path: "paymentSuccess/:id",
+    element: <PaymentSuccess />,
+  },
+  {
+    path: "paymentFailed/:id",
+    element: <PaymentFailed />,
   },
   {
     path: "login",

@@ -274,8 +274,8 @@ const Medicines = () => {
           {filterItems}
         </div>
 
-        <div className=" mx-auto px-4 lg:px-10 pb-10 md:flex gap-8">
-          <div className="w-80 h-fit rounded-md hidden md:block">{filterItems}</div>
+        <div className=" mx-auto px-4 lg:px-10 pb-10 lg:flex gap-8">
+          <div className="w-80 h-fit rounded-md hidden lg:block">{filterItems}</div>
           {isloading ? (
             <Loader spinner />
           ) : (
@@ -296,7 +296,6 @@ const Medicines = () => {
           pageCount={pageCount}
           previousLabel="Previous"
         />
-
         <MediContact />
       </div>
     </section>
