@@ -10,7 +10,6 @@ import Logo from "../../assets/Logo/logo.svg";
 import loginAnimation from "../../assets/images/login-images/login.json";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useAuth from "../../hooks/useAuth";
-import { addUser } from "../../hooks/userApi";
 import SocialSigning from "./SocialSigning";
 
 const SignUp = () => {
@@ -57,7 +56,6 @@ const SignUp = () => {
                   showConfirmButton: true,
                 });
                 logOut();
-                addUser(result?.user);
                 navigate("/login");
               })
               .catch((err) => {

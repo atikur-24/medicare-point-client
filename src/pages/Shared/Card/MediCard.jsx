@@ -4,6 +4,7 @@ import { Rating, StickerStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Link } from "react-router-dom";
 import AddCartButton from "../../../components/AddCartButton";
+import ReqToStockButton from "../../../components/ReqToStockButton";
 import useAuth from "../../../hooks/useAuth";
 
 const customStyles = {
@@ -14,9 +15,9 @@ const customStyles = {
 
 const MediCard = ({ medicine }) => {
   const { user } = useAuth();
-  const { _id, medicine_name, image, category, price, rating, discount } = medicine || {};
+  const { _id, medicine_name, image, category, price, rating, discount, available_quantity, sellQuantity, pharmacist_email } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, category: category?.label, quantity: 1, email: user?.email };
-
+  const reqToStock = { reqByMedicine_Id: _id, medicine_name, image, request_count: 1, pharmacist_email, user_email: user?.email };
   return (
     <div className="card card-compact bg-white rounded-md hover:shadow-lg transition-shadow relative group h-fit">
       {discount > 0 && <p className="bg-my-accent z-10 rounded-md py-1 px-2 text-xs font-medium text-white absolute top-4 left-4">-{discount}% OFF</p>}
@@ -39,7 +40,7 @@ const MediCard = ({ medicine }) => {
             {discount > 0 && <span className="font-medium inline-flex items-center text-[16px] text-gray-5 line-through">৳ {price}</span>}
           </p>
         </div>
-        <AddCartButton cartMedicine={cartMedicine} cls="cart-btn-outline" />
+        {available_quantity === sellQuantity ? <ReqToStockButton reqToStock={reqToStock} cls="req-btn-sm" /> : <AddCartButton cartMedicine={cartMedicine} cls="cart-btn-outline" />}
       </div>
     </div>
   );

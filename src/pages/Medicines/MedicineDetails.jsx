@@ -12,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 import AddCartButton from "../../components/AddCartButton";
 import Loader from "../../components/Loader";
+import ReqToStockButton from "../../components/ReqToStockButton";
 import useAuth from "../../hooks/useAuth";
 import MedicineReviews from "./MedicineReviews";
 
@@ -44,9 +45,9 @@ const MedicineDetails = () => {
     inactiveFillColor: "#DEE1E6",
   };
 
-  const { _id, medicine_name, image, price, medicine_description, tags, rating, feature_with_details, category, allRatings, discount } = medicine || {};
+  const { _id, medicine_name, image, price, sellQuantity, available_quantity, medicine_description, tags, rating, feature_with_details, category, allRatings, discount, pharmacist_email } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, category: category.label, email: user?.email };
-
+  const reqToStock = { reqByMedicine_Id: _id, medicine_name, image, request_count: 1, pharmacist_email, user_email: user?.email };
   const handleReviews = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -113,21 +114,21 @@ const MedicineDetails = () => {
               {discount > 0 && <span className="font-medium inline-flex items-center text-[17px] lg:text-xl text-gray-5 line-through">৳ {price}</span>}
             </p>
             <p className="font-medium text-black-2 tracking-wide">
-              Availability: <span className="text-my-primary">In Stock</span>
+              Availability: {available_quantity === sellQuantity ? <span className="text-red-500">Out of Stock</span> : <span className="text-my-primary">In Stock</span>}
             </p>
             <p className="text-gray-4 text-justify leading-7">{medicine_description.slice(0, 200)}</p>
             <div className="border border-gray-3 py-5 px-3 rounded-md font-semibold flex items-center justify-around">
               <span className="text-lg tracking-wide">Quantity:</span>
               <div className="border border-gray-3 rounded-full w-fit py-3 px-5 flex items-center justify-between gap-5">
-                <button type="button" disabled={quantity <= 1} onClick={() => setQuantity(quantity - 1)} className="cursor-pointer">
+                <button type="button" disabled={quantity <= 1} onClick={() => setQuantity(quantity - 1)} className="cursor-no-drop">
                   <HiMinus />
                 </button>
                 <span className="text-gray-5">{quantity}</span>
-                <button type="button" disabled={quantity >= 50} onClick={() => setQuantity(quantity + 1)} className="cursor-pointer">
+                <button type="button" disabled={quantity >= 5} onClick={() => setQuantity(quantity + 1)} className={`${quantity} == 5 ? "cursor-none" : "cursor-no-drop"`}>
                   <HiPlus />
                 </button>
               </div>
-              <AddCartButton cartMedicine={cartMedicine} cls="cart-btn" />
+              {available_quantity === sellQuantity ? <ReqToStockButton reqToStock={reqToStock} cls="req-btn-lg" /> : <AddCartButton cartMedicine={cartMedicine} cls="cart-btn" />}
             </div>
             <div className="text-[14px] space-y-1 md:space-y-2">
               <p className="font-medium text-black-2">
@@ -161,20 +162,12 @@ const MedicineDetails = () => {
       {/* Description & reviews */}
       <div className="my-container bg-white mt-10 rounded-md">
         <div className="lg:flex gap-8">
-          <div
-            className={`${
-              descrptn ? "border-b-[3px]" : ""
-            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
-          >
+          <div className={`${descrptn ? "border-b-[3px]" : ""} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
             <button type="button" onClick={handleDescriptionBtn}>
               Description
             </button>
           </div>
-          <div
-            className={`${
-              reviews ? "border-b-[3px]" : ""
-            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
-          >
+          <div className={`${reviews ? "border-b-[3px]" : ""} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
             <button type="button" onClick={handleReviewsBtn}>
               Reviews
             </button>

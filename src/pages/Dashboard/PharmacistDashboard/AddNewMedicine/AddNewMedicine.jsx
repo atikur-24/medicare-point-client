@@ -1,10 +1,10 @@
-import { useForm, Controller } from "react-hook-form";
+import axios from "axios";
+import JoditEditor from "jodit-react";
+import moment from "moment";
+import { useRef, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import Select from "react-select";
 import CreatableSelect from "react-select/creatable";
-import JoditEditor from "jodit-react";
-import { useRef, useState } from "react";
-import moment from "moment";
-import axios from "axios";
 import Swal from "sweetalert2";
 import useAuth from "../../../../hooks/useAuth";
 
@@ -55,19 +55,12 @@ const AddNewMedicine = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const {
-    register,
-    control,
-    handleSubmit,
-    reset,
-    setValue,
-  } = useForm();
+  const { register, control, handleSubmit, reset, setValue } = useForm();
 
   const clearSelectValues = () => {
     setValue("category", null);
     setValue("tags", null);
   };
-
 
   const onSubmit = (data) => {
     setLoading(true);
@@ -81,30 +74,33 @@ const AddNewMedicine = () => {
     data.discount = parseInt(data.discount, 10);
     data.available_quantity = parseInt(data.available_quantity, 10);
     const allData = { ...data, feature_with_details: content, sellQuantity: 0, allRatings: [], rating: 0, status: "pending", feedback: "", date };
-    axios.post("http://localhost:5000/medicines", allData).then(res => {
-      if (res.data.insertedId) {
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "New Medicine Added Successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        setContent("");
-        reset();
-        clearSelectValues();
-        setLoading(false);
-      }
-    }).catch((err) => {
-      if (err) {
-        Swal.fire({
-          icon: "error",
-          title: "Medicine Add Failed",
-          text: "Something went wrong!",
-        });
-        setLoading(false);
-      }
-    });
+    axios
+      .post("http://localhost:5000/medicines", allData)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "New Medicine Added Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          setContent("");
+          reset();
+          clearSelectValues();
+          setLoading(false);
+        }
+      })
+      .catch((err) => {
+        if (err) {
+          Swal.fire({
+            icon: "error",
+            title: "Medicine Add Failed",
+            text: "Something went wrong!",
+          });
+          setLoading(false);
+        }
+      });
   };
 
   const handleReset = () => {
@@ -120,22 +116,16 @@ const AddNewMedicine = () => {
         <div className="divider" />
         <div className="two-input-field lg:flex gap-5">
           <div>
-            <span>Pharmacist Name <small>(read only)</small></span>
-            <input
-              readOnly
-              defaultValue={user?.displayName}
-              type="text"
-              {...register("pharmacist_name")}
-            />
+            <span>
+              Pharmacist Name <small>(read only)</small>
+            </span>
+            <input readOnly defaultValue={user?.displayName} type="text" {...register("pharmacist_name")} />
           </div>
           <div>
-            <span>Pharmacist Email <small>(read only)</small></span>
-            <input
-              readOnly
-              defaultValue={user?.email}
-              type="email"
-              {...register("pharmacist_email")}
-            />
+            <span>
+              Pharmacist Email <small>(read only)</small>
+            </span>
+            <input readOnly defaultValue={user?.email} type="email" {...register("pharmacist_email")} />
           </div>
         </div>
         <div className="two-input-field lg:flex gap-5">
@@ -154,87 +144,40 @@ const AddNewMedicine = () => {
             <Controller
               name="category"
               control={control}
-              render={({ field }) => (
-                <Select
-                  isClearable
-                  required
-                  {...field}
-                  options={categories}
-                  placeholder="Select category"
-                  noOptionsMessage={() => "No category found"}
-                />
-              )}
+              render={({ field }) => <Select isClearable required {...field} options={categories} placeholder="Select category" noOptionsMessage={() => "No category found"} />}
             />
           </div>
           <div>
-            <span>Tags <small>(choose multiple tags)</small></span>
-            <Controller
-              name="tags"
-              control={control}
-              render={({ field }) => (
-                <CreatableSelect
-                  required
-                  {...field}
-                  options={tags}
-                  isMulti
-                  placeholder="Select tags"
-                />
-              )}
-            />
+            <span>
+              Tags <small>(choose multiple tags)</small>
+            </span>
+            <Controller name="tags" control={control} render={({ field }) => <CreatableSelect required {...field} options={tags} isMulti placeholder="Select tags" />} />
           </div>
         </div>
         <div className="two-input-field lg:flex gap-5">
           <div>
             <span>Enter price</span>
-            <input
-              required
-              min={1}
-              placeholder="Enter price"
-              type="number"
-              {...register("price")}
-            />
+            <input required min={1} placeholder="Enter price" type="number" {...register("price")} />
           </div>
           <div>
             <span>Available Quantity</span>
-            <input
-              min={1}
-              placeholder="Enter available quantity"
-              type="number"
-              {...register("available_quantity")}
-            />
+            <input min={1} placeholder="Enter available quantity" type="number" {...register("available_quantity")} />
           </div>
         </div>
         <div className="two-input-field lg:flex gap-5">
           <div>
             <span>Enter Discount (%)</span>
-            <input
-              required
-              min={0}
-              max={100}
-              placeholder="Enter discount"
-              type="number"
-              {...register("discount")}
-            />
+            <input required min={0} max={100} placeholder="Enter discount" type="number" {...register("discount")} />
           </div>
           <div>
             <span>Sku No.</span>
-            <input
-              required
-              placeholder="Enter sku"
-              type="number"
-              {...register("sku")}
-            />
+            <input required placeholder="Enter sku" type="number" {...register("sku")} />
           </div>
         </div>
         <div className="two-input-field lg:flex gap-5">
           <div>
             <span>Brand Name</span>
-            <input
-              required
-              placeholder="Enter brand name"
-              type="text"
-              {...register("brand")}
-            />
+            <input required placeholder="Enter brand name" type="text" {...register("brand")} />
           </div>
         </div>
         <div className="mb-5">
@@ -242,17 +185,19 @@ const AddNewMedicine = () => {
           <textarea required {...register("medicine_description", { required: true })} className="textarea textarea-bordered h-28 w-full resize-none" placeholder="Medicine description" />
         </div>
         <div>
-          <h4>Medicine Features & Details <small>(you can write multiple features with details)</small></h4>
-          <JoditEditor
-            ref={editor}
-            value={content}
-            onChange={newContent => setContent(newContent)}
-          />
+          <h4>
+            Medicine Features & Details <small>(you can write multiple features with details)</small>
+          </h4>
+          <JoditEditor ref={editor} value={content} onChange={(newContent) => setContent(newContent)} />
           <small className="text-red-500">{error}</small>
         </div>
         <div className="pt-5 lg:pt-10 flex items-center justify-center gap-10">
-          <button className="submit-btn" type="submit">Add Medicine</button>
-          <button onClick={handleReset} className="reset-btn" type="button">Reset</button>
+          <button className="submit-btn" type="submit">
+            Add Medicine
+          </button>
+          <button onClick={handleReset} className="reset-btn" type="button">
+            Reset
+          </button>
         </div>
       </form>
     </section>
