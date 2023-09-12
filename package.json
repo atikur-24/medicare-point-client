@@ -28,6 +28,7 @@
     "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-accessible-accordion": "^5.0.0",
+    "react-awesome-stars-rating": "^0.14.0",
     "react-card-slider-component": "^1.0.9",
     "react-countup": "^6.4.2",
     "react-datepicker": "^4.16.0",
