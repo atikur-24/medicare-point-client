@@ -19,7 +19,7 @@ const HealthArticlesDetails = () => {
     <div className="space-y-8 my-container">
       <div className="md:mx-24 mx-auto">
         {blogs.map((blog) => (
-          <div key={blog.id}>
+          <div key={blog._id}>
             {" "}
             {/* Ensure to provide a unique key */}
             <h1 className="text-4xl font-extrabold pb-4">{blog.title}</h1>
@@ -32,7 +32,7 @@ const HealthArticlesDetails = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold">{blog.author}</h3>
-                  <p className="text-sm">{blog.date}</p>
+                  <p className="text-sm">{blog.published_date}</p>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -51,7 +51,7 @@ const HealthArticlesDetails = () => {
             <div className="space-y-6">
               <p className="">
                 {/* Render blog content here */}
-                {blog.content}
+                {blog.content_details}
               </p>
               {/* Add more content rendering for sub-title and lists if needed */}
             </div>
