@@ -27,14 +27,14 @@
   color: #006f70 !important;
   border-left: 4px solid #006f70;
   border-radius: 0;
-  @apply no-underline  text-base  !bg-my-primary !bg-opacity-10  font-bold uppercase;
+  @apply no-underline  text-base  !bg-my-primary !bg-opacity-10  font-medium capitalize;
 }
 .dashboard-ul li a:hover {
   @apply bg-my-primary bg-opacity-10 text-title-color;
 }
 
 .dashboard-link {
-  @apply text-base text-[#363949] font-medium gap-4;
+  @apply text-base text-[#333333] font-medium gap-4;
 }
 
 .dashboard-icon {

@@ -17,12 +17,13 @@ import { Link, useSearchParams } from "react-router-dom";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
 import Loader from "../../components/Loader";
 import MediCard from "../Shared/Card/MediCard";
+import MediContact from "./MediContact";
 
 const Medicines = () => {
   const [medicines, setMedicines] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [isOpen, setIsOpen] = useState(null);
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
   const category = params.get("category");
   const { allData, isloading } = useSelector((state) => state?.allMedicines);
   const dispatch = useDispatch();
@@ -62,11 +63,15 @@ const Medicines = () => {
   const [showFilter, setShowFilter] = useState("-ml-96");
   const filterItems = (
     <div className="">
-      <div className="rounded-lg border border-gray-3">
+      <div className="rounded-lg border border-gray-3 bg-white">
         <h3 className="text-title-color text-xl font-bold tracking-wide py-4 px-6 uppercase border-b-2 border-gray-3">Categories</h3>
         <div className="py-4 px-6 space-y-4 text-sm">
           <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
-            <Link to="/medicines" className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "" ? "text-my-accent underline" : ""}`}>
+            <Link
+              onClick={() => setIsOpen("allMedicine")}
+              to="/medicines"
+              className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "allMedicine" ? "text-my-accent underline" : ""}`}
+            >
               <LiaAngleRightSolid /> All Medicines
             </Link>
           </button>
@@ -184,31 +189,31 @@ const Medicines = () => {
           </button>
         </div>
       </div>
-      <div className="mt-6 rounded-lg border border-gray-3">
+      <div className="mt-6 rounded-lg border border-gray-3 bg-white">
         <h3 className="text-title-color text-xl font-bold tracking-wide py-4 px-6 uppercase border-b-2 border-gray-3">Product tags</h3>
         <div className="p-2">
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
         </div>
@@ -217,88 +222,83 @@ const Medicines = () => {
   );
 
   return (
-    <section className="bg-lite relative">
-      <div className="container flex items-center mx-auto py-5 px-4 md:py-8 lg:pt-10 lg:px-10">
-        <button onClick={() => setShowFilter("")} className="lg:hidden" type="button">
-          <BsFilterLeft className="text-lg font-bold text-my-primary mr-2" />
-        </button>
-        <div className="flex items-center justify-between w-full">
-          <p className="inline-flex items-center gap-1 font-medium md:font-semibold tracking-wider text-black-2 lg:text-lg">
-            <Link to="/" className="hover:text-my-accent cursor-pointer transition-colors">
-              Home
-            </Link>
-            <HiOutlineChevronRight />
-            <span>Medicines</span>
-          </p>
-          <div>
-            <Menu
-              menuButton={
-                <MenuButton className="flex items-center gap-2 bg-white font-semibold p-2 rounded-md  ease-in duration-150">
-                  Filter Medicines <AiOutlineDown />
-                </MenuButton>
-              }
-              transition
-            >
-              <MenuItem onClick={() => handelSort("phtl")} className="font-medium text-gray-5">
-                From Low Price
-              </MenuItem>
-              <MenuItem onClick={() => handelSort("plth")} className="font-medium text-gray-5">
-                From Heigh Price
-              </MenuItem>
-              <MenuItem onClick={() => handelSort("byRating")} className="font-medium text-gray-5">
-                From Height selling
-              </MenuItem>
-              <MenuItem onClick={() => handelSort("fNew")} className="font-medium text-gray-5">
-                From New Product
-              </MenuItem>
-              <MenuItem onClick={() => handelSort("fOld")} className="font-medium text-gray-5">
-                From Old product
-              </MenuItem>
-            </Menu>
+    <section className="bg-lite">
+      <div className="container mx-auto relative">
+        <div className=" flex items-center mx-auto py-5 px-4 md:py-8 lg:pt-10 lg:px-10">
+          <button onClick={() => setShowFilter("")} className="lg:hidden" type="button">
+            <BsFilterLeft className="text-lg font-bold text-my-primary mr-2" />
+          </button>
+          <div className="flex items-center justify-between w-full">
+            <p className="inline-flex items-center gap-1 font-medium md:font-semibold tracking-wider text-black-2 lg:text-lg">
+              <Link to="/" className="hover:text-my-accent cursor-pointer transition-colors">
+                Home
+              </Link>
+              <HiOutlineChevronRight />
+              <span>Medicines</span>
+            </p>
+            <div>
+              <Menu
+                menuButton={
+                  <MenuButton className="flex items-center gap-2 font-semibold p-2 rounded-md  ease-in duration-150">
+                    Filter Medicines <AiOutlineDown />
+                  </MenuButton>
+                }
+                transition
+              >
+                <MenuItem onClick={() => handelSort("phtl")} className="font-medium text-gray-5">
+                  From Low Price
+                </MenuItem>
+                <MenuItem onClick={() => handelSort("plth")} className="font-medium text-gray-5">
+                  From Heigh Price
+                </MenuItem>
+                <MenuItem onClick={() => handelSort("byRating")} className="font-medium text-gray-5">
+                  From Height selling
+                </MenuItem>
+                <MenuItem onClick={() => handelSort("fNew")} className="font-medium text-gray-5">
+                  From New Product
+                </MenuItem>
+                <MenuItem onClick={() => handelSort("fOld")} className="font-medium text-gray-5">
+                  From Old product
+                </MenuItem>
+              </Menu>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className={`w-64 rounded-md bg-white lg:hidden absolute top-0 z-30 h-screen ${showFilter} transition-all duration-500`}>
-        <div className="flex justify-between items-center">
-          <button onClick={() => setShowFilter("-ml-96")} className="lg:hidden" type="button">
-            <RxCross1 className="text-lg font-bold text-my-primary mr-2 btn btn-circle btn-sm p-1" />
-          </button>
-        </div>
-        {filterItems}
-      </div>
-
-      <div className="container mx-auto px-4 lg:px-10 pb-10 md:flex gap-8">
-        <div className="w-80 h-fit bg-white rounded-md hidden md:block">
-          {/* <div onClick={() => setIsOpen(null)}>
-            <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
-              <Link className="px-6" to="/medicines">
-                All Medicines
-              </Link>
+        <div className={`w-64 rounded-md  lg:hidden absolute top-0 z-30 h-screen ${showFilter} transition-all duration-500`}>
+          <div className="flex justify-between items-center">
+            <button onClick={() => setShowFilter("-ml-96")} className="lg:hidden" type="button">
+              <RxCross1 className="text-lg font-bold text-my-primary mr-2 btn btn-circle btn-sm p-1" />
             </button>
-          </div> */}
+          </div>
           {filterItems}
         </div>
-        {isloading ? (
-          <Loader spinner />
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PaginationMedicines?.map((medicine) => (
-              <MediCard key={medicine._id} medicine={medicine} />
-            ))}
-          </div>
-        )}
+
+        <div className=" mx-auto px-4 lg:px-10 pb-10 md:flex gap-8">
+          <div className="w-80 h-fit rounded-md hidden md:block">{filterItems}</div>
+          {isloading ? (
+            <Loader spinner />
+          ) : (
+            <div className="lg:max-w-[75%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {PaginationMedicines?.map((medicine) => (
+                <MediCard key={medicine._id} medicine={medicine} />
+              ))}
+            </div>
+          )}
+        </div>
+        <ReactPaginate
+          className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
+          activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
+          breakLabel="..."
+          nextLabel="Next"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={pageCount}
+          previousLabel="Previous"
+        />
+
+        <MediContact />
       </div>
-      <ReactPaginate
-        className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
-        activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
-        breakLabel="..."
-        nextLabel="Next"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel="Previous"
-      />
     </section>
   );
 };

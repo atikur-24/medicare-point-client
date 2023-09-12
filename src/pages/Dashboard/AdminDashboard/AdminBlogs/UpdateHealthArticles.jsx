@@ -1,32 +1,25 @@
-import axios from "axios";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { updateBlogApi } from "../../../../Features/Blogs/updateBlog";
 
 const UpdateHealthArticles = () => {
   const existingData = useLoaderData();
   const { _id } = existingData;
   const { register, handleSubmit, setValue } = useForm();
+  const dispatch = useDispatch();
 
   const onSubmit = async (data) => {
     delete data._id;
 
-    const formData = new FormData();
     try {
-      const response = await fetch({
-        method: "POST",
-        body: formData,
-      });
+      // Dispatch the Redux action to update the health article data
+      const updateResponse = await dispatch(updateBlogApi({ _id, data }));
 
-      if (!response.ok) {
-        throw new Error("Image upload failed");
-      }
-
-      // Update health tip data using axios
-      const updateResponse = await axios.put(`http://localhost:5000/blogs/${_id}`, data);
-
-      if (updateResponse.status === 200) {
+      // Check the response from the Redux action
+      if (updateResponse.payload.modifiedCount > 0) {
         Swal.fire({
           icon: "success",
           title: "Update Successful",
@@ -54,40 +47,61 @@ const UpdateHealthArticles = () => {
   }, [existingData, setValue]);
 
   return (
-    <div className="text-center">
+    <div className="mt-8 bg-white box-shadow rounded-2xl p-10">
       <div className="grid grid-cols-1">
-        <div className="bg-gray-3 p-2">
-          <h1 className="text-2xl font-bold py-2">Update Health Articles</h1>
+        <div className="">
+          <h1 className="text-2xl text-center font-bold mb-10 font-nunito uppercase">Update Health Articles</h1>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            {/* Similar input fields with pre-filled values */}
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-sm font-semibold">Title</label>
+                <label className="label">
+                  <span className="label-text font-bold">Title</span>
+                </label>
                 <input type="text" {...register("title")} className="input input-bordered w-full" />
               </div>
               <div>
-                <label className="text-sm font-semibold">Topic</label>
+                <label className="label">
+                  <span className="label-text font-bold">Topic</span>
+                </label>
                 <input type="text" {...register("topic")} className="input input-bordered w-full" />
               </div>
             </div>
-            {/* Other input fields */}
             <div>
               <label className="text-sm font-semibold">Image</label>
               <input type="text" {...register("image")} className="input input-bordered w-full" />
             </div>
-            {/* ... Repeat for other fields */}
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-sm font-semibold">Published date</label>
-                <input type="text" {...register("published_date")} className="input input-bordered w-full" />
+                <label className="label">
+                  <span className="label-text font-bold">Published date</span>
+                </label>
+                <input type="date" {...register("published_date")} className="input input-bordered w-full" />
               </div>
               <div>
-                <label className="text-sm font-semibold">Content</label>
+                <label className="label">
+                  <span className="label-text font-bold">Content</span>
+                </label>
                 <input type="text" {...register("content")} className="input input-bordered w-full" />
               </div>
             </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <label className="label">
+                  <span className="label-text font-bold">Author</span>
+                </label>
+                <input type="text" {...register("author")} className="input input-bordered w-full" />
+              </div>
+              <div>
+                <label className="label">
+                  <span className="label-text font-bold">Author Image</span>
+                </label>
+                <input type="text" {...register("authorImage")} className="input input-bordered w-full" />
+              </div>
+            </div>
             <div>
-              <label className="text-sm font-semibold">Content details</label>
+              <label className="label">
+                <span className="label-text font-bold">Content details</span>
+              </label>
               <textarea {...register("content_details")} className="textarea textarea-bordered w-full" />
             </div>
             <button type="submit" className="my-btn">
