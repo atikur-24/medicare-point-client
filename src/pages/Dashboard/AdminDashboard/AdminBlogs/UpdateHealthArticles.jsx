@@ -75,13 +75,27 @@ const UpdateHealthArticles = () => {
                 <label className="label">
                   <span className="label-text font-bold">Published date</span>
                 </label>
-                <input type="text" {...register("published_date")} className="input input-bordered w-full" />
+                <input type="date" {...register("published_date")} className="input input-bordered w-full" />
               </div>
               <div>
                 <label className="label">
                   <span className="label-text font-bold">Content</span>
                 </label>
                 <input type="text" {...register("content")} className="input input-bordered w-full" />
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <label className="label">
+                  <span className="label-text font-bold">Author</span>
+                </label>
+                <input type="text" {...register("author")} className="input input-bordered w-full" />
+              </div>
+              <div>
+                <label className="label">
+                  <span className="label-text font-bold">Author Image</span>
+                </label>
+                <input type="text" {...register("authorImage")} className="input input-bordered w-full" />
               </div>
             </div>
             <div>

@@ -10,7 +10,6 @@ import Logo from "../../assets/Logo/logo.svg";
 import loginAnimation from "../../assets/images/login-images/login.json";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useAuth from "../../hooks/useAuth";
-import { addUser } from "../../hooks/userApi";
 import SocialSigning from "./SocialSigning";
 
 const SignUp = () => {
@@ -53,11 +52,10 @@ const SignUp = () => {
                 Swal.fire({
                   icon: "info",
                   title: "Email Verification",
-                  text: "Check your email and verify account",
+                  text: "Check your email and verify your account",
                   showConfirmButton: true,
                 });
                 logOut();
-                addUser(result?.user);
                 navigate("/login");
               })
               .catch((err) => {

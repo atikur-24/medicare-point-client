@@ -17,12 +17,13 @@ import { Link, useSearchParams } from "react-router-dom";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
 import Loader from "../../components/Loader";
 import MediCard from "../Shared/Card/MediCard";
+import MediContact from "./MediContact";
 
 const Medicines = () => {
   const [medicines, setMedicines] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [isOpen, setIsOpen] = useState(null);
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
   const category = params.get("category");
   const { allData, isloading } = useSelector((state) => state?.allMedicines);
   const dispatch = useDispatch();
@@ -66,7 +67,11 @@ const Medicines = () => {
         <h3 className="text-title-color text-xl font-bold tracking-wide py-4 px-6 uppercase border-b-2 border-gray-3">Categories</h3>
         <div className="py-4 px-6 space-y-4 text-sm">
           <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
-            <Link to="/medicines" className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "" ? "text-my-accent underline" : ""}`}>
+            <Link
+              onClick={() => setIsOpen("allMedicine")}
+              to="/medicines"
+              className={`inline-flex items-center gap-1 w-full hover:text-my-accent hover:cursor-pointer ${isOpen === "allMedicine" ? "text-my-accent underline" : ""}`}
+            >
               <LiaAngleRightSolid /> All Medicines
             </Link>
           </button>
@@ -187,28 +192,28 @@ const Medicines = () => {
       <div className="mt-6 rounded-lg border border-gray-3">
         <h3 className="text-title-color text-xl font-bold tracking-wide py-4 px-6 uppercase border-b-2 border-gray-3">Product tags</h3>
         <div className="p-2">
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
-          <button type="button" className="btn btn-sm m-1 bg-my-accent hover:bg-my-primary">
+          <button type="button" className="border border-gray-3 rounded-2xl py-1 px-2 m-1  hover:bg-my-accent">
             ABC 1
           </button>
         </div>
@@ -217,8 +222,8 @@ const Medicines = () => {
   );
 
   return (
-    <section className="bg-lite relative">
-      <div className="container flex items-center mx-auto py-5 px-4 md:py-8 lg:pt-10 lg:px-10">
+    <section className="container bg-lite relative">
+      <div className=" flex items-center mx-auto py-5 px-4 md:py-8 lg:pt-10 lg:px-10">
         <button onClick={() => setShowFilter("")} className="lg:hidden" type="button">
           <BsFilterLeft className="text-lg font-bold text-my-primary mr-2" />
         </button>
@@ -268,21 +273,12 @@ const Medicines = () => {
         {filterItems}
       </div>
 
-      <div className="container mx-auto px-4 lg:px-10 pb-10 md:flex gap-8">
-        <div className="w-80 h-fit bg-white rounded-md hidden md:block">
-          {/* <div onClick={() => setIsOpen(null)}>
-            <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
-              <Link className="px-6" to="/medicines">
-                All Medicines
-              </Link>
-            </button>
-          </div> */}
-          {filterItems}
-        </div>
+      <div className=" mx-auto px-4 lg:px-10 pb-10 md:flex gap-8">
+        <div className="w-80 h-fit bg-white rounded-md hidden md:block">{filterItems}</div>
         {isloading ? (
           <Loader spinner />
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="lg:max-w-[75%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PaginationMedicines?.map((medicine) => (
               <MediCard key={medicine._id} medicine={medicine} />
             ))}
@@ -299,6 +295,8 @@ const Medicines = () => {
         pageCount={pageCount}
         previousLabel="Previous"
       />
+
+      <MediContact />
     </section>
   );
 };
