@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { FaAngleRight } from "react-icons/fa";
-import { Link, useLoaderData } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { fetchDetailData } from "../../../../Features/AllMedicines/detailData";
 import sample from "../../../../assets/Lab/bloodsample.webp";
 import gen from "../../../../assets/Lab/gender.webp";
 import time from "../../../../assets/Lab/ic_rgt.webp";
@@ -12,7 +14,17 @@ import CheckCard from "../CheckCard/CheckCard";
 import LabButton from "../LabButton/LabButton";
 
 const LabBook = () => {
-  const { test_name, price, image_url, discount, category_name, _id, gender, age, labTestDetails, report } = useLoaderData();
+  const params = useParams();
+  const api = `labAllItems/${params?.id}`;
+
+  const { data, isLoading } = useSelector((state) => state.detailData);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchDetailData(api));
+  }, [dispatch, api]);
+
+  const { test_name, price, image_url, discount, category_name, _id, gender, age, labTestDetails, report } = data;
   const [labCart] = useLabCart();
   const [isBook, setIsBook] = useState({});
   const { user } = useAuth();
@@ -66,7 +78,7 @@ const LabBook = () => {
               <div className=" absolute bottom-0 w-full">
                 {isBook ? (
                   <Link to="/labPayment" className="my-btn w-full">
-                    Proceed to Cart
+                    Proceed to checkout
                   </Link>
                 ) : (
                   <LabButton labAddCart={labAddCart} />

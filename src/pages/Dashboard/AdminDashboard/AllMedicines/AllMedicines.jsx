@@ -1,9 +1,9 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable no-unsafe-optional-chaining */
-import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import { useEffect } from "react";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { BsArrowRightShort } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+import { Link } from "react-router-dom";
 import { fetchAllMedicines } from "../../../../Features/Medicines/AllMedicines/medicines";
 import Loader from "../../../../components/Loader";
 
@@ -17,35 +17,53 @@ const AllMedicines = () => {
 
 
 
-  const handleApproved = (id) => {
-    const statusApproved = { status: "approved" };
-    axios.patch(`http://localhost:5000/medicine-status/${id}`, statusApproved).then(res => console.log(res));
-  };
+  const approvedMedicines = medicines.filter((medicine) => medicine?.status === "approved");
+  const pendingMedicines = medicines.filter((medicine) => medicine?.status === "pending");
+  const deniedMedicines = medicines.filter((medicine) => medicine?.status === "denied");
 
   return (
     <div className="mx-1 md:mx-5">
-      <h3 className="text-center text-xl lg:text-3xl my-7 font-semibold tracking-wide">All Available Medicines</h3>
+      {/* <h3 className="text-center text-xl lg:text-3xl my-7 font-semibold tracking-wide">All Available Medicines</h3> */}
+
+      <div className="flex px-6 mb-8">
+        <div className="stats shadow">
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Approved Medicines</div>
+            <div className="stat-value text-my-primary">{approvedMedicines?.length}</div>
+          </div>
+
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pending Medicines</div>
+            <div className="stat-value text-yellow-500">{pendingMedicines?.length}</div>
+          </div>
+
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Denied Medicines</div>
+            <div className="stat-value text-red-500">{deniedMedicines?.length}</div>
+          </div>
+        </div>
+      </div>
 
       <div className=" mb-20 px-5">
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <table className="overflow-x-auto table rounded bg-lite">
-            {/* head */}
-            <thead className="bg-my-primary text-white font-normal text-base">
-              <tr className="">
-                <th>#</th>
-                <th>Photo</th>
-                <th>Name</th>
-                <th>Pharmacist Info</th>
-                <th>Price</th>
-                <th>Av. Quantity</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
+        <table className="overflow-x-auto table rounded bg-lite">
+          {/* head */}
+          <thead className="bg-my-primary text-white font-normal text-base">
+            <tr className="">
+              <th>#</th>
+              <th>Photo</th>
+              <th>Name</th>
+              <th>Pharmacist Info</th>
+              <th>Price</th>
+              <th>Av. Quantity</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          {/* rows */}
+
+          {!isLoading && (
             <tbody>
-              {/* rows */}
               {medicines?.map((medicine, idx) => (
                 <tr key={medicine?._id} className="border-b border-slate-3">
                   <td>{idx + 1}</td>
@@ -63,30 +81,28 @@ const AllMedicines = () => {
                   </td>
 
                   <td
-                    className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"
-                      } capitalize font-medium`}
+                    className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${
+                      medicine.status === "pending" && "text-yellow-500"
+                    } capitalize font-medium`}
                   >
                     {medicine?.status}
                   </td>
                   <td>
-                    <Menu
-                      menuButton={
-                        // eslint-disable-next-line react/jsx-wrap-multilines
-                        <MenuButton className="btn-sm inline-flex items-center bg-my-accent text-white w-full capitalize">
-                          {medicine.status}
-                          <MdKeyboardArrowDown />
-                        </MenuButton>
-                      }
-                      transition
-                    >
-                      <MenuItem disabled={medicine.status === "approved"} onClick={() => handleApproved(medicine._id)} className="font-semibold text-gray-6">Approve</MenuItem>
-                      <MenuItem disabled={medicine.status === "denied"} className="font-semibold text-gray-6">Deny</MenuItem>
-                    </Menu>
+                    <Link to={`/dashboard/medicine-detail/${medicine?._id}`}>
+                      <button type="button" className="btn-sm inline-flex items-center border-[1px] border-my-primary hover:bg-my-primary text-my-primary font-semibold hover:text-white w-full capitalize ease-in-out duration-300 rounded-md">
+                        Detail <BsArrowRightShort className="text-2xl" />
+                      </button>
+                    </Link>
                   </td>
                 </tr>
               ))}
             </tbody>
-          </table>
+          )}
+        </table>
+        {isLoading && (
+          <div className="mt-44">
+            <Loader spinner />
+          </div>
         )}
       </div>
     </div>

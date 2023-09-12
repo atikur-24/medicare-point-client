@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import chatImg from "../../../assets/icon/message_icon.svg";
 import DeliveryOffer from "../Advertisement/DeliveryOffer";
+import LabAd from "../Advertisement/LabAd";
 import MedicineAd from "../Advertisement/MedicineAd";
-
 import Banner from "../Banner/Banner";
 import Brands from "../Brands/Brands";
 import Categories from "../Categories/Categories";
@@ -25,6 +25,7 @@ const Home = () => {
       <HighestSellings />
       <PainProducts />
       <OtcMedicine />
+      <LabAd />
       <OrderProcess />
       <Service />
       <Brands />

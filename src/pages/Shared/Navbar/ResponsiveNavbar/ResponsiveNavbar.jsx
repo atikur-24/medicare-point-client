@@ -35,21 +35,21 @@ const ResponsiveNavbar = ({ menuItems }) => {
   };
 
   useEffect(() => {
-    const handelOutsiteClose = (e) => {
+    const handelOutsideClose = (e) => {
       if (!menuRef?.current?.contains(e?.target)) {
         setIsOpen("-ml-96");
       }
     };
-    document.addEventListener("mousedown", handelOutsiteClose);
+    document.addEventListener("mousedown", handelOutsideClose);
 
     return () => {
-      document.removeEventListener("mousedown", handelOutsiteClose);
+      document.removeEventListener("mousedown", handelOutsideClose);
     };
   }, []);
 
   return (
     <div className="">
-      <div className="px-4 flex items-center justify-between gap-2 w-[full] py-4">
+      <div className="px-4 flex items-center justify-between gap-2 w-full py-4">
         <div onClick={() => setIsOpen("")}>
           <RiMenu2Line className=" text-my-accent w-6 h-6 cursor-pointer " />
         </div>
@@ -96,8 +96,8 @@ const ResponsiveNavbar = ({ menuItems }) => {
       </div>
       <hr className="w-full  shadow-md border border-my-primary" />
 
-      <div className={`z-50 shadow-2xl bg-white w-[70%] h-full border-2 rounded-lg border-gray-3 absolute top-0 left-0 ${isOpen} transition-all duration-500`} ref={menuRef}>
-        <div className=" pt-[37px] ">
+      <div className={`z-50 !h-full shadow-2xl bg-white w-[70%]  border-2 rounded-lg border-gray-3 fixed top-0 left-0 ${isOpen} transition-all duration-500`} ref={menuRef}>
+        <div className="pt-9">
           <div className=" px-4 flex justify-between items-center mb-5">
             <div>
               <p className=" text-my-primary  font-bold md:hidden">

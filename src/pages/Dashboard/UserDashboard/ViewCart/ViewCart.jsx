@@ -30,12 +30,8 @@ const ViewCart = () => {
             <div className="space-y-3">
               <Rating style={{ maxWidth: 70 }} value={cartMedicine.rating} readOnly />
               <p className="inline-flex gap-1">
-                <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">
-                  <TbCurrencyTaka /> {cartMedicine.price}
-                </span>
-                <span className="font-semibold inline-flex items-center text-[16px] text-gray-5 line-through">
-                  <TbCurrencyTaka /> 170
-                </span>
+                <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">৳ {cartMedicine.price}</span>
+                <span className="font-semibold inline-flex items-center text-[16px] text-gray-5 line-through">৳ 170</span>
               </p>
             </div>
             <div className="flex w-full space-x-4">

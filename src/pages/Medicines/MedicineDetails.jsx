@@ -1,19 +1,18 @@
 /* eslint-disable import/no-unresolved */
-/* eslint-disable no-mixed-operators */
-/* eslint-disable no-plusplus */
 import { Rating, StickerStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import axios from "axios";
 import moment from "moment/moment";
 import { useEffect, useState } from "react";
+import HtmlParser from "react-html-parser";
 import { BiLogoFacebook, BiLogoGooglePlus, BiLogoInstagram, BiLogoLinkedin, BiLogoPinterest, BiLogoTumblr, BiLogoTwitter, BiSolidEnvelope } from "react-icons/bi";
 import { HiMinus, HiOutlineChevronRight, HiPlus } from "react-icons/hi";
-import { TbCurrencyTaka } from "react-icons/tb";
 import { Link, useParams } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
-import HtmlParser from "react-html-parser";
 import AddCartButton from "../../components/AddCartButton";
+import Loader from "../../components/Loader";
+import ReqToStockButton from "../../components/ReqToStockButton";
 import useAuth from "../../hooks/useAuth";
 import MedicineReviews from "./MedicineReviews";
 
@@ -31,14 +30,13 @@ const MedicineDetails = () => {
   useEffect(() => {
     setLoading(true);
     axios.get(`http://localhost:5000/medicines/details/${params?.id}`).then((res) => {
-      // console.log(res.data);
       setMedicine(res.data);
       setLoading(false);
     });
   }, [params?.id, isReview]);
 
   if (isLoading) {
-    return <p className="text-center mt-10">Loading........</p>;
+    return <Loader spinner />;
   }
 
   const customStyles = {
@@ -47,25 +45,21 @@ const MedicineDetails = () => {
     inactiveFillColor: "#DEE1E6",
   };
 
-  const { _id, medicine_name, image, price, medicine_description, tags, rating, feature_with_details, category, allRatings, discount } = medicine || {};
+  const { _id, medicine_name, image, price, sellQuantity, available_quantity, medicine_description, tags, rating, feature_with_details, category, allRatings, discount, pharmacist_email } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, category: category.label, email: user?.email };
-
+  const reqToStock = { reqByMedicine_Id: _id, medicine_name, image, request_count: 1, pharmacist_email, user_email: user?.email };
   const handleReviews = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const city = form.city.value;
     const reviewMessage = form.reviewMessage.value;
-
     const date = moment().format("Do MMM YYYY");
-    // console.log(date);
 
-    const newReview = { name, email, date, city, rating: rating1, reviewMessage };
-    // console.log(newReview);
-    axios.post(`http://localhost:5000/details/${_id}`, newReview).then((res) => {
+    const newReview = { name: user?.displayName, email: user.email, date, rating: rating1, reviewMessage };
+
+    axios.post(`http://localhost:5000/reviews/${_id}`, newReview).then((res) => {
       if (res.data.modifiedCount > 0) {
         form.reset();
+        setRating(0);
         Swal.fire({
           position: "top-center",
           icon: "success",
@@ -116,31 +110,25 @@ const MedicineDetails = () => {
             </div>
             <Rating style={{ maxWidth: 80 }} value={rating} readOnly itemStyles={customStyles} />
             <p className="inline-flex gap-1">
-              <span className="font-bold text-my-pink inline-flex items-center text-xl lg:text-2xl">
-                <TbCurrencyTaka /> {discount > 0 ? (price - (price / 100) * discount).toFixed(2) : price.toFixed(2)}
-              </span>
-              {discount > 0 && (
-                <span className="font-medium inline-flex items-center text-[17px] lg:text-xl text-gray-5 line-through">
-                  <TbCurrencyTaka /> {price}
-                </span>
-              )}
+              <span className="font-bold text-my-pink inline-flex items-center text-xl lg:text-2xl">৳ {discount > 0 ? (price - (price / 100) * discount).toFixed(2) : price.toFixed(2)}</span>
+              {discount > 0 && <span className="font-medium inline-flex items-center text-[17px] lg:text-xl text-gray-5 line-through">৳ {price}</span>}
             </p>
             <p className="font-medium text-black-2 tracking-wide">
-              Availability: <span className="text-my-primary">In Stock</span>
+              Availability: {available_quantity === sellQuantity ? <span className="text-red-500">Out of Stock</span> : <span className="text-my-primary">In Stock</span>}
             </p>
-            <p className="text-gray-4 text-justify leading-7">{medicine_description}</p>
+            <p className="text-gray-4 text-justify leading-7">{medicine_description.slice(0, 200)}</p>
             <div className="border border-gray-3 py-5 px-3 rounded-md font-semibold flex items-center justify-around">
               <span className="text-lg tracking-wide">Quantity:</span>
               <div className="border border-gray-3 rounded-full w-fit py-3 px-5 flex items-center justify-between gap-5">
-                <button type="button" disabled={quantity <= 1} onClick={() => setQuantity(quantity - 1)} className="cursor-pointer">
+                <button type="button" disabled={quantity <= 1} onClick={() => setQuantity(quantity - 1)} className="cursor-no-drop">
                   <HiMinus />
                 </button>
                 <span className="text-gray-5">{quantity}</span>
-                <button type="button" disabled={quantity >= 50} onClick={() => setQuantity(quantity + 1)} className="cursor-pointer">
+                <button type="button" disabled={quantity >= 5} onClick={() => setQuantity(quantity + 1)} className={`${quantity} == 5 ? "cursor-none" : "cursor-no-drop"`}>
                   <HiPlus />
                 </button>
               </div>
-              <AddCartButton cartMedicine={cartMedicine} cls="cart-btn" />
+              {available_quantity === sellQuantity ? <ReqToStockButton reqToStock={reqToStock} cls="req-btn-lg" /> : <AddCartButton cartMedicine={cartMedicine} cls="cart-btn" />}
             </div>
             <div className="text-[14px] space-y-1 md:space-y-2">
               <p className="font-medium text-black-2">
@@ -174,20 +162,12 @@ const MedicineDetails = () => {
       {/* Description & reviews */}
       <div className="my-container bg-white mt-10 rounded-md">
         <div className="lg:flex gap-8">
-          <div
-            className={`${
-              descrptn ? "border-b-[3px]" : ""
-            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
-          >
+          <div className={`${descrptn ? "border-b-[3px]" : ""} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
             <button type="button" onClick={handleDescriptionBtn}>
               Description
             </button>
           </div>
-          <div
-            className={`${
-              reviews ? "border-b-[3px]" : ""
-            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
-          >
+          <div className={`${reviews ? "border-b-[3px]" : ""} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
             <button type="button" onClick={handleReviewsBtn}>
               Reviews
             </button>
@@ -200,9 +180,7 @@ const MedicineDetails = () => {
             <p className="text-gray-4 leading-7 lg:leading-8 pt-6 lg:pt-8">{medicine_description}</p>
             <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
               <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-black-2">Product Features</h3>
-              <div>
-                {HtmlParser(feature_with_details)}
-              </div>
+              <div>{HtmlParser(feature_with_details)}</div>
             </div>
           </div>
 
@@ -210,34 +188,17 @@ const MedicineDetails = () => {
           <div className={`${reviews ? "block" : "hidden"} mt-8 w-full max-w-[100vw] transition-all duration-500`}>
             {allRatings && <MedicineReviews allRatings={allRatings} />}
             <div className="lg:w-4/5">
-              <h4 className="my-5 text-gray-5">
-                Your email address will not be published. Required fields are marked <span className="text-red-500">*</span>
-              </h4>
-              <h3 className="my-1 text-xl font-semibold">Your rating</h3>
+              <h4 className="my-5 text-gray-5">Your feedback is invaluable.Share your thoughts and experiences with a quick review.</h4>
+              <h3 className="my-1 text-xl font-semibold lg:tracking-wide">Your Rating</h3>
               <div>
-                <Rating className="mb-5" style={{ maxWidth: 100 }} value={rating1} onChange={setRating} itemStyles={customStyles} />
+                <Rating className="mb-5" style={{ maxWidth: 100 }} value={rating1} onChange={setRating} isRequired />
               </div>
               <div>
-                <form onSubmit={handleReviews} className="">
-                  <div>
-                    <textarea required placeholder="Your Review" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" name="reviewMessage" id="" rows="5" />
+                <form onSubmit={handleReviews}>
+                  <div className="pb-6">
+                    <textarea required placeholder="Your Review" className="w-full outline-my-primary rounded-md border-[1px] border-gray-3 p-2" name="reviewMessage" rows="5" />
                   </div>
-                  <div className="lg:grid grid-cols-3 gap-3 space-y-5 lg:space-y-0 mt-5">
-                    <div>
-                      <input required placeholder="Name" type="text" name="name" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
-                    </div>
-                    <div>
-                      <input required placeholder="Email" type="text" name="email" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
-                    </div>
-                    <div>
-                      <input required placeholder="City" type="text" name="city" id="" className="w-full outline-my-primary rounded-md border-[1px] border-gray-4 p-2" />
-                    </div>
-                  </div>
-                  <div className="my-5 space-x-2">
-                    <input type="checkbox" name="checkedEmail" id="" />
-                    <span>Save my name, email, and website in this browser for the next time I comment.</span>
-                  </div>
-                  <input className="btn rounded-3xl px-5 bg-my-accent hover:bg-my-primary text-white transition-all duration-300" type="submit" value="SUBMIT YOUR REVIEW" />
+                  <input className="circle-btn" type="submit" value="SUBMIT YOUR REVIEW" />
                 </form>
               </div>
             </div>

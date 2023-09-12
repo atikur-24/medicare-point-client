@@ -22,7 +22,6 @@ const AllUsers = () => {
       role,
     };
     axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then((res) => {
-      // console.log(res.data);
       if (res?.data?.modifiedCount > 0) {
         dispatch(fetchAllUsers());
         Swal.fire("Successful", "Convert User Role to Admin", "success");
@@ -30,20 +29,42 @@ const AllUsers = () => {
     });
   };
 
+  const totalAdmin = allUsers.filter((admin) => admin?.role === "admin");
+  const totalPharmacist = allUsers.filter((admin) => admin?.role === "Pharmacist");
+  const totalUsers = allUsers.filter((admin) => admin?.role === "user");
+  // console.log(allUsers);
+
   return (
     <div>
-      <h3 className="text-center text-3xl my-7 font-semibold">All Users List</h3>
+      <div className="flex px-6 mb-8">
+        <div className="stats shadow">
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Admin</div>
+            <div className="stat-value">{totalAdmin?.length}</div>
+          </div>
+
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pharmacist</div>
+            <div className="stat-value text-my-primary">{totalPharmacist?.length}</div>
+          </div>
+
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Users</div>
+            <div className="stat-value">{totalUsers?.length}</div>
+          </div>
+        </div>
+      </div>
       <div className="overflow-x-auto mb-20  px-5">
-        <table className="table bg-gray-3">
+        <table className="table  border border-gray-3 bg-white table-zebra">
           {/* head */}
-          <thead className="rounded-lg bg-my-accent text-lg">
-            <tr className="bg-my-secondary rounded-lg">
-              <th>#</th>
+          <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-lg">
+            <tr className="text-center rounded-t-md">
+              <th className="rounded-tl-md">#</th>
               <th>Photo</th>
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
-              <th>Actions</th>
+              <th className="rounded-tr-md">Actions</th>
             </tr>
           </thead>
 
@@ -51,17 +72,17 @@ const AllUsers = () => {
             {/* row 1 */}
             {allUsers.map((user, idx) => (
               <tr key={user._id} className="">
-                <td>{idx + 1}</td>
-                <td>
-                  <img className="w-10 h-10 rounded-full" src={user?.image} alt="" />
+                <td className="font-bold text-center">{idx + 1}</td>
+                <td className="flex justify-center">
+                  <img className="w-10 h-10  rounded-full" src={user?.image} alt="" />
                 </td>
-                <td>{user?.name}</td>
-                <td>{user?.email}</td>
-                <td>
+                <td className="font-semibold text-center">{user?.name}</td>
+                <td className="font-semibold text-center">{user?.email}</td>
+                <td className="font-semibold text-center">
                   <Menu
                     menuButton={
                       // eslint-disable-next-line react/jsx-wrap-multilines
-                      <MenuButton className="btn btn-sm bg-my-accent hover:bg-my-primary hover:text-white w-7/12">{user?.role}</MenuButton>
+                      <MenuButton className="my-btn !btn-sm  !rounded w-8/12">{user?.role}</MenuButton>
                     }
                     transition
                   >
@@ -76,12 +97,12 @@ const AllUsers = () => {
                     </MenuItem>
                   </Menu>
                 </td>
-                <td className="flex items-center gap-2">
+                <td className="flex justify-center items-center gap-4">
                   <NavLink>
-                    <TiEdit className="text-2xl p-1 text-[white] bg-my-primary" />
+                    <TiEdit className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
                   </NavLink>
-                  <NavLink>
-                    <RiDeleteBinLine className="text-2xl bg-red-500 text-[white] p-1" />
+                  <NavLink className=" bg-red-500 rounded-full bg-opacity-30 ">
+                    <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
                   </NavLink>
                 </td>
               </tr>

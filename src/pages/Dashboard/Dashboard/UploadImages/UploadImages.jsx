@@ -101,48 +101,70 @@ const UploadImages = () => {
   };
 
   //   if (isLoading) {
-  //     return <p className="text-center mt-10">Loading........</p>;
+  //     return <Loader spinner />;
   //   }
 
   return (
     <div className="px-5">
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="lg:flex justify-between items-center mt-10 mb-5 px-2">
-        <BiSolidCloudUpload onClick={() => window.my_modal_ImageUpload.showModal()} className="text-5xl text-my-primary cursor-pointer" />
-        <h3 className="text-xl lg:text-3xl font-bold uppercase font-nunito">All Uploaded Images</h3>
+      <div className="flex justify-between items-center md:mt-10 md:mb-5 md:px-2">
+        <div className=" mb-8">
+          <div className="stats shadow">
+            <div className="stat place-items-center space-y-2">
+              <div className="stat-title text-title-color font-nunito font-bold uppercase ">Image </div>
+              <div className="stat-value text-my-primary">{allImages.length || 0}</div>
+            </div>
+          </div>
+        </div>
 
-        <div className="relative">
-          <input
-            onChange={handleSearch}
-            className={`border py-1 pr-10 pl-3 border-slate-3 outline-my-primary rounded-3xl transition-all duration-500 ${isearch ? "block" : "hidden"}`}
-            type="search"
-            name="imgSearch"
-            id=""
-            placeholder="Search image by name"
-          />
-          {/* <MdImageSearch title="Search image" onClick={() => setISearch(true)} className={` absolute right-2 text-my-primary cursor-pointer ${!isearch ? "text-4xl -top-4" : "text-2xl top-1"}`} /> */}
-          <Lottie
-            animationData={searchIcon}
-            title="Search image"
-            onClick={() => setISearch(true)}
-            className={` absolute right-2  cursor-pointer ${!isearch ? "h-14 w-14 -top-4" : "h-8 w-8 top-0"}`}
-            loop
-          />
+        <div className="md:hidden">
+          <BiSolidCloudUpload onClick={() => window.my_modal_ImageUpload.showModal()} className="text-5xl text-my-primary cursor-pointer" />
+        </div>
+
+        <div className="hidden lg:block">
+          <div className="md:flex md:justify-around items-center gap-10">
+            <div className="">
+              <BiSolidCloudUpload onClick={() => window.my_modal_ImageUpload.showModal()} className="text-5xl text-my-primary cursor-pointer" />
+            </div>
+
+            <div className="relative">
+              <input
+                onChange={handleSearch}
+                className={`border py-2 pr-10 pl-3 border-slate-3 outline-my-primary rounded-3xl transition-all duration-500 ${isearch ? "block" : "hidden"}`}
+                type="search"
+                name="imgSearch"
+                id=""
+                placeholder="Search image by name"
+              />
+              {/* <MdImageSearch title="Search image" onClick={() => setISearch(true)} className={` absolute right-2 text-my-primary cursor-pointer ${!isearch ? "text-4xl -top-4" : "text-2xl top-1"}`} /> */}
+              <div>
+                <Lottie
+                  animationData={searchIcon}
+                  title="Search image"
+                  onClick={() => setISearch(true)}
+                  className={`  right-2  cursor-pointer ${!isearch ? " h-14 w-14 -top-4" : "h-8 w-8 top-1 absolute"}`}
+                  loop
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {allImages.length === 0 && (
-        <div className="flex justify-center items-center">
-          <img className="lg:max-w-sm" src="https://i.ibb.co/4Wd3BdR/no-results.png" alt="No data found" />
+        <div className="flex justify-center items-center ">
+          <img className="w-64" src="https://i.ibb.co/4Wd3BdR/no-results.png" alt="No data found" />
         </div>
       )}
 
       <div className="grid grid-cols-2 lg:grid-cols-8 gap-2 mb-10">
         {allImages.map((i) => (
-          <div key={i._id} className=" border border-gray-3 p-2 relative text-center rounded-md space-y-2 ">
-            <button type="button" className="relative mb-9" onClick={() => copyURl(i?.photoURL)}>
-              <h5 className="text-base font-semibold font-nunito text-title-color uppercase mt-1">{i?.name}</h5>
-              <img className="h-20" src={i?.photoURL} alt="" />
+          <div key={i._id} className=" border bg-white border-gray-3 p-2 relative text-center rounded-md box-shadow space-y-2 ">
+            <button type="button" className="relative mb-12 space-y-2" onClick={() => copyURl(i?.photoURL)}>
+              <h2 className="text-base font-semibold font-nunito text-title-color uppercase mt-1">{i?.name}</h2>
+              <figure className="flex justify-center">
+                <img className="h-20 " src={i?.photoURL} alt="" />
+              </figure>
             </button>
             <div className="rounded-b-md flex justify-center gap-2 py-1 bg-[#475569] bg-opacity-60 items-center absolute bottom-0 left-0 right-0">
               <BiLinkAlt onClick={() => copyURl(i?.photoURL)} title="Copy Image URL" className="text-2xl text-white rounded-full  hover:bg-my-accent bg-my-primary p-1 " />
