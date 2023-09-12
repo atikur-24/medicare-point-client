@@ -11277,6 +11277,15 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
+react-awesome-stars-rating@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/react-awesome-stars-rating/-/react-awesome-stars-rating-0.14.0.tgz#4796737ced516ff57b6274eb451fb6295036784d"
+  integrity sha512-HdDApZLD0E9fzdLwSldoTYsErd5DiVawfgh5quUZyiCWyAxLtq4F26VyE/xC8/RVpkqHlsff7SU9ZoM0u5n2kw==
+  dependencies:
+    prop-types "^15.8.1"
+    react "^17.0.2"
+    react-dom "^17.0.2"
+
 react-card-slider-component@^1.0.7, react-card-slider-component@^1.0.9:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/react-card-slider-component/-/react-card-slider-component-1.0.9.tgz#dc20d7eae8074c3634f2ebf7e40a010057545e54"

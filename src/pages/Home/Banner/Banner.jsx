@@ -4,8 +4,8 @@ import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import image2 from "../../../assets/images/banner/image2.png";
-import image3 from "../../../assets/images/banner/image3.png";
+import image2 from "../../../assets/images/banner/image2.webp";
+import image3 from "../../../assets/images/banner/image3.webp";
 import image4 from "../../../assets/images/banner/image4.webp";
 // import image5 from "../../../assets/images/banner/image5.webp";
 // import image6 from "../../../assets/images/banner/image6.webp";
