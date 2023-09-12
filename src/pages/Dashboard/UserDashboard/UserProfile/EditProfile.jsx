@@ -73,67 +73,66 @@ const EditProfile = () => {
   };
 
   return (
-    <div className="text-center">
+    <div className="px-4">
       <div className="grid grid-cols-1">
-        <div className="bg-gray-3 p-2">
-          <h1 className="text-2xl font-bold py-2">Edit Profile</h1>
+        <div className="bg-white box-shadow p-8 rounded-2xl">
+          <h1 className="text-2xl font-bold py-2">Edit Your Profile</h1>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-sm font-semibold">Name:</label>
+                <label className="text-sm font-semibold">Name</label>
                 <input type="text" name="name" className="input input-bordered w-full" value={formData.name} onChange={handleChange} />
               </div>
               <div>
-                <label className="text-sm font-semibold">Email:</label>
+                <label className="text-sm font-semibold">Email</label>
                 <input disabled type="email" name="email" className="input input-bordered w-full" value={formData.email} onChange={handleChange} />
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-sm font-semibold">Phone:</label>
+                <label className="text-sm font-semibold">Phone</label>
                 <input type="text" name="phone" className="input input-bordered w-full" value={formData.phone} onChange={handleChange} />
               </div>
               <div>
-                <label className="text-sm font-semibold">Gender:</label>
+                <label className="text-sm font-semibold">Gender</label>
                 <input type="text" name="gender" className="input input-bordered w-full" value={formData.gender} onChange={handleChange} />
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-sm font-semibold">Company:</label>
+                <label className="text-sm font-semibold">Company</label>
                 <input type="text" name="company" className="input input-bordered w-full" value={formData.company} onChange={handleChange} />
               </div>
               <div>
-                <label className="text-sm font-semibold">Title:</label>
+                <label className="text-sm font-semibold">Title</label>
                 <input type="text" name="title" className="input input-bordered w-full" value={formData.title} onChange={handleChange} />
               </div>
             </div>
             <div>
-              <label className="text-sm font-semibold w-full">Image:</label>
+              <label className="text-sm font-semibold w-full">Image</label>
               <input type="text" name="image" className="input input-bordered w-full" value={formData.image} onChange={handleChange} />
             </div>
             <div>
-              <h1 className="text 3xl font-semibold"> Address</h1>
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-sm font-semibold"> Division:</label>
+                  <label className="text-sm font-semibold"> Division</label>
                   <input type="text" name="division" className="input input-bordered w-full" value={formData.division} onChange={handleChange} />
                 </div>
                 <div>
-                  <label className="text-sm font-semibold"> District:</label>
+                  <label className="text-sm font-semibold"> District</label>
                   <input type="text" name="district" className="input input-bordered w-full" value={formData.district} onChange={handleChange} />
                 </div>
                 <div>
-                  <label className="text-sm font-semibold"> Post Office:</label>
+                  <label className="text-sm font-semibold"> Post Office</label>
                   <input type="text" name="postoffice" className="input input-bordered w-full" value={formData.postoffice} onChange={handleChange} />
                 </div>
                 <div>
-                  <label className="text-sm font-semibold"> Postcode:</label>
+                  <label className="text-sm font-semibold"> Postcode</label>
                   <input type="text" name="postcode" className="input input-bordered w-full" value={formData.postcode} onChange={handleChange} />
                 </div>
               </div>
-              <div>
-                <label className="text-sm font-semibold w-full">Detail Area:</label>
+              <div className="mt-2">
+                <label className="text-sm font-semibold w-full">Detail Area</label>
                 <input type="text" name="area" className="input input-bordered w-full" value={formData.area} onChange={handleChange} />
               </div>
             </div>
