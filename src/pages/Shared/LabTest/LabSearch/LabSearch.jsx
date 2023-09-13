@@ -60,9 +60,9 @@ const LabSearch = ({ setAllLabTests, setIsLoading }) => {
           <Select isClearable defaultValue={selectedOption} onChange={setSelectedOption} options={districts} placeholder="Select your district" noOptionsMessage={() => "No district found"} />
         </div> */}
       </div>
-      <div className="md:w-[40%] ">
+      <div className="md:w-[50%] lg:w-[40%] ">
         <div className=" border border-gray-3 flex md:items-center  px-4 rounded-lg py-2 bg-white  ">
-          <p className="bg-my-primary text-white w-80 font-nunito uppercase font-bold rounded  py-4 flex items-center justify-center text-sm md:text-base">Our Services Area</p>
+          <p className="bg-my-primary text-white w-80 font-nunito uppercase font-bold rounded  py-4 flex items-center justify-center text-sm lg:text-base">Our Services Area</p>
           {/* <p className="inline-flex  items-center gap-4 font-medium  md:text-lg">
             <AiFillThunderbolt className="w-6 h-6 text-[#f59e0b]" />
             Upto 30% Of
