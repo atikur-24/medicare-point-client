@@ -1,12 +1,23 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
-import { Link, useLoaderData } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { fetchDetailData } from "../../Features/AllMedicines/detailData";
 
 const HealthTipsDetails = () => {
-  const diseaseDetails = useLoaderData();
+  const params = useParams();
+  const api = `allHealthTips/${params?.id}`;
+  const { data } = useSelector((state) => state.detailData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchDetailData(api));
+  }, [dispatch, api]);
+
+  const diseaseDetails = data;
+
   const [healthTips, setHealthTips] = useState([]);
-  console.log(diseaseDetails);
+  // console.log(diseaseDetails);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {

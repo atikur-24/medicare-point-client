@@ -1,9 +1,9 @@
 /* eslint-disable import/no-unresolved */
+import { Rating, StickerStar } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from "react-icons/bi";
-import { Rating, StickerStar } from "@smastrom/react-rating";
-import "@smastrom/react-rating/style.css";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -32,15 +32,18 @@ const Feedback = () => {
         content="Our customers have spoken of our products and the reliability of our health solutions. Your feedback fuels our drive to continuously improve and serve you better."
       />
       <Swiper
-        slidesPerView={1}
-        spaceBetween={10}
         freeMode
         pagination={{
           clickable: true,
         }}
         breakpoints={{
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+
           640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
           },
           768: {
@@ -48,6 +51,10 @@ const Feedback = () => {
             spaceBetween: 10,
           },
           1024: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1280: {
             slidesPerView: 3,
             spaceBetween: 30,
           },
@@ -57,7 +64,7 @@ const Feedback = () => {
       >
         {feedbacks.map((feedback, idx) => (
           <SwiperSlide key={idx}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4  mb-10 px-4">
+            <div className="mb-10 px-4">
               <div className="bg-card p-6 rounded-lg shadow-xl ">
                 <div className="grid justify-center items-center mb-4">
                   <h3 className="text-lg text-center text-title-color tracking-wide font-semibold -mb-20">{feedback.name}</h3>

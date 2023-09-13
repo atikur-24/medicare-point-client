@@ -94,8 +94,7 @@ const MediCards = () => {
         button="View All"
         image={bannerImage}
         title="PAIN RELIEF"
-        description="been significantly de-risked. At vero eos et accusam justo duo dolores etea rebuitet clita kasd gubergren nosea takimata sanctus est lorem ipsum dolor consetetur sadipscing elitr sed
-        diam nonumy eirmod tempor invidunt ut labore magna aliquyam sedam voluptua at vero eos et accusam et justo duo dolores"
+        description="Pain management is an aspect of medicine and health care involving relief of pain in various dimensions, from acute and simple to chronic and challenging"
       />
     </>
   );

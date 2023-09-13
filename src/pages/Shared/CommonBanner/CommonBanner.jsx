@@ -14,7 +14,7 @@ const CommonBanner = ({ bgImage, title, description, button, image }) => {
           <div className="container mx-auto  p-8 items-center flex md:gap-24">
             <div className="w-full  flex flex-col space-y-4">
               <h2 className="text-white text-lg md:text-4xl font-bold">{title}</h2>
-              <p className="text-gray-3 lg:w-2/3 text-justify hidden md:block">{description}</p>
+              <p className="text-gray-3 xl:w-2/3 text-justify hidden md:block">{description}</p>
               <div>
                 {button && (
                   <button type="button" className="my-btn ">

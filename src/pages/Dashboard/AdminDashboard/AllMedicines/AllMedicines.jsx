@@ -1,10 +1,9 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable no-unsafe-optional-chaining */
-import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
-import axios from "axios";
 import { useEffect } from "react";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { BsArrowRightShort } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchAllMedicines } from "../../../../Features/Medicines/AllMedicines/medicines";
 import Loader from "../../../../components/Loader";
 
@@ -16,13 +15,7 @@ const AllMedicines = () => {
     dispatch(fetchAllMedicines());
   }, [dispatch]);
 
-  const handelChangeStatus = (id, newStatus) => {
-    const statusApproved = { status: newStatus };
-    axios.patch(`http://localhost:5000/medicine-status/${id}`, statusApproved).then((res) => {
-      console.log(res.data);
-      dispatch(fetchAllMedicines());
-    });
-  };
+
 
   const approvedMedicines = medicines.filter((medicine) => medicine?.status === "approved");
   const pendingMedicines = medicines.filter((medicine) => medicine?.status === "pending");
@@ -95,26 +88,11 @@ const AllMedicines = () => {
                     {medicine?.status}
                   </td>
                   <td>
-                    <Menu
-                      menuButton={
-                        // eslint-disable-next-line react/jsx-wrap-multilines
-                        <MenuButton className="btn-sm inline-flex items-center bg-my-accent text-white w-full capitalize">
-                          {medicine.status}
-                          <MdKeyboardArrowDown />
-                        </MenuButton>
-                      }
-                      transition
-                    >
-                      <MenuItem disabled={medicine.status === "approved"} onClick={() => handelChangeStatus(medicine?._id, "approved")} className="font-semibold text-gray-6">
-                        Approve
-                      </MenuItem>
-                      <MenuItem disabled={medicine.status === "denied"} onClick={() => handelChangeStatus(medicine?._id, "denied")} className="font-semibold text-gray-6">
-                        Deny
-                      </MenuItem>
-                      <MenuItem disabled={medicine.status === "pending"} onClick={() => handelChangeStatus(medicine?._id, "pending")} className="font-semibold text-gray-6">
-                        Pending
-                      </MenuItem>
-                    </Menu>
+                    <Link to={`/dashboard/medicine-detail/${medicine?._id}`}>
+                      <button type="button" className="btn-sm inline-flex items-center border-[1px] border-my-primary hover:bg-my-primary text-my-primary font-semibold hover:text-white w-full capitalize ease-in-out duration-300 rounded-md">
+                        Detail <BsArrowRightShort className="text-2xl" />
+                      </button>
+                    </Link>
                   </td>
                 </tr>
               ))}

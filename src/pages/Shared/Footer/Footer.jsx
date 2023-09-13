@@ -14,9 +14,9 @@ import ssl from "../../../assets/payment-icon/payment.png";
 const Footer = () => {
   return (
     <div>
-      <div className="bg-[url('assets/images/footer.png')] bg-black bg-no-repeat  lg:h-[770px] ">
-        <div className="pb-[50px] pt-[100px] lg:pt-[150px] lg:px-8  mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl">
-          <div className="px-10 lg:px-0 flex flex-col lg:flex-row justify-between gap-6  ">
+      <div className="bg-[url('assets/images/footer.png')] bg-black bg-no-repeat  xl:h-[770px] ">
+        <div className="pb-[50px] pt-[100px] xl:pt-[150px] xl:px-8  mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl">
+          <div className="px-10 xl:px-0 flex flex-col xl:flex-row justify-between gap-6  ">
             <div className="space-y-6">
               <div className="flex items-center gap-6">
                 <img className="w-28 md:w-32" src={logo} alt="" />
@@ -95,7 +95,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mt-11 px-10 lg:px-0  flex flex-col md:flex-row  justify-between gap-12">
+          <div className="mt-11 px-10 xl:px-0  flex flex-col md:flex-row  justify-between gap-12">
             {/* payment */}
             <div>
               <p className="text-white text-2xl font-bold">OUR PAYMENT PARTNERS</p>
