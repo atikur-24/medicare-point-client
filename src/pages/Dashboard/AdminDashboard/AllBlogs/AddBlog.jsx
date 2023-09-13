@@ -92,19 +92,11 @@ const AddBlog = () => {
           />
         </div>
 
-        <div className="text-center">
-          <button type="submit" className="blog-btn bg-my-primary hover:bg-my-accent">
+        <div className="text-center flex px-56">
+          <button type="submit" className="submit-btn h-full">
             Create Blog
           </button>
-          <button
-            onClick={() => {
-              setReset(true);
-            }}
-            type="submit"
-            className="blog-btn bg-red-500 hover:bg-red-400"
-          >
-            Reset
-          </button>
+          <input type="reset" onClick={() => setBlogDetails("")} value="reset" className="reset-btn h-full" />
         </div>
       </form>
     </div>
