@@ -76,7 +76,7 @@ const Navbar = () => {
     // TODO: bg color
     <div className="">
       <div className="nav-container ">
-        <div className="hidden md:block">
+        <div className="hidden xl:block">
           <div className="flex items-center justify-between py-2 ">
             <div className="flex items-center gap-10 justify-between">
               <Logo />
@@ -120,7 +120,7 @@ const Navbar = () => {
         </div>
       </div>
       <hr className="border-gray-3" />
-      <div className="hidden md:block ">
+      <div className="hidden xl:block ">
         {/* TODO: bg color */}
         <div className="nav-container ">
           <div className="py-2">
@@ -129,7 +129,7 @@ const Navbar = () => {
         </div>
         <hr className=" border-1 border-gray-3 drop-shadow-xl" />
       </div>
-      <div className=" md:hidden">
+      <div className=" xl:hidden">
         <ResponsiveNavbar menuItems={menuItems} />
       </div>
     </div>

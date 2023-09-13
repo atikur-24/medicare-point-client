@@ -96,7 +96,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
       </div>
       <hr className="w-full  shadow-md border border-my-primary" />
 
-      <div className={`z-50 !h-full shadow-2xl bg-white w-[70%]  border-2 rounded-lg border-gray-3 fixed top-0 left-0 ${isOpen} transition-all duration-500`} ref={menuRef}>
+      <div className={`z-50 !h-full shadow-2xl bg-white w-[60%]  md:w-[40%] lg:w-[30%]  border-2 rounded-lg border-gray-3 fixed top-0 left-0 ${isOpen} transition-all duration-500`} ref={menuRef}>
         <div className="pt-9">
           <div className=" px-4 flex justify-between items-center mb-5">
             <div>

@@ -3,7 +3,7 @@ import OfferBanner from "./OfferBanner";
 
 const MedicineAd = () => {
   return (
-    <div className="my-16 hidden md:block">
+    <div className="my-16 hidden lg:block">
       <OfferBanner discount="15" img_ad={ads} title="Your Health is our Priority" />
     </div>
   );
