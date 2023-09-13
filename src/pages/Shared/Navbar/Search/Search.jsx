@@ -33,7 +33,7 @@ const Search = () => {
       <form onSubmit={handleSubmit} className="flex items-center relative">
         <input
           onChange={handleSearch}
-          className="w-full lg:w-[450px] h-10 rounded-full  dropdown-end shadow-md border-[1px] border-gray-3 px-6 focus:input-bordered input-accent"
+          className="w-full xl:w-[450px] h-10 rounded-full  dropdown-end shadow-md border-[1px] border-gray-3 px-6 focus:input-bordered input-accent"
           type="text"
           name="searchField"
           value={search}
