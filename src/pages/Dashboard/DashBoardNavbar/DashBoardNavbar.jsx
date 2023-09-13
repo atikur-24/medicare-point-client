@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { MdOutlineNotificationsActive } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import rewordIcon from "../../../assets/Dashboard-icons/reward.png";
 import { AuthContext } from "../../../contexts/AuthProvider";
@@ -25,9 +26,9 @@ const DashBoardNavbar = ({ setShowNotification, showNotification }) => {
       <div className="flex items-center gap-2">
         {/* <NavLink to="/dashboard/notification"> */}
         <button type="button" onClick={() => setShowNotification(!showNotification)}>
-          <img
+          <MdOutlineNotificationsActive
             title="Notification"
-            className={` ml-2 transition-all duration-300 ${showNotification ? "bg-slate-3 p-2 rounded-full w-12 h-12" : "w-10 h-10"}`}
+            className={` ml-2 transition-all duration-300 ${showNotification ? "bg-my-primary text-white bg-opacity-70 p-2 rounded-full w-12 h-12" : "w-10 h-10"}`}
             src="https://i.ibb.co/8zxdmM6/notification.png"
             alt="upload images"
           />
