@@ -19,49 +19,30 @@ const HighestSellings = () => {
     <div className=" pb-10 px-4 rounded-lg bg-lite">
       <div className="my-container">
         <SectionTitle title="Height selling Medicines" content="This is the most bought and used treatment for health issues. Many people trust and use it to feel better." />
-
-        <div className="hidden lg:block">
+        <div className="">
           <Swiper
-            slidesPerView={4}
-            spaceBetween={50}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Pagination]}
-            className="mySwiper"
-          >
-            {headingSMedicines.map((medicine) => (
-              <SwiperSlide key={medicine?._id}>
-                <MediCard medicine={medicine} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
 
-        <div className="hidden md:block lg:hidden">
-          <Swiper
-            slidesPerView={2}
-            spaceBetween={50}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Pagination]}
-            className="mySwiper"
-          >
-            {headingSMedicines.map((medicine, index) => (
-              <SwiperSlide key={index}>
-                <MediCard medicine={medicine} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-
-        <div className="md:hidden">
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={50}
-            pagination={{
-              clickable: true,
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+              },
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
+              1280: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
             }}
             modules={[Pagination]}
             className="mySwiper"
