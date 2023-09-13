@@ -33,27 +33,25 @@ const HealthTipsDetails = () => {
           {diseaseDetails.doctorName} ({diseaseDetails.doctorDepartment})
         </h2>
         <h1 className="text-sm italic my-4">Date:{diseaseDetails.date}</h1>
-        <div className="grid grid-cols-1 md:grid-cols-1 justify-center items-center space-x-2 md:space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-1 justify-center items-center md:space-y-6">
           <img className="h-96 w-full my-1 md:my-8" src={diseaseDetails.image} alt="" />
-          <div className="space-y-6">
-            {/* <h1 className="text-4xl text-center font-bold my-4 hidden md:block">{diseaseDetails.name}</h1> */}
-
-            <p className="">
-              <span className="font-semibold">Type of the disease:</span>
-              {diseaseDetails.type}
-            </p>
-            <p className=" mb-6">
-              <span className="font-semibold">Cause of the disease:</span>
-              {diseaseDetails.cause}
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 items-center mt-8 ">
+            <div className="shadow-sm h-full p-4">
+              <h3 className="text-2xl font-semibold my-4">Type of the disease</h3>
+              <p>{diseaseDetails.type}</p>
+            </div>
+            <div className="shadow-sm h-full p-4">
+              <h3 className="text-2xl font-semibold my-4">Cause of the disease</h3>
+              <p>{diseaseDetails.cause}</p>
+            </div>
           </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 items-center mt-8 ">
-          <div className="shadow-sm h-full p-4 bgc-white border border-gray-3">
+          <div className="shadow-sm h-full p-4">
             <h3 className="text-2xl font-semibold my-4">How To Prevent?</h3>
             <p>{diseaseDetails.prevention}</p>
           </div>
-          <div className="shadow-sm h-full p-4 bgc-white border border-gray-3">
+          <div className="shadow-sm h-full p-4">
             <h3 className="text-2xl font-semibold my-4 ">What's the cure?</h3>
             <p>{diseaseDetails.cure}</p>
           </div>
