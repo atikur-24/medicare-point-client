@@ -3,7 +3,7 @@ const BookLabCard = ({ book, isOpen, toggleOpen }) => {
 
   return (
     <div className="p-6">
-      <div className="border shadow-lg  bg-[#F2FBFF] rounded-md border-gray-3 p-4 md:flex flex-row    items-center">
+      <div className="border box-shadow  bg-white rounded-2xl border-gray-3 p-4 md:flex flex-row    items-center">
         <div className="p-4 rounded lg:w-[35%] 2xl:w-[30%]">
           <div className=" divide-y-2 divide-gray-3">
             <h2 className="font-bold font-nunito uppercase pb-2">{test_name}</h2>
