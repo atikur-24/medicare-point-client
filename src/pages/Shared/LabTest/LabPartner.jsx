@@ -16,8 +16,29 @@ const LabPartner = () => {
       <div className="rounded-lg bg-my-primary text-white w-full h-36 md:h-full flex items-center justify-center text-3xl font-semibold mb-6">Lab Partner</div>
       <div className="col-span-2">
         <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
+          breakpoints={{
+            0: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            1280: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          }}
           freeMode
           pagination={{
             clickable: true,
