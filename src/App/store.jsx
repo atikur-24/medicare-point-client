@@ -5,6 +5,7 @@ import allLabTest from "../Features/AllLabTests/allLabTest";
 import deleteLabTest from "../Features/AllLabTests/deleteLabTest";
 import updateLabTest from "../Features/AllLabTests/updateLabTest";
 // import allMedicines from "../Features/AllMedicines/allMedicines";
+import detailData from "../Features/AllMedicines/detailData";
 import allUsers from "../Features/AllUsers/allUsers";
 import userByEmail from "../Features/AllUsers/userByEmail";
 import addBlog from "../Features/Blogs/addBlog";
@@ -58,6 +59,7 @@ const store = configureStore({
     labSSLPayment,
     notificationsByEmail: fetchNotificationsByEmail,
     deleteNotifications,
+    detailData,
   },
 });
 
