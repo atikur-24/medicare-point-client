@@ -100,6 +100,12 @@ const UpdateHealthArticles = () => {
             </div>
             <div>
               <label className="label">
+                <span className="label-text font-bold">Section Title</span>
+              </label>
+              <input type="text" {...register("sectionTitle")} className="input input-bordered w-full" />
+            </div>
+            <div>
+              <label className="label">
                 <span className="label-text font-bold">Content details</span>
               </label>
               <textarea {...register("content_details")} className="textarea textarea-bordered w-full" />
