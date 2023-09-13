@@ -1,3 +1,4 @@
+import JoditEditor from "jodit-react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -100,9 +101,27 @@ const UpdateHealthArticles = () => {
             </div>
             <div>
               <label className="label">
+                <span className="label-text font-bold">Section Title</span>
+              </label>
+              <input type="text" {...register("sectionTitle")} className="input input-bordered w-full" />
+            </div>
+            <div>
+              <label className="label">
                 <span className="label-text font-bold">Content details</span>
               </label>
-              <textarea {...register("content_details")} className="textarea textarea-bordered w-full" />
+              <JoditEditor
+                name="content_details"
+                value={existingData.content_details || ""} // Set the initial value
+                onBlur={(newContent) => {
+                  setValue("content_details", newContent); // Update the form state
+                }}
+                config={
+                  {
+                    // Jodit editor configuration options
+                    // You can configure it as needed
+                  }
+                }
+              />
             </div>
             <button type="submit" className="my-btn">
               Update Health Articles

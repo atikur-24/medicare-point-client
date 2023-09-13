@@ -24,13 +24,14 @@ const AddBlog = () => {
     const title = form.title.value;
     const topic = form.topic.value;
     const content = form.content.value;
+    const sectionTitle = form.sectionTitle.value;
     const published_date = form.published_date.value;
     const image = form.image.value;
     const authorImage = form.authorImage.value;
     const author = form.author.value;
     const content_details = blogDetails;
 
-    const data = { title, topic, content, published_date, image, content_details, authorImage, author };
+    const data = { title, topic, content, published_date, image, content_details, authorImage, author, sectionTitle };
     dispatch(addBlogApi({ data, form }));
     form.reset();
   };
@@ -75,6 +76,10 @@ const AddBlog = () => {
           </div>
         </div>
         <div>
+          <h4>Section Title</h4>
+          <input required type="text" name="sectionTitle" id="" placeholder="Type Here" />
+        </div>
+        <div>
           <h4>Blog Details</h4>
           <JoditEditor
             name="content_details"
@@ -87,19 +92,11 @@ const AddBlog = () => {
           />
         </div>
 
-        <div className="text-center">
-          <button type="submit" className="blog-btn bg-my-primary hover:bg-my-accent">
+        <div className="text-center flex px-56">
+          <button type="submit" className="submit-btn h-full">
             Create Blog
           </button>
-          <button
-            onClick={() => {
-              setReset(true);
-            }}
-            type="submit"
-            className="blog-btn bg-red-500 hover:bg-red-400"
-          >
-            Reset
-          </button>
+          <input type="reset" onClick={() => setBlogDetails("")} value="reset" className="reset-btn h-full" />
         </div>
       </form>
     </div>
