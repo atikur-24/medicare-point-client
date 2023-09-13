@@ -1,15 +1,18 @@
 .swiper-pagination {
   display: none;
 }
+
+.shopby-category .swiper-pagination {
+  display: block;
+  bottom: 0;
+}
 /* .swiper-slide-d {
   width: 150px !important;
 }
 .swiper-slide-c {
   width: 230px !important;
-  
+
 } */
-
-
 
 /* "my-accent": "#16b4ac",
 "my-primary": "#10847e", */
