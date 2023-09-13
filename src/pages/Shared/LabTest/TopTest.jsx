@@ -68,7 +68,7 @@ const TopTest = () => {
         ))}
         <div className="absolute top-1/2 right-4 z-10">
           <div className=" bg-white rounded-full ">
-            <FaArrowCircleRight className="w-8 h-8 text-my-primary" />
+            <FaArrowCircleRight className="text-2xl xl:text-3xl text-my-primary" />
           </div>
         </div>
       </Swiper>
