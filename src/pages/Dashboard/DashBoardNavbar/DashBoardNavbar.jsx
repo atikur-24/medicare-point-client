@@ -5,9 +5,9 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 
 const DashBoardNavbar = ({ setShowNotification, showNotification }) => {
   const { role } = useContext(AuthContext);
-  if (!role) {
-    return <p>loading........</p>;
-  }
+  // if (!role) {
+  //   return <p>loading........</p>;
+  // }
   return (
     <div className="py-5 pl-10 pr-2 md:px-5 flex justify-between items-center bg-[#F1F6FA] ">
       <div className="">

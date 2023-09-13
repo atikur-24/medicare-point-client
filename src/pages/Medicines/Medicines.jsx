@@ -5,8 +5,10 @@ import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { AiOutlineDown } from "react-icons/ai";
+import { BiSolidCameraPlus } from "react-icons/bi";
 import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { LiaAngleRightSolid } from "react-icons/lia";
@@ -14,12 +16,17 @@ import { RxCross1 } from "react-icons/rx";
 import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useSearchParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import { addImageToDBApi } from "../../Features/Images/addImageToDB";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
+import { uploadImageApi } from "../../Features/UploadImage/uploadImage";
 import Loader from "../../components/Loader";
+import { AuthContext } from "../../contexts/AuthProvider";
 import MediCard from "../Shared/Card/MediCard";
 import MediContact from "./MediContact";
 
 const Medicines = () => {
+  const { user } = useContext(AuthContext);
   const [medicines, setMedicines] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [isOpen, setIsOpen] = useState(null);
@@ -27,6 +34,7 @@ const Medicines = () => {
   const category = params.get("category");
   const { allData, isloading } = useSelector((state) => state?.allMedicines);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     dispatch(fetchMedicines());
@@ -221,6 +229,37 @@ const Medicines = () => {
     </div>
   );
 
+  // handle prescription
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    const image = data.image[0];
+
+    const formData = new FormData();
+    formData.append("image", image);
+
+    setLoading(true);
+
+    dispatch(uploadImageApi(formData)).then((res) => {
+      const prescriptionImg = res.payload.data?.display_url;
+
+      const imageData = {
+        prescription: prescriptionImg,
+        email: user.email,
+        patientName: data.name,
+      };
+
+      dispatch(addImageToDBApi({ imageData, collectionName: "prescription" })).then((res2) => {
+        if (res2.payload.insertedId) {
+          Swal.fire("Prescription uploaded!", "As early as possible, we will add the medicines to your cart and send you an email.", "success");
+          setLoading(false);
+          window.my_modal_PrescriptionUpload.close();
+          reset();
+        }
+        // console.log(res2.payload);
+      });
+    });
+  };
+
   return (
     <section className="bg-lite">
       <div className="container mx-auto relative">
@@ -228,6 +267,7 @@ const Medicines = () => {
           <button onClick={() => setShowFilter("")} className="lg:hidden" type="button">
             <BsFilterLeft className="text-lg font-bold text-my-primary mr-2" />
           </button>
+
           <div className="flex items-center justify-between w-full">
             <p className="inline-flex items-center gap-1 font-medium md:font-semibold tracking-wider text-black-2 lg:text-lg">
               <Link to="/" className="hover:text-my-accent cursor-pointer transition-colors">
@@ -236,31 +276,37 @@ const Medicines = () => {
               <HiOutlineChevronRight />
               <span>Medicines</span>
             </p>
-            <div>
-              <Menu
-                menuButton={
-                  <MenuButton className="flex items-center gap-2 font-semibold p-2 rounded-md  ease-in duration-150">
-                    Filter Medicines <AiOutlineDown />
-                  </MenuButton>
-                }
-                transition
-              >
-                <MenuItem onClick={() => handelSort("phtl")} className="font-medium text-gray-5">
-                  From Low Price
-                </MenuItem>
-                <MenuItem onClick={() => handelSort("plth")} className="font-medium text-gray-5">
-                  From Heigh Price
-                </MenuItem>
-                <MenuItem onClick={() => handelSort("byRating")} className="font-medium text-gray-5">
-                  From Height selling
-                </MenuItem>
-                <MenuItem onClick={() => handelSort("fNew")} className="font-medium text-gray-5">
-                  From New Product
-                </MenuItem>
-                <MenuItem onClick={() => handelSort("fOld")} className="font-medium text-gray-5">
-                  From Old product
-                </MenuItem>
-              </Menu>
+
+            <div className="flex items-center gap-3">
+              <div className="flex flex-col items-center">
+                <BiSolidCameraPlus title="Upload Prescription" onClick={() => window.my_modal_PrescriptionUpload.showModal()} className="text-2xl cursor-pointer" />
+              </div>
+              <div>
+                <Menu
+                  menuButton={
+                    <MenuButton className="flex items-center gap-2 font-semibold p-2 rounded-md  ease-in duration-150">
+                      Filter Medicines <AiOutlineDown />
+                    </MenuButton>
+                  }
+                  transition
+                >
+                  <MenuItem onClick={() => handelSort("phtl")} className="font-medium text-gray-5">
+                    From Low Price
+                  </MenuItem>
+                  <MenuItem onClick={() => handelSort("plth")} className="font-medium text-gray-5">
+                    From Heigh Price
+                  </MenuItem>
+                  <MenuItem onClick={() => handelSort("byRating")} className="font-medium text-gray-5">
+                    From Height selling
+                  </MenuItem>
+                  <MenuItem onClick={() => handelSort("fNew")} className="font-medium text-gray-5">
+                    From New Product
+                  </MenuItem>
+                  <MenuItem onClick={() => handelSort("fOld")} className="font-medium text-gray-5">
+                    From Old product
+                  </MenuItem>
+                </Menu>
+              </div>
             </div>
           </div>
         </div>
@@ -298,6 +344,35 @@ const Medicines = () => {
         />
         <MediContact />
       </div>
+      prescription upload modal
+      <dialog id="my_modal_PrescriptionUpload" className="modal">
+        <div className="modal-box w-96">
+          <form method="dialog" className="space-y-2">
+            <button type="submit" className="btn btn-sm btn-circle btn-ghost bg-red-500 hover:bg-red-400 text-white absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
+          <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
+            <h4 className="text-lg font-semibold font-nunito text-center">Upload Prescription</h4>
+            <div>
+              <img className="w-60 mx-auto" src="https://i.ibb.co/0hW0C2K/medical-record.png" alt="" />
+            </div>
+            <input required type="file" className="file-input rounded file-input-bordered file-input-accent w-full" name="image" id="" {...register("image")} />
+            <input
+              placeholder="Enter patient name.."
+              required
+              type="text"
+              className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full"
+              name="name"
+              id=""
+              {...register("name")}
+            />
+            <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
+              {loading ? "Uploading...." : "Upload Prescription"}
+            </button>
+          </form>
+        </div>
+      </dialog>
     </section>
   );
 };
