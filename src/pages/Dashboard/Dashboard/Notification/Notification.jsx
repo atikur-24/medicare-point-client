@@ -44,14 +44,14 @@ const Notification = () => {
   };
 
   return (
-    <div className="hide-scrollbar border border-slate-6 p-5 mt-10 w-96 absolute top-14 right-5 rounded-lg z-20 bg-slate-3 h-auto max-h-[85%] overflow-y-scroll ">
-      <h3 className="text-xl lg:text-xl text-center font-bold uppercase font-sans border-b pb-1 mb-4 border-gray-5">Notifications</h3>
+    <div className="hide-scrollbar border border-gray-3 p-5 mt-10 w-96 absolute top-14 right-5 rounded-lg z-20 bg-card h-auto max-h-[85%] overflow-y-scroll ">
+      <h3 className="text-xl lg:text-xl  font-extrabold  uppercase font-nunito border-b pb-1 mb-4 border-my-primary">Notifications</h3>
 
       <div>
         {allNotifications.map((n) => (
           <div key={n._id}>
-            <Link to={`/dashboard/${n?.url}`} className="notification-card hover:scale-105 transition-all duration-300 cursor-pointer flex items-center gap-4 bg-card p-2 rounded-md my-2 relative">
-              <img className="w-14 h-14" src={n?.photoURL} alt="notification icon" />
+            <Link to={`/dashboard/${n?.url}`} className="notification-card hover:scale-105 transition-all hover:bg-my-primary hover:bg-opacity-10 duration-300 cursor-pointer flex items-center gap-4   p-2 rounded-md my-2 relative">
+              <img className="w-14 h-14 rounded-full ring-offset-2 ring-2 ring-info" src={n?.photoURL} alt="notification icon" />
               <div className="">
                 <h4 className="font-semibold">New {n?.name} order</h4>
                 <p>{n?.deliveryTime}</p>
@@ -62,7 +62,7 @@ const Notification = () => {
                   }}
                   loop
                   animationData={deleteIcon}
-                  className="h-8 w-8 cursor-pointer delete-icon transition-all duration-300 bg-slate-3 text-xl rounded-full p-1 absolute bottom-4 right-3 "
+                  className="h-10 w-10 cursor-pointer delete-icon transition-all duration-300  bg-gray-3 text-xl rounded-full p-1 absolute bottom-4 right-3 "
                 />
               </div>
             </Link>
