@@ -24,8 +24,8 @@ const PopularLab = () => {
     <div className="">
       <LabTitle title="Lab CATEGORIES" />
       <Swiper
-        slidesPerView={7}
-        spaceBetween={30}
+        // slidesPerView={7}
+        // spaceBetween={30}
         breakpoints={{
           0: {
             slidesPerView: 2,
