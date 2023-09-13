@@ -16,6 +16,7 @@ import addHealthTips from "../Features/HealthTips/addHealthTips";
 import allHealthTips from "../Features/HealthTips/allHealthTips";
 import deleteHealthTips from "../Features/HealthTips/deleteHealthTips";
 import updateHealthTips from "../Features/HealthTips/updateHealthTips";
+import addImageToDB from "../Features/Images/addImageToDB";
 import deleteImage from "../Features/Images/deleteImage";
 import fetchAllImages from "../Features/Images/fetchAllImages";
 import uploadImages from "../Features/Images/uploadImages";
@@ -60,6 +61,7 @@ const store = configureStore({
     notificationsByEmail: fetchNotificationsByEmail,
     deleteNotifications,
     detailData,
+    addImageToDB,
   },
 });
 

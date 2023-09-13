@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import Loader from "../../../components/Loader";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import AdminHome from "../AdminDashboard/AdminHome/AdminHome";
 import PharmacistsHome from "../PharmacistDashboard/PharmacistsHome/PharmacistsHome";
@@ -20,9 +21,9 @@ const Dashboard = () => {
     }
   }, [role]);
 
-  // if (!role) {
-  //   return <Loader spinner />;
-  // }
+  if (!role) {
+    return <Loader spinner />;
+  }
 
   return (
     <div>

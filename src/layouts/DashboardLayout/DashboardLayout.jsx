@@ -242,7 +242,11 @@ const DashboardLayout = () => {
   );
 
   if (!role) {
-    return <Loader spinner />;
+    return (
+      <div className="mt-20">
+        <Loader spinner />
+      </div>
+    );
   }
 
   return (
