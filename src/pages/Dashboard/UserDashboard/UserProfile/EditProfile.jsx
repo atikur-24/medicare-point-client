@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const EditProfile = () => {
   const { email } = useParams();
@@ -50,25 +51,32 @@ const EditProfile = () => {
     e.preventDefault();
 
     try {
-      const { _id, ...formDataWithoutId } = formData; // Remove _id property
-
-      // Send a PUT request to update the user's profile without _id
+      const { _id, ...formDataWithoutId } = formData;
       const response = await axios.put(`http://localhost:5000/users/${email}`, formDataWithoutId);
 
-      // Check the response status to handle success or error
       if (response.status === 200) {
-        // Update successful, you can add logic here for handling success
-        console.log("Profile updated successfully");
-
-        // Redirect the user back to the profile page, you can use React Router or another method for this
-        // Example: history.push('/profile');
+        // Profile update successful
+        Swal.fire({
+          icon: "success",
+          title: "Profile Updated",
+          text: "Your profile has been updated successfully!",
+        });
       } else {
         // Handle any errors or display an error message to the user
         console.error("Failed to update profile");
+        Swal.fire({
+          icon: "error",
+          title: "Update Failed",
+          text: "An error occurred while updating your profile. Please try again later.",
+        });
       }
     } catch (error) {
-      // Handle network errors or other exceptions
       console.error("An error occurred while updating the profile:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Update Failed",
+        text: "An error occurred while updating your profile. Please try again later.",
+      });
     }
   };
 
