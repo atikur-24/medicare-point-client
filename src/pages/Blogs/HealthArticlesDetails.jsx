@@ -50,6 +50,14 @@ const HealthArticlesDetails = () => {
           <div className="space-y-6">
             <p className="">
               {/* Render blog content here */}
+              {healthArticle.content}
+            </p>
+            {/* Add more content rendering for sub-title and lists if needed */}
+          </div>
+          <h2 className="text-2xl font-semibold my-4">{healthArticle.sectionTitle}</h2>
+          <div className="space-y-6">
+            <p className="">
+              {/* Render blog content here */}
               {HtmlParser(healthArticle.content_details)}
             </p>
             {/* Add more content rendering for sub-title and lists if needed */}
