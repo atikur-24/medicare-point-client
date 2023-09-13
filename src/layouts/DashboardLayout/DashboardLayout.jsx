@@ -56,14 +56,14 @@ const DashboardLayout = () => {
       <li>
         <NavLink to="/dashboard" className="dashboard-link">
           <BsGrid1X2Fill className="dashboard-icon" />
-          <span>User Dashboard</span>
+          <span>My Profile</span>
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink to="/dashboard/profile" className="dashboard-link">
           <BiSolidUser className="dashboard-icon" /> User Profile
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink to="/dashboard/booked-lab-tests" className="dashboard-link">
           <HiClipboardList className="dashboard-icon" /> Booked lab tests
