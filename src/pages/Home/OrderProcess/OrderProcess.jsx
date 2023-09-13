@@ -9,7 +9,7 @@ const OrderProcess = () => {
   return (
     <div className="my-container">
       <SectionTitle title="Order Process" content="Secure checkout, select your preferred payment method, receive order confirmation, and anticipate the swift delivery of your wellness essentials." />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">
         <div className="card card-compact bg-base-100 border border-gray-3 rounded-md">
           <figure><img className="w-20 md:w-[70px] mx-auto hover:scale-110 transition-all duration-100 cursor-pointer pt-5" src={image1} alt="Shoes" /></figure>
           <div className="card-body mt-8">
