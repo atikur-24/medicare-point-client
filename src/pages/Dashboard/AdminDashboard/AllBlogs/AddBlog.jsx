@@ -24,13 +24,14 @@ const AddBlog = () => {
     const title = form.title.value;
     const topic = form.topic.value;
     const content = form.content.value;
+    const sectionTitle = form.sectionTitle.value;
     const published_date = form.published_date.value;
     const image = form.image.value;
     const authorImage = form.authorImage.value;
     const author = form.author.value;
     const content_details = blogDetails;
 
-    const data = { title, topic, content, published_date, image, content_details, authorImage, author };
+    const data = { title, topic, content, published_date, image, content_details, authorImage, author, sectionTitle };
     dispatch(addBlogApi({ data, form }));
     form.reset();
   };
@@ -73,6 +74,10 @@ const AddBlog = () => {
             <h4>Author Image</h4>
             <input required type="text" name="authorImage" id="" placeholder="Paste Here" />
           </div>
+        </div>
+        <div>
+          <h4>Section Title</h4>
+          <input required type="text" name="sectionTitle" id="" placeholder="Type Here" />
         </div>
         <div>
           <h4>Blog Details</h4>
