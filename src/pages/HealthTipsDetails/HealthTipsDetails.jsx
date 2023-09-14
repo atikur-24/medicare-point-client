@@ -46,24 +46,24 @@ const HealthTipsDetails = () => {
         <h1 className="text-sm italic my-4">Date:{diseaseDetails.date}</h1>
         <div className="grid grid-cols-1 md:grid-cols-1 justify-center items-center md:space-y-6">
           <img className="h-96 w-full my-1 md:my-8" src={diseaseDetails.image} alt="" />
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 items-center mt-8 ">
-            <div className="shadow-sm h-full p-4">
-              <h3 className="text-2xl font-semibold my-4">Type of the disease</h3>
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 items-center mt-5">
+            <div className="h-full p-1">
+              <h3 className="text-2xl font-semibold my-2">Type of the disease</h3>
               <p>{diseaseDetails.type}</p>
             </div>
-            <div className="shadow-sm h-full p-4">
-              <h3 className="text-2xl font-semibold my-4">Cause of the disease</h3>
+            <div className=" h-full p-1">
+              <h3 className="text-2xl font-semibold my-2">Cause of the disease</h3>
               <p>{diseaseDetails.cause}</p>
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 items-center mt-8 ">
-          <div className="shadow-sm h-full p-4">
-            <h3 className="text-2xl font-semibold my-4">How To Prevent?</h3>
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 items-center mt-5">
+          <div className=" h-full p-1">
+            <h3 className="text-2xl font-semibold my-2">How To Prevent?</h3>
             <p>{diseaseDetails.prevention}</p>
           </div>
-          <div className="shadow-sm h-full p-4">
-            <h3 className="text-2xl font-semibold my-4 ">What's the cure?</h3>
+          <div className="h-full p-1">
+            <h3 className="text-2xl font-semibold my-2">What's the cure?</h3>
             <p>{diseaseDetails.cure}</p>
           </div>
         </div>
