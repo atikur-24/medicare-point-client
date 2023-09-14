@@ -82,9 +82,7 @@ const AllMedicinesByPharmacist = () => {
                   <span className="text-my-pink">{medicine?.available_quantity - medicine?.sellQuantity}</span> / {medicine?.available_quantity}
                 </td>
 
-                <td className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"} capitalize font-medium`}>
-                  {medicine?.status}
-                </td>
+                <td className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"} capitalize font-medium`}>{medicine?.status}</td>
                 <td className="flex items-center gap-3 mt-4">
                   <Link to={`/dashboard/update-medicine/${medicine?._id}`}>
                     <TiEdit className="text-2xl p-1 text-white bg-my-primary hover:bg-my-accent transition-colors rounded-sm" />

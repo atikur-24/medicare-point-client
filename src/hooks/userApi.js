@@ -52,7 +52,6 @@ export const applicationForPharmacist = (application) => {
   });
 };
 
-
 // User delete api
 export const deleteUser = (id) => {
   Swal.fire({

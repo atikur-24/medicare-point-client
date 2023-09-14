@@ -57,11 +57,7 @@ const HealthTips = () => {
           <ul className="divide-y divide-my-accent ">
             {categories.map((category, index) => (
               <li key={index} className="font-semibold text-title-color py-2">
-                <button
-                  type="button"
-                  className={`text-blue-600 hover:text-my-primary text-left hover:underline ${selectedCategory === category ? "font-bold text-my-primary" : ""}`}
-                  onClick={() => setSelectedCategory(category)}
-                >
+                <button type="button" className={`text-blue-600 hover:text-my-primary text-left hover:underline ${selectedCategory === category ? "font-bold text-my-primary" : ""}`} onClick={() => setSelectedCategory(category)}>
                   {category}
                 </button>
               </li>
