@@ -71,7 +71,7 @@
   @apply bg-my-primary hover:bg-[#16b4ac] btn tracking-wide font-medium md:font-semibold text-white transition duration-200 border-0  active:hover:transform-none active:focus:transform-none;
 }
 .my-btn-outline {
-  @apply hover:bg-my-primary hover:text-white btn rounded-full font-bold transition duration-300 border border-my-primary text-my-primary active:hover:transform-none active:focus:transform-none;
+  @apply hover:bg-my-primary hover:text-white btn rounded-full font-bold transition-all duration-300 border border-my-primary text-my-primary active:hover:transform-none active:focus:transform-none;
 }
 .circle-btn {
   @apply bg-my-primary hover:bg-[#16b4ac] tracking-wide hover:text-white btn rounded-full font-bold transition duration-300 border text-white active:hover:transform-none active:focus:transform-none;

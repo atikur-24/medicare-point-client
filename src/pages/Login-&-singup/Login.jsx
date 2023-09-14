@@ -1,11 +1,11 @@
 import Lottie from "lottie-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { ImWarning } from "react-icons/im";
 import { TbFidgetSpinner } from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import Logo from "../../assets/Logo/logo.svg";
 import loginAnimation from "../../assets/images/login-images/login.json";
@@ -48,12 +48,7 @@ const Login = () => {
           return;
         }
         if (result.user) {
-          Swal.fire({
-            icon: "success",
-            title: "Your LogIn Successfully",
-            showConfirmButton: false,
-            timer: 2500,
-          });
+          toast.success("Sign In Successful", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
           addUser(result.user);
         }
         setError("");
@@ -61,7 +56,7 @@ const Login = () => {
         setLoading(false);
       })
       .catch((err) => {
-        toast.error(err.message);
+        toast.error(err.message, { autoClose: 3000, theme: "colored", pauseOnHover: false });
         setError(err?.message);
         setLoading(false);
       });
