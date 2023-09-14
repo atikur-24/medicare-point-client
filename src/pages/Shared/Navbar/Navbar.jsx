@@ -3,8 +3,9 @@
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
+import { HiOutlineLogout, HiOutlineUserCircle } from "react-icons/hi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 import useAuth from "../../../hooks/useAuth";
 import ActiveLink from "./ActiveLink/ActiveLink";
 import Avatar from "./Avatar/Avatar";
@@ -44,37 +45,18 @@ const Navbar = () => {
       <li>
         <ActiveLink to="/contract">Contacts</ActiveLink>
       </li>
-      {/* <li>
-        <details className="dropdown dropdown-end">
-          <summary className=" btn btn-ghost">More </summary>
-          <ul className="p-2 shadow menu dropdown-content z-10 bg-my-accent rounded-box w-52 space-y-4">
-            <li>
-              <NavLink to="pharmacyRegistration">Pharmacy Registration</NavLink>
-            </li>
-            <li>
-              <NavLink to="#">Item 2</NavLink>
-            </li>
-          </ul>
-        </details>
-      </li> */}
     </>
   );
   const handelLogOut = () => {
     logOut()
       .then(() => {
-        Swal.fire({
-          icon: "success",
-          title: "You are LogOut",
-          showConfirmButton: false,
-          timer: 2000,
-        });
+        toast.success("Successfully Logout", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
         navigate("/");
       })
       .catch(() => {});
   };
   return (
-    // TODO: bg color
-    <div className="">
+    <>
       <div className="nav-container ">
         <div className="hidden xl:block">
           <div className="flex items-center justify-between py-2 ">
@@ -95,12 +77,17 @@ const Navbar = () => {
                   transition
                 >
                   {user ? (
-                    <div className="flex flex-col">
+                    <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
                       <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
-                        <MenuItem>My Dashboard</MenuItem>
+                        <MenuItem className="gap-4 items-center">
+                          <HiOutlineUserCircle className="text-3xl" />
+                          Profile
+                        </MenuItem>
                       </NavLink>
                       <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
-                        <MenuItem>Log Out</MenuItem>
+                        <MenuItem className="gap-4 items-center">
+                          <HiOutlineLogout className="text-3xl" /> Log Out
+                        </MenuItem>
                       </button>
                     </div>
                   ) : (
@@ -121,10 +108,9 @@ const Navbar = () => {
       </div>
       <hr className="border-gray-3" />
       <div className="hidden xl:block ">
-        {/* TODO: bg color */}
         <div className="nav-container ">
           <div className="py-2">
-            <ul className="flex items-center justify-between text-md font-semibold text-gray-5 hover:text-gray-6">{menuItems}</ul>
+            <ul className="flex items-center justify-between text-md font-semibold text-gray-5 hover:text-gray-6 py-1 2xl:py-2">{menuItems}</ul>
           </div>
         </div>
         <hr className=" border-1 border-gray-3 drop-shadow-xl" />
@@ -132,7 +118,7 @@ const Navbar = () => {
       <div className=" xl:hidden">
         <ResponsiveNavbar menuItems={menuItems} />
       </div>
-    </div>
+    </>
   );
 };
 

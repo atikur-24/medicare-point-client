@@ -18,8 +18,8 @@ const PaymentFailed = () => {
           <Link to="/medicineCarts" className="my-btn-outline">
             View Cart
           </Link>
-          <Link to="/" className="my-btn" style={{ borderRadius: "50px" }}>
-            Back to home
+          <Link to="/" className="my-btn !rounded-full">
+            Back To Home
           </Link>
         </div>
       </div>

@@ -1,8 +1,6 @@
 /* eslint-disable no-unsafe-optional-chaining */
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import { sslPaymentApi } from "../../../Features/PaymentGetway/PaymentGetaway";
@@ -56,7 +54,6 @@ const CheckouForm = () => {
   useEffect(() => {
     setAllTotal(priceWithShiping);
   }, [priceWithShiping]);
-
 
   const {
     register,
@@ -179,14 +176,7 @@ const CheckouForm = () => {
                 <label htmlFor="email" className="font-semibold pl-2 cursor-pointer">
                   Write your Email:
                 </label>
-                <input
-                  id="email"
-                  readOnly
-                  type="email"
-                  defaultValue={user?.email}
-                  {...register("email", { required: true })}
-                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
-                />
+                <input id="email" readOnly type="email" defaultValue={user?.email} {...register("email", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2" />
                 {errors.email && <small>Please wite your email</small>}
               </div>
 

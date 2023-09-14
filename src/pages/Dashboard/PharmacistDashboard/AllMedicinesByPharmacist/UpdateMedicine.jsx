@@ -110,7 +110,7 @@ const UpdateMedicine = () => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full px-8 md:px-16 lg:px-12 py-3 md:py-5 lg:py-8">
+      <form onSubmit={handleSubmit(onSubmit)} className="">
         <h3 className="text-center text-xl md:text-2xl lg:text-3xl font-medium lg:font-semibold my-5 text-title-color tracking-wide">Update Medicine</h3>
         <div className="divider" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">

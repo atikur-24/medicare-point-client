@@ -4,9 +4,10 @@ import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { useContext, useEffect, useRef, useState } from "react";
+import { HiOutlineLogout, HiOutlineUserCircle } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
 import { RiMenu2Line } from "react-icons/ri";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Avatar from "../Avatar/Avatar";
 import Logo from "../Logo/Logo";
@@ -73,13 +74,18 @@ const ResponsiveNavbar = ({ menuItems }) => {
             transition
           >
             {user ? (
-              <div className="flex flex-col">
-                <button type="button" className="font-semibold text-neutral-600" onClick={handelLogOut}>
-                  <MenuItem>Log Out</MenuItem>
+              <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
+                <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
+                  <MenuItem className="gap-4 items-center">
+                    <HiOutlineUserCircle className="text-3xl" />
+                    Profile
+                  </MenuItem>
+                </NavLink>
+                <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
+                  <MenuItem className="gap-4 items-center">
+                    <HiOutlineLogout className="text-3xl" /> Log Out
+                  </MenuItem>
                 </button>
-                <Link to="/dashboard" type="submit" className="font-semibold text-neutral-600" onClick={() => setRole("User")}>
-                  <MenuItem>My Dashboard</MenuItem>
-                </Link>
               </div>
             ) : (
               <>
