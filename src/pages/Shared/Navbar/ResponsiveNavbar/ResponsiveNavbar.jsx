@@ -4,16 +4,15 @@ import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { useContext, useEffect, useRef, useState } from "react";
-import { HiOutlineLogout, HiOutlineUserCircle } from "react-icons/hi";
-import { MdClose } from "react-icons/md";
+import { HiOutlineLogout } from "react-icons/hi";
+import { MdClose, MdOutlineDashboardCustomize } from "react-icons/md";
 import { RiMenu2Line } from "react-icons/ri";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../../contexts/AuthProvider";
 import Avatar from "../Avatar/Avatar";
 import Logo from "../Logo/Logo";
 import NavCart from "../NavCard/NavCart";
-
-import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const ResponsiveNavbar = ({ menuItems }) => {
   const { user, setRole, logOut } = useContext(AuthContext);
@@ -77,8 +76,8 @@ const ResponsiveNavbar = ({ menuItems }) => {
               <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
                 <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
                   <MenuItem className="gap-4 items-center">
-                    <HiOutlineUserCircle className="text-3xl" />
-                    Profile
+                    <MdOutlineDashboardCustomize className="text-3xl" />
+                    Dashboard
                   </MenuItem>
                 </NavLink>
                 <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
