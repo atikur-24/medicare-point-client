@@ -45,7 +45,8 @@ const MedicineDetails = () => {
     inactiveFillColor: "#DEE1E6",
   };
 
-  const { _id, medicine_name, image, price, sellQuantity, available_quantity, medicine_description, tags, rating, feature_with_details, category, allRatings, discount, pharmacist_email, order_quantity } = medicine || {};
+  const { _id, medicine_name, image, price, sellQuantity, available_quantity, medicine_summary, description, tags, rating, feature_with_details, category, allRatings, discount, pharmacist_email, order_quantity } =
+    medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, category: category.label, email: user?.email, order_quantity };
   const reqToStock = { reqByMedicine_Id: _id, medicine_name, image, request_count: 1, pharmacist_email, user_email: user?.email };
   const handleReviews = (event) => {
@@ -116,7 +117,7 @@ const MedicineDetails = () => {
             <p className="font-medium text-black-2 tracking-wide">
               Availability: {available_quantity === sellQuantity ? <span className="text-red-500">Out of Stock</span> : <span className="text-my-primary">In Stock</span>}
             </p>
-            <p className="text-gray-4 text-justify leading-7">{medicine_description.slice(0, 200)}</p>
+            <p className="text-gray-4 text-justify leading-7">{medicine_summary}</p>
             <div className="border border-gray-3 py-5 px-3 rounded-md font-semibold flex items-center justify-around">
               <span className="text-lg tracking-wide">Quantity:</span>
               <div className="border border-gray-3 rounded-full w-fit py-3 px-5 flex items-center justify-between gap-5">
@@ -177,7 +178,7 @@ const MedicineDetails = () => {
         <div className="overflow-hidden relative">
           {/* description */}
           <div className={`${descrptn ? "block" : "hidden"} transition-all duration-500 max-w-[100vw]`}>
-            <p className="text-gray-4 leading-7 lg:leading-8 pt-6 lg:pt-8">{medicine_description}</p>
+            <p className="text-gray-4 leading-7 lg:leading-8 pt-6 lg:pt-8">{HtmlParser(description)}</p>
             <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
               <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-black-2">Product Features</h3>
               <div>{HtmlParser(feature_with_details)}</div>

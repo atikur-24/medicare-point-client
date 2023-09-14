@@ -27,7 +27,7 @@ const MediCards = () => {
   return (
     <>
       <div className="my-container my-10">
-        <SectionTitle title="Pain Relief" content="Pain Relief medicines is like a helper for when something hurts. It's a way to make the hurt feel better." />
+        <SectionTitle title="Pain Relief" content="Pain Relief medicines is like a helper for when something hurts." />
 
         {isloading ? (
           <Loader spinner />
@@ -36,8 +36,8 @@ const MediCards = () => {
             <Swiper
               breakpoints={{
                 0: {
-                  slidesPerView: 1,
-                  spaceBetween: 20,
+                  slidesPerView: 2,
+                  spaceBetween: 10,
                 },
                 480: {
                   slidesPerView: 2,
