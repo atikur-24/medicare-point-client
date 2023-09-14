@@ -6,10 +6,7 @@ import SectionTitle from "../../../components/SectionTitle";
 
 const ChooseUs = () => (
   <div className="my-container">
-    <SectionTitle
-      title="why choose us"
-      content="Our team of experts is dedicated to providing guidance and assistance to empower you to make informed decisions about your health. We take pride in our reliable and efficient doorstep delivery."
-    />
+    <SectionTitle title="why choose us" content="We take pride in our reliable and efficient doorstep delivery." />
     <div className=" grid mt-24 md:grid-cols-2 xl:grid-cols-4 gap-10 md:gap-20 xl:gap-10">
       {/* one  */}
       <div className="relative ">

@@ -51,10 +51,11 @@ const tags = [
 
 const UpdateMedicine = () => {
   const existingData = useLoaderData();
-  const { feature_with_details } = existingData || {};
+  const { feature_with_details, description } = existingData || {};
   const { user } = useAuth();
   const editor = useRef(null);
   const [content, setContent] = useState("");
+  const [medi_description, setDescription] = useState("");
   const navigate = useNavigate();
 
   const { register, control, handleSubmit, setValue } = useForm();
@@ -67,7 +68,8 @@ const UpdateMedicine = () => {
       }
     }
     setContent(feature_with_details);
-  }, [existingData, setValue, feature_with_details]);
+    setDescription(description);
+  }, [existingData, setValue, feature_with_details, description]);
 
   const onSubmit = (data) => {
     const date = moment().format("L");
@@ -189,14 +191,18 @@ const UpdateMedicine = () => {
           </div>
         </div>
         <div className="mb-5">
-          <span>Medicine Description</span>
-          <textarea required {...register("medicine_description", { required: true })} className="textarea textarea-bordered h-28 w-full resize-none" placeholder="Medicine description" />
+          <span>Medicine Summary</span>
+          <textarea required {...register("medicine_summary", { required: true })} className="textarea textarea-bordered h-28 w-full resize-none" placeholder="Medicine description" />
         </div>
         <div>
           <h4>
             Medicine Features & Details <small>(you can write multiple features with details)</small>
           </h4>
           <JoditEditor ref={editor} value={content} onChange={(newContent) => setContent(newContent)} />
+        </div>
+        <div>
+          <h4>Medicine Description</h4>
+          <JoditEditor ref={editor} value={medi_description} onChange={(newContent) => setDescription(newContent)} />
         </div>
         <div className="pt-5 lg:pt-10 text-center">
           <button className="submit-btn" type="submit">
