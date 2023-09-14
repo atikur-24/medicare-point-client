@@ -8,12 +8,14 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { fetchAllUsers } from "../../../../Features/AllUsers/allUsers";
+import { deleteUser } from "../../../../hooks/userApi";
 
 const AllUsers = () => {
+  const api = "users";
   const { allUsers } = useSelector((state) => state.allUsers);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchAllUsers());
+    dispatch(fetchAllUsers(api));
   }, [dispatch]);
 
   const updateRole = (id, role) => {
@@ -22,32 +24,15 @@ const AllUsers = () => {
     };
     axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then((res) => {
       if (res?.data?.modifiedCount > 0) {
-        dispatch(fetchAllUsers());
+        dispatch(fetchAllUsers(api));
         Swal.fire("Successful", "Convert User Role to Admin", "success");
       }
     });
   };
 
   const handelDeleteUser = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "Are you Want delete This user?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/delete-user/${id}`).then((res) => {
-          console.log(res.data);
-          if (res.data.deletedCount > 0) {
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            dispatch(fetchAllUsers());
-          }
-        });
-      }
-    });
+    deleteUser(id);
+    dispatch(fetchAllUsers(api));
   };
 
   const totalAdmin = allUsers.filter((admin) => admin?.role === "admin");

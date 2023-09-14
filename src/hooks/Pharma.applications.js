@@ -14,11 +14,12 @@ export const GetPharmacyRApplications = () => {
   return [applications, refetch];
 };
 
-export const ApprovePR = (id, email, apt, newRole) => {
+export const ApprovePR = (id, email, apt, newRole, application) => {
   const newType = {
     email,
     role: newRole,
     applicationType: apt,
+    pharmacistDetail: application,
   };
   axios.patch(`http://localhost:5000/pharmacyRApprove/${id}`, newType).then((res) => {
     if (res?.data.result.modifiedCount > 0 || res?.data.result2.modifiedCount > 0) {
