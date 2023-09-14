@@ -1,6 +1,5 @@
-import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 import googleImage from "../../assets/images/google.png";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useAuth from "../../hooks/useAuth";
@@ -18,19 +17,14 @@ const SocialSigning = () => {
     signInWithGoogle()
       .then((result) => {
         if (result.user) {
-          Swal.fire({
-            icon: "success",
-            title: "Your Google LogIn Successfully",
-            showConfirmButton: false,
-            timer: 2000,
-          });
+          toast.success("Sign In Successful", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
         }
         navigate(from, { replace: true });
         addUser(result?.user);
         setLoading(false);
       })
       .catch((err) => {
-        toast.error(err.message);
+        toast.error(err.message, { position: "top-center", autoClose: 5000, pauseOnHover: false });
         setLoading(false);
       });
   };

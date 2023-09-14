@@ -8,8 +8,8 @@ const HowAreUs = () => {
           <p className=" uppercase text-my-primary tracking-widest font-semibold">how we are</p>
           <h2 className="mg:text-3xl lg:text-4xl font-bold  ">With us, expect more than just a pharmacy.</h2>
           <p className=" md:w-10/12 text-gray-5">
-            Erat litora dignissim consectetur sit mollis. Placerat gravida dolor integer mollis habitant felis consectetur lorem platea ac hendrerit. Vitae platea massa consectetuer tristique vivamus
-            vulputate suspendisse blandit.
+            Erat litora dignissim consectetur sit mollis. Placerat gravida dolor integer mollis habitant felis consectetur lorem platea ac hendrerit. Vitae platea massa consectetuer tristique vivamus vulputate
+            suspendisse blandit.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 md:w-8/12 items-center md:absolute justify-center border-[1px] border-gray-3 rounded-md bg-white shadow-md">
             <div className=" rounded-tl-lg md:rounded-l-lg   py-6">

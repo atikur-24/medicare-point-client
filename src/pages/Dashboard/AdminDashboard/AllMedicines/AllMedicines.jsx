@@ -15,16 +15,12 @@ const AllMedicines = () => {
     dispatch(fetchAllMedicines());
   }, [dispatch]);
 
-
-
   const approvedMedicines = medicines.filter((medicine) => medicine?.status === "approved");
   const pendingMedicines = medicines.filter((medicine) => medicine?.status === "pending");
   const deniedMedicines = medicines.filter((medicine) => medicine?.status === "denied");
 
   return (
-    <div className="mx-1 md:mx-5">
-      {/* <h3 className="text-center text-xl lg:text-3xl my-7 font-semibold tracking-wide">All Available Medicines</h3> */}
-
+    <div>
       <div className="flex px-6 mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
@@ -80,16 +76,15 @@ const AllMedicines = () => {
                     <span className="text-my-pink">{medicine?.available_quantity - medicine?.sellQuantity}</span> / {medicine?.available_quantity}
                   </td>
 
-                  <td
-                    className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${
-                      medicine.status === "pending" && "text-yellow-500"
-                    } capitalize font-medium`}
-                  >
+                  <td className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"} capitalize font-medium`}>
                     {medicine?.status}
                   </td>
                   <td>
                     <Link to={`/dashboard/medicine-detail/${medicine?._id}`}>
-                      <button type="button" className="btn-sm inline-flex items-center border-[1px] border-my-primary hover:bg-my-primary text-my-primary font-semibold hover:text-white w-full capitalize ease-in-out duration-300 rounded-md">
+                      <button
+                        type="button"
+                        className="btn-sm inline-flex items-center border-[1px] border-my-primary hover:bg-my-primary text-my-primary font-semibold hover:text-white w-full capitalize ease-in-out duration-300 rounded-md"
+                      >
                         Detail <BsArrowRightShort className="text-2xl" />
                       </button>
                     </Link>
