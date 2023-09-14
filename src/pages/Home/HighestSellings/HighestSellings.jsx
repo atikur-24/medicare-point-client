@@ -16,17 +16,20 @@ const HighestSellings = () => {
   }, []);
 
   return (
-    <div className=" pb-10 px-4 rounded-lg bg-lite">
+    <div className=" lg:pb-10 px-4 rounded-lg bg-lite">
       <div className="my-container">
-        <SectionTitle title="Height selling Medicines" content="This is the most bought and used treatment for health issues. Many people trust and use it to feel better." />
+        <SectionTitle title="Height selling Medicines" content="This is the most bought and used treatment for health issues." />
         <div className="">
           <Swiper
             breakpoints={{
               0: {
-                slidesPerView: 1,
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              480: {
+                slidesPerView: 2,
                 spaceBetween: 20,
               },
-
               640: {
                 slidesPerView: 2,
                 spaceBetween: 20,
@@ -40,7 +43,11 @@ const HighestSellings = () => {
                 spaceBetween: 20,
               },
               1280: {
-                slidesPerView: 4,
+                slidesPerView: 5,
+                spaceBetween: 20,
+              },
+              1536: {
+                slidesPerView: 6,
                 spaceBetween: 20,
               },
             }}

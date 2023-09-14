@@ -17,7 +17,7 @@ const HealthArticlesDetails = () => {
 
   return (
     <div className="space-y-8 my-container">
-      <div className="md:mx-24 mx-auto">
+      <div className="md:mx-1 mx-auto">
         <div>
           {" "}
           {/* Ensure to provide a unique key */}
