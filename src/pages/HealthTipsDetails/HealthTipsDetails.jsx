@@ -60,7 +60,7 @@ const HealthTipsDetails = () => {
             </div>
             <div className=" h-full p-1">
               <h3 className="text-2xl font-semibold my-2">Cause of the disease</h3>
-              <p>{diseaseDetails.cause}</p>
+              <p>{HtmlParser(diseaseDetails.cause)}</p>
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@ const HealthTipsDetails = () => {
                   </figure>
                   <div className="card-body mt-1">
                     <h2 className="text-base font-bold">{healthTip.name}</h2>
-                    <p className="mt-2">{healthTip.cause.slice(0, 45)}...</p>
+                    <p className="mt-2">{HtmlParser(healthTip.cause.slice(0, 45))}...</p>
                     <Link to={`/healthtips/${healthTip._id}`} className="flex justify-center mt-4">
                       <button type="button" className="my-btn w-full" style={{ borderRadius: "50px" }}>
                         <MdOutlineTipsAndUpdates className="text-2xl" /> Get Tips
