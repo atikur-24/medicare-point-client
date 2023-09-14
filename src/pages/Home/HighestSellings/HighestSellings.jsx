@@ -26,7 +26,10 @@ const HighestSellings = () => {
                 slidesPerView: 1,
                 spaceBetween: 20,
               },
-
+              480: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
               640: {
                 slidesPerView: 2,
                 spaceBetween: 20,
@@ -40,7 +43,11 @@ const HighestSellings = () => {
                 spaceBetween: 20,
               },
               1280: {
-                slidesPerView: 4,
+                slidesPerView: 5,
+                spaceBetween: 20,
+              },
+              1536: {
+                slidesPerView: 6,
                 spaceBetween: 20,
               },
             }}

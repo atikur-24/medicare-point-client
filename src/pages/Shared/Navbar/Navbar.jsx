@@ -3,6 +3,7 @@
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
+import { HiOutlineLogout, HiOutlineUserCircle } from "react-icons/hi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../../hooks/useAuth";
@@ -76,12 +77,17 @@ const Navbar = () => {
                   transition
                 >
                   {user ? (
-                    <div className="flex flex-col">
+                    <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
                       <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
-                        <MenuItem>My Dashboard</MenuItem>
+                        <MenuItem className="gap-4 items-center">
+                          <HiOutlineUserCircle className="text-3xl" />
+                          Profile
+                        </MenuItem>
                       </NavLink>
                       <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
-                        <MenuItem>Log Out</MenuItem>
+                        <MenuItem className="gap-4 items-center">
+                          <HiOutlineLogout className="text-3xl" /> Log Out
+                        </MenuItem>
                       </button>
                     </div>
                   ) : (
