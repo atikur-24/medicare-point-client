@@ -9,7 +9,6 @@ import moment from "moment";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiOutlineDown } from "react-icons/ai";
-import { BiSolidCameraPlus } from "react-icons/bi";
 import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { LiaAngleRightSolid } from "react-icons/lia";
@@ -25,11 +24,11 @@ import { uploadImageApi } from "../../Features/UploadImage/uploadImage";
 import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
 import MediCard from "../Shared/Card/MediCard";
+import NewsLetter from "../Shared/medicine/NewsLetter";
 import TopRatedMedicine from "../Shared/medicine/TopRatedMedicine";
 import WorkInfo from "../Shared/medicine/WorkInfo";
-// import MediContact from "./MediContact";
-import NewsLetter from "../Shared/medicine/NewsLetter";
 import MediRequest from "./MediRequest";
+import PrescriptionBtn from "./PrescriptionBtn";
 
 // const orderDate = moment().format("Do MMM YY");
 const dateAndTime = moment().format("Do MMM YY, h:mm a");
@@ -242,7 +241,10 @@ const Medicines = () => {
 
   return (
     <section className="bg-lite">
-      <MediRequest />
+      <div className="bg-my-primary py-6 flex items-center justify-center gap-6 lg:gap-10">
+        <MediRequest />
+        <PrescriptionBtn />
+      </div>
       <div className="container mx-auto relative">
         <div className=" flex items-center mx-auto py-5 px-4 md:py-8 lg:pt-10 lg:px-10">
           <button onClick={() => setShowFilter("")} className="lg:hidden" type="button">
@@ -259,9 +261,7 @@ const Medicines = () => {
             </p>
 
             <div className="flex items-center gap-3">
-              <div className="flex flex-col items-center">
-                <BiSolidCameraPlus title="Upload Prescription" onClick={() => window.my_modal_PrescriptionUpload.showModal()} className="text-2xl cursor-pointer" />
-              </div>
+              <div className="flex flex-col items-center">{/* <BiSolidCameraPlus title="Upload Prescription" onClick={() => window.my_modal_PrescriptionUpload.showModal()} className="text-2xl cursor-pointer" /> */}</div>
               <div>
                 <Menu
                   menuButton={
