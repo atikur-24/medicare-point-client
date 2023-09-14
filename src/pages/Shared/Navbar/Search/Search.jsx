@@ -33,7 +33,7 @@ const Search = () => {
       <form onSubmit={handleSubmit} className="flex items-center relative">
         <input
           onChange={handleSearch}
-          className="w-full lg:w-[450px] h-10 rounded-full  dropdown-end shadow-md border-[1px] border-gray-3 px-6 focus:input-bordered input-accent"
+          className="w-full xl:w-[450px] h-10 rounded-full  dropdown-end shadow-md border-[1px] border-gray-3 px-6 focus:input-bordered input-accent"
           type="text"
           name="searchField"
           value={search}
@@ -48,7 +48,11 @@ const Search = () => {
         </div>
       </form>
 
-      <div className={`${search ? "block" : "hidden"} w-full lg:w-[420px] absolute right-[15px] bg-slate-1 p-2 z-50 rounded-b-lg`}>
+      <div
+        className={`${
+          search ? "block" : "hidden"
+        } hide-scrollbar border border-slate-6 border-t-0 w-full lg:w-[420px] max-h-[80vh] overflow-y-scroll absolute right-[15px] bg-slate-1 p-2 z-50 rounded-b-lg`}
+      >
         {medicines.length === 0 && <p className="text-black-2 text-center font-semibold">Sorry, we could not find what you are looking for. Please search by right name</p>}
 
         <p className={`text-gray-5 ${medicines.length === 0 && "hidden"}`}>(Showing {medicines.length} results)</p>

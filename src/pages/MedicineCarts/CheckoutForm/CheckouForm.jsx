@@ -1,14 +1,14 @@
 /* eslint-disable no-unsafe-optional-chaining */
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 import { sslPaymentApi } from "../../../Features/PaymentGetway/PaymentGetaway";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import useCartMedicines from "../../../hooks/useCartMedicines";
 
 const CheckouForm = () => {
+  const [allTotal, setAllTotal] = useState(0);
   // const [currentUserData, setCurrentUserData] = useState({});
   // const [allcurrentUserData, setAllCurrentUserData] = useState({});
   // const setValue = () => {
@@ -49,7 +49,11 @@ const CheckouForm = () => {
   }
 
   const saveMoney = subTotal - totalPrice;
-  const allTotal = totalPrice + 75;
+  const priceWithShiping = totalPrice + 75;
+
+  useEffect(() => {
+    setAllTotal(priceWithShiping);
+  }, [priceWithShiping]);
 
   const {
     register,
@@ -59,15 +63,23 @@ const CheckouForm = () => {
   const onSubmit = (data, event) => {
     event.preventDefault();
     const paymentDetails = { ...data, totalPayment: parseFloat(allTotal.toFixed(2)) };
-    console.log(paymentDetails);
-
+    // console.log(paymentDetails);
     dispatch(sslPaymentApi({ paymentDetails, cart }));
-
     // console.log(paymentDetails);
     // reset();
   };
 
-  // console.log(cart);
+  const handelPromoCode = (event) => {
+    event.preventDefault();
+    const promoCode = event.target.promoCode.value;
+    if (promoCode === "WELCOME50") {
+      setAllTotal(allTotal - 50);
+      Swal.fire("Successful", "your promo code success fully used.", "success");
+    } else {
+      Swal.fire("Not Matching", "your promo code not matching.", "error");
+    }
+    event.target.reset();
+  };
 
   const divisions = ["Dhaka", "Chattogram", "Barishal", "Khulna", "Rajshahi", "Rangpur", "Mymensingh", "Sylhet"];
   const districts = [
@@ -145,14 +157,6 @@ const CheckouForm = () => {
             <h4 className="text-xl font-bold ">
               <span className="text-2xl font-bold bg-black text-white rounded-full px-3 py-1">1</span> Please Give you information
             </h4>
-            {/* <div>
-              <p>
-                Fill The Boxes From Profile Information
-                <button onClick={setValue} type="button" className="my-btn m-3">
-                  Ok
-                </button>
-              </p>
-            </div> */}
             <form onSubmit={handleSubmit(onSubmit)} className=" grid grid-cols-1 gap-4 mt-12 bg-white p-14 rounded-lg">
               <div>
                 <label htmlFor="name" className="font-semibold pl-2 cursor-pointer">
@@ -244,6 +248,17 @@ const CheckouForm = () => {
               <span className="text-2xl font-bold bg-black text-white rounded-full px-[10px] py-1">2</span> Your Order
             </h4>
             <div className="mt-12 bg-white py-14 rounded-lg">
+              <form onSubmit={handelPromoCode} className="text-center space-x-3">
+                <input
+                  type="text"
+                  name="promoCode"
+                  id=""
+                  placeholder="Use Promo Code"
+                  className="placeholder-gray-4 rounded text-sm font-medium border-gray-3 px-3 w-1/2 border-b-2 focus:border-b-2 focus:outline-none mb-4 focus:border-accent"
+                />
+                <input type="submit" value="Apply" className="bg-my-accent hover:bg-my-primary cursor-pointer text-white px-2 rounded-md" />
+              </form>
+
               <h3 className="text-lg font-bold px-14">Your Totals Order Items: {cart?.length}</h3>
               <hr className=" border-gray-3 my-2" />
               <div className="flex justify-between items-center px-14 font-semibold">
@@ -261,7 +276,7 @@ const CheckouForm = () => {
               <hr className=" border-gray-3 my-2" />
               <div className="flex justify-between items-center px-14 text-lg font-bold mt-2">
                 <h4>Total Price: </h4>
-                <h4 className="flex items-center">৳ {allTotal.toFixed(2)}</h4>
+                <h4 className="flex items-center">৳ {allTotal?.toFixed(2)}</h4>
               </div>
             </div>
           </div>

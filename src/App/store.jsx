@@ -16,6 +16,7 @@ import addHealthTips from "../Features/HealthTips/addHealthTips";
 import allHealthTips from "../Features/HealthTips/allHealthTips";
 import deleteHealthTips from "../Features/HealthTips/deleteHealthTips";
 import updateHealthTips from "../Features/HealthTips/updateHealthTips";
+import addImageToDB from "../Features/Images/addImageToDB";
 import deleteImage from "../Features/Images/deleteImage";
 import fetchAllImages from "../Features/Images/fetchAllImages";
 import uploadImages from "../Features/Images/uploadImages";
@@ -24,11 +25,14 @@ import deleteInterview from "../Features/Interviews/deleteInterview";
 import updateInterview from "../Features/Interviews/updateInterview";
 import allMedicines from "../Features/Medicines/AllMedicines/allMedicines";
 import medicines from "../Features/Medicines/AllMedicines/medicines";
+import addNotification from "../Features/Notifications/addNotification";
 import deleteNotifications from "../Features/Notifications/deleteNotifications";
 import fetchNotificationsByEmail from "../Features/Notifications/fetchNotificationsByEmail";
 import sslPayment from "../Features/PaymentGetway/PaymentGetaway";
 import labSSLPayment from "../Features/PaymentGetway/labPayment";
 import uploadImage from "../Features/UploadImage/uploadImage";
+import addPrescriptionCard from "../Features/UploadPrescription/addPrescriptionCard";
+import allPrescription from "../Features/UploadPrescription/allPrescription";
 
 const store = configureStore({
   reducer: {
@@ -60,6 +64,10 @@ const store = configureStore({
     notificationsByEmail: fetchNotificationsByEmail,
     deleteNotifications,
     detailData,
+    addImageToDB,
+    addNotification,
+    allPrescription,
+    addPrescriptionCard,
   },
 });
 

@@ -51,7 +51,7 @@ const HealthTips = () => {
         {/* Sidebar */}
         <div className="w-1/5 p-6 bg-white border border-gray-3 h-full object-cover hidden md:block  m-4 rounded-md">
           <Link to="/healthtips">
-            <h2 className="text-2xl uppercase font-extrabold mb-2 font-nunito">Categories</h2>
+            <h2 className="lg:text-2xl md:text-lg text-left uppercase font-extrabold mb-2 font-nunito">Categories</h2>
           </Link>
           <hr className="border border-my-accent my-4" />
           <ul className="divide-y divide-my-accent ">
@@ -59,7 +59,7 @@ const HealthTips = () => {
               <li key={index} className="font-semibold text-title-color py-2">
                 <button
                   type="button"
-                  className={`text-blue-600 hover:text-my-primary hover:underline ${selectedCategory === category ? "font-bold text-my-primary" : ""}`}
+                  className={`text-blue-600 hover:text-my-primary text-left hover:underline ${selectedCategory === category ? "font-bold text-my-primary" : ""}`}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category}

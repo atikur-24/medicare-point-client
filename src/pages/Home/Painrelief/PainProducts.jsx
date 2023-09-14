@@ -27,65 +27,55 @@ const MediCards = () => {
   return (
     <>
       <div className="my-container my-10">
-        <SectionTitle title="Pain Relief" content="Pain Relief medicines is like a helper for when something hurts. It's a way to make the hurt feel better." />
+        <SectionTitle title="Pain Relief" content="Pain Relief medicines is like a helper for when something hurts." />
 
         {isloading ? (
           <Loader spinner />
         ) : (
           <div>
-            <div className="hidden lg:block">
-              <Swiper
-                slidesPerView={4}
-                spaceBetween={50}
-                pagination={{
-                  clickable: true,
-                }}
-                modules={[Pagination]}
-                className="mySwiper"
-              >
-                {PainRefilMedicins?.map((medicine) => (
-                  <SwiperSlide key={medicine?._id}>
-                    <MediCard medicine={medicine} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-
-            <div className="hidden md:block lg:hidden">
-              <Swiper
-                slidesPerView={2}
-                spaceBetween={50}
-                pagination={{
-                  clickable: true,
-                }}
-                modules={[Pagination]}
-                className="mySwiper"
-              >
-                {PainRefilMedicins.map((medicine) => (
-                  <SwiperSlide key={medicine?._id}>
-                    <MediCard medicine={medicine} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-
-            <div className="md:hidden">
-              <Swiper
-                slidesPerView={1}
-                spaceBetween={50}
-                pagination={{
-                  clickable: true,
-                }}
-                modules={[Pagination]}
-                className="mySwiper"
-              >
-                {PainRefilMedicins.map((medicine) => (
-                  <SwiperSlide key={medicine?._id}>
-                    <MediCard medicine={medicine} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
+            <Swiper
+              breakpoints={{
+                0: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                480: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 10,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 20,
+                },
+                1280: {
+                  slidesPerView: 5,
+                  spaceBetween: 20,
+                },
+                1536: {
+                  slidesPerView: 6,
+                  spaceBetween: 20,
+                },
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Pagination]}
+              className="mySwiper"
+            >
+              {PainRefilMedicins?.map((medicine) => (
+                <SwiperSlide key={medicine?._id}>
+                  <MediCard medicine={medicine} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         )}
       </div>
@@ -94,8 +84,7 @@ const MediCards = () => {
         button="View All"
         image={bannerImage}
         title="PAIN RELIEF"
-        description="been significantly de-risked. At vero eos et accusam justo duo dolores etea rebuitet clita kasd gubergren nosea takimata sanctus est lorem ipsum dolor consetetur sadipscing elitr sed
-        diam nonumy eirmod tempor invidunt ut labore magna aliquyam sedam voluptua at vero eos et accusam et justo duo dolores"
+        description="Pain management is an aspect of medicine and health care involving relief of pain in various dimensions, from acute and simple to chronic and challenging"
       />
     </>
   );

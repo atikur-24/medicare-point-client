@@ -1,12 +1,12 @@
+import axios from "axios";
+import JoditEditor from "jodit-react";
+import moment from "moment";
+import { useEffect, useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
-import axios from "axios";
-import Swal from "sweetalert2";
-import JoditEditor from "jodit-react";
 import Select from "react-select";
 import CreatableSelect from "react-select/creatable";
-import moment from "moment";
+import Swal from "sweetalert2";
 import useAuth from "../../../../hooks/useAuth";
 
 const categories = [
@@ -42,6 +42,7 @@ const categories = [
 
 const tags = [
   { value: "Healthy", label: "Healthy" },
+  { value: "Wellness", label: "Wellness" },
   { value: "Covid", label: "Covid" },
   { value: "Personal", label: "Personal" },
   { value: "Baby", label: "Baby" },
@@ -51,18 +52,14 @@ const tags = [
 
 const UpdateMedicine = () => {
   const existingData = useLoaderData();
-  const { feature_with_details } = existingData || {};
+  const { feature_with_details, medicine_description } = existingData || {};
   const { user } = useAuth();
   const editor = useRef(null);
   const [content, setContent] = useState("");
+  const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
-  const {
-    register,
-    control,
-    handleSubmit,
-    setValue,
-  } = useForm();
+  const { register, control, handleSubmit, setValue } = useForm();
 
   // Set default form values with existing data
   useEffect(() => {
@@ -72,8 +69,8 @@ const UpdateMedicine = () => {
       }
     }
     setContent(feature_with_details);
-  }, [existingData, setValue, feature_with_details]);
-
+    setDescription(medicine_description);
+  }, [existingData, setValue, feature_with_details, medicine_description]);
 
   const onSubmit = (data) => {
     const date = moment().format("L");
@@ -87,168 +84,128 @@ const UpdateMedicine = () => {
       });
       return;
     }
-    const updateData = { ...data, feature_with_details: content, updatedDate: date };
+    const updateData = { ...data, feature_with_details: content, medicine_description: description, updatedDate: date };
 
-    axios.put(`http://localhost:5000/update-medicine/${data._id}`, updateData).then(res => {
-      if (res.data.modifiedCount > 0) {
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: "Medicine Updated Successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        navigate("/dashboard/medicine-inventory");
-      }
-    }).catch((err) => {
-      if (err) {
-        Swal.fire({
-          icon: "error",
-          title: "Medicine Update Failed",
-          text: "Something went wrong!",
-        });
-      }
-    });
+    axios
+      .put(`http://localhost:5000/update-medicine/${data._id}`, updateData)
+      .then((res) => {
+        if (res.data.modifiedCount > 0) {
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Medicine Updated Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/dashboard/medicine-inventory");
+        }
+      })
+      .catch((err) => {
+        if (err) {
+          Swal.fire({
+            icon: "error",
+            title: "Medicine Update Failed",
+            text: "Something went wrong!",
+          });
+        }
+      });
   };
 
   return (
     <section>
-      <form onSubmit={handleSubmit(onSubmit)} className="admission-form doctor-form">
-        <h3 className="text-center text-xl lg:text-3xl font-medium lg:font-semibold my-5 text-title-color tracking-wide">Update Medicine</h3>
+      <form onSubmit={handleSubmit(onSubmit)} className="">
+        <h3 className="text-center text-xl md:text-2xl lg:text-3xl font-medium lg:font-semibold my-5 text-title-color tracking-wide">Update Medicine</h3>
         <div className="divider" />
-        <div className="two-input-field lg:flex gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
           <div>
-            <span>Pharmacist Name <small>(read only)</small></span>
-            <input
-              readOnly
-              defaultValue={user?.displayName}
-              type="text"
-              {...register("pharmacist_name")}
-            />
+            <span>
+              Pharmacist Name <small>(read only)</small>
+            </span>
+            <input className="input input-bordered w-full md:max-w-full lg:max-w-md" readOnly defaultValue={user?.displayName} type="text" {...register("pharmacist_name")} />
           </div>
           <div>
-            <span>Pharmacist Email <small>(read only)</small></span>
-            <input
-              readOnly
-              defaultValue={user?.email}
-              type="email"
-              {...register("pharmacist_email")}
-            />
+            <span>
+              Pharmacist Email <small>(read only)</small>
+            </span>
+            <input className="input input-bordered w-full md:max-w-full lg:max-w-md" readOnly defaultValue={user?.email} type="email" {...register("pharmacist_email")} />
           </div>
         </div>
-        <div className="two-input-field lg:flex gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
           <div>
             <span>Medicine Name</span>
-            <input required placeholder="Enter medicine name" type="text" {...register("medicine_name")} />
+            <input className="input input-bordered w-full md:max-w-full lg:max-w-md" required placeholder="Enter medicine name" type="text" {...register("medicine_name")} />
           </div>
           <div>
             <span>Medicine Image Url</span>
-            <input type="text" required {...register("image")} />
+            <input className="input input-bordered w-full md:max-w-full lg:max-w-md" type="text" required {...register("image")} />
           </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
-          <div>
+          <div className="w-full md:max-w-full lg:max-w-md">
             <span>Medicine Category</span>
-            <Controller
-              name="category"
-              control={control}
-              render={({ field }) => (
-                <Select
-                  isClearable
-                  required
-                  {...field}
-                  options={categories}
-                  placeholder="Select category"
-                  noOptionsMessage={() => "No category found"}
-                />
-              )}
-            />
+            <Controller name="category" control={control} render={({ field }) => <Select isClearable required {...field} options={categories} placeholder="Select category" noOptionsMessage={() => "No category found"} />} />
           </div>
-          <div>
-            <span>Tags <small>(choose multiple tags)</small></span>
-            <Controller
-              name="tags"
-              control={control}
-              render={({ field }) => (
-                <CreatableSelect
-                  required
-                  {...field}
-                  options={tags}
-                  isMulti
-                  placeholder="Select tags"
-                />
-              )}
-            />
+          <div className="w-full md:max-w-full lg:max-w-md">
+            <span>
+              Tags <small>(choose multiple tags)</small>
+            </span>
+            <Controller name="tags" control={control} render={({ field }) => <CreatableSelect required {...field} options={tags} isMulti placeholder="Select tags" />} />
           </div>
         </div>
-        <div className="two-input-field lg:flex gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
           <div>
             <span>Enter price</span>
-            <input
-              required
-              min={1}
-              placeholder="Enter price"
-              type="number"
-              {...register("price")}
-            />
+            <input className="input input-bordered w-full md:max-w-full lg:max-w-md" required min={1} placeholder="Enter price" type="number" {...register("price")} />
           </div>
           <div>
             <span>Available Quantity</span>
-            <input
-              min={1}
-              placeholder="Enter available quantity"
-              type="number"
-              {...register("available_quantity")}
-            />
+            <input className="input input-bordered w-full md:max-w-full lg:max-w-md" min={1} placeholder="Enter available quantity" type="number" {...register("available_quantity")} />
           </div>
         </div>
-        <div className="two-input-field lg:flex gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
           <div>
             <span>Enter Discount %</span>
-            <input
-              required
-              min={0}
-              max={100}
-              placeholder="Enter discount"
-              type="number"
-              {...register("discount")}
-            />
+            <input className="input input-bordered w-full md:max-w-full lg:max-w-md" required min={0} max={100} placeholder="Enter discount" type="number" {...register("discount")} />
           </div>
           <div>
             <span>Sku No.</span>
-            <input
-              required
-              placeholder="Enter sku"
-              type="number"
-              {...register("sku")}
-            />
+            <input className="input input-bordered w-full md:max-w-full lg:max-w-md" required placeholder="Enter sku" type="number" {...register("sku")} />
           </div>
         </div>
-        <div className="two-input-field lg:flex gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
           <div>
             <span>Brand Name</span>
-            <input
-              required
-              placeholder="Enter brand name"
-              type="text"
-              {...register("brand")}
-            />
+            <input className="input input-bordered w-full md:max-w-full lg:max-w-md" required placeholder="Enter brand name" type="text" {...register("brand")} />
+          </div>
+          <div>
+            <span className="label">Order Quantity</span>
+            <span className="">Box</span>
+            <input className="radio" required type="radio" value="Box" {...register("order_quantity")} />
+            <span className="">Bottle</span>
+            <input className="radio" required type="radio" value="Bottle" {...register("order_quantity")} />
+            <span className="">Pcs</span>
+            <input className="radio" required type="radio" value="Pcs" {...register("order_quantity")} />
           </div>
         </div>
         <div className="mb-5">
-          <span>Medicine Description</span>
-          <textarea required {...register("medicine_description", { required: true })} className="textarea textarea-bordered h-28 w-full resize-none" placeholder="Medicine description" />
+          <span>Medicine Summary</span>
+          <textarea required {...register("medicine_summary", { required: true })} className="textarea textarea-bordered h-28 w-full resize-none" placeholder="Medicine description" />
+        </div>
+        <div className="pb-6">
+          <h4>
+            Medicine Features & Details <small>(you can write multiple features with details)</small>
+          </h4>
+          <JoditEditor ref={editor} value={content} onChange={(newContent) => setContent(newContent)} />
         </div>
         <div>
-          <h4>Medicine Features & Details <small>(you can write multiple features with details)</small></h4>
-          <JoditEditor
-            ref={editor}
-            value={content}
-            onChange={newContent => setContent(newContent)}
-          />
+          <h4>Medicine Description</h4>
+          <JoditEditor ref={editor} value={description} onChange={(newContent) => setDescription(newContent)} />
         </div>
         <div className="pt-5 lg:pt-10 text-center">
-          <button className="submit-btn" type="submit"> Update Medicine</button>
+          <button className="submit-btn" type="submit">
+            {" "}
+            Update Medicine
+          </button>
         </div>
       </form>
     </section>

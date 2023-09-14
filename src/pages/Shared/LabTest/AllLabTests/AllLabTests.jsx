@@ -17,65 +17,63 @@ const AllLabTests = ({ isLoading, allLabTest }) => {
   }
 
   return (
-    <>
-      <div className="mt-10 hidden md:block">
-        <LabTitle title="All TESTS" />
-        <Swiper
-          slidesPerView={5}
-          spaceBetween={40}
-          freeMode
-          pagination={{
-            clickable: true,
-          }}
-          modules={[FreeMode, Pagination]}
-          className="mySwiper relative"
-        >
-          {allLabTest.length === 0 && (
-            <div className="flex flex-col justify-center items-center">
-              <img className="w-32" src="https://i.ibb.co/4Wd3BdR/no-results.png" alt="No data found" />
-              <p>Sorry, we could not find what you are looking for. Please search by right name</p>
-            </div>
-          )}
-          {allLabTest?.map((category) => (
-            <SwiperSlide className=" mt-10" key={category._id}>
-              <div className="">
-                <LabCard category={category} />
-              </div>
-            </SwiperSlide>
-          ))}
-          <div className="absolute top-1/2 right-4 z-10">
-            <div className=" bg-white rounded-full ">
-              <FaArrowCircleRight className="w-8 h-8 text-my-primary" />
-            </div>
+    <div className="mt-10">
+      <LabTitle title="All TESTS" />
+      <Swiper
+        breakpoints={{
+          0: {
+            slidesPerView: 2,
+            spaceBetween: 180,
+          },
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 70,
+          },
+          // when window width is >= 640px
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+          },
+          1280: {
+            slidesPerView: 5,
+            spaceBetween: 40,
+          },
+          1536: {
+            slidesPerView: 6,
+            spaceBetween: 40,
+          },
+        }}
+        freeMode
+        pagination={{
+          clickable: true,
+        }}
+        modules={[FreeMode, Pagination]}
+        className="mySwiper relative"
+      >
+        {allLabTest.length === 0 && (
+          <div className="flex flex-col justify-center items-center">
+            <img className="w-32" src="https://i.ibb.co/4Wd3BdR/no-results.png" alt="No data found" />
+            <p>Sorry, we could not find what you are looking for. Please search by right name</p>
           </div>
-        </Swiper>
-      </div>
-      <div className="mt-10 block md:hidden">
-        <LabTitle title="All TESTS" />
-        <Swiper
-          slidesPerView={2}
-          spaceBetween={180}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-          className="mySwiper relative"
-        >
-          {allLabTest?.map((category) => (
-            <SwiperSlide className="mt-10" key={category._id}>
-              <div className="">
-                <LabCard category={category} />
-              </div>
-            </SwiperSlide>
-          ))}
-          <div className="absolute top-1/2 right-4 z-10">
-            <div className=" bg-white rounded-full ">
-              <FaArrowCircleRight className="w-6 h-6 text-my-primary" />
+        )}
+        {allLabTest?.map((category) => (
+          <SwiperSlide className="mt-10" key={category._id}>
+            <div className="">
+              <LabCard category={category} />
             </div>
+          </SwiperSlide>
+        ))}
+        <div className="absolute top-1/2 right-4 z-10">
+          <div className=" bg-white rounded-full ">
+            <FaArrowCircleRight className="text-2xl xl:text-3xl text-my-primary" />
           </div>
-        </Swiper>
-      </div>
-    </>
+        </div>
+      </Swiper>
+    </div>
   );
 };
 

@@ -1,16 +1,16 @@
 /* eslint-disable no-nested-ternary */
 import { useContext, useEffect, useState } from "react";
-import { AiFillHome, AiOutlineBars } from "react-icons/ai";
-import { BiSolidUser } from "react-icons/bi";
+import { Toaster } from "react-hot-toast";
 import { BsGrid1X2Fill, BsImage } from "react-icons/bs";
 import { FaCaretDown, FaCaretUp, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
-import { MdAddShoppingCart, MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
+import { MdAddShoppingCart, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
 import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import { TfiMenu } from "react-icons/tfi";
 import { NavLink, Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import logo from "../../assets/Logo/logo-point.svg";
 import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -50,18 +50,12 @@ const DashboardLayout = () => {
   const [labtest, setLabtest] = useState(false);
   const [medicineBtn, setMedicineBtn] = useState(false);
 
-  // console.log(doctor);
   const userLinks = (
     <>
       <li>
         <NavLink to="/dashboard" className="dashboard-link">
           <BsGrid1X2Fill className="dashboard-icon" />
-          <span>User Dashboard</span>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/profile" className="dashboard-link">
-          <BiSolidUser className="dashboard-icon" /> User Profile
+          <span>My Profile</span>
         </NavLink>
       </li>
       <li>
@@ -223,9 +217,6 @@ const DashboardLayout = () => {
               Add Blog
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink to="/dashboard/add-health-articles">Add Health Articles</NavLink>
-          </li> */}
           <li>
             <NavLink to="/dashboard/manage-health-articles">Manage Blogs</NavLink>
           </li>
@@ -242,18 +233,22 @@ const DashboardLayout = () => {
   );
 
   if (!role) {
-    return <Loader spinner />;
+    return (
+      <div className="mt-20">
+        <Loader spinner />
+      </div>
+    );
   }
 
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="drawer xl:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content relative font-Alexandria min-h-screen  bg-[#F1F6FA]   2xl:px-20">
+      <div className="drawer-content relative font-Alexandria min-h-screen bg-[#F1F6FA] px-5 xl:px-8  2xl:px-20">
         {/* Page content here */}
         <DashBoardNavbar setShowNotification={setShowNotification} showNotification={showNotification} />
         {showNotification && <Notification />}
         <Outlet />
-        <label htmlFor="my-drawer-2" className="toggle-dashboard-btn ml-4 drawer-button lg:hidden">
+        <label htmlFor="my-drawer-2" className="toggle-dashboard-btn ml-4 drawer-button xl:hidden">
           <TfiMenu className="text-2xl  cursor-pointer" />
         </label>
       </div>
@@ -267,7 +262,7 @@ const DashboardLayout = () => {
             <NavLink to="/" className=" pb-3">
               <img className="h-10 w-full" src={logo} alt="" />
             </NavLink>
-            <label htmlFor="my-drawer-2" className="toggle-dashboard-btn2 lg:hidden">
+            <label htmlFor="my-drawer-2" className="toggle-dashboard-btn2 xl:hidden">
               <RxCross1 className="text-lg cursor-pointer" />
             </label>
           </li>
@@ -276,6 +271,8 @@ const DashboardLayout = () => {
           {isAdmin && adminLinks}
         </ul>
       </div>
+      <ToastContainer />
+      <Toaster />
     </div>
   );
 };

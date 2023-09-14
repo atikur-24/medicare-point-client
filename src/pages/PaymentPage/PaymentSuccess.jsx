@@ -18,8 +18,8 @@ const PaymentSuccess = () => {
           <Link to="/dashboard" className="my-btn-outline">
             My Account
           </Link>
-          <Link to="/medicines" className="my-btn" style={{ borderRadius: "50px" }}>
-            Continue Shopping
+          <Link to="/" className="my-btn !rounded-full">
+            Back To Home
           </Link>
         </div>
       </div>

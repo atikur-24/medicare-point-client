@@ -1,17 +1,19 @@
 import { useContext } from "react";
+import { GiLaurelsTrophy } from "react-icons/gi";
+import { MdOutlineNotificationsActive } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import rewordIcon from "../../../assets/Dashboard-icons/reward.png";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const DashBoardNavbar = ({ setShowNotification, showNotification }) => {
   const { role } = useContext(AuthContext);
-  if (!role) {
-    return <p>loading........</p>;
-  }
+  // if (!role) {
+  //   return <p>loading........</p>;
+  // }
   return (
-    <div className="py-5 pl-10 pr-2 md:px-5 flex justify-between items-center bg-[#F1F6FA] ">
+    <div className="py-5 flex justify-between items-center bg-[#F1F6FA] ">
       <div className="">
-        <div className="form-control hidden lg:block">
+        <div className="form-control hidden xl:block">
           <div className="input-group rounded-2xl">
             <input type="text" placeholder="Search…" className="input input-bordered input-sm md:input-md" />
             <p className="btn btn-square hover:bg-my-primary bg-my-primary text-white  btn-sm md:btn-md">
@@ -22,16 +24,17 @@ const DashBoardNavbar = ({ setShowNotification, showNotification }) => {
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-5">
         {/* <NavLink to="/dashboard/notification"> */}
-        <button type="button" onClick={() => setShowNotification(!showNotification)}>
-          <img
-            title="Notification"
-            className={` ml-2 transition-all duration-300 ${showNotification ? "bg-slate-3 p-2 rounded-full w-12 h-12" : "w-10 h-10"}`}
+
+        <button className="tooltip  tooltip-left tooltip-primary" data-tip="Notification" type="button" onClick={() => setShowNotification(!showNotification)}>
+          <MdOutlineNotificationsActive
+            className={` ml-2 transition-all duration-300 ${showNotification ? "bg-my-primary text-white bg-opacity-70 p-2 rounded-full w-12 h-12" : "w-10 h-10"}`}
             src="https://i.ibb.co/8zxdmM6/notification.png"
             alt="upload images"
           />
         </button>
+
         {role !== "user" && (
           <NavLink to="/dashboard/images">
             <img title="Upload Images" className="w-10 h-10 ml-2" src="https://i.ibb.co/sqVY4RR/gallery.png" alt="upload images" />
@@ -39,8 +42,8 @@ const DashBoardNavbar = ({ setShowNotification, showNotification }) => {
         )}
 
         {role === "user" && (
-          <NavLink to="/dashboard/reward-points">
-            <img title="Reword" className="w-10 h-10" src={rewordIcon} alt="reword points" />
+          <NavLink to="/dashboard/reward-points" className="tooltip  tooltip-bottom tooltip-primary" data-tip="Reword">
+            <GiLaurelsTrophy className="w-8 h-8" src={rewordIcon} alt="reword points" />
           </NavLink>
         )}
 

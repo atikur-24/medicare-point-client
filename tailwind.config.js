@@ -38,7 +38,23 @@ export default {
     },
   },
   daisyui: {
-    themes: ["light"],
+    // themes: ["light"],
+    themes: [
+      {
+        mytheme: {
+          primary: "#006F70",
+          secondary: "#10B6A8",
+          accent: "#16b4ac",
+          neutral: "#25212b",
+          "base-100": "#ffffff",
+          info: "#82a7e3",
+          success: "#177d4c",
+          warning: "#fac20a",
+          error: "#f53a19",
+        },
+      },
+      "light",
+    ],
   },
   plugins: [require("daisyui")],
 };

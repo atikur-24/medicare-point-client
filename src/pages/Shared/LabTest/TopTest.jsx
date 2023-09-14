@@ -22,59 +22,57 @@ const TopTest = () => {
     axios.get("http://localhost:5000/labPopularItems").then((res) => setCategories(res?.data));
   }, []);
   return (
-    <>
-      <div className="mt-10 hidden md:block">
-        <LabTitle title="TOP BOOKED TESTS" />
-        <Swiper
-          slidesPerView={5}
-          spaceBetween={40}
-          freeMode
-          pagination={{
-            clickable: true,
-          }}
-          modules={[FreeMode, Pagination]}
-          className="mySwiper relative"
-        >
-          {categories.map((category) => (
-            <SwiperSlide className=" mt-10" key={category._id}>
-              <div className="">
-                <LabCard category={category} />
-              </div>
-            </SwiperSlide>
-          ))}
-          <div className="absolute top-1/2 right-4 z-10">
-            <div className=" bg-white rounded-full ">
-              <FaArrowCircleRight className="w-8 h-8 text-my-primary" />
+    <div className="mt-10 ">
+      <LabTitle title="TOP BOOKED TESTS" />
+      <Swiper
+        breakpoints={{
+          0: {
+            slidesPerView: 2,
+            spaceBetween: 180,
+          },
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 70,
+          },
+          // when window width is >= 640px
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+          },
+          1280: {
+            slidesPerView: 5,
+            spaceBetween: 40,
+          },
+          1536: {
+            slidesPerView: 6,
+            spaceBetween: 40,
+          },
+        }}
+        freeMode
+        pagination={{
+          clickable: true,
+        }}
+        modules={[FreeMode, Pagination]}
+        className="mySwiper relative"
+      >
+        {categories.map((category) => (
+          <SwiperSlide className=" mt-10" key={category._id}>
+            <div className="">
+              <LabCard category={category} />
             </div>
+          </SwiperSlide>
+        ))}
+        <div className="absolute top-1/2 right-4 z-10">
+          <div className=" bg-white rounded-full ">
+            <FaArrowCircleRight className="text-2xl xl:text-3xl text-my-primary" />
           </div>
-        </Swiper>
-      </div>
-      <div className="mt-10 block md:hidden">
-        <LabTitle title="TOP BOOKED TESTS" />
-        <Swiper
-          slidesPerView={2}
-          spaceBetween={180}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Pagination]}
-          className="mySwiper relative"
-        >
-          {categories.map((category) => (
-            <SwiperSlide className="mt-10" key={category._id}>
-              <div className="">
-                <LabCard category={category} />
-              </div>
-            </SwiperSlide>
-          ))}
-          <div className="absolute top-1/2 right-4 z-10">
-            <div className=" bg-white rounded-full ">
-              <FaArrowCircleRight className="w-6 h-6 text-my-primary" />
-            </div>
-          </div>
-        </Swiper>
-      </div>
-    </>
+        </div>
+      </Swiper>
+    </div>
   );
 };
 
