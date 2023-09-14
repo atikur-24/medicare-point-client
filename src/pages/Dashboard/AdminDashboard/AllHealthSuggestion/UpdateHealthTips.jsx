@@ -1,4 +1,5 @@
 import axios from "axios";
+import JoditEditor from "jodit-react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useLoaderData } from "react-router-dom";
@@ -105,13 +106,37 @@ const UpdateHealthTips = () => {
               <label className="label">
                 <span className="label-text font-bold">Prevention</span>
               </label>
-              <textarea {...register("prevention")} className="textarea textarea-bordered w-full" />
+              <JoditEditor
+                name="prevention"
+                value={existingData.prevention || ""} // Set the initial value
+                onBlur={(newContent) => {
+                  setValue("prevention", newContent); // Update the form state
+                }}
+                config={
+                  {
+                    // Jodit editor configuration options
+                    // You can configure it as needed
+                  }
+                }
+              />
             </div>
             <div>
               <label className="label">
                 <span className="label-text font-bold">Cure</span>
               </label>
-              <textarea {...register("cure")} className="textarea textarea-bordered w-full" />
+              <JoditEditor
+                name="cure"
+                value={existingData.cure || ""} // Set the initial value
+                onBlur={(newContent) => {
+                  setValue("cure", newContent); // Update the form state
+                }}
+                config={
+                  {
+                    // Jodit editor configuration options
+                    // You can configure it as needed
+                  }
+                }
+              />
             </div>
             <div className="grid grid-cols-2 gap-2">
               <div>

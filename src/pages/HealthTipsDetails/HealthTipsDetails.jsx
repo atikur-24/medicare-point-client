@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import HtmlParser from "react-html-parser";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -60,11 +61,11 @@ const HealthTipsDetails = () => {
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 items-center mt-5">
           <div className=" h-full p-1">
             <h3 className="text-2xl font-semibold my-2">How To Prevent?</h3>
-            <p>{diseaseDetails.prevention}</p>
+            <p>{HtmlParser(diseaseDetails.prevention)}</p>
           </div>
           <div className="h-full p-1">
-            <h3 className="text-2xl font-semibold my-2">What's the cure?</h3>
-            <p>{diseaseDetails.cure}</p>
+            <h3 className="text-2xl font-semibold my-2">What is the cure?</h3>
+            <p>{HtmlParser(diseaseDetails.cure)}</p>
           </div>
         </div>
       </div>
