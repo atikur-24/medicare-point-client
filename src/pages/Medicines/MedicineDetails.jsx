@@ -15,6 +15,7 @@ import Loader from "../../components/Loader";
 import ReqToStockButton from "../../components/ReqToStockButton";
 import useAuth from "../../hooks/useAuth";
 import MedicineReviews from "./MedicineReviews";
+import RelatedMedicines from "./RelatedMedicines";
 
 const MedicineDetails = () => {
   const [medicine, setMedicine] = useState({});
@@ -202,6 +203,9 @@ const MedicineDetails = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="my-container bg-white mt-10 rounded-md ">
+        <RelatedMedicines category={category?.value} />
       </div>
     </section>
   );

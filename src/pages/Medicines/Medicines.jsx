@@ -24,7 +24,9 @@ import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
 import MediCard from "../Shared/Card/MediCard";
 import TopRatedMedicine from "../Shared/medicine/TopRatedMedicine";
-import MediContact from "./MediContact";
+import WorkInfo from "../Shared/medicine/WorkInfo";
+// import MediContact from "./MediContact";
+import NewsLetter from "../Shared/medicine/NewsLetter";
 import MediRequest from "./MediRequest";
 
 const Medicines = () => {
@@ -309,8 +311,9 @@ const Medicines = () => {
         <div className="lg:hidden">
           <TopRatedMedicine />
         </div>
-        <MediContact />
+        <WorkInfo />
       </div>
+      <NewsLetter />
       {/* prescription upload modal */}
       <dialog id="my_modal_PrescriptionUpload" className="modal">
         <div className="modal-box w-96">

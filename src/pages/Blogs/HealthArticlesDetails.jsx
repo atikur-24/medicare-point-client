@@ -17,7 +17,7 @@ const HealthArticlesDetails = () => {
 
   return (
     <div className="space-y-8 my-container">
-      <div className="md:mx-24 mx-auto">
+      <div className="md:mx-1 mx-auto">
         <div>
           {" "}
           {/* Ensure to provide a unique key */}
@@ -72,8 +72,8 @@ const HealthArticlesDetails = () => {
           ))}
         </div>
         <div className="w-full mx-auto">
-          <Link to="/blogs" className="my-btn">
-            See All &rarr; &rarr;
+          <Link to="/blogs" className="my-btn !tracking-wider">
+            See All &rarr;
           </Link>
         </div>
       </div>

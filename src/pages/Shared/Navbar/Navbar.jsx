@@ -3,7 +3,10 @@
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
-import { HiOutlineLogout, HiOutlineUserCircle } from "react-icons/hi";
+import { BiLogInCircle } from "react-icons/bi";
+import { CgUserlane } from "react-icons/cg";
+import { HiOutlineLogout } from "react-icons/hi";
+import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../../../hooks/useAuth";
@@ -80,8 +83,8 @@ const Navbar = () => {
                     <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
                       <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
                         <MenuItem className="gap-4 items-center">
-                          <HiOutlineUserCircle className="text-3xl" />
-                          Profile
+                          <MdOutlineDashboardCustomize className="text-3xl" />
+                          Dashboard
                         </MenuItem>
                       </NavLink>
                       <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
@@ -91,12 +94,18 @@ const Navbar = () => {
                       </button>
                     </div>
                   ) : (
-                    <div>
+                    <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
                       <Link className=" font-semibold text-neutral-600" to="/login">
-                        <MenuItem>Login</MenuItem>
+                        <MenuItem className="gap-4 items-center">
+                          <BiLogInCircle className="text-3xl" />
+                          Login
+                        </MenuItem>
                       </Link>
                       <Link className=" font-semibold text-neutral-600" to="/signUp">
-                        <MenuItem>Sign Up</MenuItem>
+                        <MenuItem className="gap-4 items-center">
+                          <CgUserlane className="text-3xl" />
+                          Sign Up
+                        </MenuItem>
                       </Link>
                     </div>
                   )}
