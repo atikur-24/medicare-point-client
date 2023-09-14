@@ -6,6 +6,7 @@ import { addHealthTipsApi } from "../../../../Features/HealthTips/addHealthTips"
 
 const AddHealthSuggestion = () => {
   const { register, handleSubmit } = useForm();
+  const [cause, setCause] = useState("");
   const [prevention, setPrevention] = useState("");
   const [cure, setCure] = useState("");
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const AddHealthSuggestion = () => {
   const onSubmit = (data) => {
     data.prevention = prevention;
     data.cure = cure;
+    data.cause = cause;
     // Dispatch the action to add the health tip data
     dispatch(addHealthTipsApi({ data }));
   };
@@ -47,20 +49,25 @@ const AddHealthSuggestion = () => {
                 <input required placeholder="date" type="date" {...register("date")} className="input input-bordered w-full" />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-2">
-              <div>
-                <label className="label">
-                  <span className="label-text font-bold">Type</span>
-                </label>
+            <div>
+              <label className="label">
+                <span className="label-text font-bold w-full">Type</span>
+              </label>
 
-                <input required type="text" placeholder="Type here" {...register("type")} className="input input-bordered w-full" />
-              </div>
-              <div>
-                <label className="label">
-                  <span className="label-text font-bold">Cause</span>
-                </label>
-                <input required type="text" placeholder="Type here" {...register("cause")} className="input input-bordered w-full" />
-              </div>
+              <input required type="text" placeholder="Type here" {...register("type")} className="input input-bordered w-full" />
+            </div>
+
+            <div>
+              <label className="label">
+                <span className="label-text font-bold">Cause</span>
+              </label>
+              <JoditEditor
+                name="cause"
+                value={cause}
+                onChange={(newContent) => {
+                  setCause(newContent);
+                }}
+              />
             </div>
             <div>
               <label className="label">

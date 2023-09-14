@@ -87,25 +87,29 @@ const UpdateHealthTips = () => {
                 <input type="date" {...register("date")} className="input input-bordered w-full" />
               </div>
             </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              <div>
-                <label className="label">
-                  <span className="label-text font-bold">Type</span>
-                </label>
-                <input type="text" {...register("type")} className="input input-bordered w-full" />
-              </div>
-              <div>
-                <label className="label">
-                  <span className="label-text font-bold">Cause</span>
-                </label>
-                <input type="text" {...register("cause")} className="input input-bordered w-full" />
-              </div>
+            <div>
+              <label className="label">
+                <span className="label-text font-bold w-full">Type</span>
+              </label>
+              <input type="text" {...register("type")} className="input input-bordered w-full" />
             </div>
             <div>
               <label className="label">
-                <span className="label-text font-bold">Prevention</span>
+                <span className="label-text font-bold">Cause</span>
               </label>
+              <JoditEditor
+                name="cause"
+                value={existingData.cause || ""} // Set the initial value
+                onBlur={(newContent) => {
+                  setValue("cause", newContent); // Update the form state
+                }}
+                config={
+                  {
+                    // Jodit editor configuration options
+                    // You can configure it as needed
+                  }
+                }
+              />
               <JoditEditor
                 name="prevention"
                 value={existingData.prevention || ""} // Set the initial value
