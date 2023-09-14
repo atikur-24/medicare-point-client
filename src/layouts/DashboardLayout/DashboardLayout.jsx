@@ -1,12 +1,10 @@
 /* eslint-disable no-nested-ternary */
 import { useContext, useEffect, useState } from "react";
-import { AiFillHome, AiOutlineBars } from "react-icons/ai";
-import { BiSolidUser } from "react-icons/bi";
 import { BsGrid1X2Fill, BsImage } from "react-icons/bs";
 import { FaCaretDown, FaCaretUp, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
-import { MdAddShoppingCart, MdKeyboardArrowDown, MdKeyboardArrowUp, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
+import { MdAddShoppingCart, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
 import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import { TfiMenu } from "react-icons/tfi";
@@ -50,7 +48,6 @@ const DashboardLayout = () => {
   const [labtest, setLabtest] = useState(false);
   const [medicineBtn, setMedicineBtn] = useState(false);
 
-  // console.log(doctor);
   const userLinks = (
     <>
       <li>
@@ -59,11 +56,6 @@ const DashboardLayout = () => {
           <span>My Profile</span>
         </NavLink>
       </li>
-      {/* <li>
-        <NavLink to="/dashboard/profile" className="dashboard-link">
-          <BiSolidUser className="dashboard-icon" /> User Profile
-        </NavLink>
-      </li> */}
       <li>
         <NavLink to="/dashboard/booked-lab-tests" className="dashboard-link">
           <HiClipboardList className="dashboard-icon" /> Booked lab tests
@@ -223,9 +215,6 @@ const DashboardLayout = () => {
               Add Blog
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink to="/dashboard/add-health-articles">Add Health Articles</NavLink>
-          </li> */}
           <li>
             <NavLink to="/dashboard/manage-health-articles">Manage Blogs</NavLink>
           </li>
@@ -252,7 +241,7 @@ const DashboardLayout = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content relative font-Alexandria min-h-screen  bg-[#F1F6FA]   2xl:px-20">
+      <div className="drawer-content relative font-Alexandria min-h-screen bg-[#F1F6FA] px-5 xl:px-8  2xl:px-20">
         {/* Page content here */}
         <DashBoardNavbar setShowNotification={setShowNotification} showNotification={showNotification} />
         {showNotification && <Notification />}
