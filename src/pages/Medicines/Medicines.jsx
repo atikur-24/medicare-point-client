@@ -5,6 +5,7 @@ import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import axios from "axios";
+import moment from "moment";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiOutlineDown } from "react-icons/ai";
@@ -19,12 +20,16 @@ import { Link, useSearchParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { addImageToDBApi } from "../../Features/Images/addImageToDB";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
+import { addNotificationApi } from "../../Features/Notifications/addNotification";
 import { uploadImageApi } from "../../Features/UploadImage/uploadImage";
 import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
 import MediCard from "../Shared/Card/MediCard";
 import MediContact from "./MediContact";
 import MediRequest from "./MediRequest";
+
+// const orderDate = moment().format("Do MMM YY");
+const dateAndTime = moment().format("Do MMM YY, h:mm a");
 
 const Medicines = () => {
   const { user } = useContext(AuthContext);
@@ -247,14 +252,31 @@ const Medicines = () => {
         prescription: prescriptionImg,
         email: user.email,
         patientName: data.name,
+        date: dateAndTime,
+        status: "pending",
       };
 
       dispatch(addImageToDBApi({ imageData, collectionName: "prescription" })).then((res2) => {
         if (res2.payload.insertedId) {
-          Swal.fire("Prescription uploaded!", "As early as possible, we will add the medicines to your cart and send you an email.", "success");
-          setLoading(false);
-          window.my_modal_PrescriptionUpload.close();
-          reset();
+          const notificationData = {
+            name: "New prescription uploaded",
+            senderEmail: user?.email,
+            date: dateAndTime,
+            // time: dateAndTime,
+            photoURL: prescriptionImg,
+            url: "prescriptions",
+            deliveryTime: `${user?.email}`,
+            receiver: "admin",
+          };
+
+          dispatch(addNotificationApi(notificationData)).then((res3) => {
+            if (res3.payload.insertedId) {
+              Swal.fire("Prescription uploaded!", "As early as possible, we will add the medicines to your cart and send you an email.", "success");
+              setLoading(false);
+              window.my_modal_PrescriptionUpload.close();
+              reset();
+            }
+          });
         }
         // console.log(res2.payload);
       });
