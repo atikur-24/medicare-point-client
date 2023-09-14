@@ -37,7 +37,7 @@ const AddCartButton = ({ cartMedicine, cls }) => {
 
   return (
     <button onClick={handleAddToCart} className={cls} type="button">
-      <BiCartAdd className="text-xl" /> add to cart
+      <BiCartAdd className="text-sm" /> add to cart
     </button>
   );
 };
