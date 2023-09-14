@@ -1,5 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import { useContext, useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 import { AiFillHome, AiOutlineBars } from "react-icons/ai";
 import { BiSolidUser } from "react-icons/bi";
 import { BsGrid1X2Fill, BsImage } from "react-icons/bs";
@@ -11,6 +12,7 @@ import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri
 import { RxCross1 } from "react-icons/rx";
 import { TfiMenu } from "react-icons/tfi";
 import { NavLink, Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import logo from "../../assets/Logo/logo-point.svg";
 import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -50,7 +52,6 @@ const DashboardLayout = () => {
   const [labtest, setLabtest] = useState(false);
   const [medicineBtn, setMedicineBtn] = useState(false);
 
-  // console.log(doctor);
   const userLinks = (
     <>
       <li>
@@ -59,11 +60,6 @@ const DashboardLayout = () => {
           <span>My Profile</span>
         </NavLink>
       </li>
-      {/* <li>
-        <NavLink to="/dashboard/profile" className="dashboard-link">
-          <BiSolidUser className="dashboard-icon" /> User Profile
-        </NavLink>
-      </li> */}
       <li>
         <NavLink to="/dashboard/booked-lab-tests" className="dashboard-link">
           <HiClipboardList className="dashboard-icon" /> Booked lab tests
@@ -223,9 +219,6 @@ const DashboardLayout = () => {
               Add Blog
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink to="/dashboard/add-health-articles">Add Health Articles</NavLink>
-          </li> */}
           <li>
             <NavLink to="/dashboard/manage-health-articles">Manage Blogs</NavLink>
           </li>
@@ -280,6 +273,8 @@ const DashboardLayout = () => {
           {isAdmin && adminLinks}
         </ul>
       </div>
+      <ToastContainer />
+      <Toaster />
     </div>
   );
 };

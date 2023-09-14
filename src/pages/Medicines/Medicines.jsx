@@ -353,11 +353,11 @@ const Medicines = () => {
             </button>
           </form>
           <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
-            <h4 className="text-lg font-semibold font-nunito text-center">Upload Prescription</h4>
+            <h4 className="text-lg font-bold font-nunito text-center uppercase">Upload Prescription</h4>
             <div>
               <img className="w-60 mx-auto" src="https://i.ibb.co/0hW0C2K/medical-record.png" alt="" />
             </div>
-            <input required type="file" className="file-input rounded file-input-bordered file-input-accent w-full" name="image" id="" {...register("image")} />
+            <input required type="file" className="file-input rounded file-input-bordered file-input-secondary w-full" name="image" id="" {...register("image")} />
             <input
               placeholder="Enter patient name.."
               required
