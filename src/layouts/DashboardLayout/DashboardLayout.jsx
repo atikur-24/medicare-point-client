@@ -1,8 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import { useContext, useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
-import { AiFillHome, AiOutlineBars } from "react-icons/ai";
-import { BiSolidUser } from "react-icons/bi";
 import { BsGrid1X2Fill, BsImage } from "react-icons/bs";
 import { FaCaretDown, FaCaretUp, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";

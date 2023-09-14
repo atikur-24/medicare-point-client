@@ -376,16 +376,6 @@ const Medicines = () => {
               id=""
               {...register("name")}
             />
-            <input required type="file" className="file-input rounded file-input-bordered file-input-accent w-full" name="image" id="" {...register("image")} />
-            <input
-              placeholder="Enter patient name.."
-              required
-              type="text"
-              className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full"
-              name="name"
-              id=""
-              {...register("name")}
-            />
             <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
               {loading ? "Uploading...." : "Upload Prescription"}
             </button>
