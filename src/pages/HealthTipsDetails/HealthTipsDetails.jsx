@@ -4,6 +4,12 @@ import HtmlParser from "react-html-parser";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { FreeMode, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { fetchDetailData } from "../../Features/AllMedicines/detailData";
 
 const HealthTipsDetails = () => {
@@ -69,24 +75,56 @@ const HealthTipsDetails = () => {
           </div>
         </div>
       </div>
-      <h2 className="text-3xl font-bold text-center m-9 p-6">Explore Tips for Similar Health Conditions</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:mx-8 md:mx-2 mx-auto items-center">
+      <h2 className="text-3xl font-bold text-center m-4 p-2 lg:m-9 lg:p-6">Explore Tips for Similar Health Conditions</h2>
+      <Swiper
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20, // Increase the spacing between slides on tablets
+          },
+          1024: {
+            slidesPerView: 3, // Show 3 slides on larger tablets and laptops
+            spaceBetween: 30, // Increase the spacing between slides on laptops
+          },
+          1280: {
+            slidesPerView: 4, // Show 4 slides on larger screens
+            spaceBetween: 40, // Increase the spacing between slides on larger screens
+          },
+        }}
+        className="mySwiper"
+      >
         {categories.map((healthTip) => (
-          <div key={healthTip._id} className=" rounded relative bg-white shadow   h-full">
-            <div className=" absolute h-20  border-l-4  bg-white border-my-accent " />
-            <div className="px-8 py-4 space-y-8 ">
-              <h2 className="h-10 font-bold  text-lg ">{healthTip.name}</h2>
-              <img src={healthTip.image} alt="img" className="h-32  w-full object-cover" />
-              <p className="text-justify md:h-32">{healthTip.prevention.slice(0, 150)}...</p>
-              <Link to={`/healthtips/${healthTip._id}`} className="flex justify-center mt-auto">
-                <button type="button" className="my-btn w-full" style={{ borderRadius: "50px" }}>
-                  <MdOutlineTipsAndUpdates className="text-2xl" /> Get Tips
-                </button>
-              </Link>
+          <SwiperSlide className="mx-auto" key={healthTip._id}>
+            <div className="mx-auto">
+              <div key={healthTip._id} className="card card-compact h-96 w-full bg-base-100 shadow-xl my-4 mx-4 p-4">
+                <figure>
+                  <img src={healthTip.image} alt="Shoes" />
+                </figure>
+                <div className="card-body mt-4">
+                  <h2 className="card-title">{healthTip.name}</h2>
+                  <p className="mt-2">{healthTip.cause.slice(0, 50)}...</p>
+                  <Link to={`/healthtips/${healthTip._id}`} className="flex justify-center mt-4">
+                    <button type="button" className="my-btn w-full" style={{ borderRadius: "50px" }}>
+                      <MdOutlineTipsAndUpdates className="text-2xl" /> Get Tips
+                    </button>
+                  </Link>
+                </div>
+              </div>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 };
