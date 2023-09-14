@@ -3,10 +3,9 @@ import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import axios from "axios";
 import { useEffect } from "react";
+import { BsChevronDown } from "react-icons/bs";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { TiEdit } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import { fetchAllUsers } from "../../../../Features/AllUsers/allUsers";
 
@@ -25,6 +24,28 @@ const AllUsers = () => {
       if (res?.data?.modifiedCount > 0) {
         dispatch(fetchAllUsers());
         Swal.fire("Successful", "Convert User Role to Admin", "success");
+      }
+    });
+  };
+
+  const handelDeleteUser = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Are you Want delete This user?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:5000/delete-user/${id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.deletedCount > 0) {
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            dispatch(fetchAllUsers());
+          }
+        });
       }
     });
   };
@@ -82,7 +103,9 @@ const AllUsers = () => {
                   <Menu
                     menuButton={
                       // eslint-disable-next-line react/jsx-wrap-multilines
-                      <MenuButton className="my-btn !btn-sm  !rounded w-8/12">{user?.role}</MenuButton>
+                      <MenuButton className="my-btn !btn-sm !bg-my-accent  !rounded w-full">
+                        {user?.role} <BsChevronDown />
+                      </MenuButton>
                     }
                     transition
                   >
@@ -98,12 +121,9 @@ const AllUsers = () => {
                   </Menu>
                 </td>
                 <td className="flex justify-center items-center gap-4">
-                  <NavLink>
-                    <TiEdit className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
-                  </NavLink>
-                  <NavLink className=" bg-red-500 rounded-full bg-opacity-30 ">
+                  <button type="button" onClick={() => handelDeleteUser(user?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
                     <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
-                  </NavLink>
+                  </button>
                 </td>
               </tr>
             ))}
