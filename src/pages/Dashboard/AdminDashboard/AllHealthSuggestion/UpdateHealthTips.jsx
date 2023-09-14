@@ -110,6 +110,11 @@ const UpdateHealthTips = () => {
                   }
                 }
               />
+            </div>
+            <div>
+              <label className="label">
+                <span className="label-text font-bold">Prevention</span>
+              </label>
               <JoditEditor
                 name="prevention"
                 value={existingData.prevention || ""} // Set the initial value
