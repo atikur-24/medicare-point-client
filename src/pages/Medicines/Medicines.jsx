@@ -24,7 +24,9 @@ import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
 import MediCard from "../Shared/Card/MediCard";
 import TopRatedMedicine from "../Shared/medicine/TopRatedMedicine";
-import MediContact from "./MediContact";
+import WorkInfo from "../Shared/medicine/WorkInfo";
+// import MediContact from "./MediContact";
+import NewsLetter from "../Shared/medicine/NewsLetter";
 import MediRequest from "./MediRequest";
 
 const Medicines = () => {
@@ -333,7 +335,9 @@ const Medicines = () => {
         <div className="lg:hidden">
           <TopRatedMedicine />
         </div>
-        <MediContact />
+        {/* <MediContact /> */}
+        <WorkInfo />
+        <NewsLetter />
       </div>
       {/* prescription upload modal */}
       <dialog id="my_modal_PrescriptionUpload" className="modal">
@@ -349,7 +353,15 @@ const Medicines = () => {
               <img className="w-60 mx-auto" src="https://i.ibb.co/0hW0C2K/medical-record.png" alt="" />
             </div>
             <input required type="file" className="file-input rounded file-input-bordered file-input-secondary w-full" name="image" id="" {...register("image")} />
-            <input placeholder="Enter patient name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="name" id="" {...register("name")} />
+            <input
+              placeholder="Enter patient name.."
+              required
+              type="text"
+              className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full"
+              name="name"
+              id=""
+              {...register("name")}
+            />
             <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
               {loading ? "Uploading...." : "Upload Prescription"}
             </button>
@@ -369,7 +381,14 @@ const Medicines = () => {
             />
           </div>
           <form onSubmit={onSubmitMediReq}>
-            <input placeholder="Enter Your Request Medicine Name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="req_medi_name" id="" />
+            <input
+              placeholder="Enter Your Request Medicine Name.."
+              required
+              type="text"
+              className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full"
+              name="req_medi_name"
+              id=""
+            />
             <textarea placeholder="Description (optional)" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full mt-4" id="w3review" name="w3review" rows="4" cols="50" />
             <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
               {loading ? "Uploading...." : "Request"}
