@@ -1,5 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import { useContext, useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 import { BsGrid1X2Fill, BsImage } from "react-icons/bs";
 import { FaCaretDown, FaCaretUp, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
@@ -9,6 +10,7 @@ import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri
 import { RxCross1 } from "react-icons/rx";
 import { TfiMenu } from "react-icons/tfi";
 import { NavLink, Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import logo from "../../assets/Logo/logo-point.svg";
 import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -269,6 +271,8 @@ const DashboardLayout = () => {
           {isAdmin && adminLinks}
         </ul>
       </div>
+      <ToastContainer />
+      <Toaster />
     </div>
   );
 };
