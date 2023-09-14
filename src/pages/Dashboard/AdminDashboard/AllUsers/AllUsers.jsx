@@ -3,18 +3,19 @@ import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import axios from "axios";
 import { useEffect } from "react";
+import { BsChevronDown } from "react-icons/bs";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { TiEdit } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import { fetchAllUsers } from "../../../../Features/AllUsers/allUsers";
+import { deleteUser } from "../../../../hooks/userApi";
 
 const AllUsers = () => {
+  const api = "users";
   const { allUsers } = useSelector((state) => state.allUsers);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchAllUsers());
+    dispatch(fetchAllUsers(api));
   }, [dispatch]);
 
   const updateRole = (id, role) => {
@@ -23,10 +24,15 @@ const AllUsers = () => {
     };
     axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then((res) => {
       if (res?.data?.modifiedCount > 0) {
-        dispatch(fetchAllUsers());
+        dispatch(fetchAllUsers(api));
         Swal.fire("Successful", "Convert User Role to Admin", "success");
       }
     });
+  };
+
+  const handelDeleteUser = (id) => {
+    deleteUser(id);
+    dispatch(fetchAllUsers(api));
   };
 
   const totalAdmin = allUsers.filter((admin) => admin?.role === "admin");
@@ -82,7 +88,9 @@ const AllUsers = () => {
                   <Menu
                     menuButton={
                       // eslint-disable-next-line react/jsx-wrap-multilines
-                      <MenuButton className="my-btn !btn-sm  !rounded w-8/12">{user?.role}</MenuButton>
+                      <MenuButton className="my-btn !btn-sm !bg-my-accent  !rounded w-full">
+                        {user?.role} <BsChevronDown />
+                      </MenuButton>
                     }
                     transition
                   >
@@ -98,12 +106,9 @@ const AllUsers = () => {
                   </Menu>
                 </td>
                 <td className="flex justify-center items-center gap-4">
-                  <NavLink>
-                    <TiEdit className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
-                  </NavLink>
-                  <NavLink className=" bg-red-500 rounded-full bg-opacity-30 ">
+                  <button type="button" onClick={() => handelDeleteUser(user?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
                     <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
-                  </NavLink>
+                  </button>
                 </td>
               </tr>
             ))}

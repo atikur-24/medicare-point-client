@@ -8,7 +8,7 @@ const WhyChoseUs = () => {
     <div className="flex flex-col md:flex-row justify-between mt-14 gap-6 items-center">
       <div className="w-full space-y-6">
         <p className=" uppercase text-my-primary tracking-widest font-semibold">Why Chose Us</p>
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold ">Best services available for every single customer. </h2>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold ">Best services available for every single customer.</h2>
         <img className="w-11/12" src={whyUs} alt="why us images" />
       </div>
       <div className="w-full space-y-8">

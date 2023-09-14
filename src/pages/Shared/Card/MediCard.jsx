@@ -24,20 +24,20 @@ const MediCard = ({ medicine }) => {
       <div className="card-body space-y-1">
         <Link to={`/details/${_id}`}>
           <figure>
-            <img className="h-[141px] w-[126px] md:h-[268px] md:w-[240px] xl:h-[172px] xl:w-[154px] object-cover cursor-pointer group-hover:scale-105 transition-all duration-300" src={image} alt="medicine" />
+            <img className="md:h-[189px] md:w-[169px] xl:h-[172px] xl:w-[154px] object-cover cursor-pointer group-hover:scale-105 transition-all duration-300" src={image} alt="medicine" />
           </figure>
         </Link>
         <div className="">
-          <p className="text-gray-5 text-[11px]">{category?.label}</p>
+          <p className="text-gray-5 text-[8px] lg:text-[11px]">{category?.label}</p>
           <Link to={`/details/${_id}`}>
-            <h2 className="text-sm font-medium text-gray-7 tracking-wide hover:underline inline-block hover:cursor-pointer">{medicine_name}</h2>
+            <h2 className="text-xs lg:text-sm font-medium text-gray-7 tracking-wide hover:underline inline-block hover:cursor-pointer">{medicine_name}</h2>
           </Link>
         </div>
         <div className="space-y-2">
           <Rating style={{ maxWidth: 60 }} value={rating} readOnly itemStyles={customStyles} />
           <p className="inline-flex gap-1">
-            <span className="font-medium text-my-pink inline-flex items-center text-lg">৳ {discount > 0 ? (price - (price / 100) * discount).toFixed(2) : price.toFixed(2)}</span>
-            {discount > 0 && <span className="inline-flex items-center text-[15px] text-gray-5 line-through">৳ {price}</span>}
+            <span className="font-medium text-my-pink inline-flex items-center text-sm lg:text-lg">৳ {discount > 0 ? (price - (price / 100) * discount).toFixed(2) : price.toFixed(2)}</span>
+            {discount > 0 && <span className="inline-flex items-center text-xs lg:text-[15px] text-gray-5 line-through">৳ {price}</span>}
           </p>
         </div>
         {available_quantity === sellQuantity ? <ReqToStockButton reqToStock={reqToStock} cls="req-btn-sm" /> : <AddCartButton cartMedicine={cartMedicine} cls="cart-btn-outline" />}

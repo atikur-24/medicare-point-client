@@ -83,7 +83,7 @@ const ApplicationDetail = () => {
           <div className="flex items-center justify-between mt-10">
             <div>
               {applicationType !== "Approved" ? (
-                <button onClick={() => ApprovePR(_id, email, "Approved", "Pharmacist")} type="button" className="submit-btn">
+                <button onClick={() => ApprovePR(_id, email, "Approved", "Pharmacist", application)} type="button" className="submit-btn">
                   Approve Pharmacy
                 </button>
               ) : (

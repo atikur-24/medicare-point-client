@@ -28,7 +28,7 @@ const OtcMedicine = () => {
   return (
     <div className="bg-card">
       <div className="my-container">
-        <SectionTitle title="Otc Medicines" content="Easy Access to OTC Medicines, Your Trusted Solution for Common Health Needs. Shop Now for Affordable and Effective Relief." />
+        <SectionTitle title="Otc Medicines" content="Easy Access to OTC Medicines,Your Trusted Solution for Common Health Needs." />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
           {otcMedicines.map((otcMedicine, idx) => (
             <Link key={idx} to={`/medicines?category=${handleMedicineClick(otcMedicine)}`} className="card mx-auto shadow-xl lg:h-full space-y-4 md:hover:scale-105 transition-all duration-200">
