@@ -24,7 +24,7 @@ const MediCard = ({ medicine }) => {
       <div className="card-body space-y-2 lg:space-y-3">
         <Link to={`/details/${_id}`}>
           <figure>
-            <img className="h-72 w-full object-cover cursor-pointer group-hover:scale-105 transition-all duration-300" src={image} alt="medicine" />
+            <img className="h-[141px] w-[126px] md:h-[268px] md:w-[240px] xl:h-[172px] xl:w-[154px] object-cover cursor-pointer group-hover:scale-105 transition-all duration-300" src={image} alt="medicine" />
           </figure>
         </Link>
         <div className="space-y-1">

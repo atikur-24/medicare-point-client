@@ -334,7 +334,7 @@ const Medicines = () => {
           {isloading ? (
             <Loader spinner />
           ) : (
-            <div className="lg:max-w-[75%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="lg:max-w-[75%] grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
               {PaginationMedicines?.map((medicine) => (
                 <MediCard key={medicine._id} medicine={medicine} />
               ))}
@@ -367,15 +367,7 @@ const Medicines = () => {
               <img className="w-60 mx-auto" src="https://i.ibb.co/0hW0C2K/medical-record.png" alt="" />
             </div>
             <input required type="file" className="file-input rounded file-input-bordered file-input-accent w-full" name="image" id="" {...register("image")} />
-            <input
-              placeholder="Enter patient name.."
-              required
-              type="text"
-              className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full"
-              name="name"
-              id=""
-              {...register("name")}
-            />
+            <input placeholder="Enter patient name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="name" id="" {...register("name")} />
             <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
               {loading ? "Uploading...." : "Upload Prescription"}
             </button>
@@ -396,14 +388,7 @@ const Medicines = () => {
             />
           </div>
           <form onSubmit={onSubmitMediReq}>
-            <input
-              placeholder="Enter Your Request Medicine Name.."
-              required
-              type="text"
-              className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full"
-              name="req_medi_name"
-              id=""
-            />
+            <input placeholder="Enter Your Request Medicine Name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="req_medi_name" id="" />
             <textarea placeholder="Description (optional)" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full mt-4" id="w3review" name="w3review" rows="4" cols="50" />
             <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
               {loading ? "Uploading...." : "Request"}
