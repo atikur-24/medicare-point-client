@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import { HiMinus, HiPlus } from "react-icons/hi";
 
 const MedicineCartItem = ({ item, refetch }) => {
-  const { _id, image, medicine_name, category, price, discount, quantity } = item || {};
+  const { _id, image, medicine_name, category, price, discount, quantity, order_quantity } = item || {};
   const [count, setCount] = useState(quantity);
   const total = (quantity * (price - (price / 100) * discount)).toFixed(2);
 
@@ -41,7 +41,7 @@ const MedicineCartItem = ({ item, refetch }) => {
         <div>
           <h5 className="text-xl font-medium">{medicine_name}</h5>
           <small className="text-gray-4">By {category}</small>
-          <small className="text-gray-4 block">1 Box/bottle/pics</small>
+          <small className="text-gray-4 block">1 {order_quantity}</small>
           <div className="flex flex-col md:flex-row gap-1 md:gap-8 ">
             {discount !== 0 ? (
               <p className="text-gray-4 inline-flex items-center ">
