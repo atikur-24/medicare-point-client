@@ -45,8 +45,8 @@ const MedicineDetails = () => {
     inactiveFillColor: "#DEE1E6",
   };
 
-  const { _id, medicine_name, image, price, sellQuantity, available_quantity, medicine_description, tags, rating, feature_with_details, category, allRatings, discount, pharmacist_email } = medicine || {};
-  const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, category: category.label, email: user?.email };
+  const { _id, medicine_name, image, price, sellQuantity, available_quantity, medicine_description, tags, rating, feature_with_details, category, allRatings, discount, pharmacist_email, order_quantity } = medicine || {};
+  const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, category: category.label, email: user?.email, order_quantity };
   const reqToStock = { reqByMedicine_Id: _id, medicine_name, image, request_count: 1, pharmacist_email, user_email: user?.email };
   const handleReviews = (event) => {
     event.preventDefault();
