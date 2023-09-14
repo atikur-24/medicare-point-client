@@ -27,10 +27,7 @@ const Feedback = () => {
 
   return (
     <div className="my-container">
-      <SectionTitle
-        title="Customer Feedback"
-        content="Our customers have spoken of our products and the reliability of our health solutions. Your feedback fuels our drive to continuously improve and serve you better."
-      />
+      <SectionTitle title="Customer Feedback" content="Our customers have spoken of our products and the reliability of our health solutions." />
       <Swiper
         freeMode
         pagination={{
