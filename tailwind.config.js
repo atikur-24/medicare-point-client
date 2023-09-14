@@ -43,15 +43,14 @@ export default {
       {
         mytheme: {
           primary: "#006F70",
-          secondary: "#006F70",
-          accent: "#10B6A8",
+          secondary: "#10B6A8",
+          accent: "#16b4ac",
           neutral: "#25212b",
           "base-100": "#ffffff",
-          info: "#5389d5",
-          success: "#22c55e",
-          warning: "#f4c271",
-          error: "#e92d1c",
-
+          info: "#82a7e3",
+          success: "#177d4c",
+          warning: "#fac20a",
+          error: "#f53a19",
         },
       },
       "light",
