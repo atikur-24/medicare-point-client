@@ -15,6 +15,7 @@ import Loader from "../../components/Loader";
 import ReqToStockButton from "../../components/ReqToStockButton";
 import useAuth from "../../hooks/useAuth";
 import MedicineReviews from "./MedicineReviews";
+import RelatedMedicines from "./RelatedMedicines";
 
 const MedicineDetails = () => {
   const [medicine, setMedicine] = useState({});
@@ -45,7 +46,23 @@ const MedicineDetails = () => {
     inactiveFillColor: "#DEE1E6",
   };
 
-  const { _id, medicine_name, image, price, sellQuantity, available_quantity, medicine_description, tags, rating, feature_with_details, category, allRatings, discount, pharmacist_email, order_quantity } = medicine || {};
+  const {
+    _id,
+    medicine_name,
+    image,
+    price,
+    sellQuantity,
+    available_quantity,
+    medicine_description,
+    tags,
+    rating,
+    feature_with_details,
+    category,
+    allRatings,
+    discount,
+    pharmacist_email,
+    order_quantity,
+  } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, category: category.label, email: user?.email, order_quantity };
   const reqToStock = { reqByMedicine_Id: _id, medicine_name, image, request_count: 1, pharmacist_email, user_email: user?.email };
   const handleReviews = (event) => {
@@ -162,12 +179,20 @@ const MedicineDetails = () => {
       {/* Description & reviews */}
       <div className="my-container bg-white mt-10 rounded-md">
         <div className="lg:flex gap-8">
-          <div className={`${descrptn ? "border-b-[3px]" : ""} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
+          <div
+            className={`${
+              descrptn ? "border-b-[3px]" : ""
+            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
+          >
             <button type="button" onClick={handleDescriptionBtn}>
               Description
             </button>
           </div>
-          <div className={`${reviews ? "border-b-[3px]" : ""} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
+          <div
+            className={`${
+              reviews ? "border-b-[3px]" : ""
+            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
+          >
             <button type="button" onClick={handleReviewsBtn}>
               Reviews
             </button>
@@ -204,6 +229,9 @@ const MedicineDetails = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="my-container bg-white mt-10 rounded-md ">
+        <RelatedMedicines category={category?.value} />
       </div>
     </section>
   );
