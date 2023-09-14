@@ -4,6 +4,8 @@ import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { useContext, useEffect, useRef, useState } from "react";
+import { BiLogInCircle } from "react-icons/bi";
+import { CgUserlane } from "react-icons/cg";
 import { HiOutlineLogout } from "react-icons/hi";
 import { MdClose, MdOutlineDashboardCustomize } from "react-icons/md";
 import { RiMenu2Line } from "react-icons/ri";
@@ -87,14 +89,20 @@ const ResponsiveNavbar = ({ menuItems }) => {
                 </button>
               </div>
             ) : (
-              <>
-                <Link to="/login" className="font-semibold text-neutral-600">
-                  <MenuItem>Login</MenuItem>
+              <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
+                <Link className=" font-semibold text-neutral-600" to="/login">
+                  <MenuItem className="gap-4 items-center">
+                    <BiLogInCircle className="text-3xl" />
+                    Login
+                  </MenuItem>
                 </Link>
-                <Link to="/signUp" className="font-semibold text-neutral-600">
-                  <MenuItem>Sign Up</MenuItem>
+                <Link className=" font-semibold text-neutral-600" to="/signUp">
+                  <MenuItem className="gap-4 items-center">
+                    <CgUserlane className="text-3xl" />
+                    Sign Up
+                  </MenuItem>
                 </Link>
-              </>
+              </div>
             )}
           </Menu>
         </div>
@@ -105,7 +113,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
         <div className="pt-9">
           <div className=" px-4 flex justify-between items-center mb-5">
             <div>
-              <p className=" text-my-primary  font-bold md:hidden">
+              <p className=" text-my-primary  font-bold xl:hidden">
                 Medicare <span className="text-my-accent">Point</span>
               </p>
             </div>
