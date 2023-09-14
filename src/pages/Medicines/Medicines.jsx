@@ -60,7 +60,7 @@ const Medicines = () => {
     setIsOpen(fCategory);
   };
 
-  const medicineParPage = 9;
+  const medicineParPage = 16;
   const startIndex = currentPage * medicineParPage;
   const endIndex = startIndex + medicineParPage;
   const PaginationMedicines = medicines.slice(startIndex, endIndex);
@@ -74,14 +74,10 @@ const Medicines = () => {
   const filterItems = (
     <div>
       <div className="rounded border border-gray-3 bg-white">
-        <h3 className="text-title-color text-lg lg:text-xl font-medium lg:font-bold pl-3 py-3 font-nunito uppercase border-l-2 border-my-primary">Medicine Categories</h3>
+        <h3 className="text-title-color text-lg lg:text-xl font-medium lg:font-extrabold pl-3 py-3 font-nunito uppercase border-l-4 border-my-primary">Medicine Categories</h3>
         <div className="px-6 text-sm border-t border-gray-3 divide-y divide-gray-3 text-gray-7 font-medium lg:text-base">
           <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
-            <Link
-              onClick={() => setIsOpen("allMedicine")}
-              to="/medicines"
-              className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "allMedicine" ? "text-my-accent underline" : ""}`}
-            >
+            <Link onClick={() => setIsOpen("allMedicine")} to="/medicines" className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "allMedicine" ? "text-my-accent underline" : ""}`}>
               <LiaAngleRightSolid /> All Medicines
             </Link>
           </button>
@@ -127,18 +123,10 @@ const Medicines = () => {
           >
             <LiaAngleRightSolid /> Laundry Household
           </button>
-          <button
-            type="button"
-            onClick={() => handelCategoryFilter("Skin-Care")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Skin-Care" ? "text-my-accent underline" : ""}`}
-          >
+          <button type="button" onClick={() => handelCategoryFilter("Skin-Care")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Skin-Care" ? "text-my-accent underline" : ""}`}>
             <LiaAngleRightSolid /> Skin Care
           </button>
-          <button
-            type="button"
-            onClick={() => handelCategoryFilter("Eye-Care")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Eye-Care" ? "text-my-accent underline" : ""}`}
-          >
+          <button type="button" onClick={() => handelCategoryFilter("Eye-Care")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Eye-Care" ? "text-my-accent underline" : ""}`}>
             <LiaAngleRightSolid /> Eye Care
           </button>
           <button
@@ -155,11 +143,7 @@ const Medicines = () => {
           >
             <LiaAngleRightSolid /> Men's Products
           </button>
-          <button
-            type="button"
-            onClick={() => handelCategoryFilter("Vitamins")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Vitamins" ? "text-my-accent underline" : ""}`}
-          >
+          <button type="button" onClick={() => handelCategoryFilter("Vitamins")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Vitamins" ? "text-my-accent underline" : ""}`}>
             <LiaAngleRightSolid /> Vitamins
           </button>
           <button
@@ -176,11 +160,7 @@ const Medicines = () => {
           >
             <LiaAngleRightSolid /> Bone Health care
           </button>
-          <button
-            type="button"
-            onClick={() => handelCategoryFilter("Weight")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Weight" ? "text-my-accent underline" : ""}`}
-          >
+          <button type="button" onClick={() => handelCategoryFilter("Weight")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Weight" ? "text-my-accent underline" : ""}`}>
             <LiaAngleRightSolid /> Weight
           </button>
           <button
@@ -190,11 +170,7 @@ const Medicines = () => {
           >
             <LiaAngleRightSolid /> Dental Care
           </button>
-          <button
-            type="button"
-            onClick={() => handelCategoryFilter("Baby-Care")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Baby-Care" ? "text-my-accent underline" : ""}`}
-          >
+          <button type="button" onClick={() => handelCategoryFilter("Baby-Care")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Baby-Care" ? "text-my-accent underline" : ""}`}>
             <LiaAngleRightSolid /> Baby Care
           </button>
         </div>

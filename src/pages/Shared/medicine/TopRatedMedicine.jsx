@@ -12,13 +12,13 @@ const TopRatedMedicine = () => {
   const [medicines] = useMedicines();
   return (
     <div className="bg-white rounded">
-      <h2 className="text-title-color text-lg lg:text-xl font-medium lg:font-bold pl-3 py-3 font-nunito uppercase border-l-2 border-my-primary">Top Rated Medicine</h2>
+      <h2 className="text-title-color text-lg lg:text-xl font-medium lg:font-extrabold pl-3 py-3 font-nunito uppercase border-l-4 border-my-primary">Top Rated Medicine</h2>
       <div className="border-t border-gray-3 divide-y divide-gray-3 px-[18px] py-5">
         {medicines.slice(0, 5)?.map((medicine) => (
           <div className="flex py-3 " key={medicine._id}>
             <Link to={`/details/${medicine._id}`}>
               <figure>
-                <img className="h-[78px] w-[78px] object-cover border border-gray-3 rounded-sm" src={medicine.image} alt="medicine" />
+                <img className="h-[78px] w-[78px] object-cover rounded-sm" src={medicine.image} alt="medicine" />
               </figure>
             </Link>
             <div className="space-y-2 ml-6 lg:ml-[14px]">
