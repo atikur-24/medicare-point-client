@@ -47,9 +47,9 @@ const AllMedicinesByPharmacist = () => {
   };
 
   return (
-    <div className="mx-1 md:mx-5">
+    <div className="">
       <h3 className="text-center text-2xl lg:text-3xl my-7 font-semibold tracking-wide">All Medicines</h3>
-      <div className="overflow-x-auto mb-20 px-5">
+      <div className="overflow-x-auto">
         <table className="table rounded bg-lite">
           {/* head */}
           <thead className="bg-my-primary text-white font-normal text-base">
