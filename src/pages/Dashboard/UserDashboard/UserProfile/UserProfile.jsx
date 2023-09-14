@@ -24,7 +24,7 @@ const UserProfile = () => {
     });
   }, [user.email]);
   return (
-    <div className="px-4">
+    <div className="">
       {currentUserData && (
         <div className="bg-white rounded-2xl my-6 pb-8">
           {/* TODO  */}
