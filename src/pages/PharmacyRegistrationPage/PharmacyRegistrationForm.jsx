@@ -91,11 +91,11 @@ const PharmacyRegistrationForm = () => {
   ];
 
   return (
-    <div className="mx-auto p-16 rounded-lg border-[1px] border-gray-3 bg-white ">
-      <h2 className="text-2xl font-semibold mb-4">Pharmacy Registration Form</h2>
+    <div className="mx-auto p-4 md:p-6 lg:p-16 rounded-lg border-[1px] border-gray-3 bg-white ">
+      <h2 className=" text-lg md:text-xl lg:text-2xl font-medium lg:font-semibold mb-4">Pharmacy Registration Form</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
-          <div className="mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-14">
+          <div className="mb-3 md:mb-4">
             <label htmlFor="pharmacyName" className="block font-medium cursor-pointer ">
               Pharmacy name:
             </label>
@@ -108,7 +108,7 @@ const PharmacyRegistrationForm = () => {
             />
             {errors.pharmacyName && <small>please Write pharmacy Name </small>}
           </div>
-          <div className="mb-4">
+          <div className="mb-3 lg:mb-4">
             <label htmlFor="pharmacyEmail" className="block font-medium cursor-pointer">
               Pharmacy email address:
             </label>
@@ -122,8 +122,8 @@ const PharmacyRegistrationForm = () => {
             {errors.pharmacyEmailAddress && <small>please Write pharmacy Official Email </small>}
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
-          <div className="mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3 md:gap-14">
+          <div className="mb-3 md:mb-4">
             <label htmlFor="pharmacyPhoneNumber" className="block font-medium cursor-pointer">
               Pharmacy phone number:
             </label>
@@ -157,7 +157,7 @@ const PharmacyRegistrationForm = () => {
             {errors.division && <small>please select your division</small>}
           </div>
         </div>
-        <div className=" grid  grid-cols-1 md:grid-cols-2 gap-14">
+        <div className=" grid  grid-cols-1 md:grid-cols-2 gap-3 md:gap-14">
           <div>
             <label htmlFor="district" className="block font-medium cursor-pointer">
               Select your District
@@ -191,8 +191,8 @@ const PharmacyRegistrationForm = () => {
             {errors.pharmacyFullAddress && <small>please Write Properly your pharmacy's full address </small>}
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
-          <div className="mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-14">
+          <div className="gap-3 md:mb-4">
             <label htmlFor="pharmacistName" className="block font-medium cursor-pointer">
               Pharmacist name:
             </label>
@@ -208,7 +208,7 @@ const PharmacyRegistrationForm = () => {
             {errors.pharmacistName && <small>please Write pharmacist Name </small>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-3 md:mb-4">
             <label htmlFor="medicinesSold" className="block font-medium cursor-pointer">
               Types of medicines sold:
             </label>

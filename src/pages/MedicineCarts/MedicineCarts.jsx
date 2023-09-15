@@ -55,12 +55,12 @@ const MedicineCarts = () => {
   };
   return (
     <section className="my-container">
-      <div className="lg:flex gap-8">
+      <div className="flex flex-col lg:flex-row gap-10">
         <div className=" rounded-md flex-grow">
-          <h3 className="text-xl lg:text-2xl font-semibold bg-lite tracking-wide text-title-color py-5 px-5 lg:px-8 flex justify-between">
+          <h3 className=" md:text-xl lg:text-2xl font-semibold bg-lite tracking-wide text-title-color py-5 px-5 lg:px-8 flex justify-between">
             <span>{cart?.length} Item in Your Cart</span>
             {cart.length > 0 && (
-              <button onClick={handleClearCart} type="button" className="lg:text-xl flex items-center gap-1 text-red-400 font-medium cursor-pointer">
+              <button onClick={handleClearCart} type="button" className="text-sm lg:text-xl flex items-center gap-1 text-red-400 font-medium cursor-pointer">
                 <AiOutlineDelete /> Clear All
               </button>
             )}
@@ -83,8 +83,8 @@ const MedicineCarts = () => {
           </div>
         </div>
         <div className="border flex flex-col justify-between border-gray-3 rounded-md lg:w-4/12 lg:h-96">
-          <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-title-color bg-lite py-5 px-5 lg:px-8">Cart Total</h3>
-          <div className="py-5 px-5 lg:px-8 space-y-5 text-xl font-medium">
+          <h3 className="md:text-xl lg:text-2xl font-semibold tracking-wide text-title-color bg-lite py-5 px-5 lg:px-8">Cart Total</h3>
+          <div className="py-5 px-5 lg:px-8 space-y-5 md:text-xl font-medium">
             <h3 className="flex justify-between font-semibold">
               SubTotal:
               <span className="flex items-center">৳ {subTotal.toFixed(2)}</span>
