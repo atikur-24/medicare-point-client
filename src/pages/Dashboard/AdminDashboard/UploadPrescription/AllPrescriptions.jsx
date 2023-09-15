@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { BiTimeFive } from "react-icons/bi";
 import { HiOutlineMail } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import logo from "../../../../assets/Logo/logo.svg";
 
 const AllPrescriptions = () => {
   const [allData, setAllData] = useState([]);
@@ -22,7 +23,7 @@ const AllPrescriptions = () => {
           </div>
         </div>
       </div>
-      <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-2">
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2">
         {allData?.map((p) => (
           <div key={p?._id}>
             <div className="border border-gray-3 bg-white rounded-2xl p-4 space-y-4">
@@ -33,7 +34,7 @@ const AllPrescriptions = () => {
                 <h2 className="text-sm">{p.patientName}</h2>
                 <h2 className="text-base inline-flex items-center gap-2">
                   <HiOutlineMail />
-                  {p.email}
+                  <span>{p.email}</span>
                 </h2>
                 <h2 className="text-base inline-flex items-center gap-2">
                   <BiTimeFive />

@@ -5,6 +5,7 @@ import { HiMinus, HiPlus } from "react-icons/hi";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { addPrescriptionCardApi } from "../../../../Features/UploadPrescription/addPrescriptionCard";
+import logo from "../../../../assets/Logo/logo.svg";
 
 const UploadPrescription = () => {
   const [search, setSearch] = useState("");
@@ -41,6 +42,7 @@ const UploadPrescription = () => {
     e.preventDefault();
     dispatch(addPrescriptionCardApi(cart)).then(() => {
       setCart([]);
+      setSearch("");
       toast.success("Added to cart");
     });
   };
@@ -64,13 +66,19 @@ const UploadPrescription = () => {
           <form className="">
             <input
               onChange={handleSearch}
-              className="w-full  bg-primary  absolute z-20 -top-px left-0 outline-none bg-opacity-10 px-4 rounded-full p-2 placeholder:text-gray-5 "
+              className="w-full  bg-primary  absolute z-20 -top-px left-0 outline-none bg-opacity-10 px-4 rounded-full p-2 lg:pr-5 placeholder:text-gray-5 "
               type="search"
+              value={search}
               placeholder="Search Medicines"
               name="searchMedicines"
               id=""
             />
           </form>
+          {search.length === 0 && (
+            <div className="flex justify-center mt-10">
+              <img className="w-20 h-20" src={logo} alt="" />
+            </div>
+          )}
 
           <div className={`pt-10 h-[75vh] overflow-y-scroll ${search ? "block" : "hidden"}`}>
             {medicines.length === 0 && <p className="text-black-2 text-center font-semibold">Sorry, we could not find what you are looking for. Please search by right name</p>}
@@ -110,7 +118,7 @@ const UploadPrescription = () => {
 
         {/* all div  */}
         <div className="border border-gray-3 bg-white rounded-2xl p-2">
-          <div className={`p-2 relative h-[75vh] overflow-y-scroll ${search ? "block" : "hidden"}`}>
+          <div className="p-2 relative h-[75vh] overflow-y-scroll">
             {cart.map((m) => (
               <div key={m.medicine_Id} className="px-1 gap-10  md:flex items-center justify-around space-x-3 text-gray-6 rounded-2xl border border-gray-3 my-2">
                 <div className="flex items-center gap-6">
@@ -122,7 +130,7 @@ const UploadPrescription = () => {
                   </div>
                 </div>
 
-                <div className="flex-grow">
+                <div className="">
                   <div className="p-2 space-y-1 relative ">
                     <div className="space-y-1">
                       <h2 className="text-[1.125rem] font-semibold text-title-color tracking-wide inline-block">{m.medicine_name}</h2>
@@ -146,14 +154,17 @@ const UploadPrescription = () => {
                 </div>
               </div>
             ))}
-            <form className="xl:absolute flex flex-col xl:flex-row gap-4 z-10 bottom-0 left-0" onSubmit={handleUploadToDB}>
-              <button className="w-full btn my-btn p-2 bg-my-accent bg-opacity-50" type="submit" name="searchMedicines" id="">
-                Upload
-              </button>
-              <button type="button" className="btn w-full btn-error" onClick={handleClearCart}>
-                Clear
-              </button>
-            </form>
+            {cart.length === 0 && <p className="text-center mt-10">No medicines added</p>}
+            {cart.length > 0 && (
+              <form className="xl:absolute flex flex-col xl:flex-row gap-4 z-10 bottom-0 left-0" onSubmit={handleUploadToDB}>
+                <button className="w-full btn my-btn p-2 bg-my-accent bg-opacity-50" type="submit" name="searchMedicines" id="">
+                  Upload
+                </button>
+                <button type="button" className="btn w-full btn-error" onClick={handleClearCart}>
+                  Clear
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
