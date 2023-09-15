@@ -54,23 +54,23 @@ export const applicationForPharmacist = (application) => {
 
 
 // User delete api
-export const deleteUser = (id) => {
-  Swal.fire({
-    title: "Are you sure?",
-    text: "Are you Want delete This user?",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      axios.delete(`http://localhost:5000/delete-user/${id}`).then((res) => {
-        console.log(res.data);
-        if (res.data.deletedCount > 0) {
-          Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        }
-      });
-    }
-  });
-};
+// export const deleteUser = (id) => {
+//   Swal.fire({
+//     title: "Are you sure?",
+//     text: "Are you Want delete This user?",
+//     icon: "warning",
+//     showCancelButton: true,
+//     confirmButtonColor: "#3085d6",
+//     cancelButtonColor: "#d33",
+//     confirmButtonText: "Yes, delete it!",
+//   }).then((result) => {
+//     if (result.isConfirmed) {
+//       axios.delete(`http://localhost:5000/delete-user/${id}`).then((res) => {
+//         console.log(res.data);
+//         if (res.data.deletedCount > 0) {
+//           Swal.fire("Deleted!", "Your file has been deleted.", "success");
+//         }
+//       });
+//     }
+//   });
+// };

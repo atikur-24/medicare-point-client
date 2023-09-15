@@ -9,7 +9,8 @@ export default {
         Alexandria: ["Alexandria", "sans-serif"],
       },
       backgroundImage: {
-        medicine: "url('https://img.freepik.com/free-vector/clean-medical-background_53876-97927.jpg?size=626&ext=jpg&ga=GA1.2.1613183627.1673832056&semt=ais')",
+        medicine:
+          "url('https://img.freepik.com/free-photo/abstract-paper-background-concept_23-2148812686.jpg?w=826&t=st=1694759448~exp=1694760048~hmac=d6e928e141b470879a9613fa163ab153affef3b3e3b82a195234ecf8c24ea6bf')",
       },
     },
     colors: {
@@ -45,7 +46,7 @@ export default {
           primary: "#006F70",
           secondary: "#10B6A8",
           accent: "#16b4ac",
-          neutral: "#25212b",
+          neutral: "#1d2a38",
           "base-100": "#ffffff",
           info: "#82a7e3",
           success: "#177d4c",

@@ -37,16 +37,16 @@ const Login = () => {
     setLoading(true);
     signIn(data.email, data.password)
       .then((result) => {
-        if (!result.user.emailVerified) {
-          Swal.fire({
-            icon: "error",
-            title: "Verify email",
-            showConfirmButton: false,
-            timer: 2500,
-          });
-          logOut();
-          return;
-        }
+        // if (!result.user.emailVerified) {
+        //   Swal.fire({
+        //     icon: "error",
+        //     title: "Verify email",
+        //     showConfirmButton: false,
+        //     timer: 2500,
+        //   });
+        //   logOut();
+        //   return;
+        // }
         if (result.user) {
           toast.success("Sign In Successful", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
           addUser(result.user);

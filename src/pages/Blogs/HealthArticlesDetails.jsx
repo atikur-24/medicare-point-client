@@ -72,8 +72,8 @@ const HealthArticlesDetails = () => {
           ))}
         </div>
         <div className="w-full mx-auto">
-          <Link to="/blogs" className="my-btn">
-            See All &rarr; &rarr;
+          <Link to="/blogs" className="my-btn !tracking-wider">
+            See All &rarr;
           </Link>
         </div>
       </div>

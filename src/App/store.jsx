@@ -25,11 +25,14 @@ import deleteInterview from "../Features/Interviews/deleteInterview";
 import updateInterview from "../Features/Interviews/updateInterview";
 import allMedicines from "../Features/Medicines/AllMedicines/allMedicines";
 import medicines from "../Features/Medicines/AllMedicines/medicines";
+import addNotification from "../Features/Notifications/addNotification";
 import deleteNotifications from "../Features/Notifications/deleteNotifications";
 import fetchNotificationsByEmail from "../Features/Notifications/fetchNotificationsByEmail";
 import sslPayment from "../Features/PaymentGetway/PaymentGetaway";
 import labSSLPayment from "../Features/PaymentGetway/labPayment";
 import uploadImage from "../Features/UploadImage/uploadImage";
+import addPrescriptionCard from "../Features/UploadPrescription/addPrescriptionCard";
+import allPrescription from "../Features/UploadPrescription/allPrescription";
 
 const store = configureStore({
   reducer: {
@@ -62,6 +65,9 @@ const store = configureStore({
     deleteNotifications,
     detailData,
     addImageToDB,
+    addNotification,
+    allPrescription,
+    addPrescriptionCard,
   },
 });
 

@@ -14,6 +14,8 @@ import AddCartButton from "../../components/AddCartButton";
 import Loader from "../../components/Loader";
 import ReqToStockButton from "../../components/ReqToStockButton";
 import useAuth from "../../hooks/useAuth";
+import NewsLetter from "../Shared/medicine/NewsLetter";
+import WorkInfo from "../Shared/medicine/WorkInfo";
 import MedicineReviews from "./MedicineReviews";
 import RelatedMedicines from "./RelatedMedicines";
 
@@ -46,24 +48,7 @@ const MedicineDetails = () => {
     inactiveFillColor: "#DEE1E6",
   };
 
-  const {
-    _id,
-    medicine_name,
-    image,
-    price,
-    sellQuantity,
-    available_quantity,
-    medicine_summary,
-    description,
-    tags,
-    rating,
-    feature_with_details,
-    category,
-    allRatings,
-    discount,
-    pharmacist_email,
-    order_quantity,
-  } = medicine || {};
+  const { _id, medicine_name, image, price, sellQuantity, available_quantity, medicine_summary, medicine_description, tags, rating, feature_with_details, category, allRatings, discount, pharmacist_email, order_quantity } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, category: category.label, email: user?.email, order_quantity };
   const reqToStock = { reqByMedicine_Id: _id, medicine_name, image, request_count: 1, pharmacist_email, user_email: user?.email };
   const handleReviews = (event) => {
@@ -124,19 +109,17 @@ const MedicineDetails = () => {
           <div className="md:w-1/2 space-y-5 lg:space-y-7">
             <div className="space-y-1">
               {discount > 0 && <p className="bg-my-accent rounded-md py-1 px-2 text-xs font-medium text-white w-fit">-{discount}% OFF</p>}
-              <h3 className="text-xl lg:text-3xl font-semibold tracking-wider text-title-color">{medicine_name}</h3>
+              <h3 className="text-xl lg:text-3xl font-medium lg:font-semibold tracking-wider text-title-color">{medicine_name}</h3>
             </div>
             <Rating style={{ maxWidth: 80 }} value={rating} readOnly itemStyles={customStyles} />
             <p className="inline-flex gap-1">
-              <span className="font-bold text-my-pink inline-flex items-center text-xl lg:text-2xl">৳ {discount > 0 ? (price - (price / 100) * discount).toFixed(2) : price.toFixed(2)}</span>
-              {discount > 0 && <span className="font-medium inline-flex items-center text-[17px] lg:text-xl text-gray-5 line-through">৳ {price}</span>}
+              <span className="font-semibold lg:font-bold text-my-pink inline-flex items-center text-lg md:text-xl lg:text-2xl">৳ {discount > 0 ? (price - (price / 100) * discount).toFixed(2) : price.toFixed(2)}</span>
+              {discount > 0 && <span className="font-medium inline-flex items-center text-base lg:text-xl text-gray-5 line-through">৳ {price}</span>}
             </p>
-            <p className="font-medium text-black-2 tracking-wide">
-              Availability: {available_quantity === sellQuantity ? <span className="text-red-500">Out of Stock</span> : <span className="text-my-primary">In Stock</span>}
-            </p>
-            <p className="text-gray-4 text-justify leading-7">{medicine_summary}</p>
+            <p className="font-medium text-black-2 tracking-wide text-sm lg:text-base">Availability: {available_quantity === sellQuantity ? <span className="text-red-500">Out of Stock</span> : <span className="text-my-primary">In Stock</span>}</p>
+            <p className="text-gray-4 text-justify text-sm lg:text-base lg:leading-7 w-full">{medicine_summary}</p>
             <div className="border border-gray-3 py-5 px-3 rounded-md font-semibold flex items-center justify-around">
-              <span className="text-lg tracking-wide">Quantity:</span>
+              <span className="text-base lg:text-lg tracking-wide">Quantity:</span>
               <div className="border border-gray-3 rounded-full w-fit py-3 px-5 flex items-center justify-between gap-5">
                 <button type="button" disabled={quantity <= 1} onClick={() => setQuantity(quantity - 1)} className="cursor-no-drop">
                   <HiMinus />
@@ -180,20 +163,12 @@ const MedicineDetails = () => {
       {/* Description & reviews */}
       <div className="my-container bg-white mt-10 rounded-md">
         <div className="lg:flex gap-8">
-          <div
-            className={`${
-              descrptn ? "border-b-[3px]" : ""
-            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
-          >
+          <div className={`${descrptn ? "border-b-[3px]" : ""} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
             <button type="button" onClick={handleDescriptionBtn}>
               Description
             </button>
           </div>
-          <div
-            className={`${
-              reviews ? "border-b-[3px]" : ""
-            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
-          >
+          <div className={`${reviews ? "border-b-[3px]" : ""} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
             <button type="button" onClick={handleReviewsBtn}>
               Reviews
             </button>
@@ -203,9 +178,9 @@ const MedicineDetails = () => {
         <div className="overflow-hidden relative">
           {/* description */}
           <div className={`${descrptn ? "block" : "hidden"} transition-all duration-500 max-w-[100vw]`}>
-            <p className="text-gray-4 leading-7 lg:leading-8 pt-6 lg:pt-8">{HtmlParser(description)}</p>
+            <p className="lg:leading-8 pt-6 lg:pt-8">{HtmlParser(medicine_description)}</p>
             <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
-              <h3 className="text-xl lg:text-2xl font-semibold tracking-wide text-black-2">Product Features</h3>
+              <h3 className="text-xl lg:text-2xl font-medium lg:font-semibold tracking-wide text-black-2">Product Features</h3>
               <div>{HtmlParser(feature_with_details)}</div>
             </div>
           </div>
@@ -231,9 +206,12 @@ const MedicineDetails = () => {
           </div>
         </div>
       </div>
+      {/* Related Medicines */}
       <div className="my-container bg-white mt-10 rounded-md ">
         <RelatedMedicines category={category?.value} />
       </div>
+      <WorkInfo />
+      <NewsLetter />
     </section>
   );
 };
