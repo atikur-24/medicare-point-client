@@ -83,7 +83,7 @@ const UploadPrescription = () => {
                       <p>% OFF</p>
                     </div>
                   )}
-                  <img className=" h-20" src={m.image} alt="medicine" />
+                  <img className="w-20 h-20" src={m.image} alt="medicine" />
                 </div>
 
                 <div role="button" tabIndex="0" onClick={() => handleAddToCart(m)} type="button">
@@ -117,7 +117,7 @@ const UploadPrescription = () => {
                     <span className="text-red-500">X</span>
                   </button>
                   <div className="relative bg-primary">
-                    <img className=" h-20" src={m.image} alt="medicine" />
+                    <img className="w-20 h-20" src={m.image} alt="medicine" />
                   </div>
                 </div>
 
