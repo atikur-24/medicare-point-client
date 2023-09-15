@@ -11,7 +11,7 @@ import { AuthContext } from "../../../../contexts/AuthProvider";
 import "./Notification.css";
 
 const Notification = () => {
-  const { user } = useContext(AuthContext);
+  const { user, role } = useContext(AuthContext);
 
   const [loading, setLoading] = useState(false);
 
@@ -20,7 +20,7 @@ const Notification = () => {
 
   useEffect(() => {
     const email = user?.email || "";
-    dispatch(fetchNotificationsByEmail(email));
+    dispatch(fetchNotificationsByEmail({ email, role }));
   }, [user?.email, dispatch, loading]);
 
   const handleDelete = (id) => {
@@ -34,7 +34,7 @@ const Notification = () => {
   };
 
   return (
-    <div className="hide-scrollbar border border-gray-3 p-5 mt-10 w-96 absolute top-14 right-5 rounded-lg z-20 bg-card h-auto max-h-[85%] overflow-y-scroll ">
+    <div className="hide-scrollbar border border-gray-3 p-5 mt-8 w-96 absolute top-14 right-5 rounded-lg z-30 bg-card h-auto max-h-[85vh] overflow-y-scroll ">
       <h3 className="text-xl lg:text-xl  font-extrabold  uppercase font-nunito border-b pb-1 mb-4 border-my-primary">Notifications</h3>
 
       <div>
@@ -46,7 +46,7 @@ const Notification = () => {
             >
               <img className="w-14 h-14 rounded-full ring-offset-2 ring-2 ring-info" src={n?.photoURL} alt="notification icon" />
               <div className="">
-                <h4 className="font-semibold">New {n?.name} order</h4>
+                <h4 className="font-semibold">{n?.name}</h4>
                 <p>{n?.deliveryTime}</p>
                 <p className="text-my-primary text-sm">{n?.date}</p>
                 <Lottie

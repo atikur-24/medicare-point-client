@@ -44,15 +44,15 @@ const HealthTipsDetails = () => {
   }, [diseaseDetails, healthTips]);
 
   return (
-    <div className="my-8 p-8">
-      <div className="mx-2 lg:mx-60">
+    <div className="my-container">
+      <div className="mx-2">
         <h1 className="text-3xl font-bold my-4">{diseaseDetails.name} Cause,Prevention and Cure</h1>
         <h2 className="text-2xl font-semibold my-4">
           {diseaseDetails.doctorName} ({diseaseDetails.doctorDepartment})
         </h2>
         <h1 className="text-sm italic my-4">Date:{diseaseDetails.date}</h1>
         <div className="grid grid-cols-1 md:grid-cols-1 justify-center items-center md:space-y-6">
-          <img className="h-96 w-full my-1 md:my-8" src={diseaseDetails.image} alt="" />
+          <img className="h-[70%] max-w-4xl mx-auto my-1 md:my-8" src={diseaseDetails.image} alt="" />
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 items-center mt-5">
             <div className="h-full p-1">
               <h3 className="text-2xl font-semibold my-2">Type of the disease</h3>
@@ -60,7 +60,7 @@ const HealthTipsDetails = () => {
             </div>
             <div className=" h-full p-1">
               <h3 className="text-2xl font-semibold my-2">Cause of the disease</h3>
-              <p>{diseaseDetails.cause}</p>
+              <p>{HtmlParser(diseaseDetails.cause)}</p>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@ const HealthTipsDetails = () => {
           </div>
         </div>
       </div>
-      <h2 className="text-3xl font-bold text-center m-4 p-2 lg:m-9 lg:p-6">Explore Tips for Similar Health Conditions</h2>
+      <h2 className="text-3xl font-bold text-left m-2 mt-4 p-2 lg:mt-6 lg:py-2">Explore Tips for Similar Health Conditions</h2>
       <Swiper
         pagination={{
           clickable: true,
@@ -90,7 +90,7 @@ const HealthTipsDetails = () => {
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 20, // Increase the spacing between slides on tablets
           },
           1024: {
@@ -105,24 +105,26 @@ const HealthTipsDetails = () => {
         className="mySwiper"
       >
         {categories.map((healthTip) => (
-          <SwiperSlide className="mx-auto" key={healthTip._id}>
-            <div className="mx-auto">
-              <div key={healthTip._id} className="card card-compact h-96 w-full bg-base-100 shadow-xl my-4 mx-4 p-4">
-                <figure>
-                  <img src={healthTip.image} alt="Shoes" />
-                </figure>
-                <div className="card-body mt-4">
-                  <h2 className="card-title">{healthTip.name}</h2>
-                  <p className="mt-2">{healthTip.cause.slice(0, 50)}...</p>
-                  <Link to={`/healthtips/${healthTip._id}`} className="flex justify-center mt-4">
-                    <button type="button" className="my-btn w-full" style={{ borderRadius: "50px" }}>
-                      <MdOutlineTipsAndUpdates className="text-2xl" /> Get Tips
-                    </button>
-                  </Link>
+          <div key={healthTip._id} className="mx-auto container">
+            <SwiperSlide className=" container">
+              <div>
+                <div key={healthTip._id} className="card card-compact h-80 w-full bg-base-100 shadow-xl my-4">
+                  <figure className="w-full object-cover">
+                    <img className="w-full" src={healthTip.image} alt="Shoes" />
+                  </figure>
+                  <div className="card-body mt-1">
+                    <h2 className="text-base font-bold">{healthTip.name}</h2>
+                    <p className="mt-2">{HtmlParser(healthTip.cause.slice(0, 45))}...</p>
+                    <Link to={`/healthtips/${healthTip._id}`} className="flex justify-center mt-4">
+                      <button type="button" className="my-btn w-full" style={{ borderRadius: "50px" }}>
+                        <MdOutlineTipsAndUpdates className="text-2xl" /> Get Tips
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
+            </SwiperSlide>
+          </div>
         ))}
       </Swiper>
     </div>

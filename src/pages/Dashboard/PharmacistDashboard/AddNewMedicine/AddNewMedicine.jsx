@@ -41,6 +41,7 @@ const categories = [
 
 const tags = [
   { value: "Healthy", label: "Healthy" },
+  { value: "Wellness", label: "Wellness" },
   { value: "Covid", label: "Covid" },
   { value: "Personal", label: "Personal" },
   { value: "Baby", label: "Baby" },
@@ -53,7 +54,8 @@ const AddNewMedicine = () => {
   const editor = useRef(null);
   const [content, setContent] = useState("");
   const [description, setDescription] = useState("");
-  const [error, setError] = useState("");
+  const [errorFeature, setErrorFeature] = useState("");
+  const [errorDesc, setErrorDesc] = useState("");
 
   const { register, control, handleSubmit, reset, setValue } = useForm();
 
@@ -64,15 +66,22 @@ const AddNewMedicine = () => {
 
   const onSubmit = (data) => {
     if (!content) {
-      setError("Please fill out medicine feature field");
+      setErrorDesc("");
+      setErrorFeature("Please fill out medicine feature field");
       return;
     }
-    setError("");
+    if (!description) {
+      setErrorFeature("");
+      setErrorDesc("Please fill out medicine description field");
+      return;
+    }
+    setErrorFeature("");
+    setErrorDesc("");
     const date = moment().format("L");
     data.price = parseFloat(data.price, 10);
     data.discount = parseInt(data.discount, 10);
     data.available_quantity = parseInt(data.available_quantity, 10);
-    const allData = { ...data, feature_with_details: content, description, sellQuantity: 0, allRatings: [], rating: 0, status: "pending", feedback: "", date };
+    const allData = { ...data, feature_with_details: content, medicine_description: description, sellQuantity: 0, allRatings: [], rating: 0, status: "pending", feedback: "", date };
     axios
       .post("http://localhost:5000/medicines", allData)
       .then((res) => {
@@ -140,11 +149,7 @@ const AddNewMedicine = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
           <div className="w-full md:max-w-full lg:max-w-md">
             <span>Medicine Category</span>
-            <Controller
-              name="category"
-              control={control}
-              render={({ field }) => <Select isClearable required {...field} options={categories} placeholder="Select category" noOptionsMessage={() => "No category found"} />}
-            />
+            <Controller name="category" control={control} render={({ field }) => <Select isClearable required {...field} options={categories} placeholder="Select category" noOptionsMessage={() => "No category found"} />} />
           </div>
           <div className="w-full md:max-w-full lg:max-w-md">
             <span>
@@ -197,12 +202,12 @@ const AddNewMedicine = () => {
             Medicine Features & Details <small>(you can write multiple features with details)</small>
           </h4>
           <JoditEditor ref={editor} value={content} onChange={(newContent) => setContent(newContent)} />
-          <small className="text-red-500">{error}</small>
+          <small className="text-red-500">{errorFeature}</small>
         </div>
         <div>
           <h4>Medicine Description</h4>
           <JoditEditor ref={editor} value={description} onChange={(newContent) => setDescription(newContent)} />
-          <small className="text-red-500">{error}</small>
+          <small className="text-red-500">{errorDesc}</small>
         </div>
         <div className="pt-5 lg:pt-10 flex items-center justify-center gap-10">
           <button className="submit-btn" type="submit">
