@@ -39,7 +39,7 @@ const MedicineCartItem = ({ item, refetch }) => {
           <img className="w-20 h-20 lg:w-28 lg:h-28 object-cover" src={image} alt="medicine" />
         </div>
         <div>
-          <h5 className="text-xl font-medium">{medicine_name}</h5>
+          <h5 className=" md:text-xl font-medium">{medicine_name}</h5>
           <small className="text-gray-4">By {category}</small>
           <small className="text-gray-4 block">1 {order_quantity}</small>
           <div className="flex flex-col md:flex-row gap-1 md:gap-8 ">
@@ -51,7 +51,7 @@ const MedicineCartItem = ({ item, refetch }) => {
               ""
             )}
             {discount !== 0 ? <p className="text-red-400 font-medium">- {discount} OFF</p> : ""}
-            <p className="text-black-2 font-medium inline-flex items-center">TK {price - discount}</p>
+            <p className="text-black-2 text-sm md:text-md  font-medium inline-flex items-center">TK {price - discount}</p>
           </div>
         </div>
       </div>

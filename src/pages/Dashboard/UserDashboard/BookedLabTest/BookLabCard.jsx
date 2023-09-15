@@ -1,5 +1,17 @@
+import { MdLocationSearching } from "react-icons/md";
+import Swal from "sweetalert2";
+
 const BookLabCard = ({ book, isOpen, toggleOpen }) => {
   const { test_name, remaining, email, mobile, dateTime } = book || {};
+
+  const handlerAlert = () => {
+    Swal.fire({
+      icon: "info",
+      title: "Sample collector on the way",
+      text: "Please Wait...",
+      showConfirmButton: true,
+    });
+  };
 
   return (
     <div className="pb-6">
@@ -31,7 +43,7 @@ const BookLabCard = ({ book, isOpen, toggleOpen }) => {
             <li className="step lg:w-36 xl:w-40 2xl:w-64  step-success">
               Book <br /> Received
             </li>
-            <li className="step   ">
+            <li className="step step-success  ">
               Book <br /> confirmation
             </li>
             <li className="step  ">
@@ -42,14 +54,27 @@ const BookLabCard = ({ book, isOpen, toggleOpen }) => {
             </li>
           </ul>
         </div>
-        <button onClick={toggleOpen} type="button" className="my-btn text-left block xl:hidden">
-          Track Order
+
+        <button onClick={handlerAlert} className="my-btn !hidden xl:!block" type="button">
+          Lab Report
         </button>
+
+        <div className=" xl:hidden">
+          <div className="flex items-center gap-3">
+            <button onClick={toggleOpen} type="button" className="my-btn text-left ">
+              <MdLocationSearching className="text-2xl" /> Track Order
+            </button>
+            <button onClick={handlerAlert} className="my-btn" type="button">
+              Lab Report
+            </button>
+          </div>
+        </div>
+
         {isOpen && (
           <div className="xl:hidden">
             <ul className="steps steps-vertical">
               <li className="step   step-success">Book Received</li>
-              <li className="step   ">Book confirmation</li>
+              <li className="step  step-success  ">Book confirmation</li>
               <li className="step  ">Home Sample Collection</li>
               <li className="step ">Report Generation</li>
             </ul>

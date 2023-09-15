@@ -1,24 +1,24 @@
 .jodit-status-bar {
-    @apply hidden !important;
+  @apply hidden !important;
 }
 
 .add-blog-form {
-    /* background-color: aqua; */
-    @apply mx-5 px-5 text-gray-4 text-lg;
+  /* background-color: aqua; */
+  @apply text-gray-4 text-lg;
 }
 
 .add-blog-form input {
-    @apply w-full border-2 border-gray-3 outline-my-accent;
+  @apply w-full border-2 border-gray-3 outline-my-accent;
 }
 
 .add-blog-form .date {
-    @apply w-full;
+  @apply w-full;
 }
 
 .add-blog-form .blog-btn {
-    @apply mx-[5px] px-3 py-[2px] text-center rounded-sm font-semibold text-white transition-all duration-300
+  @apply mx-[5px] px-3 py-[2px] text-center rounded-sm font-semibold text-white transition-all duration-300;
 }
 
 .jodit-wysiwyg {
-    @apply px-7
+  @apply px-7;
 }

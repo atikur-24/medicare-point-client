@@ -6,7 +6,7 @@ import rewordIcon from "../../../assets/Dashboard-icons/reward.png";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
 const DashBoardNavbar = ({ setShowNotification, showNotification }) => {
-  const { role } = useContext(AuthContext);
+  const { role, user } = useContext(AuthContext);
   // if (!role) {
   //   return <p>loading........</p>;
   // }
@@ -48,7 +48,9 @@ const DashBoardNavbar = ({ setShowNotification, showNotification }) => {
         )}
 
         <NavLink to="/dashboard/profile">
-          <img className="rounded-full w-10 h-10" src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png" alt="" />
+          <figure>
+            <img alt="User" className="w-8 h-8 object-cover rounded-full ring ring-my-primary  ring-offset-2" src={user?.photoURL} />
+          </figure>
         </NavLink>
       </div>
     </div>
