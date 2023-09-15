@@ -42,6 +42,7 @@ const categories = [
 
 const tags = [
   { value: "Healthy", label: "Healthy" },
+  { value: "Wellness", label: "Wellness" },
   { value: "Covid", label: "Covid" },
   { value: "Personal", label: "Personal" },
   { value: "Baby", label: "Baby" },
@@ -51,11 +52,11 @@ const tags = [
 
 const UpdateMedicine = () => {
   const existingData = useLoaderData();
-  const { feature_with_details, description } = existingData || {};
+  const { feature_with_details, medicine_description } = existingData || {};
   const { user } = useAuth();
   const editor = useRef(null);
   const [content, setContent] = useState("");
-  const [medi_description, setDescription] = useState("");
+  const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
   const { register, control, handleSubmit, setValue } = useForm();
@@ -68,8 +69,8 @@ const UpdateMedicine = () => {
       }
     }
     setContent(feature_with_details);
-    setDescription(description);
-  }, [existingData, setValue, feature_with_details, description]);
+    setDescription(medicine_description);
+  }, [existingData, setValue, feature_with_details, medicine_description]);
 
   const onSubmit = (data) => {
     const date = moment().format("L");
@@ -83,7 +84,7 @@ const UpdateMedicine = () => {
       });
       return;
     }
-    const updateData = { ...data, feature_with_details: content, updatedDate: date };
+    const updateData = { ...data, feature_with_details: content, medicine_description: description, updatedDate: date };
 
     axios
       .put(`http://localhost:5000/update-medicine/${data._id}`, updateData)
@@ -142,11 +143,7 @@ const UpdateMedicine = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
           <div className="w-full md:max-w-full lg:max-w-md">
             <span>Medicine Category</span>
-            <Controller
-              name="category"
-              control={control}
-              render={({ field }) => <Select isClearable required {...field} options={categories} placeholder="Select category" noOptionsMessage={() => "No category found"} />}
-            />
+            <Controller name="category" control={control} render={({ field }) => <Select isClearable required {...field} options={categories} placeholder="Select category" noOptionsMessage={() => "No category found"} />} />
           </div>
           <div className="w-full md:max-w-full lg:max-w-md">
             <span>
@@ -194,7 +191,7 @@ const UpdateMedicine = () => {
           <span>Medicine Summary</span>
           <textarea required {...register("medicine_summary", { required: true })} className="textarea textarea-bordered h-28 w-full resize-none" placeholder="Medicine description" />
         </div>
-        <div>
+        <div className="pb-6">
           <h4>
             Medicine Features & Details <small>(you can write multiple features with details)</small>
           </h4>
@@ -202,7 +199,7 @@ const UpdateMedicine = () => {
         </div>
         <div>
           <h4>Medicine Description</h4>
-          <JoditEditor ref={editor} value={medi_description} onChange={(newContent) => setDescription(newContent)} />
+          <JoditEditor ref={editor} value={description} onChange={(newContent) => setDescription(newContent)} />
         </div>
         <div className="pt-5 lg:pt-10 text-center">
           <button className="submit-btn" type="submit">

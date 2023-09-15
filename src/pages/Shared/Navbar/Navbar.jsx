@@ -3,6 +3,8 @@
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
+import { BiLogInCircle } from "react-icons/bi";
+import { CgUserlane } from "react-icons/cg";
 import { HiOutlineLogout } from "react-icons/hi";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -92,12 +94,18 @@ const Navbar = () => {
                       </button>
                     </div>
                   ) : (
-                    <div>
+                    <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
                       <Link className=" font-semibold text-neutral-600" to="/login">
-                        <MenuItem>Login</MenuItem>
+                        <MenuItem className="gap-4 items-center">
+                          <BiLogInCircle className="text-3xl" />
+                          Login
+                        </MenuItem>
                       </Link>
                       <Link className=" font-semibold text-neutral-600" to="/signUp">
-                        <MenuItem>Sign Up</MenuItem>
+                        <MenuItem className="gap-4 items-center">
+                          <CgUserlane className="text-3xl" />
+                          Sign Up
+                        </MenuItem>
                       </Link>
                     </div>
                   )}

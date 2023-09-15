@@ -5,10 +5,10 @@ import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import axios from "axios";
+import moment from "moment";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiOutlineDown } from "react-icons/ai";
-import { BiSolidCameraPlus } from "react-icons/bi";
 import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
 import { LiaAngleRightSolid } from "react-icons/lia";
@@ -19,13 +19,19 @@ import { Link, useSearchParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { addImageToDBApi } from "../../Features/Images/addImageToDB";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
+import { addNotificationApi } from "../../Features/Notifications/addNotification";
 import { uploadImageApi } from "../../Features/UploadImage/uploadImage";
 import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
 import MediCard from "../Shared/Card/MediCard";
+import NewsLetter from "../Shared/medicine/NewsLetter";
 import TopRatedMedicine from "../Shared/medicine/TopRatedMedicine";
-import MediContact from "./MediContact";
+import WorkInfo from "../Shared/medicine/WorkInfo";
 import MediRequest from "./MediRequest";
+import PrescriptionBtn from "./PrescriptionBtn";
+
+// const orderDate = moment().format("Do MMM YY");
+const dateAndTime = moment().format("Do MMM YY, h:mm a");
 
 const Medicines = () => {
   const { user } = useContext(AuthContext);
@@ -60,7 +66,7 @@ const Medicines = () => {
     setIsOpen(fCategory);
   };
 
-  const medicineParPage = 9;
+  const medicineParPage = 16;
   const startIndex = currentPage * medicineParPage;
   const endIndex = startIndex + medicineParPage;
   const PaginationMedicines = medicines.slice(startIndex, endIndex);
@@ -74,14 +80,10 @@ const Medicines = () => {
   const filterItems = (
     <div>
       <div className="rounded border border-gray-3 bg-white">
-        <h3 className="text-title-color text-lg lg:text-xl font-medium lg:font-bold pl-3 py-3 font-nunito uppercase border-l-2 border-my-primary">Medicine Categories</h3>
+        <h3 className="text-title-color text-lg lg:text-xl font-medium lg:font-extrabold pl-3 py-3 font-nunito uppercase border-l-4 border-my-primary">Medicine Categories</h3>
         <div className="px-6 text-sm border-t border-gray-3 divide-y divide-gray-3 text-gray-7 font-medium lg:text-base">
           <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
-            <Link
-              onClick={() => setIsOpen("allMedicine")}
-              to="/medicines"
-              className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "allMedicine" ? "text-my-accent underline" : ""}`}
-            >
+            <Link onClick={() => setIsOpen("allMedicine")} to="/medicines" className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "allMedicine" ? "text-my-accent underline" : ""}`}>
               <LiaAngleRightSolid /> All Medicines
             </Link>
           </button>
@@ -127,18 +129,10 @@ const Medicines = () => {
           >
             <LiaAngleRightSolid /> Laundry Household
           </button>
-          <button
-            type="button"
-            onClick={() => handelCategoryFilter("Skin-Care")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Skin-Care" ? "text-my-accent underline" : ""}`}
-          >
+          <button type="button" onClick={() => handelCategoryFilter("Skin-Care")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Skin-Care" ? "text-my-accent underline" : ""}`}>
             <LiaAngleRightSolid /> Skin Care
           </button>
-          <button
-            type="button"
-            onClick={() => handelCategoryFilter("Eye-Care")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Eye-Care" ? "text-my-accent underline" : ""}`}
-          >
+          <button type="button" onClick={() => handelCategoryFilter("Eye-Care")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Eye-Care" ? "text-my-accent underline" : ""}`}>
             <LiaAngleRightSolid /> Eye Care
           </button>
           <button
@@ -155,11 +149,7 @@ const Medicines = () => {
           >
             <LiaAngleRightSolid /> Men's Products
           </button>
-          <button
-            type="button"
-            onClick={() => handelCategoryFilter("Vitamins")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Vitamins" ? "text-my-accent underline" : ""}`}
-          >
+          <button type="button" onClick={() => handelCategoryFilter("Vitamins")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Vitamins" ? "text-my-accent underline" : ""}`}>
             <LiaAngleRightSolid /> Vitamins
           </button>
           <button
@@ -176,11 +166,7 @@ const Medicines = () => {
           >
             <LiaAngleRightSolid /> Bone Health care
           </button>
-          <button
-            type="button"
-            onClick={() => handelCategoryFilter("Weight")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Weight" ? "text-my-accent underline" : ""}`}
-          >
+          <button type="button" onClick={() => handelCategoryFilter("Weight")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Weight" ? "text-my-accent underline" : ""}`}>
             <LiaAngleRightSolid /> Weight
           </button>
           <button
@@ -190,11 +176,7 @@ const Medicines = () => {
           >
             <LiaAngleRightSolid /> Dental Care
           </button>
-          <button
-            type="button"
-            onClick={() => handelCategoryFilter("Baby-Care")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Baby-Care" ? "text-my-accent underline" : ""}`}
-          >
+          <button type="button" onClick={() => handelCategoryFilter("Baby-Care")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Baby-Care" ? "text-my-accent underline" : ""}`}>
             <LiaAngleRightSolid /> Baby Care
           </button>
         </div>
@@ -219,14 +201,31 @@ const Medicines = () => {
         prescription: prescriptionImg,
         email: user.email,
         patientName: data.name,
+        date: dateAndTime,
+        status: "pending",
       };
 
       dispatch(addImageToDBApi({ imageData, collectionName: "prescription" })).then((res2) => {
         if (res2.payload.insertedId) {
-          Swal.fire("Prescription uploaded!", "As early as possible, we will add the medicines to your cart and send you an email.", "success");
-          setLoading(false);
-          window.my_modal_PrescriptionUpload.close();
-          reset();
+          const notificationData = {
+            name: "New prescription uploaded",
+            senderEmail: user?.email,
+            date: dateAndTime,
+            // time: dateAndTime,
+            photoURL: prescriptionImg,
+            url: "prescriptions",
+            deliveryTime: `${user?.email}`,
+            receiver: "admin",
+          };
+
+          dispatch(addNotificationApi(notificationData)).then((res3) => {
+            if (res3.payload.insertedId) {
+              Swal.fire("Prescription uploaded!", "As early as possible, we will add the medicines to your cart and send you an email.", "success");
+              setLoading(false);
+              window.my_modal_PrescriptionUpload.close();
+              reset();
+            }
+          });
         }
         // console.log(res2.payload);
       });
@@ -242,7 +241,10 @@ const Medicines = () => {
 
   return (
     <section className="bg-lite">
-      <MediRequest />
+      <div className="bg-my-primary py-6 flex items-center justify-center gap-6 lg:gap-10">
+        <MediRequest />
+        <PrescriptionBtn />
+      </div>
       <div className="container mx-auto relative">
         <div className=" flex items-center mx-auto py-5 px-4 md:py-8 lg:pt-10 lg:px-10">
           <button onClick={() => setShowFilter("")} className="lg:hidden" type="button">
@@ -259,9 +261,7 @@ const Medicines = () => {
             </p>
 
             <div className="flex items-center gap-3">
-              <div className="flex flex-col items-center">
-                <BiSolidCameraPlus title="Upload Prescription" onClick={() => window.my_modal_PrescriptionUpload.showModal()} className="text-2xl cursor-pointer" />
-              </div>
+              <div className="flex flex-col items-center">{/* <BiSolidCameraPlus title="Upload Prescription" onClick={() => window.my_modal_PrescriptionUpload.showModal()} className="text-2xl cursor-pointer" /> */}</div>
               <div>
                 <Menu
                   menuButton={
@@ -333,8 +333,9 @@ const Medicines = () => {
         <div className="lg:hidden">
           <TopRatedMedicine />
         </div>
-        <MediContact />
+        <WorkInfo />
       </div>
+      <NewsLetter />
       {/* prescription upload modal */}
       <dialog id="my_modal_PrescriptionUpload" className="modal">
         <div className="modal-box w-96">

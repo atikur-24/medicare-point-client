@@ -48,6 +48,8 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArticles";
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
 import DashboardMedicineDetail from "../pages/Dashboard/AdminDashboard/AllMedicines/DashboardMedicineDetail";
+import AllPrescriptions from "../pages/Dashboard/AdminDashboard/UploadPrescription/AllPrescriptions";
+import UploadPrescription from "../pages/Dashboard/AdminDashboard/UploadPrescription/UploadPrescription";
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
 import RewardPoints from "../pages/Dashboard/UserDashboard/RewardPoints/RewardPoints";
@@ -330,6 +332,14 @@ const router = createBrowserRouter([
         path: "update-health-articles/:id",
         element: <UpdateHealthArticles />,
         loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params?.id}`),
+      },
+      {
+        path: "prescriptions",
+        element: <AllPrescriptions />,
+      },
+      {
+        path: "prescriptions/:email",
+        element: <UploadPrescription />,
       },
     ],
   },
