@@ -1,12 +1,14 @@
+import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
 import { fetchAllUsers } from "../../../../Features/AllUsers/allUsers";
-import { deleteUser } from "../../../../hooks/userApi";
+import Loader from "../../../../components/Loader";
 import AllPharmacistRow from "./AllPharmacistRow";
 
 const AllPharmacists = () => {
   const api = "all-pharmacist/Pharmacist";
-  const { allUsers } = useSelector((state) => state.allUsers);
+  const { allUsers, isLoading } = useSelector((state) => state.allUsers);
 
   const dispatch = useDispatch();
 
@@ -15,8 +17,25 @@ const AllPharmacists = () => {
   }, [dispatch]);
 
   const handelDelete = (id) => {
-    deleteUser(id);
-    dispatch(fetchAllUsers(api));
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Are you Want delete This user?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:5000/delete-user/${id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.deletedCount > 0) {
+            dispatch(fetchAllUsers(api));
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          }
+        });
+      }
+    });
   };
 
   return (
@@ -43,12 +62,15 @@ const AllPharmacists = () => {
             </tr>
           </thead>
 
-          <tbody>
-            {allUsers.map((user, index) => (
-              <AllPharmacistRow handelDelete={handelDelete} key={user?._id} index={index} user={user} />
-            ))}
-          </tbody>
+          {!isLoading && (
+            <tbody>
+              {allUsers.map((user, index) => (
+                <AllPharmacistRow handelDelete={handelDelete} key={user?._id} index={index} user={user} />
+              ))}
+            </tbody>
+          )}
         </table>
+        <div className="mt-44">{isLoading && <Loader spinner />}</div>
       </div>
     </div>
   );
