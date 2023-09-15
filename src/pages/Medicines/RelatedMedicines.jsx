@@ -22,7 +22,7 @@ const RelatedMedicines = ({ category }) => {
 
   return (
     <div className="my-container">
-      <SectionTitle title="Height selling Medicines" content="This is the most bought and used treatment for health issues. Many people trust and use it to feel better." />
+      <SectionTitle title="Related Medicines" content="This is the most bought and used treatment for health issues. Many people trust and use it to feel better." />
       <div className="">
         <Swiper
           breakpoints={{
