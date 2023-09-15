@@ -52,7 +52,7 @@ const HealthTipsDetails = () => {
         </h2>
         <h1 className="text-sm italic my-4">Date:{diseaseDetails.date}</h1>
         <div className="grid grid-cols-1 md:grid-cols-1 justify-center items-center md:space-y-6">
-          <img className="h-[70%] max-w-4xl mx-auto my-1 md:my-8" src={diseaseDetails.image} alt="" />
+          <img className="h-[70%] max-w-md md:max-w-4xl mx-auto my-1 md:my-8" src={diseaseDetails.image} alt="" />
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 items-center mt-5">
             <div className="h-full p-1">
               <h3 className="text-2xl font-semibold my-2">Type of the disease</h3>
