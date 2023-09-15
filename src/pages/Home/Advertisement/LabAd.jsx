@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import lab from "../../../assets/Lab/labAd.png";
+import lab from "../../../assets/Lab/labAd.webp";
 
 const LabAd = () => {
   return (

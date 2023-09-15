@@ -8,11 +8,11 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { fetchAllUsers } from "../../../../Features/AllUsers/allUsers";
-import { deleteUser } from "../../../../hooks/userApi";
+import Loader from "../../../../components/Loader";
 
 const AllUsers = () => {
   const api = "users";
-  const { allUsers } = useSelector((state) => state.allUsers);
+  const { isLoading, allUsers } = useSelector((state) => state.allUsers);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllUsers(api));
@@ -31,8 +31,25 @@ const AllUsers = () => {
   };
 
   const handelDeleteUser = (id) => {
-    deleteUser(id);
-    dispatch(fetchAllUsers(api));
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Are you Want delete This user?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:5000/delete-user/${id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.deletedCount > 0) {
+            dispatch(fetchAllUsers(api));
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          }
+        });
+      }
+    });
   };
 
   const totalAdmin = allUsers.filter((admin) => admin?.role === "admin");
@@ -74,46 +91,49 @@ const AllUsers = () => {
             </tr>
           </thead>
 
-          <tbody>
-            {/* row 1 */}
-            {allUsers.map((user, idx) => (
-              <tr key={user._id} className="">
-                <td className="font-bold text-center">{idx + 1}</td>
-                <td className="flex justify-center">
-                  <img className="w-10 h-10  rounded-full" src={user?.image} alt="" />
-                </td>
-                <td className="font-semibold text-center">{user?.name}</td>
-                <td className="font-semibold text-center">{user?.email}</td>
-                <td className="font-semibold text-center">
-                  <Menu
-                    menuButton={
-                      // eslint-disable-next-line react/jsx-wrap-multilines
-                      <MenuButton className="my-btn !btn-sm !bg-my-accent  !rounded w-full">
-                        {user?.role} <BsChevronDown />
-                      </MenuButton>
-                    }
-                    transition
-                  >
-                    <MenuItem onClick={() => updateRole(user?._id, "user")} disabled={user?.role === "user"} className="font-semibold text-gray-6">
-                      User
-                    </MenuItem>
-                    <MenuItem onClick={() => updateRole(user?._id, "admin")} disabled={user?.role === "admin"} className="font-semibold text-gray-6">
-                      Admin
-                    </MenuItem>
-                    <MenuItem onClick={() => updateRole(user?._id, "Pharmacist")} disabled={user?.role === "Pharmacist"} className="font-semibold text-gray-6">
+          {!isLoading && (
+            <tbody>
+              {/* row 1 */}
+              {allUsers.map((user, idx) => (
+                <tr key={user._id} className="">
+                  <td className="font-bold text-center">{idx + 1}</td>
+                  <td className="flex justify-center">
+                    <img className="w-10 h-10  rounded-full" src={user?.image} alt="" />
+                  </td>
+                  <td className="font-semibold text-center">{user?.name}</td>
+                  <td className="font-semibold text-center">{user?.email}</td>
+                  <td className="font-semibold text-center">
+                    <Menu
+                      menuButton={
+                        // eslint-disable-next-line react/jsx-wrap-multilines
+                        <MenuButton className="my-btn !btn-sm !bg-my-accent  !rounded w-full">
+                          {user?.role} <BsChevronDown />
+                        </MenuButton>
+                      }
+                      transition
+                    >
+                      <MenuItem onClick={() => updateRole(user?._id, "user")} disabled={user?.role === "user"} className="font-semibold text-gray-6">
+                        User
+                      </MenuItem>
+                      <MenuItem onClick={() => updateRole(user?._id, "admin")} disabled={user?.role === "admin"} className="font-semibold text-gray-6">
+                        Admin
+                      </MenuItem>
+                      {/* <MenuItem onClick={() => updateRole(user?._id, "Pharmacist")} disabled={user?.role === "Pharmacist"} className="font-semibold text-gray-6">
                       Pharmacist
-                    </MenuItem>
-                  </Menu>
-                </td>
-                <td className="flex justify-center items-center gap-4">
-                  <button type="button" onClick={() => handelDeleteUser(user?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
-                    <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+                    </MenuItem> */}
+                    </Menu>
+                  </td>
+                  <td className="flex justify-center items-center gap-4">
+                    <button type="button" onClick={() => handelDeleteUser(user?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
+                      <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          )}
         </table>
+        <div className="mt-44">{isLoading && <Loader spinner />}</div>
       </div>
     </div>
   );
