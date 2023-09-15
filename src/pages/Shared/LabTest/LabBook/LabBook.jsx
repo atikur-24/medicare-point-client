@@ -117,8 +117,16 @@ const LabBook = () => {
                 </p>
               </div>
             </div>
-            <div className="card-body items-center text-center p-0 mt-6">
+            <div className=" items-center text-center p-0 mt-6">
               <p className="text-justify text-black-2  tracking-wide">{labTestDetails}</p>
+              <ul className="pl-6 mt-6 text-start text-black-2  tracking-wide list-disc">
+                <li>Age of the patient</li>
+                <li>Existing conditions </li>
+                <li>Estimation of future medical problems</li>
+                <li>Affect of lifestyle on the health </li>
+                <li>Routine screenings </li>
+                <li>Medical history </li>
+              </ul>
             </div>
           </div>
         </div>
