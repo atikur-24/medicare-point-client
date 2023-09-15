@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { BiTimeFive } from "react-icons/bi";
+import { HiOutlineMail } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 const AllPrescriptions = () => {
@@ -12,7 +14,15 @@ const AllPrescriptions = () => {
 
   return (
     <div className="pb-10">
-      <h3>All Prescription</h3>
+  
+      <div className="mb-8">
+        <div className="stats shadow">
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Receive Prescription</div>
+            <div className="stat-value text-my-primary">{allData.length || 0}</div>
+          </div>
+        </div>
+      </div>
       <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-2">
         {allData?.map((p) => (
           <div key={p?._id}>
@@ -20,6 +30,17 @@ const AllPrescriptions = () => {
               <figure className="w-full">
                 <img className="h-64  w-full object-cover" src={p?.prescription} alt="" />
               </figure>
+              <div className="space-y-1">
+                <h2 className="text-sm">{p.patientName}</h2>
+                <h2 className="text-base inline-flex items-center gap-2">
+                  <HiOutlineMail />
+                  {p.email}
+                </h2>
+                <h2 className="text-base inline-flex items-center gap-2">
+                  <BiTimeFive />
+                  {p.date}
+                </h2>
+              </div>
               <div>
                 <Link className="my-btn-outline" to={`/dashboard/prescriptions/${p?.email}`} type="button">
                   Upload Card
