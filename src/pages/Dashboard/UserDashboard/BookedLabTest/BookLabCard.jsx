@@ -1,3 +1,5 @@
+import { MdLocationSearching } from "react-icons/md";
+
 const BookLabCard = ({ book, isOpen, toggleOpen }) => {
   const { test_name, remaining, email, mobile, dateTime } = book || {};
 
@@ -43,7 +45,7 @@ const BookLabCard = ({ book, isOpen, toggleOpen }) => {
           </ul>
         </div>
         <button onClick={toggleOpen} type="button" className="my-btn text-left block xl:hidden">
-          Track Order
+          <MdLocationSearching className="text-2xl" /> Track Order
         </button>
         {isOpen && (
           <div className="xl:hidden">
