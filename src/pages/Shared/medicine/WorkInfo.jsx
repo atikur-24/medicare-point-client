@@ -9,14 +9,14 @@ const WorkInfo = () => {
     <div className="my-container grid xl:grid-cols-5 md:grid-cols-2 gap-4 md:gap-0 lg:gap-0 divide-x divide-gray-3">
       <div className="relative shadow-lg text-center py-10 px-2 space-y-4 bg-card">
         <div className="relative flex justify-center rounded-full w-16 h-16 items-center mx-auto">
-          <div className="border-2 border-my-primary flex animate-spin justify-center rounded-full w-16 h-16 items-center mx-auto border-dotted absolute" />
+          <div className="border-2 border-my-primary flex animate-spin transition-all justify-center rounded-full w-16 h-16 items-center mx-auto border-dotted absolute" />
           <FaTruckFast className="text-my-primary" size={24} />
         </div>
         <p className="font-semibold lg:font-bold tracking-wide">FREE SHIPPING ON ORDER OVER ৳700</p>
       </div>
       <div className="relative shadow-lg text-center py-10 px-2 space-y-4 bg-card">
         <div className="relative flex justify-center rounded-full w-16 h-16 items-center mx-auto">
-          <div className="border-2 border-my-primary flex animate-spin justify-center rounded-full w-16 h-16 items-center mx-auto border-dotted absolute" />
+          <div className="border-2 border-my-primary flex animate-spin transition-all justify-center rounded-full w-16 h-16 items-center mx-auto border-dotted absolute" />
           <LuPhoneCall className="text-my-primary" size={24} />
         </div>
         <p className="font-semibold lg:font-bold tracking-wide">
@@ -25,14 +25,14 @@ const WorkInfo = () => {
       </div>
       <div className="relative shadow-lg text-center py-10 px-2 space-y-4 bg-card">
         <div className="relative flex justify-center rounded-full w-16 h-16 items-center mx-auto">
-          <div className="border-2 border-my-primary flex animate-spin justify-center rounded-full w-16 h-16 items-center mx-auto border-dotted absolute" />
+          <div className="border-2 border-my-primary flex animate-spin transition-all justify-center rounded-full w-16 h-16 items-center mx-auto border-dotted absolute" />
           <TbCurrencyTaka className="text-my-primary" size={24} />
         </div>
         <p className="font-semibold lg:font-bold tracking-wide">100% MONEY BACK GUARANTEE</p>
       </div>
       <div className="relative shadow-lg text-center py-10 px-2 space-y-4 bg-card">
         <div className="relative flex justify-center rounded-full w-16 h-16 items-center mx-auto">
-          <div className="border-2 border-my-primary flex animate-spin justify-center rounded-full w-16 h-16 items-center mx-auto border-dotted absolute" />
+          <div className="border-2 border-my-primary flex animate-spin transition-all justify-center rounded-full w-16 h-16 items-center mx-auto border-dotted absolute" />
           <BsFillBagCheckFill className="text-my-primary" size={24} />
         </div>
         <p className="font-semibold lg:font-bold tracking-wide">SOPPING ON AUTHENTIC MEDICINES</p>
