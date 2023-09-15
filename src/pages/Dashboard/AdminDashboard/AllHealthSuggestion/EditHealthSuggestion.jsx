@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import HtmlParser from "react-html-parser";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import { useDispatch, useSelector } from "react-redux";
@@ -46,7 +47,7 @@ const EditHealthSuggestion = () => {
           <div key={healthTip._id} className="grid grid-cols-1 gap-4 justify-center items-center rounded-2xl box-shadow p-4 border border-gray-3 bg-white">
             <h2 className="text-center items-center gap-3 font-medium text-[16px] tracking-wide">{healthTip.name}</h2>
             <img src={healthTip.image} alt="img" className="h-32 mx-auto" />
-            <p className="text-justify md:h-32">{healthTip.prevention.slice(0, 100)}...</p>
+            <p className="text-justify md:h-32">{HtmlParser(healthTip.cause.slice(0, 100))}...</p>
             <div className="space-x-1 flex justify-center gap-4">
               <Link to={`/dashboard/update-health-tips/${healthTip._id}`}>
                 <label className="btn btn-circle btn-sm bg-my-primary text-white hover:bg-my-accent">
