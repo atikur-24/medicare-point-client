@@ -51,7 +51,7 @@ const ResponsiveNavbar = ({ menuItems }) => {
 
   return (
     <div className="">
-      <div className="px-4 flex items-center justify-between gap-2 w-full py-4">
+      <div className="px-4 flex items-center justify-between gap-1 w-full py-4">
         <div onClick={() => setIsOpen("")}>
           <RiMenu2Line className=" text-my-accent w-6 h-6 cursor-pointer " />
         </div>
@@ -78,13 +78,13 @@ const ResponsiveNavbar = ({ menuItems }) => {
               <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
                 <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
                   <MenuItem className="gap-4 items-center">
-                    <MdOutlineDashboardCustomize className="text-3xl" />
+                    <MdOutlineDashboardCustomize className="text-xl" />
                     Dashboard
                   </MenuItem>
                 </NavLink>
                 <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
                   <MenuItem className="gap-4 items-center">
-                    <HiOutlineLogout className="text-3xl" /> Log Out
+                    <HiOutlineLogout className="text-xl" /> Log Out
                   </MenuItem>
                 </button>
               </div>
@@ -92,13 +92,13 @@ const ResponsiveNavbar = ({ menuItems }) => {
               <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
                 <Link className=" font-semibold text-neutral-600" to="/login">
                   <MenuItem className="gap-4 items-center">
-                    <BiLogInCircle className="text-3xl" />
+                    <BiLogInCircle className="text-xl" />
                     Login
                   </MenuItem>
                 </Link>
                 <Link className=" font-semibold text-neutral-600" to="/signUp">
                   <MenuItem className="gap-4 items-center">
-                    <CgUserlane className="text-3xl" />
+                    <CgUserlane className="text-xl" />
                     Sign Up
                   </MenuItem>
                 </Link>
