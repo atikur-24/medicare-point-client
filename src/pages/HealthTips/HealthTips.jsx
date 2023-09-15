@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
-import helth from "../../assets/Blog/helth.png";
+import helth from "../../assets/Blog/helth.webp";
 import HealthCard from "./HealthCard";
 
 const HealthTips = () => {
@@ -47,9 +47,9 @@ const HealthTips = () => {
     <div className="bg-card ">
       <img src={helth} alt="" />
       {/* <h1 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold my-4 mx-2">Health Tips: Your Guide to a Balanced Lifestyle</h1> */}
-      <div className="flex flex-col sm:flex-row container mx-auto py-10">
+      <div className="flex flex-col xl:flex-row container mx-auto py-10">
         {/* Sidebar */}
-        <div className="w-1/5 p-6 bg-white border border-gray-3 h-full object-cover hidden md:block  m-4 rounded-md">
+        <div className="w-1/5 p-6 bg-white border border-gray-3 h-full object-cover hidden xl:block  m-4 rounded-md">
           <Link to="/healthtips">
             <h2 className="lg:text-2xl md:text-lg text-left uppercase font-extrabold mb-2 font-nunito">Categories</h2>
           </Link>
@@ -68,7 +68,7 @@ const HealthTips = () => {
             ))}
           </ul>
         </div>
-        <div className="w-full md:w-1/5 p-4    block md:hidden ">
+        <div className="w-full xl:w-1/5 p-4    block xl:hidden ">
           <h2 className="text-2xl uppercase font-extrabold mb-2 font-nunito">Categories</h2>
           <select className="w-full border z-10  overflow-hidden rounded-md mb-2 select select-bordered" value={selectedCategory || ""} onChange={handleCategoryChange}>
             <option value="" className="z-10">
@@ -83,8 +83,8 @@ const HealthTips = () => {
         </div>
 
         {/* Main Content */}
-        <div className="md:w-4/5 w-full p-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:mx-8 md:mx-2 mx-auto items-center">
+        <div className="xl:w-4/5 w-full p-4">
+          <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4 lg:mx-8 md:mx-2 mx-auto items-center">
             {paginatedHealthTips.map((healthTip) => (
               <HealthCard key={healthTip._id} healthTip={healthTip} />
             ))}
