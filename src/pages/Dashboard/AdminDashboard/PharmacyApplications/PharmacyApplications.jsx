@@ -16,11 +16,10 @@ const PharmacyApplications = () => {
             <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-lg">
               <tr className="text-center rounded-t-md">
                 <th className="rounded-tl-md">#</th>
-                <th>Pharmacist Photo</th>
+                <th>Pharmacist</th>
                 <th>Pharmacy Name</th>
-                <th>Pharmacist Name</th>
                 <th>Division</th>
-                <th>Application Type</th>
+                <th>Type</th>
                 <th>Delete</th>
                 <th className="rounded-tr-md">Detail</th>
               </tr>
@@ -31,15 +30,17 @@ const PharmacyApplications = () => {
               {applications.map((application, idx) => (
                 <tr key={application._id} className="">
                   <td className="font-bold text-center">{idx + 1}</td>
-                  <td className="flex justify-center">
+                  <td className="flex justify-center items-center flex-col">
                     <img className="w-10 h-10 rounded-full" src={application?.pharmacistImage} alt="" />
+                    <p>{application?.pharmacistName}</p>
                   </td>
 
                   <td className="font-semibold text-center">{application?.pharmacyName}</td>
-                  <td className="font-semibold text-center">{application?.pharmacistName}</td>
                   <td className="font-semibold text-center">{application?.division}</td>
                   <td
-                    className={` font-semibold text-center capitalize text-[#f1b84d] ${application.applicationType === "Approved" ? "text-my-primary" : ""} ${application?.applicationType === "deny" ? "text-red-500" : ""} `}
+                    className={` font-semibold text-center capitalize text-[#f1b84d] ${application.applicationType === "Approved" ? "text-my-primary" : ""} ${
+                      application?.applicationType === "deny" ? "text-red-500" : ""
+                    } `}
                   >
                     {application?.applicationType}
                   </td>
@@ -50,10 +51,7 @@ const PharmacyApplications = () => {
                   </td>
                   <td>
                     <Link to={`/dashboard/pharmacyRegistration/${application?._id}`}>
-                      <button
-                        className="cart-btn-outline"
-                        type="button"
-                      >
+                      <button className="cart-btn-outline" type="button">
                         View Detail
                       </button>
                     </Link>
