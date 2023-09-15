@@ -40,7 +40,8 @@ const UploadPrescription = () => {
   const handleUploadToDB = (e) => {
     e.preventDefault();
     dispatch(addPrescriptionCardApi(cart)).then(() => {
-      toast("Added to cart");
+      setCart([]);
+      toast.success("Added to cart");
     });
   };
 
