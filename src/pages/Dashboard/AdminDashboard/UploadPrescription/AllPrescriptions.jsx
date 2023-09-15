@@ -14,7 +14,6 @@ const AllPrescriptions = () => {
 
   return (
     <div className="pb-10">
-  
       <div className="mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
