@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { Link } from "react-router-dom";
-import helth from "../../assets/Blog/helth.png";
+import helth from "../../assets/Blog/helth.webp";
 import HealthCard from "./HealthCard";
 
 const HealthTips = () => {

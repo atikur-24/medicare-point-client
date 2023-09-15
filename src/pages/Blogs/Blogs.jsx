@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import blogImage from "../../assets/Blog/blog.png";
+import blogImage from "../../assets/Blog/blog.webp";
 import Blog from "./Blog";
 import "./Blog.css";
 
