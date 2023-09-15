@@ -83,13 +83,13 @@ const Navbar = () => {
                     <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
                       <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
                         <MenuItem className="gap-4 items-center">
-                          <MdOutlineDashboardCustomize className="text-3xl" />
+                          <MdOutlineDashboardCustomize className="text-xl 2xl:text-3xl" />
                           Dashboard
                         </MenuItem>
                       </NavLink>
                       <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
                         <MenuItem className="gap-4 items-center">
-                          <HiOutlineLogout className="text-3xl" /> Log Out
+                          <HiOutlineLogout className="text-xl 2xl:text-3xl" /> Log Out
                         </MenuItem>
                       </button>
                     </div>
@@ -97,13 +97,13 @@ const Navbar = () => {
                     <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
                       <Link className=" font-semibold text-neutral-600" to="/login">
                         <MenuItem className="gap-4 items-center">
-                          <BiLogInCircle className="text-3xl" />
+                          <BiLogInCircle className="text-xl 2xl:text-3xl" />
                           Login
                         </MenuItem>
                       </Link>
                       <Link className=" font-semibold text-neutral-600" to="/signUp">
                         <MenuItem className="gap-4 items-center">
-                          <CgUserlane className="text-3xl" />
+                          <CgUserlane className="text-xl 2xl:text-3xl" />
                           Sign Up
                         </MenuItem>
                       </Link>

@@ -2,7 +2,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { BsGrid1X2Fill, BsImage } from "react-icons/bs";
-import { FaCaretDown, FaCaretUp, FaUsers, FaWpforms } from "react-icons/fa";
+import { FaCaretDown, FaCaretUp, FaFilePrescription, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
 import { MdAddShoppingCart, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
@@ -148,40 +148,29 @@ const DashboardLayout = () => {
         </NavLink>
       </li>
       <li>
+        <NavLink to="/dashboard/prescriptions" className="dashboard-link">
+          <FaFilePrescription className="dashboard-icon" />
+          <span>Customers Prescription</span>
+        </NavLink>
+      </li>
+      <li>
         <NavLink to="/dashboard/all-users" className="dashboard-link">
           <FaUsers className="dashboard-icon" />
-          <span>All Users</span>
+          <span>Manage Users</span>
         </NavLink>
       </li>
       <li>
         <NavLink to="/dashboard/all-pharmacies" className="dashboard-link">
           <RiUserStarFill className="dashboard-icon" />
-          <span>All Pharmacies</span>
+          <span>Manage Pharmacies</span>
         </NavLink>
       </li>
       <li>
         <NavLink to="/dashboard/all-medicines" className="dashboard-link">
           <GiMedicines className="dashboard-icon" />
-          <span>All Medicines</span>
+          <span>Manage Medicines</span>
         </NavLink>
       </li>
-      <li className="dashboard-link flex">
-        <NavLink to="/dashboard/edit-health-tips" onClick={toggleDropdown2} className="dashboard-link flex cursor-pointer">
-          <RiFileList3Line className="dashboard-icon" />
-          <button type="button">Health Tips</button>
-          <FaCaretDown className={`${showDropdown2 ? "hidden" : "block"} dashboard-icon`} />
-          <FaCaretUp className={`${showDropdown2 ? "block" : "hidden"} dashboard-icon`} />
-        </NavLink>
-        <ul className={`${showDropdown2 ? "block" : "hidden"}`}>
-          <li>
-            <NavLink to="/dashboard/add-health-tips">Add Health Tip</NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/edit-health-tips">Manage Health Tips</NavLink>
-          </li>
-        </ul>
-      </li>
-
       <li className="dashboard-link flex">
         <NavLink to="/dashboard/manage-lab-test" onClick={() => setLabtest(!labtest)} className="dashboard-link flex">
           <GiHypodermicTest className="dashboard-icon" />
@@ -199,6 +188,22 @@ const DashboardLayout = () => {
             <NavLink to="/dashboard/add-lab-test" className="">
               Add a test
             </NavLink>
+          </li>
+        </ul>
+      </li>
+      <li className="dashboard-link flex">
+        <NavLink to="/dashboard/edit-health-tips" onClick={toggleDropdown2} className="dashboard-link flex cursor-pointer">
+          <RiFileList3Line className="dashboard-icon" />
+          <button type="button">Health Tips</button>
+          <FaCaretDown className={`${showDropdown2 ? "hidden" : "block"} dashboard-icon`} />
+          <FaCaretUp className={`${showDropdown2 ? "block" : "hidden"} dashboard-icon`} />
+        </NavLink>
+        <ul className={`${showDropdown2 ? "block" : "hidden"}`}>
+          <li>
+            <NavLink to="/dashboard/add-health-tips">Add Health Tip</NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/edit-health-tips">Manage Health Tips</NavLink>
           </li>
         </ul>
       </li>
