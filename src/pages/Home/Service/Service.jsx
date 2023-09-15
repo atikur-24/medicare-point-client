@@ -9,7 +9,7 @@ const Service = () => {
   return (
     <div className="my-container">
       <SectionTitle title="Our Service" content="We providing you with a trustworthy and convenient source for all your health essentials." />
-      <div className="my-container !py-8 md:py-auto grid grid-cols-1 md:grid-cols-2 text-title-color lg:grid-cols-4">
+      <div className="my-container !py-8 md:py-auto grid grid-cols-1 md:grid-cols-2 text-title-color xl:grid-cols-4">
         <div className="relative flex flex-col justify-center items-center p-10  m-4 group bg-card border border-gray-3 rounded-bl-2xl rounded-tr-2xl">
           <div className=" absolute top-0 left-0 w-28  border-t-4  bg-white border-my-accent" />
           <img className="w-28 group-hover:scale-110 transition-all duration-150" src={userImg} alt="" />

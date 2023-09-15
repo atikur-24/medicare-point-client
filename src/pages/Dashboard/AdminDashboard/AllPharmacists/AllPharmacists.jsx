@@ -44,7 +44,7 @@ const AllPharmacists = () => {
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pharmacists</div>
-            <div className="stat-value text-my-primary">4,200</div>
+            <div className="stat-value text-my-primary">{allUsers.length || 0}</div>
           </div>
         </div>
       </div>
