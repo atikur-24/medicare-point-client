@@ -11,16 +11,20 @@ const AllPrescriptions = () => {
   }, []);
 
   return (
-    <div>
+    <div className="pb-10">
       <h3>All Prescription</h3>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-2">
         {allData?.map((p) => (
           <div key={p?._id}>
-            <div className="border">
-              <img src={p?.prescription} alt="" />
-              <Link className="btn" to={`/dashboard/prescriptions/${p?.email}`} type="button">
-                Upload Card
-              </Link>
+            <div className="border border-gray-3 bg-white rounded-2xl p-4 space-y-4">
+              <figure className="w-full">
+                <img className="h-64  w-full object-cover" src={p?.prescription} alt="" />
+              </figure>
+              <div>
+                <Link className="my-btn-outline" to={`/dashboard/prescriptions/${p?.email}`} type="button">
+                  Upload Card
+                </Link>
+              </div>
             </div>
           </div>
         ))}
