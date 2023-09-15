@@ -117,16 +117,15 @@ const UploadImages = () => {
           </div>
         </div>
 
-        <div className="md:hidden">
-          <BiSolidCloudUpload onClick={() => window.my_modal_ImageUpload.showModal()} className="text-5xl text-my-primary cursor-pointer" />
-        </div>
+        <button onClick={() => window.my_modal_ImageUpload.showModal()} className="md:hidden" title="Upload Image" type="button">
+          <BiSolidCloudUpload className="text-5xl text-my-primary cursor-pointer" /> Upload
+        </button>
 
         <div className="hidden lg:block">
           <div className="md:flex md:justify-around items-center gap-10">
-            <div className="">
-              <BiSolidCloudUpload onClick={() => window.my_modal_ImageUpload.showModal()} className="text-5xl text-my-primary cursor-pointer" />
-            </div>
-
+            <button onClick={() => window.my_modal_ImageUpload.showModal()} title="Upload Image" type="button">
+              <BiSolidCloudUpload className="text-5xl text-my-primary cursor-pointer" /> Upload
+            </button>
             <div className="relative">
               <input
                 onChange={handleSearch}
@@ -136,15 +135,8 @@ const UploadImages = () => {
                 id=""
                 placeholder="Search image by name"
               />
-              {/* <MdImageSearch title="Search image" onClick={() => setISearch(true)} className={` absolute right-2 text-my-primary cursor-pointer ${!isearch ? "text-4xl -top-4" : "text-2xl top-1"}`} /> */}
               <div>
-                <Lottie
-                  animationData={searchIcon}
-                  title="Search image"
-                  onClick={() => setISearch(true)}
-                  className={`  right-2  cursor-pointer ${!isearch ? " h-14 w-14 -top-4" : "h-8 w-8 top-1 absolute"}`}
-                  loop
-                />
+                <Lottie animationData={searchIcon} title="Search image" onClick={() => setISearch(true)} className={`  right-2  cursor-pointer ${!isearch ? " h-14 w-14 -top-4" : "h-8 w-8 top-1 absolute"}`} loop />
               </div>
             </div>
           </div>

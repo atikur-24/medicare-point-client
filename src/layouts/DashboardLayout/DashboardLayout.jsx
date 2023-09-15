@@ -181,7 +181,7 @@ const DashboardLayout = () => {
         <ul className={`${labtest ? "block" : "hidden"}`}>
           <li>
             <NavLink to="/dashboard/manage-lab-test" className="">
-              Available Test
+              Manage Test
             </NavLink>
           </li>
           <li>
@@ -200,17 +200,16 @@ const DashboardLayout = () => {
         </NavLink>
         <ul className={`${showDropdown2 ? "block" : "hidden"}`}>
           <li>
-            <NavLink to="/dashboard/add-health-tips">Add Health Tip</NavLink>
+            <NavLink to="/dashboard/edit-health-tips">Manage Health Tips</NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/edit-health-tips">Manage Health Tips</NavLink>
+            <NavLink to="/dashboard/add-health-tips">Add Health Tip</NavLink>
           </li>
         </ul>
       </li>
 
-      {/* To do  */}
       <li className="dashboard-link flex">
-        <NavLink to="/dashboard/add-blog" onClick={toggleDropdown3} className="dashboard-link flex cursor-pointer">
+        <NavLink to="/dashboard/manage-health-articles" onClick={toggleDropdown3} className="dashboard-link flex cursor-pointer">
           <RiFileList3Line className="dashboard-icon" />
           <button type="button">Blogs</button>
           <FaCaretDown className={`${showDropdown3 ? "hidden" : "block"} dashboard-icon`} />
@@ -218,16 +217,13 @@ const DashboardLayout = () => {
         </NavLink>
         <ul className={`${showDropdown3 ? "block" : "hidden"}`}>
           <li>
-            <NavLink to="/dashboard/add-blog" className="dashboard-link">
-              Add Blog
-            </NavLink>
+            <NavLink to="/dashboard/manage-health-articles">Manage Blogs</NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/manage-health-articles">Manage Blogs</NavLink>
+            <NavLink to="/dashboard/add-blog">Add Blog</NavLink>
           </li>
         </ul>
       </li>
-
       <li>
         <NavLink to="/dashboard/PharmacyApplications" className="dashboard-link">
           <FaWpforms className="dashboard-icon" />

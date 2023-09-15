@@ -8,7 +8,7 @@ import SectionTitle from "../../components/SectionTitle";
 import MediCard from "../Shared/Card/MediCard";
 
 const RelatedMedicines = ({ category }) => {
-  const [relatedMedicine, setReletedMedicine] = useState([]);
+  const [relatedMedicine, setRelatedMedicine] = useState([]);
   const { allData, isLoading } = useSelector((state) => state?.allMedicines);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -17,18 +17,18 @@ const RelatedMedicines = ({ category }) => {
 
   useEffect(() => {
     const filter = allData.filter((medicine) => medicine?.category?.value === category);
-    setReletedMedicine(filter);
+    setRelatedMedicine(filter);
   }, [allData, category]);
 
   return (
-    <div className="my-container">
-      <SectionTitle title="Related Medicines" content="This is the most bought and used treatment for health issues. Many people trust and use it to feel better." />
-      <div className="">
+    <>
+      <h2 className="text-xl lg:text-2xl uppercase font-nunito font-semibold lg:font-bold lg:tracking-wide text-title-color border-l-4 border-my-primary mb-5 lg:mb-8 pl-2">Related Medicines</h2>
+      <div>
         <Swiper
           breakpoints={{
             0: {
-              slidesPerView: 1,
-              spaceBetween: 20,
+              slidesPerView: 2,
+              spaceBetween: 10,
             },
             480: {
               slidesPerView: 2,
@@ -65,7 +65,7 @@ const RelatedMedicines = ({ category }) => {
           ))}
         </Swiper>
       </div>
-    </div>
+    </>
   );
 };
 
