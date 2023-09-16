@@ -237,7 +237,7 @@ const Medicines = () => {
             date: dateAndTime,
             // time: dateAndTime,
             photoURL: prescriptionImg,
-            url: "prescriptions",
+            url: "dashboard/prescriptions",
             deliveryTime: `${user?.email}`,
             receiver: "admin",
           };
@@ -336,7 +336,6 @@ const Medicines = () => {
           </div>
           {isloading ? (
             <div className="mt-10 lg:mt-20">
-
               <Loader spinner />
             </div>
           ) : (

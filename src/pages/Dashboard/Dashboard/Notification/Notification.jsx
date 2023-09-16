@@ -1,7 +1,6 @@
 import Lottie from "lottie-react";
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { MdDelete } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteNotificationsApi } from "../../../../Features/Notifications/deleteNotifications";
@@ -21,7 +20,7 @@ const Notification = () => {
   useEffect(() => {
     const email = user?.email || "";
     dispatch(fetchNotificationsByEmail({ email, role }));
-  }, [user?.email, dispatch, loading]);
+  }, [user?.email, dispatch, loading, role]);
 
   const handleDelete = (id) => {
     setLoading(true);
@@ -41,7 +40,7 @@ const Notification = () => {
         {allNotifications.map((n) => (
           <div key={n._id}>
             <Link
-              to={`/dashboard/${n?.url}`}
+              to={`/${n?.url}`}
               className="notification-card hover:scale-105 transition-all hover:bg-my-primary hover:bg-opacity-10 duration-300 cursor-pointer flex items-center gap-4   p-2 rounded-md my-2 relative"
             >
               <img className="w-14 h-14 rounded-full ring-offset-2 ring-2 ring-info" src={n?.photoURL} alt="notification icon" />
