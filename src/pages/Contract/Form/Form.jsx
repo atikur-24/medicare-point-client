@@ -1,40 +1,29 @@
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
-import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const Form = () => {
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
-    // console.log(form.current);
 
     emailjs.sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, form.current, import.meta.env.VITE_PUBLIC_KEY).then(
       (result) => {
-        // console.log(result.text);
         if (result.text === "OK") {
-          Swal.fire({
-            position: "top-center",
-            icon: "success",
-            title: "We have received your email",
-            showConfirmButton: false,
-            timer: 1500,
-          });
+          toast.success("We have received your email", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
           e.target.reset();
         }
       },
       (error) => {
-        console.log(error.text);
+        toast.error(error.message, { autoClose: 3000, theme: "colored", pauseOnHover: false });
       }
     );
   };
 
   return (
     <div>
-      <form ref={form} onSubmit={sendEmail} className="">
-        {/* <label className="my-5 ps-2" htmlFor="name">
-          <small className="font-semibold ">Your name</small>
-        </label> */}
+      <form ref={form} onSubmit={sendEmail}>
         <input
           className="w-11/12 mb-4 h-10 outline-my-primary rounded border border-my-accent  placeholder-gray-4  p-2 font-medium focus:border-2 focus:outline-none  focus:border-accent"
           placeholder="Your Name"
@@ -44,9 +33,6 @@ const Form = () => {
           id="name"
         />{" "}
         <br />
-        {/* <label className="ps-2" htmlFor="email">
-          <small>Your Email</small>
-        </label> */}
         <input
           className="w-11/12 mb-4 h-10 outline-my-primary rounded border border-my-accent  placeholder-gray-4  p-2 font-medium focus:border-2 focus:outline-none  focus:border-accent "
           placeholder="Your Email"
@@ -56,10 +42,6 @@ const Form = () => {
           id="email"
         />
         <br />
-        {/* <label className="ps-2" htmlFor="subject">
-          <small>subject</small>
-        </label> */}
-        {/* <br /> */}
         <input
           className="w-11/12 mb-4 h-10 outline-my-primary rounded border border-my-accent  placeholder-gray-4  p-2 font-medium focus:border-2 focus:outline-none  focus:border-accent "
           placeholder="Subject"
@@ -69,9 +51,6 @@ const Form = () => {
           id="subject"
         />
         <br />
-        {/* <label className="ps-2" htmlFor="message">
-          <small>Your Message</small>
-        </label> */}
         <textarea
           className="w-11/12 mb-4 h-36 outline-my-primary rounded border border-my-accent  placeholder-gray-4  p-2 font-medium  focus:border-2 focus:outline-none  focus:border-accent"
           placeholder="Your Message"
