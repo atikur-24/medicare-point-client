@@ -1,4 +1,4 @@
-import ads from "../../../assets/images/AD/ad.png";
+import ads from "../../../assets/images/AD/ad.webp";
 import OfferBanner from "./OfferBanner";
 
 const MedicineAd = () => {
