@@ -236,7 +236,7 @@ const DashboardLayout = () => {
   if (!role) {
     return (
       <div className="mt-20">
-        <Loader spinner />
+        <Loader loader />
       </div>
     );
   }
