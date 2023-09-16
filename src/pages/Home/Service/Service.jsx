@@ -1,8 +1,8 @@
 import CountUp from "react-countup";
-import deliveryImg from "../../../assets/images/Service/delivery-man.png";
-import userImg from "../../../assets/images/Service/manager.png";
-import medicineImg from "../../../assets/images/Service/medicine.png";
-import clockImg from "../../../assets/images/Service/time-check.png";
+import deliveryImg from "../../../assets/images/Service/delivery-man.webp";
+import userImg from "../../../assets/images/Service/manager.webp";
+import medicineImg from "../../../assets/images/Service/medicine.webp";
+import clockImg from "../../../assets/images/Service/time-check.webp";
 import SectionTitle from "../../../components/SectionTitle";
 
 const Service = () => {
