@@ -10,7 +10,6 @@ const AboutUs = () => {
       <Medilazar />
       <OurPromise />
       <WhyChoseUs />
-      {/* <Values /> */}
     </div>
   );
 };

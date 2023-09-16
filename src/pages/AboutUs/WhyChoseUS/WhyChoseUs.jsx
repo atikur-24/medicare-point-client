@@ -1,7 +1,7 @@
 import { FaHeartbeat } from "react-icons/fa";
 import { MdOutlineDiscount } from "react-icons/md";
 import { TbTruckDelivery } from "react-icons/tb";
-import whyUs from "../../../assets/images/AboutUs/Testimonial.png";
+import whyUs from "../../../assets/images/AboutUs/Testimonial.webp";
 
 const WhyChoseUs = () => {
   return (
