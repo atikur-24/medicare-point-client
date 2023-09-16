@@ -1,8 +1,8 @@
-import image4 from "../../../assets/images/order-process/checklist.png";
-import image5 from "../../../assets/images/order-process/eccomerce.png";
-import image3 from "../../../assets/images/order-process/location.png";
-import image1 from "../../../assets/images/order-process/sign-up.png";
-import image2 from "../../../assets/images/order-process/user.png";
+import image4 from "../../../assets/images/order-process/checklist.webp";
+import image5 from "../../../assets/images/order-process/eccomerce.webp";
+import image3 from "../../../assets/images/order-process/location.webp";
+import image1 from "../../../assets/images/order-process/sign-up.webp";
+import image2 from "../../../assets/images/order-process/user.webp";
 import SectionTitle from "../../../components/SectionTitle";
 
 const OrderProcess = () => {

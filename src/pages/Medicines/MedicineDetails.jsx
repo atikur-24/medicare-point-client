@@ -3,7 +3,7 @@ import { Rating, StickerStar } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import axios from "axios";
 import moment from "moment/moment";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import HtmlParser from "react-html-parser";
 import { BiLogoFacebook, BiLogoGooglePlus, BiLogoInstagram, BiLogoLinkedin, BiLogoPinterest, BiLogoTumblr, BiLogoTwitter, BiSolidEnvelope } from "react-icons/bi";
 import { HiMinus, HiOutlineChevronRight, HiPlus } from "react-icons/hi";
@@ -23,11 +23,15 @@ const MedicineDetails = () => {
   const [medicine, setMedicine] = useState({});
   const { user } = useAuth();
   const [quantity, setQuantity] = useState(1);
-  const [descrptn, setDesctiptn] = useState(true);
-  const [reviews, setReviews] = useState(false);
   const [rating1, setRating] = useState(0);
   const [isLoading, setLoading] = useState(true);
   const [isReview, setReview] = useState(0);
+  console.log(isReview);
+
+  const [isOpen, setIsOpen] = useState(true);
+  const toggleOpen = useCallback(() => {
+    setIsOpen((value) => !value);
+  }, []);
 
   const params = useParams();
   useEffect(() => {
@@ -58,6 +62,7 @@ const MedicineDetails = () => {
     const date = moment().format("Do MMM YYYY");
 
     const newReview = { name: user?.displayName, email: user.email, date, rating: rating1, reviewMessage };
+    console.log(newReview);
 
     axios.post(`http://localhost:5000/reviews/${_id}`, newReview).then((res) => {
       if (res.data.modifiedCount > 0) {
@@ -73,16 +78,6 @@ const MedicineDetails = () => {
         setReview(isReview + 1);
       }
     });
-  };
-
-  const handleDescriptionBtn = () => {
-    setReviews(false);
-    setDesctiptn(true);
-  };
-
-  const handleReviewsBtn = () => {
-    setReviews(true);
-    setDesctiptn(false);
   };
 
   return (
@@ -102,11 +97,11 @@ const MedicineDetails = () => {
       </div>
       {/* product details */}
       <div className="my-container bg-white rounded-md">
-        <div className="lg:flex gap-3">
-          <div className="md:w-1/2">
+        <div className="xl:flex gap-3">
+          <div className="xl:w-1/2">
             <img className="" src={image} alt="medicine" />
           </div>
-          <div className="md:w-1/2 space-y-5 lg:space-y-7">
+          <div className="xl:w-1/2 space-y-5 lg:space-y-7">
             <div className="space-y-1">
               {discount > 0 && <p className="bg-my-accent rounded-md py-1 px-2 text-xs font-medium text-white w-fit">-{discount}% OFF</p>}
               <h3 className="text-xl lg:text-3xl font-medium lg:font-semibold tracking-wider text-title-color">{medicine_name}</h3>
@@ -162,14 +157,14 @@ const MedicineDetails = () => {
       </div>
       {/* Description & reviews */}
       <div className="my-container bg-white mt-10 rounded-md">
-        <div className="lg:flex gap-8">
-          <div className={`${descrptn ? "border-b-[3px]" : ""} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
-            <button type="button" onClick={handleDescriptionBtn}>
+        <div className="flex gap-8">
+          <div className={`${isOpen ? "border-b-[3px]" : ""} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
+            <button type="button" onClick={toggleOpen}>
               Description
             </button>
           </div>
-          <div className={`${reviews ? "border-b-[3px]" : ""} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
-            <button type="button" onClick={handleReviewsBtn}>
+          <div className={`${isOpen ? "" : "border-b-[3px]"} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
+            <button type="button" onClick={toggleOpen}>
               Reviews
             </button>
           </div>
@@ -177,33 +172,38 @@ const MedicineDetails = () => {
 
         <div className="overflow-hidden relative">
           {/* description */}
-          <div className={`${descrptn ? "block" : "hidden"} transition-all duration-500 max-w-[100vw]`}>
-            <p className="lg:leading-8 pt-6 lg:pt-8">{HtmlParser(medicine_description)}</p>
-            <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
-              <h3 className="text-xl lg:text-2xl font-medium lg:font-semibold tracking-wide text-black-2">Product Features</h3>
-              <div>{HtmlParser(feature_with_details)}</div>
+          {isOpen && (
+            <div className="transition-all duration-500 max-w-[100vw]">
+              <div className="lg:leading-8 pt-6 lg:pt-8">{HtmlParser(medicine_description)}</div>
+              <div className="space-y-6 lg:space-y-10 pt-8 lg:pt-10">
+                <h3 className="text-xl lg:text-2xl font-medium lg:font-semibold tracking-wide text-black-2">Product Features</h3>
+                <div>{HtmlParser(feature_with_details)}</div>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Reviews  */}
-          <div className={`${reviews ? "block" : "hidden"} mt-8 w-full max-w-[100vw] transition-all duration-500`}>
-            {allRatings && <MedicineReviews allRatings={allRatings} />}
-            <div className="lg:w-4/5">
-              <h4 className="my-5 text-gray-5">Your feedback is invaluable.Share your thoughts and experiences with a quick review.</h4>
-              <h3 className="my-1 text-xl font-semibold lg:tracking-wide">Your Rating</h3>
-              <div>
-                <Rating className="mb-5" style={{ maxWidth: 100 }} value={rating1} onChange={setRating} isRequired />
-              </div>
-              <div>
-                <form onSubmit={handleReviews}>
-                  <div className="pb-6">
-                    <textarea required placeholder="Your Review" className="w-full outline-my-primary rounded-md border-[1px] border-gray-3 p-2" name="reviewMessage" rows="5" />
-                  </div>
-                  <input className="circle-btn" type="submit" value="SUBMIT YOUR REVIEW" />
-                </form>
+          {!isOpen && (
+            <div className="mt-8 w-full max-w-[100vw] transition-all duration-500">
+              {allRatings && <MedicineReviews allRatings={allRatings} />}
+              <div className="lg:w-4/5">
+                <h4 className="my-5 text-gray-5">Your feedback is invaluable.Share your thoughts and experiences with a quick review.</h4>
+                <h3 className="my-1 text-xl font-semibold lg:tracking-wide">Your Rating</h3>
+                <div>
+                  <Rating className="mb-5" style={{ maxWidth: 100 }} value={rating1} onChange={setRating} isRequired />
+                  {/* <ReactStarsRating onChange={setRating} primaryColor="#fbb614" secondaryColor="#C0C0C0" className="flex" size={18} value={setRating} /> */}
+                </div>
+                <div>
+                  <form onSubmit={handleReviews}>
+                    <div className="pb-6">
+                      <textarea required placeholder="Your Review" className="w-full outline-my-primary rounded-md border-[1px] border-gray-3 p-2" name="reviewMessage" rows="4" />
+                    </div>
+                    <input className="circle-btn" type="submit" value="SUBMIT YOUR REVIEW" />
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
       {/* Related Medicines */}
