@@ -1,7 +1,7 @@
 import { AiOutlineFileProtect } from "react-icons/ai";
 import { TbDeviceTabletCheck, TbTruckDelivery } from "react-icons/tb";
 import { TfiCup, TfiShoppingCart } from "react-icons/tfi";
-import groupImg from "../../../assets/images/AboutUs/group.jpg";
+import groupImg from "../../../assets/images/AboutUs/group.webp";
 
 const OurPromise = () => {
   return (

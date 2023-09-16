@@ -1,7 +1,7 @@
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
-import img from "../../../assets/images/popupGirl.png";
+import img from "../../../assets/images/popupGirl.webp";
 
 const PopUp = ({ isPopUp, setPopUp }) => {
   const copyPromoCode = () => {
@@ -14,11 +14,7 @@ const PopUp = ({ isPopUp, setPopUp }) => {
   return (
     <div className={`fixed z-50 w-full h-screen flex justify-center items-center transition-all duration-700 ${isPopUp} bg-black bg-opacity-70`}>
       <div className=" w-11/12 lg:w-1/2 bg-card rounded-xl relative">
-        <button
-          onClick={() => setPopUp("hidden")}
-          type="button"
-          className="btn btn-circle btn-sm bg-red-500 hover:bg-red-400 text-white transition-all duration-300 border-none absolute -right-3 -top-3"
-        >
+        <button onClick={() => setPopUp("hidden")} type="button" className="btn btn-circle btn-sm bg-red-500 hover:bg-red-400 text-white transition-all duration-300 border-none absolute -right-3 -top-3">
           x
         </button>
         <div className=" grid grid-cols-1 lg:grid-cols-2 gap-5 text-my-primary lg:gap-0 items-center">
