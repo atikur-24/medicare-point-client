@@ -1,4 +1,4 @@
-import delivery from "../../../assets/images/AD/delivery.png";
+import delivery from "../../../assets/images/AD/delivery.webp";
 import OfferBanner from "./OfferBanner";
 
 const DeliveryOffer = () => {
