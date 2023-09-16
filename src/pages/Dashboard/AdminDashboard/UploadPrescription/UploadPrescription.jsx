@@ -81,7 +81,14 @@ const UploadPrescription = () => {
           )}
 
           <div className={`pt-10 h-[75vh] overflow-y-scroll ${search ? "block" : "hidden"}`}>
-            {medicines.length === 0 && <p className="text-black-2 text-center font-semibold">Sorry, we could not find what you are looking for. Please search by right name</p>}
+            {medicines.length === 0 && (
+              <div className="flex gap-2 mt-2 bg-my-pink bg-opacity-5 rounded-xl  text-primary p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>No results found. Please search by right name</span>
+              </div>
+            )}
 
             {medicines.map((m) => (
               <div key={m._id} className="flex px-4 py-2 md:px-5 md:gap-20 items-center  space-x-3 text-gray-6 bg-white rounded-2xl border border-gray-3 my-2">
