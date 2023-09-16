@@ -4,6 +4,7 @@ import "@smastrom/react-rating/style.css";
 import axios from "axios";
 import moment from "moment/moment";
 import { useEffect, useState } from "react";
+import ReactStarsRating from "react-awesome-stars-rating";
 import HtmlParser from "react-html-parser";
 import { BiLogoFacebook, BiLogoGooglePlus, BiLogoInstagram, BiLogoLinkedin, BiLogoPinterest, BiLogoTumblr, BiLogoTwitter, BiSolidEnvelope } from "react-icons/bi";
 import { HiMinus, HiOutlineChevronRight, HiPlus } from "react-icons/hi";
@@ -192,7 +193,7 @@ const MedicineDetails = () => {
               <h4 className="my-5 text-gray-5">Your feedback is invaluable.Share your thoughts and experiences with a quick review.</h4>
               <h3 className="my-1 text-xl font-semibold lg:tracking-wide">Your Rating</h3>
               <div>
-                <Rating className="mb-5" style={{ maxWidth: 100 }} value={rating1} onChange={setRating} isRequired />
+                <ReactStarsRating onChange={setRating} primaryColor="#fbb614" secondaryColor="#C0C0C0" className="flex" size={18} value={setRating} />
               </div>
               <div>
                 <form onSubmit={handleReviews}>

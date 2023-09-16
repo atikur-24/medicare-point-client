@@ -1,6 +1,5 @@
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
-
 import img from "../../../assets/images/popupGirl.webp";
 
 const PopUp = ({ isPopUp, setPopUp }) => {
@@ -35,7 +34,7 @@ const PopUp = ({ isPopUp, setPopUp }) => {
             </Link>
           </div>
           <div className="order-1 lg:order-2 mx-auto">
-            <img className="h-[350px]" src={img} alt="" />
+            <img className="h-[350px]" src={img} alt="pop-up" />
           </div>
         </div>
       </div>
