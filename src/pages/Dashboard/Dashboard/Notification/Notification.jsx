@@ -1,7 +1,6 @@
 import Lottie from "lottie-react";
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { MdDelete } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteNotificationsApi } from "../../../../Features/Notifications/deleteNotifications";
@@ -21,7 +20,7 @@ const Notification = () => {
   useEffect(() => {
     const email = user?.email || "";
     dispatch(fetchNotificationsByEmail({ email, role }));
-  }, [user?.email, dispatch, loading]);
+  }, [user?.email, dispatch, loading, role]);
 
   const handleDelete = (id) => {
     setLoading(true);
