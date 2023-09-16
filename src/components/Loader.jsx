@@ -6,7 +6,7 @@ const Loader = ({ loader, spinner }) => {
   if (loader) {
     return (
       <div>
-        <div className=" flex justify-center items-center min-h-[calc(100vh-200px)] ">
+        <div className="flex justify-center items-center min-h-[calc(100vh-200px)] ">
           <div className="space-y-4">
             <img className="w-32 mx-auto" src={logo} alt="" />
             <div className="text-xl font-semibold text-my-primary ">
