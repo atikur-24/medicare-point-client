@@ -4,15 +4,21 @@ import toast from "react-hot-toast";
 import { HiMinus, HiPlus } from "react-icons/hi";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
+import { useLocation, useNavigate } from "react-router-dom";
 import { addPrescriptionCardApi } from "../../../../Features/UploadPrescription/addPrescriptionCard";
 import logo from "../../../../assets/Logo/logo.svg";
 
 const UploadPrescription = () => {
   const [search, setSearch] = useState("");
+  const [isUploading, setUploading] = useState(false);
   const [medicines, setMedicines] = useState([]);
   const [cart, setCart] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const params = useParams();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const id = queryParams.get("id");
 
   useEffect(() => {
     fetch(`http://localhost:5000/searchMedicinesByName?name=${search}`)
@@ -33,17 +39,20 @@ const UploadPrescription = () => {
     setCart([...cart, singleCardData]);
   };
 
-  const handleRemoveToCart = (id) => {
-    const restMedicines = cart.filter((sm) => sm.medicine_Id !== id);
+  const handleRemoveToCart = (_id) => {
+    const restMedicines = cart.filter((sm) => sm.medicine_Id !== _id);
     setCart(restMedicines);
   };
 
   const handleUploadToDB = (e) => {
     e.preventDefault();
-    dispatch(addPrescriptionCardApi(cart)).then(() => {
+    setUploading(true);
+    dispatch(addPrescriptionCardApi({ cart, id })).then(() => {
       setCart([]);
       setSearch("");
+      setUploading(false);
       toast.success("Added to cart");
+      navigate("/dashboard/prescriptions");
     });
   };
 
@@ -155,17 +164,17 @@ const UploadPrescription = () => {
               </div>
             ))}
             {cart.length === 0 && <p className="text-center mt-10">No medicines added</p>}
-            {cart.length > 0 && (
-              <form className="xl:absolute flex flex-col xl:flex-row gap-4 z-10 bottom-0 left-0" onSubmit={handleUploadToDB}>
-                <button className="w-full btn my-btn p-2 bg-my-accent bg-opacity-50" type="submit" name="searchMedicines" id="">
-                  Upload
-                </button>
-                <button type="button" className="btn w-full btn-error" onClick={handleClearCart}>
-                  Clear
-                </button>
-              </form>
-            )}
           </div>
+          {cart.length > 0 && (
+            <form className="flex flex-col xl:flex-row gap-4 pr-4" onSubmit={handleUploadToDB}>
+              <button className="w-full xl:w-1/2 btn my-btn p-2 bg-my-accent bg-opacity-50" type="submit" name="searchMedicines" id="">
+                {isUploading ? "Uploading..." : "Upload"}
+              </button>
+              <button type="button" className="btn w-full xl:w-1/2 btn-error" onClick={handleClearCart}>
+                Clear
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </div>
