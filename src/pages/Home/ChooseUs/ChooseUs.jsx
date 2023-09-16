@@ -1,7 +1,7 @@
-import report from "../../../assets/choose-icon/analytics.png";
-import services from "../../../assets/choose-icon/insurance.png";
-import expire from "../../../assets/choose-icon/pills.png";
-import trust from "../../../assets/choose-icon/trust.png";
+import report from "../../../assets/choose-icon/analytics.webp";
+import services from "../../../assets/choose-icon/insurance.webp";
+import expire from "../../../assets/choose-icon/pills.webp";
+import trust from "../../../assets/choose-icon/trust.webp";
 import SectionTitle from "../../../components/SectionTitle";
 
 const ChooseUs = () => (
