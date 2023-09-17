@@ -6,10 +6,11 @@ import PharmacistsHome from "../PharmacistDashboard/PharmacistsHome/PharmacistsH
 import UserProfile from "../UserDashboard/UserProfile/UserProfile";
 
 const Dashboard = () => {
-  const { role } = useContext(AuthContext);
+  const { role, user } = useContext(AuthContext);
   const [isUser, setUser] = useState(false);
   const [isPharmacist, setPharmacist] = useState(false);
   const [isAdmin, setAdmin] = useState(false);
+  // const [adminHomeData, setAdminHomeData] = useState({});
 
   useEffect(() => {
     if (role === "user") {
@@ -27,7 +28,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      {isAdmin && <AdminHome />}
+      {isAdmin && <AdminHome user={user} />}
       {isPharmacist && <PharmacistsHome />}
       {isUser && <UserProfile />}
     </div>

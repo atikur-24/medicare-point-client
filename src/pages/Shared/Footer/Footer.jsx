@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import logo from "../../../assets/Logo/footer.svg";
 // import google_pay from "../../../assets/payment-icon/google-pay.svg";
 // import mastercard from "../../../assets/payment-icon/mastercard.svg";
-import ssl from "../../../assets/payment-icon/payment.png";
+import ssl from "../../../assets/payment-icon/payment.webp";
 // import paytm from "../../../assets/payment-icon/paytm.svg";
 // import phonepe from "../../../assets/payment-icon/phonepe.svg";
 // import rupay from "../../../assets/payment-icon/rupay.svg";
@@ -14,7 +14,7 @@ import ssl from "../../../assets/payment-icon/payment.png";
 const Footer = () => {
   return (
     <div>
-      <div className="bg-[url('assets/images/footer.png')] bg-black bg-no-repeat  xl:h-[770px] ">
+      <div className="bg-[url('assets/images/footer.webp')] bg-black bg-no-repeat  xl:h-[770px] ">
         <div className="pb-[50px] pt-[100px] xl:pt-[150px] xl:px-8  mx-auto sm:max-w-xl 2xl:max-w-screen-2xl  m:max-w-xl md:max-w-full lg:max-w-screen-xl">
           <div className="px-10 xl:px-0 flex flex-col xl:flex-row justify-between gap-6  ">
             <div className="space-y-6">
@@ -34,39 +34,47 @@ const Footer = () => {
                   <Link to="/">HOME</Link>
                 </li>
                 <li>
-                  <Link to="/medicines" className="capitalize">MEDICINES</Link>
+                  <Link to="/medicines" className="capitalize">
+                    MEDICINES
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/lab-test" className="capitalize">LAB TEST</Link>
+                  <Link to="/lab-test" className="capitalize">
+                    LAB TEST
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/healthtips" className="capitalize">HEALTH TIPS</Link>
+                  <Link to="/healthtips" className="capitalize">
+                    HEALTH TIPS
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/blogs" className="capitalize">BLOGS</Link>
+                  <Link to="/blogs" className="capitalize">
+                    BLOGS
+                  </Link>
                 </li>
               </ul>
             </div>
             <div className="text-white ">
               <h2 className="text-2xl mb-4  ">OUR POLICIES</h2>
               <ul className="space-y-3  font-semibold footer-link">
-                <li>
+                {/* <li>
                   <Link to="/">Appointment</Link>
+                </li> */}
+                <li>
+                  <Link to="/terms&conditions">Terms and Conditions</Link>
                 </li>
                 <li>
-                  <Link to="/">Terms and Conditions</Link>
+                  <Link to="/privacy">Privacy Policy</Link>
                 </li>
                 <li>
-                  <Link to="/">Privacy Policy</Link>
+                  <Link to="/paymentpolicy">Fees and Payments Policy</Link>
                 </li>
-                <li>
-                  <Link to="/">Fees and Payments Policy</Link>
-                </li>
-                <li>
+                {/* <li>
                   <Link to="/">Shipping and Delivery Policy</Link>
-                </li>
+                </li> */}
                 <li>
-                  <Link to="/">Return, Refund and Cancellation Policy</Link>
+                  <Link to="/refund">Return, Refund and Cancellation Policy</Link>
                 </li>
               </ul>
             </div>

@@ -14,7 +14,7 @@
   display: inline-block;
   width: 200px;
   height: 200px;
-  background-image: url("../../../assets/error/error.png");
+  background-image: url("../../../assets/error/error.webp");
   background-size: cover;
   transform: scale(1.4);
   z-index: -1;

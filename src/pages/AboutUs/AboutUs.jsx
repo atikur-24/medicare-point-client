@@ -5,12 +5,11 @@ import WhyChoseUs from "./WhyChoseUS/WhyChoseUs";
 
 const AboutUs = () => {
   return (
-    <div className=" my-container ">
+    <div className="my-container ">
       <HowAreUs />
       <Medilazar />
       <OurPromise />
       <WhyChoseUs />
-      {/* <Values /> */}
     </div>
   );
 };

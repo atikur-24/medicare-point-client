@@ -60,7 +60,9 @@ import LabBook from "../pages/Shared/LabTest/LabBook/LabBook";
 import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
+import { default as FeesPaymentsPolicy, default as FeesandPaymentsPolicy } from "../pages/TermsAndConditions/Fees&PaymentsPolicy";
 import Privacy from "../pages/TermsAndConditions/Privacy";
+import ReturnRefundCancellationPolicy from "../pages/TermsAndConditions/ReturnRefundCancellationPolicy";
 import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
 import PrivateRoute from "./PrivateRoute";
 
@@ -87,12 +89,20 @@ const router = createBrowserRouter([
         element: <Blogs />,
       },
       {
-        path: "terms",
+        path: "terms&conditions",
         element: <TermsAndConditions />,
       },
       {
-        path: "terms/privacy",
+        path: "paymentpolicy",
+        element: <FeesandPaymentsPolicy />,
+      },
+      {
+        path: "privacy",
         element: <Privacy />,
+      },
+      {
+        path: "refund",
+        element: <ReturnRefundCancellationPolicy />,
       },
       {
         path: "/faqs",

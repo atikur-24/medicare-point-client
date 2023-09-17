@@ -8,6 +8,7 @@ import axios from "axios";
 import moment from "moment";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { AiOutlineDown } from "react-icons/ai";
 import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
@@ -83,7 +84,11 @@ const Medicines = () => {
         <h3 className="text-title-color text-lg lg:text-xl font-medium lg:font-extrabold pl-3 py-3 font-nunito uppercase border-l-4 border-my-primary">Medicine Categories</h3>
         <div className="px-6 text-sm border-t border-gray-3 divide-y divide-gray-3 text-gray-7 font-medium lg:text-base">
           <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
-            <Link onClick={() => setIsOpen("allMedicine")} to="/medicines" className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "allMedicine" ? "text-my-accent underline" : ""}`}>
+            <Link
+              onClick={() => setIsOpen("allMedicine")}
+              to="/medicines"
+              className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "allMedicine" ? "text-my-accent underline" : ""}`}
+            >
               <LiaAngleRightSolid /> All Medicines
             </Link>
           </button>
@@ -129,10 +134,18 @@ const Medicines = () => {
           >
             <LiaAngleRightSolid /> Laundry Household
           </button>
-          <button type="button" onClick={() => handelCategoryFilter("Skin-Care")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Skin-Care" ? "text-my-accent underline" : ""}`}>
+          <button
+            type="button"
+            onClick={() => handelCategoryFilter("Skin-Care")}
+            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Skin-Care" ? "text-my-accent underline" : ""}`}
+          >
             <LiaAngleRightSolid /> Skin Care
           </button>
-          <button type="button" onClick={() => handelCategoryFilter("Eye-Care")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Eye-Care" ? "text-my-accent underline" : ""}`}>
+          <button
+            type="button"
+            onClick={() => handelCategoryFilter("Eye-Care")}
+            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Eye-Care" ? "text-my-accent underline" : ""}`}
+          >
             <LiaAngleRightSolid /> Eye Care
           </button>
           <button
@@ -149,7 +162,11 @@ const Medicines = () => {
           >
             <LiaAngleRightSolid /> Men's Products
           </button>
-          <button type="button" onClick={() => handelCategoryFilter("Vitamins")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Vitamins" ? "text-my-accent underline" : ""}`}>
+          <button
+            type="button"
+            onClick={() => handelCategoryFilter("Vitamins")}
+            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Vitamins" ? "text-my-accent underline" : ""}`}
+          >
             <LiaAngleRightSolid /> Vitamins
           </button>
           <button
@@ -166,7 +183,11 @@ const Medicines = () => {
           >
             <LiaAngleRightSolid /> Bone Health care
           </button>
-          <button type="button" onClick={() => handelCategoryFilter("Weight")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Weight" ? "text-my-accent underline" : ""}`}>
+          <button
+            type="button"
+            onClick={() => handelCategoryFilter("Weight")}
+            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Weight" ? "text-my-accent underline" : ""}`}
+          >
             <LiaAngleRightSolid /> Weight
           </button>
           <button
@@ -176,7 +197,11 @@ const Medicines = () => {
           >
             <LiaAngleRightSolid /> Dental Care
           </button>
-          <button type="button" onClick={() => handelCategoryFilter("Baby-Care")} className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Baby-Care" ? "text-my-accent underline" : ""}`}>
+          <button
+            type="button"
+            onClick={() => handelCategoryFilter("Baby-Care")}
+            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Baby-Care" ? "text-my-accent underline" : ""}`}
+          >
             <LiaAngleRightSolid /> Baby Care
           </button>
         </div>
@@ -213,7 +238,7 @@ const Medicines = () => {
             date: dateAndTime,
             // time: dateAndTime,
             photoURL: prescriptionImg,
-            url: "prescriptions",
+            url: "dashboard/prescriptions",
             deliveryTime: `${user?.email}`,
             receiver: "admin",
           };
@@ -236,12 +261,13 @@ const Medicines = () => {
     const form = e.target;
     const req_medi_name = form.req_medi_name.value;
     console.log(req_medi_name);
+    toast.success("Medicine Request successful");
     form.reset();
   };
 
   return (
     <section className="bg-lite">
-      <div className="bg-my-primary py-6 flex items-center justify-center gap-6 lg:gap-10">
+      <div className="bg-my-primary py-6 flex flex-col md:flex-row items-center justify-center gap-6 lg:gap-10">
         <MediRequest />
         <PrescriptionBtn />
       </div>
@@ -261,8 +287,10 @@ const Medicines = () => {
             </p>
 
             <div className="flex items-center gap-3">
-              <div className="flex flex-col items-center">{/* <BiSolidCameraPlus title="Upload Prescription" onClick={() => window.my_modal_PrescriptionUpload.showModal()} className="text-2xl cursor-pointer" /> */}</div>
-              <div>
+              <div className="flex flex-col items-center">
+                {/* <BiSolidCameraPlus title="Upload Prescription" onClick={() => window.my_modal_PrescriptionUpload.showModal()} className="text-2xl cursor-pointer" /> */}
+              </div>
+              <div className="filter-medicine">
                 <Menu
                   menuButton={
                     <MenuButton className="flex items-center gap-2 font-semibold p-2 rounded-md  ease-in duration-150">
@@ -309,7 +337,9 @@ const Medicines = () => {
             </div>
           </div>
           {isloading ? (
-            <Loader spinner />
+            <div className="mt-10 lg:mt-20">
+              <Loader spinner />
+            </div>
           ) : (
             <div>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
@@ -350,7 +380,15 @@ const Medicines = () => {
               <img className="w-60 mx-auto" src="https://i.ibb.co/0hW0C2K/medical-record.png" alt="" />
             </div>
             <input required type="file" className="file-input rounded file-input-bordered file-input-secondary w-full" name="image" id="" {...register("image")} />
-            <input placeholder="Enter patient name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="name" id="" {...register("name")} />
+            <input
+              placeholder="Enter patient name.."
+              required
+              type="text"
+              className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full"
+              name="name"
+              id=""
+              {...register("name")}
+            />
             <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
               {loading ? "Uploading...." : "Upload Prescription"}
             </button>
@@ -370,7 +408,14 @@ const Medicines = () => {
             />
           </div>
           <form onSubmit={onSubmitMediReq}>
-            <input placeholder="Enter Your Request Medicine Name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="req_medi_name" id="" />
+            <input
+              placeholder="Enter Your Request Medicine Name.."
+              required
+              type="text"
+              className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full"
+              name="req_medi_name"
+              id=""
+            />
             <textarea placeholder="Description (optional)" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full mt-4" id="w3review" name="w3review" rows="4" cols="50" />
             <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
               {loading ? "Uploading...." : "Request"}

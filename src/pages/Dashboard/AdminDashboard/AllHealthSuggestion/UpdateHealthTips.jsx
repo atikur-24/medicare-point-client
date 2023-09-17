@@ -16,7 +16,7 @@ const UpdateHealthTips = () => {
     // const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
     try {
       const response = await fetch({
-        method: "PATCH",
+        method: "PUT",
         body: formData,
       });
 
@@ -28,7 +28,7 @@ const UpdateHealthTips = () => {
       // data.image = imageData.data.display_url;
 
       // Update health tip data using axios
-      const updateResponse = await axios.patch(`http://localhost:5000/allHealthTips/${data._id}`, data);
+      const updateResponse = await axios.put(`http://localhost:5000/allHealthTips/${data._id}`, data);
 
       if (updateResponse.status === 200) {
         Swal.fire({

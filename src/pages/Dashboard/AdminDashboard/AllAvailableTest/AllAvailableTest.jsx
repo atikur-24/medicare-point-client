@@ -30,14 +30,19 @@ const AllAvailableTest = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        dispatch(deleteLabTestApi(id));
-        dispatch(fetchAllLabTests());
+        dispatch(deleteLabTestApi(id)).then(() => {
+          dispatch(fetchAllLabTests());
+        });
       }
     });
   };
 
   if (isLoading) {
-    return <Loader spinner />;
+    return (
+      <div className="flex items-center justify-center min-h-[calc(100vh-200px)] ">
+        <Loader spinner />
+      </div>
+    );
   }
 
   return (

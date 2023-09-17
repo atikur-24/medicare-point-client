@@ -5,6 +5,7 @@ import allLabTest from "../Features/AllLabTests/allLabTest";
 import deleteLabTest from "../Features/AllLabTests/deleteLabTest";
 import updateLabTest from "../Features/AllLabTests/updateLabTest";
 // import allMedicines from "../Features/AllMedicines/allMedicines";
+import allData from "../Features/AllMedicines/allData";
 import detailData from "../Features/AllMedicines/detailData";
 import allUsers from "../Features/AllUsers/allUsers";
 import userByEmail from "../Features/AllUsers/userByEmail";
@@ -12,6 +13,7 @@ import addBlog from "../Features/Blogs/addBlog";
 import allBlogs from "../Features/Blogs/allBlogs";
 import deleteBlog from "../Features/Blogs/deleteBlog";
 import updateBlog from "../Features/Blogs/updateBlog";
+import adminHomeData from "../Features/DashboardData/adminHomeData";
 import addHealthTips from "../Features/HealthTips/addHealthTips";
 import allHealthTips from "../Features/HealthTips/allHealthTips";
 import deleteHealthTips from "../Features/HealthTips/deleteHealthTips";
@@ -33,6 +35,7 @@ import labSSLPayment from "../Features/PaymentGetway/labPayment";
 import uploadImage from "../Features/UploadImage/uploadImage";
 import addPrescriptionCard from "../Features/UploadPrescription/addPrescriptionCard";
 import allPrescription from "../Features/UploadPrescription/allPrescription";
+import deletePrescription from "../Features/UploadPrescription/deletePrescription";
 
 const store = configureStore({
   reducer: {
@@ -68,6 +71,9 @@ const store = configureStore({
     addNotification,
     allPrescription,
     addPrescriptionCard,
+    allData,
+    deletePrescription,
+    adminHomeData,
   },
 });
 
