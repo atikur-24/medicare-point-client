@@ -35,7 +35,9 @@ const Notification = ({ allNotifications, setLoading }) => {
                 n?.read === "no" ? "bg-my-accent bg-opacity-10" : ""
               } notification-card hover:scale-105 transition-all hover:bg-my-primary hover:bg-opacity-10 duration-300 cursor-pointer flex items-center gap-4   p-2 rounded-md my-2 relative`}
             >
-              <img className="w-14 h-14 rounded-full ring-offset-2 ring-2 ring-info" src={n?.photoURL} alt="notification icon" />
+              <figure className="">
+                <img className=" !h-[56px] !max-w-[56px] w-[56px]  rounded-full ring-offset-2 ring-2 ring-info" src={n?.photoURL} alt="notification icon" />
+              </figure>
               <div className="">
                 <h4 className="font-semibold">{n?.name}</h4>
                 <p>{n?.deliveryTime}</p>

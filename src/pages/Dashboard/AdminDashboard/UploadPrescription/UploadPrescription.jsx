@@ -119,7 +119,7 @@ const UploadPrescription = () => {
                     </div>
                     <p className="inline-flex gap-1">
                       <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">
-                        ৳ {m?.discount > 0 ? (m?.price - (m?.price / 100) * m?.discount).toFixed(2) : m?.price?.toFixed(2)}
+                        ৳ {m?.discount > 0 ? (m.price - (m.price / 100) * m.discount).toFixed(2) : m?.price?.toFixed(2)}
                       </span>
                       {m?.discount > 0 && <span className="font-medium inline-flex items-center text-[16px] text-gray-5 line-through">৳ {m.price}</span>}
                     </p>

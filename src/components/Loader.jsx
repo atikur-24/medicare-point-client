@@ -1,6 +1,6 @@
 /* eslint-disable consistent-return */
 import { PulseLoader } from "react-spinners";
-import logo from "../../public/logo.svg";
+import logo from "../assets/Logo/logo.svg";
 
 const Loader = ({ loader, spinner }) => {
   if (loader) {
