@@ -9,7 +9,7 @@ const HealthCard = ({ healthTip }) => {
       <div className="px-8 py-4 space-y-8 ">
         <h2 className="h-10 font-bold  text-lg ">{healthTip.name}</h2>
         <img src={healthTip.image} alt="img" className="h-32  w-full object-cover" />
-        <p className="text-justify md:h-32">{HtmlParser(healthTip?.cause?.slice(0, 100))}...</p>
+        <div className="text-justify md:h-32">{HtmlParser(healthTip?.cause?.slice(0, 100))}...</div>
         <Link to={`/healthtips/${healthTip._id}`} className="flex justify-center mt-auto">
           <button type="button" className="my-btn w-full" style={{ borderRadius: "50px" }}>
             <MdOutlineTipsAndUpdates className="text-2xl" /> Get Tips
