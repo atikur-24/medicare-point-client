@@ -57,9 +57,9 @@ const AddLabTest = () => {
     // const remaining = parseInt(data.price - price, 10);
     // data.remaining = remaining;
     if (!description) {
-      return setErrorDesc("Please fill out medicine description field");
+      setErrorDesc("Please fill out medicine description field");
+      return;
     }
-    console.log(data);
     dispatch(addLabTestApi({ data, reset }));
     setDescription("");
     // // Image Upload
@@ -96,7 +96,7 @@ const AddLabTest = () => {
                 placeholder="Enter lab test name"
                 type="text"
                 {...register("test_name")}
-                className="w-full max-w-md focus:outline-none   outline-none  input input-bordered focus:outline-none "
+                className="w-full max-w-md  outline-none  input input-bordered focus:outline-none "
               />
             </div>
             <div>
