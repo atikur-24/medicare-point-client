@@ -50,13 +50,20 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
       <div className="flex items-center gap-5">
         {/* <NavLink to="/dashboard/notification"> */}
 
-        <button className="tooltip  tooltip-left tooltip-primary relative" data-tip="Notification" type="button" onClick={handleNotification}>
+        <button className="tooltip tooltip-primary tooltip-left" data-tip="Notification" type="button" onClick={handleNotification}>
           <MdOutlineNotificationsActive
-            className={` ml-2 transition-all duration-300 ${showNotification ? "bg-my-primary text-white bg-opacity-70 p-2 rounded-full w-12 h-12" : "w-10 h-10"}`}
+            className={`bg-my-primary  text-primary  p-2  w-12 h-12 object-cover ml-2 transition-all relative rounded-full  duration-300 ${
+              showNotification ? "bg-my-primary text-white bg-opacity-70 " : "bg-opacity-20"
+            }`}
             src="https://i.ibb.co/8zxdmM6/notification.png"
             alt="upload images"
           />
-          <span className="absolute -top-2 -right-2 bg-yellow-500 px-2 py-1 rounded-full">{unreadNotification}</span>
+          <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-primary border-2 border-white rounded-full -top-2 -right-2 ">
+            {unreadNotification}
+          </div>
+          {/* <div className="absolute -top-3 -right-2 bg-yellow-500  rounded-full">
+            <span className="px-1.5 py-2">{unreadNotification}</span>
+          </div> */}
         </button>
 
         {role !== "user" && (

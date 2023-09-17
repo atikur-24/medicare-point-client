@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchAllData } from "../../Features/AllMedicines/allData";
+import { fetchAllHealthTips } from "../../Features/HealthTips/allHealthTips";
 import helth from "../../assets/Blog/helth.webp";
 import Loader from "../../components/Loader";
 import HealthCard from "./HealthCard";
@@ -11,13 +11,12 @@ const HealthTips = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const api = "allHealthTips";
-  const { isLoading, allData: healthTips } = useSelector((state) => state.allData);
+  const { isLoading, allHealthTips: healthTips } = useSelector((state) => state.allHealthTips);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllData(api));
-  }, [dispatch, api]);
+    dispatch(fetchAllHealthTips());
+  }, [dispatch]);
 
   useEffect(() => {
     // Extract unique categories from health tips data
@@ -50,8 +49,9 @@ const HealthTips = () => {
 
   return (
     <div className="bg-card ">
-      <img src={helth} alt="" />
+      <img src={helth} className="w-full" alt="" />
       {/* <h1 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold my-4 mx-2">Health Tips: Your Guide to a Balanced Lifestyle</h1> */}
+
       <div className="flex flex-col xl:flex-row container mx-auto py-10">
         {/* Sidebar */}
         <div className="w-1/5 p-6 bg-white border border-gray-3 h-full object-cover hidden xl:block  m-4 rounded-md">

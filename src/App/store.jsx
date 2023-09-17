@@ -13,6 +13,7 @@ import addBlog from "../Features/Blogs/addBlog";
 import allBlogs from "../Features/Blogs/allBlogs";
 import deleteBlog from "../Features/Blogs/deleteBlog";
 import updateBlog from "../Features/Blogs/updateBlog";
+import adminHomeData from "../Features/DashboardData/adminHomeData";
 import addHealthTips from "../Features/HealthTips/addHealthTips";
 import allHealthTips from "../Features/HealthTips/allHealthTips";
 import deleteHealthTips from "../Features/HealthTips/deleteHealthTips";
@@ -72,6 +73,7 @@ const store = configureStore({
     addPrescriptionCard,
     allData,
     deletePrescription,
+    adminHomeData,
   },
 });
 
