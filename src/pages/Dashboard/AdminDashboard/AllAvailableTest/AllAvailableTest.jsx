@@ -37,7 +37,11 @@ const AllAvailableTest = () => {
   };
 
   if (isLoading) {
-    return <Loader spinner />;
+    return (
+      <div className="flex items-center justify-center min-h-[calc(100vh-200px)] ">
+        <Loader spinner />
+      </div>
+    );
   }
 
   return (

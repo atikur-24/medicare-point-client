@@ -37,13 +37,13 @@ const Blog = ({ blog, range }) => {
               Published <span>{published_date}</span>
             </time>
             <div className="max-w-2xl mt-0 text-justify lg:text-lg  tracking-wide hidden lg:block">
-              <p>{content.slice(0, range)}...</p>
+              <p>{content?.slice(0, range)}...</p>
             </div>
           </div>
         </div>
       </div>
       <div className="max-w-2xl mt-0 text-justify lg:text-lg  tracking-wide block lg:hidden">
-        <p>{content.slice(0, range)}...</p>
+        <p>{content?.slice(0, range)}...</p>
       </div>
     </div>
   );

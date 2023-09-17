@@ -5,6 +5,7 @@ import allLabTest from "../Features/AllLabTests/allLabTest";
 import deleteLabTest from "../Features/AllLabTests/deleteLabTest";
 import updateLabTest from "../Features/AllLabTests/updateLabTest";
 // import allMedicines from "../Features/AllMedicines/allMedicines";
+import allData from "../Features/AllMedicines/allData";
 import detailData from "../Features/AllMedicines/detailData";
 import allUsers from "../Features/AllUsers/allUsers";
 import userByEmail from "../Features/AllUsers/userByEmail";
@@ -33,6 +34,7 @@ import labSSLPayment from "../Features/PaymentGetway/labPayment";
 import uploadImage from "../Features/UploadImage/uploadImage";
 import addPrescriptionCard from "../Features/UploadPrescription/addPrescriptionCard";
 import allPrescription from "../Features/UploadPrescription/allPrescription";
+import deletePrescription from "../Features/UploadPrescription/deletePrescription";
 
 const store = configureStore({
   reducer: {
@@ -68,6 +70,8 @@ const store = configureStore({
     addNotification,
     allPrescription,
     addPrescriptionCard,
+    allData,
+    deletePrescription,
   },
 });
 
