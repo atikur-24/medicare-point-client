@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { BsGrid1X2Fill, BsImage } from "react-icons/bs";
 import { FaCaretDown, FaCaretUp, FaFilePrescription, FaUsers, FaWpforms } from "react-icons/fa";
@@ -9,8 +9,10 @@ import { MdAddShoppingCart, MdOutlineInventory, MdOutlineLibraryBooks, MdOutline
 import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import { TfiMenu } from "react-icons/tfi";
+import { useDispatch } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { fetchNotificationsByEmail } from "../../Features/Notifications/fetchNotificationsByEmail";
 import logo from "../../assets/Logo/logo-point.svg";
 import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -20,10 +22,14 @@ import "./DashboardLayout.css";
 
 const DashboardLayout = () => {
   const [showNotification, setShowNotification] = useState(false);
-  const { role } = useContext(AuthContext);
+  const { role, user } = useContext(AuthContext);
   const [isUser, setUser] = useState(false);
   const [isPharmacist, setPharmacist] = useState(false);
   const [isAdmin, setAdmin] = useState(false);
+  const notificationRef = useRef();
+  const [allNotificationsData, setAllNotificationsData] = useState([]);
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (role === "user") {
@@ -34,6 +40,26 @@ const DashboardLayout = () => {
       setAdmin(true);
     }
   }, [role]);
+
+  useEffect(() => {
+    const email = user?.email || "";
+    dispatch(fetchNotificationsByEmail({ email, role })).then((res) => {
+      setAllNotificationsData(res.payload);
+    });
+  }, [user?.email, dispatch, role, loading, showNotification]);
+
+  useEffect(() => {
+    const handelOutsideClose = (e) => {
+      if (!notificationRef?.current?.contains(e?.target)) {
+        setShowNotification(false);
+      }
+    };
+    document.addEventListener("mousedown", handelOutsideClose);
+
+    return () => {
+      document.removeEventListener("mousedown", handelOutsideClose);
+    };
+  }, []);
 
   const [showDropdown2, setShowDropdown2] = useState(false);
 
@@ -246,8 +272,8 @@ const DashboardLayout = () => {
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content relative font-Alexandria min-h-screen bg-[#F1F6FA] px-5 xl:px-8  2xl:px-20">
         {/* Page content here */}
-        <DashBoardNavbar setShowNotification={setShowNotification} showNotification={showNotification} />
-        {showNotification && <Notification />}
+        <DashBoardNavbar allNotificationsData={allNotificationsData} setShowNotification={setShowNotification} showNotification={showNotification} />
+        <div ref={notificationRef}>{showNotification && <Notification setLoading={setLoading} allNotifications={allNotificationsData} />}</div>
         <Outlet />
         <label htmlFor="my-drawer-2" className="toggle-dashboard-btn ml-4 drawer-button xl:hidden">
           <TfiMenu className="text-2xl  cursor-pointer" />

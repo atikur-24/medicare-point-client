@@ -62,32 +62,34 @@ const Search = () => {
           </div>
         )}
 
-        <p className={`text-gray-5 ${medicines.length === 0 && "hidden"}`}>(Showing {medicines.length} results)</p>
+        <p className={`text-gray-5 ${medicines?.length === 0 && "hidden"}`}>(Showing {medicines?.length} results)</p>
 
         {medicines.map((m) => (
-          <div key={m._id} className="flex px-4 py-2 md:px-5 md:gap-20 items-center  space-x-3 text-gray-6 bg-white rounded-2xl border border-gray-3 my-2">
+          <div key={m?._id} className="flex px-4 py-2 md:px-5 md:gap-20 items-center  space-x-3 text-gray-6 bg-white rounded-2xl border border-gray-3 my-2">
             <div className="relative">
-              <Link onClick={() => setSearch("")} to={`/details/${m._id}`}>
-                {m.discount > 0 && (
+              <Link onClick={() => setSearch("")} to={`/details/${m?._id}`}>
+                {m?.discount > 0 && (
                   <div className="bg-my-accent z-10 rounded-md p-1 text-xs font-medium text-white absolute -top-2 -left-2 flex">
-                    <p>{m.discount}</p>
+                    <p>{m?.discount}</p>
                     <p>% OFF</p>
                   </div>
                 )}
-                <img className="w-20 h-20" src={m.image} alt="medicine" />
+                <img className="w-20 h-20" src={m?.image} alt="medicine" />
               </Link>
             </div>
 
             <div className="p-2 space-y-1 relative ">
               <div className="space-y-1">
-                <p className="text-gray-5 text-xs font-medium">{m.category.label}, personal care</p>
-                <Link onClick={() => setSearch("")} to={`/details/${m._id}`}>
-                  <h2 className="text-[1.125rem] font-semibold text-title-color tracking-wide hover:underline inline-block hover:cursor-pointer">{m.medicine_name}</h2>
+                <p className="text-gray-5 text-xs font-medium">{m?.category?.label}, personal care</p>
+                <Link onClick={() => setSearch("")} to={`/details/${m?._id}`}>
+                  <h2 className="text-[1.125rem] font-semibold text-title-color tracking-wide hover:underline inline-block hover:cursor-pointer">{m?.medicine_name}</h2>
                 </Link>
               </div>
               <p className="inline-flex gap-1">
-                <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">৳ {m.discount > 0 ? (m.price - (m.price / 100) * m.discount).toFixed(2) : m.price.toFixed(2)}</span>
-                {m.discount > 0 && <span className="font-medium inline-flex items-center text-[16px] text-gray-5 line-through">৳ {m.price}</span>}
+                <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">
+                  ৳ {m?.discount > 0 ? (m?.price - (m?.price / 100) * m?.discount)?.toFixed(2) : m?.price?.toFixed(2)}
+                </span>
+                {m?.discount > 0 && <span className="font-medium inline-flex items-center text-[16px] text-gray-5 line-through">৳ {m?.price}</span>}
               </p>
 
               <div className="flex flex-col md:flex-row justify-center gap-3 items-center" />

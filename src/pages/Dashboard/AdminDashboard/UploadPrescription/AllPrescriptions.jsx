@@ -12,6 +12,7 @@ const AllPrescriptions = () => {
   const [allData, setAllData] = useState([]);
   const dispatch = useDispatch();
   const [isDelete, setDelete] = useState(0);
+  const [img, setImg] = useState("");
   //   const a = useSelector((state) => state.allPrescription);
   useEffect(() => {
     axios.get("http://localhost:5000/prescriptions").then((res) => setAllData(res.data));
@@ -40,6 +41,20 @@ const AllPrescriptions = () => {
 
   return (
     <div className="pb-10">
+      {/* prescription modal  */}
+      <dialog id="my_modal_show_prescription" className="modal">
+        <div className="modal-box w-auto max-w-5xl">
+          <form method="dialog" className="space-y-2">
+            <button type="submit" className="btn btn-sm btn-circle btn-ghost bg-red-500 hover:bg-red-400 text-white absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
+          <div>
+            <img src={img} alt="" />
+          </div>
+        </div>
+      </dialog>
+
       <div className="mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
@@ -52,9 +67,18 @@ const AllPrescriptions = () => {
         {allData?.map((p) => (
           <div key={p?._id}>
             <div className="border border-gray-3 bg-white rounded-2xl p-4 space-y-4">
-              <figure className="w-full">
-                <img className="h-64  w-full object-cover" src={p?.prescription} alt="" />
-              </figure>
+              <button
+                className="w-full"
+                type="button"
+                onClick={() => {
+                  document.getElementById("my_modal_show_prescription").showModal();
+                  setImg(p.prescription);
+                }}
+              >
+                <figure className="w-full">
+                  <img className="h-64  w-full object-cover" src={p?.prescription} alt="" />
+                </figure>
+              </button>
               <div className="space-y-1">
                 <h2 className="text-sm">{p.patientName}</h2>
                 <h2 className="text-base inline-flex items-center gap-2">
