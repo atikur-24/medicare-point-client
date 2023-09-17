@@ -62,7 +62,12 @@ const DashboardMedicineDetail = () => {
                         Upload Date: <span className="font-normal">{date}</span>
                       </p>
                       <p className="font-semibold">
-                        Medicine Status: <span className={`font-semibold ${status === "approved" ? "text-my-accent" : ""} ${status === "pending" ? "text-yellow-500" : ""} ${status === "denied" ? "text-red-500" : ""}`}>{status}</span>
+                        Medicine Status:{" "}
+                        <span
+                          className={`font-semibold ${status === "approved" ? "text-my-accent" : ""} ${status === "pending" ? "text-yellow-500" : ""} ${status === "denied" ? "text-red-500" : ""}`}
+                        >
+                          {status}
+                        </span>
                       </p>
                     </div>
                     <div>
@@ -89,7 +94,8 @@ const DashboardMedicineDetail = () => {
             <hr className="my-5  border-gray-4" />
             <div>
               <h2 className="text-xl font-bold">Medicine Description</h2>
-              <p className="mt-2 text-gray-5">{medicine_description}</p>
+              {/* <p className="mt-2 text-gray-5">{medicine_description}</p> */}
+              <div>{HtmlParser(medicine_description)}</div>
             </div>
             <div className="flex justify-between items-center gap-3 mt-8">
               <div>

@@ -8,6 +8,7 @@ import axios from "axios";
 import moment from "moment";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { AiOutlineDown } from "react-icons/ai";
 import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
@@ -260,12 +261,13 @@ const Medicines = () => {
     const form = e.target;
     const req_medi_name = form.req_medi_name.value;
     console.log(req_medi_name);
+    toast.success("Medicine Request successful");
     form.reset();
   };
 
   return (
     <section className="bg-lite">
-      <div className="bg-my-primary py-6 flex items-center justify-center gap-6 lg:gap-10">
+      <div className="bg-my-primary py-6 flex flex-col md:flex-row items-center justify-center gap-6 lg:gap-10">
         <MediRequest />
         <PrescriptionBtn />
       </div>
@@ -288,7 +290,7 @@ const Medicines = () => {
               <div className="flex flex-col items-center">
                 {/* <BiSolidCameraPlus title="Upload Prescription" onClick={() => window.my_modal_PrescriptionUpload.showModal()} className="text-2xl cursor-pointer" /> */}
               </div>
-              <div>
+              <div className="filter-medicine">
                 <Menu
                   menuButton={
                     <MenuButton className="flex items-center gap-2 font-semibold p-2 rounded-md  ease-in duration-150">
@@ -395,7 +397,7 @@ const Medicines = () => {
       </dialog>
 
       {/* Medicine Request modal  */}
-      {/* <dialog id="my_modal_mediRequest" className="modal">
+      <dialog id="my_modal_mediRequest" className="modal">
         <div className="modal-box md:w-1/2">
           <h4 className="text-xl font-bold font-nunito text-center">Request Medicine</h4>
           <div>
@@ -423,7 +425,7 @@ const Medicines = () => {
         <form method="dialog" className="modal-backdrop">
           <button type="submit">close</button>
         </form>
-      </dialog> */}
+      </dialog>
     </section>
   );
 };
