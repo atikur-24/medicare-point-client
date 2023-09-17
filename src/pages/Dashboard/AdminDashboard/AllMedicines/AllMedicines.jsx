@@ -4,8 +4,9 @@ import { useEffect } from "react";
 import { BsArrowRightShort } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchAllMedicines } from "../../../../Features/Medicines/AllMedicines/medicines";
+
 import Loader from "../../../../components/Loader";
+import { fetchAllMedicines } from "../../../../Features/Medicines/AllMedicines/medicines";
 
 const AllMedicines = () => {
   const { isLoading, medicines } = useSelector((state) => state.medicines);
@@ -76,7 +77,11 @@ const AllMedicines = () => {
                     <span className="text-my-pink">{medicine?.available_quantity - medicine?.sellQuantity}</span> / {medicine?.available_quantity}
                   </td>
 
-                  <td className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"} capitalize font-medium`}>
+                  <td
+                    className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${
+                      medicine.status === "pending" && "text-yellow-500"
+                    } capitalize font-medium`}
+                  >
                     {medicine?.status}
                   </td>
                   <td>

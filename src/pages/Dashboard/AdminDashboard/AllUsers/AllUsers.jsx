@@ -11,20 +11,18 @@ import { fetchAllUsers } from "../../../../Features/AllUsers/allUsers";
 import Loader from "../../../../components/Loader";
 
 const AllUsers = () => {
-  const api = "users";
   const { isLoading, allUsers } = useSelector((state) => state.allUsers);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchAllUsers(api));
+    dispatch(fetchAllUsers());
   }, [dispatch]);
-
   const updateRole = (id, role) => {
     const userData = {
       role,
     };
     axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then((res) => {
       if (res?.data?.modifiedCount > 0) {
-        dispatch(fetchAllUsers(api));
+        dispatch(fetchAllUsers());
         Swal.fire("Successful", "Convert User Role to Admin", "success");
       }
     });
@@ -44,7 +42,7 @@ const AllUsers = () => {
         axios.delete(`http://localhost:5000/delete-user/${id}`).then((res) => {
           console.log(res.data);
           if (res.data.deletedCount > 0) {
-            dispatch(fetchAllUsers(api));
+            dispatch(fetchAllUsers());
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
           }
         });

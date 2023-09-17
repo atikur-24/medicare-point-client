@@ -3,7 +3,6 @@ import axios from "axios";
 
 export const fetchAllBlogs = createAsyncThunk("allBlogs/fetchAllBlogs", async () => {
   const res = await axios.get("http://localhost:5000/blogs");
-  console.log(res.data);
   return res.data;
 });
 
