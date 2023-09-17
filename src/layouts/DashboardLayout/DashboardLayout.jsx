@@ -12,6 +12,7 @@ import { TfiMenu } from "react-icons/tfi";
 import { useDispatch } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { fetchAdminHomeData } from "../../Features/DashboardData/adminHomeData";
 import { fetchNotificationsByEmail } from "../../Features/Notifications/fetchNotificationsByEmail";
 import logo from "../../assets/Logo/logo-point.svg";
 import Loader from "../../components/Loader";
@@ -40,6 +41,12 @@ const DashboardLayout = () => {
       setAdmin(true);
     }
   }, [role]);
+
+  useEffect(() => {
+    dispatch(fetchAdminHomeData(`dashboard/${user?.email}`)).then((resp) => {
+      console.log(resp.data);
+    });
+  }, [user?.email, dispatch]);
 
   useEffect(() => {
     const email = user?.email || "";
