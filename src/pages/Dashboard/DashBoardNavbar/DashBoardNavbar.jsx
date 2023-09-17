@@ -1,12 +1,35 @@
-import { useContext } from "react";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import { GiLaurelsTrophy } from "react-icons/gi";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import rewordIcon from "../../../assets/Dashboard-icons/reward.png";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
-const DashBoardNavbar = ({ setShowNotification, showNotification }) => {
+const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificationsData }) => {
   const { role, user } = useContext(AuthContext);
+  const [unreadNotification, setUnreadNotification] = useState(0);
+
+  const [notificationID, setNotificationID] = useState([]);
+  useEffect(() => {
+    let unread = 0;
+    allNotificationsData.forEach((n) => {
+      if (n?.read === "no") {
+        unread = unread + 1;
+
+        if (!notificationID.includes(n._id)) {
+          notificationID.push(n._id);
+        }
+      }
+    });
+    setUnreadNotification(unread);
+  }, [allNotificationsData, notificationID]);
+
+  const handleNotification = () => {
+    setShowNotification(!showNotification);
+    axios.patch("http://localhost:5000/notifications", notificationID).then(() => {});
+  };
+
   // if (!role) {
   //   return <p>loading........</p>;
   // }
@@ -27,12 +50,13 @@ const DashBoardNavbar = ({ setShowNotification, showNotification }) => {
       <div className="flex items-center gap-5">
         {/* <NavLink to="/dashboard/notification"> */}
 
-        <button className="tooltip  tooltip-left tooltip-primary" data-tip="Notification" type="button" onClick={() => setShowNotification(!showNotification)}>
+        <button className="tooltip  tooltip-left tooltip-primary relative" data-tip="Notification" type="button" onClick={handleNotification}>
           <MdOutlineNotificationsActive
             className={` ml-2 transition-all duration-300 ${showNotification ? "bg-my-primary text-white bg-opacity-70 p-2 rounded-full w-12 h-12" : "w-10 h-10"}`}
             src="https://i.ibb.co/8zxdmM6/notification.png"
             alt="upload images"
           />
+          <span className="absolute -top-2 -right-2 bg-yellow-500 px-2 py-1 rounded-full">{unreadNotification}</span>
         </button>
 
         {role !== "user" && (
