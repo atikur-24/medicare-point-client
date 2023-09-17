@@ -44,22 +44,32 @@ const LabSearch = ({ setAllLabTests, setIsLoading }) => {
 
   return (
     <div className="flex flex-col md:items-center justify-between md:flex-row gap-4 md:gap-10 ">
-      <form className="flex items-center  md:w-[40%]">
-        <input onChange={handleSearch} className="w-full  border h-16   rounded-l-lg   px-6 focus:input-bordered input-accent" type="search" placeholder="Search Test and Packages" />
-        <button type="button" className=" bg-my-primary h-16 rounded-r-lg flex items-center justify-center px-4  ">
-          <FiSearch className="text-3xl text-white" />
-        </button>
-      </form>
+      <div className="md:w-[40%]">
+        <form className="flex items-center  ">
+          <input onChange={handleSearch} className="w-full  border h-16   rounded-l-lg   px-6 focus:input-bordered input-accent" type="search" placeholder="Search Test and Packages" />
+          <button type="button" className=" bg-my-primary h-16 rounded-r-lg flex items-center justify-center px-4  ">
+            <FiSearch className="text-3xl text-white" />
+          </button>
+        </form>
+        {!isLoading && allLabTest.length === 0 && (
+          <div className="flex gap-2 mt-2 bg-my-pink bg-opacity-5 rounded-xl  text-primary p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>No results found. Please search by right name</span>
+          </div>
+        )}
+      </div>
 
-      <div className="flex items-center gap-4">
-        {/* <div>
+      {/* <div className="flex items-center gap-4">
+        <div>
           <HiLocationMarker className="w-10 h-10 text-my-primary" />
-        </div> */}
-        {/* <div className="w-80 z-10">
+        </div>
+        <div className="w-80 z-10">
           <h2 className="font-nunito font-bold">Our sevices Area</h2>
           <Select isClearable defaultValue={selectedOption} onChange={setSelectedOption} options={districts} placeholder="Select your district" noOptionsMessage={() => "No district found"} />
-        </div> */}
-      </div>
+        </div>
+      </div> */}
       <div className="md:w-[50%] lg:w-[40%] ">
         <div className=" border border-gray-3 flex md:items-center  px-4 rounded-lg py-2 bg-white  ">
           <p className="bg-my-primary text-white w-80 font-nunito uppercase font-bold rounded  py-4 flex items-center justify-center text-sm lg:text-base">Our Services Area</p>
