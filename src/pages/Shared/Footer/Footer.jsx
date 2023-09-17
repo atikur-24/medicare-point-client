@@ -58,9 +58,9 @@ const Footer = () => {
             <div className="text-white ">
               <h2 className="text-2xl mb-4  ">OUR POLICIES</h2>
               <ul className="space-y-3  font-semibold footer-link">
-                <li>
+                {/* <li>
                   <Link to="/">Appointment</Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/terms&conditions">Terms and Conditions</Link>
                 </li>
@@ -68,11 +68,11 @@ const Footer = () => {
                   <Link to="/privacy">Privacy Policy</Link>
                 </li>
                 <li>
-                  <Link to="/">Fees and Payments Policy</Link>
+                  <Link to="/paymentpolicy">Fees and Payments Policy</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/">Shipping and Delivery Policy</Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/refund">Return, Refund and Cancellation Policy</Link>
                 </li>
