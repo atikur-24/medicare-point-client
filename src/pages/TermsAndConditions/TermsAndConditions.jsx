@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const TermsAndConditions = () => {
   return (
-    <div className="my-container">
+    <div className="my-container font-Alexandria">
       <h1 className="text-3xl font-bold mb-4">Terms & Conditions</h1>
       <p className="mb-4">
         Welcome to MediCare Point website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use:
@@ -33,7 +33,7 @@ const TermsAndConditions = () => {
         We understand the significance of safeguarding your personal information and data. Your use of this website is subject to our Privacy Policy, a cornerstone of our dedication to transparency
         and your trust.We understand the significance of safeguarding your personal information and data. Your use of this website is subject to our Privacy Policy, a cornerstone of our dedication to
         transparency and your trust. To acquaint yourself with our data handling practices, we encourage you to refer to our detailed Privacy Policy, accessible on the dedicated{" "}
-        <Link className="text-my-primary font-semibold" to="privacy">
+        <Link className="text-my-primary font-semibold" to="/privacy">
           Privacy Policy
         </Link>{" "}
         page.
@@ -94,7 +94,7 @@ const TermsAndConditions = () => {
         We extend our gratitude for your trust and engagement and eagerly anticipate the opportunity to assist you in your journey toward improved health and well-being.
       </p>
 
-      <p className="mt-4">Last updated: [Date]</p>
+      <p className="mt-4">Last updated: [17/09/2023]</p>
     </div>
   );
 };
