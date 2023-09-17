@@ -24,7 +24,7 @@ const AllLabTests = ({ isLoading, allLabTest }) => {
           breakpoints={{
             0: {
               slidesPerView: 2,
-              spaceBetween: 180,
+              spaceBetween: 150,
             },
             480: {
               slidesPerView: 2,

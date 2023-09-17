@@ -31,11 +31,12 @@ const LabPayment = () => {
   // console.log(labCart);
   // const [selectDate, setSelectedDate] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
-  let today = new Date();
-  let hours = `${today.getHours()}`;
-  let min = `${today.getMinutes()}`;
+  // let today = new Date();
+  // let hours = `${today.getHours()}`;
+  // let min = `${today.getMinutes()}`;
 
-  const [startDate, setStartDate] = useState(setHours(setMinutes(new Date(), min), hours));
+  // const [startDate, setStartDate] = useState(setHours(setMinutes(new Date(), min), hours));
+  const [startDate, setStartDate] = useState(setHours(setMinutes(new Date(), 0), 9));
   const filterPassedTime = (time) => {
     const currentDate = new Date();
     const selectedDate = new Date(time);
@@ -126,6 +127,11 @@ const LabPayment = () => {
                         setHours(setMinutes(new Date(), 0), 12),
                         setHours(setMinutes(new Date(), 30), 12),
                         setHours(setMinutes(new Date(), 0), 13),
+                        setHours(setMinutes(new Date(), 30), 13),
+                        setHours(setMinutes(new Date(), 0), 14),
+                        setHours(setMinutes(new Date(), 30), 14),
+                        setHours(setMinutes(new Date(), 0), 15),
+                        setHours(setMinutes(new Date(), 30), 15),
                         setHours(setMinutes(new Date(), 0), 16),
                         setHours(setMinutes(new Date(), 30), 16),
                         setHours(setMinutes(new Date(), 0), 17),
