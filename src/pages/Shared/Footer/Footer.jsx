@@ -34,16 +34,24 @@ const Footer = () => {
                   <Link to="/">HOME</Link>
                 </li>
                 <li>
-                  <Link to="/medicines" className="capitalize">MEDICINES</Link>
+                  <Link to="/medicines" className="capitalize">
+                    MEDICINES
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/lab-test" className="capitalize">LAB TEST</Link>
+                  <Link to="/lab-test" className="capitalize">
+                    LAB TEST
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/healthtips" className="capitalize">HEALTH TIPS</Link>
+                  <Link to="/healthtips" className="capitalize">
+                    HEALTH TIPS
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/blogs" className="capitalize">BLOGS</Link>
+                  <Link to="/blogs" className="capitalize">
+                    BLOGS
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -54,10 +62,10 @@ const Footer = () => {
                   <Link to="/">Appointment</Link>
                 </li>
                 <li>
-                  <Link to="/">Terms and Conditions</Link>
+                  <Link to="/terms&conditions">Terms and Conditions</Link>
                 </li>
                 <li>
-                  <Link to="/">Privacy Policy</Link>
+                  <Link to="/privacy">Privacy Policy</Link>
                 </li>
                 <li>
                   <Link to="/">Fees and Payments Policy</Link>
@@ -66,7 +74,7 @@ const Footer = () => {
                   <Link to="/">Shipping and Delivery Policy</Link>
                 </li>
                 <li>
-                  <Link to="/">Return, Refund and Cancellation Policy</Link>
+                  <Link to="/refund">Return, Refund and Cancellation Policy</Link>
                 </li>
               </ul>
             </div>

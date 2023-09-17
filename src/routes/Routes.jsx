@@ -61,6 +61,7 @@ import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
 import Privacy from "../pages/TermsAndConditions/Privacy";
+import ReturnRefundCancellationPolicy from "../pages/TermsAndConditions/ReturnRefundCancellationPolicy";
 import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
 import PrivateRoute from "./PrivateRoute";
 
@@ -91,8 +92,12 @@ const router = createBrowserRouter([
         element: <TermsAndConditions />,
       },
       {
-        path: "terms/privacy",
+        path: "privacy",
         element: <Privacy />,
+      },
+      {
+        path: "refund",
+        element: <ReturnRefundCancellationPolicy />,
       },
       {
         path: "/faqs",
