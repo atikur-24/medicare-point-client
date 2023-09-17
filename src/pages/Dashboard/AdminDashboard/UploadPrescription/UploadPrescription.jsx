@@ -99,29 +99,29 @@ const UploadPrescription = () => {
               </div>
             )}
 
-            {medicines.map((m) => (
-              <div key={m._id} className="flex px-4 py-2 md:px-5 md:gap-20 items-center  space-x-3 text-gray-6 bg-white rounded-2xl border border-gray-3 my-2">
+            {medicines?.map((m) => (
+              <div key={m?._id} className="flex px-4 py-2 md:px-5 md:gap-20 items-center  space-x-3 text-gray-6 bg-white rounded-2xl border border-gray-3 my-2">
                 <div role="button" tabIndex="0" onClick={() => handleAddToCart(m)} className="relative">
-                  {m.discount > 0 && (
+                  {m?.discount > 0 && (
                     <div className="bg-my-accent z-10 rounded-md p-1 text-xs font-medium text-white absolute -top-2 -left-2 flex">
-                      <p>{m.discount}</p>
+                      <p>{m?.discount}</p>
                       <p>% OFF</p>
                     </div>
                   )}
-                  <img className="w-20 h-20" src={m.image} alt="medicine" />
+                  <img className="w-20 h-20" src={m?.image} alt="medicine" />
                 </div>
 
                 <div role="button" tabIndex="0" onClick={() => handleAddToCart(m)} type="button">
                   <div className="p-2 space-y-1 relative ">
                     <div className="space-y-1">
-                      <p className="text-gray-5 text-xs font-medium">{m.category.label}, personal care</p>
-                      <h2 className="text-[1.125rem] font-semibold text-title-color tracking-wide inline-block">{m.medicine_name}</h2>
+                      <p className="text-gray-5 text-xs font-medium">{m?.category?.label}, personal care</p>
+                      <h2 className="text-[1.125rem] font-semibold text-title-color tracking-wide inline-block">{m?.medicine_name}</h2>
                     </div>
                     <p className="inline-flex gap-1">
                       <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">
-                        ৳ {m.discount > 0 ? (m.price - (m.price / 100) * m.discount).toFixed(2) : m.price.toFixed(2)}
+                        ৳ {m?.discount > 0 ? (m?.price - (m?.price / 100) * m?.discount).toFixed(2) : m?.price?.toFixed(2)}
                       </span>
-                      {m.discount > 0 && <span className="font-medium inline-flex items-center text-[16px] text-gray-5 line-through">৳ {m.price}</span>}
+                      {m?.discount > 0 && <span className="font-medium inline-flex items-center text-[16px] text-gray-5 line-through">৳ {m.price}</span>}
                     </p>
 
                     <div className="flex flex-col md:flex-row justify-center gap-3 items-center" />
@@ -170,7 +170,15 @@ const UploadPrescription = () => {
                 </div>
               </div>
             ))}
-            {cart.length === 0 && <p className="text-center mt-10">No medicines added</p>}
+
+            {cart.length === 0 && (
+              <div className="flex gap-2 mt-2 bg-my-pink bg-opacity-5 rounded-xl  text-primary p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>No medicines added yet!</span>
+              </div>
+            )}
           </div>
           {cart.length > 0 && (
             <form className="flex flex-col xl:flex-row gap-4 pr-4" onSubmit={handleUploadToDB}>
