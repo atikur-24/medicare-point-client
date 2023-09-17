@@ -2,18 +2,18 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import { fetchAllUsers } from "../../../../Features/AllUsers/allUsers";
+import { fetchAllData } from "../../../../Features/AllMedicines/allData";
 import Loader from "../../../../components/Loader";
 import AllPharmacistRow from "./AllPharmacistRow";
 
 const AllPharmacists = () => {
   const api = "all-pharmacist/Pharmacist";
-  const { allUsers, isLoading } = useSelector((state) => state.allUsers);
+  const { allData: allPharmacist, isLoading } = useSelector((state) => state.allData);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllUsers(api));
+    dispatch(fetchAllData(api));
   }, [dispatch]);
 
   const handelDelete = (id) => {
@@ -30,7 +30,7 @@ const AllPharmacists = () => {
         axios.delete(`http://localhost:5000/delete-user/${id}`).then((res) => {
           console.log(res.data);
           if (res.data.deletedCount > 0) {
-            dispatch(fetchAllUsers(api));
+            dispatch(fetchAllData(api));
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
           }
         });
@@ -44,7 +44,7 @@ const AllPharmacists = () => {
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pharmacists</div>
-            <div className="stat-value text-my-primary">{allUsers.length || 0}</div>
+            <div className="stat-value text-my-primary">{allPharmacist?.length || 0}</div>
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@ const AllPharmacists = () => {
 
           {!isLoading && (
             <tbody>
-              {allUsers.map((user, index) => (
+              {allPharmacist?.map((user, index) => (
                 <AllPharmacistRow handelDelete={handelDelete} key={user?._id} index={index} user={user} />
               ))}
             </tbody>

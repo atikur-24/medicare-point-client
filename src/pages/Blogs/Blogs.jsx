@@ -1,18 +1,17 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllData } from "../../Features/AllMedicines/allData";
+import { fetchAllBlogs } from "../../Features/Blogs/allBlogs";
 import blogImage from "../../assets/Blog/blog.webp";
 import Loader from "../../components/Loader";
 import Blog from "./Blog";
 import "./Blog.css";
 
 const Blogs = () => {
-  const api = "blogs";
-  const { isLoading, allData: blogs } = useSelector((state) => state.allData);
+  const { isLoading, allBlogs: blogs } = useSelector((state) => state.allBlogs);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchAllData(api));
-  }, [dispatch, api]);
+    dispatch(fetchAllBlogs());
+  }, [dispatch]);
 
   return (
     <div className="bg-white">
