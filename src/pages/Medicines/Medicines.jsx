@@ -395,7 +395,7 @@ const Medicines = () => {
       </dialog>
 
       {/* Medicine Request modal  */}
-      <dialog id="my_modal_mediRequest" className="modal">
+      {/* <dialog id="my_modal_mediRequest" className="modal">
         <div className="modal-box md:w-1/2">
           <h4 className="text-xl font-bold font-nunito text-center">Request Medicine</h4>
           <div>
@@ -423,7 +423,7 @@ const Medicines = () => {
         <form method="dialog" className="modal-backdrop">
           <button type="submit">close</button>
         </form>
-      </dialog>
+      </dialog> */}
     </section>
   );
 };

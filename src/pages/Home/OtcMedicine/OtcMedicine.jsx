@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import SectionTitle from "../../../components/SectionTitle";
@@ -32,8 +33,9 @@ const OtcMedicine = () => {
       <div className="my-container">
         <SectionTitle title="Otc Medicines" content="Easy Access to OTC Medicines,Your Trusted Solution for Common Health Needs." />
 
-        <div className="block lg:hidden">
+        <div className="block lg:hidden my-4">
           <Swiper
+            modules={[Pagination]}
             pagination={{
               clickable: true,
             }}
@@ -66,7 +68,7 @@ const OtcMedicine = () => {
             className="mySwiper "
           >
             {otcMedicines.map((otcMedicine, idx) => (
-              <SwiperSlide key={idx} className="mx-auto container ">
+              <SwiperSlide key={idx} className="mx-auto container my-4 mb-4">
                 <Link to={`/medicines?category=${handleMedicineClick(otcMedicine)}`} className="card mx-auto shadow-xl lg:h-full space-y-4 md:hover:scale-105 transition-all duration-200">
                   <div>
                     <img src={otcMedicine.image} alt="img" className="rounded-t-xl w-full h-32 md:h-36 lg:h-40 object-cover" />
