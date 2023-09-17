@@ -1,28 +1,33 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchAllData } from "../../Features/AllMedicines/allData";
 import helth from "../../assets/Blog/helth.webp";
+import Loader from "../../components/Loader";
 import HealthCard from "./HealthCard";
 
 const HealthTips = () => {
-  const [healthTips, setHealthTips] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/allHealthTips").then((res) => {
-      setHealthTips(res.data);
+  const api = "allHealthTips";
+  const { isLoading, allData: healthTips } = useSelector((state) => state.allData);
+  const dispatch = useDispatch();
 
-      // Extract unique categories from health tips data
-      const uniqueCategories = [...new Set(res.data.map((tip) => tip.category))];
-      setCategories(uniqueCategories);
-    });
-  }, []);
+  useEffect(() => {
+    dispatch(fetchAllData(api));
+  }, [dispatch, api]);
+
+  useEffect(() => {
+    // Extract unique categories from health tips data
+    const uniqueCategories = [...new Set(healthTips.map((tip) => tip.category))];
+    setCategories(uniqueCategories);
+  }, [healthTips]);
 
   const filteredHealthTips = selectedCategory ? healthTips.filter((tip) => tip.category === selectedCategory) : healthTips;
   const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
+    setSelectedCategory(event?.target?.value);
   };
 
   const [currentPage, setCurrentPage] = useState(0);
@@ -30,7 +35,7 @@ const HealthTips = () => {
 
   // Function to handle page change
   const handlePageClick = (selectedPage) => {
-    setCurrentPage(selectedPage.selected);
+    setCurrentPage(selectedPage?.selected);
   };
 
   // Calculate the start and end indices for the current page
@@ -38,7 +43,7 @@ const HealthTips = () => {
   const endIndex = startIndex + itemsPerPage;
 
   // Filter and paginate the health tips based on the current page
-  const paginatedHealthTips = filteredHealthTips.slice(startIndex, endIndex);
+  const paginatedHealthTips = filteredHealthTips?.slice(startIndex, endIndex);
 
   // Calculate the total number of pages
   const pageCount = Math.ceil(filteredHealthTips.length / itemsPerPage);
@@ -55,7 +60,7 @@ const HealthTips = () => {
           </Link>
           <hr className="border border-my-accent my-4" />
           <ul className="divide-y divide-my-accent ">
-            {categories.map((category, index) => (
+            {categories?.map((category, index) => (
               <li key={index} className="font-semibold text-title-color py-2">
                 <button
                   type="button"
@@ -74,7 +79,7 @@ const HealthTips = () => {
             <option value="" className="z-10">
               All Categories
             </option>
-            {categories.map((category, index) => (
+            {categories?.map((category, index) => (
               <option className="z-10" key={index} value={category}>
                 {category}
               </option>
@@ -84,11 +89,15 @@ const HealthTips = () => {
 
         {/* Main Content */}
         <div className="xl:w-4/5 w-full p-4">
-          <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4 lg:mx-8 md:mx-2 mx-auto items-center">
-            {paginatedHealthTips.map((healthTip) => (
-              <HealthCard key={healthTip._id} healthTip={healthTip} />
-            ))}
-          </div>
+          {isLoading ? (
+            <Loader spinner />
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4 lg:mx-8 md:mx-2 mx-auto items-center">
+              {paginatedHealthTips?.map((healthTip) => (
+                <HealthCard key={healthTip._id} healthTip={healthTip} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <div className="text-center mt-4">
