@@ -14,6 +14,13 @@
   @apply lg:w-48 2xl:h-28  rounded-md !top-6 xl:!top-2 xl:!-left-32 border border-gray-3;
 }
 
+.filter-medicine .szh-menu {
+  @apply !h-fit;
+}
+.medicine-types .szh-menu {
+  @apply !h-fit !-top-44;
+}
+
 .my-container {
   @apply px-4 xl:px-6 container mx-auto py-14 lg:py-16;
 }

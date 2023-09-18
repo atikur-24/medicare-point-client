@@ -17,7 +17,7 @@ const MedicineReviews = ({ allRatings }) => {
               </div>
               <small>{singleR.date}</small>
             </div>
-            <p className="text-gray-5 text-justify">{singleR?.reviewMessage}</p>
+            <p className="text-gray-5 text-xs lg:text-sm xl:text-base text-justify">{singleR?.reviewMessage}</p>
             <div className="flex items-center justify-between">
               <h3 className="my-5 font-medium text-sm">–– {singleR?.name}</h3>
             </div>

@@ -123,9 +123,8 @@ const SignUp = () => {
                           required: true,
                           minLength: 6,
                           maxLength: 20,
-                          pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                         })}
-                        placeholder="Password +6"
+                        placeholder="Password"
                         className="placeholder-gray-4 rounded text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent "
                       />
                       <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-2 text-my-primary">
@@ -136,7 +135,7 @@ const SignUp = () => {
                           <ImWarning className="inline-block" /> Password is required
                         </p>
                       )}
-                      {errors.password?.type === "minLength" && (
+                      {/* {errors.password?.type === "minLength" && (
                         <p className="text-red-600">
                           <ImWarning className="inline-block" /> Password must be 6 characters
                         </p>
@@ -150,7 +149,7 @@ const SignUp = () => {
                         <p className="text-red-600">
                           <ImWarning className="inline-block" /> Password must have one Uppercase one lower case, one number and one special character.
                         </p>
-                      )}
+                      )} */}
                     </div>
                   </div>
 

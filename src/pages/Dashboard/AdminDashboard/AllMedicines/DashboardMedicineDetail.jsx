@@ -36,11 +36,11 @@ const DashboardMedicineDetail = () => {
   };
 
   return (
-    <div className=" p-6">
+    <div className=" p-2 md:p-6">
       {isLoading ? (
         <Loader spinner />
       ) : (
-        <div className="bg-white p-10 rounded-md  ">
+        <div className="bg-white p-4 lg:p-10 rounded-md  ">
           <div>
             <div className="flex flex-col md:flex-row justify-between gap-12">
               <div className="w-full">
@@ -62,7 +62,12 @@ const DashboardMedicineDetail = () => {
                         Upload Date: <span className="font-normal">{date}</span>
                       </p>
                       <p className="font-semibold">
-                        Medicine Status: <span className={`font-semibold ${status === "approved" ? "text-my-accent" : ""} ${status === "pending" ? "text-yellow-500" : ""} ${status === "denied" ? "text-red-500" : ""}`}>{status}</span>
+                        Medicine Status:{" "}
+                        <span
+                          className={`font-semibold ${status === "approved" ? "text-my-accent" : ""} ${status === "pending" ? "text-yellow-500" : ""} ${status === "denied" ? "text-red-500" : ""}`}
+                        >
+                          {status}
+                        </span>
                       </p>
                     </div>
                     <div>
@@ -89,14 +94,15 @@ const DashboardMedicineDetail = () => {
             <hr className="my-5  border-gray-4" />
             <div>
               <h2 className="text-xl font-bold">Medicine Description</h2>
-              <p className="mt-2 text-gray-5">{medicine_description}</p>
+              {/* <p className="mt-2 text-gray-5">{medicine_description}</p> */}
+              <div>{HtmlParser(medicine_description)}</div>
             </div>
             <div className="flex justify-between items-center gap-3 mt-8">
-              <div>
+              <div className="medicine-types">
                 <Menu
                   menuButton={
                     // eslint-disable-next-line react/jsx-wrap-multilines
-                    <MenuButton className=" btn hover:bg-my-primary inline-flex items-center bg-my-accent text-white  capitalize rounded-md">
+                    <MenuButton className=" p-2 hover:bg-my-primary inline-flex items-center bg-my-accent text-white  capitalize rounded-md">
                       {status}
                       <MdKeyboardArrowDown className="text-2xl " />
                     </MenuButton>

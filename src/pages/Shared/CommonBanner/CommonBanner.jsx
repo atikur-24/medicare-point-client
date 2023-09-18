@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
 
+import { Link } from "react-router-dom";
+
 const CommonBanner = ({ bgImage, title, description, button, image }) => {
   const mystyle = {
     backgroundImage: `url(${bgImage})`,
@@ -17,9 +19,11 @@ const CommonBanner = ({ bgImage, title, description, button, image }) => {
               <p className="text-gray-3 xl:w-2/3 text-justify hidden md:block">{description}</p>
               <div>
                 {button && (
-                  <button type="button" className="my-btn ">
-                    {button}
-                  </button>
+                  <Link to="/medicines?category=Pain-Relief">
+                    <button type="button" className="my-btn ">
+                      {button}
+                    </button>
+                  </Link>
                 )}
               </div>
             </div>
