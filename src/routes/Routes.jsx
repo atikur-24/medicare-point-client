@@ -48,6 +48,7 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArticles";
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
 import DashboardMedicineDetail from "../pages/Dashboard/AdminDashboard/AllMedicines/DashboardMedicineDetail";
+import DiscountCodes from "../pages/Dashboard/AdminDashboard/DiscountCodes/DiscountCodes";
 import AllPrescriptions from "../pages/Dashboard/AdminDashboard/UploadPrescription/AllPrescriptions";
 import UploadPrescription from "../pages/Dashboard/AdminDashboard/UploadPrescription/UploadPrescription";
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
@@ -355,6 +356,10 @@ const router = createBrowserRouter([
       {
         path: "prescriptions/:email",
         element: <UploadPrescription />,
+      },
+      {
+        path: "discountCodes",
+        element: <DiscountCodes />,
       },
     ],
   },
