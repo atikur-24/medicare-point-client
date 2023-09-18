@@ -30,8 +30,9 @@ const AllAvailableTest = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        dispatch(deleteLabTestApi(id));
-        dispatch(fetchAllLabTests());
+        dispatch(deleteLabTestApi(id)).then(() => {
+          dispatch(fetchAllLabTests());
+        });
       }
     });
   };

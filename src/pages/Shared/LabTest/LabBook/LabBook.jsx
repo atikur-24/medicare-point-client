@@ -12,6 +12,7 @@ import useAuth from "../../../../hooks/useAuth";
 import useLabCart from "../../../../hooks/useLabCart";
 import CheckCard from "../CheckCard/CheckCard";
 import LabButton from "../LabButton/LabButton";
+import HtmlParser from "react-html-parser";
 
 const LabBook = () => {
   const params = useParams();
@@ -118,7 +119,7 @@ const LabBook = () => {
               </div>
             </div>
             <div className=" items-center text-center p-0 mt-6">
-              <p className="text-justify text-black-2  tracking-wide">{labTestDetails}</p>
+              <div className="text-justify text-black-2  tracking-wide">{HtmlParser(labTestDetails)}</div>
               <ul className="pl-6 mt-6 text-start text-black-2  tracking-wide list-disc">
                 <li>Age of the patient</li>
                 <li>Existing conditions </li>

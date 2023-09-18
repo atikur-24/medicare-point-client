@@ -26,7 +26,6 @@ const MedicineDetails = () => {
   const [rating1, setRating] = useState(0);
   const [isLoading, setLoading] = useState(true);
   const [isReview, setReview] = useState(0);
-  console.log(isReview);
 
   const [isOpen, setIsOpen] = useState(true);
   const toggleOpen = useCallback(() => {
@@ -62,7 +61,6 @@ const MedicineDetails = () => {
     const date = moment().format("Do MMM YYYY");
 
     const newReview = { name: user?.displayName, email: user.email, date, rating: rating1, reviewMessage };
-    console.log(newReview);
 
     axios.post(`http://localhost:5000/reviews/${_id}`, newReview).then((res) => {
       if (res.data.modifiedCount > 0) {
@@ -191,7 +189,6 @@ const MedicineDetails = () => {
                 <h3 className="my-1 text-xl font-semibold lg:tracking-wide">Your Rating</h3>
                 <div>
                   <Rating className="mb-5" style={{ maxWidth: 100 }} value={rating1} onChange={setRating} isRequired />
-                  {/* <ReactStarsRating onChange={setRating} primaryColor="#fbb614" secondaryColor="#C0C0C0" className="flex" size={18} value={setRating} /> */}
                 </div>
                 <div>
                   <form onSubmit={handleReviews}>

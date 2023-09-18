@@ -8,6 +8,7 @@ import axios from "axios";
 import moment from "moment";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { AiOutlineDown } from "react-icons/ai";
 import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
@@ -269,12 +270,13 @@ const Medicines = () => {
     const req_medi_name = form.req_medi_name.value;
     const district = form.district.value;
     console.log(req_medi_name, name, email, district);
+    toast.success("Medicine Request successful");
     form.reset();
   };
 
   return (
     <section className="bg-lite">
-      <div className="bg-my-primary py-6 flex items-center justify-center gap-6 lg:gap-10">
+      <div className="bg-my-primary py-6 flex flex-col md:flex-row items-center justify-center gap-6 lg:gap-10">
         <MediRequest />
         <PrescriptionBtn />
       </div>
@@ -297,7 +299,7 @@ const Medicines = () => {
               <div className="flex flex-col items-center">
                 {/* <BiSolidCameraPlus title="Upload Prescription" onClick={() => window.my_modal_PrescriptionUpload.showModal()} className="text-2xl cursor-pointer" /> */}
               </div>
-              <div>
+              <div className="filter-medicine">
                 <Menu
                   menuButton={
                     <MenuButton className="flex items-center gap-2 font-semibold p-2 rounded-md  ease-in duration-150">
@@ -419,7 +421,7 @@ const Medicines = () => {
               alt=""
             />
           </div>
-          <form onSubmit={onSubmitMediReq}>
+          <form method="dialog" onSubmit={onSubmitMediReq}>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="text-base font-medium">
@@ -467,7 +469,7 @@ const Medicines = () => {
               <label className="text-base font-medium">
                 Your District <span className="font-bold text-red-500">*</span>
               </label>
-              <select name="district" id="" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
+              <select required name="district" id="" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
                 <option value="" selected>
                   Select Your District
                 </option>
@@ -493,7 +495,7 @@ const Medicines = () => {
             </div>
 
             <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
-              {loading ? "Uploading...." : "Request"}
+              Request
             </button>
           </form>
         </div>

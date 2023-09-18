@@ -20,9 +20,9 @@ const allDataSlices = createSlice({
             state.allData = [];
         });
         builder.addCase(fetchAllData.fulfilled, (state, { payload }) => {
-            state.isLoading = false;
             state.allData = payload;
             state.error = null;
+            state.isLoading = false;
         });
         builder.addCase(fetchAllData.rejected, (state, action) => {
             state.isLoading = true;
