@@ -19,7 +19,7 @@ const CommonBanner = ({ bgImage, title, description, button, image }) => {
               <p className="text-gray-3 xl:w-2/3 text-justify hidden md:block">{description}</p>
               <div>
                 {button && (
-                  <Link to="/medicines">
+                  <Link to="/medicines?category=Pain-Relief">
                     <button type="button" className="my-btn ">
                       {button}
                     </button>
