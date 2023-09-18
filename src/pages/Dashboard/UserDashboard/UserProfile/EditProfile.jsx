@@ -103,7 +103,11 @@ const EditProfile = () => {
               </div>
               <div>
                 <label className="text-sm font-semibold">Gender</label>
-                <input type="text" name="gender" className="input input-bordered w-full" value={formData.gender} onChange={handleChange} />
+                <select name="gender" className="input input-bordered w-full" value={formData.gender} onChange={handleChange}>
+                  <option value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2">
