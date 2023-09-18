@@ -1,0 +1,228 @@
+{
+  "districts": [
+    {
+      "id": 1,
+      "name": "Dhaka"
+    },
+    {
+      "id": 2,
+      "name": "Chittagong"
+    },
+    {
+      "id": 3,
+      "name": "Rajshahi"
+    },
+    {
+      "id": 4,
+      "name": "Khulna"
+    },
+    {
+      "id": 5,
+      "name": "Barisal"
+    },
+    {
+      "id": 6,
+      "name": "Sylhet"
+    },
+    {
+      "id": 7,
+      "name": "Rangpur"
+    },
+    {
+      "id": 8,
+      "name": "Mymensingh"
+    },
+    {
+      "id": 9,
+      "name": "Comilla"
+    },
+    {
+      "id": 10,
+      "name": "Narayanganj"
+    },
+    {
+      "id": 11,
+      "name": "Gazipur"
+    },
+    {
+      "id": 12,
+      "name": "Jessore"
+    },
+    {
+      "id": 13,
+      "name": "Dinajpur"
+    },
+    {
+      "id": 14,
+      "name": "Tangail"
+    },
+    {
+      "id": 15,
+      "name": "Bogra"
+    },
+    {
+      "id": 16,
+      "name": "Cox's Bazar"
+    },
+    {
+      "id": 17,
+      "name": "Narsingdi"
+    },
+    {
+      "id": 18,
+      "name": "Kushtia"
+    },
+    {
+      "id": 19,
+      "name": "Pabna"
+    },
+    {
+      "id": 20,
+      "name": "Satkhira"
+    },
+    {
+      "id": 21,
+      "name": "Faridpur"
+    },
+    {
+      "id": 22,
+      "name": "Jamalpur"
+    },
+    {
+      "id": 23,
+      "name": "Madaripur"
+    },
+    {
+      "id": 24,
+      "name": "Munshiganj"
+    },
+    {
+      "id": 25,
+      "name": "Natore"
+    },
+    {
+      "id": 26,
+      "name": "Sirajganj"
+    },
+    {
+      "id": 27,
+      "name": "Sylhet"
+    },
+    {
+      "id": 28,
+      "name": "Habiganj"
+    },
+    {
+      "id": 29,
+      "name": "Sunamganj"
+    },
+    {
+      "id": 30,
+      "name": "Netrokona"
+    },
+    {
+      "id": 31,
+      "name": "Moulvibazar"
+    },
+    {
+      "id": 32,
+      "name": "Narail"
+    },
+    {
+      "id": 33,
+      "name": "Jhenaidah"
+    },
+    {
+      "id": 34,
+      "name": "Magura"
+    },
+    {
+      "id": 35,
+      "name": "Meherpur"
+    },
+    {
+      "id": 36,
+      "name": "Chuadanga"
+    },
+    {
+      "id": 37,
+      "name": "Bagerhat"
+    },
+    {
+      "id": 38,
+      "name": "Pirojpur"
+    },
+    {
+      "id": 39,
+      "name": "Bhola"
+    },
+    {
+      "id": 40,
+      "name": "Patuakhali"
+    },
+    {
+      "id": 41,
+      "name": "Barguna"
+    },
+    {
+      "id": 42,
+      "name": "Sherpur"
+    },
+    {
+      "id": 43,
+      "name": "Jamalpur"
+    },
+    {
+      "id": 44,
+      "name": "Tangail"
+    },
+    {
+      "id": 45,
+      "name": "Kishoreganj"
+    },
+    {
+      "id": 46,
+      "name": "Manikganj"
+    },
+    {
+      "id": 47,
+      "name": "Shariatpur"
+    },
+    {
+      "id": 48,
+      "name": "Chandpur"
+    },
+    {
+      "id": 49,
+      "name": "Lakshmipur"
+    },
+    {
+      "id": 50,
+      "name": "Noakhali"
+    },
+    {
+      "id": 51,
+      "name": "Feni"
+    },
+    {
+      "id": 52,
+      "name": "Bandarban"
+    },
+    {
+      "id": 53,
+      "name": "Rangamati"
+    },
+    {
+      "id": 54,
+      "name": "Khagrachari"
+    },
+    {
+      "id": 55,
+      "name": "Thakurgaon"
+    },
+    {
+      "id": 56,
+      "name": "Panchagarh"
+    }
+  ]
+}
