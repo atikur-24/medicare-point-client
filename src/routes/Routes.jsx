@@ -53,6 +53,7 @@ import AllPrescriptions from "../pages/Dashboard/AdminDashboard/UploadPrescripti
 import UploadPrescription from "../pages/Dashboard/AdminDashboard/UploadPrescription/UploadPrescription";
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
+import ViewDetailsMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/ViewDetailsMedicine";
 import OrderTracking from "../pages/Dashboard/UserDashboard/OrderTrack/OrderTracking";
 import RewardPoints from "../pages/Dashboard/UserDashboard/RewardPoints/RewardPoints";
 import EditProfile from "../pages/Dashboard/UserDashboard/UserProfile/EditProfile";
@@ -117,7 +118,6 @@ const router = createBrowserRouter([
       {
         path: "/healthtips/:id",
         element: <HealthTipsDetails />,
-        // loader: ({ params }) => fetch(`http://localhost:5000/allHealthTips/${params?.id}`),
       },
       {
         path: "labPage/:id",
@@ -134,7 +134,6 @@ const router = createBrowserRouter([
       {
         path: "/labBook/:id",
         element: <LabBook />,
-        // loader: ({ params }) => fetch(`http://localhost:5000/labAllItems/${params?.id}`)
       },
       {
         path: "medicines",
@@ -268,6 +267,10 @@ const router = createBrowserRouter([
         path: "update-medicine/:id",
         element: <UpdateMedicine />,
         loader: ({ params }) => fetch(`http://localhost:5000/medicines/details/${params.id}`),
+      },
+      {
+        path: "medicine-details/:id",
+        element: <ViewDetailsMedicine />,
       },
       {
         path: "add-new-medicine",

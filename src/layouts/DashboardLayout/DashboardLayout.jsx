@@ -44,9 +44,7 @@ const DashboardLayout = () => {
   }, [role]);
 
   useEffect(() => {
-    dispatch(fetchAdminHomeData(`dashboard/${user?.email}`)).then((resp) => {
-      // console.log(resp.data);
-    });
+    dispatch(fetchAdminHomeData(`dashboard/${user?.email}`)).then(() => {});
   }, [user?.email, dispatch]);
 
   useEffect(() => {
