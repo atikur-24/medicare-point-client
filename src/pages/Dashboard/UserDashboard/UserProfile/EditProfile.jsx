@@ -6,11 +6,20 @@ import Swal from "sweetalert2";
 const EditProfile = () => {
   const { email } = useParams();
   const existingData = useLoaderData();
-  console.log(existingData);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedImage(file);
+
+    // Move the following line here to update formData when an image is selected
+    setFormData({ ...formData, image: file });
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "", // Add missing fields
+    phone: "",
     gender: "",
     company: "",
     title: "",
@@ -24,12 +33,11 @@ const EditProfile = () => {
   });
 
   useEffect(() => {
-    // Fetch user data based on the email and update the formData state
     const fetchUserData = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/users/${email}`);
         if (response.status === 200) {
-          const userData = response.data; // Assuming the user data is returned as an object
+          const userData = response.data;
           setFormData(userData);
         } else {
           console.error("Failed to fetch user data");
@@ -52,17 +60,27 @@ const EditProfile = () => {
 
     try {
       const { _id, ...formDataWithoutId } = formData;
+
+      if (selectedImage) {
+        const formDataToSubmit = new FormData();
+        formDataToSubmit.append("image", selectedImage);
+
+        const imageResponse = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`, formDataToSubmit);
+
+        if (imageResponse.data && imageResponse.data.data) {
+          formDataWithoutId.image = imageResponse.data.data.display_url;
+        }
+      }
+
       const response = await axios.put(`http://localhost:5000/users/${email}`, formDataWithoutId);
 
       if (response.status === 200) {
-        // Profile update successful
         Swal.fire({
           icon: "success",
           title: "Profile Updated",
           text: "Your profile has been updated successfully!",
         });
       } else {
-        // Handle any errors or display an error message to the user
         console.error("Failed to update profile");
         Swal.fire({
           icon: "error",
@@ -122,24 +140,24 @@ const EditProfile = () => {
             </div>
             <div>
               <label className="text-sm font-semibold w-full">Image</label>
-              <input type="text" name="image" className="input input-bordered w-full" value={formData.image} onChange={handleChange} />
+              <input type="file" name="image" className="file-input rounded file-input-bordered file-input-accent w-full" onChange={handleImageChange} />
             </div>
             <div>
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-sm font-semibold"> Division</label>
+                  <label className="text-sm font-semibold">Division</label>
                   <input type="text" name="division" className="input input-bordered w-full" value={formData.division} onChange={handleChange} />
                 </div>
                 <div>
-                  <label className="text-sm font-semibold"> District</label>
+                  <label className="text-sm font-semibold">District</label>
                   <input type="text" name="district" className="input input-bordered w-full" value={formData.district} onChange={handleChange} />
                 </div>
                 <div>
-                  <label className="text-sm font-semibold"> Post Office</label>
+                  <label className="text-sm font-semibold">Post Office</label>
                   <input type="text" name="postoffice" className="input input-bordered w-full" value={formData.postoffice} onChange={handleChange} />
                 </div>
                 <div>
-                  <label className="text-sm font-semibold"> Postcode</label>
+                  <label className="text-sm font-semibold">Postcode</label>
                   <input type="text" name="postcode" className="input input-bordered w-full" value={formData.postcode} onChange={handleChange} />
                 </div>
               </div>
@@ -148,7 +166,6 @@ const EditProfile = () => {
                 <input type="text" name="area" className="input input-bordered w-full" value={formData.area} onChange={handleChange} />
               </div>
             </div>
-            {/* Add other fields similarly */}
             <button type="submit" className="my-btn">
               Save Changes
             </button>
@@ -158,4 +175,5 @@ const EditProfile = () => {
     </div>
   );
 };
+
 export default EditProfile;
