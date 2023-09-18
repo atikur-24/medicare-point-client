@@ -17,6 +17,9 @@
 .filter-medicine .szh-menu {
   @apply !h-fit;
 }
+.medicine-types .szh-menu {
+  @apply !h-fit !-top-44;
+}
 
 .my-container {
   @apply px-4 xl:px-6 container mx-auto py-14 lg:py-16;
