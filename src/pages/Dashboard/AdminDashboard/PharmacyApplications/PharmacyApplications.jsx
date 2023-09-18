@@ -9,7 +9,7 @@ const PharmacyApplications = () => {
   return (
     <div>
       <div>
-        <h3 className="text-center text-3xl my-7 font-semibold">All Users List</h3>
+        <h3 className="text-center text-3xl my-7 font-semibold">Pharmacist Registration Applications</h3>
         <div className="overflow-x-auto mb-20   px-5">
           <table className="table  border border-gray-3 bg-white table-zebra">
             {/* head */}
@@ -52,7 +52,7 @@ const PharmacyApplications = () => {
                   <td>
                     <Link to={`/dashboard/pharmacyRegistration/${application?._id}`}>
                       <button className="cart-btn-outline" type="button">
-                        View Detail
+                        Detail
                       </button>
                     </Link>
                   </td>

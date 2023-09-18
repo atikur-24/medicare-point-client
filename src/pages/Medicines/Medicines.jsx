@@ -37,6 +37,7 @@ const dateAndTime = moment().format("Do MMM YY, h:mm a");
 const Medicines = () => {
   const { user } = useContext(AuthContext);
   const [medicines, setMedicines] = useState([]);
+  const [districts, setDistricts] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [isOpen, setIsOpen] = useState(null);
   const [params] = useSearchParams();
@@ -56,6 +57,10 @@ const Medicines = () => {
       setMedicines(allData);
     }
   }, [allData, category]);
+
+  useEffect(() => {
+    axios.get("../../../public/districts.json").then((res) => setDistricts(res.data?.districts));
+  }, []);
 
   const handelSort = (sort) => {
     dispatch(fetchMedicines({ sort }));
@@ -235,8 +240,12 @@ const Medicines = () => {
   const onSubmitMediReq = (e) => {
     e.preventDefault();
     const form = e.target;
+
+    const name = form.name.value;
+    const email = form.email.value;
     const req_medi_name = form.req_medi_name.value;
-    console.log(req_medi_name);
+    const district = form.district.value;
+    console.log(req_medi_name, name, email, district);
     toast.success("Medicine Request successful");
     form.reset();
   };
@@ -365,6 +374,11 @@ const Medicines = () => {
       {/* Medicine Request modal  */}
       <dialog id="my_modal_mediRequest" className="modal">
         <div className="modal-box md:w-1/2">
+          <form method="dialog" className="space-y-2">
+            <button type="submit" className="btn btn-sm btn-circle btn-ghost bg-red-500 hover:bg-red-400 text-white absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
           <h4 className="text-xl font-bold font-nunito text-center">Request Medicine</h4>
           <div>
             <img
@@ -373,11 +387,51 @@ const Medicines = () => {
               alt=""
             />
           </div>
-          <form onSubmit={onSubmitMediReq}>
-            <input placeholder="Enter Your Request Medicine Name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="req_medi_name" id="" />
-            <textarea placeholder="Description (optional)" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full mt-4" id="w3review" name="w3review" rows="4" cols="50" />
+          <form method="dialog" onSubmit={onSubmitMediReq}>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="text-base font-medium">
+                  Your Name<span className="font-bold text-red-500">*</span>
+                </label>
+                <input defaultValue={user?.displayName} placeholder="Enter Your Name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="name" id="" />
+              </div>
+              <div>
+                <label className="text-base font-medium">
+                  Your Email<span className="font-bold text-red-500">*</span>
+                </label>
+                <input defaultValue={user?.email} placeholder="example@gmail.com" required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="email" id="" />
+              </div>
+            </div>
+            <div className="my-4">
+              <label className="text-base font-medium">
+                Request Medicine Name <span className="font-bold text-red-500">*</span>
+              </label>
+              <input placeholder="Enter Your Request Medicine Name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="req_medi_name" id="" />
+            </div>
+            <div className="my-4">
+              <label className="text-base font-medium">
+                Your District <span className="font-bold text-red-500">*</span>
+              </label>
+              <select required name="district" id="" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
+                <option value="" selected>
+                  Select Your District
+                </option>
+                {districts?.map((district) => (
+                  <option key={district?.id} value={district?.name}>
+                    {district?.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="my-4">
+              <label className="text-base font-medium">
+                Description <span className=" text-sm">(Optional)</span>
+              </label>
+              <textarea placeholder="Description (optional)" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full mt-4" id="w3review" name="w3review" rows="4" cols="50" />
+            </div>
+
             <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
-              {loading ? "Uploading...." : "Request"}
+              Request
             </button>
           </form>
         </div>

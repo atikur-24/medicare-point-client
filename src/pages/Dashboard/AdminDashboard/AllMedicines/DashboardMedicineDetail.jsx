@@ -36,11 +36,11 @@ const DashboardMedicineDetail = () => {
   };
 
   return (
-    <div className=" p-6">
+    <div className=" p-2 md:p-6">
       {isLoading ? (
         <Loader spinner />
       ) : (
-        <div className="bg-white p-10 rounded-md  ">
+        <div className="bg-white p-4 lg:p-10 rounded-md  ">
           <div>
             <div className="flex flex-col md:flex-row justify-between gap-12">
               <div className="w-full">
@@ -93,11 +93,11 @@ const DashboardMedicineDetail = () => {
               <div>{HtmlParser(medicine_description)}</div>
             </div>
             <div className="flex justify-between items-center gap-3 mt-8">
-              <div>
+              <div className="medicine-types">
                 <Menu
                   menuButton={
                     // eslint-disable-next-line react/jsx-wrap-multilines
-                    <MenuButton className=" btn hover:bg-my-primary inline-flex items-center bg-my-accent text-white  capitalize rounded-md">
+                    <MenuButton className=" p-2 hover:bg-my-primary inline-flex items-center bg-my-accent text-white  capitalize rounded-md">
                       {status}
                       <MdKeyboardArrowDown className="text-2xl " />
                     </MenuButton>

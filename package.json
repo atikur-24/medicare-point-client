@@ -26,6 +26,7 @@
     "@testing-library/jest-dom": "^6.1.3",
     "@testing-library/react": "^14.0.0",
     "axios": "^1.4.0",
+    "coverage": "vitest run --coverage",
     "date-fns": "^2.30.0",
     "firebase": "^10.1.0",
     "jodit-react": "^1.3.39",
@@ -47,6 +48,7 @@
     "react-hot-toast": "^2.4.1",
     "react-html-parser": "^2.0.2",
     "react-icons": "^4.10.1",
+    "react-messenger-customer-chat": "^0.8.0",
     "react-paginate": "^8.2.0",
     "react-redux": "^8.1.2",
     "react-router-dom": "^6.14.2",
@@ -57,8 +59,7 @@
     "sort-by": "^0.0.2",
     "sweetalert2": "^11.6.13",
     "swiper": "^10.1.0",
-    "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "test": "vitest"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
