@@ -23,6 +23,8 @@ const AdminHome = ({ user }) => {
     }
   }, [loading, user?.email]);
 
+  // console.log("a+");
+
   // if (loading) {
   //   return <p>Loading......</p>;
   // }
