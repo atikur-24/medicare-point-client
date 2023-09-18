@@ -43,9 +43,7 @@ const DashboardLayout = () => {
   }, [role]);
 
   useEffect(() => {
-    dispatch(fetchAdminHomeData(`dashboard/${user?.email}`)).then((resp) => {
-      console.log(resp.data);
-    });
+    dispatch(fetchAdminHomeData(`dashboard/${user?.email}`)).then(() => {});
   }, [user?.email, dispatch]);
 
   useEffect(() => {
@@ -205,13 +203,18 @@ const DashboardLayout = () => {
         </NavLink>
       </li>
       <li className="dashboard-link flex">
-        <NavLink to="/dashboard/manage-lab-test" onClick={() => setLabtest(!labtest)} className="dashboard-link flex">
+        <NavLink to="/dashboard/manage-confirm-lab" onClick={() => setLabtest(!labtest)} className="dashboard-link flex">
           <GiHypodermicTest className="dashboard-icon" />
           <button type="button">Lab Tests</button>
           <FaCaretDown className={`${labtest ? "hidden" : "block"} dashboard-icon`} />
           <FaCaretUp className={`${labtest ? "block" : "hidden"} dashboard-icon`} />
         </NavLink>
         <ul className={`${labtest ? "block" : "hidden"}`}>
+          <li>
+            <NavLink to="/dashboard/manage-confirm-lab" className="">
+              Manage Pickup
+            </NavLink>
+          </li>
           <li>
             <NavLink to="/dashboard/manage-lab-test" className="">
               Manage Test
@@ -286,10 +289,10 @@ const DashboardLayout = () => {
           <TfiMenu className="text-2xl  cursor-pointer" />
         </label>
       </div>
-      <div className="drawer-side    md:shadow-2xl ">
+      <div className="drawer-side    md:shadow-2xl !z-50">
         <label htmlFor="my-drawer-2" className="drawer-overlay" />
 
-        <ul className="dashboard-ul bg-white flex-nowrap font-Alexandria  menu p-4 w-80 !h-full text-base-content space-y-4 !z-50">
+        <ul className="dashboard-ul bg-white flex-nowrap font-Alexandria  menu p-4 w-80 !h-full text-base-content space-y-4 ">
           {/* Sidebar content here */}
 
           <li className="relative">

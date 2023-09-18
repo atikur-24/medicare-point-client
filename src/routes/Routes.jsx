@@ -47,6 +47,7 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 
 import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArticles";
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
+import ConfirmLab from "../pages/Dashboard/AdminDashboard/AllAvailableTest/ConfirmLab";
 import DashboardMedicineDetail from "../pages/Dashboard/AdminDashboard/AllMedicines/DashboardMedicineDetail";
 import AllPrescriptions from "../pages/Dashboard/AdminDashboard/UploadPrescription/AllPrescriptions";
 import UploadPrescription from "../pages/Dashboard/AdminDashboard/UploadPrescription/UploadPrescription";
@@ -252,6 +253,10 @@ const router = createBrowserRouter([
       {
         path: "reward-points",
         element: <RewardPoints />,
+      },
+      {
+        path: "manage-confirm-lab",
+        element: <ConfirmLab />,
       },
 
       // pharmacists dashboard
