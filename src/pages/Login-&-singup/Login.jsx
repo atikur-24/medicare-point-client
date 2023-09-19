@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Logo from "../../assets/Logo/logo.svg";
 import loginAnimation from "../../assets/images/login-images/login.json";
+import WebSiteTitle from "../../components/WebSiteTitle/WebSiteTitle";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useAuth from "../../hooks/useAuth";
 import { addUser } from "../../hooks/userApi";
@@ -99,6 +100,7 @@ const Login = () => {
 
   return (
     <div className="bg-my-primary px-4 py-6 2xl:py-0 ">
+      <WebSiteTitle title="Login" />
       <div className="flex justify-center items-center min-h-screen">
         <div className="login-singUp-bg   py-6 bg-white   shadow-xl rounded-lg">
           <div className=" items-center grid grid-cols-1 md:grid-cols-2 ">

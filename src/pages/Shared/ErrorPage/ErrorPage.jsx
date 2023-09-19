@@ -1,11 +1,13 @@
 import { Link, useRouteError } from "react-router-dom";
 import "./ErrorPage.css";
+import WebSiteTitle from "../../../components/WebSiteTitle/WebSiteTitle";
 
 export default function ErrorPage() {
   const { error } = useRouteError();
 
   return (
     <div id="notfound">
+      <WebSiteTitle title="Error Page" />
       <div className="notfound max-w-lg w-full text-center leading-4 ">
         <div className="notfound-404 h-36 md:h-64">
           <h1 className="md:text-[200px] text-9xl font-bold m-0 text-title-color font-nunito">

@@ -11,6 +11,7 @@ import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { fetchDetailData } from "../../Features/AllMedicines/detailData";
+import WebSiteTitle from "../../components/WebSiteTitle/WebSiteTitle";
 import LabTitle from "../Shared/LabTest/LabTitle";
 
 const HealthTipsDetails = () => {
@@ -46,6 +47,7 @@ const HealthTipsDetails = () => {
 
   return (
     <div className="my-container">
+      <WebSiteTitle title={diseaseDetails.name} />
       <div className="max-w-6xl mx-auto">
         <div className="mx-2">
           <h1 className="text-xl md:text-3xl font-bold my-4">{diseaseDetails.name} Cause,Prevention and Cure</h1>

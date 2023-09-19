@@ -1,4 +1,5 @@
 import { useState } from "react";
+import WebSiteTitle from "../../../components/WebSiteTitle/WebSiteTitle";
 import AllLabTests from "./AllLabTests/AllLabTests";
 import CheckCard from "./CheckCard/CheckCard";
 import LabBanner from "./LabBanner/LabBanner";
@@ -16,6 +17,7 @@ const LabTest = () => {
 
   return (
     <div className="bg-lite">
+      <WebSiteTitle title="Lab Test" />
       <LabBanner />
       <CheckCard />
       <div className="my-container">

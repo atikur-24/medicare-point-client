@@ -321,7 +321,7 @@ const DashboardLayout = () => {
       <div className="drawer-side    md:shadow-2xl !z-50">
         <label htmlFor="my-drawer-2" className="drawer-overlay" />
 
-        <ul className="dashboard-ul bg-white flex-nowrap font-Alexandria  menu p-4 w-80 text-base-content space-y-4 ">
+        <ul className="dashboard-ul bg-white flex-nowrap font-Alexandria  menu p-4 w-80 text-base-content space-y-4 !h-full md:h-fit ">
           {/* Sidebar content here */}
 
           <li className="relative">
