@@ -14,6 +14,10 @@ import allBlogs from "../Features/Blogs/allBlogs";
 import deleteBlog from "../Features/Blogs/deleteBlog";
 import updateBlog from "../Features/Blogs/updateBlog";
 import adminHomeData from "../Features/DashboardData/adminHomeData";
+import addDiscountCode from "../Features/DiscountCodesApis/addDiscountCode";
+import allDiscountCodes from "../Features/DiscountCodesApis/allDiscountCodes";
+import deleteDiscountCodes from "../Features/DiscountCodesApis/deleteDiscountCodes";
+import updateDiscountCode from "../Features/DiscountCodesApis/updateDiscountCode";
 import addHealthTips from "../Features/HealthTips/addHealthTips";
 import allHealthTips from "../Features/HealthTips/allHealthTips";
 import deleteHealthTips from "../Features/HealthTips/deleteHealthTips";
@@ -74,6 +78,10 @@ const store = configureStore({
     allData,
     deletePrescription,
     adminHomeData,
+    allDiscountCodes,
+    deleteDiscountCodes,
+    updateDiscountCode,
+    addDiscountCode,
   },
 });
 

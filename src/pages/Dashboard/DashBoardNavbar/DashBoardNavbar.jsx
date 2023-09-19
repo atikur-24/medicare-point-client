@@ -36,7 +36,8 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
   return (
     <div className="py-5 flex justify-between items-center bg-[#F1F6FA] ">
       <div className="">
-        <div className="form-control hidden xl:block">
+        {user?.email}
+        {/* <div className="form-control hidden xl:block">
           <div className="input-group rounded-2xl">
             <input type="text" placeholder="Search…" className="input input-bordered input-sm md:input-md" />
             <p className="btn btn-square hover:bg-my-primary bg-my-primary text-white  btn-sm md:btn-md">
@@ -45,7 +46,7 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
               </svg>
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="flex items-center gap-5">
         {/* <NavLink to="/dashboard/notification"> */}
