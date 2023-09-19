@@ -5,7 +5,7 @@ import { BsGrid1X2Fill, BsImage } from "react-icons/bs";
 import { FaCaretDown, FaCaretUp, FaFilePrescription, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
-import { MdAddShoppingCart, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
+import { MdAddShoppingCart, MdFeedback, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
 import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import { TbDiscount2 } from "react-icons/tb";
@@ -105,6 +105,12 @@ const DashboardLayout = () => {
           <MdOutlineLibraryBooks className="dashboard-icon" /> Pharmacy Registration Form
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/dashboard/feedback" className="dashboard-link">
+          <MdFeedback className="dashboard-icon" />
+          Feedback
+        </NavLink>
+      </li>
     </>
   );
 
@@ -139,7 +145,7 @@ const DashboardLayout = () => {
         <ul className={`${medicineBtn ? "block" : "hidden"}`}>
           <li>
             <NavLink to="/dashboard/medicine-inventory" className="">
-              All Medicines
+              Manage Medicines
             </NavLink>
           </li>
           <li>
@@ -299,7 +305,7 @@ const DashboardLayout = () => {
       <div className="drawer-side    md:shadow-2xl !z-50">
         <label htmlFor="my-drawer-2" className="drawer-overlay" />
 
-        <ul className="dashboard-ul bg-white flex-nowrap font-Alexandria  menu p-4 w-80 !h-full text-base-content space-y-4 ">
+        <ul className="dashboard-ul bg-white flex-nowrap font-Alexandria  menu p-4 w-80 text-base-content space-y-4 ">
           {/* Sidebar content here */}
 
           <li className="relative">
