@@ -11,6 +11,7 @@ import loginAnimation from "../../assets/images/login-images/login.json";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useAuth from "../../hooks/useAuth";
 import SocialSigning from "./SocialSigning";
+import WebSiteTitle from "../../components/WebSiteTitle/WebSiteTitle";
 
 const SignUp = () => {
   const [error, setError] = useState("");
@@ -72,6 +73,7 @@ const SignUp = () => {
 
   return (
     <div className="bg-my-primary py-6 px-4 2xl:py-0">
+      <WebSiteTitle title="Sign Up" />
       <div className="flex justify-center  items-center min-h-screen ">
         <div className=" login-singUp-bg  bg-white   shadow-xl rounded-lg ">
           <div className="grid grid-cols-1 md:grid-cols-2 ">

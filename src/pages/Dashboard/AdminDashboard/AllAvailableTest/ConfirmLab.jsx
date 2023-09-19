@@ -20,13 +20,7 @@ const columns = [
     align: "center",
     format: (value) => value.toLocaleString("en-US"),
   },
-  {
-    id: "transId",
-    label: "Trans Id",
-    minWidth: 170,
-    align: "center",
-    format: (value) => value.toLocaleString("en-US"),
-  },
+
   {
     id: "status",
     label: "Status",

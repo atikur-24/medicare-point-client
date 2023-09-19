@@ -34,7 +34,7 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
   return (
     <div>
       <div className="py-5 flex justify-between items-center bg-[#F1F6FA] ">
-        <div className="">{user?.email}</div>
+        <div className="" />
         <div className="flex items-center gap-5">
           {/* <NavLink to="/dashboard/notification"> */}
 

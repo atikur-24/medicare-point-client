@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import HtmlParser from "react-html-parser";
 import { FaAngleRight } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -12,7 +14,6 @@ import useAuth from "../../../../hooks/useAuth";
 import useLabCart from "../../../../hooks/useLabCart";
 import CheckCard from "../CheckCard/CheckCard";
 import LabButton from "../LabButton/LabButton";
-import HtmlParser from "react-html-parser";
 
 const LabBook = () => {
   const params = useParams();
@@ -41,6 +42,9 @@ const LabBook = () => {
   return (
     <div>
       <div className="container mx-auto px-4 py-10 md:px-10">
+        <Helmet>
+          <title>{`MediCare Point - ${test_name} `}</title>
+        </Helmet>
         <CheckCard />
         <div className="flex flex-wrap gap-2 items-center mb-4 md:text-xl font-bold font-nunito">
           <Link className="hover:text-my-primary" to="/">
