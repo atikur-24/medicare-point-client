@@ -1,17 +1,5 @@
 /* eslint-disable comma-dangle */
-import {
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  getAuth,
-  onAuthStateChanged,
-  sendEmailVerification,
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-  updateEmail,
-  updateProfile,
-} from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateEmail, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchUserByEmail } from "../Features/AllUsers/userByEmail";
@@ -74,7 +62,6 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
-      console.log(currentUser);
     });
     return () => {
       return unsubscribe();
