@@ -5,7 +5,7 @@ import { BsGrid1X2Fill, BsImage } from "react-icons/bs";
 import { FaCaretDown, FaCaretUp, FaFilePrescription, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
-import { MdAddShoppingCart, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
+import { MdAddShoppingCart, MdFeedback, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
 import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import { TbDiscount2 } from "react-icons/tb";
@@ -103,6 +103,12 @@ const DashboardLayout = () => {
       <li>
         <NavLink to="/dashboard/pharmacyRegistration" className="dashboard-link">
           <MdOutlineLibraryBooks className="dashboard-icon" /> Pharmacy Registration Form
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/dashboard/feedback" className="dashboard-link">
+          <MdFeedback className="dashboard-icon" />
+          Feedback
         </NavLink>
       </li>
     </>
