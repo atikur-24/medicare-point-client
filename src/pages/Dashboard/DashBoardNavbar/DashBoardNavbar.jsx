@@ -67,7 +67,7 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
 
           {role === "user" && (
             <NavLink to="/dashboard/reward-points" className="tooltip  tooltip-bottom tooltip-primary" data-tip="Reword">
-              <GiLaurelsTrophy className="w-8 h-8" src={rewordIcon} alt="reword points" />
+              <GiLaurelsTrophy className="w-8 h-8"  />
             </NavLink>
           )}
 
