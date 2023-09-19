@@ -32,16 +32,16 @@ const Notification = ({ allNotifications, setLoading }) => {
             <div
               className={`${
                 n?.read === "no" ? "bg-my-accent bg-opacity-10" : ""
-              } notification-card hover:scale-105 transition-all hover:bg-my-primary hover:bg-opacity-10 duration-300 cursor-pointer flex items-center gap-4   p-2 rounded-md my-2 relative`}
+              } notification-card hover:scale-105 transition-all hover:bg-my-primary hover:bg-opacity-10 duration-300 flex items-center gap-4   p-2 rounded-md my-2 relative`}
             >
               <Link to={`/${n?.url}`}>
-                <figure className="">
+                <figure className="cursor-pointer">
                   <img className=" !h-[56px] !max-w-[56px] w-[56px]  rounded-full ring-offset-2 ring-2 ring-info" src={n?.photoURL} alt="notification icon" />
                 </figure>
               </Link>
               <div className="">
                 <Link to={`/${n?.url}`}>
-                  <h4 className="font-semibold">{n?.name}</h4>
+                  <h4 className="font-semibold cursor-pointer">{n?.name}</h4>
                 </Link>
                 <p>{n?.deliveryTime}</p>
                 <p className="text-my-primary text-sm">{n?.date}</p>
