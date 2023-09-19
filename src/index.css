@@ -15,7 +15,7 @@
 }
 
 .filter-medicine .szh-menu {
-  @apply !h-fit;
+  @apply !h-fit !left-0;
 }
 .medicine-types .szh-menu {
   @apply !h-fit !-top-44;
