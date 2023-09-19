@@ -29,17 +29,20 @@ const Notification = ({ allNotifications, setLoading }) => {
       <div>
         {allNotifications.map((n) => (
           <div key={n._id}>
-            <Link
-              to={`/${n?.url}`}
+            <div
               className={`${
                 n?.read === "no" ? "bg-my-accent bg-opacity-10" : ""
               } notification-card hover:scale-105 transition-all hover:bg-my-primary hover:bg-opacity-10 duration-300 cursor-pointer flex items-center gap-4   p-2 rounded-md my-2 relative`}
             >
-              <figure className="">
-                <img className=" !h-[56px] !max-w-[56px] w-[56px]  rounded-full ring-offset-2 ring-2 ring-info" src={n?.photoURL} alt="notification icon" />
-              </figure>
+              <Link to={`/${n?.url}`}>
+                <figure className="">
+                  <img className=" !h-[56px] !max-w-[56px] w-[56px]  rounded-full ring-offset-2 ring-2 ring-info" src={n?.photoURL} alt="notification icon" />
+                </figure>
+              </Link>
               <div className="">
-                <h4 className="font-semibold">{n?.name}</h4>
+                <Link to={`/${n?.url}`}>
+                  <h4 className="font-semibold">{n?.name}</h4>
+                </Link>
                 <p>{n?.deliveryTime}</p>
                 <p className="text-my-primary text-sm">{n?.date}</p>
                 <Lottie
@@ -51,7 +54,7 @@ const Notification = ({ allNotifications, setLoading }) => {
                   className="h-10 w-10 cursor-pointer delete-icon transition-all duration-300  bg-gray-3 text-xl rounded-full p-1 absolute bottom-4 right-3 "
                 />
               </div>
-            </Link>
+            </div>
           </div>
         ))}
 
