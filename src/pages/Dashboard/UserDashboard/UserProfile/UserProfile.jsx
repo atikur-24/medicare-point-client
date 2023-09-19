@@ -31,11 +31,7 @@ const UserProfile = () => {
           <div className="bg-my-primary bg-opacity-70 h-28 relative rounded-t-2xl ">
             <div className="left-[calc(50%-40px)] absolute top-[40%]">
               <figure>
-                <img
-                  src={currentUserData?.image ? currentUserData?.image : user?.photoURL}
-                  alt={currentUserData.name}
-                  className="h-[96px] w-[96px]  mb-4 rounded-full ring-4 ring-white ring-offset-2 ring-offset-white"
-                />
+                <img src={currentUserData?.image ? currentUserData?.image : user?.photoURL} alt={currentUserData.name} className="h-[96px] w-[96px]  mb-4 rounded-full ring-4 ring-white ring-offset-2 ring-offset-white" />
               </figure>
             </div>
           </div>
