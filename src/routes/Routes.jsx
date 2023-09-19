@@ -54,6 +54,7 @@ import UploadPrescription from "../pages/Dashboard/AdminDashboard/UploadPrescrip
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
 import ViewDetailsMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/ViewDetailsMedicine";
+import Feedback from "../pages/Dashboard/UserDashboard/Feedback/Feedback";
 import OrderTracking from "../pages/Dashboard/UserDashboard/OrderTrack/OrderTracking";
 import RewardPoints from "../pages/Dashboard/UserDashboard/RewardPoints/RewardPoints";
 import EditProfile from "../pages/Dashboard/UserDashboard/UserProfile/EditProfile";
@@ -252,6 +253,10 @@ const router = createBrowserRouter([
       {
         path: "reward-points",
         element: <RewardPoints />,
+      },
+      {
+        path: "feedback",
+        element: <Feedback />,
       },
 
       // pharmacists dashboard
