@@ -31,9 +31,6 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
     axios.patch("http://localhost:5000/notifications", notificationID).then(() => {});
   };
 
-  // if (!role) {
-  //   return <p>loading........</p>;
-  // }
   return (
     <div>
       <div className="py-5 flex justify-between items-center bg-[#F1F6FA] ">
