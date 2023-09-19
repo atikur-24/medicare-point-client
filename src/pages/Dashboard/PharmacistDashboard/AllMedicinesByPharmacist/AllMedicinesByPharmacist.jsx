@@ -78,17 +78,23 @@ const AllMedicinesByPharmacist = () => {
                 </td>
                 <td className="font-semibold"> {medicine?.available_quantity === medicine?.sellQuantity ? <span className="text-red-500">Out of Stock</span> : <span className="text-my-primary">In Stock</span>}</td>
 
-                <td className={`capitalize ${medicine?.status === "approved" ? "badge badge-success" : ""} ${medicine?.status === "pending" ? "badge-warning" : ""} ${medicine?.status === "denied" ? "badge badge-error" : ""}`}>{medicine?.status}</td>
-                <td className="inline-flex items-center gap-3 mt-4">
-                  <Link to={`/dashboard/medicine-details/${medicine?._id}`}>
-                    <HiOutlineEye title="View Details" className="text-2xl p-1 text-white bg-slate-6 transition-colors rounded-sm" />
-                  </Link>
-                  <Link to={`/dashboard/update-medicine/${medicine?._id}`}>
-                    <TiEdit title="Update" className="text-2xl p-1 text-white bg-my-primary hover:bg-my-accent transition-colors rounded-sm" />
-                  </Link>
-                  <button type="button" onClick={() => handleDeleteMedicine(medicine?._id)}>
-                    <RiDeleteBinLine title="Delete" className="text-2xl bg-red-500 hover:bg-red-400 transition-colors text-white p-1 rounded-sm" />
-                  </button>
+                <td>
+                  <span className={`capitalize ${medicine?.status === "approved" ? "badge badge-success" : ""} ${medicine?.status === "pending" ? "badge-warning" : ""} ${medicine?.status === "denied" ? "badge badge-error" : ""}`}>
+                    {medicine?.status}
+                  </span>
+                </td>
+                <td className="">
+                  <div className="flex gap-3">
+                    <Link to={`/dashboard/medicine-details/${medicine?._id}`}>
+                      <HiOutlineEye title="View Details" className="text-2xl p-1 text-white bg-slate-6 transition-colors rounded-sm" />
+                    </Link>
+                    <Link to={`/dashboard/update-medicine/${medicine?._id}`}>
+                      <TiEdit title="Update" className="text-2xl p-1 text-white bg-my-primary hover:bg-my-accent transition-colors rounded-sm" />
+                    </Link>
+                    <button type="button" onClick={() => handleDeleteMedicine(medicine?._id)}>
+                      <RiDeleteBinLine title="Delete" className="text-2xl bg-red-500 hover:bg-red-400 transition-colors text-white p-1 rounded-sm" />
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

@@ -8,7 +8,6 @@ import axios from "axios";
 import moment from "moment";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import { AiOutlineDown } from "react-icons/ai";
 import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
@@ -22,6 +21,7 @@ import { addImageToDBApi } from "../../Features/Images/addImageToDB";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
 import { addNotificationApi } from "../../Features/Notifications/addNotification";
 import { uploadImageApi } from "../../Features/UploadImage/uploadImage";
+import mediBanner from "../../assets/images/banner/medi-banner.jpg";
 import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
 import MediCard from "../Shared/Card/MediCard";
@@ -59,7 +59,7 @@ const Medicines = () => {
   }, [allData, category]);
 
   useEffect(() => {
-    axios.get("../../../public/districts.json").then((res) => setDistricts(res.data?.districts));
+    axios.get("/districts.json").then((res) => setDistricts(res.data?.districts));
   }, []);
 
   const handelSort = (sort) => {
@@ -243,13 +243,30 @@ const Medicines = () => {
     const form = e.target;
 
     const name = form.name.value;
-    const email = form.number.value;
+    const number = form.number.value;
     const req_medi_name = form.req_medi_name.value;
     const district = form.district.value;
     const user_comment = form.user_comment.value;
-    console.log(req_medi_name, name, email, district, user_comment);
-    toast.success("Medicine Request successful");
-    form.reset();
+    const userData = { name, user_email: user?.email, number, req_medi_name, district, user_comment, req_date: dateAndTime, status: "requesting" };
+    axios
+      .post("http://localhost:5000/requestNewMedicine", userData)
+      .then((result) => {
+        console.log(result);
+        if (result.data.insertedId) {
+          Swal.fire("Medicine Request Sent!", "Stay tuned for a notification and send email when it's available on our website.", "success");
+          form.reset();
+          document.getElementById("my_modal_mediRequest").close();
+        }
+      })
+      .catch((err) => {
+        if (err) {
+          Swal.fire({
+            icon: "error",
+            title: "Medicine Add Failed",
+            text: "Something went wrong!",
+          });
+        }
+      });
   };
 
   return (
@@ -316,7 +333,11 @@ const Medicines = () => {
         <div className="mx-auto px-4 lg:px-10 pb-10 lg:grid grid-cols-[1fr_4fr] gap-6">
           <div>
             <div className="w-72 h-fit rounded-md hidden lg:block">{filterItems}</div>
-            <div className="hidden lg:block mt-8">
+            <div className="hidden lg:block">
+              <div className="my-8 relative">
+                <h2 className="absolute top-8 left-16 text-white text-2xl font-semibold">Order Now</h2>
+                <img className="rounded" src={mediBanner} alt="banner" />
+              </div>
               <TopRatedMedicine />
             </div>
           </div>
