@@ -149,11 +149,7 @@ const AddNewMedicine = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
           <div className="w-full md:max-w-full lg:max-w-md">
             <span>Medicine Category</span>
-            <Controller
-              name="category"
-              control={control}
-              render={({ field }) => <Select isClearable required {...field} options={categories} placeholder="Select category" noOptionsMessage={() => "No category found"} />}
-            />
+            <Controller name="category" control={control} render={({ field }) => <Select isClearable required {...field} options={categories} placeholder="Select category" noOptionsMessage={() => "No category found"} />} />
           </div>
           <div className="w-full md:max-w-full lg:max-w-md">
             <span>

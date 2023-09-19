@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import HtmlParser from "react-html-parser";
 import { BsFacebook, BsShare, BsTwitter } from "react-icons/bs";
 import { Link, useLoaderData } from "react-router-dom";
-import Blog from "./Blog";
 import WebSiteTitle from "../../components/WebSiteTitle/WebSiteTitle";
+import Blog from "./Blog";
 
 const HealthArticlesDetails = () => {
   const [blogs, setBlogs] = useState([]);
@@ -20,7 +20,7 @@ const HealthArticlesDetails = () => {
     <div className="space-y-8 my-container">
       <WebSiteTitle title={healthArticle.title} />
       <div className="md:mx-1 mx-auto">
-        <div>  
+        <div>
           {/* Ensure to provide a unique key */}
           <h1 className="text-4xl font-extrabold pb-4">{healthArticle.title}</h1>
           <div className="flex justify-between items-center py-8 pe-4">
