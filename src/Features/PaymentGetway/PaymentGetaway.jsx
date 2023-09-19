@@ -17,18 +17,18 @@ export const sslPaymentApi = createAsyncThunk("sslPayment/sslPaymentApi", async 
   const res = await axios.post(`http://localhost:5000/payment`, data);
 
   if (res.data.url) {
-    window.location.replace(res.data.url);
+    // window.location.replace(res.data.url);
 
-    // templateParams.transId = res.data.transId;
-    // emailjs.send(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID2, templateParams, import.meta.env.VITE_PUBLIC_KEY).then(
-    //   (response) => {
-    //     window.location.replace(res.data.url);
-    //     console.log("SUCCESS!", response.status, response.text);
-    //   },
-    //   (error) => {
-    //     console.log("FAILED...", error);
-    //   }
-    // );
+    templateParams.transId = res.data.transId;
+    emailjs.send(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID2, templateParams, import.meta.env.VITE_PUBLIC_KEY).then(
+      (response) => {
+        window.location.replace(res.data.url);
+        console.log("SUCCESS!", response.status, response.text);
+      },
+      (error) => {
+        console.log("FAILED...", error);
+      }
+    );
   }
 
   return res.data;
