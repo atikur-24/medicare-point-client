@@ -35,7 +35,7 @@ const OtcMedicine = () => {
 
         <div className="block lg:hidden my-4">
           <Swiper
-            modules={[Pagination]}
+            // modules={[Pagination]}
             pagination={{
               clickable: true,
             }}
@@ -65,7 +65,8 @@ const OtcMedicine = () => {
                 spaceBetween: 40,
               },
             }}
-            className="mySwiper "
+            modules={[Pagination]}
+            className="mySwiper"
           >
             {otcMedicines.map((otcMedicine, idx) => (
               <SwiperSlide key={idx} className="mx-auto container my-4 mb-4">
