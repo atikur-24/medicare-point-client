@@ -34,7 +34,18 @@ const columns = [
     align: "center",
     format: (value) => value.toFixed(2),
   },
-  { id: "Action", label: "Action", minWidth: 100 },
+  {
+    id: "Action",
+    label: "Action",
+    minWidth: 100,
+    align: "center",
+  },
+  //   {
+  //     id: "delete",
+  //     label: "Delete",
+  //     minWidth: 100,
+  //     align: "center",
+  //   },
 ];
 
 // function createData(name, code, population, size) {
@@ -57,14 +68,24 @@ export default function ConfirmLab() {
     setPage(0);
   };
 
+  const handleEditClick = (row) => {
+    // Implement the logic for editing here.
+    console.log("Edit clicked for row:", row);
+  };
+
+  const handleDeleteClick = (row) => {
+    // Implement the logic for deleting here.
+    console.log("Delete clicked for row:", row);
+  };
+
   return (
     <Paper className="mt-10" sx={{ width: "100%", overflow: "hidden" }}>
-      <TableContainer sx={{ maxHeight: 440 }}>
+      <TableContainer sx={{ maxHeight: 768 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               {columns.map((column) => (
-                <TableCell className="!z-10" key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
+                <TableCell className="!z-10 !font-bold !font-Alexandria" key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
                   {column.label}
                 </TableCell>
               ))}
@@ -73,13 +94,29 @@ export default function ConfirmLab() {
           <TableBody>
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
               return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                <TableRow className="!z-10 !font-bold !font-Alexandria" hover role="checkbox" tabIndex={-1} key={row.code}>
                   {columns.map((column) => {
+                    if (column.id === "Action") {
+                      // Render the Edit button here.
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          <div className="flex gap-4">
+                            <button type="button" onClick={() => handleEditClick(row)}>
+                              Edit
+                            </button>
+                            <button type="button" onClick={() => handleDeleteClick(row)}>
+                              Delete
+                            </button>
+                          </div>
+                        </TableCell>
+                      );
+                    }
+
                     const value = row[column.id];
                     return (
-                      <TableCell key={column.id} align={column.align}>
+                      <TableCell key={column.id} align={column.align} className=" !font-Alexandria">
                         {column.format && typeof value === "number" ? column.format(value) : value}
-                       </TableCell>
+                      </TableCell>
                     );
                   })}
                 </TableRow>
