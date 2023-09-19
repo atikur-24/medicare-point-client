@@ -30,41 +30,17 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
     axios.patch("http://localhost:5000/notifications", notificationID).then(() => {});
   };
 
-  // if (!role) {
-  //   return <p>loading........</p>;
-  // }
   return (
     <div className="py-5 flex justify-between items-center bg-[#F1F6FA] ">
-      <div className="">
-        {user?.email}
-        {/* <div className="form-control hidden xl:block">
-          <div className="input-group rounded-2xl">
-            <input type="text" placeholder="Search…" className="input input-bordered input-sm md:input-md" />
-            <p className="btn btn-square hover:bg-my-primary bg-my-primary text-white  btn-sm md:btn-md">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </p>
-          </div>
-        </div> */}
-      </div>
+      <div>{user?.email}</div>
       <div className="flex items-center gap-5">
-        {/* <NavLink to="/dashboard/notification"> */}
-
         <button className="tooltip tooltip-primary tooltip-left" data-tip="Notification" type="button" onClick={handleNotification}>
           <MdOutlineNotificationsActive
-            className={`bg-my-primary  text-primary  p-2  w-12 h-12 object-cover ml-2 transition-all relative rounded-full  duration-300 ${
-              showNotification ? "bg-my-primary text-white bg-opacity-70 " : "bg-opacity-20"
-            }`}
+            className={`bg-my-primary  text-primary  p-2  w-12 h-12 object-cover ml-2 transition-all relative rounded-full  duration-300 ${showNotification ? "bg-my-primary text-white bg-opacity-70 " : "bg-opacity-20"}`}
             src="https://i.ibb.co/8zxdmM6/notification.png"
             alt="upload images"
           />
-          <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-primary border-2 border-white rounded-full -top-2 -right-2 ">
-            {unreadNotification}
-          </div>
-          {/* <div className="absolute -top-3 -right-2 bg-yellow-500  rounded-full">
-            <span className="px-1.5 py-2">{unreadNotification}</span>
-          </div> */}
+          <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-primary border-2 border-white rounded-full -top-2 -right-2 ">{unreadNotification}</div>
         </button>
 
         {role !== "user" && (

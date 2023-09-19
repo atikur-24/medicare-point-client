@@ -58,8 +58,8 @@ const AllMedicinesByPharmacist = () => {
               <th>#</th>
               <th>Photo</th>
               <th>Name</th>
-              <th>Price</th>
               <th>Av. Qty</th>
+              <th>Availability</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -73,16 +73,13 @@ const AllMedicinesByPharmacist = () => {
                   <img className="mask rounded w-14 h-14" src={medicine?.image} alt="medicine" />
                 </td>
                 <td className="font-medium">{medicine?.medicine_name}</td>
-                <td className="space-x-1">
-                  <span className="font-medium">৳ {medicine?.discount > 0 ? (medicine?.price - (medicine?.price / 100) * medicine?.discount).toFixed(2) : medicine?.price.toFixed(2)}</span>
-                  {medicine?.discount > 0 && <span className="text-gray-4 line-through">{medicine?.price}</span>}
-                </td>
                 <td className="font-medium">
                   <span className="text-my-pink">{medicine?.available_quantity - medicine?.sellQuantity}</span> / {medicine?.available_quantity}
                 </td>
+                <td className="font-semibold"> {medicine?.available_quantity === medicine?.sellQuantity ? <span className="text-red-500">Out of Stock</span> : <span className="text-my-primary">In Stock</span>}</td>
 
-                <td className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"} capitalize font-medium`}>{medicine?.status}</td>
-                <td className="flex items-center gap-3 mt-4">
+                <td className={`capitalize ${medicine?.status === "approved" ? "badge badge-success" : ""} ${medicine?.status === "pending" ? "badge-warning" : ""} ${medicine?.status === "denied" ? "badge badge-error" : ""}`}>{medicine?.status}</td>
+                <td className="inline-flex items-center gap-3 mt-4">
                   <Link to={`/dashboard/medicine-details/${medicine?._id}`}>
                     <HiOutlineEye title="View Details" className="text-2xl p-1 text-white bg-slate-6 transition-colors rounded-sm" />
                   </Link>
