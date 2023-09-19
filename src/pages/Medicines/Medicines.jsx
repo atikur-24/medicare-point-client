@@ -8,7 +8,6 @@ import axios from "axios";
 import moment from "moment";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import { AiOutlineDown } from "react-icons/ai";
 import { BsFilterLeft } from "react-icons/bs";
 import { HiOutlineChevronRight } from "react-icons/hi";
@@ -22,6 +21,7 @@ import { addImageToDBApi } from "../../Features/Images/addImageToDB";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
 import { addNotificationApi } from "../../Features/Notifications/addNotification";
 import { uploadImageApi } from "../../Features/UploadImage/uploadImage";
+import mediBanner from "../../assets/images/banner/medi-banner.jpg";
 import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
 import MediCard from "../Shared/Card/MediCard";
@@ -59,7 +59,7 @@ const Medicines = () => {
   }, [allData, category]);
 
   useEffect(() => {
-    axios.get("../../../public/districts.json").then((res) => setDistricts(res.data?.districts));
+    axios.get("/districts.json").then((res) => setDistricts(res.data?.districts));
   }, []);
 
   const handelSort = (sort) => {
@@ -233,26 +233,45 @@ const Medicines = () => {
             }
           });
         }
-        // console.log(res2.payload);
       });
     });
   };
+
+  // handle new medicine request
   const onSubmitMediReq = (e) => {
     e.preventDefault();
     const form = e.target;
 
     const name = form.name.value;
-    const email = form.email.value;
+    const number = form.number.value;
     const req_medi_name = form.req_medi_name.value;
     const district = form.district.value;
-    console.log(req_medi_name, name, email, district);
-    toast.success("Medicine Request successful");
-    form.reset();
+    const user_comment = form.user_comment.value;
+    const userData = { name, user_email: user?.email, number, req_medi_name, district, user_comment, req_date: dateAndTime, status: "requesting" };
+    axios
+      .post("http://localhost:5000/requestNewMedicine", userData)
+      .then((result) => {
+        console.log(result);
+        if (result.data.insertedId) {
+          Swal.fire("Medicine Request Sent!", "Stay tuned for a notification and send email when it's available on our website.", "success");
+          form.reset();
+          document.getElementById("my_modal_mediRequest").close();
+        }
+      })
+      .catch((err) => {
+        if (err) {
+          Swal.fire({
+            icon: "error",
+            title: "Medicine Add Failed",
+            text: "Something went wrong!",
+          });
+        }
+      });
   };
 
   return (
     <section className="bg-lite">
-      <div className="bg-my-primary py-6 flex flex-col md:flex-row items-center justify-center gap-6 lg:gap-10">
+      <div className="bg-my-primary py-3 lg:py-6 flex flex-col md:flex-row items-center justify-center gap-3 lg:gap-10">
         <MediRequest />
         <PrescriptionBtn />
       </div>
@@ -272,7 +291,6 @@ const Medicines = () => {
             </p>
 
             <div className="flex items-center gap-3">
-              <div className="flex flex-col items-center">{/* <BiSolidCameraPlus title="Upload Prescription" onClick={() => window.my_modal_PrescriptionUpload.showModal()} className="text-2xl cursor-pointer" /> */}</div>
               <div className="filter-medicine">
                 <Menu
                   menuButton={
@@ -315,7 +333,11 @@ const Medicines = () => {
         <div className="mx-auto px-4 lg:px-10 pb-10 lg:grid grid-cols-[1fr_4fr] gap-6">
           <div>
             <div className="w-72 h-fit rounded-md hidden lg:block">{filterItems}</div>
-            <div className="hidden lg:block mt-8">
+            <div className="hidden lg:block">
+              <div className="my-8 relative">
+                <h2 className="absolute top-8 left-16 text-white text-2xl font-semibold">Order Now</h2>
+                <img className="rounded" src={mediBanner} alt="banner" />
+              </div>
               <TopRatedMedicine />
             </div>
           </div>
@@ -379,7 +401,7 @@ const Medicines = () => {
               ✕
             </button>
           </form>
-          <h4 className="text-xl font-bold font-nunito text-center">Request Medicine</h4>
+          <h4 className="text-xl font-bold font-nunito text-center">Request For New Medicine</h4>
           <div>
             <img
               className="w-60 mx-auto my-4"
@@ -393,29 +415,27 @@ const Medicines = () => {
                 <label className="text-base font-medium">
                   Your Name<span className="font-bold text-red-500">*</span>
                 </label>
-                <input defaultValue={user?.displayName} placeholder="Enter Your Name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="name" id="" />
+                <input placeholder="Enter Your Name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="name" />
               </div>
               <div>
                 <label className="text-base font-medium">
-                  Your Email<span className="font-bold text-red-500">*</span>
+                  Your Phone No.<span className="font-bold text-red-500">*</span>
                 </label>
-                <input defaultValue={user?.email} placeholder="example@gmail.com" required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="email" id="" />
+                <input placeholder="012.." required type="number" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="number" />
               </div>
             </div>
             <div className="my-4">
               <label className="text-base font-medium">
                 Request Medicine Name <span className="font-bold text-red-500">*</span>
               </label>
-              <input placeholder="Enter Your Request Medicine Name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="req_medi_name" id="" />
+              <input placeholder="Enter Your Request Medicine Name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="req_medi_name" />
             </div>
             <div className="my-4">
               <label className="text-base font-medium">
                 Your District <span className="font-bold text-red-500">*</span>
               </label>
               <select required name="district" id="" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
-                <option value="" selected>
-                  Select Your District
-                </option>
+                <option defaultValue>Select Your District</option>
                 {districts?.map((district) => (
                   <option key={district?.id} value={district?.name}>
                     {district?.name}
@@ -427,7 +447,7 @@ const Medicines = () => {
               <label className="text-base font-medium">
                 Description <span className=" text-sm">(Optional)</span>
               </label>
-              <textarea placeholder="Description (optional)" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full mt-4" id="w3review" name="w3review" rows="4" cols="50" />
+              <textarea placeholder="Description (optional)" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full mt-4" name="user_comment" rows="4" cols="50" />
             </div>
 
             <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">

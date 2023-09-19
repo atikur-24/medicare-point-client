@@ -6,6 +6,7 @@ import { fetchAllHealthTips } from "../../Features/HealthTips/allHealthTips";
 import helth from "../../assets/Blog/helth.webp";
 import Loader from "../../components/Loader";
 import HealthCard from "./HealthCard";
+import WebSiteTitle from "../../components/WebSiteTitle/WebSiteTitle";
 
 const HealthTips = () => {
   const [categories, setCategories] = useState([]);
@@ -49,6 +50,7 @@ const HealthTips = () => {
 
   return (
     <div className="bg-card ">
+      <WebSiteTitle title="Health Tips" />
       <img src={helth} className="w-full" alt="" />
       {/* <h1 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold my-4 mx-2">Health Tips: Your Guide to a Balanced Lifestyle</h1> */}
 

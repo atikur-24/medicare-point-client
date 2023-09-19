@@ -17,6 +17,7 @@ import adminHomeData from "../Features/DashboardData/adminHomeData";
 import addDiscountCode from "../Features/DiscountCodesApis/addDiscountCode";
 import allDiscountCodes from "../Features/DiscountCodesApis/allDiscountCodes";
 import deleteDiscountCodes from "../Features/DiscountCodesApis/deleteDiscountCodes";
+import isValidDiscount from "../Features/DiscountCodesApis/isValidDiscount";
 import updateDiscountCode from "../Features/DiscountCodesApis/updateDiscountCode";
 import addHealthTips from "../Features/HealthTips/addHealthTips";
 import allHealthTips from "../Features/HealthTips/allHealthTips";
@@ -82,6 +83,7 @@ const store = configureStore({
     deleteDiscountCodes,
     updateDiscountCode,
     addDiscountCode,
+    isValidDiscount,
   },
 });
 

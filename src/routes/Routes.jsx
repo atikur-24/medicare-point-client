@@ -25,7 +25,6 @@ import AddNewMedicine from "../pages/Dashboard/PharmacistDashboard/AddNewMedicin
 import AllMedicinesByPharmacist from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/AllMedicinesByPharmacist";
 import NewOrders from "../pages/Dashboard/PharmacistDashboard/NewOrders/NewOrders";
 import PharmacistOrderHistory from "../pages/Dashboard/PharmacistDashboard/PharmacistOrderHistory/PharmacistOrderHistory";
-import RequestedOrder from "../pages/Dashboard/PharmacistDashboard/RequestedOrder/RequestedOrder";
 import BookedLabTest from "../pages/Dashboard/UserDashboard/BookedLabTest/BookedLabTest";
 import OrderHistory from "../pages/Dashboard/UserDashboard/OrderHistory/OrderHistory";
 import UserProfile from "../pages/Dashboard/UserDashboard/UserProfile/UserProfile";
@@ -47,6 +46,7 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 
 import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArticles";
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
+import ConfirmLab from "../pages/Dashboard/AdminDashboard/AllAvailableTest/ConfirmLab";
 import DashboardMedicineDetail from "../pages/Dashboard/AdminDashboard/AllMedicines/DashboardMedicineDetail";
 import DiscountCodes from "../pages/Dashboard/AdminDashboard/DiscountCodes/DiscountCodes";
 import AllPrescriptions from "../pages/Dashboard/AdminDashboard/UploadPrescription/AllPrescriptions";
@@ -54,6 +54,9 @@ import UploadPrescription from "../pages/Dashboard/AdminDashboard/UploadPrescrip
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
 import ViewDetailsMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/ViewDetailsMedicine";
+import NewMedicineRequest from "../pages/Dashboard/PharmacistDashboard/RequestedMedicine/NewMedicineRequest";
+import StockRequest from "../pages/Dashboard/PharmacistDashboard/RequestedMedicine/StockRequest";
+import Feedback from "../pages/Dashboard/UserDashboard/Feedback/Feedback";
 import OrderTracking from "../pages/Dashboard/UserDashboard/OrderTrack/OrderTracking";
 import RewardPoints from "../pages/Dashboard/UserDashboard/RewardPoints/RewardPoints";
 import EditProfile from "../pages/Dashboard/UserDashboard/UserProfile/EditProfile";
@@ -253,6 +256,14 @@ const router = createBrowserRouter([
         path: "reward-points",
         element: <RewardPoints />,
       },
+      {
+        path: "feedback",
+        element: <Feedback />,
+      },
+      {
+        path: "manage-confirm-lab",
+        element: <ConfirmLab />,
+      },
 
       // pharmacists dashboard
       {
@@ -281,8 +292,12 @@ const router = createBrowserRouter([
         element: <PharmacistOrderHistory />,
       },
       {
-        path: "requested-medicines",
-        element: <RequestedOrder />,
+        path: "requested-stock",
+        element: <StockRequest />,
+      },
+      {
+        path: "requested-new-medicine",
+        element: <NewMedicineRequest />,
       },
 
       // admin dashboard

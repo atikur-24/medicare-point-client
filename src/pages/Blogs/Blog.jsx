@@ -24,7 +24,7 @@ const Blog = ({ blog, range }) => {
                 <li>
                   <span className="font-bold">
                     <Link className="text-lg text-my-primary group-hover:text-black transition-colors duration-200" to={`/healthArticles/${_id}`}>
-                      {title}
+                      {title} 1
                     </Link>
                   </span>
                 </li>
