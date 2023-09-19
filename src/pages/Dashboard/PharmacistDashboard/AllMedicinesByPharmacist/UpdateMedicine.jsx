@@ -52,12 +52,18 @@ const tags = [
 
 const UpdateMedicine = () => {
   const existingData = useLoaderData();
-  const { feature_with_details, medicine_description } = existingData || {};
+  const { feature_with_details, medicine_description, available_quantity, sellQuantity } = existingData || {};
+  // console.log(available_quantity, sellQuantity);
   const { user } = useAuth();
   const editor = useRef(null);
   const [content, setContent] = useState("");
   const [description, setDescription] = useState("");
+  const [updateQuantity, setUpdateQuantity] = useState(available_quantity - sellQuantity);
   const navigate = useNavigate();
+
+  const handleUpdateQuantity = (e) => {
+    setUpdateQuantity(e.target.value);
+  };
 
   const { register, control, handleSubmit, setValue } = useForm();
 
@@ -73,6 +79,7 @@ const UpdateMedicine = () => {
   }, [existingData, setValue, feature_with_details, medicine_description]);
 
   const onSubmit = (data) => {
+    data.available_quantity = updateQuantity;
     const date = moment().format("L");
     data.price = parseFloat(data.price, 10);
     data.discount = parseInt(data.discount, 10);
@@ -85,6 +92,7 @@ const UpdateMedicine = () => {
       return;
     }
     const updateData = { ...data, feature_with_details: content, medicine_description: description, updatedDate: date };
+    // console.log(updateData);
 
     axios
       .put(`http://localhost:5000/update-medicine/${data._id}`, updateData)
@@ -159,7 +167,7 @@ const UpdateMedicine = () => {
           </div>
           <div>
             <span>Available Quantity</span>
-            <input className="input input-bordered w-full md:max-w-full lg:max-w-md" min={1} placeholder="Enter available quantity" type="number" {...register("available_quantity")} />
+            <input defaultValue={updateQuantity} onChange={handleUpdateQuantity} className="input input-bordered w-full md:max-w-full lg:max-w-md" min={1} placeholder="Enter available quantity" type="number" />
           </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">

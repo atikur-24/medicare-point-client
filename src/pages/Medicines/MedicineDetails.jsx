@@ -70,7 +70,7 @@ const MedicineDetails = () => {
     order_quantity,
   } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, category: category.label, email: user?.email, order_quantity };
-  const reqToStock = { reqByMedicine_Id: _id, medicine_name, image, request_count: 1, pharmacist_email, user_email: user?.email };
+  const reqToStock = { reqByMedicine_Id: _id, medicine_name, image, request_count: 1, pharmacist_email };
   const handleReviews = (event) => {
     event.preventDefault();
     const form = event.target;

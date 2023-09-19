@@ -17,7 +17,7 @@ const MediCard = ({ medicine }) => {
   const { user } = useAuth();
   const { _id, medicine_name, image, category, price, rating, discount, available_quantity, sellQuantity, pharmacist_email, order_quantity } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, category: category?.label, quantity: 1, email: user?.email, order_quantity };
-  const reqToStock = { reqByMedicine_Id: _id, medicine_name, image, request_count: 1, pharmacist_email, user_email: user?.email };
+  const reqToStock = { reqByMedicine_Id: _id, medicine_name, image, request_count: 1, pharmacist_email };
   return (
     <div className="card card-compact bg-white rounded-md hover:shadow-md lg:hover:shadow-lg transition-shadow relative group h-fit">
       {discount > 0 && <p className="bg-my-accent z-10 rounded py-1 px-2 text-xs lg:font-medium text-white absolute top-4 left-4">-{discount}% OFF</p>}
