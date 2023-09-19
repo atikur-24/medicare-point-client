@@ -349,14 +349,14 @@ const Medicines = () => {
             </div>
           ) : (
             <div>
-              {medicines.length > 0 ? (
+              {!medicines.length > 0 && !isloading ? (
+                <NoMedicineText />
+              ) : (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
                   {PaginationMedicines?.map((medicine) => (
                     <MediCard key={medicine._id} medicine={medicine} />
                   ))}
                 </div>
-              ) : (
-                <NoMedicineText />
               )}
             </div>
           )}

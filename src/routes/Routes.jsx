@@ -54,6 +54,7 @@ import UploadPrescription from "../pages/Dashboard/AdminDashboard/UploadPrescrip
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
 import ViewDetailsMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/ViewDetailsMedicine";
+import CompletedOrders from "../pages/Dashboard/UserDashboard/OrderHistory/CompletedOrders/CompletedOrders";
 import OrderTracking from "../pages/Dashboard/UserDashboard/OrderTrack/OrderTracking";
 import RewardPoints from "../pages/Dashboard/UserDashboard/RewardPoints/RewardPoints";
 import EditProfile from "../pages/Dashboard/UserDashboard/UserProfile/EditProfile";
@@ -238,6 +239,10 @@ const router = createBrowserRouter([
       {
         path: "order-history",
         element: <OrderHistory />,
+      },
+      {
+        path: "completed-orders",
+        element: <CompletedOrders />,
       },
       {
         path: "track-order",
