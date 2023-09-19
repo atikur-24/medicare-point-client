@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllBlogs } from "../../Features/Blogs/allBlogs";
 import blogImage from "../../assets/Blog/blog.webp";
 import Loader from "../../components/Loader";
+import WebSiteTitle from "../../components/WebSiteTitle/WebSiteTitle";
 import Blog from "./Blog";
 import "./Blog.css";
 
@@ -34,6 +35,7 @@ const Blogs = () => {
 
   return (
     <div className="bg-white">
+      <WebSiteTitle title="Blogs" />
       <div>
         <img className="w-full" src={blogImage} alt="" />
       </div>

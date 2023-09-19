@@ -4,10 +4,12 @@ import delivery from "../../assets/images/services/delivary.webp";
 import pharmacy from "../../assets/images/services/pharmacy.webp";
 import teast from "../../assets/images/services/test.webp";
 import "./services.css";
+import WebSiteTitle from "../../components/WebSiteTitle/WebSiteTitle";
 
 const Services = () => {
   return (
     <div>
+      <WebSiteTitle title="Services" />
       <div className="my-container flex flex-col-reverse xl:flex-row justify-between gap-6 items-center ">
         <div className="w-full xl:w-[70%] space-y-6">
           <h2 className="text-xl md:text-3xl xl:text-4xl font-medium md:font-semibold xl:font-bold xl:tracking-wide xl:leading-snug capitalize text-title-color">In this website you will got world-class service.</h2>

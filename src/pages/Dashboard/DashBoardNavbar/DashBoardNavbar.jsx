@@ -35,8 +35,8 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
   // }
   return (
     <div className="py-5 flex justify-between items-center bg-[#F1F6FA] ">
-      <div className="">
-        {user?.email}
+      <div>
+        {/* {user?.email} */}
         {/* <div className="form-control hidden xl:block">
           <div className="input-group rounded-2xl">
             <input type="text" placeholder="Search…" className="input input-bordered input-sm md:input-md" />
