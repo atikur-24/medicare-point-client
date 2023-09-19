@@ -9,6 +9,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateEmail,
   updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useMemo, useState } from "react";
@@ -52,6 +53,11 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
+  const emailUpdate = (email) => {
+    setLoading(true);
+    return updateEmail(auth.currentUser, email);
+  };
+
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
@@ -68,6 +74,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+      console.log(currentUser);
     });
     return () => {
       return unsubscribe();
@@ -99,6 +106,7 @@ const AuthProvider = ({ children }) => {
       role,
       emailVerification,
       userInfo,
+      emailUpdate,
     }),
     [user, loading, role, userInfo]
   );

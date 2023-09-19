@@ -8,6 +8,7 @@ import { HiClipboardList } from "react-icons/hi";
 import { MdAddShoppingCart, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
 import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
+import { TbDiscount2 } from "react-icons/tb";
 import { TfiMenu } from "react-icons/tfi";
 import { useDispatch } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
@@ -182,6 +183,12 @@ const DashboardLayout = () => {
         <NavLink to="/dashboard/prescriptions" className="dashboard-link">
           <FaFilePrescription className="dashboard-icon" />
           <span>Customers Prescription</span>
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/dashboard/discountCodes" className="dashboard-link">
+          <TbDiscount2 className="dashboard-icon" />
+          <span>Discount Codes</span>
         </NavLink>
       </li>
       <li>

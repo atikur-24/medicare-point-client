@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchAllPrescription = createAsyncThunk("allPrescription/fetchAllPrescription", async ({ email, role }) => {
-    const res = await axios.get(`http://localhost:5000/notifications?email=${email}&role=${role}`);
+    const res = await axios.get(`http://localhost:5000/prescriptions?email=${email}&role=${role}`);
     //   console.log(res.data);
     return res.data;
 });

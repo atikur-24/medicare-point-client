@@ -49,10 +49,12 @@ import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArtic
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
 import ConfirmLab from "../pages/Dashboard/AdminDashboard/AllAvailableTest/ConfirmLab";
 import DashboardMedicineDetail from "../pages/Dashboard/AdminDashboard/AllMedicines/DashboardMedicineDetail";
+import DiscountCodes from "../pages/Dashboard/AdminDashboard/DiscountCodes/DiscountCodes";
 import AllPrescriptions from "../pages/Dashboard/AdminDashboard/UploadPrescription/AllPrescriptions";
 import UploadPrescription from "../pages/Dashboard/AdminDashboard/UploadPrescription/UploadPrescription";
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
+import ViewDetailsMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/ViewDetailsMedicine";
 import OrderTracking from "../pages/Dashboard/UserDashboard/OrderTrack/OrderTracking";
 import RewardPoints from "../pages/Dashboard/UserDashboard/RewardPoints/RewardPoints";
 import EditProfile from "../pages/Dashboard/UserDashboard/UserProfile/EditProfile";
@@ -117,7 +119,6 @@ const router = createBrowserRouter([
       {
         path: "/healthtips/:id",
         element: <HealthTipsDetails />,
-        // loader: ({ params }) => fetch(`http://localhost:5000/allHealthTips/${params?.id}`),
       },
       {
         path: "labPage/:id",
@@ -134,7 +135,6 @@ const router = createBrowserRouter([
       {
         path: "/labBook/:id",
         element: <LabBook />,
-        // loader: ({ params }) => fetch(`http://localhost:5000/labAllItems/${params?.id}`)
       },
       {
         path: "medicines",
@@ -274,6 +274,10 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:5000/medicines/details/${params.id}`),
       },
       {
+        path: "medicine-details/:id",
+        element: <ViewDetailsMedicine />,
+      },
+      {
         path: "add-new-medicine",
         element: <AddNewMedicine />,
       },
@@ -360,6 +364,10 @@ const router = createBrowserRouter([
       {
         path: "prescriptions/:email",
         element: <UploadPrescription />,
+      },
+      {
+        path: "discountCodes",
+        element: <DiscountCodes />,
       },
     ],
   },

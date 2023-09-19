@@ -6,7 +6,6 @@ import { ImWarning } from "react-icons/im";
 import { TbFidgetSpinner } from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Swal from "sweetalert2";
 import Logo from "../../assets/Logo/logo.svg";
 import loginAnimation from "../../assets/images/login-images/login.json";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -20,11 +19,12 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
 
-  const { signIn, loading, setLoading, logOut } = useAuth(AuthContext);
+  const { signIn, loading, setLoading, resetPassword } = useAuth(AuthContext);
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
   let from = location.state?.from?.pathname || "/";
@@ -37,16 +37,6 @@ const Login = () => {
     setLoading(true);
     signIn(data.email, data.password)
       .then((result) => {
-        // if (!result.user.emailVerified) {
-        //   Swal.fire({
-        //     icon: "error",
-        //     title: "Verify email",
-        //     showConfirmButton: false,
-        //     timer: 2500,
-        //   });
-        //   logOut();
-        //   return;
-        // }
         if (result.user) {
           toast.success("Sign In Successful", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
           addUser(result.user);
@@ -60,6 +50,51 @@ const Login = () => {
         setError(err?.message);
         setLoading(false);
       });
+  };
+
+  const handelReset = () => {
+    const email = watch("email");
+    if (email) {
+      setLoading(true);
+      resetPassword(email)
+        .then(() => {
+          toast.success("Please Check Your Email", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          setLoading(false);
+        })
+        .catch((err) => {
+          toast.error(err.message, {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          setLoading(false);
+        });
+    } else {
+      toast.error("Please Provide A Valid Email", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   return (
@@ -114,7 +149,7 @@ const Login = () => {
                     )}
                   </div>
                 </div>
-                <button type="button" className="text-xs px-2 hover:underline ">
+                <button onClick={() => handelReset()} type="button" className="text-xs px-2 hover:underline ">
                   Forgot password?
                 </button>
                 <label className="label">
