@@ -11,7 +11,7 @@ const RewardPoints = () => {
   const { userInfo } = useContext(AuthContext);
 
   return (
-    <div className="px-5 mt-10">
+    <div className=" mt-10">
       <h3 className="text-xl lg:text-3xl font-bold uppercase font-nunito border-l-4 pl-4 border-primary  mb-5">My Points</h3>
 
       <div className="reward-card   p-5 bg-opacity-10  bg-primary rounded-2xl box-shadow space-y-5">

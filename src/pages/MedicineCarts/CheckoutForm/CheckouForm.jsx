@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
+import { isValidDiscountApi } from "../../../Features/DiscountCodesApis/isValidDiscount";
 import { sslPaymentApi } from "../../../Features/PaymentGetway/PaymentGetaway";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import useCartMedicines from "../../../hooks/useCartMedicines";
@@ -11,6 +12,8 @@ const CheckouForm = () => {
   const [allTotal, setAllTotal] = useState(0);
   const [isSelected, setIsSelected] = useState(false);
   const { user } = useContext(AuthContext);
+  const [disAmount, setDisAmount] = useState(0);
+  const [discountCode, setDiscountCode] = useState(0);
   const dispatch = useDispatch();
   const [cart] = useCartMedicines();
   const pricesWithDiscount = [];
@@ -45,23 +48,40 @@ const CheckouForm = () => {
   } = useForm();
   const onSubmit = (data, event) => {
     event.preventDefault();
-    const paymentDetails = { ...data, totalPayment: parseFloat(allTotal.toFixed(2)) };
-    // console.log(paymentDetails);
+    const paymentDetails = { ...data, totalPayment: parseFloat((allTotal - disAmount).toFixed(2)) };
     dispatch(sslPaymentApi({ paymentDetails, cart }));
-    // console.log(paymentDetails);
-    // reset();
   };
 
   const handelPromoCode = (event) => {
     event.preventDefault();
     const promoCode = event.target.promoCode.value;
-    if (promoCode === "WELCOME50") {
-      setAllTotal(allTotal - 50);
-      toast.success("your promo code success fully used", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
-      event.target.reset();
-    } else {
-      toast.error("your promo code not matching", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
-    }
+
+    dispatch(isValidDiscountApi({ promoCode })).then((res) => {
+      const response = res.payload;
+
+      if (response?.success) {
+        setDiscountCode(promoCode);
+        if (response?.discountType === "percent") {
+          const discountAmount = ((allTotal * response?.discount) / 100).toFixed(2);
+          setDisAmount(discountAmount);
+        } else {
+          setDisAmount(response?.discount);
+        }
+        toast.success(response?.message, { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
+        event.target.reset();
+      } else {
+        setDisAmount(0);
+        toast.error(response?.message, { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
+      }
+    });
+
+    // if (promoCode === "WELCOME50") {
+    //   setAllTotal(allTotal - 50);
+    //   toast.success("your promo code success fully used", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
+    //   event.target.reset();
+    // } else {
+    //   toast.error("your promo code not matching", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
+    // }
   };
 
   const divisions = ["Dhaka", "Chattogram", "Barishal", "Khulna", "Rajshahi", "Rangpur", "Mymensingh", "Sylhet"];
@@ -267,9 +287,15 @@ const CheckouForm = () => {
                 <h4>Sub Total: </h4>
                 <h4 className="flex items-center">৳ {subTotal}</h4>
               </div>
+              {disAmount !== 0 && (
+                <div className="flex justify-between items-center my-1 px-14 font-medium">
+                  <h4 className="text-my-primary">{discountCode}: </h4>
+                  <h4 className="flex items-center">- ৳ {disAmount}</h4>
+                </div>
+              )}
               <div className="flex justify-between items-center px-14 font-medium lg:font-semibold mt-2">
                 <h4>Save Amount: </h4>
-                <h4 className="flex items-center">৳ {saveMoney.toFixed(2)}</h4>
+                <h4 className="flex items-center">৳ {(saveMoney + disAmount).toFixed(2)}</h4>
               </div>
               <div className="flex justify-between items-center px-14 font-medium lg:font-semibold mt-2">
                 <h4>Delivery Charge: </h4>
@@ -278,7 +304,7 @@ const CheckouForm = () => {
               <hr className=" border-gray-3 my-2" />
               <div className="flex justify-between items-center px-14 text-lg font-semibold lg:font-bold mt-2">
                 <h4>Total Price: </h4>
-                <h4 className="flex items-center">৳ {allTotal?.toFixed(2)}</h4>
+                <h4 className="flex items-center">৳ {(allTotal - disAmount)?.toFixed(2)}</h4>
               </div>
             </div>
           </div>

@@ -47,6 +47,7 @@ import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 
 import EditArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/EditArticles";
 import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/UpdateHealthArticles";
+import ConfirmLab from "../pages/Dashboard/AdminDashboard/AllAvailableTest/ConfirmLab";
 import DashboardMedicineDetail from "../pages/Dashboard/AdminDashboard/AllMedicines/DashboardMedicineDetail";
 import DiscountCodes from "../pages/Dashboard/AdminDashboard/DiscountCodes/DiscountCodes";
 import AllPrescriptions from "../pages/Dashboard/AdminDashboard/UploadPrescription/AllPrescriptions";
@@ -54,6 +55,7 @@ import UploadPrescription from "../pages/Dashboard/AdminDashboard/UploadPrescrip
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
 import ViewDetailsMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/ViewDetailsMedicine";
+import Feedback from "../pages/Dashboard/UserDashboard/Feedback/Feedback";
 import CompletedOrders from "../pages/Dashboard/UserDashboard/OrderHistory/CompletedOrders/CompletedOrders";
 import OrderTracking from "../pages/Dashboard/UserDashboard/OrderTrack/OrderTracking";
 import RewardPoints from "../pages/Dashboard/UserDashboard/RewardPoints/RewardPoints";
@@ -63,7 +65,7 @@ import LabBook from "../pages/Shared/LabTest/LabBook/LabBook";
 import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
-import { default as FeesPaymentsPolicy, default as FeesandPaymentsPolicy } from "../pages/TermsAndConditions/Fees&PaymentsPolicy";
+import FeesandPaymentsPolicy from "../pages/TermsAndConditions/Fees&PaymentsPolicy";
 import Privacy from "../pages/TermsAndConditions/Privacy";
 import ReturnRefundCancellationPolicy from "../pages/TermsAndConditions/ReturnRefundCancellationPolicy";
 import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
@@ -257,6 +259,14 @@ const router = createBrowserRouter([
       {
         path: "reward-points",
         element: <RewardPoints />,
+      },
+      {
+        path: "feedback",
+        element: <Feedback />,
+      },
+      {
+        path: "manage-confirm-lab",
+        element: <ConfirmLab />,
       },
 
       // pharmacists dashboard

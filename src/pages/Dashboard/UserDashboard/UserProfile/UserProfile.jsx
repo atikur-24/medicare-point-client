@@ -12,7 +12,6 @@ import { AuthContext } from "../../../../contexts/AuthProvider";
 const UserProfile = () => {
   const [currentUserData, setCurrentUserData] = useState({});
   const { user } = useContext(AuthContext);
-  console.log(user); // Access the user object from the context
   useEffect(() => {
     axios.get("http://localhost:5000/users").then((res) => {
       // Find the current user's data based on their email

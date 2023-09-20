@@ -4,11 +4,13 @@ import { BsBox2, BsBoxSeam } from "react-icons/bs";
 import { LiaPhoneVolumeSolid } from "react-icons/lia";
 import { MdOutlineMail } from "react-icons/md";
 import { TbTruckDelivery, TbWorldPin } from "react-icons/tb";
+import WebSiteTitle from "../../components/WebSiteTitle/WebSiteTitle";
 import Form from "./Form/Form";
 
 const Contract = () => {
   return (
     <div className="">
+      <WebSiteTitle title="Contract" />
       <div className="my-container">
         <div>
           <h2 className="text-xl md:text-3xl xl:text-4xl font-semibold xl:font-bold xl:tracking-wide xl:leading-snug capitalize text-title-color">Hi, How Can I help you?</h2>
@@ -46,14 +48,18 @@ const Contract = () => {
             </div>
             <div className="md:block hidden w-full">
               <h2 className="text-xl md:text-3xl xl:text-4xl font-medium md:font-semibold xl:font-bold xl:tracking-wide capitalize text-title-color mb-5">Contract Us</h2>
-              <p className="text-gray-5 text-sm lg:text-base xl:leading-7 text-justify lg:text-start">Here are Us contract Information. Feel free to contract with us or send message by this contract form. </p>
+              <p className="text-gray-5 text-sm lg:text-base xl:leading-7 text-justify lg:text-start">
+                Here are Us contract Information. Feel free to contract with us or send message by this contract form.{" "}
+              </p>
             </div>
           </div>
           <div className="flex flex-col  md:flex-row justify-between items-center gap-10">
             <div className="w-full space-y-6">
               <div className="md:hidden">
                 <h2 className="text-4xl font-bold mb-3 lg:mb-5">Get in touch</h2>
-                <p className="text-gray-5 text-sm lg:text-base">We're collaborating with some of the largest brands in the world, as well as with startups. We’d love to learn your needs, vision and explore how we can assist exceeding your goals.</p>
+                <p className="text-gray-5 text-sm lg:text-base">
+                  We're collaborating with some of the largest brands in the world, as well as with startups. We’d love to learn your needs, vision and explore how we can assist exceeding your goals.
+                </p>
               </div>
               <div>
                 <Form />
