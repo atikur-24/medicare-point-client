@@ -15,7 +15,7 @@ const AllMedicinesByPharmacist = () => {
     queryKey: ["medicines", user?.email],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axios(`http://localhost:5000/phamacistMedicines?email=${user?.email}`);
+      const res = await axios(`http://localhost:5000/pharmacistMedicines?email=${user?.email}`);
       return res.data;
     },
   });
@@ -55,7 +55,7 @@ const AllMedicinesByPharmacist = () => {
           {/* head */}
           <thead className="bg-my-primary text-white font-normal text-base">
             <tr className="">
-              <th>#</th>
+              <th>ID</th>
               <th>Photo</th>
               <th>Name</th>
               <th>Av. Qty</th>
@@ -66,9 +66,9 @@ const AllMedicinesByPharmacist = () => {
           </thead>
           <tbody>
             {/* rows */}
-            {medicines?.map((medicine, idx) => (
+            {medicines?.map((medicine) => (
               <tr key={medicine?._id} className="border-b border-slate-3">
-                <td>{idx + 1}</td>
+                <td>{medicine?._id?.slice(-4)}</td>
                 <td>
                   <img className="mask rounded w-14 h-14" src={medicine?.image} alt="medicine" />
                 </td>
@@ -78,17 +78,23 @@ const AllMedicinesByPharmacist = () => {
                 </td>
                 <td className="font-semibold"> {medicine?.available_quantity === medicine?.sellQuantity ? <span className="text-red-500">Out of Stock</span> : <span className="text-my-primary">In Stock</span>}</td>
 
-                <td className={`capitalize ${medicine?.status === "approved" ? "badge badge-success" : ""} ${medicine?.status === "pending" ? "badge-warning" : ""} ${medicine?.status === "denied" ? "badge badge-error" : ""}`}>{medicine?.status}</td>
-                <td className="inline-flex items-center gap-3 mt-4">
-                  <Link to={`/dashboard/medicine-details/${medicine?._id}`}>
-                    <HiOutlineEye title="View Details" className="text-2xl p-1 text-white bg-slate-6 transition-colors rounded-sm" />
-                  </Link>
-                  <Link to={`/dashboard/update-medicine/${medicine?._id}`}>
-                    <TiEdit title="Update" className="text-2xl p-1 text-white bg-my-primary hover:bg-my-accent transition-colors rounded-sm" />
-                  </Link>
-                  <button type="button" onClick={() => handleDeleteMedicine(medicine?._id)}>
-                    <RiDeleteBinLine title="Delete" className="text-2xl bg-red-500 hover:bg-red-400 transition-colors text-white p-1 rounded-sm" />
-                  </button>
+                <td>
+                  <span className={`capitalize ${medicine?.status === "approved" ? "badge badge-success" : ""} ${medicine?.status === "pending" ? "badge-warning" : ""} ${medicine?.status === "denied" ? "badge badge-error" : ""}`}>
+                    {medicine?.status}
+                  </span>
+                </td>
+                <td className="">
+                  <div className="flex gap-3">
+                    <Link to={`/dashboard/medicine-details/${medicine?._id}`}>
+                      <HiOutlineEye title="View Details" className="text-2xl p-1 text-white bg-slate-6 transition-colors rounded-sm" />
+                    </Link>
+                    <Link to="dashboard/medicine-inventory">
+                      <TiEdit title="Update" className="text-2xl p-1 text-white bg-my-primary hover:bg-my-accent transition-colors rounded-sm" />
+                    </Link>
+                    <button type="button" onClick={() => handleDeleteMedicine(medicine?._id)}>
+                      <RiDeleteBinLine title="Delete" className="text-2xl bg-red-500 hover:bg-red-400 transition-colors text-white p-1 rounded-sm" />
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

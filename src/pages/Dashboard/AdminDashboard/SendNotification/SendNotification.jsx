@@ -36,15 +36,7 @@ const SendNotification = ({ email }) => {
 
         <div className="space-y-2">
           <input required placeholder="Enter title" type="text" name="name" {...register("name")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full" id="" />
-          <input
-            required
-            placeholder="Enter message"
-            type="text"
-            name="deliveryTime"
-            {...register("deliveryTime")}
-            className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full"
-            id=""
-          />
+          <input required placeholder="Enter message" type="text" name="deliveryTime" {...register("deliveryTime")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full" id="" />
           <input required placeholder="Photo URL" type="text" name="photoURL" {...register("photoURL")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full" id="" />
           <select placeholder="Select receiver" name="receiver" {...register("receiver")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
             <option selected disabled value="user">

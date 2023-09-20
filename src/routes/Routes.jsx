@@ -25,7 +25,6 @@ import AddNewMedicine from "../pages/Dashboard/PharmacistDashboard/AddNewMedicin
 import AllMedicinesByPharmacist from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/AllMedicinesByPharmacist";
 import NewOrders from "../pages/Dashboard/PharmacistDashboard/NewOrders/NewOrders";
 import PharmacistOrderHistory from "../pages/Dashboard/PharmacistDashboard/PharmacistOrderHistory/PharmacistOrderHistory";
-import RequestedOrder from "../pages/Dashboard/PharmacistDashboard/RequestedOrder/RequestedOrder";
 import BookedLabTest from "../pages/Dashboard/UserDashboard/BookedLabTest/BookedLabTest";
 import OrderHistory from "../pages/Dashboard/UserDashboard/OrderHistory/OrderHistory";
 import UserProfile from "../pages/Dashboard/UserDashboard/UserProfile/UserProfile";
@@ -55,6 +54,8 @@ import UploadPrescription from "../pages/Dashboard/AdminDashboard/UploadPrescrip
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
 import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/UpdateMedicine";
 import ViewDetailsMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/ViewDetailsMedicine";
+import NewMedicineRequest from "../pages/Dashboard/PharmacistDashboard/RequestedMedicine/NewMedicineRequest";
+import StockRequest from "../pages/Dashboard/PharmacistDashboard/RequestedMedicine/StockRequest";
 import Feedback from "../pages/Dashboard/UserDashboard/Feedback/Feedback";
 import CompletedOrders from "../pages/Dashboard/UserDashboard/OrderHistory/CompletedOrders/CompletedOrders";
 import OrderTracking from "../pages/Dashboard/UserDashboard/OrderTrack/OrderTracking";
@@ -296,8 +297,12 @@ const router = createBrowserRouter([
         element: <PharmacistOrderHistory />,
       },
       {
-        path: "requested-medicines",
-        element: <RequestedOrder />,
+        path: "requested-stock",
+        element: <StockRequest />,
+      },
+      {
+        path: "requested-new-medicine",
+        element: <NewMedicineRequest />,
       },
 
       // admin dashboard

@@ -62,12 +62,7 @@ const DashboardMedicineDetail = () => {
                         Upload Date: <span className="font-normal">{date}</span>
                       </p>
                       <p className="font-semibold">
-                        Medicine Status:{" "}
-                        <span
-                          className={`font-semibold ${status === "approved" ? "text-my-accent" : ""} ${status === "pending" ? "text-yellow-500" : ""} ${status === "denied" ? "text-red-500" : ""}`}
-                        >
-                          {status}
-                        </span>
+                        Medicine Status: <span className={`font-semibold ${status === "approved" ? "text-my-accent" : ""} ${status === "pending" ? "text-yellow-500" : ""} ${status === "denied" ? "text-red-500" : ""}`}>{status}</span>
                       </p>
                     </div>
                     <div>

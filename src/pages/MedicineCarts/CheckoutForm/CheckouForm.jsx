@@ -176,28 +176,14 @@ const CheckouForm = () => {
                 <label htmlFor="name" className="font-medium lg:font-semibold pl-2 cursor-pointer">
                   Name:
                 </label>
-                <input
-                  id="name"
-                  readOnly
-                  type="text"
-                  defaultValue={user?.displayName}
-                  {...register("name", { required: true })}
-                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
-                />
+                <input id="name" readOnly type="text" defaultValue={user?.displayName} {...register("name", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2" />
                 {errors.name && <small>Please write your name</small>}
               </div>
               <div>
                 <label htmlFor="email" className="font-medium lg:font-semibold pl-2 cursor-pointer">
                   Write your Email:
                 </label>
-                <input
-                  id="email"
-                  readOnly
-                  type="email"
-                  defaultValue={user?.email}
-                  {...register("email", { required: true })}
-                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
-                />
+                <input id="email" readOnly type="email" defaultValue={user?.email} {...register("email", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2" />
                 {errors.email && <small>Please wite your email</small>}
               </div>
 
@@ -237,13 +223,7 @@ const CheckouForm = () => {
                 <label htmlFor="location" className="font-medium lg:font-semibold pl-2 cursor-pointer">
                   Write your Full Location:
                 </label>
-                <input
-                  id="location"
-                  type="text"
-                  placeholder="write your full location"
-                  {...register("location", { required: true })}
-                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
-                />
+                <input id="location" type="text" placeholder="write your full location" {...register("location", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2" />
                 {errors.email && <small>Please wite your full location</small>}
               </div>
 
@@ -271,13 +251,7 @@ const CheckouForm = () => {
             </h4>
             <div className="lg:mt-12 mt-4  bg-white py-14 rounded-lg">
               <form onSubmit={handelPromoCode} className="text-center space-x-3">
-                <input
-                  type="text"
-                  name="promoCode"
-                  id=""
-                  placeholder="Use Promo Code"
-                  className="placeholder-gray-4 rounded text-sm font-medium border-gray-3 px-3 w-1/2 border-b-2 focus:border-b-2 focus:outline-none mb-4 focus:border-accent"
-                />
+                <input type="text" name="promoCode" id="" placeholder="Use Promo Code" className="placeholder-gray-4 rounded text-sm font-medium border-gray-3 px-3 w-1/2 border-b-2 focus:border-b-2 focus:outline-none mb-4 focus:border-accent" />
                 <input type="submit" value="Apply" className="bg-my-accent hover:bg-my-primary cursor-pointer text-white px-2 rounded-md" />
               </form>
 

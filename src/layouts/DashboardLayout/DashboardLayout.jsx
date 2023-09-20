@@ -81,6 +81,7 @@ const DashboardLayout = () => {
 
   const [labtest, setLabtest] = useState(false);
   const [medicineBtn, setMedicineBtn] = useState(false);
+  const [mediReqBtn, setMediReqBtn] = useState(false);
 
   const userLinks = (
     <>
@@ -140,6 +141,13 @@ const DashboardLayout = () => {
         </NavLink>
       </li>
 
+      <li>
+        <NavLink to="/dashboard/pharmacists-order-history" className="dashboard-link">
+          <RiFileList3Fill className="dashboard-icon" />
+          <span>Order History</span>
+        </NavLink>
+      </li>
+
       <li className="dashboard-link flex">
         <NavLink to="/dashboard/medicine-inventory" onClick={() => setMedicineBtn(!medicineBtn)} className="dashboard-link flex">
           <MdOutlineInventory className="dashboard-icon" />
@@ -161,17 +169,25 @@ const DashboardLayout = () => {
         </ul>
       </li>
 
-      <li>
-        <NavLink to="/dashboard/pharmacists-order-history" className="dashboard-link">
-          <RiFileList3Fill className="dashboard-icon" />
-          <span>Order History</span>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/requested-medicines" className="dashboard-link">
+      <li className="dashboard-link flex">
+        <NavLink to="/dashboard/requested-stock" onClick={() => setMediReqBtn(!mediReqBtn)} className="dashboard-link flex">
           <GiMedicines className="dashboard-icon" />
-          <span>Requested Medicines</span>
+          <button type="button">Requested Medicines</button>
+          <FaCaretDown className={`${mediReqBtn ? "hidden" : "block"} dashboard-icon`} />
+          <FaCaretUp className={`${mediReqBtn ? "block" : "hidden"} dashboard-icon`} />
         </NavLink>
+        <ul className={`${mediReqBtn ? "block" : "hidden"}`}>
+          <li>
+            <NavLink to="/dashboard/requested-stock" className="">
+              Request To Stock
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/requested-new-medicine" className="">
+              New Medicine Request
+            </NavLink>
+          </li>
+        </ul>
       </li>
     </>
   );
