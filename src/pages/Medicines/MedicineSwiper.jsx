@@ -23,7 +23,7 @@ const MedicineSwiper = () => {
         <button type="button" className="absolute top-8 left-16  my-btn">
           Order Now
         </button>
-        <img className="w-96 " src={image3} alt="" />
+        <img className="w-96 md:w-full" src={image3} alt="" />
       </div>
     </div>
   );

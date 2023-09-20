@@ -365,7 +365,6 @@ const Medicines = () => {
             <div className="w-72 h-fit rounded-md hidden lg:block">{filterItems}</div>
             <div className="hidden lg:block">
               <div className="my-8 relative">
-                <h2 className="absolute top-8 left-16 text-white text-2xl font-semibold">Order Now</h2>
                 <MedicineSwiper />
               </div>
               <TopRatedMedicine />
@@ -400,9 +399,6 @@ const Medicines = () => {
           previousLabel="Previous"
         />
         <div className="lg:hidden">
-          <div className="my-8 relative">
-            <MedicineSwiper />
-          </div>
           <TopRatedMedicine />
         </div>
         <WorkInfo />
