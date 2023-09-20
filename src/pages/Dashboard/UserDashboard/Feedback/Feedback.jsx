@@ -13,15 +13,15 @@ const Feedback = () => {
   const handleRating = (value) => {
     setRating(value);
     if (value === "sad") {
-      setRatingValue(1);
+      setRatingValue(3);
       toast.success("You are feeling Sad ! 😥", { autoClose: 1000, pauseOnHover: false });
     }
     if (value === "none") {
-      setRatingValue(2);
+      setRatingValue(5);
       toast.success("You are feeling None ! 😑", { autoClose: 1000, pauseOnHover: false });
     }
     if (value === "happy") {
-      setRatingValue(3);
+      setRatingValue(5);
       toast.success("You are feeling Happy ! 😊", { autoClose: 1000, pauseOnHover: false });
     }
   };
@@ -44,6 +44,7 @@ const Feedback = () => {
     e.preventDefault();
     feedback.rating = ratingValue;
     if (feedback.rating) {
+      console.log(feedback);
       Swal.fire({
         icon: "success",
         title: "Thanks For Your Valuable Feedback",
@@ -67,11 +68,7 @@ const Feedback = () => {
             <button type="button" onClick={() => handleRating("none")} className={`p-2 rounded-lg hover:shadow-lg  ${rating === "none" ? "text-my-accent shadow-lg" : "text-gray-200 text-slate-6"}`}>
               <CgSmileNone size={60} />
             </button>
-            <button
-              type="button"
-              onClick={() => handleRating("happy")}
-              className={`p-2 rounded-lg hover:shadow-lg  ${rating === "happy" ? "text-my-primary shadow-lg" : "text-gray-200 text-slate-6"}`}
-            >
+            <button type="button" onClick={() => handleRating("happy")} className={`p-2 rounded-lg hover:shadow-lg  ${rating === "happy" ? "text-my-primary shadow-lg" : "text-gray-200 text-slate-6"}`}>
               <BiHappy size={60} />
             </button>
           </div>
@@ -91,30 +88,14 @@ const Feedback = () => {
               <label htmlFor="email" className="block mb-2 font-medium">
                 Email
               </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={feedback.email}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-                required
-              />
+              <input type="email" id="email" name="email" value={feedback.email} onChange={handleChange} className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required />
             </div>
           </div>
           <div className="mb-4">
             <label htmlFor="message" className="block mb-2 font-medium">
               Message
             </label>
-            <textarea
-              id="message"
-              name="message"
-              value={feedback.message}
-              onChange={handleChange}
-              rows="4"
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-              required
-            />
+            <textarea id="message" name="message" value={feedback.message} onChange={handleChange} rows="4" className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required />
           </div>
           <div className="text-center">
             <button type="submit" className="my-btn">
