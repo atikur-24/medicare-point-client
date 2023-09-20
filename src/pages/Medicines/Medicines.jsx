@@ -370,23 +370,20 @@ const Medicines = () => {
               <TopRatedMedicine />
             </div>
           </div>
-          {isloading ? (
-            <div className="mt-10 lg:mt-20">
-              <Loader spinner />
-            </div>
-          ) : (
-            <div>
-              {!medicines.length > 0 && !isloading ? (
-                <NoMedicineText />
-              ) : (
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
-                  {PaginationMedicines?.map((medicine) => (
-                    <MediCard key={medicine._id} medicine={medicine} />
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
+          {isloading && <Loader spinner />}
+
+          <div>
+            {!isloading && PaginationMedicines?.length === 0 ? (
+              <NoMedicineText />
+            ) : (
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
+                {PaginationMedicines?.map((medicine) => (
+                  <MediCard key={medicine._id} medicine={medicine} />
+                ))}
+              </div>
+            )}
+            {/* {(PaginationMedicines?.length <= 0 || !isloading) && <NoMedicineText />} */}
+          </div>
         </div>
         <ReactPaginate
           className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"

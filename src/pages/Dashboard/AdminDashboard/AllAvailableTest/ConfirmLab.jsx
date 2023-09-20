@@ -10,6 +10,8 @@ import * as React from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TbListDetails } from "react-icons/tb";
 
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAdminLabBooking } from "../../../../Features/AllLabTests/adminLabBooking";
 import useLabBook from "../../../../hooks/useLabBook";
 import ConfirmDetailModal from "./ConfirmDetailModal";
 
@@ -54,8 +56,14 @@ const columns = [
 export default function ConfirmLab() {
   let [isOpen, setIsOpen] = React.useState(false);
   let [data, setData] = React.useState({});
-  const [labBook] = useLabBook();
-  const rows = labBook;
+
+  const { allLabBooking, isLoading } = useSelector((state) => state.adminLabBooking);
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchAdminLabBooking());
+  }, [dispatch]);
+
+  const rows = allLabBooking;
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -86,7 +94,7 @@ export default function ConfirmLab() {
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Booked Lab</div>
-            <div className="stat-value text-my-primary">{labBook.length || 0}</div>
+            <div className="stat-value text-my-primary">{allLabBooking?.length || 0}</div>
           </div>
         </div>
       </div>
