@@ -15,7 +15,7 @@ const AllMedicinesByPharmacist = () => {
     queryKey: ["medicines", user?.email],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axios(`http://localhost:5000/phamacistMedicines?email=${user?.email}`);
+      const res = await axios(`http://localhost:5000/pharmacistMedicines?email=${user?.email}`);
       return res.data;
     },
   });
@@ -55,7 +55,7 @@ const AllMedicinesByPharmacist = () => {
           {/* head */}
           <thead className="bg-my-primary text-white font-normal text-base">
             <tr className="">
-              <th>#</th>
+              <th>ID</th>
               <th>Photo</th>
               <th>Name</th>
               <th>Av. Qty</th>
@@ -66,9 +66,9 @@ const AllMedicinesByPharmacist = () => {
           </thead>
           <tbody>
             {/* rows */}
-            {medicines?.map((medicine, idx) => (
+            {medicines?.map((medicine) => (
               <tr key={medicine?._id} className="border-b border-slate-3">
-                <td>{idx + 1}</td>
+                <td>{medicine?._id?.slice(-4)}</td>
                 <td>
                   <img className="mask rounded w-14 h-14" src={medicine?.image} alt="medicine" />
                 </td>
@@ -88,7 +88,7 @@ const AllMedicinesByPharmacist = () => {
                     <Link to={`/dashboard/medicine-details/${medicine?._id}`}>
                       <HiOutlineEye title="View Details" className="text-2xl p-1 text-white bg-slate-6 transition-colors rounded-sm" />
                     </Link>
-                    <Link to={`/dashboard/update-medicine/${medicine?._id}`}>
+                    <Link to="dashboard/medicine-inventory">
                       <TiEdit title="Update" className="text-2xl p-1 text-white bg-my-primary hover:bg-my-accent transition-colors rounded-sm" />
                     </Link>
                     <button type="button" onClick={() => handleDeleteMedicine(medicine?._id)}>

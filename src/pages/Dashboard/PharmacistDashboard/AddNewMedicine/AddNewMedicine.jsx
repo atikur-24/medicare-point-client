@@ -118,8 +118,8 @@ const AddNewMedicine = () => {
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit(onSubmit)} className="">
+    <section className="pb-5 lg:pb-8">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <h3 className="text-center text-xl md:text-2xl lg:text-3xl font-medium lg:font-semibold my-5 text-title-color tracking-wide">Add New Medicine</h3>
         <div className="divider" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
