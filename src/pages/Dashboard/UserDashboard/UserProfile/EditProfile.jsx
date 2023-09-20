@@ -101,10 +101,10 @@ const EditProfile = () => {
   return (
     <div className="px-4">
       <div className="grid grid-cols-1">
-        <div className="bg-white box-shadow p-8 rounded-2xl">
+        <div className="bg-white box-shadow p-4 md:p-6 lg:p-8 rounded-2xl">
           <h1 className="text-2xl font-bold py-2">Edit Your Profile</h1>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <div>
                 <label className="text-sm font-semibold">Name</label>
                 <input type="text" name="name" className="input input-bordered w-full" value={formData.name} onChange={handleChange} />
@@ -114,7 +114,7 @@ const EditProfile = () => {
                 <input disabled type="email" name="email" className="input input-bordered w-full" value={formData.email} onChange={handleChange} />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <div>
                 <label className="text-sm font-semibold">Phone</label>
                 <input type="text" name="phone" className="input input-bordered w-full" value={formData.phone} onChange={handleChange} />
@@ -128,7 +128,7 @@ const EditProfile = () => {
                 </select>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <div>
                 <label className="text-sm font-semibold">Company</label>
                 <input type="text" name="company" className="input input-bordered w-full" value={formData.company} onChange={handleChange} />
@@ -143,7 +143,7 @@ const EditProfile = () => {
               <input type="file" name="image" className="file-input rounded file-input-bordered file-input-accent w-full" onChange={handleImageChange} />
             </div>
             <div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2  gap-2">
                 <div>
                   <label className="text-sm font-semibold">Division</label>
                   <input type="text" name="division" className="input input-bordered w-full" value={formData.division} onChange={handleChange} />

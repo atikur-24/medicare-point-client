@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import { useContext, useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
-import { BsGrid1X2Fill, BsImage } from "react-icons/bs";
+import { BsBagCheck, BsGrid1X2Fill, BsImage } from "react-icons/bs";
 import { FaCaretDown, FaCaretUp, FaFilePrescription, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList } from "react-icons/hi";
@@ -99,6 +99,11 @@ const DashboardLayout = () => {
       <li>
         <NavLink to="/dashboard/order-history" className="dashboard-link">
           <MdOutlineWorkHistory className="dashboard-icon" /> Order History
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/dashboard/completed-orders" className="dashboard-link">
+          <BsBagCheck className="dashboard-icon" /> Completed Orders
         </NavLink>
       </li>
       <li>

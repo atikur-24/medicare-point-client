@@ -12,7 +12,6 @@ import { toast } from "react-toastify";
 import useAuth from "../../../hooks/useAuth";
 import ActiveLink from "./ActiveLink/ActiveLink";
 import Avatar from "./Avatar/Avatar";
-import Lang from "./Language/Lang";
 import Logo from "./Logo/Logo";
 import NavCart from "./NavCard/NavCart";
 import ResponsiveNavbar from "./ResponsiveNavbar/ResponsiveNavbar";
@@ -68,7 +67,6 @@ const Navbar = () => {
               <Search />
             </div>
             <div className="flex items-center gap-4 lg:gap-10">
-              <Lang />
               <NavCart />
               <div>
                 <Menu
