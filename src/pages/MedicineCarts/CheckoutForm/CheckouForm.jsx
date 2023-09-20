@@ -1,4 +1,5 @@
 /* eslint-disable no-unsafe-optional-chaining */
+import moment from "moment";
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -9,6 +10,11 @@ import { AuthContext } from "../../../contexts/AuthProvider";
 import useCartMedicines from "../../../hooks/useCartMedicines";
 
 const CheckouForm = () => {
+  const currentDate = moment();
+  // Add 1-3 days to the current date
+  const oneDaysAhead = currentDate.add(1, "days").format("DD MMM");
+  const threeDaysAhead = currentDate.add(3, "days").format("DD MMM");
+
   const [allTotal, setAllTotal] = useState(0);
   const [isSelected, setIsSelected] = useState(false);
   const { user } = useContext(AuthContext);
@@ -176,28 +182,14 @@ const CheckouForm = () => {
                 <label htmlFor="name" className="font-medium lg:font-semibold pl-2 cursor-pointer">
                   Name:
                 </label>
-                <input
-                  id="name"
-                  readOnly
-                  type="text"
-                  defaultValue={user?.displayName}
-                  {...register("name", { required: true })}
-                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
-                />
+                <input id="name" readOnly type="text" defaultValue={user?.displayName} {...register("name", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2" />
                 {errors.name && <small>Please write your name</small>}
               </div>
               <div>
                 <label htmlFor="email" className="font-medium lg:font-semibold pl-2 cursor-pointer">
                   Write your Email:
                 </label>
-                <input
-                  id="email"
-                  readOnly
-                  type="email"
-                  defaultValue={user?.email}
-                  {...register("email", { required: true })}
-                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
-                />
+                <input id="email" readOnly type="email" defaultValue={user?.email} {...register("email", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2" />
                 {errors.email && <small>Please wite your email</small>}
               </div>
 
@@ -237,13 +229,7 @@ const CheckouForm = () => {
                 <label htmlFor="location" className="font-medium lg:font-semibold pl-2 cursor-pointer">
                   Write your Full Location:
                 </label>
-                <input
-                  id="location"
-                  type="text"
-                  placeholder="write your full location"
-                  {...register("location", { required: true })}
-                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
-                />
+                <input id="location" type="text" placeholder="write your full location" {...register("location", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2" />
                 {errors.email && <small>Please wite your full location</small>}
               </div>
 
@@ -265,47 +251,49 @@ const CheckouForm = () => {
               <input type="submit" value="Buy Now" className="my-btn " />
             </form>
           </div>
-          <div className="w-full ">
+          <div className="w-full">
             <h4 className="text-xl font-bold ">
               <span className="md:text-xl lg:text-2xl font-bold bg-black text-white rounded-full px-[10px] py-1">2</span> Your Order
             </h4>
-            <div className="lg:mt-12 mt-4  bg-white py-14 rounded-lg">
-              <form onSubmit={handelPromoCode} className="text-center space-x-3">
-                <input
-                  type="text"
-                  name="promoCode"
-                  id=""
-                  placeholder="Use Promo Code"
-                  className="placeholder-gray-4 rounded text-sm font-medium border-gray-3 px-3 w-1/2 border-b-2 focus:border-b-2 focus:outline-none mb-4 focus:border-accent"
-                />
+            <div className="lg:mt-12 mt-4 px-4 py-6 bg-white rounded-lg">
+              <form onSubmit={handelPromoCode} className="flex items-start gap-3">
+                <input type="text" name="promoCode" id="" placeholder="Use Promo Code" className="placeholder-gray-4 max-w-xs rounded text-sm font-medium border-gray-3 border-b-2 focus:border-b-2 focus:outline-none mb-4 focus:border-accent" />
                 <input type="submit" value="Apply" className="bg-my-accent hover:bg-my-primary cursor-pointer text-white px-2 rounded-md" />
               </form>
 
-              <h3 className="text-lg font-semibold lg:font-bold px-14">Your Totals Order Items: {cart?.length}</h3>
+              <h3 className="text-lg font-semibold lg:font-bold">Your Totals Order Items: {cart?.length}</h3>
+              <hr className="border-gray-3 my-2" />
+              <div className="flex justify-between items-center font-medium lg:font-semibold">
+                <h4>Expected Delivery:</h4>
+                <h4 className="flex items-center">
+                  {oneDaysAhead} - {threeDaysAhead}
+                </h4>
+              </div>
               <hr className=" border-gray-3 my-2" />
-              <div className="flex justify-between items-center px-14 font-medium lg:font-semibold">
+              <div className="flex justify-between items-center font-medium lg:font-semibold">
                 <h4>Sub Total: </h4>
                 <h4 className="flex items-center">৳ {subTotal}</h4>
               </div>
               {disAmount !== 0 && (
-                <div className="flex justify-between items-center my-1 px-14 font-medium">
+                <div className="flex justify-between items-center my-1 font-medium">
                   <h4 className="text-my-primary">{discountCode}: </h4>
                   <h4 className="flex items-center">- ৳ {disAmount}</h4>
                 </div>
               )}
-              <div className="flex justify-between items-center px-14 font-medium lg:font-semibold mt-2">
+              <div className="flex justify-between items-center font-medium lg:font-semibold mt-2">
                 <h4>Save Amount: </h4>
                 <h4 className="flex items-center">৳ {(saveMoney + disAmount).toFixed(2)}</h4>
               </div>
-              <div className="flex justify-between items-center px-14 font-medium lg:font-semibold mt-2">
+              <div className="flex justify-between items-center font-medium lg:font-semibold mt-2">
                 <h4>Delivery Charge: </h4>
                 <h4 className="flex items-center">৳ 75</h4>
               </div>
               <hr className=" border-gray-3 my-2" />
-              <div className="flex justify-between items-center px-14 text-lg font-semibold lg:font-bold mt-2">
+              <div className="flex justify-between items-center text-lg font-semibold lg:font-bold mt-2">
                 <h4>Total Price: </h4>
                 <h4 className="flex items-center">৳ {(allTotal - disAmount)?.toFixed(2)}</h4>
               </div>
+              {/* <div>dd</div> */}
             </div>
           </div>
         </div>
