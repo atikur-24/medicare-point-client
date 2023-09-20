@@ -29,6 +29,7 @@ import NewsLetter from "../Shared/medicine/NewsLetter";
 import TopRatedMedicine from "../Shared/medicine/TopRatedMedicine";
 import WorkInfo from "../Shared/medicine/WorkInfo";
 import MediRequest from "./MediRequest";
+import NoMedicineText from "./NoMedicineText";
 import PrescriptionBtn from "./PrescriptionBtn";
 
 // const orderDate = moment().format("Do MMM YY");
@@ -351,11 +352,15 @@ const Medicines = () => {
             </div>
           ) : (
             <div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
-                {PaginationMedicines?.map((medicine) => (
-                  <MediCard key={medicine._id} medicine={medicine} />
-                ))}
-              </div>
+              {!medicines.length > 0 && !isloading ? (
+                <NoMedicineText />
+              ) : (
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
+                  {PaginationMedicines?.map((medicine) => (
+                    <MediCard key={medicine._id} medicine={medicine} />
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>

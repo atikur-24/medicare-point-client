@@ -116,13 +116,7 @@ const AllMedicines = () => {
                     <span>{medicine?.pharmacist_email}</span>
                   </td>
 
-                  <td
-                    className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${
-                      medicine.status === "pending" && "text-yellow-500"
-                    } capitalize font-medium`}
-                  >
-                    {medicine?.status}
-                  </td>
+                  <td className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"} capitalize font-medium`}>{medicine?.status}</td>
                   <td className="space-x-2">
                     <button type="button" onClick={() => handelDelete(medicine?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
                       <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />

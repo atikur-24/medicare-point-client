@@ -57,6 +57,7 @@ import ViewDetailsMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedic
 import NewMedicineRequest from "../pages/Dashboard/PharmacistDashboard/RequestedMedicine/NewMedicineRequest";
 import StockRequest from "../pages/Dashboard/PharmacistDashboard/RequestedMedicine/StockRequest";
 import Feedback from "../pages/Dashboard/UserDashboard/Feedback/Feedback";
+import CompletedOrders from "../pages/Dashboard/UserDashboard/OrderHistory/CompletedOrders/CompletedOrders";
 import OrderTracking from "../pages/Dashboard/UserDashboard/OrderTrack/OrderTracking";
 import RewardPoints from "../pages/Dashboard/UserDashboard/RewardPoints/RewardPoints";
 import EditProfile from "../pages/Dashboard/UserDashboard/UserProfile/EditProfile";
@@ -65,7 +66,7 @@ import LabBook from "../pages/Shared/LabTest/LabBook/LabBook";
 import LabPayment from "../pages/Shared/LabTest/LabPayment/LabPayment";
 import LabTest from "../pages/Shared/LabTest/LabTest";
 import LabTestPage from "../pages/Shared/LabTest/LabTestPage";
-import { default as FeesPaymentsPolicy, default as FeesandPaymentsPolicy } from "../pages/TermsAndConditions/Fees&PaymentsPolicy";
+import FeesandPaymentsPolicy from "../pages/TermsAndConditions/Fees&PaymentsPolicy";
 import Privacy from "../pages/TermsAndConditions/Privacy";
 import ReturnRefundCancellationPolicy from "../pages/TermsAndConditions/ReturnRefundCancellationPolicy";
 import TermsAndConditions from "../pages/TermsAndConditions/TermsAndConditions";
@@ -241,6 +242,10 @@ const router = createBrowserRouter([
       {
         path: "order-history",
         element: <OrderHistory />,
+      },
+      {
+        path: "completed-orders",
+        element: <CompletedOrders />,
       },
       {
         path: "track-order",
