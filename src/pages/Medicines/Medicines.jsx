@@ -240,20 +240,24 @@ const Medicines = () => {
   // handle new medicine request
   const onSubmitMediReq = (e) => {
     e.preventDefault();
-    const form = e.target;
 
+    setLoading(true);
+
+    const form = e.target;
     const name = form.name.value;
     const number = form.number.value;
     const req_medi_name = form.req_medi_name.value;
+    const req_medi_quantity = form.req_medi_quantity.value;
     const district = form.district.value;
+    const need_days = form.need_days.value;
     const user_comment = form.user_comment.value;
-    const userData = { name, user_email: user?.email, number, req_medi_name, district, user_comment, req_date: dateAndTime, status: "requesting" };
+    const userData = { name, user_email: user?.email, number, req_medi_name, req_medi_quantity, district, need_days, user_comment, req_date: dateAndTime, status: "requesting" };
     axios
       .post("http://localhost:5000/requestNewMedicine", userData)
       .then((result) => {
-        console.log(result);
         if (result.data.insertedId) {
           Swal.fire("Medicine Request Sent!", "Stay tuned for a notification and send email when it's available on our website.", "success");
+          setLoading(false);
           form.reset();
           document.getElementById("my_modal_mediRequest").close();
         }
@@ -424,34 +428,49 @@ const Medicines = () => {
                 <input placeholder="012.." required type="number" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="number" />
               </div>
             </div>
-            <div className="my-4">
-              <label className="text-base font-medium">
-                Request Medicine Name <span className="font-bold text-red-500">*</span>
-              </label>
-              <input placeholder="Enter Your Request Medicine Name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="req_medi_name" />
+            <div className="grid grid-cols-2 gap-3 my-4">
+              <div>
+                <label className="text-base font-medium">
+                  Request Medicine Name <span className="font-bold text-red-500">*</span>
+                </label>
+                <input placeholder="Enter Your Request Medicine Name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="req_medi_name" />
+              </div>
+              <div>
+                <label className="text-base font-medium">
+                  Request Quantity <span className="font-bold text-red-500">*</span>
+                </label>
+                <input placeholder="Request Medicine Quantity" required type="number" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="req_medi_quantity" />
+              </div>
             </div>
-            <div className="my-4">
-              <label className="text-base font-medium">
-                Your District <span className="font-bold text-red-500">*</span>
-              </label>
-              <select required name="district" id="" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
-                <option defaultValue>Select Your District</option>
-                {districts?.map((district) => (
-                  <option key={district?.id} value={district?.name}>
-                    {district?.name}
-                  </option>
-                ))}
-              </select>
+            <div className="grid grid-cols-2 gap-3 my-4">
+              <div>
+                <label className="text-base font-medium">
+                  Your District <span className="font-bold text-red-500">*</span>
+                </label>
+                <select required name="district" id="" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
+                  <option defaultValue>Select Your District</option>
+                  {districts?.map((district) => (
+                    <option key={district?.id} value={district?.name}>
+                      {district?.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="text-base font-medium">
+                  Need Day<span className="font-bold text-red-500">*</span>
+                </label>
+                <input placeholder="2 days" min={2} required type="number" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="need_days" />
+              </div>
             </div>
             <div className="my-4">
               <label className="text-base font-medium">
                 Description <span className=" text-sm">(Optional)</span>
               </label>
-              <textarea placeholder="Description (optional)" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full mt-4" name="user_comment" rows="4" cols="50" />
+              <textarea maxLength={100} placeholder="Description (optional)" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full mt-4" name="user_comment" rows="3" cols="50" />
             </div>
-
             <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
-              Request
+              {loading ? "Requesting...." : "Request"}
             </button>
           </form>
         </div>
