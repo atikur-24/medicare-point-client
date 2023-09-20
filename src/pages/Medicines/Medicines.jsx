@@ -21,7 +21,7 @@ import { addImageToDBApi } from "../../Features/Images/addImageToDB";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
 import { addNotificationApi } from "../../Features/Notifications/addNotification";
 import { uploadImageApi } from "../../Features/UploadImage/uploadImage";
-import mediBanner from "../../assets/images/banner/medi-banner.jpg";
+import mediSideBanner from "../../assets/Medicine/medi-banner.jpg";
 import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
 import MediCard from "../Shared/Card/MediCard";
@@ -29,6 +29,7 @@ import NewsLetter from "../Shared/medicine/NewsLetter";
 import TopRatedMedicine from "../Shared/medicine/TopRatedMedicine";
 import WorkInfo from "../Shared/medicine/WorkInfo";
 import MediRequest from "./MediRequest";
+import MedicineSwiper from "./MedicineSwiper";
 import NoMedicineText from "./NoMedicineText";
 import PrescriptionBtn from "./PrescriptionBtn";
 
@@ -364,8 +365,7 @@ const Medicines = () => {
             <div className="w-72 h-fit rounded-md hidden lg:block">{filterItems}</div>
             <div className="hidden lg:block">
               <div className="my-8 relative">
-                <h2 className="absolute top-8 left-16 text-white text-2xl font-semibold">Order Now</h2>
-                <img className="rounded" src={mediBanner} alt="banner" />
+                <MedicineSwiper />
               </div>
               <TopRatedMedicine />
             </div>

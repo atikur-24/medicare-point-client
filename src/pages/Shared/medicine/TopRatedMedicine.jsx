@@ -1,6 +1,7 @@
 import { Rating, StickerStar } from "@smastrom/react-rating";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import useMedicines from "../../../hooks/useMedicines";
 
 const customStyles = {
   itemShapes: StickerStar,
@@ -9,12 +10,17 @@ const customStyles = {
 };
 
 const TopRatedMedicine = () => {
-  const [medicines] = useMedicines();
+  const [topRatedMedi, setTopRatedMedi] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/topRated-medicines").then((res) => setTopRatedMedi(res?.data));
+  }, []);
+
   return (
     <div className="bg-white rounded">
       <h2 className="text-title-color text-lg lg:text-xl font-medium lg:font-extrabold pl-3 py-3 font-nunito uppercase border-l-4 border-my-primary">Top Rated Medicine</h2>
       <div className="border-t border-gray-3 divide-y divide-gray-3 px-[18px] py-5">
-        {medicines.slice(0, 5)?.map((medicine) => (
+        {topRatedMedi.slice(0, 5)?.map((medicine) => (
           <div className="flex py-3 " key={medicine._id}>
             <Link to={`/details/${medicine._id}`}>
               <figure>
