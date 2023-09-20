@@ -7,12 +7,16 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import * as React from "react";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { TbListDetails } from "react-icons/tb";
+
 import useLabBook from "../../../../hooks/useLabBook";
+import ConfirmDetailModal from "./ConfirmDetailModal";
 
 const columns = [
   { id: "name", label: "Name", align: "center", minWidth: 170 },
-  { id: "mobile", label: "Mobile", minWidth: 100 },
-  { id: "email", label: "Email", minWidth: 100 },
+  { id: "mobile", label: "Mobile", align: "center", minWidth: 100 },
+  { id: "test_name", label: "Test Name", align: "center", minWidth: 100 },
   {
     id: "dateTime",
     label: "Date Time",
@@ -48,6 +52,8 @@ const columns = [
 // }
 
 export default function ConfirmLab() {
+  let [isOpen, setIsOpen] = React.useState(false);
+  let [data, setData] = React.useState({});
   const [labBook] = useLabBook();
   const rows = labBook;
   const [page, setPage] = React.useState(0);
@@ -62,72 +68,87 @@ export default function ConfirmLab() {
     setPage(0);
   };
 
-  const handleEditClick = (row) => {
-    // Implement the logic for editing here.
-    console.log("Edit clicked for row:", row);
-  };
+  const toggleOpen = React.useCallback(() => {
+    setIsOpen((value) => !value);
+  }, []);
 
   const handleDeleteClick = (row) => {
-    // Implement the logic for deleting here.
     console.log("Delete clicked for row:", row);
+  };
+  const handleModalClick = (row) => {
+    setData(row);
+    toggleOpen();
   };
 
   return (
-    <Paper className="mt-10" sx={{ width: "100%", overflow: "hidden" }}>
-      <TableContainer sx={{ maxHeight: 768 }}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell className="!z-10 !font-bold !font-Alexandria" key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
-                  {column.label}
-                </TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-              return (
-                <TableRow className="!z-10 !font-bold !font-Alexandria" hover role="checkbox" tabIndex={-1} key={row.code}>
-                  {columns.map((column) => {
-                    if (column.id === "Action") {
-                      // Render the Edit button here.
+    <div className="pb-6">
+      <div className=" mb-8">
+        <div className="stats shadow">
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Booked Lab</div>
+            <div className="stat-value text-my-primary">{labBook.length || 0}</div>
+          </div>
+        </div>
+      </div>
+      <Paper className="mt-10" sx={{ width: "100%", overflow: "hidden" }}>
+        <TableContainer sx={{ maxHeight: 768 }}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                {columns.map((column) => (
+                  <TableCell className="!z-10 !font-bold !font-Alexandria" key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                return (
+                  <TableRow className="!z-10 !font-bold !font-Alexandria" hover role="checkbox" tabIndex={-1} key={row._id}>
+                    {columns.map((column) => {
+                      if (column.id === "Action") {
+                        // Render the Edit button here.
+                        return (
+                          <TableCell key={column.id} align={column.align}>
+                            <div className="flex gap-4 justify-center">
+                              <button type="button" className="relative group" onClick={() => handleModalClick(row)}>
+                                <TbListDetails className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
+                                <span className="absolute hidden group-hover:block whitespace-nowrap ">Detail</span>
+                              </button>
+
+                              <button type="button" onClick={() => handleDeleteClick(row)} className=" bg-red-500 rounded-full bg-opacity-30 ">
+                                <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
+                              </button>
+                            </div>
+                          </TableCell>
+                        );
+                      }
+
+                      const value = row[column.id];
                       return (
-                        <TableCell key={column.id} align={column.align}>
-                          <div className="flex gap-4">
-                            <button type="button" onClick={() => handleEditClick(row)}>
-                              Edit
-                            </button>
-                            <button type="button" onClick={() => handleDeleteClick(row)}>
-                              Delete
-                            </button>
-                          </div>
+                        <TableCell key={column.id} align={column.align} className=" !font-Alexandria">
+                          {column.format && typeof value === "number" ? column.format(value) : value}
                         </TableCell>
                       );
-                    }
-
-                    const value = row[column.id];
-                    return (
-                      <TableCell key={column.id} align={column.align} className=" !font-Alexandria">
-                        {column.format && typeof value === "number" ? column.format(value) : value}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
-    </Paper>
+                    })}
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[10, 25, 100]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Paper>
+      <ConfirmDetailModal data={data} isOpen={isOpen} toggleOpen={toggleOpen} setData={setData} />
+    </div>
   );
 }
