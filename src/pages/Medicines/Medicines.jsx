@@ -21,7 +21,7 @@ import { addImageToDBApi } from "../../Features/Images/addImageToDB";
 import { fetchMedicines } from "../../Features/Medicines/AllMedicines/allMedicines";
 import { addNotificationApi } from "../../Features/Notifications/addNotification";
 import { uploadImageApi } from "../../Features/UploadImage/uploadImage";
-import mediBanner from "../../assets/images/banner/medi-banner.jpg";
+import mediSideBanner from "../../assets/Medicine/medi-banner.jpg";
 import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
 import MediCard from "../Shared/Card/MediCard";
@@ -341,7 +341,7 @@ const Medicines = () => {
             <div className="hidden lg:block">
               <div className="my-8 relative">
                 <h2 className="absolute top-8 left-16 text-white text-2xl font-semibold">Order Now</h2>
-                <img className="rounded" src={mediBanner} alt="banner" />
+                <img className="rounded" src={mediSideBanner} alt="banner" />
               </div>
               <TopRatedMedicine />
             </div>

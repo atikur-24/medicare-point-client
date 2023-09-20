@@ -51,7 +51,7 @@ const UpdateHealthTips = () => {
   // Set default form values with existing data
   useEffect(() => {
     for (const field in existingData) {
-      if (existingData.hasOwnProperty(field)) {
+      if (existingData) {
         setValue(field, existingData[field]);
       }
     }
