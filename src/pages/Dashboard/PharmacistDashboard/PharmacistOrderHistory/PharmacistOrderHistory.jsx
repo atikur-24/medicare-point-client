@@ -6,7 +6,7 @@ const PharmacistOrderHistory = () => {
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Total Order</div>
-            <div className="stat-value text-my-primary">1</div>
+            <div className="stat-value text-my-primary">5</div>
           </div>
         </div>
       </div>
