@@ -1,5 +1,5 @@
 const OrderHistoryCard = ({ orderHistory }) => {
-  const { medicine_name, image, category, quantity, price, status, dateAndTime, district, location, expectedDate } = orderHistory || {};
+  const { medicine_name, image, category, quantity, price, delivery_status, district, location, expectedDate } = orderHistory || {};
 
   return (
     <div className="flex border-b flex-col md:flex-row gap-5 border-gray-3 md:items-center md:justify-between p-5">
@@ -18,7 +18,7 @@ const OrderHistoryCard = ({ orderHistory }) => {
       </div>
       <div>
         <p className="text-gray-7">Status</p>
-        <p className="font-medium capitalize text-sm lg:text-base text-yellow-500 tracking-wide">pending</p>
+        <p className="font-medium capitalize text-sm lg:text-base text-yellow-500 tracking-wide">{delivery_status}</p>
       </div>
       <div className="space-y-1 lg:space-y-3">
         <p className="text-gray-4">Delivery Expected By</p>
