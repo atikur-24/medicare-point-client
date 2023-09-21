@@ -1,6 +1,7 @@
 import ProgressBar from "@ramonak/react-progress-bar";
 import axios from "axios";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 import { BsGift } from "react-icons/bs";
 import { GiTrophyCup } from "react-icons/gi";
 import { MdRedeem } from "react-icons/md";
@@ -13,9 +14,11 @@ const RewardPoints = () => {
   const { userInfo } = useContext(AuthContext);
 
   const handleRewardToDiscount = () => {
-    // console.log(userInfo?.email);
     axios.post("http://localhost:5000/rewardToDiscount", { email: userInfo?.email }).then((res) => {
-      // console.log(res.data);
+      if (res.data?.modifiedCount > 0) {
+        toast.success("Reward to discount successful!");
+        window.location.reload();
+      }
     });
   };
 
@@ -50,7 +53,7 @@ const RewardPoints = () => {
           </div>
 
           <div className="w-full space-y-1">
-            <ProgressBar className="w-full" height="10px" completed={userInfo?.rewardPoints || 0} maxCompleted={1000} customLabel=" " baseBgColor="#f59e0b" bgColor="#ffc107" />
+            <ProgressBar className="w-full" height="10px" completed={userInfo?.rewardPoints || 0} maxCompleted={10000} customLabel=" " baseBgColor="#f59e0b" bgColor="#ffc107" />
             <div className="flex justify-between font-semibold  xl:pt-4">
               <p>Silver</p>
               <p>Gold</p>
@@ -74,7 +77,7 @@ const RewardPoints = () => {
               <p className="py-1 md:text-base"> 5000 Points Claim </p>
               {userInfo?.rewardToDiscount && (
                 <p className="py-1">
-                  <span className="">{userInfo?.rewardToDiscount || "xxx"}</span>
+                  <span className="">Promo Code: {userInfo?.rewardToDiscount || "xxx"}</span>
                 </p>
               )}
             </div>
@@ -98,7 +101,7 @@ const RewardPoints = () => {
               <p className="py-1 md:text-base"> 5000 Points Claim </p>
               {userInfo?.rewardToDiscount && (
                 <p className="py-1">
-                  <span className="">{userInfo?.rewardToDiscount || "xxx"}</span>
+                  <span className="">Promo Code: {userInfo?.rewardToDiscount || "xxx"}</span>
                 </p>
               )}
             </div>
@@ -121,7 +124,7 @@ const RewardPoints = () => {
               <p className="py-1 md:text-base"> 5000 Points Claim </p>
               {userInfo?.rewardToDiscount && (
                 <p className="py-1">
-                  <span className="">{userInfo?.rewardToDiscount || "xxx"}</span>
+                  <span className="">Promo Code: {userInfo?.rewardToDiscount || "xxx"}</span>
                 </p>
               )}
             </div>
