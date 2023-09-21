@@ -5,6 +5,7 @@ import allLabTest from "../Features/AllLabTests/allLabTest";
 import deleteLabTest from "../Features/AllLabTests/deleteLabTest";
 import updateLabTest from "../Features/AllLabTests/updateLabTest";
 // import allMedicines from "../Features/AllMedicines/allMedicines";
+import singleLabtest from "../Features/AllLabTests/singleLabtest";
 import allData from "../Features/AllMedicines/allData";
 import detailData from "../Features/AllMedicines/detailData";
 import allUsers from "../Features/AllUsers/allUsers";
@@ -84,6 +85,7 @@ const store = configureStore({
     updateDiscountCode,
     addDiscountCode,
     isValidDiscount,
+    singleLabtest,
   },
 });
 
