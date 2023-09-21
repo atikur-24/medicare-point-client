@@ -137,21 +137,6 @@ const SignUp = () => {
                           <ImWarning className="inline-block" /> Password is required
                         </p>
                       )}
-                      {/* {errors.password?.type === "minLength" && (
-                        <p className="text-red-600">
-                          <ImWarning className="inline-block" /> Password must be 6 characters
-                        </p>
-                      )}
-                      {errors.password?.type === "maxLength" && (
-                        <p className="text-red-600">
-                          <ImWarning className="inline-block" /> Password must be less than 20 characters
-                        </p>
-                      )}
-                      {errors.password?.type === "pattern" && (
-                        <p className="text-red-600">
-                          <ImWarning className="inline-block" /> Password must have one Uppercase one lower case, one number and one special character.
-                        </p>
-                      )} */}
                     </div>
                   </div>
 

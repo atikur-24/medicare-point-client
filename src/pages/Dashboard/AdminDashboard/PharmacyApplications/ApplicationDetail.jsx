@@ -6,7 +6,6 @@ import { ApprovePR } from "../../../../hooks/Pharma.applications";
 
 const ApplicationDetail = () => {
   const application = useLoaderData();
-  console.log(application);
 
   const handelApprovedAlart = () => {
     Swal.fire("Approved Application", "This Application Already Approved", "error");
@@ -92,7 +91,7 @@ const ApplicationDetail = () => {
                 </button>
               )}
             </div>
-            {applicationType !== "pending" ? (
+            {applicationType === "pending" ? (
               <button onClick={() => ApprovePR(_id, email, "deny", "user")} type="button" className="reset-btn">
                 Deny
               </button>
