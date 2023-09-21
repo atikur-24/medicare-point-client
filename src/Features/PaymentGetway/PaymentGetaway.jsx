@@ -1,18 +1,10 @@
 import emailjs from "@emailjs/browser";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-// import moment from "moment";
-// import Swal from "sweetalert2";
 
 export const sslPaymentApi = createAsyncThunk("sslPayment/sslPaymentApi", async (data) => {
   // console.log(data.paymentDetails);
   const templateParams = data?.paymentDetails;
-
-  // notificationData.date = moment().format("Do MMM YY");
-  // notificationData.photoURL = "https://i.ibb.co/QcwbgTF/lab.png";
-  // notificationData.name = "medicines";
-  // notificationData.url = "order-history";
-  // notificationData.deliveryTime = "Your order is being processing";
 
   const res = await axios.post(`http://localhost:5000/payment`, data);
 

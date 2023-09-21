@@ -3,19 +3,24 @@ import { useForm } from "react-hook-form";
 import JoditEditor from "jodit-react";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
+import { fetchSingleLabtest } from "../../../../Features/AllLabTests/singleLabtest";
 import { updateLabTestApi } from "../../../../Features/AllLabTests/updateLabTest";
 import "./LabTest.css";
 
-const UpdateLabTest = ({ singleData }) => {
+const UpdateLabTest = ({ id }) => {
   // const a = useSelector((state) => state.updateLabTest.response);
   // console.log(a);
+  const [singleData, setSingleData] = useState({});
   const dispatch = useDispatch();
   const editor = useRef(null);
   const [description, setDescription] = useState("");
-  
 
-  // const { _id, image_url, category_name, test_name, price, discount, category, PhoneNumber, labNames, age, labTestDetails, report } = singleData;
-  const { _id, labTestDetails } = singleData;
+  useEffect(() => {
+    dispatch(fetchSingleLabtest(id)).then((res) => {
+      setSingleData(res.payload);
+      setDescription(res.payload?.labTestDetails);
+    });
+  }, [dispatch, id]);
 
   const labCategories = [
     "Liver Function",
@@ -50,42 +55,21 @@ const UpdateLabTest = ({ singleData }) => {
 
   // Set default form values with existing data
   useEffect(() => {
+    if (!singleData) {
+      return;
+    }
     for (const field in singleData) {
       if (singleData) {
         setValue(field, singleData[field]);
       }
     }
-    // setContent(feature_with_details);
-    setDescription(labTestDetails);
-  }, [singleData, setValue, labTestDetails]);
+  }, [singleData, setValue]);
 
   const onSubmit = async (data) => {
     data.price = parseInt(data.price, 10);
     data.discount = parseInt(data.discount, 10);
     data.labTestDetails = description;
-
-    dispatch(updateLabTestApi({ _id, data })); // using redux
-    // const disPrice = (data.price * data.discount) / 100;
-    // const remaining = parseInt(data.price - disPrice, 10);
-    // data.remaining = remaining;
-
-    // console.log(data);
-
-    // const image = data.image_url[0];
-
-    // const formData = new FormData();
-    // formData.append("image", image);
-    // // console.log("img", formData);
-    // const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
-    // fetch(url, {
-    //   method: "POST",
-    //   body: formData,
-    // })
-    //   .then((res) => res.json())
-    //   .then((imageData) => {
-    //     data.image_url = imageData.data.display_url;
-
-    //   });
+    dispatch(updateLabTestApi({ _id: id, data })); // using redux
   };
 
   return (
@@ -203,13 +187,6 @@ const UpdateLabTest = ({ singleData }) => {
               </label>
               <JoditEditor ref={editor} value={description} onChange={(newContent) => setDescription(newContent)} />
             </div>
-
-            {/* <div>
-            <label className="label">
-              <span className="label-text md:text-base font-bold font-nunito">Details About The Test</span>
-            </label>
-            <textarea name="labTestDetails" placeholder="Write details about the test" cols="30" rows="5" className="labtest-details" {...register("labTestDetails")} />
-          </div> */}
 
             <div className="flex items-center gap-4 mt-4">
               <button type="submit" className="my-btn ">
