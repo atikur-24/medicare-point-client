@@ -30,8 +30,8 @@ const PharmacistDetailModal = ({ isOpen, setIsOpen, user }) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel className="w-full max-w-2xl  transform overflow-hidden rounded-2xl bg-white  text-left align-middle shadow-xl transition-all">
-                <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
-                  <h2 className="text-2xl font-semibold p-6">{user?.pharmacistDetail?.pharmacyName}</h2>
+                <Dialog.Title as="h3" className="ext-lg  leading-6 text-gray-900 text-2xl font-semibold p-6">
+                  {user?.pharmacistDetail?.pharmacyName}
                 </Dialog.Title>
                 <hr className=" border-gray-3" />
                 <div className="mt-2 p-6 flex gap-12">
@@ -48,7 +48,7 @@ const PharmacistDetailModal = ({ isOpen, setIsOpen, user }) => {
                       <BiSolidPhone className="text-xl  text-black" /> <span className="text-gray-7 font-medium">Pharmacy Phone: </span>
                       {user?.pharmacistDetail?.pharmacyPhoneNumber}
                     </p>
-                    <p className="text-gray-5 ">
+                    <div className="text-gray-5 ">
                       <div className="flex gap-2 items-center">
                         <MdLocationOn className="text-xl  text-black" /> <span className="text-gray-7 font-medium">Pharmacy Address: </span>
                       </div>
@@ -57,11 +57,7 @@ const PharmacistDetailModal = ({ isOpen, setIsOpen, user }) => {
                         District: {user?.pharmacistDetail?.district} <br />
                         Full Location : {user?.pharmacistDetail?.pharmacyFullAddress}
                       </div>
-                    </p>
-                    {/* <p className="text-gray-5 ">
-                      <span className="text-gray-7 font-medium">Registration Number: </span>
-                      {user?.pharmacistDetail?.pharmacyRegisNumber}
-                    </p> */}
+                    </div>
                     <p className="text-gray-5 flex gap-2 items-center">
                       <BiCreditCard className="text-xl text-black" /> <span className="text-gray-7 font-medium">License Number: </span>
                       {user?.pharmacistDetail?.pharmacistLicense}

@@ -8,10 +8,10 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import Logo from "../../assets/Logo/logo.svg";
 import loginAnimation from "../../assets/images/login-images/login.json";
+import WebSiteTitle from "../../components/WebSiteTitle/WebSiteTitle";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useAuth from "../../hooks/useAuth";
 import SocialSigning from "./SocialSigning";
-import WebSiteTitle from "../../components/WebSiteTitle/WebSiteTitle";
 
 const SignUp = () => {
   const [error, setError] = useState("");
@@ -92,13 +92,7 @@ const SignUp = () => {
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)} className=" space-y-5">
                   <div className="form-control">
-                    <input
-                      type="text"
-                      placeholder="Name"
-                      className="placeholder-gray-4 rounded text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
-                      required
-                      {...register("name")}
-                    />
+                    <input type="text" placeholder="Name" className="placeholder-gray-4 rounded text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent" required {...register("name")} />
                   </div>
                   <div className="form-control">
                     <input type="file" {...register("image", { required: true })} className="file-input rounded file-input-bordered file-input-accent w-full" />
@@ -137,21 +131,6 @@ const SignUp = () => {
                           <ImWarning className="inline-block" /> Password is required
                         </p>
                       )}
-                      {/* {errors.password?.type === "minLength" && (
-                        <p className="text-red-600">
-                          <ImWarning className="inline-block" /> Password must be 6 characters
-                        </p>
-                      )}
-                      {errors.password?.type === "maxLength" && (
-                        <p className="text-red-600">
-                          <ImWarning className="inline-block" /> Password must be less than 20 characters
-                        </p>
-                      )}
-                      {errors.password?.type === "pattern" && (
-                        <p className="text-red-600">
-                          <ImWarning className="inline-block" /> Password must have one Uppercase one lower case, one number and one special character.
-                        </p>
-                      )} */}
                     </div>
                   </div>
 

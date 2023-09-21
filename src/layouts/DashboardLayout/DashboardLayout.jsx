@@ -1,17 +1,17 @@
 /* eslint-disable no-nested-ternary */
 import { useContext, useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
-import { BsGrid1X2Fill, BsImage } from "react-icons/bs";
+import { BsBagCheck, BsGrid1X2Fill, BsImage } from "react-icons/bs";
 import { FaCaretDown, FaCaretUp, FaFilePrescription, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
-import { HiClipboardList } from "react-icons/hi";
+import { HiClipboardList, HiOutlineLogout } from "react-icons/hi";
 import { MdAddShoppingCart, MdFeedback, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
 import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import { TbDiscount2 } from "react-icons/tb";
 import { TfiMenu } from "react-icons/tfi";
 import { useDispatch } from "react-redux";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { fetchAdminHomeData } from "../../Features/DashboardData/adminHomeData";
 import { fetchNotificationsByEmail } from "../../Features/Notifications/fetchNotificationsByEmail";
@@ -20,11 +20,13 @@ import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
 import DashBoardNavbar from "../../pages/Dashboard/DashBoardNavbar/DashBoardNavbar";
 import Notification from "../../pages/Dashboard/Dashboard/Notification/Notification";
+
 import "./DashboardLayout.css";
 
 const DashboardLayout = () => {
   const [showNotification, setShowNotification] = useState(false);
-  const { role, user } = useContext(AuthContext);
+  const { role, user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [isUser, setUser] = useState(false);
   const [isPharmacist, setPharmacist] = useState(false);
   const [isAdmin, setAdmin] = useState(false);
@@ -32,6 +34,14 @@ const DashboardLayout = () => {
   const [allNotificationsData, setAllNotificationsData] = useState([]);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+
+  const handelLogOut = () => {
+    logOut()
+      .then(() => {
+        navigate("/");
+      })
+      .catch(() => {});
+  };
 
   useEffect(() => {
     if (role === "user") {
@@ -99,6 +109,11 @@ const DashboardLayout = () => {
       <li>
         <NavLink to="/dashboard/order-history" className="dashboard-link">
           <MdOutlineWorkHistory className="dashboard-icon" /> Order History
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/dashboard/completed-orders" className="dashboard-link">
+          <BsBagCheck className="dashboard-icon" /> Completed Orders
         </NavLink>
       </li>
       <li>
@@ -335,6 +350,11 @@ const DashboardLayout = () => {
           {isUser && userLinks}
           {isPharmacist && pharmacistLinks}
           {isAdmin && adminLinks}
+          <li className="">
+            <button onClick={handelLogOut} className="dashboard-link" type="button">
+              <HiOutlineLogout className="dashboard-icon" /> <span>Log Out</span>
+            </button>
+          </li>
         </ul>
       </div>
       <ToastContainer />

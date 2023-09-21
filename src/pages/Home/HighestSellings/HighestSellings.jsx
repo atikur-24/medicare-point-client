@@ -1,28 +1,32 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { fetchMedicines } from "../../../Features/Medicines/AllMedicines/allMedicines";
 import Loader from "../../../components/Loader";
 import SectionTitle from "../../../components/SectionTitle";
 import MediCard from "../../Shared/Card/MediCard";
 
 const HighestSellings = () => {
-  const { allData: headingSMedicines, isloading } = useSelector((state) => state?.allMedicines);
-  const dispatch = useDispatch();
+  const [highestSellMedi, setHighestSellMedi] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
-    dispatch(fetchMedicines());
-  }, [dispatch]);
+    setIsLoading(true);
+    axios.get("http://localhost:5000/highestSelling-medicines").then((res) => {
+      setHighestSellMedi(res?.data);
+      setIsLoading(false);
+    });
+  }, []);
 
   return (
     <div className=" lg:pb-10 px-4 rounded-lg bg-lite">
       <div className="my-container">
         <SectionTitle title="Height selling Medicines" content="This is the most bought and used treatment for health issues." />
-        {isloading ? (
+        {isLoading ? (
           <Loader spinner />
         ) : (
           <div className="">
@@ -60,7 +64,7 @@ const HighestSellings = () => {
               modules={[Pagination]}
               className="mySwiper"
             >
-              {headingSMedicines.map((medicine, index) => (
+              {highestSellMedi?.map((medicine, index) => (
                 <SwiperSlide key={index}>
                   <MediCard medicine={medicine} />
                 </SwiperSlide>
