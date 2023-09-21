@@ -74,7 +74,7 @@ const Medicines = () => {
     setIsOpen(fCategory);
   };
 
-  const medicineParPage = 16;
+  const medicineParPage = 20;
   const startIndex = currentPage * medicineParPage;
   const endIndex = startIndex + medicineParPage;
   const PaginationMedicines = medicines.slice(startIndex, endIndex);
@@ -370,13 +370,12 @@ const Medicines = () => {
               <TopRatedMedicine />
             </div>
           </div>
-          {isloading ? (
-            <div className="mt-10 lg:mt-20">
-              <Loader spinner />
-            </div>
-          ) : (
+          {isloading && <Loader spinner />}
+
+          <div>
             <div>
-              {!medicines.length > 0 && !isloading ? (
+              {" "}
+              {PaginationMedicines?.length === 0 ? (
                 <NoMedicineText />
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
@@ -385,19 +384,22 @@ const Medicines = () => {
                   ))}
                 </div>
               )}
+              {/* {(PaginationMedicines?.length <= 0 || !isloading) && <NoMedicineText />} */}
             </div>
-          )}
+            <div className="mt-10">
+              <ReactPaginate
+                className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
+                activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
+                breakLabel="..."
+                nextLabel="Next"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={5}
+                pageCount={pageCount}
+                previousLabel="Previous"
+              />
+            </div>
+          </div>
         </div>
-        <ReactPaginate
-          className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
-          activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
-          breakLabel="..."
-          nextLabel="Next"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
-          pageCount={pageCount}
-          previousLabel="Previous"
-        />
         <div className="lg:hidden">
           <TopRatedMedicine />
         </div>
