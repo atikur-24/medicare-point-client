@@ -16,7 +16,7 @@ const AdminHome = ({ user }) => {
   useEffect(() => {
     if (user?.email) {
       setLoading(true);
-      axios.get(`http://localhost:5000/adminHomeData/${user.email}`).then((res) => {
+      axios.get(`http://localhost:5000/dashboardHomeData/${user.email}`).then((res) => {
         setAdminHomeData(res.data);
         setLoading(false);
       });

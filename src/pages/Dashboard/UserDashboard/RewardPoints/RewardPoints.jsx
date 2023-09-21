@@ -12,9 +12,9 @@ const RewardPoints = () => {
   const { userInfo } = useContext(AuthContext);
 
   const handleRewardToDiscount = () => {
-    console.log(userInfo?.email);
+    // console.log(userInfo?.email);
     axios.post("http://localhost:5000/rewardToDiscount", { email: userInfo?.email }).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
     });
   };
 
@@ -47,7 +47,7 @@ const RewardPoints = () => {
           </div>
 
           <div className="w-full space-y-1">
-            <ProgressBar className="w-full" height="10px" completed={userInfo?.rewardPoints || 0} maxCompleted={1000} customLabel=" " baseBgColor="#f59e0b" bgColor="#ffc107" />
+            <ProgressBar className="w-full" height="10px" completed={userInfo?.rewardPoints || 0} maxCompleted={2000} customLabel=" " baseBgColor="#f59e0b" bgColor="#ffc107" />
             <div className="flex justify-between font-semibold text-primary xl:pt-4">
               <p>Silver</p>
               <p>Gold</p>
@@ -59,8 +59,8 @@ const RewardPoints = () => {
       </div>
 
       <h3 className="text-xl lg:text-3xl font-bold uppercase font-nunito border-l-4 pl-4 border-primary  my-8">My Rewards</h3>
-      <div>
-        <div className="bg-my-accent p-5 w-1/3">
+      <div className="">
+        <div className="bg-card p-5 w-1/3">
           <p>Get 50TK off for 5000 Points</p>
           <button onClick={handleRewardToDiscount} disabled={userInfo?.rewardPoints < 5000} type="button" className="btn">
             Get it
