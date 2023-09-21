@@ -3,13 +3,8 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/Logo/footer.svg";
-// import google_pay from "../../../assets/payment-icon/google-pay.svg";
-// import mastercard from "../../../assets/payment-icon/mastercard.svg";
 import ssl from "../../../assets/payment-icon/payment.webp";
-// import paytm from "../../../assets/payment-icon/paytm.svg";
-// import phonepe from "../../../assets/payment-icon/phonepe.svg";
-// import rupay from "../../../assets/payment-icon/rupay.svg";
-// import simpl from "../../../assets/payment-icon/simpl.svg";
+
 
 const Footer = () => {
   return (
