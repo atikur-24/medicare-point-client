@@ -49,6 +49,8 @@ import UpdateHealthArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/U
 import ConfirmLab from "../pages/Dashboard/AdminDashboard/AllAvailableTest/ConfirmLab";
 import DashboardMedicineDetail from "../pages/Dashboard/AdminDashboard/AllMedicines/DashboardMedicineDetail";
 import DiscountCodes from "../pages/Dashboard/AdminDashboard/DiscountCodes/DiscountCodes";
+import MedicineReturnByAdmin from "../pages/Dashboard/AdminDashboard/MedicineReturnByAdmin/MedicineReturnByAdmin";
+import OrderHistoryByAdmin from "../pages/Dashboard/AdminDashboard/OrderHistory/OrderHistoryByAdmin";
 import AllPrescriptions from "../pages/Dashboard/AdminDashboard/UploadPrescription/AllPrescriptions";
 import UploadPrescription from "../pages/Dashboard/AdminDashboard/UploadPrescription/UploadPrescription";
 import UploadImages from "../pages/Dashboard/Dashboard/UploadImages/UploadImages";
@@ -56,6 +58,7 @@ import UpdateMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesB
 import ViewDetailsMedicine from "../pages/Dashboard/PharmacistDashboard/AllMedicinesByPharmacist/ViewDetailsMedicine";
 import NewMedicineRequest from "../pages/Dashboard/PharmacistDashboard/RequestedMedicine/NewMedicineRequest";
 import StockRequest from "../pages/Dashboard/PharmacistDashboard/RequestedMedicine/StockRequest";
+import MedicineReturnByPharmacist from "../pages/Dashboard/PharmacistDashboard/Retrun/MedicineReturnByPharmacist";
 import Feedback from "../pages/Dashboard/UserDashboard/Feedback/Feedback";
 import CompletedOrders from "../pages/Dashboard/UserDashboard/OrderHistory/CompletedOrders/CompletedOrders";
 import OrderTracking from "../pages/Dashboard/UserDashboard/OrderTrack/OrderTracking";
@@ -304,6 +307,10 @@ const router = createBrowserRouter([
         path: "requested-new-medicine",
         element: <NewMedicineRequest />,
       },
+      {
+        path: "medicine-return",
+        element: <MedicineReturnByPharmacist />,
+      },
 
       // admin dashboard
       {
@@ -317,6 +324,14 @@ const router = createBrowserRouter([
       {
         path: "all-medicines",
         element: <AllMedicines />,
+      },
+      {
+        path: "medicine-order-history",
+        element: <OrderHistoryByAdmin />,
+      },
+      {
+        path: "delivery-medicine-return",
+        element: <MedicineReturnByAdmin />,
       },
       {
         path: "medicine-detail/:id",

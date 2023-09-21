@@ -6,7 +6,7 @@ import { FaCaretDown, FaCaretUp, FaFilePrescription, FaUsers, FaWpforms } from "
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList, HiOutlineLogout } from "react-icons/hi";
 import { MdAddShoppingCart, MdFeedback, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
-import { RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
+import { RiArrowUpDownFill, RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import { TbDiscount2 } from "react-icons/tb";
 import { TfiMenu } from "react-icons/tfi";
@@ -19,7 +19,6 @@ import Loader from "../../components/Loader";
 import { AuthContext } from "../../contexts/AuthProvider";
 import DashBoardNavbar from "../../pages/Dashboard/DashBoardNavbar/DashBoardNavbar";
 import Notification from "../../pages/Dashboard/Dashboard/Notification/Notification";
-
 import "./DashboardLayout.css";
 
 const DashboardLayout = () => {
@@ -153,6 +152,13 @@ const DashboardLayout = () => {
         </NavLink>
       </li>
 
+      <li>
+        <NavLink to="/dashboard/medicine-return" className="dashboard-link">
+          <RiArrowUpDownFill className="dashboard-icon" />
+          <span>Return</span>
+        </NavLink>
+      </li>
+
       <li className="dashboard-link flex">
         <NavLink to="/dashboard/medicine-inventory" onClick={() => setMedicineBtn(!medicineBtn)} className="dashboard-link flex">
           <MdOutlineInventory className="dashboard-icon" />
@@ -241,6 +247,21 @@ const DashboardLayout = () => {
           <span>Manage Medicines</span>
         </NavLink>
       </li>
+
+      <li>
+        <NavLink to="/dashboard/medicine-order-history" className="dashboard-link">
+          <RiFileList3Fill className="dashboard-icon" />
+          <span>Order History</span>
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/dashboard/delivery-medicine-return" className="dashboard-link">
+          <RiArrowUpDownFill className="dashboard-icon" />
+          <span>Return</span>
+        </NavLink>
+      </li>
+
       <li className="dashboard-link flex">
         <NavLink to="/dashboard/manage-confirm-lab" onClick={() => setLabtest(!labtest)} className="dashboard-link flex">
           <GiHypodermicTest className="dashboard-icon" />
@@ -319,12 +340,12 @@ const DashboardLayout = () => {
   return (
     <div className="drawer xl:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content relative font-Alexandria min-h-screen bg-[#F1F6FA] px-5 xl:px-8  2xl:px-20">
+      <div className="drawer-content relative font-Alexandria min-h-screen bg-[#F1F6FA] px-2 xl:px-8  2xl:px-20">
         {/* Page content here */}
         <DashBoardNavbar allNotificationsData={allNotificationsData} setShowNotification={setShowNotification} showNotification={showNotification} />
         <div ref={notificationRef}>{showNotification && <Notification setLoading={setLoading} allNotifications={allNotificationsData} />}</div>
         <Outlet />
-        <label htmlFor="my-drawer-2" className="toggle-dashboard-btn ml-4 drawer-button xl:hidden">
+        <label htmlFor="my-drawer-2" className="toggle-dashboard-btn  drawer-button xl:hidden">
           <TfiMenu className="text-2xl  cursor-pointer" />
         </label>
       </div>
@@ -335,7 +356,7 @@ const DashboardLayout = () => {
           {/* Sidebar content here */}
 
           <li className="relative">
-            <NavLink to="/" className=" pb-3">
+            <NavLink to="/" className="pb-3">
               <img className="h-10 w-full" src={logo} alt="" />
             </NavLink>
             <label htmlFor="my-drawer-2" className="toggle-dashboard-btn2 xl:hidden">

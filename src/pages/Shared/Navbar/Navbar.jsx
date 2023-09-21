@@ -9,7 +9,6 @@ import { CgUserlane } from "react-icons/cg";
 import { HiOutlineLogout } from "react-icons/hi";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import useAuth from "../../../hooks/useAuth";
 import ActiveLink from "./ActiveLink/ActiveLink";
 import Avatar from "./Avatar/Avatar";
@@ -54,7 +53,6 @@ const Navbar = () => {
   const handelLogOut = () => {
     logOut()
       .then(() => {
-        toast.success("Successfully Logout", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
         navigate("/");
       })
       .catch(() => {});
