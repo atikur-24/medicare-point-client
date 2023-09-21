@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import chatImg from "../../../assets/icon/message_icon.svg";
 import MessageOption from "../../../components/MessageOption/MessageOption";
 import DeliveryOffer from "../Advertisement/DeliveryOffer";
 import LabAd from "../Advertisement/LabAd";
