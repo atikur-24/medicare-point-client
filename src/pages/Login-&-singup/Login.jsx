@@ -6,6 +6,7 @@ import { ImWarning } from "react-icons/im";
 import { TbFidgetSpinner } from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 import Logo from "../../assets/Logo/logo.svg";
 import loginAnimation from "../../assets/images/login-images/login.json";
 import WebSiteTitle from "../../components/WebSiteTitle/WebSiteTitle";
@@ -20,7 +21,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
 
-  const { signIn, loading, setLoading, resetPassword } = useAuth(AuthContext);
+  const { signIn, loading, setLoading, resetPassword, logOut } = useAuth(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -38,6 +39,17 @@ const Login = () => {
     setLoading(true);
     signIn(data.email, data.password)
       .then((result) => {
+        if (!result.user.emailVerified) {
+          Swal.fire({
+            icon: "error",
+            title: "Not Verify email",
+            showConfirmButton: false,
+            timer: 2500,
+          });
+          logOut();
+          return;
+        }
+
         if (result.user) {
           toast.success("Sign In Successful", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
           addUser(result.user);
