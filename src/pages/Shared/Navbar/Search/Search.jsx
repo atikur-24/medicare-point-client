@@ -33,7 +33,7 @@ const Search = () => {
       <form onSubmit={handleSubmit} className="flex items-center relative">
         <input
           onChange={handleSearch}
-          className="w-full xl:w-[450px] h-10 rounded-full  dropdown-end shadow-md border-[1px] border-gray-3 px-6 focus:input-bordered input-accent"
+          className="w-full xl:w-[450px] h-10 rounded-full  dropdown-end shadow-sm border-[1px] border-gray-3 px-6 focus:input-bordered input-accent"
           type="text"
           name="searchField"
           value={search}
@@ -43,12 +43,16 @@ const Search = () => {
           <RxCross1 className="text-xl text-gray-5 ml-2" />
         </button>
 
-        <div className="pr-3 cursor-pointer right-0 absolute bg-my-primary h-full rounded-e-full">
+        <div className="pr-2 my-4 cursor-pointer right-0 absolute bg-my-primary h-full rounded-e-full">
           <FiSearch className="text-3xl text-white mt-[5px] ml-2" />
         </div>
       </form>
 
-      <div className={`${search ? "block" : "hidden"} hide-scrollbar border border-gray-3 border-t-0 w-full lg:w-[420px] max-h-[80vh] overflow-y-scroll absolute xl:right-[15px] bg-card p-2 z-50 rounded-b-lg`}>
+      <div
+        className={`${
+          search ? "block" : "hidden"
+        } hide-scrollbar border border-gray-3 border-t-0 w-full lg:w-[420px] max-h-[80vh] overflow-y-scroll absolute xl:right-[15px] bg-card p-2 z-50 rounded-b-lg`}
+      >
         {medicines.length === 0 && (
           <div className="flex gap-2 mt-2 bg-my-pink bg-opacity-5 rounded-xl  text-primary p-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6">
@@ -82,7 +86,9 @@ const Search = () => {
                 </Link>
               </div>
               <p className="inline-flex gap-1">
-                <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">৳ {m?.discount > 0 ? (m?.price - (m?.price / 100) * m?.discount)?.toFixed(2) : m?.price?.toFixed(2)}</span>
+                <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">
+                  ৳ {m?.discount > 0 ? (m?.price - (m?.price / 100) * m?.discount)?.toFixed(2) : m?.price?.toFixed(2)}
+                </span>
                 {m?.discount > 0 && <span className="font-medium inline-flex items-center text-[16px] text-gray-5 line-through">৳ {m?.price}</span>}
               </p>
 
