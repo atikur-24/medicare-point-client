@@ -5,7 +5,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 
 // Todo
-const AddLabCard = ({ category, handlerDelete, setSingleData }) => {
+const AddLabCard = ({ category, handlerDelete, setSingleId }) => {
   const { image_url, price, test_name, PhoneNumber, _id } = category || {};
 
   // const handleUpdate = () => {
@@ -24,7 +24,13 @@ const AddLabCard = ({ category, handlerDelete, setSingleData }) => {
           <p>৳{price} TK.</p>
 
           <div className="space-x-1">
-            <label onClick={() => setSingleData(category)} htmlFor="my-modal-3" className="btn btn-circle btn-sm bg-my-primary text-white hover:bg-my-accent">
+            <label
+              onClick={() => {
+                setSingleId(_id);
+              }}
+              htmlFor="my-modal-3"
+              className="btn btn-circle btn-sm bg-my-primary text-white hover:bg-my-accent"
+            >
               <TiEdit className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
             </label>
             <button onClick={() => handlerDelete(_id)} type="button" className="btn btn-circle btn-sm bg-red-500 rounded-full bg-opacity-30">

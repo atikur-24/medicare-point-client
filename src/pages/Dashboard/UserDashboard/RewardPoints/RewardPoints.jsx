@@ -1,4 +1,5 @@
 import ProgressBar from "@ramonak/react-progress-bar";
+import axios from "axios";
 import { useContext } from "react";
 import { GiTrophyCup } from "react-icons/gi";
 import { MdRedeem } from "react-icons/md";
@@ -9,6 +10,13 @@ import "./RewardPoints.css";
 
 const RewardPoints = () => {
   const { userInfo } = useContext(AuthContext);
+
+  const handleRewardToDiscount = () => {
+    console.log(userInfo?.email);
+    axios.post("http://localhost:5000/rewardToDiscount", { email: userInfo?.email }).then((res) => {
+      console.log(res.data);
+    });
+  };
 
   return (
     <div className=" mt-10">
@@ -34,7 +42,6 @@ const RewardPoints = () => {
             {userInfo?.rewardPoints < 100 && <span>Bronze</span>}
             {userInfo?.rewardPoints >= 100 && userInfo?.rewardPoints < 250 && <span>Silver</span>}
             {userInfo?.rewardPoints >= 250 && userInfo?.rewardPoints < 400 && <span>Gold</span>}
-            {userInfo?.rewardPoints >= 100 && userInfo?.rewardPoints < 250 && <span>Silver</span>}
             {userInfo?.rewardPoints >= 400 && userInfo?.rewardPoints < 750 && <span>Silver</span>}
             {userInfo?.rewardPoints >= 750 && <span>Silver</span>}
           </div>
@@ -52,6 +59,19 @@ const RewardPoints = () => {
       </div>
 
       <h3 className="text-xl lg:text-3xl font-bold uppercase font-nunito border-l-4 pl-4 border-primary  my-8">My Rewards</h3>
+      <div>
+        <div className="bg-my-accent p-5 w-1/3">
+          <p>Get 50TK off for 5000 Points</p>
+          <button onClick={handleRewardToDiscount} disabled={userInfo?.rewardPoints < 5000} type="button" className="btn">
+            Get it
+          </button>
+          {userInfo?.rewardToDiscount && (
+            <p>
+              Discount code: <span className="">{userInfo?.rewardToDiscount || "xxx"}</span>
+            </p>
+          )}
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 my-5">
         <div className="bg-opacity-10 items-center bg-primary rounded-2xl box-shadow  p-5 flex justify-between ">

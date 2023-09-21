@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 import useAuth from "../../../hooks/useAuth";
 import ActiveLink from "./ActiveLink/ActiveLink";
 import Avatar from "./Avatar/Avatar";
+import Lang from "./Language/Lang";
 import Logo from "./Logo/Logo";
 import NavCart from "./NavCard/NavCart";
 import ResponsiveNavbar from "./ResponsiveNavbar/ResponsiveNavbar";
@@ -86,7 +87,7 @@ const Navbar = () => {
 
   return (
     <div className="mb-[122px]">
-      <div className={`${visible ? "block" : "hidden"} z-20 bg-lite fixed top-0 left-0 w-full shadow-lg transition-all duration-700 ease-in-out`}>
+      <div className={`${visible ? "block" : "hidden"} z-20 fixed top-0 left-0 w-full bg-white transition-all duration-700 ease-in-out`}>
         <div className="nav-container">
           <div className="hidden xl:block">
             <div className="flex items-center justify-between py-2 ">
@@ -95,6 +96,7 @@ const Navbar = () => {
                 <Search />
               </div>
               <div className="flex items-center gap-4 lg:gap-10">
+                <Lang />
                 <NavCart />
                 <div>
                   <Menu
