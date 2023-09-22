@@ -66,7 +66,7 @@ const RewardPoints = () => {
 
       <h3 className="text-xl lg:text-3xl font-bold uppercase font-nunito border-l-4 pl-4 border-primary  my-8">My Rewards</h3>
       <div className="grid lg:grid-cols-2 2xl:grid-cols-3 gap-8">
-        <div className="md:bg-[#dbeafe]  rounded-2xl shadow  border border-gray-3">
+        <div className="md:bg-[#dbeafe]  rounded-2xl shadow-box  border border-gray-3">
           <div className="flex px-4 py-3  flex-row items-center justify-evenly gap-2 md:gap-8">
             <div>
               <BsGift className="w-10 h-10 text-primary" />
@@ -90,7 +90,7 @@ const RewardPoints = () => {
           </div>
         </div>
 
-        <div className="md:bg-[#f3e8ff]  rounded-2xl shadow border border-gray-3 ">
+        <div className="md:bg-[#f3e8ff]  rounded-2xl shadow-box border border-gray-3 ">
           <div className="flex px-4 py-3  flex-row items-center justify-evenly gap-2 md:gap-8">
             <div>
               <BsGift className="w-10 h-10 text-primary" />
@@ -113,7 +113,7 @@ const RewardPoints = () => {
             </div>
           </div>
         </div>
-        <div className="md:bg-[#ecfccb]  rounded-2xl shadow  border border-gray-3">
+        <div className="md:bg-[#ecfccb]  rounded-2xl shadow-box  border border-gray-3">
           <div className="flex px-4 py-3 flex-row items-center justify-evenly gap-2 md:gap-8">
             <div>
               <BsGift className="w-10 h-10 text-primary" />
@@ -139,7 +139,7 @@ const RewardPoints = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 my-5 xl:my-10">
-        <div className=" items-center  rounded-2xl shadow  p-5 flex justify-between ">
+        <div className=" items-center  rounded-2xl shadow-box  p-5 flex justify-between ">
           <div className="space-y-2  ">
             <h3 className="text-xl xl:text-2xl 2xl:text-3xl font-bold">Earn MCP Rewards</h3>
             <p className="font-medium text-md lg:text-lg">Book Lab Test & Earn Points</p>
@@ -153,7 +153,7 @@ const RewardPoints = () => {
           </div>
         </div>
 
-        <div className=" items-center border border-gray-3  rounded-2xl shadow  p-5 flex justify-between ">
+        <div className=" items-center border border-gray-3  rounded-2xl shadow-box  p-5 flex justify-between ">
           <div className="space-y-2  ">
             <h3 className="text-xl xl:text-2xl 2xl:text-3xl font-bold">Earn MCP Rewards</h3>
             <p className="font-medium text-md lg:text-lg">Buy medicines & Earn Points</p>
