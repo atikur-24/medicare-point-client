@@ -37,6 +37,7 @@ import medicines from "../Features/Medicines/AllMedicines/medicines";
 import addNotification from "../Features/Notifications/addNotification";
 import deleteNotifications from "../Features/Notifications/deleteNotifications";
 import fetchNotificationsByEmail from "../Features/Notifications/fetchNotificationsByEmail";
+import orderHistory from "../Features/Orders/orderHistory";
 import sslPayment from "../Features/PaymentGetway/PaymentGetaway";
 import labSSLPayment from "../Features/PaymentGetway/labPayment";
 import uploadImage from "../Features/UploadImage/uploadImage";
@@ -88,6 +89,7 @@ const store = configureStore({
     isValidDiscount,
     singleLabtest,
     adminLabBooking,
+    orderHistory,
   },
 });
 
