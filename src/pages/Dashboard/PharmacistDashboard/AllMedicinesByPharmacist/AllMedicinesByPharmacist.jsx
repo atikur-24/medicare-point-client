@@ -182,7 +182,7 @@ const AllMedicinesByPharmacist = () => {
               className={`${currentPage === 1 ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
               type="button"
             >
-              <LiaAngleLeftSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold hover:bg-gray-3" />
+              <LiaAngleLeftSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
             </button>
             <button
               onClick={() => {
@@ -194,7 +194,7 @@ const AllMedicinesByPharmacist = () => {
               className={`${currentPage * perPage >= medicines?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
               type="button"
             >
-              <LiaAngleRightSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold hover:bg-gray-3" />
+              <LiaAngleRightSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
             </button>
           </div>
         </div>
