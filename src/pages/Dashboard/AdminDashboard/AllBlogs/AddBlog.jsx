@@ -37,13 +37,13 @@ const AddBlog = () => {
   };
 
   return (
-    <div>
+    <div className="pb-8"><div className="max-w-5xl mx-auto rounded-2xl box-shadow bg-white p-6">
       <h3 className="text-center text-3xl font-semibold my-5 text-my-primary">Add new blog</h3>
 
       <form onSubmit={handleBlog} className="add-blog-form space-y-3">
         <div>
           <h4>Blog Title</h4>
-          <input className="placeholder-gray-400 py-2 px-3 border rounded-md" required type="text" name="title" id="" placeholder="Type Here" />
+          <input className=" input input-bordered  outline-none  placeholder:text-gray-6 focus:!outline-none" required type="text" name="title" id="" placeholder="Type Here" />
         </div>
         <div>
           <h4>Blog Topic</h4>
@@ -51,7 +51,7 @@ const AddBlog = () => {
         </div>
         <div>
           <h4>Blog Content</h4>
-          <textarea className="w-full placeholder-gray-400 py-2 px-3 border rounded-md" required name="content" id="" placeholder="Type Here" />
+          <textarea className="" required name="content" id="" placeholder="Type Here" />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -85,20 +85,21 @@ const AddBlog = () => {
             name="content_details"
             ref={editor}
             value={blogDetails}
-            // config={config}
+          // config={config}
             onChange={(newContent) => {
-              setBlogDetails(newContent);
-            }}
+            setBlogDetails(newContent);
+          }}
           />
         </div>
 
-        <div className="text-center grid grid-cols-2">
-          <button type="submit" className="submit-btn px-6 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 w-auto">
+        <div className="flex items-center gap-4 mt-4">
+          <button type="submit" className="my-btn">
             Create Blog
           </button>
-          <input type="reset" onClick={() => setBlogDetails("")} value="Reset" className="reset-btn px-6 py-2 rounded-md border border-gray-400 text-gray-700 hover:bg-gray-100 w-auto" />
+          <input onClick={() => setBlogDetails("")} type="reset" value="Reset" className="!btn !btn-error !w-[64px]" />
         </div>
       </form>
+                                                                            </div>
     </div>
   );
 };

@@ -10,7 +10,6 @@ import ageIcon from "../../../../assets/images/age-icon.svg";
 
 const ConfirmDetailModal = ({ isOpen, toggleOpen, data, setData, click, setClick }) => {
   const { address, age, _id, area, email, test_name, transId, dateTime, discount, price, remaining, status, note, mobile } = data || {};
-  console.log(data);
   function closeModal() {
     toggleOpen();
     setData({});
