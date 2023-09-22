@@ -324,7 +324,7 @@ const Medicines = () => {
               <div className="filter-medicine">
                 <Menu
                   menuButton={
-                    <MenuButton className="flex items-center gap-2 font-semibold p-2 rounded-md  ease-in duration-150">
+                    <MenuButton className="flex items-center gap-2 font-semibold p-2 rounded-md  ease-in text-sm duration-150">
                       Filter Medicines <AiOutlineDown />
                     </MenuButton>
                   }
