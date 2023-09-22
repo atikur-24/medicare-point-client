@@ -32,9 +32,9 @@ const OrderHistoryRow = ({ order }) => {
         <button type="button" onClick={() => setIsOpen(!isOpen)} className="relative group">
           <TbListDetails className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
           <p className="absolute hidden group-hover:block whitespace-nowrap ">Detail</p>
+          <OrderHistoryModal isOpen={isOpen} setIsOpen={setIsOpen} order={order} />
         </button>
       </td>
-      <OrderHistoryModal isOpen={isOpen} setIsOpen={setIsOpen} id={order?._id} />
     </tr>
   );
 };
