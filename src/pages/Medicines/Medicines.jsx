@@ -324,26 +324,26 @@ const Medicines = () => {
               <div className="filter-medicine">
                 <Menu
                   menuButton={
-                    <MenuButton className="flex items-center gap-2 font-semibold p-2 rounded-md  ease-in duration-150">
+                    <MenuButton className="flex items-center gap-2 font-semibold p-2 rounded-md  ease-in text-sm duration-150">
                       Filter Medicines <AiOutlineDown />
                     </MenuButton>
                   }
                   transition
                 >
                   <MenuItem onClick={() => handelSort("phtl")} className="font-medium text-gray-5">
-                    From Low Price
+                    Price low to high
                   </MenuItem>
                   <MenuItem onClick={() => handelSort("plth")} className="font-medium text-gray-5">
-                    From Heigh Price
+                    Price High to low
                   </MenuItem>
                   <MenuItem onClick={() => handelSort("byRating")} className="font-medium text-gray-5">
-                    From Height selling
+                    Height selling
                   </MenuItem>
                   <MenuItem onClick={() => handelSort("fNew")} className="font-medium text-gray-5">
-                    From New Product
+                    New Product
                   </MenuItem>
                   <MenuItem onClick={() => handelSort("fOld")} className="font-medium text-gray-5">
-                    From Old product
+                    Old product
                   </MenuItem>
                 </Menu>
               </div>
