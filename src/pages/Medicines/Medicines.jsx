@@ -68,12 +68,6 @@ const Medicines = () => {
     dispatch(fetchMedicines({ sort }));
   };
 
-  const handelCategoryFilter = (fCategory) => {
-    const filterData = allData.filter((item) => item?.category?.value === fCategory);
-    setMedicines(filterData);
-    setIsOpen(fCategory);
-  };
-
   const medicineParPage = 20;
   const startIndex = currentPage * medicineParPage;
   const endIndex = startIndex + medicineParPage;
@@ -82,6 +76,14 @@ const Medicines = () => {
 
   const handlePageClick = (sleetedPage) => {
     setCurrentPage(sleetedPage.selected);
+  };
+
+  const handelCategoryFilter = (fCategory) => {
+    const filterData = allData.filter((item) => item?.category?.value === fCategory);
+    setCurrentPage(0);
+    setMedicines(filterData);
+    setIsOpen(fCategory);
+    console.log(currentPage);
   };
 
   const [showFilter, setShowFilter] = useState("-ml-96");
