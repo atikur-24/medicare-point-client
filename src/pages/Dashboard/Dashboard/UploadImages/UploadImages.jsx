@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Toaster, toast } from "react-hot-toast";
 import { BiLinkAlt, BiSolidCloudUpload } from "react-icons/bi";
+import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { deleteImageApi } from "../../../../Features/Images/deleteImage";
@@ -14,6 +15,7 @@ import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const UploadImages = () => {
   const { user } = useContext(AuthContext);
+  const [currentPage, setCurrentPage] = useState(0);
   const [isearch, setISearch] = useState(false);
   const [searchBy, setSearchBy] = useState("");
   const [loading, setLoading] = useState(false);
@@ -100,6 +102,16 @@ const UploadImages = () => {
     });
   };
 
+  const imagePerPage = 18;
+  const startIndex = currentPage * imagePerPage;
+  const endIndex = startIndex + imagePerPage;
+  const PaginationImages = allImages?.slice(startIndex, endIndex);
+  const pageCount = Math.ceil(allImages.length / imagePerPage);
+
+  const handlePageClick = (sleetedPage) => {
+    setCurrentPage(sleetedPage.selected);
+  };
+
   //   if (isLoading) {
   //     return <Loader spinner />;
   //   }
@@ -136,35 +148,53 @@ const UploadImages = () => {
                 placeholder="Search image by name"
               />
               <div>
-                <Lottie animationData={searchIcon} title="Search image" onClick={() => setISearch(true)} className={`  right-2  cursor-pointer ${!isearch ? " h-14 w-14 -top-4" : "h-8 w-8 top-1 absolute"}`} loop />
+                <Lottie
+                  animationData={searchIcon}
+                  title="Search image"
+                  onClick={() => setISearch(true)}
+                  className={`  right-2  cursor-pointer ${!isearch ? " h-14 w-14 -top-4" : "h-8 w-8 top-1 absolute"}`}
+                  loop
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {allImages.length === 0 && (
+      {allImages?.length === 0 && (
         <div className="flex justify-center items-center ">
           <img className="w-64" src="https://i.ibb.co/4Wd3BdR/no-results.png" alt="No data found" />
         </div>
       )}
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-2 mb-10">
-        {allImages.map((i) => (
-          <div key={i._id} className=" border bg-white border-gray-3 p-2 relative text-center rounded-md box-shadow space-y-2 ">
-            <button type="button" className="relative mb-12 space-y-2" onClick={() => copyURl(i?.photoURL)}>
-              <h2 className="text-base font-semibold font-nunito text-title-color uppercase mt-1">{i?.name}</h2>
-              <figure className="flex justify-center">
-                <img className="h-20 " src={i?.photoURL} alt="" />
-              </figure>
-            </button>
-            <div className="rounded-b-md flex justify-center gap-2 py-1 bg-[#475569] bg-opacity-60 items-center absolute bottom-0 left-0 right-0">
-              <BiLinkAlt onClick={() => copyURl(i?.photoURL)} title="Copy Image URL" className="text-2xl text-white rounded-full  hover:bg-my-accent bg-my-primary p-1 " />
-              <Lottie onClick={() => handleDelete(i._id)} animationData={deleteIcon} className="h-8 w-8 cursor-pointer" loop />
-              {/* <MdDeleteForever onClick={() => copyURl(i?.photoURL)} title="Copy Image URL" className="text-2xl text-white rounded-full bg-[#dc2626] bg-opacity-50 hover:bg-red-400 p-1 " /> */}
+      <div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-2 mb-10">
+          {PaginationImages.map((i) => (
+            <div key={i._id} className=" border bg-white border-gray-3 p-2 relative text-center rounded-md box-shadow space-y-2 ">
+              <button type="button" className="relative mb-12 space-y-2" onClick={() => copyURl(i?.photoURL)}>
+                <h2 className="text-base font-semibold font-nunito text-title-color uppercase mt-1">{i?.name}</h2>
+                <figure className="flex justify-center">
+                  <img className="h-20 " src={i?.photoURL} alt="" />
+                </figure>
+              </button>
+              <div className="rounded-b-md flex justify-center gap-2 py-1 bg-[#475569] bg-opacity-60 items-center absolute bottom-0 left-0 right-0">
+                <BiLinkAlt onClick={() => copyURl(i?.photoURL)} title="Copy Image URL" className="text-2xl text-white rounded-full  hover:bg-my-accent bg-my-primary p-1 " />
+                <Lottie onClick={() => handleDelete(i._id)} animationData={deleteIcon} className="h-8 w-8 cursor-pointer" loop />
+                {/* <MdDeleteForever onClick={() => copyURl(i?.photoURL)} title="Copy Image URL" className="text-2xl text-white rounded-full bg-[#dc2626] bg-opacity-50 hover:bg-red-400 p-1 " /> */}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <ReactPaginate
+          className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
+          activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
+          breakLabel="..."
+          nextLabel="Next"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={pageCount}
+          previousLabel="Previous"
+        />
       </div>
 
       {/** *******review modal****************** */}

@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
+import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2"; // Import SweetAlert library
@@ -9,6 +10,8 @@ import { deleteBlogApi } from "../../../../Features/Blogs/deleteBlog";
 
 const EditArticles = () => {
   const { allBlogs } = useSelector((state) => state.allBlogs);
+  const [currentPage, setCurrentPage] = useState(0);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllBlogs());
@@ -31,10 +34,20 @@ const EditArticles = () => {
     });
   };
 
+  const blogsPerPage = 9;
+  const startIndex = currentPage * blogsPerPage;
+  const endIndex = startIndex + blogsPerPage;
+  const PaginationBlogs = allBlogs?.slice(startIndex, endIndex);
+  const pageCount = Math.ceil(allBlogs.length / blogsPerPage);
+
+  const handlePageClick = (sleetedPage) => {
+    setCurrentPage(sleetedPage.selected);
+  };
+
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 m-8 ">
-        {allBlogs.map((allBlog) => (
+        {PaginationBlogs?.map((allBlog) => (
           <div key={allBlog._id} className="grid grid-cols-1 gap-4 justify-center items-center  shadow-sm p-2 border border-gray-3 bg-white box-shadow rounded-2xl">
             <h2 className="text-center items-center gap-3 font-medium text-[16px] tracking-wide">{allBlog.title}</h2>
             <img src={allBlog.image} alt="img" className="h-32 mx-auto" />
@@ -52,6 +65,16 @@ const EditArticles = () => {
           </div>
         ))}
       </div>
+      <ReactPaginate
+        className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
+        activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
+        breakLabel="..."
+        nextLabel="Next"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        previousLabel="Previous"
+      />
     </div>
   );
 };

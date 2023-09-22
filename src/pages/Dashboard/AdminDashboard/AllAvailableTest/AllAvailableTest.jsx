@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { fetchAllLabTests } from "../../../../Features/AllLabTests/allLabTest";
@@ -10,10 +11,9 @@ import UpdateLabTest from "./UpdateLabTest";
 // Todo
 const AllAvailableTest = () => {
   const { isLoading, allLabTest } = useSelector((state) => state.allLabTest);
-  // const [singleData, setSingleData] = useState({});
+  const [currentPage, setCurrentPage] = useState(0);
   const [singleId, setSingleId] = useState("");
   const [x, setX] = useState(0);
-  console.log("id", singleId);
 
   const dispatch = useDispatch();
 
@@ -39,6 +39,16 @@ const AllAvailableTest = () => {
     });
   };
 
+  const LabTestPerPage = 9;
+  const startIndex = currentPage * LabTestPerPage;
+  const endIndex = startIndex + LabTestPerPage;
+  const PaginationLabTest = allLabTest?.slice(startIndex, endIndex);
+  const pageCount = Math.ceil(allLabTest.length / LabTestPerPage);
+
+  const handlePageClick = (sleetedPage) => {
+    setCurrentPage(sleetedPage.selected);
+  };
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-[calc(100vh-200px)] ">
@@ -59,11 +69,21 @@ const AllAvailableTest = () => {
       </div>
       {singleId && <UpdateLabTest x={x} setX={setX} id={singleId} />}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-3 md:gap-5">
-        {allLabTest.map((category) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-3 md:gap-5 mb-10">
+        {PaginationLabTest?.map((category) => (
           <AddLabCard key={category._id} setSingleId={setSingleId} category={category} handlerDelete={handlerDelete} />
         ))}
       </div>
+      <ReactPaginate
+        className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
+        activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
+        breakLabel="..."
+        nextLabel="Next"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        previousLabel="Previous"
+      />
     </div>
   );
 };

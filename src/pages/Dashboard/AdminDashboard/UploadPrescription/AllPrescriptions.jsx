@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { BiTimeFive } from "react-icons/bi";
 import { HiOutlineMail } from "react-icons/hi";
 import { RiDeleteBinLine } from "react-icons/ri";
+import ReactPaginate from "react-paginate";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -10,6 +11,7 @@ import { deletePrescriptionApi } from "../../../../Features/UploadPrescription/d
 
 const AllPrescriptions = () => {
   const [allData, setAllData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
   const dispatch = useDispatch();
   const [isDelete, setDelete] = useState(0);
   const [img, setImg] = useState("");
@@ -39,6 +41,16 @@ const AllPrescriptions = () => {
     });
   };
 
+  const prescriptionParpage = 9;
+  const startIndex = currentPage * prescriptionParpage;
+  const endIndex = startIndex + prescriptionParpage;
+  const PaginationPrescription = allData?.slice(startIndex, endIndex);
+  const pageCount = Math.ceil(allData.length / prescriptionParpage);
+
+  const handlePageClick = (sleetedPage) => {
+    setCurrentPage(sleetedPage.selected);
+  };
+
   return (
     <div className="pb-10">
       {/* prescription modal  */}
@@ -63,8 +75,8 @@ const AllPrescriptions = () => {
           </div>
         </div>
       </div>
-      <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2">
-        {allData?.map((p) => (
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 mb-10">
+        {PaginationPrescription?.map((p) => (
           <div key={p?._id}>
             <div className="border border-gray-3 bg-white rounded-2xl p-4 space-y-4">
               <button
@@ -104,6 +116,16 @@ const AllPrescriptions = () => {
           </div>
         ))}
       </div>
+      <ReactPaginate
+        className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
+        activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
+        breakLabel="..."
+        nextLabel="Next"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        previousLabel="Previous"
+      />
     </div>
   );
 };
