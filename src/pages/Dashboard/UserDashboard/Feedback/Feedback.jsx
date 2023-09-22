@@ -45,6 +45,10 @@ const Feedback = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     feedback.rating = ratingValue;
+    if (feedback.message.length < 10) {
+      console.log("at least 10 words");
+      return;
+    }
     if (feedback.rating) {
       axios
         .post("http://localhost:5000/feedback", feedback)
