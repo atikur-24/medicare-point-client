@@ -59,7 +59,7 @@ const AllAvailableTest = () => {
       </div>
       {singleId && <UpdateLabTest x={x} setX={setX} id={singleId} />}
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-3 md:gap-5">
         {allLabTest.map((category) => (
           <AddLabCard key={category._id} setSingleId={setSingleId} category={category} handlerDelete={handlerDelete} />
         ))}

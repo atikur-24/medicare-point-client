@@ -96,9 +96,9 @@ const AllMedicines = () => {
       </div>
 
       <div className=" mb-20 px-5">
-        <table className="overflow-x-auto table rounded bg-lite">
+        <table className="overflow-x-auto table  border border-gray-3 bg-white table-zebra">
           {/* head */}
-          <thead className="bg-my-primary text-white font-normal text-base">
+          <thead className="bg-my-primary text-white font-normal text-sm">
             <tr className="">
               <th>#</th>
               <th>Photo</th>
