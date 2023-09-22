@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import "@smastrom/react-rating/style.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { RxCross1 } from "react-icons/rx";
 import { TbCurrencyTaka } from "react-icons/tb";
@@ -9,13 +9,16 @@ import { Link } from "react-router-dom";
 const Search = () => {
   const [search, setSearch] = useState("");
   const [medicines, setMedicines] = useState([]);
+  const searchRef = useRef();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/searchMedicinesByName?name=${search}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setMedicines(data);
-      });
+    if (search) {
+      fetch(`http://localhost:5000/searchMedicinesByName?name=${search}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setMedicines(data);
+        });
+    }
   }, [search]);
 
   const handleSearch = (e) => {
@@ -28,10 +31,24 @@ const Search = () => {
     e.target.reset();
   };
 
+  useEffect(() => {
+    const handelOutsideClose = (e) => {
+      if (!searchRef?.current?.contains(e?.target)) {
+        setSearch("");
+      }
+    };
+    document.addEventListener("mousedown", handelOutsideClose);
+
+    return () => {
+      document.removeEventListener("mousedown", handelOutsideClose);
+    };
+  }, []);
+
   return (
     <div className="relative">
       <form onSubmit={handleSubmit} className="flex items-center relative">
         <input
+          ref={searchRef}
           onChange={handleSearch}
           className="w-full xl:w-[450px] h-10 rounded-full  dropdown-end shadow-sm border-[1px] border-gray-3 px-6 focus:input-bordered input-accent"
           type="text"
