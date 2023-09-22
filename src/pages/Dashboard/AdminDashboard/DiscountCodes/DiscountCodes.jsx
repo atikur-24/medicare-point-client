@@ -120,7 +120,7 @@ const DiscountCodes = () => {
 
   return (
     <div>
-      <div className="flex justify-between px-6 mb-8">
+      <div className="flex justify-between  mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Discount Codes</div>
@@ -137,7 +137,27 @@ const DiscountCodes = () => {
           </div>
         </div>
       </div>
-      <div className="overflow-x-auto mb-20  px-5">
+
+      <div className="flex justify-between mb-6">
+        <div className="join">
+          <input type="search" className="input input-bordered join-item outline-none  focus:!outline-none" placeholder="search" />
+          <button type="button" className="btn join-item rounded-r-full bg-primary text-white outline-none hover:outline-none focus:!outline-none">
+            search
+          </button>
+        </div>
+        <div className="flex items-center gap-4 ">
+          <h2 className="w-[100px]">Filter by</h2>
+          <select className="select select-bordered w-full max-w-xs">
+            <option disabled selected>
+              Normal
+            </option>
+            <option>Normal Apple</option>
+            <option>Normal Orange</option>
+            <option>Normal Tomato</option>
+          </select>
+        </div>
+      </div>
+      <div className="overflow-x-auto mb-20  ">
         <table className="table  border border-gray-3 bg-white table-zebra">
           {/* head */}
           <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-sm">
@@ -248,8 +268,24 @@ const DiscountCodes = () => {
             </div>
 
             <div className="space-y-2">
-              <input required placeholder="Enter discount name" type="text" name="discountName" {...register("discountName")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" id="" />
-              <input required placeholder="Enter discount amount/percent" type="number" name="discount" {...register("discount")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full" id="" />
+              <input
+                required
+                placeholder="Enter discount name"
+                type="text"
+                name="discountName"
+                {...register("discountName")}
+                className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full"
+                id=""
+              />
+              <input
+                required
+                placeholder="Enter discount amount/percent"
+                type="number"
+                name="discount"
+                {...register("discount")}
+                className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full"
+                id=""
+              />
               <select placeholder="Select discount Type" name="discountType" {...register("discountType")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
                 <option selected disabled value="percent">
                   Select discount Type
@@ -289,7 +325,15 @@ const DiscountCodes = () => {
 
             <div className="space-y-2">
               <input readOnly defaultValue={singleDiscount?.discountName} type="text" name="discountName" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" id="" />
-              <input required defaultValue={singleDiscount?.discount} placeholder="Enter discount amount/percent" type="number" name="discount" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full" id="" />
+              <input
+                required
+                defaultValue={singleDiscount?.discount}
+                placeholder="Enter discount amount/percent"
+                type="number"
+                name="discount"
+                className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full"
+                id=""
+              />
               <select placeholder="Select discount Type" name="discountType" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
                 <option value={singleDiscount?.discountType}>{singleDiscount?.discountType}</option>
                 {/* <option disabled value="percent">
