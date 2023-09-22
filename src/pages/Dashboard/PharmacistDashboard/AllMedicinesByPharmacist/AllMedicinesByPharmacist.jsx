@@ -140,7 +140,7 @@ const AllMedicinesByPharmacist = () => {
                     <Link to={`/dashboard/medicine-details/${medicine?._id}`}>
                       <HiOutlineEye title="View Details" className="text-2xl p-1 text-white bg-slate-6 transition-colors rounded-sm" />
                     </Link>
-                    <Link to={`/</div>dashboard/medicine-inventory/${medicine?._id}`}>
+                    <Link to={`/update-medicine/${medicine?._id}`}>
                       <TiEdit title="Update" className="text-2xl p-1 text-white bg-my-primary hover:bg-my-accent transition-colors rounded-sm" />
                     </Link>
                     <button type="button" onClick={() => handleDeleteMedicine(medicine?._id)}>
