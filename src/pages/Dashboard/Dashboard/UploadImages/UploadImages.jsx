@@ -149,7 +149,7 @@ const UploadImages = () => {
         </div>
       )}
 
-      <div className="grid grid-cols-2 lg:grid-cols-8 gap-2 mb-10">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-2 mb-10">
         {allImages.map((i) => (
           <div key={i._id} className=" border bg-white border-gray-3 p-2 relative text-center rounded-md box-shadow space-y-2 ">
             <button type="button" className="relative mb-12 space-y-2" onClick={() => copyURl(i?.photoURL)}>
