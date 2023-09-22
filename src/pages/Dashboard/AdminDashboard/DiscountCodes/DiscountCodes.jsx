@@ -25,9 +25,20 @@ const DiscountCodes = () => {
   // pagination
   const [perPage, setPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchName, setSearchName] = useState("");
+  const [filterStatus, setFilterStatus] = useState("");
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = startIndex + perPage;
-  const paginatedDiscount = discountCodes?.slice(startIndex, endIndex);
+
+  let filteredDiscount = discountCodes;
+
+  if (searchName) {
+    filteredDiscount = discountCodes.filter((discount) => discount.discountName.toLowerCase().includes(searchName.toLowerCase()));
+  } else if (filterStatus) {
+    filteredDiscount = discountCodes.filter((status) => status.status.toLowerCase().includes(filterStatus.toLowerCase()));
+  }
+
+  const paginatedDiscount = filteredDiscount?.slice(startIndex, endIndex);
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
@@ -120,7 +131,7 @@ const DiscountCodes = () => {
 
   return (
     <div>
-      <div className="flex justify-between px-6 mb-8">
+      <div className="flex justify-between  mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Discount Codes</div>
@@ -137,10 +148,32 @@ const DiscountCodes = () => {
           </div>
         </div>
       </div>
-      <div className="overflow-x-auto mb-20  px-5">
+
+      <div className="flex justify-between mb-6">
+        <div className="join">
+          <input value={searchName} onChange={(e) => setSearchName(e.target.value)} type="search" className="input input-bordered join-item outline-none !rounded-md f placeholder:text-gray-6 focus:!outline-none" placeholder="search by name" />
+        </div>
+        <div className="flex items-center gap-4 ">
+          <h2 className="w-[120px]">Filter by</h2>
+          <select
+            onChange={(e) => {
+              // setCurrentPage(1);
+              setFilterStatus(e.target.value);
+            }}
+            className="select outline-none hover:outline-none focus:!outline-none select-bordered w-full max-w-xs"
+          >
+            <option disabled selected>
+              Status
+            </option>
+            <option>Active</option>
+            <option>Expired</option>
+          </select>
+        </div>
+      </div>
+      <div className="overflow-x-auto mb-20  ">
         <table className="table  border border-gray-3 bg-white table-zebra">
           {/* head */}
-          <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-lg">
+          <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-sm">
             <tr className=" rounded-t-md">
               <th className="rounded-tl-md">#</th>
               <th>Discount Code</th>
@@ -164,7 +197,7 @@ const DiscountCodes = () => {
                     <span>{disc?.discountType === "percent" ? " %" : " Taka"}</span>
                   </td>
                   <td className=" font-medium">{disc?.createdDate}</td>
-                  <td className="font-medium ">{disc?.status}</td>
+                  <td className={`font-medium ${disc?.status === "Active" ? "text-my-primary" : "text-red-500"}`}>{disc?.status}</td>
                   <td className="flex items-center gap-4">
                     <button type="button" onClick={() => handelDelete(disc?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
                       <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
@@ -190,7 +223,7 @@ const DiscountCodes = () => {
           <div>
             <label className="mr-2 text-gray-6">Rows Per Page:</label>
             <select
-              className="p-1 py-[6px]"
+              className="p-1"
               value={perPage}
               onChange={(e) => {
                 setCurrentPage(1);
@@ -215,19 +248,19 @@ const DiscountCodes = () => {
               className={`${currentPage === 1 ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
               type="button"
             >
-              <LiaAngleLeftSolid className="text-xl lg:text-3xl font-semibold lg:font-extrabold hover:bg-gray-3" />
+              <LiaAngleLeftSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
             </button>
             <button
               onClick={() => {
-                if (currentPage * perPage < discountCodes?.length) {
+                if (currentPage * perPage < filteredDiscount?.length) {
                   handlePageChange(currentPage + 1);
                 }
               }}
-              disabled={currentPage * perPage >= discountCodes?.length}
-              className={`${currentPage * perPage >= discountCodes?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              disabled={currentPage * perPage >= filteredDiscount?.length}
+              className={`${currentPage * perPage >= filteredDiscount?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
               type="button"
             >
-              <LiaAngleRightSolid className="text-xl lg:text-3xl font-semibold lg:font-extrabold hover:bg-gray-3" />
+              <LiaAngleRightSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
             </button>
           </div>
         </div>

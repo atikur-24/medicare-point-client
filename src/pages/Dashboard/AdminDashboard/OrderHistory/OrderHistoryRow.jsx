@@ -3,7 +3,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { TbListDetails } from "react-icons/tb";
 import OrderHistoryModal from "./OrderHistoryModal";
 
-const OrderHistoryRow = ({ order }) => {
+const OrderHistoryRow = ({ order, setIsClick, isClick }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -32,9 +32,9 @@ const OrderHistoryRow = ({ order }) => {
         <button type="button" onClick={() => setIsOpen(!isOpen)} className="relative group">
           <TbListDetails className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
           <p className="absolute hidden group-hover:block whitespace-nowrap ">Detail</p>
+          <OrderHistoryModal setIsClick={setIsClick} isOpen={isOpen} setIsOpen={setIsOpen} order={order} isClick={isClick} />
         </button>
       </td>
-      <OrderHistoryModal isOpen={isOpen} setIsOpen={setIsOpen} id={order?._id} />
     </tr>
   );
 };

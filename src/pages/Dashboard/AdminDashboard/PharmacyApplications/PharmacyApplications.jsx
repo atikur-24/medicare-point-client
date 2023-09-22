@@ -32,11 +32,20 @@ const PharmacyApplications = () => {
   return (
     <div>
       <div>
-        <h3 className="text-center text-3xl my-7 font-semibold">Pharmacist Registration Applications</h3>
+        <div className=" space-y-2 mb-5">
+          <div className="flex px-6 mb-8">
+            <div className="stats shadow">
+              <div className="stat place-items-center space-y-2">
+                <div className="stat-title text-title-color font-nunito font-bold uppercase ">Return Order</div>
+                <div className="stat-value text-my-primary">{applications?.length}</div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="overflow-x-auto mb-20   px-5">
           <table className="table  border border-gray-3 bg-white table-zebra">
             {/* head */}
-            <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-lg">
+            <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-sm">
               <tr className="text-center rounded-t-md">
                 <th className="rounded-tl-md">#</th>
                 <th>Pharmacist</th>

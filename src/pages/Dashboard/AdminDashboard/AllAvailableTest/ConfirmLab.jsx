@@ -10,7 +10,9 @@ import * as React from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TbListDetails } from "react-icons/tb";
 
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
 import { fetchAdminLabBooking } from "../../../../Features/AllLabTests/adminLabBooking";
 import useLabBook from "../../../../hooks/useLabBook";
 import ConfirmDetailModal from "./ConfirmDetailModal";
@@ -56,12 +58,13 @@ const columns = [
 export default function ConfirmLab() {
   let [isOpen, setIsOpen] = React.useState(false);
   let [data, setData] = React.useState({});
+  let [click, setClick] = React.useState(0);
 
   const { allLabBooking, isLoading } = useSelector((state) => state.adminLabBooking);
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchAdminLabBooking());
-  }, [dispatch]);
+  }, [dispatch, click]);
 
   const rows = allLabBooking;
   const [page, setPage] = React.useState(0);
@@ -81,7 +84,25 @@ export default function ConfirmLab() {
   }, []);
 
   const handleDeleteClick = (row) => {
-    console.log("Delete clicked for row:", row);
+    const id = row?._id;
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:5000/deleteLabTest/${id}`).then((res) => {
+          if (res.data?.deletedCount > 0) {
+            Swal.fire("Deleted!", "Lab test deleted successfully.", "success");
+            setClick(click + 1);
+          }
+        });
+      }
+    });
   };
   const handleModalClick = (row) => {
     setData(row);
@@ -104,7 +125,7 @@ export default function ConfirmLab() {
             <TableHead>
               <TableRow>
                 {columns.map((column) => (
-                  <TableCell className="!z-10 !font-bold !font-Alexandria" key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
+                  <TableCell className="!z-10 !font-bold !font-Alexandria !bg-primary !bg-opacity-90 !text-white" key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
                     {column.label}
                   </TableCell>
                 ))}
@@ -113,7 +134,7 @@ export default function ConfirmLab() {
             <TableBody>
               {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                 return (
-                  <TableRow className="!z-10 !font-bold !font-Alexandria" hover role="checkbox" tabIndex={-1} key={row._id}>
+                  <TableRow className="!z-10 !font-bold !font-Alexandria " hover role="checkbox" tabIndex={-1} key={row._id}>
                     {columns.map((column) => {
                       if (column.id === "Action") {
                         // Render the Edit button here.
@@ -156,7 +177,7 @@ export default function ConfirmLab() {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
-      <ConfirmDetailModal data={data} isOpen={isOpen} toggleOpen={toggleOpen} setData={setData} />
+      <ConfirmDetailModal click={click} setClick={setClick} data={data} isOpen={isOpen} toggleOpen={toggleOpen} setData={setData} />
     </div>
   );
 }
