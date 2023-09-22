@@ -15,7 +15,7 @@ import Loader from "../../../../components/Loader";
 const AllMedicines = () => {
   const [allMedicines, setAllMedicines] = useState([]);
   // pagination
-  const [perPage, setPerPage] = useState(5);
+  const [perPage, setPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = startIndex + perPage;
@@ -159,7 +159,6 @@ const AllMedicines = () => {
                 setPerPage(parseInt(e.target.value, 10));
               }}
             >
-              <option value={5}>5</option>
               <option value={10}>10</option>
               <option value={15}>15</option>
               <option value={20}>20</option>
@@ -177,7 +176,7 @@ const AllMedicines = () => {
               className={`${currentPage === 1 ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
               type="button"
             >
-              <LiaAngleLeftSolid className="text-xl lg:text-3xl font-semibold lg:font-extrabold hover:bg-gray-3" />
+              <LiaAngleLeftSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
             </button>
             <button
               onClick={() => {
@@ -189,7 +188,7 @@ const AllMedicines = () => {
               className={`${currentPage * perPage >= allMedicines?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
               type="button"
             >
-              <LiaAngleRightSolid className="text-xl lg:text-3xl font-semibold lg:font-extrabold hover:bg-gray-3" />
+              <LiaAngleRightSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
             </button>
           </div>
         </div>

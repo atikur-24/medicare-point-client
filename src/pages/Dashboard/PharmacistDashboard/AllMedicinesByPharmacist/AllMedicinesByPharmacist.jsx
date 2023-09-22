@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { HiOutlineEye } from "react-icons/hi";
+import { LiaAngleLeftSolid, LiaAngleRightSolid } from "react-icons/lia";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import { Link } from "react-router-dom";
@@ -78,9 +79,8 @@ const AllMedicinesByPharmacist = () => {
   const deniedMedicines = medicines.filter((medicine) => medicine?.status === "denied");
 
   return (
-    <div className="">
-      <h3 className="text-center text-2xl lg:text-3xl my-7 font-semibold tracking-wide">Manage All Medicines</h3>
-      <div className="flex px-6 mb-8">
+    <div className="pb-10">
+      <div className="flex mb-8">
         <div className="stats shadow">
           <div onClick={() => handelFiltering()} className="stat place-items-center space-y-2 cursor-pointer">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">All Medicines</div>
@@ -103,25 +103,9 @@ const AllMedicinesByPharmacist = () => {
           </div>
         </div>
       </div>
-      <div>
-        <label className="mr-2">Rows per page:</label>
-        <select
-          className="border border-gray-300 text-my-primary rounded-md px-2 py-1"
-          value={perPage}
-          onChange={(e) => {
-            setCurrentPage(1);
-            setPerPage(parseInt(e.target.value, 10));
-          }}
-        >
-          <option value={5}>5</option>
-          <option value={10}>10</option>
-          <option value={15}>15</option>
-          <option value={20}>20</option>
-        </select>
-      </div>
 
       <div className="overflow-x-auto">
-        <table className="table rounded bg-lite">
+        <table className="table !rounded bg-lite">
           {/* head */}
           <thead className="bg-my-primary text-white font-normal text-base">
             <tr className="">
@@ -149,7 +133,7 @@ const AllMedicinesByPharmacist = () => {
                 <td className="font-semibold"> {medicine?.available_quantity === medicine?.sellQuantity ? <span className="text-red-500">Out of Stock</span> : <span className="text-my-primary">In Stock</span>}</td>
 
                 <td>
-                  <span className={`capitalize badge ${medicine?.status === "approved" ? "badge-success" : ""} ${medicine?.status === "pending" ? "badge-warning" : ""} ${medicine?.status === "denied" ? "badge-error" : ""}`}>{medicine?.status}</span>
+                  <span className={`capitalize badge ${medicine?.status === "approved" ? "text-success" : ""} ${medicine?.status === "pending" ? "text-warning" : ""} ${medicine?.status === "denied" ? "text-error" : ""}`}>{medicine?.status}</span>
                 </td>
                 <td className="">
                   <div className="flex gap-3">
@@ -168,32 +152,52 @@ const AllMedicinesByPharmacist = () => {
             ))}
           </tbody>
         </table>
-      </div>
-      <div className="mt-4 flex justify-end">
-        <button
-          type="button"
-          className={`mr-2 ${currentPage === 1 ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"} py-2 px-4 rounded-md border border-gray-300`}
-          onClick={() => {
-            if (currentPage > 1) {
-              handlePageChange(currentPage - 1);
-            }
-          }}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
-        <button
-          type="button"
-          className={`${currentPage * perPage >= medicines.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"} py-2 px-4 rounded-md border border-gray-300`}
-          onClick={() => {
-            if (currentPage * perPage < medicines.length) {
-              handlePageChange(currentPage + 1);
-            }
-          }}
-          disabled={currentPage * perPage >= medicines.length}
-        >
-          Next
-        </button>
+        <div className="flex items-center justify-end gap-5 lg:gap-7 pt-5 pr-8">
+          {/* Row per page view */}
+          <div>
+            <label className="mr-2 text-gray-6">Rows Per Page:</label>
+            <select
+              className="p-1"
+              value={perPage}
+              onChange={(e) => {
+                setCurrentPage(1);
+                setPerPage(parseInt(e.target.value, 10));
+              }}
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={15}>15</option>
+              <option value={20}>20</option>
+            </select>
+          </div>
+          {/* Previous and next button (pagination) */}
+          <div className="space-x-3">
+            <button
+              onClick={() => {
+                if (currentPage > 1) {
+                  handlePageChange(currentPage - 1);
+                }
+              }}
+              disabled={currentPage === 1}
+              className={`${currentPage === 1 ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              type="button"
+            >
+              <LiaAngleLeftSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
+            </button>
+            <button
+              onClick={() => {
+                if (currentPage * perPage < medicines?.length) {
+                  handlePageChange(currentPage + 1);
+                }
+              }}
+              disabled={currentPage * perPage >= medicines?.length}
+              className={`${currentPage * perPage >= medicines?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              type="button"
+            >
+              <LiaAngleRightSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
