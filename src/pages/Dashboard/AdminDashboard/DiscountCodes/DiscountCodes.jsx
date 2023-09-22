@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { BiEdit } from "react-icons/bi";
+import { LiaAngleLeftSolid, LiaAngleRightSolid } from "react-icons/lia";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
@@ -21,6 +22,15 @@ const DiscountCodes = () => {
   const [isLoading2, setLoading2] = useState(false);
   const [singleDiscount, setSingleDiscount] = useState({});
   const dispatch = useDispatch();
+  // pagination
+  const [perPage, setPerPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
+  const startIndex = (currentPage - 1) * perPage;
+  const endIndex = startIndex + perPage;
+  const paginatedDiscount = discountCodes?.slice(startIndex, endIndex);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -143,7 +153,7 @@ const DiscountCodes = () => {
 
           {!isLoading && (
             <tbody>
-              {discountCodes?.map((disc, index) => (
+              {paginatedDiscount?.map((disc, index) => (
                 <tr key={disc?._id} className="">
                   <td className=" font-bold ">{index + 1}</td>
                   <td className="flex justify-center">
@@ -175,6 +185,52 @@ const DiscountCodes = () => {
           )}
         </table>
         {/* <div className="mt-44">{isLoading && <Loader spinner />}</div> */}
+        <div className="flex items-center justify-end gap-5 lg:gap-7 pt-5">
+          {/* Row per page view */}
+          <div>
+            <label className="mr-2 text-gray-6">Rows Per Page:</label>
+            <select
+              className="p-1 py-[6px]"
+              value={perPage}
+              onChange={(e) => {
+                setCurrentPage(1);
+                setPerPage(parseInt(e.target.value, 10));
+              }}
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={15}>15</option>
+              <option value={20}>20</option>
+            </select>
+          </div>
+          {/* Previous and next button (pagination) */}
+          <div className="space-x-3">
+            <button
+              onClick={() => {
+                if (currentPage > 1) {
+                  handlePageChange(currentPage - 1);
+                }
+              }}
+              disabled={currentPage === 1}
+              className={`${currentPage === 1 ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              type="button"
+            >
+              <LiaAngleLeftSolid className="text-xl lg:text-3xl font-semibold lg:font-extrabold hover:bg-gray-3" />
+            </button>
+            <button
+              onClick={() => {
+                if (currentPage * perPage < discountCodes?.length) {
+                  handlePageChange(currentPage + 1);
+                }
+              }}
+              disabled={currentPage * perPage >= discountCodes?.length}
+              className={`${currentPage * perPage >= discountCodes?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              type="button"
+            >
+              <LiaAngleRightSolid className="text-xl lg:text-3xl font-semibold lg:font-extrabold hover:bg-gray-3" />
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* add discount code  */}
@@ -192,24 +248,8 @@ const DiscountCodes = () => {
             </div>
 
             <div className="space-y-2">
-              <input
-                required
-                placeholder="Enter discount name"
-                type="text"
-                name="discountName"
-                {...register("discountName")}
-                className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full"
-                id=""
-              />
-              <input
-                required
-                placeholder="Enter discount amount/percent"
-                type="number"
-                name="discount"
-                {...register("discount")}
-                className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full"
-                id=""
-              />
+              <input required placeholder="Enter discount name" type="text" name="discountName" {...register("discountName")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" id="" />
+              <input required placeholder="Enter discount amount/percent" type="number" name="discount" {...register("discount")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full" id="" />
               <select placeholder="Select discount Type" name="discountType" {...register("discountType")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
                 <option selected disabled value="percent">
                   Select discount Type
@@ -249,15 +289,7 @@ const DiscountCodes = () => {
 
             <div className="space-y-2">
               <input readOnly defaultValue={singleDiscount?.discountName} type="text" name="discountName" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" id="" />
-              <input
-                required
-                defaultValue={singleDiscount?.discount}
-                placeholder="Enter discount amount/percent"
-                type="number"
-                name="discount"
-                className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full"
-                id=""
-              />
+              <input required defaultValue={singleDiscount?.discount} placeholder="Enter discount amount/percent" type="number" name="discount" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full" id="" />
               <select placeholder="Select discount Type" name="discountType" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
                 <option value={singleDiscount?.discountType}>{singleDiscount?.discountType}</option>
                 {/* <option disabled value="percent">
