@@ -34,7 +34,7 @@ const DiscountCodes = () => {
 
   if (searchName) {
     filteredDiscount = discountCodes.filter((discount) => discount.discountName.toLowerCase().includes(searchName.toLowerCase()));
-  } else if (filterStatus) {
+  } else if (filterStatus !== "All Status") {
     filteredDiscount = discountCodes.filter((status) => status.status.toLowerCase().includes(filterStatus.toLowerCase()));
   }
 
@@ -127,7 +127,8 @@ const DiscountCodes = () => {
     });
   };
 
-  // console.log(singleDiscount);
+  const totalActive = discountCodes.filter((statusCode) => statusCode?.status === "Active");
+  const totalExprired = discountCodes.filter((statusCode) => statusCode?.status === "Expired");
 
   return (
     <div>
@@ -135,7 +136,15 @@ const DiscountCodes = () => {
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Discount Codes</div>
-            <div className="stat-value text-my-primary">{discountCodes?.length || 0} </div>
+            <div className="stat-value text-gray-7">{discountCodes?.length || 0} </div>
+          </div>
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Active Codes</div>
+            <div className="stat-value text-my-primary">{totalActive?.length || 0} </div>
+          </div>
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Active Codes</div>
+            <div className="stat-value text-red-400">{totalExprired?.length || 0} </div>
           </div>
         </div>
 
@@ -157,14 +166,11 @@ const DiscountCodes = () => {
           <h2 className="w-[120px]">Filter by</h2>
           <select
             onChange={(e) => {
-              // setCurrentPage(1);
-              setFilterStatus(e.target.value);
+              setFilterStatus(e?.target?.value);
             }}
             className="select outline-none hover:outline-none focus:!outline-none select-bordered w-full max-w-xs"
           >
-            <option disabled selected>
-              Status
-            </option>
+            <option selected>All Status</option>
             <option>Active</option>
             <option>Expired</option>
           </select>

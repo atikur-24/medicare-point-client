@@ -20,6 +20,18 @@ const OrderHistoryByAdmin = () => {
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Order History</div>
             <div className="stat-value text-my-primary">{allOrders?.length || 0}</div>
           </div>
+          {/* <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Order History</div>
+            <div className="stat-value text-my-primary">{totalAdmin?.length || 0}</div>
+          </div>
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Order History</div>
+            <div className="stat-value text-my-primary">{totalUsers?.length || 0}</div>
+          </div>
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Order History</div>
+            <div className="stat-value text-my-primary">{totalPharmacist?.length || 0}</div>
+          </div> */}
         </div>
       </div>
       <div className="overflow-x-auto mb-20  px-5">

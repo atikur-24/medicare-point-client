@@ -26,7 +26,7 @@ const AllUsers = () => {
 
   if (searchName) {
     filteredUsers = allUsers.filter((user) => user?.name?.toLowerCase().includes(searchName?.toLowerCase()));
-  } else if (filterStatus) {
+  } else if (filterStatus !== "All Users") {
     filteredUsers = allUsers.filter((user) => user?.role?.toLowerCase().includes(filterStatus?.toLowerCase()));
   }
 
@@ -63,7 +63,6 @@ const AllUsers = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios.delete(`http://localhost:5000/delete-user/${id}`).then((res) => {
-          console.log(res.data);
           if (res.data.deletedCount > 0) {
             dispatch(fetchAllUsers());
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
@@ -76,15 +75,18 @@ const AllUsers = () => {
   const totalAdmin = allUsers.filter((admin) => admin?.role === "admin");
   const totalPharmacist = allUsers.filter((admin) => admin?.role === "Pharmacist");
   const totalUsers = allUsers.filter((admin) => admin?.role === "user");
-  // console.log(allUsers);
 
   return (
     <div>
       <div className=" mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">All Users</div>
+            <div className="stat-value">{allUsers?.length}</div>
+          </div>
+          <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Admin</div>
-            <div className="stat-value">{totalAdmin?.length}</div>
+            <div className="stat-value text-my-pink">{totalAdmin?.length}</div>
           </div>
 
           <div className="stat place-items-center space-y-2">
@@ -94,7 +96,7 @@ const AllUsers = () => {
 
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Users</div>
-            <div className="stat-value">{totalUsers?.length}</div>
+            <div className="stat-value text-gray-5">{totalUsers?.length}</div>
           </div>
         </div>
       </div>
@@ -107,17 +109,14 @@ const AllUsers = () => {
           <h2 className="w-[120px]">Filter by</h2>
           <select
             onChange={(e) => {
-              // setCurrentPage(1);
-              setFilterStatus(e.target.value);
+              setFilterStatus(e?.target?.value);
             }}
             className="select outline-none hover:outline-none focus:!outline-none select-bordered w-full max-w-xs"
           >
-            <option disabled selected>
-              Role
-            </option>
-            <option>admin</option>
+            <option selected>All Users</option>
+            <option>Admin</option>
             <option>Pharmacist</option>
-            <option>user</option>
+            <option>User</option>
           </select>
         </div>
       </div>
