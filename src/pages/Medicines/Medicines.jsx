@@ -68,12 +68,6 @@ const Medicines = () => {
     dispatch(fetchMedicines({ sort }));
   };
 
-  const handelCategoryFilter = (fCategory) => {
-    const filterData = allData.filter((item) => item?.category?.value === fCategory);
-    setMedicines(filterData);
-    setIsOpen(fCategory);
-  };
-
   const medicineParPage = 20;
   const startIndex = currentPage * medicineParPage;
   const endIndex = startIndex + medicineParPage;
@@ -82,6 +76,14 @@ const Medicines = () => {
 
   const handlePageClick = (sleetedPage) => {
     setCurrentPage(sleetedPage.selected);
+  };
+
+  const handelCategoryFilter = (fCategory) => {
+    const filterData = allData.filter((item) => item?.category?.value === fCategory);
+    setCurrentPage(0);
+    setMedicines(filterData);
+    setIsOpen(fCategory);
+    console.log(currentPage);
   };
 
   const [showFilter, setShowFilter] = useState("-ml-96");
@@ -324,26 +326,26 @@ const Medicines = () => {
               <div className="filter-medicine">
                 <Menu
                   menuButton={
-                    <MenuButton className="flex items-center gap-2 font-semibold p-2 rounded-md  ease-in duration-150">
+                    <MenuButton className="flex items-center gap-2 font-semibold p-2 rounded-md  ease-in text-sm duration-150">
                       Filter Medicines <AiOutlineDown />
                     </MenuButton>
                   }
                   transition
                 >
                   <MenuItem onClick={() => handelSort("phtl")} className="font-medium text-gray-5">
-                    From Low Price
+                    Price low to high
                   </MenuItem>
                   <MenuItem onClick={() => handelSort("plth")} className="font-medium text-gray-5">
-                    From Heigh Price
+                    Price High to low
                   </MenuItem>
                   <MenuItem onClick={() => handelSort("byRating")} className="font-medium text-gray-5">
-                    From Height selling
+                    Height selling
                   </MenuItem>
                   <MenuItem onClick={() => handelSort("fNew")} className="font-medium text-gray-5">
-                    From New Product
+                    New Product
                   </MenuItem>
                   <MenuItem onClick={() => handelSort("fOld")} className="font-medium text-gray-5">
-                    From Old product
+                    Old product
                   </MenuItem>
                 </Menu>
               </div>
