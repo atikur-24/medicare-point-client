@@ -7,6 +7,10 @@
   bottom: 0;
 }
 
+.steps .step {
+  @apply xl:!min-w-[7rem] 2xl:!min-w-[10rem];
+}
+
 @media screen and (max-width: 768px) {
   .swiper-button-prev {
     display: none;

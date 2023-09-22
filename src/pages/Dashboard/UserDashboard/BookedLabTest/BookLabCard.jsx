@@ -15,7 +15,7 @@ const BookLabCard = ({ book, isOpen, toggleOpen }) => {
 
   return (
     <div className="pb-6">
-      <div className="border box-shadow  bg-white rounded-2xl border-gray-3 p-4 xl:flex flex-row    items-center">
+      <div className="border box-shadow  bg-white rounded-2xl border-gray-3 p-4 xl:flex flex-row justify-around    items-center">
         <div className="p-4 rounded lg:w-[35%] 2xl:w-[30%]">
           <div className=" divide-y-2 divide-gray-3">
             <h2 className="font-bold font-nunito uppercase pb-2">{test_name}</h2>
@@ -38,9 +38,9 @@ const BookLabCard = ({ book, isOpen, toggleOpen }) => {
           </div>
         </div>
 
-        <div className="w-full hidden xl:block">
+        <div className=" hidden xl:block">
           <ul className="steps">
-            <li className="step lg:w-36 xl:w-40 2xl:w-64  step-success">
+            <li className="step  step-success">
               Book <br /> Received
             </li>
             <li className="step step-success  ">
