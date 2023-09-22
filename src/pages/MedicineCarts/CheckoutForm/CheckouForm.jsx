@@ -55,20 +55,20 @@ const CheckouForm = () => {
   const onSubmit = (data, event) => {
     event.preventDefault();
     const paymentDetails = { ...data, totalPayment: parseFloat((allTotal - disAmount).toFixed(2)) };
-    dispatch(sslPaymentApi({ paymentDetails, cart }));
+    dispatch(sslPaymentApi({ paymentDetails, cart, discountCode }));
   };
 
   const handelPromoCode = (event) => {
     event.preventDefault();
     const promoCode = event.target.promoCode.value;
 
-    dispatch(isValidDiscountApi({ promoCode })).then((res) => {
+    dispatch(isValidDiscountApi({ promoCode, email: user?.email })).then((res) => {
       const response = res.payload;
 
       if (response?.success) {
         setDiscountCode(promoCode);
         if (response?.discountType === "percent") {
-          const discountAmount = ((allTotal * response?.discount) / 100).toFixed(2);
+          const discountAmount = ((allTotal * parseFloat(response?.discount)) / 100).toFixed(2);
           setDisAmount(discountAmount);
         } else {
           setDisAmount(response?.discount);
@@ -182,14 +182,28 @@ const CheckouForm = () => {
                 <label htmlFor="name" className="font-medium lg:font-semibold pl-2 cursor-pointer">
                   Name:
                 </label>
-                <input id="name" readOnly type="text" defaultValue={user?.displayName} {...register("name", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2" />
+                <input
+                  id="name"
+                  readOnly
+                  type="text"
+                  defaultValue={user?.displayName}
+                  {...register("name", { required: true })}
+                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+                />
                 {errors.name && <small>Please write your name</small>}
               </div>
               <div>
                 <label htmlFor="email" className="font-medium lg:font-semibold pl-2 cursor-pointer">
                   Write your Email:
                 </label>
-                <input id="email" readOnly type="email" defaultValue={user?.email} {...register("email", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2" />
+                <input
+                  id="email"
+                  readOnly
+                  type="email"
+                  defaultValue={user?.email}
+                  {...register("email", { required: true })}
+                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+                />
                 {errors.email && <small>Please wite your email</small>}
               </div>
 
@@ -229,7 +243,13 @@ const CheckouForm = () => {
                 <label htmlFor="location" className="font-medium lg:font-semibold pl-2 cursor-pointer">
                   Write your Full Location:
                 </label>
-                <input id="location" type="text" placeholder="write your full location" {...register("location", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2" />
+                <input
+                  id="location"
+                  type="text"
+                  placeholder="write your full location"
+                  {...register("location", { required: true })}
+                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+                />
                 {errors.email && <small>Please wite your full location</small>}
               </div>
 
@@ -257,7 +277,13 @@ const CheckouForm = () => {
             </h4>
             <div className="lg:mt-12 mt-4 px-4 py-6 bg-white rounded-lg">
               <form onSubmit={handelPromoCode} className="flex items-start gap-3">
-                <input type="text" name="promoCode" id="" placeholder="Use Promo Code" className="placeholder-gray-4 max-w-xs rounded text-sm font-medium border-gray-3 border-b-2 focus:border-b-2 focus:outline-none mb-4 focus:border-accent" />
+                <input
+                  type="text"
+                  name="promoCode"
+                  id=""
+                  placeholder="Use Promo Code"
+                  className="placeholder-gray-4 max-w-xs rounded text-sm font-medium border-gray-3 border-b-2 focus:border-b-2 focus:outline-none mb-4 focus:border-accent"
+                />
                 <input type="submit" value="Apply" className="bg-my-accent hover:bg-my-primary cursor-pointer text-white px-2 rounded-md" />
               </form>
 
@@ -282,7 +308,7 @@ const CheckouForm = () => {
               )}
               <div className="flex justify-between items-center font-medium lg:font-semibold mt-2">
                 <h4>Save Amount: </h4>
-                <h4 className="flex items-center">৳ {(saveMoney + disAmount).toFixed(2)}</h4>
+                <h4 className="flex items-center">৳ {(parseFloat(saveMoney) + parseFloat(disAmount))?.toFixed(2)}</h4>
               </div>
               <div className="flex justify-between items-center font-medium lg:font-semibold mt-2">
                 <h4>Delivery Charge: </h4>

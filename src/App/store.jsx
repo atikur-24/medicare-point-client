@@ -6,6 +6,7 @@ import deleteLabTest from "../Features/AllLabTests/deleteLabTest";
 import updateLabTest from "../Features/AllLabTests/updateLabTest";
 // import allMedicines from "../Features/AllMedicines/allMedicines";
 import adminLabBooking from "../Features/AllLabTests/adminLabBooking";
+import singleLabtest from "../Features/AllLabTests/singleLabtest";
 import allData from "../Features/AllMedicines/allData";
 import detailData from "../Features/AllMedicines/detailData";
 import allUsers from "../Features/AllUsers/allUsers";
@@ -36,6 +37,7 @@ import medicines from "../Features/Medicines/AllMedicines/medicines";
 import addNotification from "../Features/Notifications/addNotification";
 import deleteNotifications from "../Features/Notifications/deleteNotifications";
 import fetchNotificationsByEmail from "../Features/Notifications/fetchNotificationsByEmail";
+import orderHistory from "../Features/Orders/orderHistory";
 import sslPayment from "../Features/PaymentGetway/PaymentGetaway";
 import labSSLPayment from "../Features/PaymentGetway/labPayment";
 import uploadImage from "../Features/UploadImage/uploadImage";
@@ -85,7 +87,9 @@ const store = configureStore({
     updateDiscountCode,
     addDiscountCode,
     isValidDiscount,
+    singleLabtest,
     adminLabBooking,
+    orderHistory,
   },
 });
 

@@ -10,8 +10,10 @@ import UpdateLabTest from "./UpdateLabTest";
 // Todo
 const AllAvailableTest = () => {
   const { isLoading, allLabTest } = useSelector((state) => state.allLabTest);
-  const [singleData, setSingleData] = useState({});
+  // const [singleData, setSingleData] = useState({});
+  const [singleId, setSingleId] = useState("");
   const [x, setX] = useState(0);
+  console.log("id", singleId);
 
   const dispatch = useDispatch();
 
@@ -55,11 +57,11 @@ const AllAvailableTest = () => {
           </div>
         </div>
       </div>
-      <UpdateLabTest x={x} setX={setX} singleData={singleData} />
+      {singleId && <UpdateLabTest x={x} setX={setX} id={singleId} />}
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-5">
         {allLabTest.map((category) => (
-          <AddLabCard key={category._id} category={category} handlerDelete={handlerDelete} setSingleData={setSingleData} />
+          <AddLabCard key={category._id} setSingleId={setSingleId} category={category} handlerDelete={handlerDelete} />
         ))}
       </div>
     </div>

@@ -11,7 +11,7 @@ const PopUp = ({ isPopUp, setPopUp }) => {
   };
 
   return (
-    <div className={`fixed z-50 w-full h-screen flex justify-center items-center transition-all duration-700 ${isPopUp} bg-black bg-opacity-70`}>
+    <div className={`fixed top-0 z-50 w-full h-screen flex justify-center items-center transition-all duration-700 ${isPopUp} bg-black bg-opacity-70`}>
       <div className="w-10/12 lg:w-11/12 xl:w-1/2 bg-card rounded-xl relative">
         <button onClick={() => setPopUp("hidden")} type="button" className="btn btn-circle btn-sm bg-red-500 hover:bg-red-400 text-white transition-all duration-300 border-none absolute -right-3 -top-3">
           x
