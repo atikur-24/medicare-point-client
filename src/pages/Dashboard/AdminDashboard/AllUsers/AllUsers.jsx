@@ -2,8 +2,9 @@ import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
+import { LiaAngleLeftSolid, LiaAngleRightSolid } from "react-icons/lia";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
@@ -12,6 +13,28 @@ import Loader from "../../../../components/Loader";
 
 const AllUsers = () => {
   const { isLoading, allUsers } = useSelector((state) => state.allUsers);
+
+  // pagination
+  const [perPage, setPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchName, setSearchName] = useState("");
+  const [filterStatus, setFilterStatus] = useState("");
+  const startIndex = (currentPage - 1) * perPage;
+  const endIndex = startIndex + perPage;
+
+  let filteredUsers = allUsers;
+
+  if (searchName) {
+    filteredUsers = allUsers.filter((user) => user?.name?.toLowerCase().includes(searchName?.toLowerCase()));
+  } else if (filterStatus) {
+    filteredUsers = allUsers.filter((user) => user?.role?.toLowerCase().includes(filterStatus?.toLowerCase()));
+  }
+
+  const paginatedUsers = filteredUsers?.slice(startIndex, endIndex);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllUsers());
@@ -57,7 +80,7 @@ const AllUsers = () => {
 
   return (
     <div>
-      <div className="flex px-6 mb-8">
+      <div className=" mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Admin</div>
@@ -75,7 +98,31 @@ const AllUsers = () => {
           </div>
         </div>
       </div>
-      <div className="overflow-x-auto mb-20  px-5">
+
+      <div className="flex justify-between mb-6">
+        <div className="join">
+          <input value={searchName} onChange={(e) => setSearchName(e.target.value)} type="search" className="input input-bordered join-item outline-none !rounded-md f placeholder:text-gray-6 focus:!outline-none" placeholder="search by name" />
+        </div>
+        <div className="flex items-center gap-4 ">
+          <h2 className="w-[120px]">Filter by</h2>
+          <select
+            onChange={(e) => {
+              // setCurrentPage(1);
+              setFilterStatus(e.target.value);
+            }}
+            className="select outline-none hover:outline-none focus:!outline-none select-bordered w-full max-w-xs"
+          >
+            <option disabled selected>
+              Role
+            </option>
+            <option>admin</option>
+            <option>Pharmacist</option>
+            <option>user</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="overflow-x-auto">
         <table className="table  border border-gray-3 bg-white table-zebra">
           {/* head */}
           <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-[14px]">
@@ -92,7 +139,7 @@ const AllUsers = () => {
           {!isLoading && (
             <tbody>
               {/* row 1 */}
-              {allUsers.map((user, idx) => (
+              {paginatedUsers?.map((user, idx) => (
                 <tr key={user._id} className="">
                   <td className="font-bold text-center">{idx + 1}</td>
                   <td className="flex justify-center">
@@ -128,6 +175,51 @@ const AllUsers = () => {
             </tbody>
           )}
         </table>
+        <div className="flex items-center justify-end gap-5 lg:gap-7 pt-5">
+          {/* Row per page view */}
+          <div>
+            <label className="mr-2 text-gray-6">Rows Per Page:</label>
+            <select
+              className="p-1"
+              value={perPage}
+              onChange={(e) => {
+                setCurrentPage(1);
+                setPerPage(parseInt(e.target.value, 10));
+              }}
+            >
+              <option value={10}>10</option>
+              <option value={15}>15</option>
+              <option value={20}>20</option>
+            </select>
+          </div>
+          {/* Previous and next button (pagination) */}
+          <div className="space-x-3">
+            <button
+              onClick={() => {
+                if (currentPage > 1) {
+                  handlePageChange(currentPage - 1);
+                }
+              }}
+              disabled={currentPage === 1}
+              className={`${currentPage === 1 ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              type="button"
+            >
+              <LiaAngleLeftSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
+            </button>
+            <button
+              onClick={() => {
+                if (currentPage * perPage < filteredUsers?.length) {
+                  handlePageChange(currentPage + 1);
+                }
+              }}
+              disabled={currentPage * perPage >= filteredUsers?.length}
+              className={`${currentPage * perPage >= filteredUsers?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              type="button"
+            >
+              <LiaAngleRightSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
+            </button>
+          </div>
+        </div>
         <div className="mt-44">{isLoading && <Loader spinner />}</div>
       </div>
     </div>
