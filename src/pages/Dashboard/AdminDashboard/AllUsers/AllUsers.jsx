@@ -78,7 +78,7 @@ const AllUsers = () => {
       <div className="overflow-x-auto mb-20  px-5">
         <table className="table  border border-gray-3 bg-white table-zebra">
           {/* head */}
-          <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-lg">
+          <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-[14px]">
             <tr className="text-center rounded-t-md">
               <th className="rounded-tl-md">#</th>
               <th>Photo</th>

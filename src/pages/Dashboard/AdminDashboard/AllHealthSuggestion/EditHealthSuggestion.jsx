@@ -42,7 +42,7 @@ const EditHealthSuggestion = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4 m-8">
+      <div className="grid  grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 m-8">
         {allHealthTips.map((healthTip) => (
           <div key={healthTip._id} className="grid grid-cols-1 gap-4 justify-center items-center rounded-2xl box-shadow p-4 border border-gray-3 bg-white">
             <h2 className="text-center items-center gap-3 font-medium text-[16px] tracking-wide">{healthTip.name}</h2>
