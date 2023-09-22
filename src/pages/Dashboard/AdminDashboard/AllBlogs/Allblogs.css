@@ -8,19 +8,17 @@
 }
 
 .add-blog-form input {
-  @apply w-full input input-bordered  outline-none  placeholder:text-gray-6 focus:!outline-none;
+  @apply w-full input input-bordered text-black  outline-none  placeholder:text-gray-6 focus:!outline-none;
 }
 .add-blog-form textarea {
-  @apply w-full input input-bordered  outline-none  placeholder:text-gray-6 focus:!outline-none h-[100px];
+  @apply w-full input input-bordered text-black  outline-none  placeholder:text-gray-6 focus:!outline-none h-[100px];
 }
 
 .add-blog-form .date {
   @apply w-full;
 }
 
-.add-blog-form .blog-btn {
-  @apply mx-[5px] px-3 py-[2px] text-center rounded-sm font-semibold text-white transition-all duration-300;
-}
+
 
 .jodit-wysiwyg {
   @apply px-7;
