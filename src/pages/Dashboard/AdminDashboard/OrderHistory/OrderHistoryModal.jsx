@@ -27,15 +27,7 @@ const OrderHistoryModal = ({ isOpen, setIsOpen, order, setIsClick, isClick }) =>
 
         <div className="fixed inset-0 overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4 text-center">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
+            <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
               <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                 <Dialog.Title as="h3" className="text-xl text-gray-7 font-medium leading-6 text-gray-900">
                   Order Detail
@@ -68,9 +60,9 @@ const OrderHistoryModal = ({ isOpen, setIsOpen, order, setIsClick, isClick }) =>
                       {" "}
                       Delivery Status:{" "}
                       <span
-                        className={`${order?.delivery_status === "shipping" && "text-[#209744]"} ${order?.delivery_status === "packing" && "text-yellow-500"} ${
-                          order?.delivery_status === "pending" && "text-red-500"
-                        } ${order?.delivery_status === "delivered" && "text-[#4075e9]"} capitalize font-medium`}
+                        className={`${order?.delivery_status === "shipping" && "text-[#209744]"} ${order?.delivery_status === "packing" && "text-yellow-500"} ${order?.delivery_status === "pending" && "text-red-500"} ${
+                          order?.delivery_status === "delivered" && "text-[#4075e9]"
+                        } capitalize font-medium`}
                       >
                         {order?.delivery_status}
                       </span>

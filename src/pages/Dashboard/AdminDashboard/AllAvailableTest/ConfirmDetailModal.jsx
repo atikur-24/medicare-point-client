@@ -34,15 +34,7 @@ const ConfirmDetailModal = ({ isOpen, toggleOpen, data, setData, click, setClick
 
         <div className="fixed  inset-0 overflow-y-auto">
           <div className="flex min-h-screen items-center justify-center p-4 text-center">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
+            <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
               <Dialog.Panel className="w-full max-w-2xl  transform overflow-hidden rounded-2xl bg-white  text-left align-middle shadow-xl transition-all">
                 <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900 my-2">
                   <span className="text-2xl font-semibold p-6">Booking Details</span>
@@ -86,8 +78,7 @@ const ConfirmDetailModal = ({ isOpen, toggleOpen, data, setData, click, setClick
                     </p>
                     <p className="text-gray-5 flex gap-2 items-center">
                       <BiEuro className="text-xl text-black" /> <span className="text-gray-7 font-medium">BDT: </span>
-                      {discount > 0 && <span className="line-through">৳{price}</span>}{" "}
-                      {discount > 0 ? <span className="badge  bg-my-primary border-0 badge-accent text-white py-0.5 font-bold">{discount}% off </span> : ""}{" "}
+                      {discount > 0 && <span className="line-through">৳{price}</span>} {discount > 0 ? <span className="badge  bg-my-primary border-0 badge-accent text-white py-0.5 font-bold">{discount}% off </span> : ""}{" "}
                       <span className="text-base text-my-primary ">৳{remaining}</span>
                     </p>
                     {note && (
