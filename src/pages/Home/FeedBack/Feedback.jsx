@@ -22,7 +22,7 @@ const Feedback = () => {
   const [feedbacks, setFeedbacks] = useState([]);
 
   useEffect(() => {
-    axios.get("/feedback.json").then((res) => setFeedbacks(res.data));
+    axios.get("http://localhost:5000/feedback").then((res) => setFeedbacks(res?.data));
   }, []);
 
   return (
@@ -59,15 +59,15 @@ const Feedback = () => {
         modules={[FreeMode, Pagination]}
         className="mySwiper"
       >
-        {feedbacks.map((feedback, idx) => (
-          <SwiperSlide key={idx}>
+        {feedbacks.map((feedback) => (
+          <SwiperSlide key={feedback?._id}>
             <div className="mb-10 px-4">
               <div className="bg-card p-6 rounded-lg shadow-xl ">
                 <div className="grid justify-center items-center mb-4">
-                  <h3 className="text-lg text-center text-title-color tracking-wide font-semibold -mb-20">{feedback.name}</h3>
+                  <h3 className="text-lg text-center text-title-color tracking-wide font-semibold -mb-20">{feedback?.name}</h3>
                   <div className="grid items-center justify-center translate-y-[90px]">
                     <figure className="ring-offset-2 ring-2  ring-[#10847e]  rounded-full ">
-                      <img src={feedback.image} alt={feedback.name} className="rounded-full  h-20 w-20 object-cover" />
+                      <img src={feedback?.image} alt={feedback?.name} className="rounded-full  h-20 w-20 object-cover" />
                     </figure>
                     <Rating style={{ maxWidth: 80 }} className="mt-4" value={feedback?.rating} readOnly itemStyles={customStyles} />
                   </div>
@@ -75,7 +75,7 @@ const Feedback = () => {
                 <div className="text-slate-7 p-4 pt-20 rounded-lg bg-white border text-justify font-nunito border-gray-3">
                   <p>
                     <BiSolidQuoteAltLeft className="w-5 h-5 inline text-[#10847e]" />
-                    <span> {feedback.quote.slice(0, 200)}</span> <BiSolidQuoteAltRight className="w-5 h-5 inline text-[#10847e]" />
+                    <span> {feedback?.quote?.slice(0, 200)}</span> <BiSolidQuoteAltRight className="w-5 h-5 inline text-[#10847e]" />
                   </p>
                 </div>
               </div>
