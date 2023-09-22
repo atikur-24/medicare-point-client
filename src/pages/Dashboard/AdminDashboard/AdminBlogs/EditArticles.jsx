@@ -33,7 +33,7 @@ const EditArticles = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4 m-8 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 m-8 ">
         {allBlogs.map((allBlog) => (
           <div key={allBlog._id} className="grid grid-cols-1 gap-4 justify-center items-center  shadow-sm p-2 border border-gray-3 bg-white box-shadow rounded-2xl">
             <h2 className="text-center items-center gap-3 font-medium text-[16px] tracking-wide">{allBlog.title}</h2>
