@@ -1,19 +1,28 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable no-unsafe-optional-chaining */
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { LiaAngleLeftSolid, LiaAngleRightSolid } from "react-icons/lia";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TbListDetails } from "react-icons/tb";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
-import axios from "axios";
 import Swal from "sweetalert2";
 import { fetchAllMedicines } from "../../../../Features/Medicines/AllMedicines/medicines";
 import Loader from "../../../../components/Loader";
 
 const AllMedicines = () => {
   const [allMedicines, setAllMedicines] = useState([]);
+  // pagination
+  const [perPage, setPerPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
+  const startIndex = (currentPage - 1) * perPage;
+  const endIndex = startIndex + perPage;
+  const paginatedMedicine = allMedicines?.slice(startIndex, endIndex);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   const { isLoading, medicines } = useSelector((state) => state.medicines);
   const dispatch = useDispatch();
@@ -104,7 +113,7 @@ const AllMedicines = () => {
 
           {!isLoading && (
             <tbody>
-              {allMedicines?.map((medicine, idx) => (
+              {paginatedMedicine?.map((medicine, idx) => (
                 <tr key={medicine?._id} className="border-b border-slate-3">
                   <td>{idx + 1}</td>
                   <td>
@@ -138,6 +147,52 @@ const AllMedicines = () => {
             <Loader spinner />
           </div>
         )}
+        <div className="flex items-center justify-end gap-5 lg:gap-7 pt-5 pr-8">
+          {/* Row per page view */}
+          <div>
+            <label className="mr-2 text-gray-6">Rows Per Page:</label>
+            <select
+              className="p-1 py-[6px]"
+              value={perPage}
+              onChange={(e) => {
+                setCurrentPage(1);
+                setPerPage(parseInt(e.target.value, 10));
+              }}
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={15}>15</option>
+              <option value={20}>20</option>
+            </select>
+          </div>
+          {/* Previous and next button (pagination) */}
+          <div className="space-x-3">
+            <button
+              onClick={() => {
+                if (currentPage > 1) {
+                  handlePageChange(currentPage - 1);
+                }
+              }}
+              disabled={currentPage === 1}
+              className={`${currentPage === 1 ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              type="button"
+            >
+              <LiaAngleLeftSolid className="text-xl lg:text-3xl font-semibold lg:font-extrabold hover:bg-gray-3" />
+            </button>
+            <button
+              onClick={() => {
+                if (currentPage * perPage < allMedicines?.length) {
+                  handlePageChange(currentPage + 1);
+                }
+              }}
+              disabled={currentPage * perPage >= allMedicines?.length}
+              className={`${currentPage * perPage >= allMedicines?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              type="button"
+            >
+              <LiaAngleRightSolid className="text-xl lg:text-3xl font-semibold lg:font-extrabold hover:bg-gray-3" />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
