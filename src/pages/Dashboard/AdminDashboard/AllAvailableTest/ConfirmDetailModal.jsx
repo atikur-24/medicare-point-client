@@ -5,15 +5,25 @@ import { BiEuro, BiNote, BiSolidEyedropper, BiSolidPhone, BiTimeFive } from "rea
 import { GrTransaction } from "react-icons/gr";
 import { MdLocationOn, MdMarkEmailRead } from "react-icons/md";
 
+import axios from "axios";
 import ageIcon from "../../../../assets/images/age-icon.svg";
 
-const ConfirmDetailModal = ({ isOpen, toggleOpen, data, setData }) => {
+const ConfirmDetailModal = ({ isOpen, toggleOpen, data, setData, click, setClick }) => {
   const { address, age, _id, area, email, test_name, transId, dateTime, discount, price, remaining, status, note, mobile } = data || {};
   console.log(data);
   function closeModal() {
     toggleOpen();
     setData({});
   }
+
+  const hanldeDeliverySing = () => {
+    axios.post("http://localhost:5000/labDeliveryStatus", { id: _id }).then((res) => {
+      if (res.data?.modifiedCount > 0) {
+        closeModal();
+        setClick(click + 1);
+      }
+    });
+  };
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -90,7 +100,7 @@ const ConfirmDetailModal = ({ isOpen, toggleOpen, data, setData }) => {
                 </div>
 
                 <div className="p-6 flex gap-4">
-                  <button type="button" className="my-btn">
+                  <button disabled={status === "success"} onClick={hanldeDeliverySing} type="button" className="my-btn">
                     Delivery Sign
                   </button>
                   <button type="button" className=" text-white p-2 rounded-md bg-my-accent  hover:bg-my-primary uppercase" onClick={closeModal}>
