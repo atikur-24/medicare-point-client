@@ -1,10 +1,22 @@
 import { Dialog, Transition } from "@headlessui/react";
+import axios from "axios";
 import { Fragment } from "react";
+import toast from "react-hot-toast";
 
-const OrderHistoryModal = ({ isOpen, setIsOpen, order }) => {
+const OrderHistoryModal = ({ isOpen, setIsOpen, order, setIsClick, isClick }) => {
   function closeModal() {
     setIsOpen(false);
   }
+
+  const handelChangeStatus = (id) => {
+    axios.patch(`http://localhost:5000/pharmacistResponse/${id}`, { delivery_status: "shipping" }).then((res) => {
+      if (res.data.modifiedCount > 0) {
+        setIsClick(isClick + 1);
+        toast.success("Order Shipping");
+        closeModal();
+      }
+    });
+  };
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -78,7 +90,7 @@ const OrderHistoryModal = ({ isOpen, setIsOpen, order }) => {
                 </div>
 
                 <div className="mt-4 flex justify-between flex-col md:flex-row">
-                  <button type="button" className="bg-my-primary text-white font-medium px-3 rounded-md">
+                  <button onClick={() => handelChangeStatus(order?._id)} type="button" className="bg-my-primary text-white font-medium px-3 rounded-md">
                     Shipping
                   </button>
                   <button type="button" className="bg-red-500 text-white font-medium p-2 rounded-md" onClick={closeModal}>
