@@ -60,11 +60,7 @@ const PharmacyApplications = () => {
 
                   <td className="font-semibold text-center">{application?.pharmacyName}</td>
                   <td className="font-semibold text-center">{application?.division}</td>
-                  <td
-                    className={` font-semibold text-center capitalize text-[#f1b84d] ${application.applicationType === "Approved" ? "text-my-primary" : ""} ${
-                      application?.applicationType === "deny" ? "text-red-500" : ""
-                    } `}
-                  >
+                  <td className={` font-semibold text-center capitalize text-[#f1b84d] ${application.applicationType === "Approved" ? "text-my-primary" : ""} ${application?.applicationType === "deny" ? "text-red-500" : ""} `}>
                     {application?.applicationType}
                   </td>
                   <td className="font-semibold text-center">
