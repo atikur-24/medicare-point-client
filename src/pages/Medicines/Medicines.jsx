@@ -363,7 +363,7 @@ const Medicines = () => {
         <div className="mx-auto px-4 lg:px-10 pb-10 lg:grid grid-cols-[1fr_4fr] gap-6">
           <div>
             <div className="w-72 h-fit rounded-md hidden lg:block">{filterItems}</div>
-            <div className="hidden lg:block">
+            <div className="hidden lg:block w-72">
               <div className="my-8 relative">
                 <MedicineSwiper />
               </div>
