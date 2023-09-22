@@ -104,7 +104,7 @@ export default function ConfirmLab() {
             <TableHead>
               <TableRow>
                 {columns.map((column) => (
-                  <TableCell className="!z-10 !font-bold !font-Alexandria" key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
+                  <TableCell className="!z-10 !font-bold !font-Alexandria !bg-primary !bg-opacity-90 !text-white" key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
                     {column.label}
                   </TableCell>
                 ))}
@@ -113,7 +113,7 @@ export default function ConfirmLab() {
             <TableBody>
               {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                 return (
-                  <TableRow className="!z-10 !font-bold !font-Alexandria" hover role="checkbox" tabIndex={-1} key={row._id}>
+                  <TableRow className="!z-10 !font-bold !font-Alexandria " hover role="checkbox" tabIndex={-1} key={row._id}>
                     {columns.map((column) => {
                       if (column.id === "Action") {
                         // Render the Edit button here.
