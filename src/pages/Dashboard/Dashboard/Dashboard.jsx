@@ -29,7 +29,7 @@ const Dashboard = () => {
   return (
     <div>
       {isAdmin && <AdminHome user={user} />}
-      {isPharmacist && <PharmacistsHome />}
+      {isPharmacist && <PharmacistsHome user={user} />}
       {isUser && <UserProfile />}
     </div>
   );
