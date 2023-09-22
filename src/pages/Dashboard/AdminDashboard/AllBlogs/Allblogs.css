@@ -8,7 +8,10 @@
 }
 
 .add-blog-form input {
-  @apply w-full border-2 border-gray-3 outline-my-accent;
+  @apply w-full input input-bordered  outline-none  placeholder:text-gray-6 focus:!outline-none;
+}
+.add-blog-form textarea {
+  @apply w-full input input-bordered  outline-none  placeholder:text-gray-6 focus:!outline-none h-[100px];
 }
 
 .add-blog-form .date {

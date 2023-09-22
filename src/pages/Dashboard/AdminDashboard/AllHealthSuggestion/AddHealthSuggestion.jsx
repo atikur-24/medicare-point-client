@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addHealthTipsApi } from "../../../../Features/HealthTips/addHealthTips";
 
 const AddHealthSuggestion = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [cause, setCause] = useState("");
   const [prevention, setPrevention] = useState("");
   const [cure, setCure] = useState("");
@@ -18,6 +18,14 @@ const AddHealthSuggestion = () => {
     // Dispatch the action to add the health tip data
     dispatch(addHealthTipsApi({ data }));
   };
+
+  const handleReset = () => {
+    reset();
+    setCause("");
+    setPrevention("");
+    setCure("");
+  };
+
   return (
     <div className=" mt-8 bg-white box-shadow rounded-2xl p-10">
       <div className="grid grid-cols-1">
@@ -108,9 +116,12 @@ const AddHealthSuggestion = () => {
                 <input required type="text" placeholder="Type here" {...register("doctorDepartment")} className="input input-bordered w-full" />
               </div>
             </div>
-            <button type="submit" className="my-btn">
-              Add Health Tip
-            </button>
+            <div className="flex items-center gap-4 mt-4">
+              <button type="submit" className="my-btn">
+                Add Health Tip
+              </button>
+              <input onClick={handleReset} type="reset" value="Reset" className="btn btn-error" />
+            </div>
           </form>
         </div>
       </div>

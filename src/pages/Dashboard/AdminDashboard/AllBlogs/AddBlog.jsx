@@ -37,13 +37,13 @@ const AddBlog = () => {
   };
 
   return (
-    <div>
+    <div className="pb-8 py-4 max-w-5xl mx-auto">
       <h3 className="text-center text-3xl font-semibold my-5 text-my-primary">Add new blog</h3>
 
       <form onSubmit={handleBlog} className="add-blog-form space-y-3">
         <div>
           <h4>Blog Title</h4>
-          <input className="placeholder-gray-400 py-2 px-3 border rounded-md" required type="text" name="title" id="" placeholder="Type Here" />
+          <input className=" input input-bordered  outline-none  placeholder:text-gray-6 focus:!outline-none" required type="text" name="title" id="" placeholder="Type Here" />
         </div>
         <div>
           <h4>Blog Topic</h4>
@@ -51,7 +51,7 @@ const AddBlog = () => {
         </div>
         <div>
           <h4>Blog Content</h4>
-          <textarea className="w-full placeholder-gray-400 py-2 px-3 border rounded-md" required name="content" id="" placeholder="Type Here" />
+          <textarea className="" required name="content" id="" placeholder="Type Here" />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
