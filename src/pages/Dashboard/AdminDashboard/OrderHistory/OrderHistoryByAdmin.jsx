@@ -19,7 +19,7 @@ const OrderHistoryByAdmin = () => {
           {/* head */}
           <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-lg">
             <tr className=" rounded-t-md text-center">
-              <th className="rounded-tl-md">Order Id</th>
+              <th className="rounded-tl-md"> Id</th>
               <th>Product</th>
               <th>Quantity || Price</th>
               <th>Status</th>
