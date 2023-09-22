@@ -364,7 +364,7 @@ const Medicines = () => {
           <div>
             <div className="w-72 h-fit rounded-md hidden lg:block">{filterItems}</div>
             <div className="hidden lg:block w-72">
-              <div className="my-8 relative">
+              <div className="my-8">
                 <MedicineSwiper />
               </div>
               <TopRatedMedicine />

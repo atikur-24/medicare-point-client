@@ -28,7 +28,7 @@ const MedicineSwiper = () => {
         // onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
-          <div className="carousel-item h-96 w-full">
+          <div className="carousel-item h-96 w-full   relative">
             <div className="absolute top-8 left-16 text-center space-y-2">
               <h1 className="text-white text-xl font-semibold">New Nowosc</h1>
               <h1 className="text-white text-3xl font-bold">MEGA SALE</h1>
@@ -40,8 +40,8 @@ const MedicineSwiper = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="carousel-item h-96 w-full">
-            <div className="absolute top-8 left-16 text-center space-y-2">
+          <div className="carousel-item h-96 w-full  relative">
+            <div className="absolute top-8 left-12 text-center space-y-2 ">
               <h1 className="text-my-primary text-xl font-semibold">MediCare Shop</h1>
               <h1 className="text-my-primary text-3xl font-bold">UP TO 50% OFF</h1>
               <button type="button" className="text-base font-medium p-1 text-my-primary border rounded bg-transparent hover:bg-lite">
@@ -52,8 +52,8 @@ const MedicineSwiper = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="carousel-item h-96 w-full">
-            <div className="absolute top-8 left-16 text-center space-y-2">
+          <div className="carousel-item h-96 w-full  relative">
+            <div className="absolute top-8 left-12 text-center space-y-2">
               <h1 className="text-white text-xl font-semibold">Probiocare Complete</h1>
               <h1 className="text-white text-3xl font-bold">MEGA SALE</h1>
               <button type="button" className="text-base font-medium p-1 text-white border rounded bg-transparent hover:bg-my-primary">
