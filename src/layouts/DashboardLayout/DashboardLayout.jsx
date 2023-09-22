@@ -13,7 +13,6 @@ import { TfiMenu } from "react-icons/tfi";
 import { useDispatch } from "react-redux";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { fetchAdminHomeData } from "../../Features/DashboardData/adminHomeData";
 import { fetchNotificationsByEmail } from "../../Features/Notifications/fetchNotificationsByEmail";
 import logo from "../../assets/Logo/logo-point.svg";
 import Loader from "../../components/Loader";
@@ -51,10 +50,6 @@ const DashboardLayout = () => {
       setAdmin(true);
     }
   }, [role]);
-
-  useEffect(() => {
-    dispatch(fetchAdminHomeData(`dashboard/${user?.email}`)).then(() => {});
-  }, [user?.email, dispatch]);
 
   useEffect(() => {
     const email = user?.email || "";
@@ -345,12 +340,12 @@ const DashboardLayout = () => {
   return (
     <div className="drawer xl:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content relative font-Alexandria min-h-screen bg-[#F1F6FA] px-5 xl:px-8  2xl:px-20">
+      <div className="drawer-content relative font-Alexandria min-h-screen bg-[#F1F6FA] px-2 xl:px-8  2xl:px-20">
         {/* Page content here */}
         <DashBoardNavbar allNotificationsData={allNotificationsData} setShowNotification={setShowNotification} showNotification={showNotification} />
         <div ref={notificationRef}>{showNotification && <Notification setLoading={setLoading} allNotifications={allNotificationsData} />}</div>
         <Outlet />
-        <label htmlFor="my-drawer-2" className="toggle-dashboard-btn ml-4 drawer-button xl:hidden">
+        <label htmlFor="my-drawer-2" className="toggle-dashboard-btn  drawer-button xl:hidden">
           <TfiMenu className="text-2xl  cursor-pointer" />
         </label>
       </div>
@@ -361,7 +356,7 @@ const DashboardLayout = () => {
           {/* Sidebar content here */}
 
           <li className="relative">
-            <NavLink to="/" className=" pb-3">
+            <NavLink to="/" className="pb-3">
               <img className="h-10 w-full" src={logo} alt="" />
             </NavLink>
             <label htmlFor="my-drawer-2" className="toggle-dashboard-btn2 xl:hidden">

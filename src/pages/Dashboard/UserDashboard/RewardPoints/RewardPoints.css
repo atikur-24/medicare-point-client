@@ -1,9 +1,28 @@
-/* .reward-card {
-    background: rgb(16, 182, 168);
-    background: linear-gradient(90deg, rgba(16, 182, 168, 1) 0%, rgba(9, 118, 121, 1) 50%, rgba(0, 111, 112, 1) 100%);
+
+.reward-bg {
+  background: radial-gradient(657px 657px at 2% 90%, #b4cdff 0, #dcf1f600 40%), radial-gradient(642px 642px at 82% 115%, #b4cdff 0, #dcf1f600 25%),
+    linear-gradient(-73.25deg, #dcf2f7 7.43%, #9accd5 94.82%);
+  color: #000 !important;
 }
 
-.reward-card2 {
-    background: rgb(224, 255, 253);
-    background: linear-gradient(225deg, rgba(224, 255, 253, 1) 0%, rgba(27, 225, 164, 1) 50%, rgba(143, 219, 203, 1) 100%);
-} */
+.reward-card:hover {
+  background: #ffffff80;
+  mix-blend-mode: soft-light;
+  box-shadow: 0 6.4px 14.4px #0000000d;
+  border-radius: 10px;
+  mix-blend-mode: normal;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+.shadow:hover {
+  transform: translate3d(0, -4px, 0);
+  box-shadow: 0 12px 30px 0 rgba(0, 0, 0, 0.2);
+  transition-property: box-shadow, transform;
+  transition-duration: 600ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.29, 0.99);
+}
