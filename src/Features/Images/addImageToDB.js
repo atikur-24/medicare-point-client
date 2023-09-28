@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const addImageToDBApi = createAsyncThunk("addImageToDB/addImageToDBApi", async (data) => {
   // console.log(data);
-  const res = await axios.post(`http://localhost:5000/images?collectionName=${data.collectionName}`, data.imageData);
+  const res = await axios.post(`${import.meta.env.VITE_API_URL}/images?collectionName=${data.collectionName}`, data.imageData);
   return res.data;
 });
 

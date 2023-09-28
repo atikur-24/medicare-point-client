@@ -12,7 +12,7 @@ const LabButton = ({ labAddCart }) => {
   const location = useLocation();
   const handlerLab = () => {
     if (user) {
-      axios.post("http://localhost:5000/labsCart", labAddCart).then((res) => {
+      axios.post(`${import.meta.env.VITE_API_URL}/labsCart`, labAddCart).then((res) => {
         if (res.data.insertedId) {
           refetch();
           toast.success("Lab Added Success", { position: "top-center", theme: "colored", autoClose: 3000, pauseOnHover: false });

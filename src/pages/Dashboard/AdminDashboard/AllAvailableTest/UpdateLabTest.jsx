@@ -197,7 +197,7 @@ const UpdateLabTest = ({ id }) => {
           </form>
 
           <div className="modal-action">
-            <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2 bg-red bg-red-500 hover:bg-red-400 text-white">
+            <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2  bg-red-500 hover:bg-red-400 text-white">
               ✕
             </label>
           </div>

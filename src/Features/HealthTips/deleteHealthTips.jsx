@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export const deleteHealthTipsApi = createAsyncThunk("deleteHealthTips/deleteHealthTipsApi", async (id) => {
-  const res = await axios.delete(`http://localhost:5000/allHealthTips/${id}`);
+  const res = await axios.delete(`${import.meta.env.VITE_API_URL}/allHealthTips/${id}`);
 
   if (res?.data?.deletedCount > 0) {
     Swal.fire("Deleted!", "lab has been deleted.", "success");

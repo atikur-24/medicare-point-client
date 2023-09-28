@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchNotificationsByEmail = createAsyncThunk("notificationsByEmail/fetchNotificationsByEmail", async ({ email, role }) => {
-  const res = await axios.get(`http://localhost:5000/notifications?email=${email}&role=${role}`);
+  const res = await axios.get(`${import.meta.env.VITE_API_URL}/notifications?email=${email}&role=${role}`);
   //   console.log(res.data);
   return res.data;
 });

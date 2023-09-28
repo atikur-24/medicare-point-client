@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchAllLabTests = createAsyncThunk("allLabTests/fetchAllLabTests", async (searchData) => {
-  const res = await axios.get(`http://localhost:5000/labAllItems?name=${searchData}`);
+  const res = await axios.get(`${import.meta.env.VITE_API_URL}/labAllItems?name=${searchData}`);
   return res.data;
 });
 

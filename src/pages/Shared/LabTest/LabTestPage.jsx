@@ -13,11 +13,11 @@ const LabTestPage = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/labCategory/${id}`).then((res) => setLabCategory(res?.data));
+    axios.get(`${import.meta.env.VITE_API_URL}/labCategory/${id}`).then((res) => setLabCategory(res?.data));
   }, [id]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/labItems/${labCategory[0]?.category_name}`).then((res) => setLabItems(res?.data));
+    axios.get(`${import.meta.env.VITE_API_URL}/labItems/${labCategory[0]?.category_name}`).then((res) => setLabItems(res?.data));
   }, [labCategory, labCategory.category_name]);
 
   return (

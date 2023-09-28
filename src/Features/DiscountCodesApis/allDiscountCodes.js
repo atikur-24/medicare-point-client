@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchAllDiscountCodes = createAsyncThunk("allDiscountCodes/fetchAllDiscountCodes", async (email) => {
-  const res = await axios.get(`http://localhost:5000/discountCodes/${email}`);
+  const res = await axios.get(`${import.meta.env.VITE_API_URL}/discountCodes/${email}`);
   //   console.log(res.data);
   return res.data;
 });

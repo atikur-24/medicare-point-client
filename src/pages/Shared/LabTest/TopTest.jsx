@@ -19,7 +19,7 @@ import LabTitle from "./LabTitle";
 const TopTest = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/labPopularItems").then((res) => setCategories(res?.data));
+    axios.get(`${import.meta.env.VITE_API_URL}/labPopularItems`).then((res) => setCategories(res?.data));
   }, []);
   return (
     <div className="mt-10 ">

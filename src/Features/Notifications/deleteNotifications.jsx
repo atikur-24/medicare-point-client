@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const deleteNotificationsApi = createAsyncThunk("deleteNotifications/deleteNotificationsApi", async (id) => {
-  const res = await axios.delete(`http://localhost:5000/notifications/${id}`);
+  const res = await axios.delete(`${import.meta.env.VITE_API_URL}/notifications/${id}`);
   return res.data;
 });
 

@@ -8,7 +8,7 @@ const useLabBook = () => {
     queryKey: ["labBook", user?.email],
     enabled: !loading,
     queryFn: async () => {
-      const data = await axios.get(`http://localhost:5000/labBooking?email=${user?.email}`);
+      const data = await axios.get(`${import.meta.env.VITE_API_URL}/labBooking?email=${user?.email}`);
       return data?.data;
     },
   });

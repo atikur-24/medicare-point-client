@@ -18,7 +18,7 @@ import PopularCategories from "./PopularCategories";
 const PopularLab = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/labCategories").then((res) => setCategories(res?.data));
+    axios.get(`${import.meta.env.VITE_API_URL}/labCategories`).then((res) => setCategories(res?.data));
   }, []);
   return (
     <div className="">

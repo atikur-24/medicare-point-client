@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 export const addBlogApi = createAsyncThunk("addBlog/addBlogApi", async (data) => {
   // console.log(data);
-  const res = await axios.post(`http://localhost:5000/blogs`, data.data);
+  const res = await axios.post(`${import.meta.env.VITE_API_URL}/blogs`, data.data);
 
   if (res.data.insertedId) {
     Swal.fire({

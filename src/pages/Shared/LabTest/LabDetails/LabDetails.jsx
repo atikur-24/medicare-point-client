@@ -9,7 +9,7 @@ const LabDetails = ({ open, toggleOpen }) => {
   const [labCart, refetch] = useLabCart();
 
   const handlerLabRemove = (id) => {
-    axios.delete(`http://localhost:5000/labCart/${id}`).then((res) => {
+    axios.delete(`${import.meta.env.VITE_API_URL}/labCart/${id}`).then((res) => {
       if (res.data.deletedCount > 0) {
         refetch();
         toast.error("Leb Removed");
@@ -18,7 +18,11 @@ const LabDetails = ({ open, toggleOpen }) => {
   };
 
   return (
-    <div className={`${open ? "hidden" : "block"} z-20 fixed  bg-[#F2FBFF] border-[3px] border-solid border-[#FCB716] rounded-l-lg max-h-[600px]  lg:max-h-[500px] 2xl:max-h-[670px]  md:w-96 w-full overflow-auto right-0 bottom-0  `}>
+    <div
+      className={`${
+        open ? "hidden" : "block"
+      } z-20 fixed  bg-[#F2FBFF] border-[3px] border-solid border-[#FCB716] rounded-l-lg max-h-[600px]  lg:max-h-[500px] 2xl:max-h-[670px]  md:w-96 w-full overflow-auto right-0 bottom-0  `}
+    >
       <div className="relative">
         <div className="fixed rounded-t-lg left-1 right-4 md:left-auto md:right-auto p-4 bg-card  drop-shadow-lg z-10">
           <div className="flex gap-6 justify-evenly">

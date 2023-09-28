@@ -1,103 +1,8 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700;800&display=swap"); */
-
 @import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.nav-container {
-  @apply max-w-[2550px] px-2 md:px-6 lg:px-12 mx-auto;
-}
-
-.szh-menu-container .szh-menu {
-  @apply lg:w-48 2xl:h-28  rounded-md !top-6 xl:!top-2 xl:!-left-32 border border-gray-3;
-}
-
-.filter-medicine .szh-menu {
-  @apply !h-fit !left-0;
-}
-.medicine-types .szh-menu {
-  @apply !h-fit !-top-44;
-}
-
-.my-container {
-  @apply px-4 xl:px-6 container mx-auto py-14 lg:py-16;
-}
-
-.swiper-slide {
-  background: none !important;
-}
-
-.active {
-  @apply font-bold text-base tracking-wide text-title-color  uppercase underline decoration-my-accent decoration-2 underline-offset-8;
-}
-.default {
-  @apply font-semibold text-base text-gray-6 tracking-wide  uppercase  hover:text-my-accent;
-}
-
-/* feedback  */
-.bg-card {
-  background-color: transparent;
-  background-image: linear-gradient(150deg, #eaf5ff 0%, #fff 100%);
-}
-
-/* choose us  */
-.choose-inside {
-  clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 80%, 90% 100%, 0 100%, 0% 80%, 0% 20%);
-  border: 1px solid #10847e;
-  background-color: #fff;
-}
-.choose-outside {
-  clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 80%, 90% 100%, 0 100%, 0% 80%, 0% 20%);
-  background-color: #10847e;
-  padding: 1px;
-  border-radius: 8px;
-}
-
-/* footer css */
-.footer-link li a:hover {
-  color: aquamarine;
-}
-
-.bg {
-  background-image: linear-gradient(to right top, #176b87, #007288, #007886, #007e83, #10847e);
-}
-
-/* button  */
-
-.cart-btn {
-  @apply py-1 md:py-2 lg:py-4 px-2 md:px-3 lg:px-5 rounded-full text-xs lg:text-sm uppercase font-medium lg:font-semibold inline-flex items-center justify-center gap-1 lg:gap-2 transition duration-300 text-white bg-my-primary hover:bg-my-accent;
-}
-.cart-btn-outline {
-  @apply rounded-full w-full p-1 text-[10px] lg:text-xs uppercase font-medium inline-flex items-center justify-center gap-2 transition duration-300 border hover:bg-my-primary hover:text-white border-my-primary text-my-primary;
-}
-.req-btn-lg {
-  @apply py-3 lg:py-4 px-3 lg:px-5 rounded-full text-sm uppercase font-semibold inline-flex items-center justify-center gap-2 transition duration-300 text-white bg-red-500 hover:bg-red-400;
-}
-.req-btn-sm {
-  @apply rounded-full w-full p-1 text-[10px] lg:text-xs transition duration-300 border uppercase bg-red-500 hover:bg-red-400 text-white border-red-500 hover:border-red-400;
-}
-.my-btn {
-  @apply bg-my-primary hover:bg-[#16b4ac] btn tracking-wide font-medium md:font-semibold text-white transition duration-200 border-0  active:hover:transform-none active:focus:transform-none;
-}
-.my-btn-outline {
-  @apply hover:bg-my-primary hover:text-white btn-sm lg:btn-md btn rounded-full font-medium md:font-semibold lg:font-bold transition-all duration-300 border border-my-primary text-my-primary active:hover:transform-none active:focus:transform-none;
-}
-.circle-btn {
-  @apply bg-my-primary hover:bg-[#16b4ac] tracking-wide hover:text-white btn rounded-full font-bold transition duration-300 border text-white active:hover:transform-none active:focus:transform-none;
-}
-.login-btn {
-  @apply bg-my-accent hover:bg-[#16b4ac]  btn  font-medium md:font-semibold text-white transition duration-200 border-0 active:hover:transform-none active:focus:transform-none;
-}
-.submit-btn {
-  @apply bg-my-primary hover:bg-my-accent text-white py-2 lg:py-3 px-3 lg:px-6 text-sm lg:text-base font-medium lg:font-semibold tracking-wide rounded-md transition-all uppercase;
-}
-.reset-btn {
-  @apply bg-red-500 hover:bg-red-400 text-white py-2 lg:py-3 px-3 lg:px-6 text-sm lg:text-base font-medium lg:font-semibold tracking-wide rounded-md transition-all uppercase;
-}
-
-/* button  */
 
 @layer base {
   html {
@@ -105,14 +10,107 @@
   }
 }
 
-.spinner {
+@layer components {
+  .nav-container {
+    @apply max-w-[2550px] px-2 md:px-6 lg:px-12 mx-auto;
+  }
+
+  .szh-menu-container .szh-menu {
+    @apply lg:w-48 2xl:h-28  rounded-md !top-6 xl:!top-2 xl:!-left-32 border border-gray-3;
+  }
+
+  .filter-medicine .szh-menu {
+    @apply !h-fit !left-0;
+  }
+  .medicine-types .szh-menu {
+    @apply !h-fit !-top-44;
+  }
+
+  .my-container {
+    @apply px-4 xl:px-6 container mx-auto py-14 lg:py-16;
+  }
+
+  .active {
+    @apply font-bold text-base tracking-wide text-title-color  uppercase underline decoration-my-accent decoration-2 underline-offset-8;
+  }
+  .default {
+    @apply font-semibold text-base text-gray-6 tracking-wide  uppercase  hover:text-my-accent;
+  }
+
+  /* button  */
+
+  .cart-btn {
+    @apply py-1 md:py-2 lg:py-4 px-2 md:px-3 lg:px-5 rounded-full text-xs lg:text-sm uppercase font-medium lg:font-semibold inline-flex items-center justify-center gap-1 lg:gap-2 transition duration-300 text-white bg-my-primary hover:bg-my-accent;
+  }
+  .cart-btn-outline {
+    @apply rounded-full w-full p-1 text-[10px] lg:text-xs uppercase font-medium inline-flex items-center justify-center gap-2 transition duration-300 border hover:bg-my-primary hover:text-white border-my-primary text-my-primary;
+  }
+  .req-btn-lg {
+    @apply py-3 lg:py-4 px-3 lg:px-5 rounded-full text-sm uppercase font-semibold inline-flex items-center justify-center gap-2 transition duration-300 text-white bg-red-500 hover:bg-red-400;
+  }
+  .req-btn-sm {
+    @apply rounded-full  w-full p-1 text-[10px] lg:text-xs transition duration-300 border uppercase bg-red-500 hover:bg-red-400 text-white border-red-500 hover:border-red-400;
+  }
+  .my-btn {
+    @apply bg-my-primary hover:bg-[#16b4ac] btn tracking-wide font-medium md:font-semibold text-white transition duration-200 border-0  active:hover:transform-none active:focus:transform-none;
+  }
+  .my-btn-outline {
+    @apply hover:bg-my-primary hover:text-white btn-sm lg:btn-md btn rounded-full font-medium md:font-semibold lg:font-bold transition-all duration-300 border border-my-primary text-my-primary active:hover:transform-none active:focus:transform-none;
+  }
+  .circle-btn {
+    @apply bg-my-primary hover:bg-[#16b4ac] tracking-wide hover:text-white btn rounded-full font-bold transition duration-300 border text-white active:hover:transform-none active:focus:transform-none;
+  }
+  .login-btn {
+    @apply bg-my-accent hover:bg-[#16b4ac]  btn  font-medium md:font-semibold text-white transition duration-200 border-0 active:hover:transform-none active:focus:transform-none;
+  }
+  .submit-btn {
+    @apply bg-my-primary hover:bg-my-accent text-white py-2 lg:py-3 px-3 lg:px-6 text-sm lg:text-base font-medium lg:font-semibold tracking-wide rounded-md transition-all uppercase;
+  }
+  .reset-btn {
+    @apply bg-red-500 hover:bg-red-400 text-white py-2 lg:py-3 px-3 lg:px-6 text-sm lg:text-base font-medium lg:font-semibold tracking-wide rounded-md transition-all uppercase;
+  }
+  /* button  */
+}
+
+@layer utilities {
+  /* choose us  */
+  .choose-inside {
+    clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 80%, 90% 100%, 0 100%, 0% 80%, 0% 20%);
+    border: 1px solid #10847e;
+    background-color: #fff;
+  }
+  .choose-outside {
+    clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 80%, 90% 100%, 0 100%, 0% 80%, 0% 20%);
+    background-color: #10847e;
+    padding: 1px;
+    border-radius: 8px;
+  }
+
+  .bg {
+    background-image: linear-gradient(to right top, #176b87, #007288, #007886, #007e83, #10847e);
+  }
+  /* feedback  */
+  .bg-card {
+    background-color: transparent;
+    background-image: linear-gradient(150deg, #eaf5ff 0%, #fff 100%);
+  }
+  /* footer css */
+  .footer-link li a:hover {
+    color: aquamarine;
+  }
+  .swiper-slide {
+    background: none !important;
+  }
+}
+
+/* .spinner {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   border: 8px solid #565656;
   border-top-color: #f34e3a;
   animation: spin 0.6s linear infinite;
-}
+} */
 
 @keyframes spin {
   0% {

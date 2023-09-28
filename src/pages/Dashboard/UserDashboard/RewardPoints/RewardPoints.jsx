@@ -148,7 +148,7 @@ const RewardPoints = () => {
               Book LabTest
             </Link>
           </div>
-          <div className=" bg-[#fb923c] bg-opacity-90 hidden xl:block rounded-full  p-4">
+          <div className=" bg-[#fb923c]/90 hidden xl:block rounded-full  p-4">
             <MdRedeem className="w-24 h-24  2xl:w-28 2xl:h-28 text-white " />
           </div>
         </div>
@@ -162,7 +162,7 @@ const RewardPoints = () => {
               Buy Medicines
             </Link>
           </div>
-          <div className=" bg-[#fb923c] bg-opacity-90 hidden xl:block rounded-full  p-4">
+          <div className=" bg-[#fb923c]/90  hidden xl:block rounded-full  p-4">
             <MdRedeem className="w-24 h-24  2xl:w-28 2xl:h-28 text-white " />
           </div>
         </div>

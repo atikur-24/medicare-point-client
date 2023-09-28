@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export const updateBlogApi = createAsyncThunk("updateBlog/updateBlogApi", async (data) => {
-  const res = await axios.put(`http://localhost:5000/blogs/${data._id}`, data.data);
+  const res = await axios.put(`${import.meta.env.VITE_API_URL}/blogs/${data._id}`, data.data);
 
   if (res.data.modifiedCount > 0) {
     Swal.fire("Updated Successfully", "success");

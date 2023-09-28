@@ -48,7 +48,7 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
           <button className="tooltip tooltip-primary tooltip-left" data-tip="Notification" type="button" onClick={handleNotification}>
             <MdOutlineNotificationsActive
               className={`bg-my-primary  text-primary  p-2  w-12 h-12 object-cover ml-2 transition-all relative rounded-full  duration-300 ${
-                showNotification ? "bg-my-primary text-white bg-opacity-70 " : "bg-opacity-20"
+                showNotification ? "bg-my-primary/70 text-white" : "bg-opacity-20"
               }`}
               src="https://i.ibb.co/8zxdmM6/notification.png"
               alt="upload images"
