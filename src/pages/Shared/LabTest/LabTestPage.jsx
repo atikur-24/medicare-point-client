@@ -13,12 +13,38 @@ const LabTestPage = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/labCategory/${id}`).then((res) => setLabCategory(res?.data));
+    const cancelToken = axios.CancelToken.source();
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/labCategory/${id}`, {
+        cancelToken: cancelToken.token,
+      })
+      .then((res) => setLabCategory(res?.data));
+
+    return () => {
+      cancelToken.cancel();
+    };
   }, [id]);
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/labItems/${labCategory[0]?.category_name}`).then((res) => setLabItems(res?.data));
-  }, [labCategory, labCategory.category_name]);
+    const cancelToken = axios.CancelToken.source();
+    const categoryName = labCategory[0]?.category_name;
+    if (categoryName) {
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/labItems/${categoryName}`, {
+          cancelToken: cancelToken.token,
+        })
+        .then((res) => {
+          setLabItems(res?.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching labItems:", error);
+        });
+    }
+
+    return () => {
+      cancelToken.cancel();
+    };
+  }, [labCategory]);
 
   return (
     <div className="relative">

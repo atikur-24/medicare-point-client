@@ -13,7 +13,7 @@ const HealthArticlesDetails = () => {
   // const { image, title, content_details, published_date, topic } = healthArticles;
 
   useEffect(() => {
-    axios.get("http://localhost:5000/blogs").then((res) => setBlogs(res.data));
+    axios.get(`${import.meta.env.VITE_API_URL}/blogs"`).then((res) => setBlogs(res.data));
   }, []);
 
   return (

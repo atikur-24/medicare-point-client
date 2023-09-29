@@ -17,8 +17,24 @@ import PopularCategories from "./PopularCategories";
 
 const PopularLab = () => {
   const [categories, setCategories] = useState([]);
+
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/labCategories`).then((res) => setCategories(res?.data));
+    const cancelToken = axios.CancelToken.source();
+
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/labCategories`, {
+        cancelToken: cancelToken.token,
+      })
+      .then((res) => {
+        setCategories(res?.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching labCategories:", error);
+      });
+
+    return () => {
+      cancelToken.cancel();
+    };
   }, []);
   return (
     <div className="">
