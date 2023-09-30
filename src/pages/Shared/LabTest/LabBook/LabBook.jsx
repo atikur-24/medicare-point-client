@@ -23,7 +23,13 @@ const LabBook = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchDetailData(api));
+    const abortController = new AbortController();
+
+    dispatch(fetchDetailData(api, { signal: abortController.signal }));
+
+    return () => {
+      abortController.abort();
+    };
   }, [dispatch, api]);
 
   const { test_name, price, image_url, discount, category_name, _id, gender, age, labTestDetails, report } = data;

@@ -34,6 +34,7 @@ const HealthTipsDetails = () => {
       setHealthTips(res.data);
     });
   }, []);
+  
   useEffect(() => {
     // Extract the category from the diseaseDetails object
     const diseaseCategory = diseaseDetails.category;
