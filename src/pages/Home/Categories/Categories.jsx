@@ -13,7 +13,18 @@ import { Pagination } from "swiper/modules";
 const Categories = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    axios.get("categories.json").then((res) => setCategories(res?.data));
+    const cancelToken = axios.CancelToken.source();
+
+    axios
+      .get("categories.json", { cancelToken: cancelToken.token })
+      .then((res) => setCategories(res?.data))
+      .catch((error) => {
+        console.error("An error occurred while fetching data:", error);
+      });
+
+    return () => {
+      cancelToken.cancel();
+    };
   }, []);
 
   return (

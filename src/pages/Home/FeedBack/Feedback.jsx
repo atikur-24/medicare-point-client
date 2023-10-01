@@ -22,7 +22,18 @@ const Feedback = () => {
   const [feedbacks, setFeedbacks] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/feedback").then((res) => setFeedbacks(res?.data));
+    const source = axios.CancelToken.source();
+
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/feedback`, { cancelToken: source.token })
+      .then((res) => setFeedbacks(res?.data))
+      .catch((error) => {
+        console.error("An error occurred while fetching feedback:", error);
+      });
+
+    return () => {
+      source.cancel();
+    };
   }, []);
 
   return (
