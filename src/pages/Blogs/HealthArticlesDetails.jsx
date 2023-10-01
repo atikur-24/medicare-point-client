@@ -13,9 +13,22 @@ const HealthArticlesDetails = () => {
   // const { image, title, content_details, published_date, topic } = healthArticles;
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/blogs"`).then((res) => setBlogs(res.data));
-  }, []);
+    const source = axios.CancelToken.source();
 
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/blogs`, {
+        cancelToken: source.token,
+      })
+      .then((res) => setBlogs(res.data))
+      .catch((error) => {
+        console.error("An error occurred while fetching blogs:", error);
+      });
+
+    // Cleanup function
+    return () => {
+      source.cancel();
+    };
+  }, []);
   return (
     <div className="space-y-8 my-container">
       <WebSiteTitle title={healthArticle.title} />
