@@ -30,11 +30,24 @@ const HealthTipsDetails = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/allHealthTips").then((res) => {
-      setHealthTips(res.data);
-    });
+    const cancel = axios.CancelToken.source();
+
+    axios
+      .get("http://localhost:5000/allHealthTips", {
+        cancelToken: cancel.token,
+      })
+      .then((res) => {
+        setHealthTips(res.data);
+      })
+      .catch((error) => {
+        console.error("An error occurred while fetching data:", error);
+      });
+
+    return () => {
+      cancel.cancel();
+    };
   }, []);
-  
+
   useEffect(() => {
     // Extract the category from the diseaseDetails object
     const diseaseCategory = diseaseDetails.category;
