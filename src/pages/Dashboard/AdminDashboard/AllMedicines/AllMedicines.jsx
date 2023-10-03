@@ -17,9 +17,20 @@ const AllMedicines = () => {
   // pagination
   const [perPage, setPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchName, setSearchName] = useState("");
+  const [filterStatus, setFilterStatus] = useState("");
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = startIndex + perPage;
-  const paginatedMedicine = allMedicines?.slice(startIndex, endIndex);
+
+  let filteredMedi = allMedicines;
+
+  if (searchName) {
+    filteredMedi = allMedicines.filter((medi) => medi?.medicine_name?.toLowerCase().includes(searchName?.toLowerCase()));
+  } else if (filterStatus !== "All Medicine") {
+    filteredMedi = allMedicines.filter((medi) => medi?.status?.toLowerCase().includes(filterStatus?.toLowerCase()));
+  }
+
+  const paginatedMedicine = filteredMedi?.slice(startIndex, endIndex);
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
@@ -70,8 +81,8 @@ const AllMedicines = () => {
   const deniedMedicines = medicines.filter((medicine) => medicine?.status === "denied");
 
   return (
-    <div>
-      <div className="flex px-6 mb-8">
+    <div className="mx-4">
+      <div className="flex mb-8">
         <div className="stats shadow">
           <div onClick={() => handelFiltering()} className="stat place-items-center space-y-2 cursor-pointer">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">All Medicines</div>
@@ -95,7 +106,27 @@ const AllMedicines = () => {
         </div>
       </div>
 
-      <div className=" mb-20 px-5">
+      <div className="flex justify-between mb-6">
+        <div className="join">
+          <input value={searchName} onChange={(e) => setSearchName(e.target.value)} type="search" className="input input-bordered join-item outline-none !rounded-md f placeholder:text-gray-6 focus:!outline-none" placeholder="search by name" />
+        </div>
+        <div className="flex items-center gap-4 ">
+          <h2 className="w-[120px]">Filter by</h2>
+          <select
+            onChange={(e) => {
+              setFilterStatus(e?.target?.value);
+            }}
+            className="select outline-none hover:outline-none focus:!outline-none select-bordered w-full max-w-xs"
+          >
+            <option selected>All Medicine</option>
+            <option>Approved</option>
+            <option>Pending</option>
+            <option>Denied</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="mb-20">
         <table className="overflow-x-auto table  border border-gray-3 bg-white table-zebra">
           {/* head */}
           <thead className="bg-my-primary text-white font-normal text-sm">
@@ -180,12 +211,12 @@ const AllMedicines = () => {
             </button>
             <button
               onClick={() => {
-                if (currentPage * perPage < allMedicines?.length) {
+                if (currentPage * perPage < filteredMedi?.length) {
                   handlePageChange(currentPage + 1);
                 }
               }}
-              disabled={currentPage * perPage >= allMedicines?.length}
-              className={`${currentPage * perPage >= allMedicines?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              disabled={currentPage * perPage >= filteredMedi?.length}
+              className={`${currentPage * perPage >= filteredMedi?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
               type="button"
             >
               <LiaAngleRightSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
