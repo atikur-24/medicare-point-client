@@ -24,7 +24,7 @@ const AllPharmacistRow = ({ user, index, handelDelete }) => {
           <BiSolidUserDetail className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
         </button>
         <PharmacistDetailModal user={user} isOpen={isOpen} setIsOpen={setIsOpen} />
-        <button type="button" onClick={() => handelDelete(user?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
+        <button type="button" onClick={() => handelDelete(user?._id)} className=" bg-red-500/30 rounded-full  ">
           <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
         </button>
       </td>

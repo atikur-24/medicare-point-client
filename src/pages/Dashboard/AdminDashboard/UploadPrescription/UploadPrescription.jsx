@@ -88,7 +88,7 @@ const UploadPrescription = () => {
           <form className="">
             <input
               onChange={handleSearch}
-              className="w-full  bg-primary  absolute z-20 -top-px left-0 outline-none bg-opacity-10 px-4 rounded-full p-2 lg:pr-5 placeholder:text-gray-5 "
+              className="w-full  bg-primary/10  absolute z-20 -top-px left-0 outline-none  px-4 rounded-full p-2 lg:pr-5 placeholder:text-gray-5 "
               type="search"
               value={search}
               placeholder="Search Medicines"
@@ -104,7 +104,7 @@ const UploadPrescription = () => {
 
           <div className={`pt-10 h-[75vh] overflow-y-scroll ${search ? "block" : "hidden"}`}>
             {medicines.length === 0 && (
-              <div className="flex gap-2 mt-2 bg-my-pink bg-opacity-5 rounded-xl  text-primary p-2">
+              <div className="flex gap-2 mt-2 bg-my-pink/5  rounded-xl  text-primary p-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -185,7 +185,7 @@ const UploadPrescription = () => {
             ))}
 
             {cart.length === 0 && (
-              <div className="flex gap-2 mt-2 bg-my-pink bg-opacity-5 rounded-xl  text-primary p-2">
+              <div className="flex gap-2 mt-2 bg-my-pink/5  rounded-xl  text-primary p-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -195,7 +195,7 @@ const UploadPrescription = () => {
           </div>
           {cart.length > 0 && (
             <form className="flex flex-col xl:flex-row gap-4 pr-4" onSubmit={handleUploadToDB}>
-              <button className="w-full xl:w-1/2 btn my-btn p-2 bg-my-accent bg-opacity-50" type="submit" name="searchMedicines" id="">
+              <button className="w-full xl:w-1/2 btn my-btn p-2 bg-my-accent/50 " type="submit" name="searchMedicines" id="">
                 {isUploading ? "Uploading..." : "Upload"}
               </button>
               <button type="button" className="btn w-full xl:w-1/2 btn-error" onClick={handleClearCart}>

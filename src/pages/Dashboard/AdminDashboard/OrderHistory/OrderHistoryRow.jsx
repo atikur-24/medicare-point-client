@@ -28,7 +28,7 @@ const OrderHistoryRow = ({ order, handleDeleteOrder, handleModalClick }) => {
           <p className="absolute hidden group-hover:block whitespace-nowrap ">Details</p>
         </button>
 
-        <button onClick={() => handleDeleteOrder(order?._id)} type="button" className=" bg-red-500 rounded-full bg-opacity-30 " title="delete">
+        <button onClick={() => handleDeleteOrder(order?._id)} type="button" className=" bg-red-500/30 rounded-full" title="delete">
           <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
         </button>
       </td>

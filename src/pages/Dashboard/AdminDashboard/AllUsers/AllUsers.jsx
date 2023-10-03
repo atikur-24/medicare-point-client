@@ -122,7 +122,7 @@ const AllUsers = () => {
       <div className="overflow-x-auto">
         <table className="table  border border-gray-3 bg-white table-zebra">
           {/* head */}
-          <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-[14px]">
+          <thead className="rounded-lg bg-my-primary/90  rounded-t-md text-white text-[14px]">
             <tr className="text-center rounded-t-md">
               <th className="rounded-tl-md">#</th>
               <th>Photo</th>
@@ -163,7 +163,7 @@ const AllUsers = () => {
                     </Menu>
                   </td>
                   <td className="flex justify-center items-center gap-4">
-                    <button type="button" onClick={() => handelDeleteUser(user?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
+                    <button type="button" onClick={() => handelDeleteUser(user?._id)} className=" bg-red-500/30 rounded-full">
                       <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
                     </button>
                   </td>
