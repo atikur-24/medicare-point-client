@@ -160,7 +160,7 @@ const AllPrescriptions = () => {
                   Add Medicine
                 </Link>
 
-                <button onClick={() => handleDelete(p._id)} type="button" className=" bg-red-500 rounded-full bg-opacity-30 ">
+                <button onClick={() => handleDelete(p._id)} type="button" className=" bg-red-500/30 rounded-full  ">
                   <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
                 </button>
               </div>

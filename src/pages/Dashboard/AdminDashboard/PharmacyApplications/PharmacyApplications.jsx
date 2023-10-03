@@ -44,7 +44,7 @@ const PharmacyApplications = () => {
       <div className="overflow-x-auto mb-20">
         <table className="table  border border-gray-3 bg-white table-zebra">
           {/* head */}
-          <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-sm">
+          <thead className="rounded-lg bg-my-primary/90  rounded-t-md text-white text-sm">
             <tr className="text-center rounded-t-md">
               <th className="rounded-tl-md">#</th>
               <th>Pharmacist</th>
@@ -80,7 +80,7 @@ const PharmacyApplications = () => {
                 </td>
                 <td className="font-semibold text-center">
                   <button type="button" onClick={() => DeleteApplication(application?._id)}>
-                    <RiDeleteBinLine className="text-4xl p-2 rounded-full text-red-500 bg-red-500 bg-opacity-30" />
+                    <RiDeleteBinLine className="text-4xl p-2 rounded-full text-red-500 bg-red-500/30 " />
                   </button>
                 </td>
               </tr>

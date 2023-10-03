@@ -108,7 +108,7 @@ const PharmacistOrderHistory = () => {
       <div className="overflow-x-auto">
         <table className="table  border border-gray-3 bg-white table-zebra">
           {/* head */}
-          <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white ">
+          <thead className="rounded-lg bg-my-primary/90  rounded-t-md text-white ">
             <tr className="text-center rounded-t-md">
               <th className="rounded-tl-md">ID</th>
               <th>Photo</th>

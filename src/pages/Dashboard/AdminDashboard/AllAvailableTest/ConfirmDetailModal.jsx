@@ -31,7 +31,7 @@ const ConfirmDetailModal = ({ isOpen, toggleOpen, data, setData, setClick }) => 
           <div className="fixed inset-0 bg-black/25" />
         </Transition.Child>
 
-        <div className="fixed inset-0 overflow-y-auto bg-black bg-opacity-25 !z-[60]">
+        <div className="fixed inset-0 overflow-y-auto bg-black/25  !z-[60]">
           <div className="flex min-h-screen items-center justify-center p-4 text-center">
             <Transition.Child
               as={Fragment}

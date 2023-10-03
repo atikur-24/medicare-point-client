@@ -28,7 +28,7 @@ const Services = () => {
       </div>
 
       <div className="services-product-bg">
-        <div className="bg-black bg-opacity-60">
+        <div className="bg-black/60">
           <div className="flex flex-col md:flex-row justify-between gap-6 items-center my-container ">
             <div className="w-full space-y-6">
               <h2 className="text-xl md:text-3xl xl:text-4xl font-medium md:font-semibold xl:font-bold xl:tracking-wide xl:leading-snug text-white capitalize">In this website you will get some test booking options.</h2>

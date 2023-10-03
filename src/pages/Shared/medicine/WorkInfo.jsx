@@ -37,7 +37,7 @@ const WorkInfo = () => {
         </div>
         <p className="font-semibold lg:font-bold tracking-wide">SOPPING ON AUTHENTIC MEDICINES</p>
       </div>
-      <div className="relative shadow-lg text-center py-10 px-2 space-x-4 space-y-4 bg-my-primary bg-opacity-90 md:col-span-2 xl:col-span-1">
+      <div className="relative shadow-lg text-center py-10 px-2 space-x-4 space-y-4 bg-my-primary/90  md:col-span-2 xl:col-span-1">
         <button type="button" className="my-btn-outline tracking-wide">
           <AiOutlineApple size={24} />
           DownLoad

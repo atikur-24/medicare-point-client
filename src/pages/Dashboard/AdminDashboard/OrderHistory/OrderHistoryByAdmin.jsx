@@ -118,7 +118,7 @@ const OrderHistoryByAdmin = () => {
       <div className="overflow-x-auto">
         <table className="table  border border-gray-3 bg-white table-zebra">
           {/* head */}
-          <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-sm">
+          <thead className="rounded-lg bg-my-primary/90 rounded-t-md text-white text-sm">
             <tr className=" rounded-t-md text-center">
               <th className="rounded-tl-md">ID</th>
               <th>Product</th>

@@ -171,7 +171,7 @@ const UploadImages = () => {
                   <img className="h-20 " src={i?.photoURL} alt="" />
                 </figure>
               </button>
-              <div className="rounded-b-md flex justify-center gap-2 py-1 bg-[#475569] bg-opacity-60 items-center absolute bottom-0 left-0 right-0">
+              <div className="rounded-b-md flex justify-center gap-2 py-1 bg-[#475569]/60  items-center absolute bottom-0 left-0 right-0">
                 <BiLinkAlt onClick={() => copyURl(i?.photoURL)} title="Copy Image URL" className="text-2xl text-white rounded-full  hover:bg-my-accent bg-my-primary p-1 " />
                 <Lottie onClick={() => handleDelete(i._id)} animationData={deleteIcon} className="h-8 w-8 cursor-pointer" loop />
                 {/* <MdDeleteForever onClick={() => copyURl(i?.photoURL)} title="Copy Image URL" className="text-2xl text-white rounded-full bg-[#dc2626] bg-opacity-50 hover:bg-red-400 p-1 " /> */}

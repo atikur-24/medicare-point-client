@@ -31,8 +31,8 @@ const Notification = ({ allNotifications, setLoading }) => {
           <div key={n._id}>
             <div
               className={`${
-                n?.read === "no" ? "bg-my-accent bg-opacity-10" : ""
-              } notification-card hover:scale-105 transition-all hover:bg-my-primary hover:bg-opacity-10 duration-300 flex items-center gap-4   p-2 rounded-md my-2 relative`}
+                n?.read === "no" ? "bg-my-accent/10" : ""
+              } notification-card hover:scale-105 transition-all hover:bg-my-primary/10  duration-300 flex items-center gap-4   p-2 rounded-md my-2 relative`}
             >
               <Link to={`/${n?.url}`}>
                 <figure className="cursor-pointer">
@@ -60,7 +60,7 @@ const Notification = ({ allNotifications, setLoading }) => {
 
         <Link
           to="/medicines"
-          className="notification-card hover:scale-105 transition-all hover:bg-my-primary hover:bg-opacity-10 duration-300 cursor-pointer flex items-center gap-4   p-2 rounded-md my-2 relative"
+          className="notification-card hover:scale-105 transition-all hover:bg-my-primary/10  duration-300 cursor-pointer flex items-center gap-4   p-2 rounded-md my-2 relative"
         >
           <img className="w-14 h-14 rounded-full ring-offset-2 ring-2 ring-info" src="https://i.ibb.co/rxNPcjM/business.png" alt="notification icon" />
           <div className="">

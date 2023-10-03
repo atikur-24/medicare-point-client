@@ -66,7 +66,7 @@ const EditHealthSuggestion = () => {
                   <TiEdit className="text-lg" />
                 </label>
               </Link>
-              <button type="button" onClick={() => handlerDelete(healthTip._id)} className="btn btn-circle btn-sm bg-red-500 rounded-full bg-opacity-30">
+              <button type="button" onClick={() => handlerDelete(healthTip._id)} className="btn btn-circle btn-sm bg-red-500/30 rounded-full ">
                 <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
               </button>
             </div>

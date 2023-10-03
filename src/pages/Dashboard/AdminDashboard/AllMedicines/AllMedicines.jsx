@@ -164,7 +164,7 @@ const AllMedicines = () => {
                         <p className="absolute hidden group-hover:block whitespace-nowrap ">Detail</p>
                       </button>
                     </Link>
-                    <button type="button" onClick={() => handelDelete(medicine?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
+                    <button type="button" onClick={() => handelDelete(medicine?._id)} className=" bg-red-500/30 rounded-full  ">
                       <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
                     </button>
                   </td>
