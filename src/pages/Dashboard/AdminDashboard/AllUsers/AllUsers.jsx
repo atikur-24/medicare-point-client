@@ -57,8 +57,8 @@ const AllUsers = () => {
       text: "Are you Want delete This user?",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#006F70",
+      cancelButtonColor: "#ef4444",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -78,25 +78,23 @@ const AllUsers = () => {
 
   return (
     <div>
-      <div className=" mb-8">
+      <div className="mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">All Users</div>
-            <div className="stat-value">{allUsers?.length}</div>
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">All Members</div>
+            <div className="stat-value">{allUsers?.length || 0}</div>
           </div>
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Admin</div>
-            <div className="stat-value text-my-pink">{totalAdmin?.length}</div>
+            <div className="stat-value text-my-pink">{totalAdmin?.length || 0}</div>
           </div>
-
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pharmacist</div>
-            <div className="stat-value text-my-primary">{totalPharmacist?.length}</div>
+            <div className="stat-value text-my-primary">{totalPharmacist?.length || 0}</div>
           </div>
-
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Users</div>
-            <div className="stat-value text-gray-5">{totalUsers?.length}</div>
+            <div className="stat-value text-gray-5">{totalUsers?.length || 0}</div>
           </div>
         </div>
       </div>

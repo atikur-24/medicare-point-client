@@ -99,6 +99,7 @@ const MedicineDetails = () => {
         <div className="xl:flex gap-3">
           <div className="xl:w-1/2 h-96">
             <ReactImageMagnify
+              className="z-50"
               {...{
                 smallImage: {
                   alt: "medicine image",
@@ -180,7 +181,7 @@ const MedicineDetails = () => {
           </div>
           <div className={`${isOpen ? "" : "border-b-[3px]"} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
             <button type="button" onClick={toggleOpen}>
-              Reviews
+              Reviews ({allRatings?.length || 0})
             </button>
           </div>
         </div>

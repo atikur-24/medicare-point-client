@@ -38,7 +38,6 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
           <div className="stats shadow hidden xl:block">
             <div className="stat place-items-center space-y-2">
               <div className="stat-title text-title-color font-nunito font-bold uppercase ">{role} Dashboard</div>
-
             </div>
           </div>
         </div>

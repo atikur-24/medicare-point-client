@@ -8,18 +8,23 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import Loader from "../../../../components/Loader";
 import useAuth from "../../../../hooks/useAuth";
 
 const AllMedicinesByPharmacist = () => {
   const { user, loading } = useAuth();
-  const [perPage, setPerPage] = useState(5);
+  const [perPage, setPerPage] = useState(8);
   const [currentPage, setCurrentPage] = useState(1);
-  const [allMedicines, setAllMedicines] = useState([]);
+  const [filterStatus, setFilterStatus] = useState("");
 
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = startIndex + perPage;
 
-  const { data: medicines = [], refetch } = useQuery({
+  const {
+    data: medicines = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["medicines", user?.email],
     enabled: !loading,
     queryFn: async () => {
@@ -28,20 +33,11 @@ const AllMedicinesByPharmacist = () => {
     },
   });
 
-  useEffect(() => {
-    setAllMedicines(medicines);
-  }, [medicines]);
-
-  const handelFiltering = (status) => {
-    if (status) {
-      const filterMedicines = medicines.filter((medicine) => medicine?.status === status);
-      setAllMedicines(filterMedicines);
-    } else {
-      setAllMedicines(medicines);
-    }
-  };
-
-  const paginatedMedicine = allMedicines.slice(startIndex, endIndex);
+  let filteredOrder = medicines;
+  if (filterStatus !== "All Medicine") {
+    filteredOrder = medicines.filter((order) => order.status.toLowerCase().includes(filterStatus.toLowerCase()));
+  }
+  const paginatedMedicine = filteredOrder?.slice(startIndex, endIndex);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -53,7 +49,7 @@ const AllMedicinesByPharmacist = () => {
       text: "Permanent deleted medicine",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#16b4ac",
+      confirmButtonColor: "#006F70",
       cancelButtonColor: "#ef4444",
       confirmButtonText: "Yes, Delete It",
     }).then((result) => {
@@ -82,25 +78,39 @@ const AllMedicinesByPharmacist = () => {
     <div className="pb-10">
       <div className="flex mb-8">
         <div className="stats shadow">
-          <div onClick={() => handelFiltering()} className="stat place-items-center space-y-2 cursor-pointer">
+          <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">All Medicines</div>
-            <div className="stat-value text-my-primary">{medicines?.length}</div>
+            <div className="stat-value text-gray-7">{medicines?.length}</div>
           </div>
-
-          <div onClick={() => handelFiltering("approved")} className="stat place-items-center space-y-2 cursor-pointer">
+          <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Approved Medicines</div>
-            <div className="stat-value text-my-accent">{approvedMedicines?.length}</div>
+            <div className="stat-value text-my-primary">{approvedMedicines?.length}</div>
           </div>
-
-          <div onClick={() => handelFiltering("pending")} className="stat place-items-center space-y-2 cursor-pointer">
+          <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pending Medicines</div>
             <div className="stat-value text-yellow-500">{pendingMedicines?.length}</div>
           </div>
-
-          <div onClick={() => handelFiltering("denied")} className="stat place-items-center space-y-2 cursor-pointer">
+          <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Denied Medicines</div>
             <div className="stat-value text-red-500">{deniedMedicines?.length}</div>
           </div>
+        </div>
+      </div>
+
+      <div className="flex justify-end mb-6">
+        <div className="flex items-center gap-4 ">
+          <h2 className="w-[120px]">Filter by</h2>
+          <select
+            onChange={(e) => {
+              setFilterStatus(e?.target?.value);
+            }}
+            className="select outline-none hover:outline-none focus:!outline-none select-bordered w-full max-w-xs"
+          >
+            <option selected>All Medicine</option>
+            <option>Approved</option>
+            <option>Pending</option>
+            <option>Denied</option>
+          </select>
         </div>
       </div>
 
@@ -140,7 +150,7 @@ const AllMedicinesByPharmacist = () => {
                     <Link to={`/dashboard/medicine-details/${medicine?._id}`}>
                       <HiOutlineEye title="View Details" className="text-2xl p-1 text-white bg-slate-6 transition-colors rounded-sm" />
                     </Link>
-                    <Link to={`/update-medicine/${medicine?._id}`}>
+                    <Link to={`/dashboard/update-medicine/${medicine?._id}`}>
                       <TiEdit title="Update" className="text-2xl p-1 text-white bg-my-primary hover:bg-my-accent transition-colors rounded-sm" />
                     </Link>
                     <button type="button" onClick={() => handleDeleteMedicine(medicine?._id)}>
@@ -164,7 +174,7 @@ const AllMedicinesByPharmacist = () => {
                 setPerPage(parseInt(e.target.value, 10));
               }}
             >
-              <option value={5}>5</option>
+              <option value={8}>8</option>
               <option value={10}>10</option>
               <option value={15}>15</option>
               <option value={20}>20</option>
@@ -199,6 +209,11 @@ const AllMedicinesByPharmacist = () => {
           </div>
         </div>
       </div>
+      {isLoading && (
+        <div className="mt-10">
+          <Loader spinner />
+        </div>
+      )}
     </div>
   );
 };

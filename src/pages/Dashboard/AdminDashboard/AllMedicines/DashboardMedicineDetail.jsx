@@ -36,7 +36,7 @@ const DashboardMedicineDetail = () => {
   };
 
   return (
-    <div className=" p-2 md:p-6">
+    <div className="py-2 md:py-6">
       {isLoading ? (
         <Loader spinner />
       ) : (
@@ -89,7 +89,6 @@ const DashboardMedicineDetail = () => {
             <hr className="my-5  border-gray-4" />
             <div>
               <h2 className="text-xl font-bold">Medicine Description</h2>
-              {/* <p className="mt-2 text-gray-5">{medicine_description}</p> */}
               <div>{HtmlParser(medicine_description)}</div>
             </div>
             <div className="flex justify-between items-center gap-3 mt-8">

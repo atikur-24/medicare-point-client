@@ -27,8 +27,8 @@ const AllAvailableTest = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#006F70",
+      cancelButtonColor: "#ef4444",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -39,7 +39,7 @@ const AllAvailableTest = () => {
     });
   };
 
-  const LabTestPerPage = 9;
+  const LabTestPerPage = 12;
   const startIndex = currentPage * LabTestPerPage;
   const endIndex = startIndex + LabTestPerPage;
   const PaginationLabTest = allLabTest?.slice(startIndex, endIndex);
@@ -58,11 +58,11 @@ const AllAvailableTest = () => {
   }
 
   return (
-    <div className="px-2 md:px-5 py-10">
+    <div className="py-10">
       <div className=" mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Total Lab</div>
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Total Lab Test</div>
             <div className="stat-value text-my-primary">{allLabTest.length || 0}</div>
           </div>
         </div>

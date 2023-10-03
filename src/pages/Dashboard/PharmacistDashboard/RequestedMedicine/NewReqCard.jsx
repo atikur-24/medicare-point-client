@@ -15,7 +15,7 @@ const NewReqCard = ({ newReqMedi, refetch }) => {
       text: "Please add before deleting",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#16b4ac",
+      confirmButtonColor: "#006F70",
       cancelButtonColor: "#ef4444",
       confirmButtonText: "Yes, Delete",
     }).then((result) => {

@@ -13,7 +13,7 @@ const ReqCard = ({ singleMedi, refetch }) => {
       title: "Are you sure?",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#16b4ac",
+      confirmButtonColor: "#006F70",
       cancelButtonColor: "#ef4444",
       confirmButtonText: "Yes, Delete",
     }).then((result) => {

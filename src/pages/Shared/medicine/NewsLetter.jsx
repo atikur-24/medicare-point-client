@@ -16,11 +16,11 @@ const NewsLetter = () => {
       <div className="w-full md:w-10/12 mx-auto text-center space-y-4 ">
         <p className="text-lg font-semibold text-white tracking-wide">NEWS LETTER</p>
         <h1 className="text-2xl md:text-3xl font-bold text-my-accent">GET DISCOUNT 30% OFF</h1>
-        <form onSubmit={handleSubmit} className="flex justify-center w-10/12  md:w-1/2 mx-auto gap-4">
+        <form onSubmit={handleSubmit} className="flex justify-center items-center px-4 xl:w-1/2 mx-auto gap-4">
           <input
             required
             name="email"
-            className="w-full mb-4 ps-4 h-12 text-sm md:text-base outline-my-primary rounded-3xl border border-my-accent  placeholder-gray-4 p-2 font-medium focus:border-2 focus:outline-none  focus:border-accent"
+            className="w-full ps-4 lg:h-12 text-sm md:text-base outline-my-primary rounded-3xl border border-my-accent  placeholder-gray-4 p-1 md:p-2 font-medium focus:border-2 focus:outline-none  focus:border-accent"
             type="email"
             placeholder="xyz@gmail.com"
           />

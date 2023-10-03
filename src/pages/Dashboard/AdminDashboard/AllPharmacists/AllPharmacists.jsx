@@ -28,8 +28,8 @@ const AllPharmacists = () => {
       text: "Are you Want delete This user?",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#006F70",
+      cancelButtonColor: "#ef4444",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -50,7 +50,7 @@ const AllPharmacists = () => {
 
   return (
     <div>
-      <div className="flex px-6 mb-8">
+      <div className="flex mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
             <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pharmacists</div>
@@ -58,7 +58,7 @@ const AllPharmacists = () => {
           </div>
         </div>
       </div>
-      <div className="overflow-x-auto mb-20  px-5">
+      <div className="overflow-x-auto">
         <table className="table  border border-gray-3 bg-white table-zebra">
           {/* head */}
           <thead className="rounded-lg bg-my-primary bg-opacity-90 rounded-t-md text-white text-sm">

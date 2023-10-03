@@ -16,7 +16,7 @@ const MediRequest = () => {
         text: "Please login for request new medicine",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#16b4ac",
+        confirmButtonColor: "#006F70",
         cancelButtonColor: "#ef4444",
         confirmButtonText: "Login Now",
       }).then((result) => {

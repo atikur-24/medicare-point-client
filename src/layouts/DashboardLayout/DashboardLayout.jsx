@@ -4,14 +4,14 @@ import { Toaster } from "react-hot-toast";
 import { BsBagCheck, BsGrid1X2Fill, BsImage } from "react-icons/bs";
 import { FaCaretDown, FaCaretUp, FaFilePrescription, FaUsers, FaWpforms } from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
-import { HiClipboardList, HiOutlineLogout } from "react-icons/hi";
+import { HiClipboardList, HiHome, HiOutlineLogout } from "react-icons/hi";
 import { MdAddShoppingCart, MdFeedback, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
 import { RiArrowUpDownFill, RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import { TbDiscount2 } from "react-icons/tb";
 import { TfiMenu } from "react-icons/tfi";
 import { useDispatch } from "react-redux";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { fetchNotificationsByEmail } from "../../Features/Notifications/fetchNotificationsByEmail";
 import logo from "../../assets/Logo/logo-point.svg";
@@ -349,7 +349,7 @@ const DashboardLayout = () => {
           <TfiMenu className="text-2xl  cursor-pointer" />
         </label>
       </div>
-      <div className="drawer-side    md:shadow-2xl !z-50">
+      <div className="drawer-side md:shadow-2xl !z-50">
         <label htmlFor="my-drawer-2" className="drawer-overlay" />
 
         <ul className="dashboard-ul bg-white flex-nowrap font-Alexandria  menu p-4 w-80 text-base-content space-y-4 !h-full md:h-fit ">
@@ -366,7 +366,13 @@ const DashboardLayout = () => {
           {isUser && userLinks}
           {isPharmacist && pharmacistLinks}
           {isAdmin && adminLinks}
-          <li className="">
+          <hr className="text-gray-3 mx-4" />
+          <li>
+            <Link to="/" className="dashboard-link">
+              <HiHome className="dashboard-icon" /> <span>Home</span>
+            </Link>
+          </li>
+          <li>
             <button onClick={handelLogOut} className="dashboard-link" type="button">
               <HiOutlineLogout className="dashboard-icon" /> <span>Log Out</span>
             </button>

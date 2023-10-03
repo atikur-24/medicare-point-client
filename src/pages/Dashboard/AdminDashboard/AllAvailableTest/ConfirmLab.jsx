@@ -6,15 +6,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
+import axios from "axios";
 import * as React from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TbListDetails } from "react-icons/tb";
-
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { fetchAdminLabBooking } from "../../../../Features/AllLabTests/adminLabBooking";
-import useLabBook from "../../../../hooks/useLabBook";
 import ConfirmDetailModal from "./ConfirmDetailModal";
 
 const columns = [
@@ -42,18 +40,7 @@ const columns = [
     minWidth: 100,
     align: "center",
   },
-  //   {
-  //     id: "delete",
-  //     label: "Delete",
-  //     minWidth: 100,
-  //     align: "center",
-  //   },
 ];
-
-// function createData(name, code, population, size) {
-//   const density = population / size;
-//   return { name, code, population, size, density };
-// }
 
 export default function ConfirmLab() {
   let [isOpen, setIsOpen] = React.useState(false);
@@ -90,8 +77,8 @@ export default function ConfirmLab() {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#006F70",
+      cancelButtonColor: "#ef4444",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -109,13 +96,25 @@ export default function ConfirmLab() {
     toggleOpen();
   };
 
+  const totalSuccess = allLabBooking.filter((labBook) => labBook?.status === "success");
+  const totalPending = allLabBooking.filter((labBook) => labBook?.status === "pending");
+
   return (
     <div className="pb-6">
-      <div className=" mb-8">
+      <div className="mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Booked Lab</div>
-            <div className="stat-value text-my-primary">{allLabBooking?.length || 0}</div>
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Total Lab Booking</div>
+            <div className="stat-value">{allLabBooking?.length || 0}</div>
+          </div>
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Success</div>
+            <div className="stat-value text-my-primary">{totalSuccess?.length || 0}</div>
+          </div>
+
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pending</div>
+            <div className="stat-value text-yellow-500">{totalPending?.length || 0}</div>
           </div>
         </div>
       </div>

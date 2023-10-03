@@ -15,7 +15,14 @@ const AllPrescriptions = () => {
   const dispatch = useDispatch();
   const [isDelete, setDelete] = useState(0);
   const [img, setImg] = useState("");
-  //   const a = useSelector((state) => state.allPrescription);
+  const [filterStatus, setFilterStatus] = useState("");
+
+  let filteredPrescription = allData;
+
+  if (filterStatus !== "All Prescription") {
+    filteredPrescription = allData.filter((data) => data?.status?.toLowerCase().includes(filterStatus?.toLowerCase()));
+  }
+
   useEffect(() => {
     axios.get("http://localhost:5000/prescriptions").then((res) => setAllData(res.data));
   }, [isDelete]);
@@ -26,8 +33,8 @@ const AllPrescriptions = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#006F70",
+      cancelButtonColor: "#ef4444",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -41,15 +48,18 @@ const AllPrescriptions = () => {
     });
   };
 
-  const prescriptionParpage = 9;
+  const prescriptionParpage = 12;
   const startIndex = currentPage * prescriptionParpage;
   const endIndex = startIndex + prescriptionParpage;
-  const PaginationPrescription = allData?.slice(startIndex, endIndex);
+  const PaginationPrescription = filteredPrescription?.slice(startIndex, endIndex);
   const pageCount = Math.ceil(allData.length / prescriptionParpage);
 
   const handlePageClick = (sleetedPage) => {
     setCurrentPage(sleetedPage.selected);
   };
+
+  const totalSuccess = allData.filter((admin) => admin?.status === "success");
+  const PendingSuccess = allData.filter((admin) => admin?.status === "pending");
 
   return (
     <div className="pb-10">
@@ -62,7 +72,7 @@ const AllPrescriptions = () => {
             </button>
           </form>
           <div>
-            <img src={img} alt="" />
+            <img src={img} alt="prescription" />
           </div>
         </div>
       </dialog>
@@ -70,11 +80,37 @@ const AllPrescriptions = () => {
       <div className="mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Receive Prescription</div>
-            <div className="stat-value text-my-primary">{allData.length || 0}</div>
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Received Prescription</div>
+            <div className="stat-value">{allData?.length || 0}</div>
+          </div>
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Complete Prescription</div>
+            <div className="stat-value text-my-primary">{totalSuccess?.length || 0}</div>
+          </div>
+
+          <div className="stat place-items-center space-y-2">
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pending Prescription</div>
+            <div className="stat-value text-yellow-500">{PendingSuccess?.length || 0}</div>
           </div>
         </div>
       </div>
+
+      <div className="flex justify-end mb-6">
+        <div className="flex items-center gap-4 ">
+          <h2 className="w-[120px]">Filter by</h2>
+          <select
+            onChange={(e) => {
+              setFilterStatus(e?.target?.value);
+            }}
+            className="select outline-none hover:outline-none focus:!outline-none select-bordered w-full max-w-xs"
+          >
+            <option selected>All Prescription</option>
+            <option>Success</option>
+            <option>Pending</option>
+          </select>
+        </div>
+      </div>
+
       <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 mb-10">
         {PaginationPrescription?.map((p) => (
           <div key={p?._id}>
@@ -101,11 +137,13 @@ const AllPrescriptions = () => {
                   <BiTimeFive />
                   {p.date}
                 </h2>
-                <p className="capitalize">Status: {p?.status}</p>
+                <p className="capitalize">
+                  Status: <span className={`${p?.status === "success" ? "text-my-primary" : "text-my-pink"} badge`}>{p?.status}</span>
+                </p>
               </div>
               <div className="flex justify-between items-center">
                 <Link disabled={p.status === "success"} className={`my-btn-outline `} to={`/dashboard/prescriptions/${p?.email}?id=${p._id}`} type="button">
-                  Upload Card
+                  Add Medicine
                 </Link>
 
                 <button onClick={() => handleDelete(p._id)} type="button" className=" bg-red-500 rounded-full bg-opacity-30 ">

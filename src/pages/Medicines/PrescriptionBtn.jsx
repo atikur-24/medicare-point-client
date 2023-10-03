@@ -16,7 +16,7 @@ const PrescriptionBtn = () => {
         text: "Please login for upload prescription",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#16b4ac",
+        confirmButtonColor: "#006F70",
         cancelButtonColor: "#ef4444",
         confirmButtonText: "Login Now",
       }).then((result) => {

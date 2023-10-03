@@ -21,9 +21,7 @@ const AddNewArticles = () => {
       .then((imageData) => {
         data.image_url = imageData.data.display_url;
         dispatch(addBlogApi({ data }));
-        console.log(data);
       });
-    console.log("New Health Tip:", data);
   };
 
   return (

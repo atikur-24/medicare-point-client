@@ -23,8 +23,8 @@ const EditArticles = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#006F70",
+      cancelButtonColor: "#ef4444",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -34,7 +34,7 @@ const EditArticles = () => {
     });
   };
 
-  const blogsPerPage = 9;
+  const blogsPerPage = 12;
   const startIndex = currentPage * blogsPerPage;
   const endIndex = startIndex + blogsPerPage;
   const PaginationBlogs = allBlogs?.slice(startIndex, endIndex);
@@ -46,7 +46,13 @@ const EditArticles = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 m-8 ">
+      <div className="stats shadow">
+        <div className="stat place-items-center space-y-2">
+          <div className="stat-title text-title-color font-nunito font-bold uppercase ">Total Blogs</div>
+          <div className="stat-value text-my-primary">{allBlogs.length || 0}</div>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 my-8">
         {PaginationBlogs?.map((allBlog) => (
           <div key={allBlog._id} className="grid grid-cols-1 gap-4 justify-center items-center  shadow-sm p-2 border border-gray-3 bg-white box-shadow rounded-2xl">
             <h2 className="text-center items-center gap-3 font-medium text-[16px] tracking-wide">{allBlog.title}</h2>

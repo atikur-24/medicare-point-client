@@ -39,7 +39,7 @@ const MedicineCarts = () => {
       text: "You remove all items in cart",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#16b4ac",
+      confirmButtonColor: "#006F70",
       cancelButtonColor: "#ef4444",
       confirmButtonText: "Yes, Clear All",
     }).then((result) => {

@@ -20,13 +20,13 @@ const AllPharmacistRow = ({ user, index, handelDelete }) => {
       <td className=" font-medium">{user?.pharmacistDetail?.pharmacyPhoneNumber}</td>
       <td className="font-medium ">{user?.pharmacistDetail?.pharmacyName}</td>
       <td className="flex items-center gap-4">
-        <button type="button" onClick={() => handelDelete(user?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
-          <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
-        </button>
         <button onClick={() => setIsOpen(!isOpen)} type="button">
           <BiSolidUserDetail className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
         </button>
         <PharmacistDetailModal user={user} isOpen={isOpen} setIsOpen={setIsOpen} />
+        <button type="button" onClick={() => handelDelete(user?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
+          <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
+        </button>
       </td>
     </tr>
   );
