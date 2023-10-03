@@ -9,7 +9,7 @@ const ViewCart = () => {
 
   useEffect(() => {
     axios
-      .get("/medicines.json")
+      .get(`${import.meta.env.VITE_API_URL}/medicines.json`)
       .then((res) => setCartMedicines(res.data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);

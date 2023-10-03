@@ -12,11 +12,25 @@ const PharmacistsHome = ({ user }) => {
   const { medicines, orders, pendingOrders, successOrder, medicineRequest } = pharmacistHomeData;
 
   useEffect(() => {
+    const source = axios.CancelToken.source(); // Create a cancel token source
+
     if (user?.email) {
-      axios.get(`${import.meta.env.VITE_API_URL}/dashboardHomeData/${user.email}`).then((res) => {
-        setpharmacistHomeData(res.data);
-      });
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/dashboardHomeData/${user.email}`, {
+          cancelToken: source.token, // Pass the cancel token to the request
+        })
+        .then((res) => {
+          setpharmacistHomeData(res.data);
+        })
+        .catch((error) => {
+          console.error("An error occurred while fetching data:", error);
+        });
     }
+
+    // Cleanup function to cancel the request when the component unmounts or when user.email changes
+    return () => {
+      source.cancel("Data request canceled by cleanup"); // Cancel the request with a message
+    };
   }, [user?.email]);
 
   return (

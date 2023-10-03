@@ -13,14 +13,28 @@ const UserProfile = () => {
   const [currentUserData, setCurrentUserData] = useState({});
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/users`).then((res) => {
-      // Find the current user's data based on their email
-      const currentUser = res.data.find((userData) => userData.email === user.email);
+    const source = axios.CancelToken.source(); // Create a cancel token source
 
-      if (currentUser) {
-        setCurrentUserData(currentUser);
-      }
-    });
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/users`, {
+        cancelToken: source.token, // Pass the cancel token to the request
+      })
+      .then((res) => {
+        // Find the current user's data based on their email
+        const currentUser = res.data.find((userData) => userData.email === user.email);
+
+        if (currentUser) {
+          setCurrentUserData(currentUser);
+        }
+      })
+      .catch((error) => {
+        console.error("An error occurred while fetching data:", error);
+      });
+
+    // Cleanup function to cancel the request when the component unmounts or when user.email changes
+    return () => {
+      source.cancel("Data request canceled by cleanup"); // Cancel the request with a message
+    };
   }, [user.email]);
   return (
     <div className="">

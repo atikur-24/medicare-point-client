@@ -96,7 +96,7 @@ const Navbar = () => {
               <div className="flex items-center gap-4 lg:gap-10">
                 <Lang />
                 <NavCart />
-                <div>
+                <div className="navMenu">
                   <Menu
                     menuButton={
                       <MenuButton>

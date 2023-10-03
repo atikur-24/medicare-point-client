@@ -9,8 +9,6 @@ import AddNewArticles from "../pages/Dashboard/AdminDashboard/AdminBlogs/AddNewA
 import AddLabTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AddLabTest";
 import AllAvailableTest from "../pages/Dashboard/AdminDashboard/AllAvailableTest/AllAvailableTest";
 import AddBlog from "../pages/Dashboard/AdminDashboard/AllBlogs/AddBlog";
-import AddDoctor from "../pages/Dashboard/AdminDashboard/AllDoctors/AddDoctor";
-import AllDoctors from "../pages/Dashboard/AdminDashboard/AllDoctors/AllDoctors";
 import AddHealthSuggestion from "../pages/Dashboard/AdminDashboard/AllHealthSuggestion/AddHealthSuggestion";
 import EditHealthSuggestion from "../pages/Dashboard/AdminDashboard/AllHealthSuggestion/EditHealthSuggestion";
 import UpdateHealthTips from "../pages/Dashboard/AdminDashboard/AllHealthSuggestion/UpdateHealthTips";
@@ -356,14 +354,6 @@ const router = createBrowserRouter([
       {
         path: "add-lab-test",
         element: <AddLabTest />,
-      },
-      {
-        path: "manage-all-doctors",
-        element: <AllDoctors />,
-      },
-      {
-        path: "add-doctor",
-        element: <AddDoctor />,
       },
       {
         path: "add-blog",

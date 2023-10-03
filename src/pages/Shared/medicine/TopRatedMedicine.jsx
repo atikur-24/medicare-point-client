@@ -13,7 +13,20 @@ const TopRatedMedicine = () => {
   const [topRatedMedi, setTopRatedMedi] = useState([]);
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/topRated-medicines`).then((res) => setTopRatedMedi(res?.data));
+    const source = axios.CancelToken.source();
+
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/topRated-medicines`, {
+        cancelToken: source.token, // Pass the cancel token to the request
+      })
+      .then((res) => setTopRatedMedi(res?.data))
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+
+    return () => {
+      source.cancel("Data request canceled by cleanup"); // Cancel the request with a message
+    };
   }, []);
 
   return (
@@ -33,7 +46,9 @@ const TopRatedMedicine = () => {
               </Link>
               <Rating style={{ maxWidth: 60 }} value={medicine.rating} readOnly itemStyles={customStyles} />
               <p className="inline-flex gap-1 text-xs">
-                <span className="font-medium text-my-pink inline-flex items-center">৳ {medicine.discount > 0 ? (medicine.price - (medicine.price / 100) * medicine.discount).toFixed(2) : medicine.price.toFixed(2)}</span>
+                <span className="font-medium text-my-pink inline-flex items-center">
+                  ৳ {medicine.discount > 0 ? (medicine.price - (medicine.price / 100) * medicine.discount).toFixed(2) : medicine.price.toFixed(2)}
+                </span>
                 {medicine.discount > 0 && <span className="inline-flex items-center text-gray-4 line-through">৳ {medicine.price}</span>}
               </p>
             </div>

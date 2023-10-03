@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { HiMinus, HiPlus } from "react-icons/hi";
@@ -21,11 +22,23 @@ const UploadPrescription = () => {
   const id = queryParams.get("id");
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/searchMedicinesByName?name=${search}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setMedicines(data);
+    const source = axios.CancelToken.source(); // Create a cancel token source
+
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/searchMedicinesByName?name=${search}`, {
+        cancelToken: source.token, // Pass the cancel token to the request
+      })
+      .then((res) => {
+        setMedicines(res.data);
+      })
+      .catch((error) => {
+        console.error("An error occurred while fetching data:", error);
       });
+
+    // Cleanup function to cancel the request when the component unmounts
+    return () => {
+      source.cancel("Data request canceled by cleanup"); // Cancel the request with a message
+    };
   }, [search]);
 
   const handleSearch = (e) => {
@@ -118,7 +131,9 @@ const UploadPrescription = () => {
                       <h2 className="text-[1.125rem] font-semibold text-title-color tracking-wide inline-block">{m?.medicine_name}</h2>
                     </div>
                     <p className="inline-flex gap-1">
-                      <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">৳ {m?.discount > 0 ? (m.price - (m.price / 100) * m.discount).toFixed(2) : m?.price?.toFixed(2)}</span>
+                      <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">
+                        ৳ {m?.discount > 0 ? (m.price - (m.price / 100) * m.discount).toFixed(2) : m?.price?.toFixed(2)}
+                      </span>
                       {m?.discount > 0 && <span className="font-medium inline-flex items-center text-[16px] text-gray-5 line-through">৳ {m.price}</span>}
                     </p>
 
@@ -150,7 +165,9 @@ const UploadPrescription = () => {
                       <h2 className="text-[1.125rem] font-semibold text-title-color tracking-wide inline-block">{m.medicine_name}</h2>
                     </div>
                     <p className="inline-flex gap-1">
-                      <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">৳ {m.discount > 0 ? (m.price - (m.price / 100) * m.discount).toFixed(2) : m.price.toFixed(2)}</span>
+                      <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">
+                        ৳ {m.discount > 0 ? (m.price - (m.price / 100) * m.discount).toFixed(2) : m.price.toFixed(2)}
+                      </span>
                       {m.discount > 0 && <span className="font-medium inline-flex items-center text-[16px] text-gray-5 line-through">৳ {m.price}</span>}
                     </p>
                   </div>
