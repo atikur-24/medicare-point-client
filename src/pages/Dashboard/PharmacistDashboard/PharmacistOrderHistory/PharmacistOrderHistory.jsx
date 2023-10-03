@@ -17,7 +17,7 @@ const PharmacistOrderHistory = () => {
   const endIndex = startIndex + perPage;
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/medicinesOrderByPharmacist?email=${user?.email}`).then((res) => {
+    axios.get(`${import.meta.env.VITE_API_URL}/medicinesOrderByPharmacist?email=${user?.email}`).then((res) => {
       if (res?.data) {
         setIsLoading(false);
         setOrders(res?.data);

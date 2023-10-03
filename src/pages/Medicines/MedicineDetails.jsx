@@ -36,7 +36,7 @@ const MedicineDetails = () => {
   const params = useParams();
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:5000/medicines/details/${params?.id}`).then((res) => {
+    axios.get(`${import.meta.env.VITE_API_URL}/medicines/details/${params?.id}`).then((res) => {
       setMedicine(res.data);
       setLoading(false);
     });
@@ -63,7 +63,7 @@ const MedicineDetails = () => {
 
     const newReview = { name: user?.displayName, email: user.email, date, rating: rating1, reviewMessage };
 
-    axios.post(`http://localhost:5000/reviews/${_id}`, newReview).then((res) => {
+    axios.post(`${import.meta.env.VITE_API_URL}/reviews/${_id}`, newReview).then((res) => {
       if (res.data.modifiedCount > 0) {
         form.reset();
         setRating(0);

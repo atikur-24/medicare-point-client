@@ -17,7 +17,7 @@ const OrderHistory = () => {
       confirmButtonText: "Yes, Cancel it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.patch(`http://localhost:5000/deliveryStatus/${id}`, { delivery_status: "canceled" }).then((res) => {
+        axios.patch(`${import.meta.env.VITE_API_URL}/deliveryStatus/${id}`, { delivery_status: "canceled" }).then((res) => {
           if (res.data.modifiedCount > 0) {
             refetch();
             Swal.fire("Canceled", "Your order has been canceled", "success");

@@ -33,7 +33,7 @@ const HealthTipsDetails = () => {
     const cancel = axios.CancelToken.source();
 
     axios
-      .get("http://localhost:5000/allHealthTips", {
+      .get(`${import.meta.env.VITE_API_URL}/allHealthTips`, {
         cancelToken: cancel.token,
       })
       .then((res) => {

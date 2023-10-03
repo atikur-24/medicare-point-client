@@ -95,7 +95,7 @@ const UpdateMedicine = () => {
     // console.log(updateData);
 
     axios
-      .put(`http://localhost:5000/update-medicine/${data._id}`, updateData)
+      .put(`${import.meta.env.VITE_API_URL}/update-medicine/${data._id}`, updateData)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           Swal.fire({

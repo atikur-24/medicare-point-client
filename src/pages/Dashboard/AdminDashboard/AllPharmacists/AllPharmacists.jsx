@@ -33,7 +33,7 @@ const AllPharmacists = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/delete-user/${id}`).then((res) => {
+        axios.delete(`${import.meta.env.VITE_API_URL}/delete-user/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             dispatch(fetchAllData(api));
             Swal.fire("Deleted!", "Your file has been deleted.", "success");

@@ -20,7 +20,7 @@ const FeedBackModal = ({ isOpen, setIsOpen, data }) => {
     if (!feedBack) {
       toast.error("Your feedback field is empty");
     } else {
-      axios.put(`http://localhost:5000/medicine-feedback/${data?._id}`, { feedback: feedBack }).then((res) => {
+      axios.put(`${import.meta.env.VITE_API_URL}/medicine-feedback/${data?._id}`, { feedback: feedBack }).then((res) => {
         if (res?.data?.modifiedCount > 0) {
           Swal.fire("Sended", "Feedback Successful Sended", "success");
         }

@@ -27,7 +27,7 @@ const DashboardMedicineDetail = () => {
 
   const handelChangeStatus = (id, newStatus) => {
     const statusApproved = { status: newStatus };
-    axios.patch(`http://localhost:5000/medicine-status/${id}`, statusApproved).then(() => {
+    axios.patch(`${import.meta.env.VITE_API_URL}/medicine-status/${id}`, statusApproved).then(() => {
       dispatch(fetchDetailData(api));
     });
     if (newStatus === "denied") {

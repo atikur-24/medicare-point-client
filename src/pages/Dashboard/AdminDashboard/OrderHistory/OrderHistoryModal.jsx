@@ -9,7 +9,7 @@ const OrderHistoryModal = ({ isOpen, setIsOpen, order, setIsClick, isClick }) =>
   }
 
   const handelChangeStatus = (id) => {
-    axios.patch(`http://localhost:5000/deliveryStatus/${id}`, { delivery_status: "shipping" }).then((res) => {
+    axios.patch(`${import.meta.env.VITE_API_URL}/deliveryStatus/${id}`, { delivery_status: "shipping" }).then((res) => {
       if (res.data.modifiedCount > 0) {
         setIsClick(isClick + 1);
         toast.success("Order Shipping");

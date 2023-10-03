@@ -19,7 +19,7 @@ const PharmacyApplications = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/deleteRApplication/${id}`).then((res) => {
+        axios.delete(`${import.meta.env.VITE_API_URL}/deleteRApplication/${id}`).then((res) => {
           if (res.data.deleteCount > 0) {
             Swal.fire("Deleted!", "Your file has been deleted.", "success");
           }

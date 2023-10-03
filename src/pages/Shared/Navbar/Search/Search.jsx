@@ -13,7 +13,7 @@ const Search = () => {
 
   useEffect(() => {
     if (search) {
-      fetch(`http://localhost:5000/searchMedicinesByName?name=${search}`)
+      fetch(`${import.meta.env.VITE_API_URL}/searchMedicinesByName?name=${search}`)
         .then((res) => res.json())
         .then((data) => {
           setMedicines(data);

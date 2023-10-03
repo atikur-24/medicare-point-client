@@ -44,7 +44,7 @@ const MedicineCarts = () => {
       confirmButtonText: "Yes, Clear All",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/medicineCarts?email=${user?.email}`).then((res) => {
+        axios.delete(`${import.meta.env.VITE_API_URL}/medicineCarts?email=${user?.email}`).then((res) => {
           if (res.data.deletedCount > 0) {
             toast.success("All Item Removed");
             refetch();

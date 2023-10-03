@@ -28,7 +28,7 @@ const UpdateHealthTips = () => {
       // data.image = imageData.data.display_url;
 
       // Update health tip data using axios
-      const updateResponse = await axios.put(`http://localhost:5000/allHealthTips/${data._id}`, data);
+      const updateResponse = await axios.put(`${import.meta.env.VITE_API_URL}/allHealthTips/${data._id}`, data);
 
       if (updateResponse.status === 200) {
         Swal.fire({

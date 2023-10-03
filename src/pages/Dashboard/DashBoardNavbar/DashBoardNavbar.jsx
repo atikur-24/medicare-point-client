@@ -28,7 +28,7 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
 
   const handleNotification = () => {
     setShowNotification(!showNotification);
-    axios.patch("http://localhost:5000/notifications", notificationID).then(() => {});
+    axios.patch(`${import.meta.env.VITE_API_URL}/notifications`, notificationID).then(() => {});
   };
 
   return (

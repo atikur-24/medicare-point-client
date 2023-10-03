@@ -28,7 +28,7 @@ const AllMedicinesByPharmacist = () => {
     queryKey: ["medicines", user?.email],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axios(`http://localhost:5000/pharmacistMedicines?email=${user?.email}`);
+      const res = await axios(`${import.meta.env.VITE_API_URL}/pharmacistMedicines?email=${user?.email}`);
       return res.data;
     },
   });
@@ -54,7 +54,7 @@ const AllMedicinesByPharmacist = () => {
       confirmButtonText: "Yes, Delete It",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/medicines/${_id}`).then((res) => {
+        axios.delete(`${import.meta.env.VITE_API_URL}/medicines/${_id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             refetch();
             Swal.fire({
@@ -140,10 +140,19 @@ const AllMedicinesByPharmacist = () => {
                 <td className="font-medium">
                   <span className="text-my-pink">{medicine?.available_quantity - medicine?.sellQuantity}</span> / {medicine?.available_quantity}
                 </td>
-                <td className="font-semibold"> {medicine?.available_quantity === medicine?.sellQuantity ? <span className="text-red-500">Out of Stock</span> : <span className="text-my-primary">In Stock</span>}</td>
+                <td className="font-semibold">
+                  {" "}
+                  {medicine?.available_quantity === medicine?.sellQuantity ? <span className="text-red-500">Out of Stock</span> : <span className="text-my-primary">In Stock</span>}
+                </td>
 
                 <td>
-                  <span className={`capitalize badge ${medicine?.status === "approved" ? "text-success" : ""} ${medicine?.status === "pending" ? "text-warning" : ""} ${medicine?.status === "denied" ? "text-error" : ""}`}>{medicine?.status}</span>
+                  <span
+                    className={`capitalize badge ${medicine?.status === "approved" ? "text-success" : ""} ${medicine?.status === "pending" ? "text-warning" : ""} ${
+                      medicine?.status === "denied" ? "text-error" : ""
+                    }`}
+                  >
+                    {medicine?.status}
+                  </span>
                 </td>
                 <td className="">
                   <div className="flex gap-3">
