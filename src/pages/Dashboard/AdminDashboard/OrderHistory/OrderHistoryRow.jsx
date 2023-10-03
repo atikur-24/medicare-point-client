@@ -1,11 +1,7 @@
-import { useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { TbListDetails } from "react-icons/tb";
-import OrderHistoryModal from "./OrderHistoryModal";
 
-const OrderHistoryRow = ({ order, setIsClick, isClick }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const OrderHistoryRow = ({ order, handleDeleteOrder, handleModalClick }) => {
   return (
     <tr key="" className="border-b border-slate-3 text-center">
       <td>{order?._id?.slice(-4)}</td>
@@ -14,25 +10,26 @@ const OrderHistoryRow = ({ order, setIsClick, isClick }) => {
         <span>{order?.medicine_name}</span>
       </td>
       <td className="font-medium">
-        {order?.quantity} || <span className="text-yellow-500">{order?.price} ৳</span>
+        {order?.quantity} || <span className="text-my-pink">{order?.price} ৳</span>
       </td>
-
-      <td
-        className={`${order?.delivery_status === "shipping" && "text-[#209744]"} ${order?.delivery_status === "packing" && "text-yellow-500"} ${
-          order?.delivery_status === "pending" && "text-red-500"
-        } ${order?.delivery_status === "delivered" && "text-[#4075e9]"} capitalize font-medium`}
-      >
-        {order?.delivery_status}
+      <td className="font-medium">{order?.district}</td>
+      <td>
+        <div
+          className={`${order?.delivery_status === "shipping" && "text-my-accent"} ${order?.delivery_status === "packing" && "text-my-pink"} ${order?.delivery_status === "pending" && "text-yellow-500"} ${
+            order?.delivery_status === "delivered" && "text-my-primary"
+          } ${order?.delivery_status === "canceled" && "text-red-400"} capitalize font-medium badge`}
+        >
+          {order?.delivery_status}
+        </div>
       </td>
       <td className="space-x-2">
-        <button type="button" className=" bg-red-500 rounded-full bg-opacity-30 ">
-          <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
+        <button type="button" onClick={() => handleModalClick(order)} className="relative group">
+          <TbListDetails className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
+          <p className="absolute hidden group-hover:block whitespace-nowrap ">Details</p>
         </button>
 
-        <button type="button" onClick={() => setIsOpen(!isOpen)} className="relative group">
-          <TbListDetails className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
-          <p className="absolute hidden group-hover:block whitespace-nowrap ">Detail</p>
-          <OrderHistoryModal setIsClick={setIsClick} isOpen={isOpen} setIsOpen={setIsOpen} order={order} isClick={isClick} />
+        <button onClick={() => handleDeleteOrder(order?._id)} type="button" className=" bg-red-500 rounded-full bg-opacity-30 " title="delete">
+          <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
         </button>
       </td>
     </tr>

@@ -38,7 +38,6 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
           <div className="stats shadow hidden xl:block">
             <div className="stat place-items-center space-y-2">
               <div className="stat-title text-title-color font-nunito font-bold uppercase ">{role} Dashboard</div>
-
             </div>
           </div>
         </div>
@@ -53,9 +52,7 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
               src="https://i.ibb.co/8zxdmM6/notification.png"
               alt="upload images"
             />
-            <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-primary border-2 border-white rounded-full -top-2 -right-2 ">
-              {unreadNotification}
-            </div>
+            <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-primary border-2 border-white rounded-full -top-2 -right-2 ">{unreadNotification}</div>
             {/* <div className="absolute -top-3 -right-2 bg-yellow-500  rounded-full">
             <span className="px-1.5 py-2">{unreadNotification}</span>
           </div> */}

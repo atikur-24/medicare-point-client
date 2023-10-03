@@ -59,7 +59,7 @@ export const applicationForPharmacist = (application) => {
 //     text: "Are you Want delete This user?",
 //     icon: "warning",
 //     showCancelButton: true,
-//     confirmButtonColor: "#3085d6",
+//     confirmButtonColor: "#006F70",
 //     cancelButtonColor: "#d33",
 //     confirmButtonText: "Yes, delete it!",
 //   }).then((result) => {

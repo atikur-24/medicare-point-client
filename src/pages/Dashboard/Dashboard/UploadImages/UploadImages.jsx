@@ -117,10 +117,10 @@ const UploadImages = () => {
   //   }
 
   return (
-    <div className="px-5">
+    <div>
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="flex justify-between items-center md:mt-10 md:mb-5 md:px-2">
-        <div className=" mb-8">
+      <div className="flex justify-between items-center md:mt-10 md:mb-5">
+        <div className="mb-8">
           <div className="stats shadow">
             <div className="stat place-items-center space-y-2">
               <div className="stat-title text-title-color font-nunito font-bold uppercase ">Image </div>
@@ -148,13 +148,7 @@ const UploadImages = () => {
                 placeholder="Search image by name"
               />
               <div>
-                <Lottie
-                  animationData={searchIcon}
-                  title="Search image"
-                  onClick={() => setISearch(true)}
-                  className={`  right-2  cursor-pointer ${!isearch ? " h-14 w-14 -top-4" : "h-8 w-8 top-1 absolute"}`}
-                  loop
-                />
+                <Lottie animationData={searchIcon} title="Search image" onClick={() => setISearch(true)} className={`  right-2  cursor-pointer ${!isearch ? " h-14 w-14 -top-4" : "h-8 w-8 top-1 absolute"}`} loop />
               </div>
             </div>
           </div>

@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Atikur",
+    "quote": "I can't thank Medicare Point enough for the wealth of health and wellness information they provide. From tips on managing stress to in-depth guides on nutrition, I've found answers to my questions here.Which gave the peace of my mind.",
+    "image": "https://media.istockphoto.com/id/1016761216/photo/portrait-concept.jpg?s=612x612&w=0&k=20&c=JsGhLiCeBZs7NeUY_3wjDlLfVkgDJcD9UCXeWobe7Ak=",
+    "rating": 5
+  },
+  {
+    "name": "Nafees",
+    "quote": "As someone passionate about fitness, I appreciate how Medicare Point covers a wide range of topics related to physical well-being. The workout routines and exercise tutorials are fantastic. They've become my go-to source for staying fit!",
+    "image": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "rating": 4
+  },
+  {
+    "name": "Masud",
+    "quote": "Medicare Point's articles on caregiving have been a lifeline for me. Their compassionate approach and practical tips have helped me navigate the challenges of caring for a loved one. It's like having a supportive community right at my fingertips.",
+    "image": "https://t3.ftcdn.net/jpg/02/00/90/24/360_F_200902415_G4eZ9Ok3Ypd4SZZKjc8nqJyFVp1eOD6V.jpg",
+    "rating": 5
+  },
+
+  {
+    "name": "Mamun",
+    "quote": "The intersection of healthcare and technology is where Medicare Point truly shines. Their insights into the latest health tech trends and reviews of medical apps have been invaluable for staying up-to-date in this rapidly evolving field.",
+    "image": "https://www.wilsoncenter.org/sites/default/files/styles/large/public/media/images/person/james-person-1.jpg",
+    "rating": 5
+  },
+  {
+    "name": "Shafayet",
+    "quote": "Medicare Point's commitment to promoting healthy eating habits is evident in their content. The recipes, nutritional guides, and debunking of dietary myths have expanded my understanding of proper nutrition. Kudos to them for promoting well-being!",
+    "image": "https://cdn.hswstatic.com/gif/play/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg",
+    "rating": 4
+  },
+  {
+    "name": "Shihab",
+    "quote": "As someone passionate about fitness, I appreciate how Medicare Point covers a wide range of topics related to physical well-being. The workout routines and exercise tutorials are fantastic. They've become my go-to source for staying fit!",
+    "image": "https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/unc.sidearmsports.com/images/2022/8/16/Person_James_67.jpg",
+    "rating": 5
+  }
+]

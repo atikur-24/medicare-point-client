@@ -61,15 +61,15 @@ const AllMedicines = () => {
       text: "Are You Want Delete This Medicine",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#006F70",
+      cancelButtonColor: "#ef4444",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
         axios.delete(`http://localhost:5000/medicines/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             dispatch(fetchAllMedicines());
-            Swal.fire("Deleted!", "This Medicine Deleted success fully", "success");
+            Swal.fire("Deleted!", "This Medicine Deleted successfully", "success");
           }
         });
       }
@@ -81,7 +81,7 @@ const AllMedicines = () => {
   const deniedMedicines = medicines.filter((medicine) => medicine?.status === "denied");
 
   return (
-    <div className="mx-4">
+    <div>
       <div className="flex mb-8">
         <div className="stats shadow">
           <div onClick={() => handelFiltering()} className="stat place-items-center space-y-2 cursor-pointer">
@@ -158,15 +158,15 @@ const AllMedicines = () => {
 
                   <td className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"} capitalize font-medium`}>{medicine?.status}</td>
                   <td className="space-x-2">
-                    <button type="button" onClick={() => handelDelete(medicine?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
-                      <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
-                    </button>
                     <Link to={`/dashboard/medicine-detail/${medicine?._id}`}>
                       <button type="button" className="relative group">
                         <TbListDetails className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
                         <p className="absolute hidden group-hover:block whitespace-nowrap ">Detail</p>
                       </button>
                     </Link>
+                    <button type="button" onClick={() => handelDelete(medicine?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
+                      <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
+                    </button>
                   </td>
                 </tr>
               ))}

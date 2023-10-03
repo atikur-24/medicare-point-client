@@ -4,7 +4,11 @@ import useAuth from "./useAuth";
 
 const useOrderByPharmacist = () => {
   const { user, loading } = useAuth();
-  const { data: orders = [], refetch } = useQuery({
+  const {
+    data: orders = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["medicineCarts", user?.email],
     enabled: !loading,
     queryFn: async () => {
@@ -13,7 +17,7 @@ const useOrderByPharmacist = () => {
     },
   });
 
-  return [orders, refetch];
+  return [orders, isLoading, refetch];
 };
 
 export default useOrderByPharmacist;

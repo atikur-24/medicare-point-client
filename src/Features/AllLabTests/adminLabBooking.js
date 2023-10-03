@@ -28,6 +28,27 @@ const adminLabBooking = createSlice({
       state.error = action.error.message;
     });
   },
+  name: "adminLabBooking",
+  initialState: {
+    isLoading: false,
+    error: null,
+    allLabBooking: [],
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchAdminLabBooking.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchAdminLabBooking.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.allLabBooking = action.payload;
+      state.error = null;
+    });
+    builder.addCase(fetchAdminLabBooking.rejected, (state, action) => {
+      state.isLoading = false;
+      state.allLabBooking = [];
+      state.error = action.error.message;
+    });
+  },
 });
 
 export default adminLabBooking.reducer;

@@ -110,8 +110,8 @@ const DiscountCodes = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#006F70",
+      cancelButtonColor: "#ef4444",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -143,7 +143,7 @@ const DiscountCodes = () => {
             <div className="stat-value text-my-primary">{totalActive?.length || 0} </div>
           </div>
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Active Codes</div>
+            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Expired Codes</div>
             <div className="stat-value text-red-400">{totalExprired?.length || 0} </div>
           </div>
         </div>
@@ -205,9 +205,6 @@ const DiscountCodes = () => {
                   <td className=" font-medium">{disc?.createdDate}</td>
                   <td className={`font-medium ${disc?.status === "Active" ? "text-my-primary" : "text-red-500"}`}>{disc?.status}</td>
                   <td className="flex items-center gap-4">
-                    <button type="button" onClick={() => handelDelete(disc?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
-                      <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
-                    </button>
                     <button
                       onClick={() => {
                         setSingleDiscount(disc);
@@ -216,6 +213,9 @@ const DiscountCodes = () => {
                       type="button"
                     >
                       <BiEdit className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
+                    </button>
+                    <button type="button" onClick={() => handelDelete(disc?._id)} className=" bg-red-500 rounded-full bg-opacity-30 ">
+                      <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
                     </button>
                   </td>
                 </tr>

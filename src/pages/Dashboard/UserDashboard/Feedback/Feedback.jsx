@@ -79,25 +79,13 @@ const Feedback = () => {
         <div className="rounded-lg bg-gradient-to-tr from-gray-3 to-slate-3 shadow-lg m-6 p-6">
           <h2 className="text-lg md:text-2xl  font-semibold mb-4 capitalize">How do you feel about our website or Services ?</h2>
           <div className="flex justify-center space-x-4">
-            <button
-              type="button"
-              onClick={() => handleRating("sad")}
-              className={`p-2 hover:bg-lite transition-all rounded-lg hover:shadow-lg ${rating === "sad" ? "text-red-500 shadow-lg bg-lite" : "text-gray-200 text-slate-6"}`}
-            >
+            <button type="button" onClick={() => handleRating("sad")} className={`p-2 hover:bg-lite transition-all rounded-lg hover:shadow-lg ${rating === "sad" ? "text-red-500 shadow-lg bg-lite" : "text-gray-200 text-slate-6"}`}>
               <BiSad size={60} />
             </button>
-            <button
-              type="button"
-              onClick={() => handleRating("happy")}
-              className={`p-2 hover:bg-lite transition-all rounded-lg hover:shadow-lg  ${rating === "happy" ? "text-my-accent bg-lite shadow-lg" : "text-gray-200 text-slate-6"}`}
-            >
+            <button type="button" onClick={() => handleRating("happy")} className={`p-2 hover:bg-lite transition-all rounded-lg hover:shadow-lg  ${rating === "happy" ? "text-my-accent bg-lite shadow-lg" : "text-gray-200 text-slate-6"}`}>
               <CgSmileNone size={60} />
             </button>
-            <button
-              type="button"
-              onClick={() => handleRating("very happy")}
-              className={`p-2 hover:bg-lite transition-all rounded-lg hover:shadow-lg  ${rating === "very happy" ? "text-my-primary bg-lite shadow-lg" : "text-gray-200 text-slate-6"}`}
-            >
+            <button type="button" onClick={() => handleRating("very happy")} className={`p-2 hover:bg-lite transition-all rounded-lg hover:shadow-lg  ${rating === "very happy" ? "text-my-primary bg-lite shadow-lg" : "text-gray-200 text-slate-6"}`}>
               <BiHappy size={60} />
             </button>
           </div>
@@ -111,44 +99,20 @@ const Feedback = () => {
               <label htmlFor="name" className="block mb-2 font-medium">
                 Name
               </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={feedback.name}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-happy focus:border-blue-500"
-                required
-              />
+              <input type="text" id="name" name="name" value={feedback.name} onChange={handleChange} className="w-full px-3 py-2 border rounded-lg focus:outline-happy focus:border-blue-500" required />
             </div>
             <div className="mb-4">
               <label htmlFor="email" className="block mb-2 font-medium">
                 Email
               </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={feedback.email}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-happy focus:border-blue-500"
-                required
-              />
+              <input type="email" id="email" name="email" value={feedback.email} onChange={handleChange} className="w-full px-3 py-2 border rounded-lg focus:outline-happy focus:border-blue-500" required />
             </div>
           </div>
           <div className="mb-4 mt-2">
             <label htmlFor="quote" className="block mb-2 font-medium">
               Message <small className="text-gray-4">(write min 10 letters)</small>
             </label>
-            <textarea
-              id="quote"
-              name="quote"
-              value={feedback.quote}
-              onChange={handleChange}
-              rows="4"
-              className="w-full px-3 py-2 border rounded-lg focus:outline-happy focus:border-blue-500"
-              required
-            />
+            <textarea id="quote" name="quote" value={feedback.quote} onChange={handleChange} rows="4" className="w-full px-3 py-2 border rounded-lg focus:outline-happy focus:border-blue-500" required />
             {quoteError && <p className="text-error">{quoteError}</p>}
           </div>
           <div className="text-center">
