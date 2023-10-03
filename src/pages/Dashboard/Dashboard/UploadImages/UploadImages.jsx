@@ -64,7 +64,7 @@ const UploadImages = () => {
           name: data.name,
         };
 
-        axios.post("http://localhost:5000/images", newImageData).then((res) => {
+        axios.post(`${import.meta.env.VITE_API_URL}/images`, newImageData).then((res) => {
           //   console.log(res.data);
           if (res.data?.insertedId) {
             Swal.fire({

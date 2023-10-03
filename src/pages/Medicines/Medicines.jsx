@@ -54,7 +54,7 @@ const Medicines = () => {
 
   useEffect(() => {
     if (category) {
-      axios.get(`http://localhost:5000/medicinesc?category=${category}`).then((res) => setMedicines(res.data));
+      axios.get(`${import.meta.env.VITE_API_URL}/medicinesc?category=${category}`).then((res) => setMedicines(res.data));
     } else {
       setMedicines(allData);
     }
@@ -257,7 +257,7 @@ const Medicines = () => {
     const user_comment = form.user_comment.value;
     const userData = { name, user_email: user?.email, number, req_medi_name, req_medi_quantity, district, need_days, user_comment, req_date: dateAndTime, status: "requesting" };
     axios
-      .post("http://localhost:5000/requestNewMedicine", userData)
+      .post(`${import.meta.env.VITE_API_URL}/requestNewMedicine`, userData)
       .then((result) => {
         if (result.data.insertedId) {
           Swal.fire("Medicine Request Sent!", "Stay tuned for a notification and send email when it's available on our website.", "success");

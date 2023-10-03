@@ -24,7 +24,7 @@ const AllPrescriptions = () => {
   }
 
   useEffect(() => {
-    axios.get("http://localhost:5000/prescriptions").then((res) => setAllData(res.data));
+    axios.get(`${import.meta.env.VITE_API_URL}/prescriptions`).then((res) => setAllData(res.data));
   }, [isDelete]);
 
   const handleDelete = (id) => {

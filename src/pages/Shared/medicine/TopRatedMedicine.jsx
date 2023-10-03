@@ -13,7 +13,7 @@ const TopRatedMedicine = () => {
   const [topRatedMedi, setTopRatedMedi] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/topRated-medicines").then((res) => setTopRatedMedi(res?.data));
+    axios.get(`${import.meta.env.VITE_API_URL}/topRated-medicines`).then((res) => setTopRatedMedi(res?.data));
   }, []);
 
   return (

@@ -66,7 +66,7 @@ const AllMedicines = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/medicines/${id}`).then((res) => {
+        axios.delete(`${import.meta.env.VITE_API_URL}/medicines/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             dispatch(fetchAllMedicines());
             Swal.fire("Deleted!", "This Medicine Deleted successfully", "success");

@@ -20,7 +20,7 @@ const NewReqCard = ({ newReqMedi, refetch }) => {
       confirmButtonText: "Yes, Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/requestNewMedicine/${id}`).then((res) => {
+        axios.delete(`${import.meta.env.VITE_API_URL}/requestNewMedicine/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             toast.success("Item Removed");
             refetch();

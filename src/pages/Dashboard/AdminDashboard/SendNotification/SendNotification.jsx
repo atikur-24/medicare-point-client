@@ -11,7 +11,7 @@ const SendNotification = ({ email }) => {
     data.senderEmail = email;
     data.url = "dashboard";
     setIsLoading(true);
-    axios.post("http://localhost:5000/sendNotification", data).then((res) => {
+    axios.post(`${import.meta.env.VITE_API_URL}/sendNotification`, data).then((res) => {
       if (res.data?.insertedId) {
         reset();
         window.my_modal_sendNotification.close();

@@ -10,7 +10,7 @@ const MedicineCartItem = ({ item, refetch }) => {
   const total = (quantity * (price - (price / 100) * discount)).toFixed(2);
 
   const handleRemoveToCart = () => {
-    axios.delete(`http://localhost:5000/medicineCarts/${_id}`).then((result) => {
+    axios.delete(`${import.meta.env.VITE_API_URL}/medicineCarts/${_id}`).then((result) => {
       if (result.data.deletedCount > 0) {
         toast.error("Item Removed");
         refetch();
@@ -24,7 +24,7 @@ const MedicineCartItem = ({ item, refetch }) => {
     const newQuantity = {
       quantity: newQuan,
     };
-    axios.patch(`http://localhost:5000/update-quantity/${_id}`, newQuantity).then(() => {
+    axios.patch(`${import.meta.env.VITE_API_URL}/update-quantity/${_id}`, newQuantity).then(() => {
       refetch();
     });
   };

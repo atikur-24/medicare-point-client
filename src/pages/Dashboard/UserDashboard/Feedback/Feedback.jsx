@@ -55,7 +55,7 @@ const Feedback = () => {
 
     if (feedback.rating) {
       axios
-        .post("http://localhost:5000/feedback", feedback)
+        .post(`${import.meta.env.VITE_API_URL}/feedback`, feedback)
         .then((res) => {
           e.target.reset();
           if (res.data.insertedId) {

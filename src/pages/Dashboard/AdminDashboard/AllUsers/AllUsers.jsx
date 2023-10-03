@@ -43,7 +43,7 @@ const AllUsers = () => {
     const userData = {
       role,
     };
-    axios.patch(`http://localhost:5000/updateUserRole/${id}`, userData).then((res) => {
+    axios.patch(`${import.meta.env.VITE_API_URL}/updateUserRole/${id}`, userData).then((res) => {
       if (res?.data?.modifiedCount > 0) {
         dispatch(fetchAllUsers());
         Swal.fire("Successful", "Convert User Role to Admin", "success");
@@ -62,7 +62,7 @@ const AllUsers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/delete-user/${id}`).then((res) => {
+        axios.delete(`${import.meta.env.VITE_API_URL}/delete-user/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             dispatch(fetchAllUsers());
             Swal.fire("Deleted!", "Your file has been deleted.", "success");

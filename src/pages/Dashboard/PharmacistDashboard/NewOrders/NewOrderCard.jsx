@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 const NewOrderCard = ({ order, refetch }) => {
   const { medicine_name, image, quantity, category, price, _id, discount, name, email, number, division, district, location, dateAndTime, expectedDate } = order || {};
   const handleResponse = (id) => {
-    axios.patch(`http://localhost:5000/deliveryStatus/${id}`, { pharmacist_response: true, delivery_status: "packing" }).then((res) => {
+    axios.patch(`${import.meta.env.VITE_API_URL}/deliveryStatus/${id}`, { pharmacist_response: true, delivery_status: "packing" }).then((res) => {
       if (res.data.modifiedCount > 0) {
         refetch();
         toast.success("Order Confirm");

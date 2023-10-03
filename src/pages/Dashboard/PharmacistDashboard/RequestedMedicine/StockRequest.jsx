@@ -18,7 +18,7 @@ const StockRequest = () => {
     isLoading,
     refetch,
   } = useQuery(["reqMedicine"], async () => {
-    const res = await axios.get(`http://localhost:5000/requestToStock/${user?.email}`);
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/requestToStock/${user?.email}`);
     return res.data;
   });
 

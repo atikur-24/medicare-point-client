@@ -14,7 +14,7 @@ const RewardPoints = () => {
   const { userInfo } = useContext(AuthContext);
 
   const handleRewardToDiscount = () => {
-    axios.post("http://localhost:5000/rewardToDiscount", { email: userInfo?.email }).then((res) => {
+    axios.post(`${import.meta.env.VITE_API_URL}/rewardToDiscount`, { email: userInfo?.email }).then((res) => {
       if (res.data?.modifiedCount > 0) {
         toast.success("Reward to discount successful!");
         window.location.reload();

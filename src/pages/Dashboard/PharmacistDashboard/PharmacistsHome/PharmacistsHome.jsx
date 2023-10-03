@@ -13,7 +13,7 @@ const PharmacistsHome = ({ user }) => {
 
   useEffect(() => {
     if (user?.email) {
-      axios.get(`http://localhost:5000/dashboardHomeData/${user.email}`).then((res) => {
+      axios.get(`${import.meta.env.VITE_API_URL}/dashboardHomeData/${user.email}`).then((res) => {
         setpharmacistHomeData(res.data);
       });
     }

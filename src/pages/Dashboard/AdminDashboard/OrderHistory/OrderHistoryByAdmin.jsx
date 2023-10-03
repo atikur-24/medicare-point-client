@@ -52,7 +52,7 @@ const OrderHistoryByAdmin = () => {
       confirmButtonText: "Yes, Delete It!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/medicinesOrderByAdmin/${id}`).then((res) => {
+        axios.delete(`${import.meta.env.VITE_API_URL}/medicinesOrderByAdmin/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             setIsClick(isClick + 1);
             Swal.fire("Deleted!", "This Order Deleted", "success");

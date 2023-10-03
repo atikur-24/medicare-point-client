@@ -20,7 +20,7 @@ const HighestSellings = () => {
     const cancelToken = axios.CancelToken.source();
 
     axios
-      .get("http://localhost:5000/highestSelling-medicines", {
+      .get(`${import.meta.env.VITE_API_URL}/highestSelling-medicines`, {
         cancelToken: cancelToken.token,
       })
       .then((res) => {
@@ -32,12 +32,10 @@ const HighestSellings = () => {
         setIsLoading(false);
       });
 
-
     return () => {
       cancelToken.cancel();
     };
   }, []);
-
 
   return (
     <div className=" lg:pb-10 px-4 rounded-lg bg-lite">

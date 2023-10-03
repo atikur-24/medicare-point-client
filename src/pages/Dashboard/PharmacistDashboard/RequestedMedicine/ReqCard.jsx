@@ -18,7 +18,7 @@ const ReqCard = ({ singleMedi, refetch }) => {
       confirmButtonText: "Yes, Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/requestToStock/${id}`).then((res) => {
+        axios.delete(`${import.meta.env.VITE_API_URL}/requestToStock/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             toast.success("Item Removed");
             refetch();

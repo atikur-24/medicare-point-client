@@ -35,7 +35,7 @@ const EditProfile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/users/${email}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/${email}`);
         if (response.status === 200) {
           const userData = response.data;
           setFormData(userData);
@@ -72,7 +72,7 @@ const EditProfile = () => {
         }
       }
 
-      const response = await axios.put(`http://localhost:5000/users/${email}`, formDataWithoutId);
+      const response = await axios.put(`${import.meta.env.VITE_API_URL}/users/${email}`, formDataWithoutId);
 
       if (response.status === 200) {
         Swal.fire({
