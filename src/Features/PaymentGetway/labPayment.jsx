@@ -5,7 +5,7 @@ import axios from "axios";
 export const labSSLPaymentApi = createAsyncThunk("labSSLPayment/labSSLPaymentApi", async (data) => {
   const templateParams = data?.personalInfo;
 
-  const res = await axios.post(`http://localhost:5000/labPayment`, data);
+  const res = await axios.post(`${import.meta.env.VITE_API_URL}/labPayment`, data);
 
   if (res.data.url) {
     // window.location.replace(res.data.url);

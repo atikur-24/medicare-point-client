@@ -7,7 +7,7 @@ export const GetPharmacyRApplications = () => {
   const { data: applications = [], refetch } = useQuery({
     queryKey: ["applications"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/pharmacyRegistrationApplications");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/pharmacyRegistrationApplications`);
       return res?.data;
     },
   });
@@ -21,7 +21,7 @@ export const ApprovePR = (id, email, apt, newRole, application) => {
     applicationType: apt,
     pharmacistDetail: application,
   };
-  axios.patch(`http://localhost:5000/pharmacyRApprove/${id}`, newType).then((res) => {
+  axios.patch(`${import.meta.env.VITE_API_URL}/pharmacyRApprove/${id}`, newType).then((res) => {
     if (res?.data.result.modifiedCount > 0 || res?.data.result2.modifiedCount > 0) {
       if (apt === "Approved") {
         Swal.fire("Approved", "This Application Approved Successful", "success");
@@ -44,7 +44,7 @@ export const DeleteApplication = (id) => {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      axios.delete(`http://localhost:5000/deleteRApplication/${id}`).then((res) => {
+      axios.delete(`${import.meta.env.VITE_API_URL}/deleteRApplication/${id}`).then((res) => {
         if (res.data.deleteCount > 0) {
           Swal.fire("Deleted!", "Your file has been deleted.", "success");
         }

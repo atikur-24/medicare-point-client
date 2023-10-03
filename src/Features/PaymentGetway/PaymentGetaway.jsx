@@ -6,7 +6,7 @@ export const sslPaymentApi = createAsyncThunk("sslPayment/sslPaymentApi", async 
   // console.log(data.paymentDetails);
   const templateParams = data?.paymentDetails;
 
-  const res = await axios.post(`http://localhost:5000/payment`, data);
+  const res = await axios.post(`${import.meta.env.VITE_API_URL}/payment`, data);
 
   if (res.data.url) {
     // window.location.replace(res.data.url);

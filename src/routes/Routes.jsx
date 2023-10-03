@@ -119,7 +119,7 @@ const router = createBrowserRouter([
       {
         path: "/healthArticles/:id",
         element: <HealthArticlesDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params?.id}`),
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/blogs/${params?.id}`),
       },
       {
         path: "/healthtips/:id",
@@ -215,7 +215,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/edit-profile/:email",
         element: <EditProfile />,
-        loader: ({ params }) => fetch(`http://localhost:5000/users/${params?.email}`),
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/users/${params?.email}`),
       },
       {
         path: "pharmacyRegistration",
@@ -228,7 +228,7 @@ const router = createBrowserRouter([
       {
         path: "pharmacyRegistration/:id",
         element: <ApplicationDetail />,
-        loader: ({ params }) => fetch(`http://localhost:5000/pharmacyRegistrationApl/${params?.id}`),
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/pharmacyRegistrationApl/${params?.id}`),
       },
       {
         path: "medicine-cart",
@@ -284,7 +284,7 @@ const router = createBrowserRouter([
       {
         path: "update-medicine/:id",
         element: <UpdateMedicine />,
-        loader: ({ params }) => fetch(`http://localhost:5000/medicines/details/${params.id}`),
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/medicines/details/${params.id}`),
       },
       {
         path: "medicine-details/:id",
@@ -347,7 +347,7 @@ const router = createBrowserRouter([
       {
         path: "update-health-tips/:id",
         element: <UpdateHealthTips />,
-        loader: ({ params }) => fetch(`http://localhost:5000/allHealthTips/${params?.id}`),
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/allHealthTips/${params?.id}`),
       },
       {
         path: "manage-lab-test",
@@ -380,7 +380,7 @@ const router = createBrowserRouter([
       {
         path: "update-health-articles/:id",
         element: <UpdateHealthArticles />,
-        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params?.id}`),
+        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/blogs/${params?.id}`),
       },
       {
         path: "prescriptions",

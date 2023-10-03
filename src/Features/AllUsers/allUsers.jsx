@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchAllUsers = createAsyncThunk("allUsers/fetchAllUsers", async () => {
-  const res = await axios.get("http://localhost:5000/users");
+  const res = await axios.get(`${import.meta.env.VITE_API_URL}/users`);
   return res.data;
 });
 

@@ -16,11 +16,28 @@ const HighestSellings = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get("http://localhost:5000/highestSelling-medicines").then((res) => {
-      setHighestSellMedi(res?.data);
-      setIsLoading(false);
-    });
+
+    const cancelToken = axios.CancelToken.source();
+
+    axios
+      .get("http://localhost:5000/highestSelling-medicines", {
+        cancelToken: cancelToken.token,
+      })
+      .then((res) => {
+        setHighestSellMedi(res?.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("An error occurred while fetching data:", error);
+        setIsLoading(false);
+      });
+
+
+    return () => {
+      cancelToken.cancel();
+    };
   }, []);
+
 
   return (
     <div className=" lg:pb-10 px-4 rounded-lg bg-lite">

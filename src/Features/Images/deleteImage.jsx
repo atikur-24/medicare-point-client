@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export const deleteImageApi = createAsyncThunk("deleteImage/deleteImageApi", async (id) => {
-  const res = await axios.delete(`http://localhost:5000/images/${id}`);
+  const res = await axios.delete(`${import.meta.env.VITE_API_URL}/images/${id}`);
 
   if (res?.data?.deletedCount > 0) {
     Swal.fire("Deleted!", "Image has been deleted.", "success");

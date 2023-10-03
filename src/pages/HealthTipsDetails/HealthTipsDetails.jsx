@@ -30,10 +30,24 @@ const HealthTipsDetails = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/allHealthTips").then((res) => {
-      setHealthTips(res.data);
-    });
+    const cancel = axios.CancelToken.source();
+
+    axios
+      .get("http://localhost:5000/allHealthTips", {
+        cancelToken: cancel.token,
+      })
+      .then((res) => {
+        setHealthTips(res.data);
+      })
+      .catch((error) => {
+        console.error("An error occurred while fetching data:", error);
+      });
+
+    return () => {
+      cancel.cancel();
+    };
   }, []);
+
   useEffect(() => {
     // Extract the category from the diseaseDetails object
     const diseaseCategory = diseaseDetails.category;
@@ -71,11 +85,11 @@ const HealthTipsDetails = () => {
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 items-center mt-5">
             <div className=" h-full p-1">
               <h3 className="text-2xl font-semibold my-2">How To Prevent?</h3>
-              <p>{HtmlParser(diseaseDetails.prevention)}</p>
+              <div>{HtmlParser(diseaseDetails.prevention)}</div>
             </div>
             <div className="h-full p-1">
               <h3 className="text-2xl font-semibold my-2">What is the cure?</h3>
-              <p>{HtmlParser(diseaseDetails.cure)}</p>
+              <div>{HtmlParser(diseaseDetails.cure)}</div>
             </div>
           </div>
         </div>

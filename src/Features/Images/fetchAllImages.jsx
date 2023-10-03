@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchAllImages = createAsyncThunk("allImages/fetchAllImages", async (data) => {
-  const res = await axios.get(`http://localhost:5000/images?email=${data?.email}&name=${data?.searchBy}`);
+  const res = await axios.get(`${import.meta.env.VITE_API_URL}/images?email=${data?.email}&name=${data?.searchBy}`);
   //   console.log(res.data);
   return res.data;
 });

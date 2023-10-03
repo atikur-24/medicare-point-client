@@ -19,7 +19,13 @@ const MediCards = () => {
   const { isloading, allData } = useSelector((state) => state?.allMedicines);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchMedicines());
+    const abortController = new AbortController();
+
+    dispatch(fetchMedicines(), { signal: abortController.signal }).catch((error) => {
+      console.error("An error occurred while fetching data:", error);
+    });
+
+    return () => abortController.abort();
   }, [dispatch]);
 
   const PainRefilMedicins = allData.filter((item) => item?.category?.value === "Pain-Relief");

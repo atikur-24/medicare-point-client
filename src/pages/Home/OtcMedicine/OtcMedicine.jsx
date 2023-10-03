@@ -13,10 +13,33 @@ const OtcMedicine = () => {
   // console.log(medicines);
 
   useEffect(() => {
-    axios.get("/otcMedicine.json").then((res) => setOtcMedicines(res.data));
+    const source = axios.CancelToken.source();
+
+    axios
+      .get("/otcMedicine.json", { cancelToken: source.token })
+      .then((res) => setOtcMedicines(res.data))
+      .catch((error) => {
+        console.error("An error occurred while fetching medicines:", error);
+      });
+
+    return () => {
+      source.cancel();
+    };
   }, []);
+
   useEffect(() => {
-    axios.get("http://localhost:5000/medicines").then((res) => setMedicines(res.data));
+    const source = axios.CancelToken.source();
+
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/medicines`, { cancelToken: source.token })
+      .then((res) => setMedicines(res.data))
+      .catch((error) => {
+        console.error("An error occurred while fetching medicines:", error);
+      });
+
+    return () => {
+      source.cancel();
+    };
   }, []);
 
   const handleMedicineClick = (otcMedicine) => {

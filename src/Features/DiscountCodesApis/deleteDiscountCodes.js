@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const deleteDiscountCodesApi = createAsyncThunk("deleteDiscountCodes/deleteDiscountCodesApi", async (id) => {
-  const res = await axios.delete(`http://localhost:5000/discountCodes/${id}`);
+  const res = await axios.delete(`${import.meta.env.VITE_API_URL}/discountCodes/${id}`);
   return res.data;
 });
 

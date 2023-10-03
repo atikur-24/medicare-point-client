@@ -18,9 +18,22 @@ import LabTitle from "./LabTitle";
 
 const TopTest = () => {
   const [categories, setCategories] = useState([]);
+
   useEffect(() => {
-    axios.get("http://localhost:5000/labPopularItems").then((res) => setCategories(res?.data));
+    const cancelToken = axios.CancelToken.source();
+
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/labPopularItems`, { cancelToken: cancelToken.token })
+      .then((res) => {
+        setCategories(res?.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching labPopularItems:", error);
+      });
+
+    return () => cancelToken.cancel();
   }, []);
+
   return (
     <div className="mt-10 ">
       <LabTitle title="TOP BOOKED TESTS" />

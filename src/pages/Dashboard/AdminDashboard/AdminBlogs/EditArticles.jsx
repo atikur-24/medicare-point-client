@@ -64,7 +64,7 @@ const EditArticles = () => {
                   <TiEdit className="text-lg" />
                 </label>
               </Link>
-              <button type="button" onClick={() => handlerDelete(allBlog._id)} className="btn btn-circle btn-sm bg-red-500 bg-opacity-30 ">
+              <button type="button" onClick={() => handlerDelete(allBlog._id)} className="btn btn-circle btn-sm bg-red-500/30">
                 <RiDeleteBinLine className="text-lg text-red-500" />
               </button>
             </div>

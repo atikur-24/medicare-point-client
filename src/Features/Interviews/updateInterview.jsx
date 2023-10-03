@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export const updateInterviewApi = createAsyncThunk("updateInterview/updateInterviewApi", async (data) => {
-  const res = await axios.put(`http://localhost:5000/interviews/${data._id}`, {
+  const res = await axios.put(`${import.meta.env.VITE_API_URL}/interviews/${data._id}`, {
     body: data.data,
   });
 

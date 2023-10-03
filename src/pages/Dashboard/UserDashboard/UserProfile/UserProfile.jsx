@@ -27,7 +27,7 @@ const UserProfile = () => {
       {currentUserData && (
         <div className="bg-white rounded-2xl my-6 pb-8">
           {/* TODO  */}
-          <div className="bg-my-primary bg-opacity-70 h-28 relative rounded-t-2xl ">
+          <div className="bg-my-primary/70  h-28 relative rounded-t-2xl ">
             <div className="left-[calc(50%-40px)] absolute top-[40%]">
               <figure>
                 <img src={currentUserData?.image ? currentUserData?.image : user?.photoURL} alt={currentUserData.name} className="h-[96px] w-[96px]  mb-4 rounded-full ring-4 ring-white ring-offset-2 ring-offset-white" />

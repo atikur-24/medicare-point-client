@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const addPrescriptionCardApi = createAsyncThunk("addPrescriptionCard/addPrescriptionCardApi", async (data) => {
   // console.log(data);
-  const res = await axios.post(`http://localhost:5000/prescriptions`, data);
+  const res = await axios.post(`${import.meta.env.VITE_API_URL}/prescriptions`, data);
   return res.data;
 });
 

@@ -18,7 +18,7 @@ const LabOrder = () => {
   const copy = remaining + 50;
 
   const handlerLabRemove = (id) => {
-    axios.delete(`http://localhost:5000/labCart/${id}`).then((res) => {
+    axios.delete(`${import.meta.env.VITE_API_URL}/labCart/${id}`).then((res) => {
       if (res.data.deletedCount > 0) {
         refetch();
       }

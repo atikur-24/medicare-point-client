@@ -16,7 +16,7 @@ const ConfirmDetailModal = ({ isOpen, toggleOpen, data, setData, click, setClick
   }
 
   const handleDeliverySing = () => {
-    axios.post("http://localhost:5000/labDeliveryStatus", { id: _id }).then((res) => {
+    axios.post(`${import.meta.env.VITE_API_URL}/labDeliveryStatus`, { id: _id }).then((res) => {
       if (res.data?.modifiedCount > 0) {
         closeModal();
         setClick(click + 1);
@@ -28,7 +28,7 @@ const ConfirmDetailModal = ({ isOpen, toggleOpen, data, setData, click, setClick
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" onClose={closeModal}>
         <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0">
-          <div className="fixed inset-0" />
+          <div className="fixed inset-0 bg-black/25" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto bg-black bg-opacity-25 !z-[60]">

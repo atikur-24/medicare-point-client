@@ -82,7 +82,7 @@ export default function ConfirmLab() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/deleteLabTest/${id}`).then((res) => {
+        axios.delete(`${import.meta.env.VITE_API_URL}/deleteLabTest/${id}`).then((res) => {
           if (res.data?.deletedCount > 0) {
             Swal.fire("Deleted!", "Lab test deleted successfully.", "success");
             setClick(click + 1);
@@ -124,7 +124,7 @@ export default function ConfirmLab() {
             <TableHead>
               <TableRow>
                 {columns.map((column) => (
-                  <TableCell className="!z-10 !font-bold !font-Alexandria !bg-primary !bg-opacity-90 !text-white" key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
+                  <TableCell className="!z-10 !font-bold !font-Alexandria !bg-primary/90 !text-white" key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
                     {column.label}
                   </TableCell>
                 ))}
@@ -145,7 +145,7 @@ export default function ConfirmLab() {
                                 <span className="absolute hidden group-hover:block whitespace-nowrap ">Detail</span>
                               </button>
 
-                              <button type="button" onClick={() => handleDeleteClick(row)} className=" bg-red-500 rounded-full bg-opacity-30 ">
+                              <button type="button" onClick={() => handleDeleteClick(row)} className=" bg-red-500/30 rounded-full  ">
                                 <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
                               </button>
                             </div>

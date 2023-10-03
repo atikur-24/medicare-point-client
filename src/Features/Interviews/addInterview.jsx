@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 export const addInterviewApi = createAsyncThunk("addInterview/addInterviewApi", async (data) => {
   // console.log(data);
-  const res = await axios.post(`http://localhost:5000/interviews`, data.data);
+  const res = await axios.post(`${import.meta.env.VITE_API_URL}/interviews`, data.data);
 
   if (res.data.insertedId) {
     Swal.fire({

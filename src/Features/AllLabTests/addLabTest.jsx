@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 export const addLabTestApi = createAsyncThunk("addLabTest/addLabTestApi", async (data) => {
   // console.log(data);
-  const res = await axios.post(`http://localhost:5000/labItems`, data.data);
+  const res = await axios.post(`${import.meta.env.VITE_API_URL}/labItems`, data.data);
 
   if (res.data.insertedId) {
     Swal.fire({
