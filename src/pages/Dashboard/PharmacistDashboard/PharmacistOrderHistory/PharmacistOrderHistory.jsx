@@ -17,12 +17,26 @@ const PharmacistOrderHistory = () => {
   const endIndex = startIndex + perPage;
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/medicinesOrderByPharmacist?email=${user?.email}`).then((res) => {
-      if (res?.data) {
-        setIsLoading(false);
-        setOrders(res?.data);
-      }
-    });
+    const source = axios.CancelToken.source(); // Create a cancel token source
+
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/medicinesOrderByPharmacist?email=${user?.email}`, {
+        cancelToken: source.token, // Pass the cancel token to the request
+      })
+      .then((res) => {
+        if (res?.data) {
+          setIsLoading(false);
+          setOrders(res?.data);
+        }
+      })
+      .catch((error) => {
+        console.error("An error occurred while fetching data:", error);
+      });
+
+    // Cleanup function to cancel the request when the component unmounts
+    return () => {
+      source.cancel("Data request canceled by cleanup"); // Cancel the request with a message
+    };
   }, [user]);
 
   let filteredOrder = orders;

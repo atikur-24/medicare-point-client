@@ -34,12 +34,29 @@ const MedicineDetails = () => {
   }, []);
 
   const params = useParams();
+
   useEffect(() => {
+    const source = axios.CancelToken.source(); // Create a cancel token source
+
     setLoading(true);
-    axios.get(`${import.meta.env.VITE_API_URL}/medicines/details/${params?.id}`).then((res) => {
-      setMedicine(res.data);
-      setLoading(false);
-    });
+
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/medicines/details/${params?.id}`, {
+        cancelToken: source.token, // Pass the cancel token to the request
+      })
+      .then((res) => {
+        setMedicine(res.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error("Error fetching data:", error);
+      });
+
+    // Cleanup function to cancel the request when the component unmounts or when params.id or isReview changes
+    return () => {
+      source.cancel("Data request canceled by cleanup"); // Cancel the request with a message
+    };
   }, [params?.id, isReview]);
 
   if (isLoading) {
@@ -52,7 +69,24 @@ const MedicineDetails = () => {
     inactiveFillColor: "#DEE1E6",
   };
 
-  const { _id, medicine_name, image, price, sellQuantity, available_quantity, medicine_summary, medicine_description, tags, rating, feature_with_details, category, allRatings, discount, pharmacist_email, order_quantity } = medicine || {};
+  const {
+    _id,
+    medicine_name,
+    image,
+    price,
+    sellQuantity,
+    available_quantity,
+    medicine_summary,
+    medicine_description,
+    tags,
+    rating,
+    feature_with_details,
+    category,
+    allRatings,
+    discount,
+    pharmacist_email,
+    order_quantity,
+  } = medicine || {};
   const cartMedicine = { medicine_Id: _id, medicine_name, image, price, discount, quantity, category: category.label, email: user?.email, order_quantity };
   const reqToStock = { reqByMedicine_Id: _id, medicine_name, image, request_count: 1, pharmacist_email };
   const handleReviews = (event) => {
@@ -124,10 +158,14 @@ const MedicineDetails = () => {
             </div>
             <Rating style={{ maxWidth: 80 }} value={rating} readOnly itemStyles={customStyles} />
             <p className="inline-flex gap-1">
-              <span className="font-semibold lg:font-bold text-my-pink inline-flex items-center text-lg md:text-xl lg:text-2xl">৳ {discount > 0 ? (price - (price / 100) * discount).toFixed(2) : price.toFixed(2)}</span>
+              <span className="font-semibold lg:font-bold text-my-pink inline-flex items-center text-lg md:text-xl lg:text-2xl">
+                ৳ {discount > 0 ? (price - (price / 100) * discount).toFixed(2) : price.toFixed(2)}
+              </span>
               {discount > 0 && <span className="font-medium inline-flex items-center text-base lg:text-xl text-gray-5 line-through">৳ {price}</span>}
             </p>
-            <p className="font-medium text-black-2 tracking-wide text-sm lg:text-base">Availability: {available_quantity === sellQuantity ? <span className="text-red-500">Out of Stock</span> : <span className="text-my-primary">In Stock</span>}</p>
+            <p className="font-medium text-black-2 tracking-wide text-sm lg:text-base">
+              Availability: {available_quantity === sellQuantity ? <span className="text-red-500">Out of Stock</span> : <span className="text-my-primary">In Stock</span>}
+            </p>
             <p className="text-gray-4 text-justify text-sm lg:text-base lg:leading-7 w-full">{medicine_summary}</p>
             <div className="border border-gray-3 py-5 px-3 rounded-md font-semibold flex items-center justify-around">
               <span className="text-base lg:text-lg tracking-wide">Quantity:</span>
@@ -174,12 +212,20 @@ const MedicineDetails = () => {
       {/* Description & reviews */}
       <div className="my-container bg-white mt-10 rounded-md">
         <div className="flex gap-8">
-          <div className={`${isOpen ? "border-b-[3px]" : ""} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
+          <div
+            className={`${
+              isOpen ? "border-b-[3px]" : ""
+            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
+          >
             <button type="button" onClick={toggleOpen}>
               Description
             </button>
           </div>
-          <div className={`${isOpen ? "" : "border-b-[3px]"} text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}>
+          <div
+            className={`${
+              isOpen ? "" : "border-b-[3px]"
+            } text-xl lg:text-2xl font-semibold tracking-wide text-title-color hover:text-my-accent border-my-accent pb-3 cursor-pointer transition duration-200`}
+          >
             <button type="button" onClick={toggleOpen}>
               Reviews ({allRatings?.length || 0})
             </button>

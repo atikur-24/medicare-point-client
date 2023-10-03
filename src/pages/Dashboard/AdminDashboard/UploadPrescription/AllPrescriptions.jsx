@@ -24,7 +24,21 @@ const AllPrescriptions = () => {
   }
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/prescriptions`).then((res) => setAllData(res.data));
+    const source = axios.CancelToken.source(); // Create a cancel token source
+
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/prescriptions`, {
+        cancelToken: source.token, // Pass the cancel token to the request
+      })
+      .then((res) => setAllData(res.data))
+      .catch((error) => {
+        console.error("An error occurred while fetching data:", error);
+      });
+
+    // Cleanup function to cancel the request when the component unmounts
+    return () => {
+      source.cancel("Data request canceled by cleanup"); // Cancel the request with a message
+    };
   }, [isDelete]);
 
   const handleDelete = (id) => {

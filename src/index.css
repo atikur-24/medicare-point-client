@@ -19,6 +19,10 @@
     @apply lg:w-48 2xl:h-28  rounded-md !top-6 xl:!top-2 xl:!-left-32 border border-gray-3;
   }
 
+  .navMenu .szh-menu-container .szh-menu {
+    @apply lg:w-48 2xl:h-28  rounded-md !top-2 xl:!top-2 xl:!-left-32 border border-gray-3;
+  }
+
   .filter-medicine .szh-menu {
     @apply !h-fit !left-0;
   }

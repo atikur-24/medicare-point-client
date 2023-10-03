@@ -14,13 +14,27 @@ const AdminHome = ({ user }) => {
   const { users, medicines, labTests, brands, labs, pharmacist } = adminHomeData;
 
   useEffect(() => {
-    if (user?.email) {
+    const source = axios.CancelToken.source();
+
+    if (user?.email && !loading) {
       setLoading(true);
-      axios.get(`${import.meta.env.VITE_API_URL}/dashboardHomeData/${user.email}`).then((res) => {
-        setAdminHomeData(res.data);
-        setLoading(false);
-      });
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/dashboardHomeData/${user.email}`, {
+          cancelToken: source.token, // Pass the cancel token to the request
+        })
+        .then((res) => {
+          setAdminHomeData(res.data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("An error occurred while fetching dashboard home data:", error);
+          setLoading(false);
+        });
     }
+
+    return () => {
+      source.cancel("DashboardHomeData request canceled by cleanup");
+    };
   }, [loading, user?.email]);
 
   // console.log("a+");

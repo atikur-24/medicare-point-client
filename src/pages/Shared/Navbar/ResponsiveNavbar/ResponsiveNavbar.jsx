@@ -65,29 +65,30 @@ const ResponsiveNavbar = ({ menuItems }) => {
               <NavCart />
             </span>
           </div>
-          <Menu
-            menuButton={
+          <div className="navMenu">
+            <Menu
+              menuButton={
               // eslint-disable-next-line react/jsx-wrap-multilines
-              <MenuButton>
-                <Avatar />
-              </MenuButton>
+                <MenuButton>
+                  <Avatar />
+                </MenuButton>
             }
-            transition
-          >
-            {user ? (
-              <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
-                <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
-                  <MenuItem className="gap-4 items-center">
-                    <MdOutlineDashboardCustomize className="text-xl" />
-                    Dashboard
-                  </MenuItem>
-                </NavLink>
-                <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
-                  <MenuItem className="gap-4 items-center">
-                    <HiOutlineLogout className="text-xl" /> Log Out
-                  </MenuItem>
-                </button>
-              </div>
+              transition
+            >
+              {user ? (
+                <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
+                  <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
+                    <MenuItem className="gap-4 items-center">
+                      <MdOutlineDashboardCustomize className="text-xl" />
+                      Dashboard
+                    </MenuItem>
+                  </NavLink>
+                  <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
+                    <MenuItem className="gap-4 items-center">
+                      <HiOutlineLogout className="text-xl" /> Log Out
+                    </MenuItem>
+                  </button>
+                </div>
             ) : (
               <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
                 <Link className=" font-semibold text-neutral-600" to="/login">
@@ -104,7 +105,8 @@ const ResponsiveNavbar = ({ menuItems }) => {
                 </Link>
               </div>
             )}
-          </Menu>
+            </Menu>
+          </div>
         </div>
       </div>
       <hr className="w-full  shadow-md border border-my-primary" />
