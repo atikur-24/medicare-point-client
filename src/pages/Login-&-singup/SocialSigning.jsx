@@ -17,21 +17,35 @@ const SocialSigning = () => {
     signInWithGoogle()
       .then((result) => {
         if (result.user) {
-          toast.success("Sign In Successful", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
+          toast.success("Sign In Successful", {
+            autoClose: 1000,
+            hideProgressBar: true,
+            theme: "colored",
+            pauseOnHover: false,
+          });
         }
         navigate(from, { replace: true });
         addUser(result?.user);
         setLoading(false);
       })
       .catch((err) => {
-        toast.error(err.message, { position: "top-center", autoClose: 5000, pauseOnHover: false });
+        toast.error(err.message, {
+          position: "top-center",
+          autoClose: 5000,
+          pauseOnHover: false,
+        });
         setLoading(false);
       });
   };
 
   return (
     <div className="form-control">
-      <button disabled={loading} type="submit" onClick={handleGoogleSignIn} className="btn capitalize text-lg gap-6 w-full mx-auto">
+      <button
+        disabled={loading}
+        type="submit"
+        onClick={handleGoogleSignIn}
+        className="btn mx-auto w-full gap-6 text-lg capitalize"
+      >
         <img className="w-8" src={googleImage} alt="" />
         Sign In With Google
       </button>

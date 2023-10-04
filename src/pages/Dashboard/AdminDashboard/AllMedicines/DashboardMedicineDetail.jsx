@@ -18,7 +18,21 @@ const DashboardMedicineDetail = () => {
   const api = `medicines/details/${params?.id}`;
   const { data, isLoading } = useSelector((state) => state.detailData);
 
-  const { medicine_name, image, available_quantity, brand, category, rating, price, discount, date, status, feature_with_details, medicine_description, _id } = data;
+  const {
+    medicine_name,
+    image,
+    available_quantity,
+    brand,
+    category,
+    rating,
+    price,
+    discount,
+    date,
+    status,
+    feature_with_details,
+    medicine_description,
+    _id,
+  } = data;
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -27,9 +41,14 @@ const DashboardMedicineDetail = () => {
 
   const handelChangeStatus = (id, newStatus) => {
     const statusApproved = { status: newStatus };
-    axios.patch(`${import.meta.env.VITE_API_URL}/medicine-status/${id}`, statusApproved).then(() => {
-      dispatch(fetchDetailData(api));
-    });
+    axios
+      .patch(
+        `${import.meta.env.VITE_API_URL}/medicine-status/${id}`,
+        statusApproved,
+      )
+      .then(() => {
+        dispatch(fetchDetailData(api));
+      });
     if (newStatus === "denied") {
       setIsOpen(true);
     }
@@ -40,40 +59,67 @@ const DashboardMedicineDetail = () => {
       {isLoading ? (
         <Loader spinner />
       ) : (
-        <div className="bg-white p-4 lg:p-10 rounded-md  ">
+        <div className="rounded-md bg-white p-4 lg:p-10  ">
           <div>
-            <div className="flex flex-col md:flex-row justify-between gap-12">
+            <div className="flex flex-col justify-between gap-12 md:flex-row">
               <div className="w-full">
                 <h2 className="text-xl font-bold">{medicine_name}</h2>
-                <img className="w-full mt-5 shadow-md border-dashed border-[1px] rounded-md border-my-primary" src={image} alt="" />
+                <img
+                  className="mt-5 w-full rounded-md border-[1px] border-dashed border-my-primary shadow-md"
+                  src={image}
+                  alt=""
+                />
                 <div className="mt-8">
-                  <div className="flex flex-col md:flex-row justify-between">
+                  <div className="flex flex-col justify-between md:flex-row">
                     <div>
                       <p className="flex items-center gap-3 font-semibold">
-                        Rating: <ReactStarsRating isEdit={false} size={20} className="flex" value={rating} />
+                        Rating:{" "}
+                        <ReactStarsRating
+                          isEdit={false}
+                          size={20}
+                          className="flex"
+                          value={rating}
+                        />
                       </p>
                       <p className="font-semibold">
                         Brand Name: <span className="font-normal">{brand}</span>
                       </p>
                       <p className="font-semibold">
-                        Price: <span className="font-normal text-[#FFA500]">{price} ৳</span>
+                        Price:{" "}
+                        <span className="font-normal text-[#FFA500]">
+                          {price} ৳
+                        </span>
                       </p>
                       <p className="font-semibold">
                         Upload Date: <span className="font-normal">{date}</span>
                       </p>
                       <p className="font-semibold">
-                        Medicine Status: <span className={`font-semibold ${status === "approved" ? "text-my-accent" : ""} ${status === "pending" ? "text-yellow-500" : ""} ${status === "denied" ? "text-red-500" : ""}`}>{status}</span>
+                        Medicine Status:{" "}
+                        <span
+                          className={`font-semibold ${
+                            status === "approved" ? "text-my-accent" : ""
+                          } ${status === "pending" ? "text-yellow-500" : ""} ${
+                            status === "denied" ? "text-red-500" : ""
+                          }`}
+                        >
+                          {status}
+                        </span>
                       </p>
                     </div>
                     <div>
                       <p className="font-semibold">
-                        available Quantity: <span className="text-my-accent">{available_quantity}</span>
+                        available Quantity:{" "}
+                        <span className="text-my-accent">
+                          {available_quantity}
+                        </span>
                       </p>
                       <p className="font-semibold">
-                        Category: <span className="font-normal">{category?.label}</span>
+                        Category:{" "}
+                        <span className="font-normal">{category?.label}</span>
                       </p>
                       <p className="font-semibold">
-                        Discount: <span className="font-normal">{discount}%</span>
+                        Discount:{" "}
+                        <span className="font-normal">{discount}%</span>
                       </p>
                     </div>
                   </div>
@@ -82,7 +128,9 @@ const DashboardMedicineDetail = () => {
               <div className="w-full">
                 <div>
                   <h2 className="text-xl font-bold">Medicine Features </h2>
-                  <p className="text-gray-5">{HtmlParser(feature_with_details)}</p>
+                  <p className="text-gray-5">
+                    {HtmlParser(feature_with_details)}
+                  </p>
                 </div>
               </div>
             </div>
@@ -91,34 +139,54 @@ const DashboardMedicineDetail = () => {
               <h2 className="text-xl font-bold">Medicine Description</h2>
               <div>{HtmlParser(medicine_description)}</div>
             </div>
-            <div className="flex justify-between items-center gap-3 mt-8">
+            <div className="mt-8 flex items-center justify-between gap-3">
               <div className="medicine-types">
                 <Menu
                   menuButton={
                     // eslint-disable-next-line react/jsx-wrap-multilines
-                    <MenuButton className=" p-2 hover:bg-my-primary inline-flex items-center bg-my-accent text-white  capitalize rounded-md">
+                    <MenuButton className=" inline-flex items-center rounded-md bg-my-accent p-2 capitalize  text-white hover:bg-my-primary">
                       {status}
                       <MdKeyboardArrowDown className="text-2xl " />
                     </MenuButton>
                   }
                   transition
                 >
-                  <MenuItem disabled={status === "approved"} onClick={() => handelChangeStatus(_id, "approved")} className="font-semibold  text-my-primary">
+                  <MenuItem
+                    disabled={status === "approved"}
+                    onClick={() => handelChangeStatus(_id, "approved")}
+                    className="font-semibold  text-my-primary"
+                  >
                     Approve
                   </MenuItem>
-                  <MenuItem disabled={status === "denied"} onClick={() => handelChangeStatus(_id, "denied")} className="font-semibold  text-red-500">
+                  <MenuItem
+                    disabled={status === "denied"}
+                    onClick={() => handelChangeStatus(_id, "denied")}
+                    className="font-semibold  text-red-500"
+                  >
                     Deny
                   </MenuItem>
-                  <MenuItem disabled={status === "pending"} onClick={() => handelChangeStatus(_id, "pending")} className="font-semibold text-yellow-500">
+                  <MenuItem
+                    disabled={status === "pending"}
+                    onClick={() => handelChangeStatus(_id, "pending")}
+                    className="font-semibold text-yellow-500"
+                  >
                     Pending
                   </MenuItem>
                 </Menu>
               </div>
               <div>
-                <button onClick={() => setIsOpen(!isOpen)} className="flex items-center gap-4 text-xl text-white bg-[#F8991D] px-4 py-2 rounded-md" type="button">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="flex items-center gap-4 rounded-md bg-[#F8991D] px-4 py-2 text-xl text-white"
+                  type="button"
+                >
                   <GoComment /> Feedback
                 </button>
-                <FeedBackModal isOpen={isOpen} setIsOpen={setIsOpen} data={data} />
+                <FeedBackModal
+                  isOpen={isOpen}
+                  setIsOpen={setIsOpen}
+                  data={data}
+                />
               </div>
             </div>
           </div>

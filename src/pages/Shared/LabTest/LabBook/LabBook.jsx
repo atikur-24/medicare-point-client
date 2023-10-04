@@ -32,13 +32,31 @@ const LabBook = () => {
     };
   }, [dispatch, api]);
 
-  const { test_name, price, image_url, discount, category_name, _id, gender, age, labTestDetails, report } = data;
+  const {
+    test_name,
+    price,
+    image_url,
+    discount,
+    category_name,
+    _id,
+    gender,
+    age,
+    labTestDetails,
+    report,
+  } = data;
   const [labCart] = useLabCart();
   const [isBook, setIsBook] = useState({});
   const { user } = useAuth();
   const price2 = (price * discount) / 100;
   const remaining = parseFloat(price - price2);
-  const labAddCart = { lab_id: _id, test_name, price, remaining, discount, email: user?.email };
+  const labAddCart = {
+    lab_id: _id,
+    test_name,
+    price,
+    remaining,
+    discount,
+    email: user?.email,
+  };
   // Todo
   useEffect(() => {
     const isExisting = labCart.find((lab) => lab.lab_id === _id);
@@ -52,7 +70,7 @@ const LabBook = () => {
           <title>{`MediCare Point - ${test_name} `}</title>
         </Helmet>
         <CheckCard />
-        <div className="flex flex-wrap gap-2 items-center mb-4 md:text-xl font-bold font-nunito">
+        <div className="mb-4 flex flex-wrap items-center gap-2 font-nunito font-bold md:text-xl">
           <Link className="hover:text-my-primary" to="/">
             Home
           </Link>
@@ -62,30 +80,42 @@ const LabBook = () => {
           </Link>
           <FaAngleRight /> {test_name}
         </div>
-        <hr className="border border-gray-3 mb-8" />
+        <hr className="mb-8 border border-gray-3" />
         <div className="mt-8">
           <img src={call} alt="" className="w-full" />
         </div>
-        <div className="flex mt-4 gap-6 md:flex-row flex-col justify-between max-w-5xl mx-auto">
-          <div className="card relative rounded shadow-xl border border-gray-3 md:w-96  divide-y space-y-2 divide-gray-3">
-            <h2 className="text-center lg:text-2xl font-bold mt-4 text-my-primary">{test_name}</h2>
+        <div className="mx-auto mt-4 flex max-w-5xl flex-col justify-between gap-6 md:flex-row">
+          <div className="card relative space-y-2 divide-y divide-gray-3 rounded border  border-gray-3 shadow-xl md:w-96">
+            <h2 className="mt-4 text-center font-bold text-my-primary lg:text-2xl">
+              {test_name}
+            </h2>
             <figure className="px-10 pt-10">
               <img src={image_url} alt={test_name} className="rounded-xl" />
             </figure>
-            <div className="flex gap-4 items-center justify-center py-4">
-              <img src={time} alt={test_name} className="w-10 h-10" />
+            <div className="flex items-center justify-center gap-4 py-4">
+              <img src={time} alt={test_name} className="h-10 w-10" />
               <p className="flex flex-col text-left">
-                <span className="text-sm font-semibold text-my-accent">Get reports </span>
-                <span className="font-bold text-my-primary">Within {report} hours </span>
+                <span className="text-sm font-semibold text-my-accent">
+                  Get reports{" "}
+                </span>
+                <span className="font-bold text-my-primary">
+                  Within {report} hours{" "}
+                </span>
               </p>
             </div>
             <div className="card-body items-center   ">
-              <div className="flex gap-2 items-center font-bold">
+              <div className="flex items-center gap-2 font-bold">
                 <span>BDT </span>
-                <span className={`${discount > 0 ? "line-through" : ""}`}>৳{price}</span>
-                {discount > 0 && <span className="badge bg-my-primary border-0 badge-accent text-white py-0.5">{discount}% off</span>}
+                <span className={`${discount > 0 ? "line-through" : ""}`}>
+                  ৳{price}
+                </span>
+                {discount > 0 && (
+                  <span className="badge badge-accent border-0 bg-my-primary py-0.5 text-white">
+                    {discount}% off
+                  </span>
+                )}
               </div>
-              <p className="font-bold my-2 text-my-pink mb-8">৳{remaining}</p>
+              <p className="my-2 mb-8 font-bold text-my-pink">৳{remaining}</p>
               <div className=" absolute bottom-0 w-full">
                 {isBook ? (
                   <Link to="/labPayment" className="my-btn w-full">
@@ -97,40 +127,54 @@ const LabBook = () => {
               </div>
             </div>
           </div>
-          <div className="card border border-gray-3 md:w-[60%] p-6">
+          <div className="card border border-gray-3 p-6 md:w-[60%]">
             <h2 className="card-title ">About</h2>
-            <div className="flex flex-wrap md:justify-between gap-8">
-              <div className="flex gap-4 items-center justify-center py-4">
+            <div className="flex flex-wrap gap-8 md:justify-between">
+              <div className="flex items-center justify-center gap-4 py-4">
                 <figure>
                   <img src={sample} alt={test_name} />
                 </figure>
                 <p className="flex flex-col text-left">
-                  <span className="text-sm font-semibold text-my-accent">Sample </span>
-                  <span className="font-bold text-my-primary text-sm">{category_name}</span>
+                  <span className="text-sm font-semibold text-my-accent">
+                    Sample{" "}
+                  </span>
+                  <span className="text-sm font-bold text-my-primary">
+                    {category_name}
+                  </span>
                 </p>
               </div>
-              <div className="flex gap-4 items-center justify-center py-4">
+              <div className="flex items-center justify-center gap-4 py-4">
                 <figure>
                   <img src={gen} alt={test_name} />
                 </figure>
                 <p className="flex flex-col text-left">
-                  <span className="text-sm font-semibold text-my-accent">Gender </span>
-                  <span className="font-bold text-my-primary text-sm">{gender}</span>
+                  <span className="text-sm font-semibold text-my-accent">
+                    Gender{" "}
+                  </span>
+                  <span className="text-sm font-bold text-my-primary">
+                    {gender}
+                  </span>
                 </p>
               </div>
-              <div className="flex gap-4 items-center justify-center py-4">
+              <div className="flex items-center justify-center gap-4 py-4">
                 <figure>
                   <img src={users} alt={test_name} />
                 </figure>
                 <p className="flex flex-col text-left">
-                  <span className="text-sm font-semibold text-my-accent">Age group </span>
-                  <span className="font-bold text-my-primary text-sm">Above {age} years</span>
+                  <span className="text-sm font-semibold text-my-accent">
+                    Age group{" "}
+                  </span>
+                  <span className="text-sm font-bold text-my-primary">
+                    Above {age} years
+                  </span>
                 </p>
               </div>
             </div>
-            <div className=" items-center text-center p-0 mt-6">
-              <div className="text-justify text-black-2  tracking-wide">{HtmlParser(labTestDetails)}</div>
-              <ul className="pl-6 mt-6 text-start text-black-2  tracking-wide list-disc">
+            <div className=" mt-6 items-center p-0 text-center">
+              <div className="text-justify tracking-wide  text-black-2">
+                {HtmlParser(labTestDetails)}
+              </div>
+              <ul className="mt-6 list-disc pl-6 text-start  tracking-wide text-black-2">
                 <li>Age of the patient</li>
                 <li>Existing conditions </li>
                 <li>Estimation of future medical problems</li>

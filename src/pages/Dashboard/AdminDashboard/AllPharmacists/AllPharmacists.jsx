@@ -9,7 +9,9 @@ import AllPharmacistRow from "./AllPharmacistRow";
 
 const AllPharmacists = () => {
   const api = "all-pharmacist/Pharmacist";
-  const { allData: allPharmacist, isLoading } = useSelector((state) => state.allData);
+  const { allData: allPharmacist, isLoading } = useSelector(
+    (state) => state.allData,
+  );
 
   const [perPage, setPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,12 +35,14 @@ const AllPharmacists = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`${import.meta.env.VITE_API_URL}/delete-user/${id}`).then((res) => {
-          if (res.data.deletedCount > 0) {
-            dispatch(fetchAllData(api));
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
-          }
-        });
+        axios
+          .delete(`${import.meta.env.VITE_API_URL}/delete-user/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              dispatch(fetchAllData(api));
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
       }
     });
   };
@@ -50,18 +54,22 @@ const AllPharmacists = () => {
 
   return (
     <div>
-      <div className="flex mb-8">
+      <div className="mb-8 flex">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pharmacists</div>
-            <div className="stat-value text-my-primary">{allPharmacist?.length || 0}</div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Pharmacists
+            </div>
+            <div className="stat-value text-my-primary">
+              {allPharmacist?.length || 0}
+            </div>
           </div>
         </div>
       </div>
       <div className="overflow-x-auto">
-        <table className="table  border border-gray-3 bg-white table-zebra">
+        <table className="table  table-zebra border border-gray-3 bg-white">
           {/* head */}
-          <thead className="rounded-lg bg-my-primary/90  rounded-t-md text-white text-sm">
+          <thead className="rounded-lg rounded-t-md  bg-my-primary/90 text-sm text-white">
             <tr className=" rounded-t-md">
               <th className="rounded-tl-md">#</th>
               <th>Photo</th>
@@ -75,12 +83,17 @@ const AllPharmacists = () => {
           {!isLoading && (
             <tbody>
               {paginatedUsers?.map((user, index) => (
-                <AllPharmacistRow handelDelete={handelDelete} key={user?._id} index={index} user={user} />
+                <AllPharmacistRow
+                  handelDelete={handelDelete}
+                  key={user?._id}
+                  index={index}
+                  user={user}
+                />
               ))}
             </tbody>
           )}
         </table>
-        <div className="flex items-center justify-end gap-5 lg:gap-7 pt-5">
+        <div className="flex items-center justify-end gap-5 pt-5 lg:gap-7">
           {/* Row per page view */}
           <div>
             <label className="mr-2 text-gray-6">Rows Per Page:</label>
@@ -107,10 +120,14 @@ const AllPharmacists = () => {
                 }
               }}
               disabled={currentPage === 1}
-              className={`${currentPage === 1 ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              className={`${
+                currentPage === 1
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "hover:bg-gray-200 bg-white"
+              }`}
               type="button"
             >
-              <LiaAngleLeftSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
+              <LiaAngleLeftSolid className="text-xl font-semibold lg:text-2xl lg:font-extrabold" />
             </button>
             <button
               onClick={() => {
@@ -119,10 +136,14 @@ const AllPharmacists = () => {
                 }
               }}
               disabled={currentPage * perPage >= allPharmacist?.length}
-              className={`${currentPage * perPage >= allPharmacist?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              className={`${
+                currentPage * perPage >= allPharmacist?.length
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "hover:bg-gray-200 bg-white"
+              }`}
               type="button"
             >
-              <LiaAngleRightSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
+              <LiaAngleRightSolid className="text-xl font-semibold lg:text-2xl lg:font-extrabold" />
             </button>
           </div>
         </div>

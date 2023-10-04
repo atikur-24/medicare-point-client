@@ -36,7 +36,9 @@ const LabPayment = () => {
   // let min = `${today.getMinutes()}`;
 
   // const [startDate, setStartDate] = useState(setHours(setMinutes(new Date(), min), hours));
-  const [startDate, setStartDate] = useState(setHours(setMinutes(new Date(), 0), 9));
+  const [startDate, setStartDate] = useState(
+    setHours(setMinutes(new Date(), 0), 9),
+  );
   const filterPassedTime = (time) => {
     const currentDate = new Date();
     const selectedDate = new Date(time);
@@ -61,7 +63,7 @@ const LabPayment = () => {
     <div>
       <LabBanner />
       <div className="my-container">
-        <div className="bg-lite p-4 md:p-14 rounded-lg flex flex-col-reverse  md:flex-row-reverse  justify-between gap-8">
+        <div className="flex flex-col-reverse justify-between gap-8 rounded-lg bg-lite  p-4  md:flex-row-reverse md:p-14">
           <div className=" md:w-1/2">
             {/* <div className="space-y-4">
               <p className="font-semibold">PATHOLOGY TESTS (1)</p>
@@ -71,21 +73,42 @@ const LabPayment = () => {
               <div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text md:text-base font-semibold text-my-primary">Name</span>
+                    <span className="label-text font-semibold text-my-primary md:text-base">
+                      Name
+                    </span>
                   </label>
-                  <input type="text" placeholder="Name" className="input input-bordered w-full max-w-md" {...register("name", { required: true })} />
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    className="input input-bordered w-full max-w-md"
+                    {...register("name", { required: true })}
+                  />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text md:text-base font-semibold text-my-primary">Mobile*</span>
+                    <span className="label-text font-semibold text-my-primary md:text-base">
+                      Mobile*
+                    </span>
                   </label>
-                  <input type="text" placeholder="Mobile Number" className="input input-bordered w-full max-w-md" {...register("mobile", { required: true })} />
+                  <input
+                    type="text"
+                    placeholder="Mobile Number"
+                    className="input input-bordered w-full max-w-md"
+                    {...register("mobile", { required: true })}
+                  />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text md:text-base font-semibold text-my-primary">Age*</span>
+                    <span className="label-text font-semibold text-my-primary md:text-base">
+                      Age*
+                    </span>
                   </label>
-                  <input type="number" placeholder="Age" className="input input-bordered w-full max-w-md" {...register("age", { required: true })} />
+                  <input
+                    type="number"
+                    placeholder="Age"
+                    className="input input-bordered w-full max-w-md"
+                    {...register("age", { required: true })}
+                  />
                 </div>
 
                 <div className="  w-full  max-w-md">
@@ -106,12 +129,14 @@ const LabPayment = () => {
                   </div> */}
                   <div className="form-control">
                     <label className="label">
-                      <span className="label-text md:text-base font-semibold text-my-primary">Time*</span>
+                      <span className="label-text font-semibold text-my-primary md:text-base">
+                        Time*
+                      </span>
                     </label>
                     <DatePicker
                       {...register("dateTime")}
                       required
-                      className="w-full max-w-md  input input-bordered"
+                      className="input input-bordered  w-full max-w-md"
                       selected={startDate}
                       onChange={(date) => setStartDate(date)}
                       showTimeSelect
@@ -184,12 +209,14 @@ const LabPayment = () => {
 
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text md:text-base font-semibold text-my-primary">Area*</span>
+                    <span className="label-text font-semibold text-my-primary md:text-base">
+                      Area*
+                    </span>
                   </label>
 
                   <Select
                     name="area"
-                    className=" w-full max-w-md   input-bordered "
+                    className=" input-bordered w-full   max-w-md "
                     isClearable
                     defaultValue={selectedOption}
                     onChange={setSelectedOption}
@@ -210,17 +237,30 @@ const LabPayment = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text md:text-base font-semibold text-my-primary">Street / Nearby / Building:*</span>
+                  <span className="label-text font-semibold text-my-primary md:text-base">
+                    Street / Nearby / Building:*
+                  </span>
                 </label>
-                <input type="text" placeholder="Nearby / Building etc" className="input input-bordered w-full max-w-md" {...register("address", { required: true })} />
+                <input
+                  type="text"
+                  placeholder="Nearby / Building etc"
+                  className="input input-bordered w-full max-w-md"
+                  {...register("address", { required: true })}
+                />
               </div>
               <div className="form-control mt-6">
                 <h2 className="text-2xl font-bold">Additional information</h2>
-                <p className="text-gray-5 mt-2 font-semibold">notes (optional)</p>
-                <textarea placeholder="Spacial note" className="textarea textarea-bordered textarea-lg w-full max-w-md" {...register("note")} />
+                <p className="mt-2 font-semibold text-gray-5">
+                  notes (optional)
+                </p>
+                <textarea
+                  placeholder="Spacial note"
+                  className="textarea textarea-bordered textarea-lg w-full max-w-md"
+                  {...register("note")}
+                />
               </div>
 
-              <button type="submit" className="my-btn w-full max-w-md mt-8">
+              <button type="submit" className="my-btn mt-8 w-full max-w-md">
                 Payment
               </button>
             </form>

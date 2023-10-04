@@ -18,7 +18,9 @@ const MedicineCarts = () => {
   const totalPrices = [];
   let subTotal = 0;
   for (const items of cart) {
-    pricesWithDiscount.push(items?.quantity * (items?.price - (items?.price / 100) * items?.discount));
+    pricesWithDiscount.push(
+      items?.quantity * (items?.price - (items?.price / 100) * items?.discount),
+    );
   }
   for (const price of pricesWithDiscount) {
     totalPrice += price;
@@ -44,37 +46,53 @@ const MedicineCarts = () => {
       confirmButtonText: "Yes, Clear All",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`${import.meta.env.VITE_API_URL}/medicineCarts?email=${user?.email}`).then((res) => {
-          if (res.data.deletedCount > 0) {
-            toast.success("All Item Removed");
-            refetch();
-          }
-        });
+        axios
+          .delete(
+            `${import.meta.env.VITE_API_URL}/medicineCarts?email=${
+              user?.email
+            }`,
+          )
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              toast.success("All Item Removed");
+              refetch();
+            }
+          });
       }
     });
   };
   return (
     <section className="my-container">
-      <div className="flex flex-col lg:flex-row gap-10">
-        <div className=" rounded-md flex-grow">
-          <h3 className=" md:text-xl lg:text-2xl font-semibold bg-lite tracking-wide text-title-color py-5 px-5 lg:px-8 flex justify-between">
+      <div className="flex flex-col gap-10 lg:flex-row">
+        <div className=" flex-grow rounded-md">
+          <h3 className=" flex justify-between bg-lite px-5 py-5 font-semibold tracking-wide text-title-color md:text-xl lg:px-8 lg:text-2xl">
             <span>{cart?.length} Item in Your Cart</span>
             {cart.length > 0 && (
-              <button onClick={handleClearCart} type="button" className="text-sm lg:text-xl flex items-center gap-1 text-red-400 font-medium cursor-pointer">
+              <button
+                onClick={handleClearCart}
+                type="button"
+                className="flex cursor-pointer items-center gap-1 text-sm font-medium text-red-400 lg:text-xl"
+              >
                 <AiOutlineDelete /> Clear All
               </button>
             )}
           </h3>
-          <div className=" border-gray-3 border p-5 lg:p-8">
+          <div className=" border border-gray-3 p-5 lg:p-8">
             {cart.length > 0 ? (
               <div className="divide-y">
                 {cart?.map((item) => (
-                  <MedicineCartItem key={item._id} item={item} refetch={refetch} />
+                  <MedicineCartItem
+                    key={item._id}
+                    item={item}
+                    refetch={refetch}
+                  />
                 ))}
               </div>
             ) : (
-              <div className="flex flex-col items-center justify-center gap-3 lg:gap-6 h-full">
-                <h1 className="text-xl lg:text-2xl font-medium lg:font-semibold tracking-wide text-gray-6">Cart is Empty !</h1>
+              <div className="flex h-full flex-col items-center justify-center gap-3 lg:gap-6">
+                <h1 className="text-xl font-medium tracking-wide text-gray-6 lg:text-2xl lg:font-semibold">
+                  Cart is Empty !
+                </h1>
                 <Link to="/medicines" className="my-btn-outline tracking-wide">
                   <HiOutlineShoppingBag className="text-xl" /> Shopping
                 </Link>
@@ -82,16 +100,20 @@ const MedicineCarts = () => {
             )}
           </div>
         </div>
-        <div className="border flex flex-col justify-between border-gray-3 rounded-md lg:w-4/12 lg:h-96">
-          <h3 className="md:text-xl lg:text-2xl font-semibold tracking-wide text-title-color bg-lite py-5 px-5 lg:px-8">Cart Total</h3>
-          <div className="py-5 px-5 lg:px-8 space-y-5 md:text-xl font-medium">
+        <div className="flex flex-col justify-between rounded-md border border-gray-3 lg:h-96 lg:w-4/12">
+          <h3 className="bg-lite px-5 py-5 font-semibold tracking-wide text-title-color md:text-xl lg:px-8 lg:text-2xl">
+            Cart Total
+          </h3>
+          <div className="space-y-5 px-5 py-5 font-medium md:text-xl lg:px-8">
             <h3 className="flex justify-between font-semibold">
               SubTotal:
               <span className="flex items-center">৳ {subTotal.toFixed(2)}</span>
             </h3>
             <h3 className="flex justify-between font-semibold">
               Save Amount:
-              <span className="flex items-center">৳ {saveMoney.toFixed(2)}</span>
+              <span className="flex items-center">
+                ৳ {saveMoney.toFixed(2)}
+              </span>
             </h3>
             <h3 className="flex justify-between font-semibold">
               Delivery Charge:
@@ -99,12 +121,17 @@ const MedicineCarts = () => {
             </h3>
             <h3 className="flex justify-between font-semibold">
               Total:
-              <span className="flex items-center">৳ {mainPrice.toFixed(2)}</span>
+              <span className="flex items-center">
+                ৳ {mainPrice.toFixed(2)}
+              </span>
             </h3>
           </div>
           <div className="text-center ">
             <Link to="/orderCheckOut">
-              <button type="button" className="my-btn !rounded-t-none !rounded w-full ">
+              <button
+                type="button"
+                className="my-btn w-full !rounded !rounded-t-none "
+              >
                 Proceed to checkout
               </button>
             </Link>

@@ -51,13 +51,13 @@ const LabTestPage = () => {
       <LabBanner />
       <WebSiteTitle title={labCategory[0]?.category_name} />
       <div className="my-container relative">
-        <p className="inline-flex gap-2 items-center mb-4 text-xl font-bold font-nunito">
+        <p className="mb-4 inline-flex items-center gap-2 font-nunito text-xl font-bold">
           <Link className="hover:text-my-primary" to="/lab-test">
             Lab Test
           </Link>{" "}
           <FaAngleRight /> {labCategory[0]?.category_name}
         </p>
-        <div className="grid md:grid-cols-5 gap-4 justify-center">
+        <div className="grid justify-center gap-4 md:grid-cols-5">
           {labItems.map((category) => (
             <LabCard key={category._id} category={category} />
           ))}

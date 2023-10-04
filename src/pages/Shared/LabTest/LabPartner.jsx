@@ -12,8 +12,10 @@ import image2 from "../../../assets/Lab/TestPro.png";
 
 const LabPartner = () => {
   return (
-    <div className="my-contaiiner grid md:grid-cols-3 grid-cols-1 md:gap-8">
-      <div className="rounded-lg bg-my-primary text-white w-full h-36 md:h-full flex items-center justify-center text-3xl font-semibold mb-6">Lab Partner</div>
+    <div className="my-contaiiner grid grid-cols-1 md:grid-cols-3 md:gap-8">
+      <div className="mb-6 flex h-36 w-full items-center justify-center rounded-lg bg-my-primary text-3xl font-semibold text-white md:h-full">
+        Lab Partner
+      </div>
       <div className="col-span-2">
         <Swiper
           breakpoints={{
@@ -47,27 +49,31 @@ const LabPartner = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div className="py-4 object-cover border border-my-accent rounded-lg text-center space-y-4 h-44">
-              <img src={image1} alt="" className="w-20 mx-auto" />
-              <h3 className="text-sm md:text-lg font-medium">HealthLab</h3>
+            <div className="h-44 space-y-4 rounded-lg border border-my-accent object-cover py-4 text-center">
+              <img src={image1} alt="" className="mx-auto w-20" />
+              <h3 className="text-sm font-medium md:text-lg">HealthLab</h3>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="py-4 object-cover border border-my-accent rounded-lg text-center space-y-4 h-44">
-              <img src={image2} alt="" className="w-20 mx-auto" />
-              <h3 className="text-sm md:text-lg font-medium">LifeScan Laboratories</h3>
+            <div className="h-44 space-y-4 rounded-lg border border-my-accent object-cover py-4 text-center">
+              <img src={image2} alt="" className="mx-auto w-20" />
+              <h3 className="text-sm font-medium md:text-lg">
+                LifeScan Laboratories
+              </h3>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="py-4 object-cover border border-my-accent rounded-lg text-center space-y-4 h-44">
-              <img src={image3} alt="" className="w-20 mx-auto" />
-              <h3 className="text-sm md:text-lg font-medium">ProHealth Labs</h3>
+            <div className="h-44 space-y-4 rounded-lg border border-my-accent object-cover py-4 text-center">
+              <img src={image3} alt="" className="mx-auto w-20" />
+              <h3 className="text-sm font-medium md:text-lg">ProHealth Labs</h3>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="py-4 object-cover border border-my-accent rounded-lg text-center space-y-4 h-44">
-              <img src={image1} alt="" className="w-20 mx-auto" />
-              <h3 className="text-sm md:text-lg font-medium">DiagnoTech Solutions</h3>
+            <div className="h-44 space-y-4 rounded-lg border border-my-accent object-cover py-4 text-center">
+              <img src={image1} alt="" className="mx-auto w-20" />
+              <h3 className="text-sm font-medium md:text-lg">
+                DiagnoTech Solutions
+              </h3>
             </div>
           </SwiperSlide>
         </Swiper>

@@ -27,42 +27,74 @@ const AddHealthSuggestion = () => {
   };
 
   return (
-    <div className=" mt-8 bg-white box-shadow rounded-2xl p-10">
+    <div className=" box-shadow mt-8 rounded-2xl bg-white p-10">
       <div className="grid grid-cols-1">
         <div className="">
-          <h1 className="text-2xl text-center font-bold mb-10 font-nunito uppercase">Add A New Health Tips</h1>
+          <h1 className="mb-10 text-center font-nunito text-2xl font-bold uppercase">
+            Add A New Health Tips
+          </h1>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label className="label">
                   <span className="label-text font-bold">Category</span>
                 </label>
-                <input required type="text" placeholder="Type here" {...register("category")} className="input input-bordered w-full" />
+                <input
+                  required
+                  type="text"
+                  placeholder="Type here"
+                  {...register("category")}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div>
                 <label className="label">
                   <span className="label-text font-bold">Name</span>
                 </label>
 
-                <input required type="text" placeholder="Type here" {...register("name")} className="input input-bordered w-full" />
+                <input
+                  required
+                  type="text"
+                  placeholder="Type here"
+                  {...register("name")}
+                  className="input input-bordered w-full"
+                />
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label className="text-sm font-semibold">Image</label>
-                <input required placeholder="Type Image URL Here" type="text" {...register("image")} className="input input-bordered w-full" />
+                <input
+                  required
+                  placeholder="Type Image URL Here"
+                  type="text"
+                  {...register("image")}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div>
                 <label className="text-sm font-semibold">Date</label>
-                <input required placeholder="date" type="date" {...register("date")} className="input input-bordered w-full" />
+                <input
+                  required
+                  placeholder="date"
+                  type="date"
+                  {...register("date")}
+                  className="input input-bordered w-full"
+                />
               </div>
             </div>
             <div>
               <label className="label">
-                <span className="label-text font-bold w-full">Type</span>
+                <span className="label-text w-full font-bold">Type</span>
               </label>
 
-              <input required type="text" placeholder="Type here" {...register("type")} className="input input-bordered w-full" />
+              <input
+                required
+                type="text"
+                placeholder="Type here"
+                {...register("type")}
+                className="input input-bordered w-full"
+              />
             </div>
 
             <div>
@@ -107,20 +139,39 @@ const AddHealthSuggestion = () => {
                   <span className="label-text font-bold">Name of Doctor</span>
                 </label>
 
-                <input required type="text" placeholder="Type here" {...register("doctorName")} className="input input-bordered w-full" />
+                <input
+                  required
+                  type="text"
+                  placeholder="Type here"
+                  {...register("doctorName")}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div>
                 <label className="label">
-                  <span className="label-text font-bold">Speciality of Doctor</span>
+                  <span className="label-text font-bold">
+                    Speciality of Doctor
+                  </span>
                 </label>
-                <input required type="text" placeholder="Type here" {...register("doctorDepartment")} className="input input-bordered w-full" />
+                <input
+                  required
+                  type="text"
+                  placeholder="Type here"
+                  {...register("doctorDepartment")}
+                  className="input input-bordered w-full"
+                />
               </div>
             </div>
-            <div className="flex items-center gap-4 mt-4">
+            <div className="mt-4 flex items-center gap-4">
               <button type="submit" className="my-btn">
                 Add Health Tip
               </button>
-              <input onClick={handleReset} type="reset" value="Reset" className="btn btn-error" />
+              <input
+                onClick={handleReset}
+                type="reset"
+                value="Reset"
+                className="btn btn-error"
+              />
             </div>
           </form>
         </div>

@@ -9,12 +9,21 @@ const Lang = () => {
 
   return (
     <div className="relative">
-      <button type="button" onClick={() => setDownOpen(!donwOpen)} className=" flex gap-2 items-center btn btn-sm border-none w-32 h-10">
-        <p> {language}</p> {donwOpen ? <LiaAngleDownSolid className="text-lg" /> : <LiaAngleUpSolid className="text-lg" />}
+      <button
+        type="button"
+        onClick={() => setDownOpen(!donwOpen)}
+        className=" btn btn-sm flex h-10 w-32 items-center gap-2 border-none"
+      >
+        <p> {language}</p>{" "}
+        {donwOpen ? (
+          <LiaAngleDownSolid className="text-lg" />
+        ) : (
+          <LiaAngleUpSolid className="text-lg" />
+        )}
       </button>
 
       {!donwOpen && (
-        <div className="bg-white z-10 text-center space-y-2 py-4 absolute w-32 mt-1 drop-shadow-2xl rounded-md">
+        <div className="absolute z-10 mt-1 w-32 space-y-2 rounded-md bg-white py-4 text-center drop-shadow-2xl">
           <div onClick={() => setDownOpen(!donwOpen)} className="w-full">
             <button type="button" onClick={() => setLanguage("English")}>
               English

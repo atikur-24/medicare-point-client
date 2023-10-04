@@ -11,11 +11,20 @@ const PaginationButton = () => {
 
   return (
     <div className="text-center">
-      <button disabled={pageCounter <= 1} onClick={() => setPageCounter(pageCounter - 1)} type="button" className="mr-8">
+      <button
+        disabled={pageCounter <= 1}
+        onClick={() => setPageCounter(pageCounter - 1)}
+        type="button"
+        className="mr-8"
+      >
         priveus
       </button>
       {pageCounter}
-      <button onClick={() => setPageCounter(pageCounter + 1)} type="button" className="ml-8">
+      <button
+        onClick={() => setPageCounter(pageCounter + 1)}
+        type="button"
+        className="ml-8"
+      >
         next
       </button>
     </div>

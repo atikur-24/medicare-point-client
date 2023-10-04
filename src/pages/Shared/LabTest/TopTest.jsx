@@ -23,7 +23,9 @@ const TopTest = () => {
     const cancelToken = axios.CancelToken.source();
 
     axios
-      .get(`${import.meta.env.VITE_API_URL}/labPopularItems`, { cancelToken: cancelToken.token })
+      .get(`${import.meta.env.VITE_API_URL}/labPopularItems`, {
+        cancelToken: cancelToken.token,
+      })
       .then((res) => {
         setCategories(res?.data);
       })
@@ -79,9 +81,9 @@ const TopTest = () => {
             </div>
           </SwiperSlide>
         ))}
-        <div className="absolute top-1/2 right-4 z-10">
-          <div className=" bg-white rounded-full ">
-            <FaArrowCircleRight className="text-2xl xl:text-3xl text-my-primary" />
+        <div className="absolute right-4 top-1/2 z-10">
+          <div className=" rounded-full    bg-white ">
+            <FaArrowCircleRight className="text-2xl text-my-primary xl:text-3xl" />
           </div>
         </div>
       </Swiper>

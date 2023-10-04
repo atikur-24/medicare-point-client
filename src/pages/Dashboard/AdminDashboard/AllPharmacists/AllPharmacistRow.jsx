@@ -10,22 +10,32 @@ const AllPharmacistRow = ({ user, index, handelDelete }) => {
     <tr className="">
       <td className=" font-bold ">{index + 1}</td>
       <td className="flex justify-center">
-        <img className="w-10 h-10 rounded-full" src={user?.image} alt="" />
+        <img className="h-10 w-10 rounded-full" src={user?.image} alt="" />
       </td>
       <td className="font-medium ">
         <span>{user?.name}</span>
         <br />
         <span>{user?.email}</span>
       </td>
-      <td className=" font-medium">{user?.pharmacistDetail?.pharmacyPhoneNumber}</td>
+      <td className=" font-medium">
+        {user?.pharmacistDetail?.pharmacyPhoneNumber}
+      </td>
       <td className="font-medium ">{user?.pharmacistDetail?.pharmacyName}</td>
       <td className="flex items-center gap-4">
         <button onClick={() => setIsOpen(!isOpen)} type="button">
-          <BiSolidUserDetail className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
+          <BiSolidUserDetail className="rounded-full bg-my-primary p-1 text-3xl text-[white]" />
         </button>
-        <PharmacistDetailModal user={user} isOpen={isOpen} setIsOpen={setIsOpen} />
-        <button type="button" onClick={() => handelDelete(user?._id)} className=" bg-red-500/30 rounded-full  ">
-          <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
+        <PharmacistDetailModal
+          user={user}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
+        <button
+          type="button"
+          onClick={() => handelDelete(user?._id)}
+          className=" rounded-full bg-red-500/30  "
+        >
+          <RiDeleteBinLine className="p-1  text-3xl text-red-500" />
         </button>
       </td>
     </tr>

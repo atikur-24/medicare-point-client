@@ -21,7 +21,10 @@ const LabTest = () => {
       <LabBanner />
       <CheckCard />
       <div className="my-container">
-        <LabSearch setAllLabTests={setAllLabTests} setIsLoading={setIsLoading} />
+        <LabSearch
+          setAllLabTests={setAllLabTests}
+          setIsLoading={setIsLoading}
+        />
         <AllLabTests allLabTest={allLabTest} isLoading={isLoading} />
         <PopularLab />
         <TopTest />

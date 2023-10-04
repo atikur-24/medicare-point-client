@@ -20,7 +20,9 @@ const AllPrescriptions = () => {
   let filteredPrescription = allData;
 
   if (filterStatus !== "All Prescription") {
-    filteredPrescription = allData.filter((data) => data?.status?.toLowerCase().includes(filterStatus?.toLowerCase()));
+    filteredPrescription = allData.filter((data) =>
+      data?.status?.toLowerCase().includes(filterStatus?.toLowerCase()),
+    );
   }
 
   useEffect(() => {
@@ -65,7 +67,10 @@ const AllPrescriptions = () => {
   const prescriptionParpage = 12;
   const startIndex = currentPage * prescriptionParpage;
   const endIndex = startIndex + prescriptionParpage;
-  const PaginationPrescription = filteredPrescription?.slice(startIndex, endIndex);
+  const PaginationPrescription = filteredPrescription?.slice(
+    startIndex,
+    endIndex,
+  );
   const pageCount = Math.ceil(allData.length / prescriptionParpage);
 
   const handlePageClick = (sleetedPage) => {
@@ -81,7 +86,10 @@ const AllPrescriptions = () => {
       <dialog id="my_modal_show_prescription" className="modal">
         <div className="modal-box w-auto max-w-5xl">
           <form method="dialog" className="space-y-2">
-            <button type="submit" className="btn btn-sm btn-circle btn-ghost bg-red-500 hover:bg-red-400 text-white absolute right-2 top-2">
+            <button
+              type="submit"
+              className="btn btn-circle btn-ghost btn-sm absolute right-2 top-2 bg-red-500 text-white hover:bg-red-400"
+            >
               ✕
             </button>
           </form>
@@ -94,29 +102,39 @@ const AllPrescriptions = () => {
       <div className="mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Received Prescription</div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Received Prescription
+            </div>
             <div className="stat-value">{allData?.length || 0}</div>
           </div>
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Complete Prescription</div>
-            <div className="stat-value text-my-primary">{totalSuccess?.length || 0}</div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Complete Prescription
+            </div>
+            <div className="stat-value text-my-primary">
+              {totalSuccess?.length || 0}
+            </div>
           </div>
 
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pending Prescription</div>
-            <div className="stat-value text-yellow-500">{PendingSuccess?.length || 0}</div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Pending Prescription
+            </div>
+            <div className="stat-value text-yellow-500">
+              {PendingSuccess?.length || 0}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="flex justify-end mb-6">
+      <div className="mb-6 flex justify-end">
         <div className="flex items-center gap-4 ">
           <h2 className="w-[120px]">Filter by</h2>
           <select
             onChange={(e) => {
               setFilterStatus(e?.target?.value);
             }}
-            className="select outline-none hover:outline-none focus:!outline-none select-bordered w-full max-w-xs"
+            className="select select-bordered w-full max-w-xs outline-none hover:outline-none focus:!outline-none"
           >
             <option selected>All Prescription</option>
             <option>Success</option>
@@ -125,43 +143,67 @@ const AllPrescriptions = () => {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 mb-10">
+      <div className="mb-10 grid gap-2 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {PaginationPrescription?.map((p) => (
           <div key={p?._id}>
-            <div className="border border-gray-3 bg-white rounded-2xl p-4 space-y-4">
+            <div className="space-y-4 rounded-2xl border border-gray-3 bg-white p-4">
               <button
                 className="w-full"
                 type="button"
                 onClick={() => {
-                  document.getElementById("my_modal_show_prescription").showModal();
+                  document
+                    .getElementById("my_modal_show_prescription")
+                    .showModal();
                   setImg(p.prescription);
                 }}
               >
                 <figure className="w-full">
-                  <img className="h-64  w-full object-cover" src={p?.prescription} alt="" />
+                  <img
+                    className="h-64  w-full object-cover"
+                    src={p?.prescription}
+                    alt=""
+                  />
                 </figure>
               </button>
               <div className="space-y-1">
                 <h2 className="text-sm">{p.patientName}</h2>
-                <h2 className="text-base inline-flex items-center gap-2">
+                <h2 className="inline-flex items-center gap-2 text-base">
                   <HiOutlineMail />
                   <span>{p.email}</span>
                 </h2>
-                <h2 className="text-base inline-flex items-center gap-2">
+                <h2 className="inline-flex items-center gap-2 text-base">
                   <BiTimeFive />
                   {p.date}
                 </h2>
                 <p className="capitalize">
-                  Status: <span className={`${p?.status === "success" ? "text-my-primary" : "text-my-pink"} badge`}>{p?.status}</span>
+                  Status:{" "}
+                  <span
+                    className={`${
+                      p?.status === "success"
+                        ? "text-my-primary"
+                        : "text-my-pink"
+                    } badge`}
+                  >
+                    {p?.status}
+                  </span>
                 </p>
               </div>
-              <div className="flex justify-between items-center">
-                <Link disabled={p.status === "success"} className={`my-btn-outline `} to={`/dashboard/prescriptions/${p?.email}?id=${p._id}`} type="button">
+              <div className="flex items-center justify-between">
+                <Link
+                  disabled={p.status === "success"}
+                  className={`my-btn-outline `}
+                  to={`/dashboard/prescriptions/${p?.email}?id=${p._id}`}
+                  type="button"
+                >
                   Add Medicine
                 </Link>
 
-                <button onClick={() => handleDelete(p._id)} type="button" className=" bg-red-500/30 rounded-full  ">
-                  <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
+                <button
+                  onClick={() => handleDelete(p._id)}
+                  type="button"
+                  className=" rounded-full bg-red-500/30  "
+                >
+                  <RiDeleteBinLine className="p-1  text-3xl text-red-500" />
                 </button>
               </div>
             </div>
@@ -169,7 +211,7 @@ const AllPrescriptions = () => {
         ))}
       </div>
       <ReactPaginate
-        className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
+        className="my-auto flex items-center justify-center space-x-3 pb-5 text-center  align-middle font-semibold"
         activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
         breakLabel="..."
         nextLabel="Next"

@@ -7,7 +7,9 @@ const LabBanner = () => {
         <figure>
           <img src={time} alt="" />
         </figure>
-        <p className="text-xs md:text-2xl text-white font-bold text-center">Get your sample collected in the next 30 minutes!</p>
+        <p className="text-center text-xs font-bold text-white md:text-2xl">
+          Get your sample collected in the next 30 minutes!
+        </p>
       </div>
     </div>
   );

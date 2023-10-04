@@ -81,7 +81,17 @@ const AddNewMedicine = () => {
     data.price = parseFloat(data.price, 10);
     data.discount = parseInt(data.discount, 10);
     data.available_quantity = parseInt(data.available_quantity, 10);
-    const allData = { ...data, feature_with_details: content, medicine_description: description, sellQuantity: 0, allRatings: [], rating: 0, status: "pending", feedback: "", date };
+    const allData = {
+      ...data,
+      feature_with_details: content,
+      medicine_description: description,
+      sellQuantity: 0,
+      allRatings: [],
+      rating: 0,
+      status: "pending",
+      feedback: "",
+      date,
+    };
     axios
       .post(`${import.meta.env.VITE_API_URL}/medicines`, allData)
       .then((res) => {
@@ -120,100 +130,212 @@ const AddNewMedicine = () => {
   return (
     <section className="pb-5 lg:pb-8">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h3 className="text-center text-xl md:text-2xl lg:text-3xl font-medium lg:font-semibold my-5 text-title-color tracking-wide">Add New Medicine</h3>
+        <h3 className="my-5 text-center text-xl font-medium tracking-wide text-title-color md:text-2xl lg:text-3xl lg:font-semibold">
+          Add New Medicine
+        </h3>
         <div className="divider" />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
+        <div className="grid grid-cols-1 gap-5 pb-3 lg:grid-cols-2 lg:pb-4">
           <div>
             <span>
               Pharmacist Name <small>(read only)</small>
             </span>
-            <input className="input input-bordered w-full md:max-w-full lg:max-w-md block" readOnly defaultValue={user?.displayName} type="text" {...register("pharmacist_name")} />
+            <input
+              className="input input-bordered block w-full md:max-w-full lg:max-w-md"
+              readOnly
+              defaultValue={user?.displayName}
+              type="text"
+              {...register("pharmacist_name")}
+            />
           </div>
           <div>
             <span>
               Pharmacist Email <small>(read only)</small>
             </span>
-            <input className="input input-bordered w-full md:max-w-full lg:max-w-md block" readOnly defaultValue={user?.email} type="email" {...register("pharmacist_email")} />
+            <input
+              className="input input-bordered block w-full md:max-w-full lg:max-w-md"
+              readOnly
+              defaultValue={user?.email}
+              type="email"
+              {...register("pharmacist_email")}
+            />
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
+        <div className="grid grid-cols-1 gap-5 pb-3 lg:grid-cols-2 lg:pb-4">
           <div className="space-y-1 lg:space-y-2">
             <span>Medicine Name</span>
-            <input className="input input-bordered w-full md:max-w-full lg:max-w-md block" required placeholder="Enter medicine name" type="text" {...register("medicine_name")} />
+            <input
+              className="input input-bordered block w-full md:max-w-full lg:max-w-md"
+              required
+              placeholder="Enter medicine name"
+              type="text"
+              {...register("medicine_name")}
+            />
           </div>
           <div>
             <span>Medicine Image Url</span>
-            <input className="input input-bordered w-full md:max-w-full lg:max-w-md block" required type="text" placeholder="Enter medicine image url" {...register("image")} />
+            <input
+              className="input input-bordered block w-full md:max-w-full lg:max-w-md"
+              required
+              type="text"
+              placeholder="Enter medicine image url"
+              {...register("image")}
+            />
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
+        <div className="grid grid-cols-1 gap-5 pb-3 lg:grid-cols-2 lg:pb-4">
           <div className="w-full md:max-w-full lg:max-w-md">
             <span>Medicine Category</span>
             <Controller
               name="category"
               control={control}
-              render={({ field }) => <Select isClearable required {...field} options={categories} placeholder="Select category" noOptionsMessage={() => "No category found"} />}
+              render={({ field }) => (
+                <Select
+                  isClearable
+                  required
+                  {...field}
+                  options={categories}
+                  placeholder="Select category"
+                  noOptionsMessage={() => "No category found"}
+                />
+              )}
             />
           </div>
           <div className="w-full md:max-w-full lg:max-w-md">
             <span>
               Tags <small>(choose multiple tags)</small>
             </span>
-            <Controller name="tags" control={control} render={({ field }) => <CreatableSelect required {...field} options={tags} isMulti placeholder="Select tags" />} />
+            <Controller
+              name="tags"
+              control={control}
+              render={({ field }) => (
+                <CreatableSelect
+                  required
+                  {...field}
+                  options={tags}
+                  isMulti
+                  placeholder="Select tags"
+                />
+              )}
+            />
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
+        <div className="grid grid-cols-1 gap-5 pb-3 lg:grid-cols-2 lg:pb-4">
           <div>
             <span>Enter price</span>
-            <input className="input input-bordered w-full md:max-w-full lg:max-w-md block" required min={1} placeholder="Enter price" type="number" {...register("price")} />
+            <input
+              className="input input-bordered block w-full md:max-w-full lg:max-w-md"
+              required
+              min={1}
+              placeholder="Enter price"
+              type="number"
+              {...register("price")}
+            />
           </div>
           <div>
             <span>Available Quantity</span>
-            <input className="input input-bordered w-full md:max-w-full lg:max-w-md block" min={1} placeholder="Enter available quantity" type="number" {...register("available_quantity")} />
+            <input
+              className="input input-bordered block w-full md:max-w-full lg:max-w-md"
+              min={1}
+              placeholder="Enter available quantity"
+              type="number"
+              {...register("available_quantity")}
+            />
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
+        <div className="grid grid-cols-1 gap-5 pb-3 lg:grid-cols-2 lg:pb-4">
           <div>
             <span>Enter Discount (%)</span>
-            <input className="input input-bordered w-full md:max-w-full lg:max-w-md block" required min={0} max={100} placeholder="Enter discount" type="number" {...register("discount")} />
+            <input
+              className="input input-bordered block w-full md:max-w-full lg:max-w-md"
+              required
+              min={0}
+              max={100}
+              placeholder="Enter discount"
+              type="number"
+              {...register("discount")}
+            />
           </div>
           <div>
             <span>Sku No.</span>
-            <input className="input input-bordered w-full md:max-w-full lg:max-w-md block" required placeholder="Enter sku" type="number" {...register("sku")} />
+            <input
+              className="input input-bordered block w-full md:max-w-full lg:max-w-md"
+              required
+              placeholder="Enter sku"
+              type="number"
+              {...register("sku")}
+            />
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 pb-3 lg:pb-4">
+        <div className="grid grid-cols-1 gap-5 pb-3 lg:grid-cols-2 lg:pb-4">
           <div>
             <span>Brand Name</span>
-            <input className="input input-bordered w-full md:max-w-full lg:max-w-md block" required placeholder="Enter brand name" type="text" {...register("brand")} />
+            <input
+              className="input input-bordered block w-full md:max-w-full lg:max-w-md"
+              required
+              placeholder="Enter brand name"
+              type="text"
+              {...register("brand")}
+            />
           </div>
           <div>
             <span className="label">Order Quantity</span>
             <span className="">Box</span>
-            <input className="radio" required type="radio" value="Box" {...register("order_quantity")} />
+            <input
+              className="radio"
+              required
+              type="radio"
+              value="Box"
+              {...register("order_quantity")}
+            />
             <span className="">Bottle</span>
-            <input className="radio" required type="radio" value="Bottle" {...register("order_quantity")} />
+            <input
+              className="radio"
+              required
+              type="radio"
+              value="Bottle"
+              {...register("order_quantity")}
+            />
             <span className="">Pcs</span>
-            <input className="radio" required type="radio" value="Pcs" {...register("order_quantity")} />
+            <input
+              className="radio"
+              required
+              type="radio"
+              value="Pcs"
+              {...register("order_quantity")}
+            />
           </div>
         </div>
         <div className="mb-5">
           <span>Medicine Summary</span>
-          <textarea required {...register("medicine_summary", { required: true })} className="textarea textarea-bordered h-20 w-full resize-none" placeholder="Medicine summary" />
+          <textarea
+            required
+            {...register("medicine_summary", { required: true })}
+            className="textarea textarea-bordered h-20 w-full resize-none"
+            placeholder="Medicine summary"
+          />
         </div>
         <div className="pb-6">
           <h4>
-            Medicine Features & Details <small>(you can write multiple features with details)</small>
+            Medicine Features & Details{" "}
+            <small>(you can write multiple features with details)</small>
           </h4>
-          <JoditEditor ref={editor} value={content} onChange={(newContent) => setContent(newContent)} />
+          <JoditEditor
+            ref={editor}
+            value={content}
+            onChange={(newContent) => setContent(newContent)}
+          />
           <small className="text-red-500">{errorFeature}</small>
         </div>
         <div>
           <h4>Medicine Description</h4>
-          <JoditEditor ref={editor} value={description} onChange={(newContent) => setDescription(newContent)} />
+          <JoditEditor
+            ref={editor}
+            value={description}
+            onChange={(newContent) => setDescription(newContent)}
+          />
           <small className="text-red-500">{errorDesc}</small>
         </div>
-        <div className="pt-5 lg:pt-10 flex items-center justify-center gap-10">
+        <div className="flex items-center justify-center gap-10 pt-5 lg:pt-10">
           <button className="submit-btn" type="submit">
             Add Medicine
           </button>

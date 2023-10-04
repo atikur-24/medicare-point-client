@@ -21,7 +21,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
 
-  const { signIn, loading, setLoading, resetPassword, logOut } = useAuth(AuthContext);
+  const { signIn, loading, setLoading, resetPassword, logOut } =
+    useAuth(AuthContext);
   const navigate = useNavigate();
   const {
     register,
@@ -51,7 +52,12 @@ const Login = () => {
         }
 
         if (result.user) {
-          toast.success("Sign In Successful", { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
+          toast.success("Sign In Successful", {
+            autoClose: 1000,
+            hideProgressBar: true,
+            theme: "colored",
+            pauseOnHover: false,
+          });
           addUser(result.user);
         }
         setError("");
@@ -59,7 +65,11 @@ const Login = () => {
         setLoading(false);
       })
       .catch((err) => {
-        toast.error(err.message, { autoClose: 3000, theme: "colored", pauseOnHover: false });
+        toast.error(err.message, {
+          autoClose: 3000,
+          theme: "colored",
+          pauseOnHover: false,
+        });
         setError(err?.message);
         setLoading(false);
       });
@@ -113,20 +123,22 @@ const Login = () => {
   return (
     <div className="bg-my-primary px-4 py-6 2xl:py-0 ">
       <WebSiteTitle title="Login" />
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="login-singUp-bg   py-6 bg-white   shadow-xl rounded-lg">
-          <div className=" items-center grid grid-cols-1 md:grid-cols-2 ">
-            <div className="w-full hidden md:block">
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="login-singUp-bg   rounded-lg bg-white   py-6 shadow-xl">
+          <div className=" grid grid-cols-1 items-center md:grid-cols-2 ">
+            <div className="hidden w-full md:block">
               <Lottie animationData={loginAnimation} loop />
             </div>
             <div className="card w-full px-8 ">
-              <div className=" mb-4 flex justify-center flex-col items-center space-y-4">
+              <div className=" mb-4 flex flex-col items-center justify-center space-y-4">
                 <div>
                   <Link to="/">
                     <img className=" w-28" src={Logo} alt="logo" />
                   </Link>
                 </div>
-                <h2 className=" text-2xl font-bold text-my-primary ">Please Login </h2>
+                <h2 className=" text-2xl font-bold text-my-primary ">
+                  Please Login{" "}
+                </h2>
               </div>
 
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -135,7 +147,7 @@ const Login = () => {
                     <input
                       type="email"
                       placeholder="Email"
-                      className="placeholder-gray-4   rounded text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
+                      className="w-full   rounded border-b-2 border-gray-3 p-2  text-lg font-medium placeholder-gray-4 focus:border-b-2 focus:border-accent focus:outline-none"
                       {...register("email", { required: true })}
                     />
                     {errors.email && (
@@ -149,21 +161,34 @@ const Login = () => {
                       <input
                         type={showPassword ? "text" : "password"}
                         placeholder="Enter your password"
-                        className="placeholder-gray-4 rounded text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
+                        className="w-full rounded border-b-2 border-gray-3 p-2  text-lg font-medium placeholder-gray-4 focus:border-b-2 focus:border-accent focus:outline-none"
                         {...register("password", { required: true })}
                       />
-                      <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-2 text-my-primary">
-                        {showPassword ? <AiFillEye className="text-2xl" /> : <AiFillEyeInvisible className="text-2xl" />}
+                      <button
+                        type="button"
+                        onClick={handleTogglePassword}
+                        className="absolute bottom-2 right-5 text-my-primary"
+                      >
+                        {showPassword ? (
+                          <AiFillEye className="text-2xl" />
+                        ) : (
+                          <AiFillEyeInvisible className="text-2xl" />
+                        )}
                       </button>
                     </div>
                     {errors.password && (
                       <p className="text-red-500">
-                        <ImWarning className="inline-block" /> password is required
+                        <ImWarning className="inline-block" /> password is
+                        required
                       </p>
                     )}
                   </div>
                 </div>
-                <button onClick={() => handelReset()} type="button" className="text-xs px-2 hover:underline ">
+                <button
+                  onClick={() => handelReset()}
+                  type="button"
+                  className="px-2 text-xs hover:underline "
+                >
                   Forgot password?
                 </button>
                 <label className="label">
@@ -174,16 +199,28 @@ const Login = () => {
                   )}
                 </label>
 
-                <button type="submit" className="login-btn w-full mx-auto form-control mt-2 tracking-widest">
-                  {loading ? <TbFidgetSpinner className="text-3xl animate-spin" /> : "Login"}
+                <button
+                  type="submit"
+                  className="login-btn form-control mx-auto mt-2 w-full tracking-widest"
+                >
+                  {loading ? (
+                    <TbFidgetSpinner className="animate-spin text-3xl" />
+                  ) : (
+                    "Login"
+                  )}
                 </button>
               </form>
               <div className="divider">OR</div>
               <SocialSigning />
               <div className="mt-4 ">
                 <p className="inline-flex items-center">
-                  <span className="font-nunito font-bold">Don&apos;t Have An Account ?</span>
-                  <Link to="/signUp" className="text-sm underline font-semibold ml-2 md:hover:text-my-primary hover:text-white transition duration-300">
+                  <span className="font-nunito font-bold">
+                    Don&apos;t Have An Account ?
+                  </span>
+                  <Link
+                    to="/signUp"
+                    className="ml-2 text-sm font-semibold underline transition duration-300 hover:text-white md:hover:text-my-primary"
+                  >
                     Sign up
                   </Link>
                 </p>

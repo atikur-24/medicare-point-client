@@ -17,27 +17,38 @@ const OrderHistory = () => {
       confirmButtonText: "Yes, Cancel it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.patch(`${import.meta.env.VITE_API_URL}/deliveryStatus/${id}`, { delivery_status: "canceled" }).then((res) => {
-          if (res.data.modifiedCount > 0) {
-            refetch();
-            Swal.fire("Canceled", "Your order has been canceled", "success");
-          }
-        });
+        axios
+          .patch(`${import.meta.env.VITE_API_URL}/deliveryStatus/${id}`, {
+            delivery_status: "canceled",
+          })
+          .then((res) => {
+            if (res.data.modifiedCount > 0) {
+              refetch();
+              Swal.fire("Canceled", "Your order has been canceled", "success");
+            }
+          });
       }
     });
   };
 
   return (
     <section className="bg-lite py-6 lg:py-10">
-      <div className="space-y-2 mb-5">
-        <h3 className="text-xl lg:text-3xl tracking-wider font-medium">My Order</h3>
-        <p className="text-gray-5 lg:leading-7 text-sm">
-          View and edit all your pending delivered <br /> and returned order here
+      <div className="mb-5 space-y-2">
+        <h3 className="text-xl font-medium tracking-wider lg:text-3xl">
+          My Order
+        </h3>
+        <p className="text-sm text-gray-5 lg:leading-7">
+          View and edit all your pending delivered <br /> and returned order
+          here
         </p>
       </div>
-      <div className="bg-white rounded-md">
+      <div className="rounded-md bg-white">
         {orderHistories?.map((orderHistory) => (
-          <OrderHistoryCard key={orderHistory._id} orderHistory={orderHistory} handelChangeStatus={handelChangeStatus} />
+          <OrderHistoryCard
+            key={orderHistory._id}
+            orderHistory={orderHistory}
+            handelChangeStatus={handelChangeStatus}
+          />
         ))}
       </div>
     </section>

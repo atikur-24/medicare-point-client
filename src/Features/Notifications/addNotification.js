@@ -1,11 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const addNotificationApi = createAsyncThunk("addNotification/addNotificationApi", async (data) => {
-  // console.log(data);
-  const res = await axios.post(`${import.meta.env.VITE_API_URL}/notifications`, data);
-  return res.data;
-});
+export const addNotificationApi = createAsyncThunk(
+  "addNotification/addNotificationApi",
+  async (data) => {
+    // console.log(data);
+    const res = await axios.post(
+      `${import.meta.env.VITE_API_URL}/notifications`,
+      data,
+    );
+    return res.data;
+  },
+);
 
 const addNotificationSlice = createSlice({
   name: "addNotification",

@@ -1,12 +1,11 @@
 .modal-box {
-    max-width: 80% !important;
+  max-width: 80% !important;
 }
 
-
 .update-form select {
-    width: 100%;
+  width: 100%;
 }
 
 .update-form textarea {
-    width: 100%;
+  width: 100%;
 }

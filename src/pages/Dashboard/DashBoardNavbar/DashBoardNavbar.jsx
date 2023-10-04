@@ -7,7 +7,11 @@ import rewordIcon from "../../../assets/Dashboard-icons/reward.png";
 import { AuthContext } from "../../../contexts/AuthProvider";
 import SendNotification from "../AdminDashboard/SendNotification/SendNotification";
 
-const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificationsData }) => {
+const DashBoardNavbar = ({
+  setShowNotification,
+  showNotification,
+  allNotificationsData,
+}) => {
   const { role, user } = useContext(AuthContext);
   const [unreadNotification, setUnreadNotification] = useState(0);
 
@@ -28,56 +32,90 @@ const DashBoardNavbar = ({ setShowNotification, showNotification, allNotificatio
 
   const handleNotification = () => {
     setShowNotification(!showNotification);
-    axios.patch(`${import.meta.env.VITE_API_URL}/notifications`, notificationID).then(() => {});
+    axios
+      .patch(`${import.meta.env.VITE_API_URL}/notifications`, notificationID)
+      .then(() => {});
   };
 
   return (
     <div>
-      <div className="py-5 flex justify-between items-center bg-[#F1F6FA] ">
+      <div className="flex items-center justify-between bg-[#F1F6FA] py-5 ">
         <div className="">
-          <div className="stats shadow hidden xl:block">
+          <div className="stats hidden shadow xl:block">
             <div className="stat place-items-center space-y-2">
-              <div className="stat-title text-title-color font-nunito font-bold uppercase ">{role} Dashboard</div>
+              <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+                {role} Dashboard
+              </div>
             </div>
           </div>
         </div>
         <div className="flex items-center gap-5">
           {/* <NavLink to="/dashboard/notification"> */}
 
-          <button className="tooltip tooltip-primary tooltip-left" data-tip="Notification" type="button" onClick={handleNotification}>
+          <button
+            className="tooltip-primary tooltip tooltip-left"
+            data-tip="Notification"
+            type="button"
+            onClick={handleNotification}
+          >
             <MdOutlineNotificationsActive
-              className={`bg-my-primary  text-primary  p-2  w-12 h-12 object-cover ml-2 transition-all relative rounded-full  duration-300 ${
-                showNotification ? "bg-my-primary/70 text-white" : "bg-opacity-20"
+              className={`relative  ml-2  h-12  w-12 rounded-full bg-my-primary object-cover p-2 text-primary transition-all  duration-300 ${
+                showNotification
+                  ? "bg-my-primary/70 text-white"
+                  : "bg-opacity-20"
               }`}
               src="https://i.ibb.co/8zxdmM6/notification.png"
               alt="upload images"
             />
-            <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-primary border-2 border-white rounded-full -top-2 -right-2 ">{unreadNotification}</div>
+            <div className="absolute -right-2 -top-2 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-primary text-xs font-bold text-white ">
+              {unreadNotification}
+            </div>
             {/* <div className="absolute -top-3 -right-2 bg-yellow-500  rounded-full">
             <span className="px-1.5 py-2">{unreadNotification}</span>
           </div> */}
           </button>
 
           {role === "admin" && (
-            <button onClick={() => window.my_modal_sendNotification.showModal()} type="button">
-              <img title="Announcement" className="w-10 h-10 ml-2" src="https://i.ibb.co/9h555j1/offer.png" alt="" />
+            <button
+              onClick={() => window.my_modal_sendNotification.showModal()}
+              type="button"
+            >
+              <img
+                title="Announcement"
+                className="ml-2 h-10 w-10"
+                src="https://i.ibb.co/9h555j1/offer.png"
+                alt=""
+              />
             </button>
           )}
           {role !== "user" && (
             <NavLink to="/dashboard/images">
-              <img title="Upload Images" className="w-10 h-10 ml-2" src="https://i.ibb.co/sqVY4RR/gallery.png" alt="upload images" />
+              <img
+                title="Upload Images"
+                className="ml-2 h-10 w-10"
+                src="https://i.ibb.co/sqVY4RR/gallery.png"
+                alt="upload images"
+              />
             </NavLink>
           )}
 
           {role === "user" && (
-            <NavLink to="/dashboard/reward-points" className="tooltip  tooltip-bottom tooltip-primary !capitalize !font-normal" data-tip="Reword">
-              <GiLaurelsTrophy className="w-8 h-8" />
+            <NavLink
+              to="/dashboard/reward-points"
+              className="tooltip-primary  tooltip tooltip-bottom !font-normal !capitalize"
+              data-tip="Reword"
+            >
+              <GiLaurelsTrophy className="h-8 w-8" />
             </NavLink>
           )}
 
           <NavLink to="/dashboard/profile">
             <figure>
-              <img alt="User" className="w-8 h-8 object-cover rounded-full ring ring-my-primary  ring-offset-2" src={user?.photoURL} />
+              <img
+                alt="User"
+                className="h-8 w-8 rounded-full object-cover ring ring-my-primary  ring-offset-2"
+                src={user?.photoURL}
+              />
             </figure>
           </NavLink>
         </div>

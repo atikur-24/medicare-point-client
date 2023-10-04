@@ -47,7 +47,9 @@ export default function ConfirmLab() {
   let [data, setData] = React.useState({});
   let [click, setClick] = React.useState(0);
 
-  const { allLabBooking, isLoading } = useSelector((state) => state.adminLabBooking);
+  const { allLabBooking, isLoading } = useSelector(
+    (state) => state.adminLabBooking,
+  );
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchAdminLabBooking());
@@ -82,12 +84,18 @@ export default function ConfirmLab() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`${import.meta.env.VITE_API_URL}/deleteLabTest/${id}`).then((res) => {
-          if (res.data?.deletedCount > 0) {
-            Swal.fire("Deleted!", "Lab test deleted successfully.", "success");
-            setClick(click + 1);
-          }
-        });
+        axios
+          .delete(`${import.meta.env.VITE_API_URL}/deleteLabTest/${id}`)
+          .then((res) => {
+            if (res.data?.deletedCount > 0) {
+              Swal.fire(
+                "Deleted!",
+                "Lab test deleted successfully.",
+                "success",
+              );
+              setClick(click + 1);
+            }
+          });
       }
     });
   };
@@ -96,25 +104,39 @@ export default function ConfirmLab() {
     toggleOpen();
   };
 
-  const totalSuccess = allLabBooking.filter((labBook) => labBook?.status === "success");
-  const totalPending = allLabBooking.filter((labBook) => labBook?.status === "pending");
+  const totalSuccess = allLabBooking.filter(
+    (labBook) => labBook?.status === "success",
+  );
+  const totalPending = allLabBooking.filter(
+    (labBook) => labBook?.status === "pending",
+  );
 
   return (
     <div className="pb-6">
       <div className="mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Total Lab Booking</div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Total Lab Booking
+            </div>
             <div className="stat-value">{allLabBooking?.length || 0}</div>
           </div>
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Success</div>
-            <div className="stat-value text-my-primary">{totalSuccess?.length || 0}</div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Success
+            </div>
+            <div className="stat-value text-my-primary">
+              {totalSuccess?.length || 0}
+            </div>
           </div>
 
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pending</div>
-            <div className="stat-value text-yellow-500">{totalPending?.length || 0}</div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Pending
+            </div>
+            <div className="stat-value text-yellow-500">
+              {totalPending?.length || 0}
+            </div>
           </div>
         </div>
       </div>
@@ -124,51 +146,95 @@ export default function ConfirmLab() {
             <TableHead>
               <TableRow>
                 {columns.map((column) => (
-                  <TableCell className="!z-10 !font-bold !font-Alexandria !bg-primary/90 !text-white" key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
+                  <TableCell
+                    className="!z-10 !bg-primary/90 !font-Alexandria !font-bold !text-white"
+                    key={column.id}
+                    align={column.align}
+                    style={{ minWidth: column.minWidth }}
+                  >
                     {column.label}
                   </TableCell>
                 ))}
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                return (
-                  <TableRow className="!z-10 !font-bold !font-Alexandria " hover role="checkbox" tabIndex={-1} key={row._id}>
-                    {columns.map((column) => {
-                      if (column.id === "Action") {
-                        // Render the Edit button here.
-                        return (
-                          <TableCell key={column.id} align={column.align}>
-                            <div className="flex gap-4 justify-center">
-                              <button type="button" className="relative group" onClick={() => handleModalClick(row)}>
-                                <TbListDetails className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
-                                <span className="absolute hidden group-hover:block whitespace-nowrap ">Detail</span>
-                              </button>
+              {rows
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row) => {
+                  return (
+                    <TableRow
+                      className="!z-10 !font-Alexandria !font-bold "
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      key={row._id}
+                    >
+                      {columns.map((column) => {
+                        if (column.id === "Action") {
+                          // Render the Edit button here.
+                          return (
+                            <TableCell key={column.id} align={column.align}>
+                              <div className="flex justify-center gap-4">
+                                <button
+                                  type="button"
+                                  className="group relative"
+                                  onClick={() => handleModalClick(row)}
+                                >
+                                  <TbListDetails className="rounded-full bg-my-primary p-1 text-3xl text-[white]" />
+                                  <span className="absolute hidden whitespace-nowrap group-hover:block ">
+                                    Detail
+                                  </span>
+                                </button>
 
-                              <button type="button" onClick={() => handleDeleteClick(row)} className=" bg-red-500/30 rounded-full  ">
-                                <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
-                              </button>
-                            </div>
+                                <button
+                                  type="button"
+                                  onClick={() => handleDeleteClick(row)}
+                                  className=" rounded-full bg-red-500/30  "
+                                >
+                                  <RiDeleteBinLine className="p-1  text-3xl text-red-500" />
+                                </button>
+                              </div>
+                            </TableCell>
+                          );
+                        }
+
+                        const value = row[column.id];
+                        return (
+                          <TableCell
+                            key={column.id}
+                            align={column.align}
+                            className=" !font-Alexandria"
+                          >
+                            {column.format && typeof value === "number"
+                              ? column.format(value)
+                              : value}
                           </TableCell>
                         );
-                      }
-
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} align={column.align} className=" !font-Alexandria">
-                          {column.format && typeof value === "number" ? column.format(value) : value}
-                        </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                );
-              })}
+                      })}
+                    </TableRow>
+                  );
+                })}
             </TableBody>
           </Table>
         </TableContainer>
-        <TablePagination rowsPerPageOptions={[10, 25, 100]} component="div" count={rows.length} rowsPerPage={rowsPerPage} page={page} onPageChange={handleChangePage} onRowsPerPageChange={handleChangeRowsPerPage} />
+        <TablePagination
+          rowsPerPageOptions={[10, 25, 100]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
       </Paper>
-      <ConfirmDetailModal click={click} setClick={setClick} data={data} isOpen={isOpen} toggleOpen={toggleOpen} setData={setData} />
+      <ConfirmDetailModal
+        click={click}
+        setClick={setClick}
+        data={data}
+        isOpen={isOpen}
+        toggleOpen={toggleOpen}
+        setData={setData}
+      />
     </div>
   );
 }

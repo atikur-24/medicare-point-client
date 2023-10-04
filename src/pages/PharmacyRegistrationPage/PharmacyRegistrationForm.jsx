@@ -22,7 +22,16 @@ const PharmacyRegistrationForm = () => {
     reset();
   };
 
-  const divisions = ["Dhaka", "Chattogram", "Barishal", "Khulna", "Rajshahi", "Rangpur", "Mymensingh", "Sylhet"];
+  const divisions = [
+    "Dhaka",
+    "Chattogram",
+    "Barishal",
+    "Khulna",
+    "Rajshahi",
+    "Rangpur",
+    "Mymensingh",
+    "Sylhet",
+  ];
   const districts = [
     "Dhaka",
     "Chittagong",
@@ -92,13 +101,21 @@ const PharmacyRegistrationForm = () => {
 
   return (
     <div className="rounded-lg border-[1px] border-gray-3 bg-white">
-      <div className="text-center py-6 bg-my-primary text-white shadow-lg">
-        <h2 className=" text-lg md:text-xl lg:text-2xl font-medium lg:font-semibold">Pharmacy Registration Form</h2>
+      <div className="bg-my-primary py-6 text-center text-white shadow-lg">
+        <h2 className=" text-lg font-medium md:text-xl lg:text-2xl lg:font-semibold">
+          Pharmacy Registration Form
+        </h2>
       </div>
-      <form className="p-4 md:p-6 lg:p-10 shadow-lg" onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+      <form
+        className="p-4 shadow-lg md:p-6 lg:p-10"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
           <div className="mb-3 md:mb-4">
-            <label htmlFor="pharmacyName" className="block font-medium cursor-pointer ">
+            <label
+              htmlFor="pharmacyName"
+              className="block cursor-pointer font-medium "
+            >
               Pharmacy name:
             </label>
             <input
@@ -106,12 +123,19 @@ const PharmacyRegistrationForm = () => {
               placeholder="Pharmacy Name"
               {...register("pharmacyName", { required: true })}
               type="text"
-              className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+              className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
             />
-            {errors.pharmacyName && <small className="text-error text-xs">please Write pharmacy Name </small>}
+            {errors.pharmacyName && (
+              <small className="text-xs text-error">
+                please Write pharmacy Name{" "}
+              </small>
+            )}
           </div>
           <div className="mb-3 lg:mb-4">
-            <label htmlFor="pharmacyEmail" className="block font-medium cursor-pointer">
+            <label
+              htmlFor="pharmacyEmail"
+              className="block cursor-pointer font-medium"
+            >
               Pharmacy email address:
             </label>
             <input
@@ -119,14 +143,21 @@ const PharmacyRegistrationForm = () => {
               placeholder="Pharmacy Email"
               {...register("pharmacyEmailAddress", { required: true })}
               type="email"
-              className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+              className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
             />
-            {errors.pharmacyEmailAddress && <small className="text-error text-xs">please Write pharmacy Official Email </small>}
+            {errors.pharmacyEmailAddress && (
+              <small className="text-xs text-error">
+                please Write pharmacy Official Email{" "}
+              </small>
+            )}
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3 md:gap-4">
+        <div className="mb-3 grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
           <div className="mb-3 md:mb-4">
-            <label htmlFor="pharmacyPhoneNumber" className="block font-medium cursor-pointer">
+            <label
+              htmlFor="pharmacyPhoneNumber"
+              className="block cursor-pointer font-medium"
+            >
               Pharmacy phone number:
             </label>
             <input
@@ -134,20 +165,27 @@ const PharmacyRegistrationForm = () => {
               placeholder="Pharmacy Phone Number"
               {...register("pharmacyPhoneNumber", { required: true })}
               type="number"
-              className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+              className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
             />
-            {errors.pharmacyPhoneNumber && <small className="text-error text-xs">please Write pharmacy Official Email </small>}
+            {errors.pharmacyPhoneNumber && (
+              <small className="text-xs text-error">
+                please Write pharmacy Official Email{" "}
+              </small>
+            )}
           </div>
 
           <div>
-            <label htmlFor="division" className="block font-medium cursor-pointer">
+            <label
+              htmlFor="division"
+              className="block cursor-pointer font-medium"
+            >
               Select your Division
             </label>
             <select
               id="division"
               {...register("division", { required: true })}
               defaultValue="Select devision"
-              className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+              className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
             >
               <option value="">Select Your Division Name</option>
               {divisions.map((division, index) => (
@@ -156,19 +194,26 @@ const PharmacyRegistrationForm = () => {
                 </option>
               ))}
             </select>
-            {errors.division && <small className="text-error text-xs">please select your division</small>}
+            {errors.division && (
+              <small className="text-xs text-error">
+                please select your division
+              </small>
+            )}
           </div>
         </div>
-        <div className=" grid  grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+        <div className=" grid  grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
           <div>
-            <label htmlFor="district" className="block font-medium cursor-pointer">
+            <label
+              htmlFor="district"
+              className="block cursor-pointer font-medium"
+            >
               Select your District
             </label>
             <select
               id="district"
               {...register("district", { required: true })}
               defaultValue="Select district"
-              className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+              className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
             >
               <option value="">Select Your District Name</option>
               {districts.map((district, index) => (
@@ -177,10 +222,17 @@ const PharmacyRegistrationForm = () => {
                 </option>
               ))}
             </select>
-            {errors.district && <small className="text-error text-xs">please select your district </small>}
+            {errors.district && (
+              <small className="text-xs text-error">
+                please select your district{" "}
+              </small>
+            )}
           </div>
           <div className="mb-4">
-            <label htmlFor="fullAddress" className="block font-medium cursor-pointer">
+            <label
+              htmlFor="fullAddress"
+              className="block cursor-pointer font-medium"
+            >
               Add Full Address fo pharmacy:
             </label>
             <input
@@ -188,14 +240,21 @@ const PharmacyRegistrationForm = () => {
               placeholder="Provide pharmacy's full address"
               {...register("pharmacyFullAddress", { required: true })}
               type="address"
-              className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+              className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
             />
-            {errors.pharmacyFullAddress && <small className="text-error text-xs">please Write Properly your pharmacy's full address </small>}
+            {errors.pharmacyFullAddress && (
+              <small className="text-xs text-error">
+                please Write Properly your pharmacy's full address{" "}
+              </small>
+            )}
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
           <div className="gap-3 md:mb-4">
-            <label htmlFor="pharmacistName" className="block font-medium cursor-pointer">
+            <label
+              htmlFor="pharmacistName"
+              className="block cursor-pointer font-medium"
+            >
               Pharmacist name:
             </label>
             <input
@@ -205,13 +264,20 @@ const PharmacyRegistrationForm = () => {
               placeholder="Pharmacy Name"
               {...register("pharmacistName", { required: true })}
               type="text"
-              className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+              className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
             />
-            {errors.pharmacistName && <small className="text-error text-xs">please Write pharmacist Name </small>}
+            {errors.pharmacistName && (
+              <small className="text-xs text-error">
+                please Write pharmacist Name{" "}
+              </small>
+            )}
           </div>
 
           <div className="mb-3 md:mb-4">
-            <label htmlFor="medicinesSold" className="block font-medium cursor-pointer">
+            <label
+              htmlFor="medicinesSold"
+              className="block cursor-pointer font-medium"
+            >
               Types of medicines sold:
             </label>
             <input
@@ -219,14 +285,21 @@ const PharmacyRegistrationForm = () => {
               placeholder="Types of medicines sold"
               {...register("medicinesSold", { required: true })}
               type="text"
-              className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+              className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
             />
-            {errors.medicinesSold && <small className="text-error text-xs">please Write Types of medicines sold </small>}
+            {errors.medicinesSold && (
+              <small className="text-xs text-error">
+                please Write Types of medicines sold{" "}
+              </small>
+            )}
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
+        <div className="grid grid-cols-1 gap-x-4 md:grid-cols-2">
           <div className="mb-4">
-            <label htmlFor="pharmacyRegisNumber" className="block font-medium cursor-pointer">
+            <label
+              htmlFor="pharmacyRegisNumber"
+              className="block cursor-pointer font-medium"
+            >
               Pharmacy registration number:
             </label>
             <input
@@ -234,12 +307,19 @@ const PharmacyRegistrationForm = () => {
               placeholder="0R3XXXXXXXXXXXXXXXXXXXXX"
               {...register("pharmacyRegisNumber", { required: true })}
               type="text"
-              className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+              className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
             />
-            {errors.pharmacyRegisNumber && <small className="text-error text-xs">please Write Pharmacy registration number</small>}
+            {errors.pharmacyRegisNumber && (
+              <small className="text-xs text-error">
+                please Write Pharmacy registration number
+              </small>
+            )}
           </div>
           <div className="mb-4">
-            <label htmlFor="pharmacistLicense" className="block font-medium cursor-pointer">
+            <label
+              htmlFor="pharmacistLicense"
+              className="block cursor-pointer font-medium"
+            >
               Pharmacist license number:
             </label>
             <input
@@ -247,34 +327,59 @@ const PharmacyRegistrationForm = () => {
               placeholder="0L5XXXXXXXXXXXXXXXXXXXXX"
               {...register("pharmacistLicense", { required: true })}
               type="text"
-              className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+              className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
             />
-            {errors.pharmacistLicense && <small className="text-error text-xs">please Write Pharmacist license number </small>}
+            {errors.pharmacistLicense && (
+              <small className="text-xs text-error">
+                please Write Pharmacist license number{" "}
+              </small>
+            )}
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="mb-4">
-            <label htmlFor="scope" className="block font-medium cursor-pointer">
+            <label htmlFor="scope" className="block cursor-pointer font-medium">
               Scope of practice:
             </label>
-            <textarea id="scope" {...register("scopeOfPractice", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2" />
-            {errors.scopeOfPractice && <small className="text-error text-xs">please Write Scope of practice </small>}
+            <textarea
+              id="scope"
+              {...register("scopeOfPractice", { required: true })}
+              className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
+            />
+            {errors.scopeOfPractice && (
+              <small className="text-xs text-error">
+                please Write Scope of practice{" "}
+              </small>
+            )}
           </div>
           <div className="mb-4">
-            <label htmlFor="shopingInfo" className="block font-medium cursor-pointer">
+            <label
+              htmlFor="shopingInfo"
+              className="block cursor-pointer font-medium"
+            >
               Shipping information:
             </label>
-            <textarea id="shopingInfo" {...register("shippingInformation", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2" />
-            {errors.shippingInformation && <small className="text-error text-xs">please Write Shipping information </small>}
+            <textarea
+              id="shopingInfo"
+              {...register("shippingInformation", { required: true })}
+              className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
+            />
+            {errors.shippingInformation && (
+              <small className="text-xs text-error">
+                please Write Shipping information{" "}
+              </small>
+            )}
           </div>
         </div>
-        <button type="submit" className="w-1/3 my-btn">
+        <button type="submit" className="my-btn w-1/3">
           Register
         </button>
       </form>
 
-      <div className="text-center py-3 bg-my-primary text-gray-3">
-        <p className="text-sm">Copyright © 2023 Medicare All rights reserved.</p>
+      <div className="bg-my-primary py-3 text-center text-gray-3">
+        <p className="text-sm">
+          Copyright © 2023 Medicare All rights reserved.
+        </p>
       </div>
     </div>
   );

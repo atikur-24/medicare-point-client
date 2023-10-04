@@ -8,7 +8,9 @@ const useOrderByUsers = () => {
     queryKey: ["medicineCarts", user?.email],
     enabled: !loading,
     queryFn: async () => {
-      const data = await axios.get(`${import.meta.env.VITE_API_URL}/medicinesOrder?email=${user?.email}`);
+      const data = await axios.get(
+        `${import.meta.env.VITE_API_URL}/medicinesOrder?email=${user?.email}`,
+      );
       return data?.data;
     },
   });

@@ -48,41 +48,63 @@ const UpdateHealthArticles = () => {
   }, [existingData, setValue]);
 
   return (
-    <div className="mt-8 bg-white box-shadow rounded-2xl p-10">
+    <div className="box-shadow mt-8 rounded-2xl bg-white p-10">
       <div className="grid grid-cols-1">
         <div className="">
-          <h1 className="text-2xl text-center font-bold mb-10 font-nunito uppercase">Update Health Articles</h1>
+          <h1 className="mb-10 text-center font-nunito text-2xl font-bold uppercase">
+            Update Health Articles
+          </h1>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label className="label">
                   <span className="label-text font-bold">Title</span>
                 </label>
-                <input type="text" {...register("title")} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  {...register("title")}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div>
                 <label className="label">
                   <span className="label-text font-bold">Topic</span>
                 </label>
-                <input type="text" {...register("topic")} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  {...register("topic")}
+                  className="input input-bordered w-full"
+                />
               </div>
             </div>
             <div>
               <label className="text-sm font-semibold">Image</label>
-              <input type="text" {...register("image")} className="input input-bordered w-full" />
+              <input
+                type="text"
+                {...register("image")}
+                className="input input-bordered w-full"
+              />
             </div>
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label className="label">
                   <span className="label-text font-bold">Published date</span>
                 </label>
-                <input type="date" {...register("published_date")} className="input input-bordered w-full" />
+                <input
+                  type="date"
+                  {...register("published_date")}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div>
                 <label className="label">
                   <span className="label-text font-bold">Content</span>
                 </label>
-                <input type="text" {...register("content")} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  {...register("content")}
+                  className="input input-bordered w-full"
+                />
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2">
@@ -90,20 +112,32 @@ const UpdateHealthArticles = () => {
                 <label className="label">
                   <span className="label-text font-bold">Author</span>
                 </label>
-                <input type="text" {...register("author")} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  {...register("author")}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div>
                 <label className="label">
                   <span className="label-text font-bold">Author Image</span>
                 </label>
-                <input type="text" {...register("authorImage")} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  {...register("authorImage")}
+                  className="input input-bordered w-full"
+                />
               </div>
             </div>
             <div>
               <label className="label">
                 <span className="label-text font-bold">Section Title</span>
               </label>
-              <input type="text" {...register("sectionTitle")} className="input input-bordered w-full" />
+              <input
+                type="text"
+                {...register("sectionTitle")}
+                className="input input-bordered w-full"
+              />
             </div>
             <div>
               <label className="label">

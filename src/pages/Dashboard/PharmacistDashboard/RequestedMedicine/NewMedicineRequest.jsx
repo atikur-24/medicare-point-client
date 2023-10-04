@@ -16,7 +16,9 @@ const NewMedicineRequest = () => {
     isLoading,
     refetch,
   } = useQuery(["reqMedicine"], async () => {
-    const res = await axios.get(`${import.meta.env.VITE_API_URL}/requestNewMedicine`);
+    const res = await axios.get(
+      `${import.meta.env.VITE_API_URL}/requestNewMedicine`,
+    );
     return res.data;
   });
 
@@ -32,15 +34,25 @@ const NewMedicineRequest = () => {
       <div className="my-8 flex items-center gap-3 lg:gap-8 xl:gap-16">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Request New Medicine</div>
-            <div className="stat-value text-my-primary">{newReqMedicine?.length}</div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Request New Medicine
+            </div>
+            <div className="stat-value text-my-primary">
+              {newReqMedicine?.length}
+            </div>
           </div>
         </div>
-        <h3 className="textxl lg:text-3xl font-medium lg:font-semibold tracking-wide text-my-primary uppercase">New Medicine requests</h3>
+        <h3 className="textxl font-medium uppercase tracking-wide text-my-primary lg:text-3xl lg:font-semibold">
+          New Medicine requests
+        </h3>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-5">
+      <div className="grid grid-cols-1 gap-3 md:gap-5 lg:grid-cols-2">
         {PaginationReqMedi?.map((newReqMedi) => (
-          <NewReqCard key={newReqMedi._id} newReqMedi={newReqMedi} refetch={refetch} />
+          <NewReqCard
+            key={newReqMedi._id}
+            newReqMedi={newReqMedi}
+            refetch={refetch}
+          />
         ))}
       </div>
 
@@ -50,12 +62,14 @@ const NewMedicineRequest = () => {
         </div>
       )}
       {newReqMedicine?.length <= 0 && (
-        <div className="mt-5 lg:mt-20 bg-slate-3 p-2 px-8 mx-auto text-center w-fit rounded">
-          <span className="text-xl lg:text-3xl text-red-400">No Request Found</span>
+        <div className="mx-auto mt-5 w-fit rounded bg-slate-3 p-2 px-8 text-center lg:mt-20">
+          <span className="text-xl text-red-400 lg:text-3xl">
+            No Request Found
+          </span>
         </div>
       )}
       <ReactPaginate
-        className="flex text-center items-center justify-center my-auto space-x-3 font-semibold py-5 pt-6 align-middle"
+        className="my-auto flex items-center justify-center space-x-3 py-5 pt-6 text-center align-middle font-semibold"
         activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
         breakLabel="..."
         nextLabel="Next"

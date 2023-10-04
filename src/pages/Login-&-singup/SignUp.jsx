@@ -16,7 +16,14 @@ import SocialSigning from "./SocialSigning";
 const SignUp = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser, updateUserProfile, loading, setLoading, emailVerification, logOut } = useAuth(AuthContext);
+  const {
+    createUser,
+    updateUserProfile,
+    loading,
+    setLoading,
+    emailVerification,
+    logOut,
+  } = useAuth(AuthContext);
 
   const navigate = useNavigate();
 
@@ -35,7 +42,9 @@ const SignUp = () => {
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`;
+    const url = `https://api.imgbb.com/1/upload?key=${
+      import.meta.env.VITE_IMGBB_KEY
+    }`;
     fetch(url, {
       method: "POST",
       body: formData,
@@ -72,37 +81,51 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-my-primary py-6 px-4 2xl:py-0">
+    <div className="bg-my-primary px-4 py-6 2xl:py-0">
       <WebSiteTitle title="Sign Up" />
-      <div className="flex justify-center  items-center min-h-screen ">
-        <div className=" login-singUp-bg  bg-white   shadow-xl rounded-lg ">
+      <div className="flex min-h-screen  items-center justify-center ">
+        <div className=" login-singUp-bg  rounded-lg   bg-white shadow-xl ">
           <div className="grid grid-cols-1 md:grid-cols-2 ">
-            <div className="w-full hidden md:block ">
+            <div className="hidden w-full md:block ">
               <Lottie animationData={loginAnimation} loop />
             </div>
             <div>
-              <div className="card w-full md:p-12 card-body px-8">
-                <div className=" flex justify-center flex-col items-center space-y-4">
+              <div className="card card-body w-full px-8 md:p-12">
+                <div className=" flex flex-col items-center justify-center space-y-4">
                   <div>
                     <Link to="/">
                       <img className=" w-28" src={Logo} alt="logo" />
                     </Link>
                   </div>
-                  <h2 className=" text-2xl font-bold text-my-primary ">Please Sign Up </h2>
+                  <h2 className=" text-2xl font-bold text-my-primary ">
+                    Please Sign Up{" "}
+                  </h2>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)} className=" space-y-5">
                   <div className="form-control">
-                    <input type="text" placeholder="Name" className="placeholder-gray-4 rounded text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent" required {...register("name")} />
+                    <input
+                      type="text"
+                      placeholder="Name"
+                      className="w-full rounded border-b-2 border-gray-3 p-2  text-lg font-medium placeholder-gray-4 focus:border-b-2 focus:border-accent focus:outline-none"
+                      required
+                      {...register("name")}
+                    />
                   </div>
                   <div className="form-control">
-                    <input type="file" {...register("image", { required: true })} className="file-input rounded file-input-bordered file-input-accent w-full" />
-                    {errors.image && <span className="text-red-600">image is required</span>}
+                    <input
+                      type="file"
+                      {...register("image", { required: true })}
+                      className="file-input file-input-bordered file-input-accent w-full rounded"
+                    />
+                    {errors.image && (
+                      <span className="text-red-600">image is required</span>
+                    )}
                   </div>
                   <div className="form-control">
                     <input
                       type="email"
                       placeholder="Email"
-                      className="placeholder-gray-4 rounded text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent"
+                      className="w-full rounded border-b-2 border-gray-3 p-2  text-lg font-medium placeholder-gray-4 focus:border-b-2 focus:border-accent focus:outline-none"
                       {...register("email", { required: true })}
                     />
                     {errors.email && (
@@ -121,14 +144,23 @@ const SignUp = () => {
                           maxLength: 20,
                         })}
                         placeholder="Password"
-                        className="placeholder-gray-4 rounded text-lg font-medium border-gray-3  w-full border-b-2 focus:border-b-2 focus:outline-none p-2 focus:border-accent "
+                        className="w-full rounded border-b-2 border-gray-3 p-2  text-lg font-medium placeholder-gray-4 focus:border-b-2 focus:border-accent focus:outline-none "
                       />
-                      <button type="button" onClick={handleTogglePassword} className="absolute right-5 bottom-2 text-my-primary">
-                        {showPassword ? <AiFillEye className="text-2xl" /> : <AiFillEyeInvisible className="text-2xl" />}
+                      <button
+                        type="button"
+                        onClick={handleTogglePassword}
+                        className="absolute bottom-2 right-5 text-my-primary"
+                      >
+                        {showPassword ? (
+                          <AiFillEye className="text-2xl" />
+                        ) : (
+                          <AiFillEyeInvisible className="text-2xl" />
+                        )}
                       </button>
                       {errors.password?.type === "required" && (
                         <p className="text-red-600">
-                          <ImWarning className="inline-block" /> Password is required
+                          <ImWarning className="inline-block" /> Password is
+                          required
                         </p>
                       )}
                     </div>
@@ -141,8 +173,15 @@ const SignUp = () => {
                   )}
 
                   <div className="form-control mt-6">
-                    <button type="submit" className="login-btn w-full mx-auto form-control mt-2 tracking-widest">
-                      {loading ? <TbFidgetSpinner className="text-3xl animate-spin" /> : "Register"}
+                    <button
+                      type="submit"
+                      className="login-btn form-control mx-auto mt-2 w-full tracking-widest"
+                    >
+                      {loading ? (
+                        <TbFidgetSpinner className="animate-spin text-3xl" />
+                      ) : (
+                        "Register"
+                      )}
                     </button>
                   </div>
                 </form>
@@ -150,8 +189,13 @@ const SignUp = () => {
                 <SocialSigning />
                 <div className="mt-2 ">
                   <p className="inline-flex items-center">
-                    <span className="font-nunito font-bold">Already Have An Account ?</span>
-                    <Link to="/login" className="text-sm underline font-semibold ml-2 md:hover:text-my-primary hover:text-white transition duration-300">
+                    <span className="font-nunito font-bold">
+                      Already Have An Account ?
+                    </span>
+                    <Link
+                      to="/login"
+                      className="ml-2 text-sm font-semibold underline transition duration-300 hover:text-white md:hover:text-my-primary"
+                    >
                       Login
                     </Link>
                   </p>

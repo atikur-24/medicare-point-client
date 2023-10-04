@@ -1,5 +1,17 @@
 /* eslint-disable comma-dangle */
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateEmail, updateProfile } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateEmail,
+  updateProfile,
+} from "firebase/auth";
 import { createContext, useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchUserByEmail } from "../Features/AllUsers/userByEmail";
@@ -95,10 +107,12 @@ const AuthProvider = ({ children }) => {
       userInfo,
       emailUpdate,
     }),
-    [user, loading, role, userInfo]
+    [user, loading, role, userInfo],
   );
 
-  return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;

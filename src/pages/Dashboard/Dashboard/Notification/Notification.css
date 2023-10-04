@@ -1,19 +1,19 @@
 .hide-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .hide-scrollbar * {
-    scrollbar-width: none;
+  scrollbar-width: none;
 }
 
 .notification-card {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .delete-icon {
-    margin-bottom: -100px;
+  margin-bottom: -100px;
 }
 
 .notification-card:hover .delete-icon {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }

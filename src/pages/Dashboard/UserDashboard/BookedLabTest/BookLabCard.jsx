@@ -15,14 +15,17 @@ const BookLabCard = ({ book, isOpen, toggleOpen }) => {
 
   return (
     <div className="pb-6">
-      <div className="border box-shadow  bg-white rounded-2xl border-gray-3 p-4 xl:flex flex-row justify-around    items-center">
-        <div className="p-4 rounded lg:w-[35%] 2xl:w-[30%]">
+      <div className="box-shadow flex-row  items-center justify-around rounded-2xl border border-gray-3 bg-white p-4    xl:flex">
+        <div className="rounded p-4 lg:w-[35%] 2xl:w-[30%]">
           <div className=" divide-y-2 divide-gray-3">
-            <h2 className="font-bold font-nunito uppercase pb-2">{test_name}</h2>
-            <p className="flex justify-between items-center font-bold py-2">
-              <span className="text-gray-5">Amount</span> <span> ৳{remaining}</span>
+            <h2 className="pb-2 font-nunito font-bold uppercase">
+              {test_name}
+            </h2>
+            <p className="flex items-center justify-between py-2 font-bold">
+              <span className="text-gray-5">Amount</span>{" "}
+              <span> ৳{remaining}</span>
             </p>
-            <h2 className="font-bold py-2">{dateTime}</h2>
+            <h2 className="py-2 font-bold">{dateTime}</h2>
           </div>
           <hr className="my-2" />
           <div className="space-y-2">
@@ -55,13 +58,21 @@ const BookLabCard = ({ book, isOpen, toggleOpen }) => {
           </ul>
         </div>
 
-        <button onClick={handlerAlert} className="my-btn !hidden xl:!block" type="button">
+        <button
+          onClick={handlerAlert}
+          className="my-btn !hidden xl:!block"
+          type="button"
+        >
           Lab Report
         </button>
 
         <div className=" xl:hidden">
           <div className="flex items-center gap-3">
-            <button onClick={toggleOpen} type="button" className="my-btn text-left ">
+            <button
+              onClick={toggleOpen}
+              type="button"
+              className="my-btn text-left "
+            >
               <MdLocationSearching className="text-2xl" /> Track Order
             </button>
             <button onClick={handlerAlert} className="my-btn" type="button">

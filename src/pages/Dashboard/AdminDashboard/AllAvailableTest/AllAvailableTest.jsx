@@ -51,7 +51,7 @@ const AllAvailableTest = () => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-[calc(100vh-200px)] ">
+      <div className="flex min-h-[calc(100vh-200px)] items-center justify-center ">
         <Loader spinner />
       </div>
     );
@@ -62,20 +62,29 @@ const AllAvailableTest = () => {
       <div className=" mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Total Lab Test</div>
-            <div className="stat-value text-my-primary">{allLabTest.length || 0}</div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Total Lab Test
+            </div>
+            <div className="stat-value text-my-primary">
+              {allLabTest.length || 0}
+            </div>
           </div>
         </div>
       </div>
       {singleId && <UpdateLabTest x={x} setX={setX} id={singleId} />}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-3 md:gap-5 mb-10">
+      <div className="mb-10 grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-5 2xl:grid-cols-4">
         {PaginationLabTest?.map((category) => (
-          <AddLabCard key={category._id} setSingleId={setSingleId} category={category} handlerDelete={handlerDelete} />
+          <AddLabCard
+            key={category._id}
+            setSingleId={setSingleId}
+            category={category}
+            handlerDelete={handlerDelete}
+          />
         ))}
       </div>
       <ReactPaginate
-        className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
+        className="my-auto flex items-center justify-center space-x-3 pb-5 text-center  align-middle font-semibold"
         activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
         breakLabel="..."
         nextLabel="Next"

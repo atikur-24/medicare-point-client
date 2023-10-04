@@ -19,33 +19,39 @@ const PharmacyApplications = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`${import.meta.env.VITE_API_URL}/deleteRApplication/${id}`).then((res) => {
-          if (res.data.deleteCount > 0) {
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
-          }
-          refetch();
-        });
+        axios
+          .delete(`${import.meta.env.VITE_API_URL}/deleteRApplication/${id}`)
+          .then((res) => {
+            if (res.data.deleteCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+            refetch();
+          });
       }
     });
   };
 
   return (
     <div>
-      <div className="space-y-2 mb-5">
-        <div className="flex mb-8">
+      <div className="mb-5 space-y-2">
+        <div className="mb-8 flex">
           <div className="stats shadow">
             <div className="stat place-items-center space-y-2">
-              <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pharmacist Application</div>
-              <div className="stat-value text-my-primary">{applications?.length}</div>
+              <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+                Pharmacist Application
+              </div>
+              <div className="stat-value text-my-primary">
+                {applications?.length}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="overflow-x-auto mb-20">
-        <table className="table  border border-gray-3 bg-white table-zebra">
+      <div className="mb-20 overflow-x-auto">
+        <table className="table  table-zebra border border-gray-3 bg-white">
           {/* head */}
-          <thead className="rounded-lg bg-my-primary/90  rounded-t-md text-white text-sm">
-            <tr className="text-center rounded-t-md">
+          <thead className="rounded-lg rounded-t-md  bg-my-primary/90 text-sm text-white">
+            <tr className="rounded-t-md text-center">
               <th className="rounded-tl-md">#</th>
               <th>Pharmacist</th>
               <th>Pharmacy Name</th>
@@ -60,27 +66,50 @@ const PharmacyApplications = () => {
             {/* row 1 */}
             {applications.map((application, idx) => (
               <tr key={application._id} className="">
-                <td className="font-bold text-center">{idx + 1}</td>
-                <td className="flex justify-center items-center flex-col">
-                  <img className="w-10 h-10 rounded-full" src={application?.pharmacistImage} alt="" />
+                <td className="text-center font-bold">{idx + 1}</td>
+                <td className="flex flex-col items-center justify-center">
+                  <img
+                    className="h-10 w-10 rounded-full"
+                    src={application?.pharmacistImage}
+                    alt=""
+                  />
                   <p>{application?.pharmacistName}</p>
                 </td>
 
-                <td className="font-semibold text-center">{application?.pharmacyName}</td>
-                <td className="font-semibold text-center">{application?.division}</td>
-                <td className={` font-semibold text-center capitalize text-[#f1b84d] ${application.applicationType === "Approved" ? "text-my-primary" : ""} ${application?.applicationType === "deny" ? "text-red-500" : ""} `}>
+                <td className="text-center font-semibold">
+                  {application?.pharmacyName}
+                </td>
+                <td className="text-center font-semibold">
+                  {application?.division}
+                </td>
+                <td
+                  className={` text-center font-semibold capitalize text-[#f1b84d] ${
+                    application.applicationType === "Approved"
+                      ? "text-my-primary"
+                      : ""
+                  } ${
+                    application?.applicationType === "deny"
+                      ? "text-red-500"
+                      : ""
+                  } `}
+                >
                   {application?.applicationType}
                 </td>
                 <td>
-                  <Link to={`/dashboard/pharmacyRegistration/${application?._id}`}>
+                  <Link
+                    to={`/dashboard/pharmacyRegistration/${application?._id}`}
+                  >
                     <button className="cart-btn-outline" type="button">
                       Details
                     </button>
                   </Link>
                 </td>
-                <td className="font-semibold text-center">
-                  <button type="button" onClick={() => DeleteApplication(application?._id)}>
-                    <RiDeleteBinLine className="text-4xl p-2 rounded-full text-red-500 bg-red-500/30 " />
+                <td className="text-center font-semibold">
+                  <button
+                    type="button"
+                    onClick={() => DeleteApplication(application?._id)}
+                  >
+                    <RiDeleteBinLine className="rounded-full bg-red-500/30 p-2 text-4xl text-red-500 " />
                   </button>
                 </td>
               </tr>

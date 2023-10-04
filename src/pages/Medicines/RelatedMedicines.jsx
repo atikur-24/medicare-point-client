@@ -16,13 +16,17 @@ const RelatedMedicines = ({ category }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    const filter = allData.filter((medicine) => medicine?.category?.value === category);
+    const filter = allData.filter(
+      (medicine) => medicine?.category?.value === category,
+    );
     setRelatedMedicine(filter);
   }, [allData, category]);
 
   return (
     <>
-      <h2 className="text-xl lg:text-2xl uppercase font-nunito font-semibold lg:font-bold lg:tracking-wide text-title-color border-l-4 border-my-primary mb-5 lg:mb-8 pl-2">Related Medicines</h2>
+      <h2 className="mb-5 border-l-4 border-my-primary pl-2 font-nunito text-xl font-semibold uppercase text-title-color lg:mb-8 lg:text-2xl lg:font-bold lg:tracking-wide">
+        Related Medicines
+      </h2>
       <div>
         <Swiper
           breakpoints={{
@@ -59,7 +63,10 @@ const RelatedMedicines = ({ category }) => {
           className="mySwiper"
         >
           {relatedMedicine.map((medicine, index) => (
-            <SwiperSlide className="border border-gray-3 rounded-md shadow-lg" key={index}>
+            <SwiperSlide
+              className="rounded-md border border-gray-3 shadow-lg"
+              key={index}
+            >
               <MediCard medicine={medicine} />
             </SwiperSlide>
           ))}

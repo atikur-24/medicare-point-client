@@ -1,11 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchAllPrescription = createAsyncThunk("allPrescription/fetchAllPrescription", async ({ email, role }) => {
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}/prescriptions?email=${email}&role=${role}`);
-  //   console.log(res.data);
-  return res.data;
-});
+export const fetchAllPrescription = createAsyncThunk(
+  "allPrescription/fetchAllPrescription",
+  async ({ email, role }) => {
+    const res = await axios.get(
+      `${
+        import.meta.env.VITE_API_URL
+      }/prescriptions?email=${email}&role=${role}`,
+    );
+    //   console.log(res.data);
+    return res.data;
+  },
+);
 
 const allPrescriptionSlice = createSlice({
   name: "allPrescription",

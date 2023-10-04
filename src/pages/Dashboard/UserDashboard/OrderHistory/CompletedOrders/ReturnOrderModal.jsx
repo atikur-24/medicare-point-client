@@ -25,7 +25,15 @@ const ReturnOrderModal = ({ isOpen, setIsOpen }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
-        <Transition.Child as={Fragment} enter="ease-out duration-300" enterFrom="opacity-0" enterTo="opacity-100" leave="ease-in duration-200" leaveFrom="opacity-100" leaveTo="opacity-0">
+        <Transition.Child
+          as={Fragment}
+          enter="ease-out duration-300"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="ease-in duration-200"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
           <div className="fixed inset-0 bg-black/25" />
         </Transition.Child>
 
@@ -41,19 +49,24 @@ const ReturnOrderModal = ({ isOpen, setIsOpen }) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel className="w-full max-w-2xl  transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                <Dialog.Title as="h3" className="  font-medium leading-6 text-gray-900">
-                  <p className="text-xl lg:text-2xl font-medium">Order Return Form</p>
+                <Dialog.Title
+                  as="h3"
+                  className="  text-gray-900 font-medium leading-6"
+                >
+                  <p className="text-xl font-medium lg:text-2xl">
+                    Order Return Form
+                  </p>
                 </Dialog.Title>
                 <div className="mt-2">
                   <form onSubmit={handelSubmit}>
-                    <div className="flex flex-col md:flex-row justify-between md:gap-6">
+                    <div className="flex flex-col justify-between md:flex-row md:gap-6">
                       <div className="mt-2 w-full">
                         <label className="text-sm" htmlFor="name">
                           Name
                         </label>
                         <br />
                         <input
-                          className="placeholder-gray-4  rounded   font-medium border-my-accent  w-full border focus:border-2 focus:outline-none p-1 focus:border-my-primary "
+                          className="w-full  rounded   border border-my-accent  p-1 font-medium placeholder-gray-4 focus:border-2 focus:border-my-primary focus:outline-none "
                           type="text"
                           name="name"
                           id="name"
@@ -68,7 +81,7 @@ const ReturnOrderModal = ({ isOpen, setIsOpen }) => {
                         </label>
                         <br />
                         <input
-                          className="placeholder-gray-4   rounded   font-medium border-my-accent  w-full border focus:border-2 focus:outline-none p-1 focus:border-my-primary "
+                          className="w-full   rounded   border border-my-accent  p-1 font-medium placeholder-gray-4 focus:border-2 focus:border-my-primary focus:outline-none "
                           type="email"
                           name="email"
                           id="email"
@@ -85,7 +98,7 @@ const ReturnOrderModal = ({ isOpen, setIsOpen }) => {
                         </label>
                         <br />
                         <input
-                          className="placeholder-gray-4  rounded   font-medium border-my-accent  w-full border focus:border-2 focus:outline-none p-1 focus:border-my-primary "
+                          className="w-full  rounded   border border-my-accent  p-1 font-medium placeholder-gray-4 focus:border-2 focus:border-my-primary focus:outline-none "
                           type="number"
                           name="number"
                           id="number"
@@ -98,7 +111,7 @@ const ReturnOrderModal = ({ isOpen, setIsOpen }) => {
                         </label>
                         <br />
                         <input
-                          className="placeholder-gray-4   rounded font-medium border-my-accent  w-full border focus:border-2 focus:outline-none p-1 focus:border-my-primary "
+                          className="w-full   rounded border border-my-accent  p-1 font-medium placeholder-gray-4 focus:border-2 focus:border-my-primary focus:outline-none "
                           type="text"
                           name="location"
                           id="location"
@@ -111,7 +124,7 @@ const ReturnOrderModal = ({ isOpen, setIsOpen }) => {
                         </label>
                         <br />
                         <textarea
-                          className="placeholder-gray-4   rounded font-medium border-my-accent  w-full border focus:border-2 focus:outline-none p-1 h-24 focus:border-my-primary "
+                          className="h-24   w-full rounded border  border-my-accent p-1 font-medium placeholder-gray-4 focus:border-2 focus:border-my-primary focus:outline-none "
                           type="text"
                           name="description"
                           id="description"
@@ -119,7 +132,11 @@ const ReturnOrderModal = ({ isOpen, setIsOpen }) => {
                         />
                       </div>
                     </div>
-                    <input className="bg-my-accent text-white p-2 rounded-md cursor-pointer" type="submit" value="Submit" />
+                    <input
+                      className="cursor-pointer rounded-md bg-my-accent p-2 text-white"
+                      type="submit"
+                      value="Submit"
+                    />
                   </form>
                 </div>
               </Dialog.Panel>

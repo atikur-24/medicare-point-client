@@ -12,7 +12,9 @@ const HealthTips = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const { isLoading, allHealthTips: healthTips } = useSelector((state) => state.allHealthTips);
+  const { isLoading, allHealthTips: healthTips } = useSelector(
+    (state) => state.allHealthTips,
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,11 +23,15 @@ const HealthTips = () => {
 
   useEffect(() => {
     // Extract unique categories from health tips data
-    const uniqueCategories = [...new Set(healthTips.map((tip) => tip.category))];
+    const uniqueCategories = [
+      ...new Set(healthTips.map((tip) => tip.category)),
+    ];
     setCategories(uniqueCategories);
   }, [healthTips]);
 
-  const filteredHealthTips = selectedCategory ? healthTips.filter((tip) => tip.category === selectedCategory) : healthTips;
+  const filteredHealthTips = selectedCategory
+    ? healthTips.filter((tip) => tip.category === selectedCategory)
+    : healthTips;
   const handleCategoryChange = (event) => {
     setSelectedCategory(event?.target?.value);
   };
@@ -54,26 +60,42 @@ const HealthTips = () => {
       <img src={helth} className="w-full" alt="" />
       {/* <h1 className="lg:text-4xl md:text-3xl text-2xl text-center font-bold my-4 mx-2">Health Tips: Your Guide to a Balanced Lifestyle</h1> */}
 
-      <div className="flex flex-col xl:flex-row container mx-auto py-10">
+      <div className="container mx-auto flex flex-col py-10 xl:flex-row">
         {/* Sidebar */}
-        <div className="w-1/5 p-6 bg-white border border-gray-3 h-full object-cover hidden xl:block  m-4 rounded-md">
+        <div className="m-4 hidden h-full w-1/5 rounded-md border border-gray-3 bg-white object-cover  p-6 xl:block">
           <Link to="/healthtips">
-            <h2 className="lg:text-2xl md:text-lg text-left uppercase font-extrabold mb-2 font-nunito">Categories</h2>
+            <h2 className="mb-2 text-left font-nunito font-extrabold uppercase md:text-lg lg:text-2xl">
+              Categories
+            </h2>
           </Link>
-          <hr className="border border-my-accent my-4" />
+          <hr className="my-4 border border-my-accent" />
           <ul className="divide-y divide-my-accent ">
             {categories?.map((category, index) => (
-              <li key={index} className="font-semibold text-title-color py-2">
-                <button type="button" className={`text-blue-600 hover:text-my-primary text-left hover:underline ${selectedCategory === category ? "font-bold text-my-primary" : ""}`} onClick={() => setSelectedCategory(category)}>
+              <li key={index} className="py-2 font-semibold text-title-color">
+                <button
+                  type="button"
+                  className={`text-blue-600 text-left hover:text-my-primary hover:underline ${
+                    selectedCategory === category
+                      ? "font-bold text-my-primary"
+                      : ""
+                  }`}
+                  onClick={() => setSelectedCategory(category)}
+                >
                   {category}
                 </button>
               </li>
             ))}
           </ul>
         </div>
-        <div className="w-full xl:w-1/5 p-4    block xl:hidden ">
-          <h2 className="text-2xl uppercase font-extrabold mb-2 font-nunito">Categories</h2>
-          <select className="w-full border z-10  overflow-hidden rounded-md mb-2 select select-bordered" value={selectedCategory || ""} onChange={handleCategoryChange}>
+        <div className="block w-full p-4    xl:hidden xl:w-1/5 ">
+          <h2 className="mb-2 font-nunito text-2xl font-extrabold uppercase">
+            Categories
+          </h2>
+          <select
+            className="select select-bordered z-10  mb-2 w-full overflow-hidden rounded-md border"
+            value={selectedCategory || ""}
+            onChange={handleCategoryChange}
+          >
             <option value="" className="z-10">
               All Categories
             </option>
@@ -86,11 +108,11 @@ const HealthTips = () => {
         </div>
 
         {/* Main Content */}
-        <div className="xl:w-4/5 w-full p-4">
+        <div className="w-full p-4 xl:w-4/5">
           {isLoading ? (
             <Loader spinner />
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4 lg:mx-8 md:mx-2 mx-auto items-center">
+            <div className="mx-auto grid grid-cols-1  items-center gap-4 md:mx-2 md:grid-cols-2 lg:mx-8 lg:grid-cols-3">
               {paginatedHealthTips?.map((healthTip) => (
                 <HealthCard key={healthTip._id} healthTip={healthTip} />
               ))}
@@ -98,9 +120,9 @@ const HealthTips = () => {
           )}
         </div>
       </div>
-      <div className="text-center mt-4">
+      <div className="mt-4 text-center">
         <ReactPaginate
-          className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
+          className="my-auto flex items-center justify-center space-x-3 pb-5 text-center  align-middle font-semibold"
           activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
           breakLabel="..."
           nextLabel="Next"
