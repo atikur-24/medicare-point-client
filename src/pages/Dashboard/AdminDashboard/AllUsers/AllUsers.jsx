@@ -25,9 +25,13 @@ const AllUsers = () => {
   let filteredUsers = allUsers;
 
   if (searchName) {
-    filteredUsers = allUsers.filter((user) => user?.name?.toLowerCase().includes(searchName?.toLowerCase()));
+    filteredUsers = allUsers.filter((user) =>
+      user?.name?.toLowerCase().includes(searchName?.toLowerCase()),
+    );
   } else if (filterStatus !== "All Users") {
-    filteredUsers = allUsers.filter((user) => user?.role?.toLowerCase().includes(filterStatus?.toLowerCase()));
+    filteredUsers = allUsers.filter((user) =>
+      user?.role?.toLowerCase().includes(filterStatus?.toLowerCase()),
+    );
   }
 
   const paginatedUsers = filteredUsers?.slice(startIndex, endIndex);
@@ -43,12 +47,14 @@ const AllUsers = () => {
     const userData = {
       role,
     };
-    axios.patch(`${import.meta.env.VITE_API_URL}/updateUserRole/${id}`, userData).then((res) => {
-      if (res?.data?.modifiedCount > 0) {
-        dispatch(fetchAllUsers());
-        Swal.fire("Successful", "Convert User Role to Admin", "success");
-      }
-    });
+    axios
+      .patch(`${import.meta.env.VITE_API_URL}/updateUserRole/${id}`, userData)
+      .then((res) => {
+        if (res?.data?.modifiedCount > 0) {
+          dispatch(fetchAllUsers());
+          Swal.fire("Successful", "Convert User Role to Admin", "success");
+        }
+      });
   };
 
   const handelDeleteUser = (id) => {
@@ -62,18 +68,22 @@ const AllUsers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`${import.meta.env.VITE_API_URL}/delete-user/${id}`).then((res) => {
-          if (res.data.deletedCount > 0) {
-            dispatch(fetchAllUsers());
-            Swal.fire("Deleted!", "Your file has been deleted.", "success");
-          }
-        });
+        axios
+          .delete(`${import.meta.env.VITE_API_URL}/delete-user/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              dispatch(fetchAllUsers());
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
       }
     });
   };
 
   const totalAdmin = allUsers.filter((admin) => admin?.role === "admin");
-  const totalPharmacist = allUsers.filter((admin) => admin?.role === "Pharmacist");
+  const totalPharmacist = allUsers.filter(
+    (admin) => admin?.role === "Pharmacist",
+  );
   const totalUsers = allUsers.filter((admin) => admin?.role === "user");
 
   return (
@@ -81,27 +91,47 @@ const AllUsers = () => {
       <div className="mb-8">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">All Members</div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              All Members
+            </div>
             <div className="stat-value">{allUsers?.length || 0}</div>
           </div>
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Admin</div>
-            <div className="stat-value text-my-pink">{totalAdmin?.length || 0}</div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Admin
+            </div>
+            <div className="stat-value text-my-pink">
+              {totalAdmin?.length || 0}
+            </div>
           </div>
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pharmacist</div>
-            <div className="stat-value text-my-primary">{totalPharmacist?.length || 0}</div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Pharmacist
+            </div>
+            <div className="stat-value text-my-primary">
+              {totalPharmacist?.length || 0}
+            </div>
           </div>
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Users</div>
-            <div className="stat-value text-gray-5">{totalUsers?.length || 0}</div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Users
+            </div>
+            <div className="stat-value text-gray-5">
+              {totalUsers?.length || 0}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="flex justify-between mb-6">
+      <div className="mb-6 flex justify-between">
         <div className="join">
-          <input value={searchName} onChange={(e) => setSearchName(e.target.value)} type="search" className="input input-bordered join-item outline-none !rounded-md f placeholder:text-gray-6 focus:!outline-none" placeholder="search by name" />
+          <input
+            value={searchName}
+            onChange={(e) => setSearchName(e.target.value)}
+            type="search"
+            className="f input join-item input-bordered !rounded-md outline-none placeholder:text-gray-6 focus:!outline-none"
+            placeholder="search by name"
+          />
         </div>
         <div className="flex items-center gap-4 ">
           <h2 className="w-[120px]">Filter by</h2>
@@ -109,7 +139,7 @@ const AllUsers = () => {
             onChange={(e) => {
               setFilterStatus(e?.target?.value);
             }}
-            className="select outline-none hover:outline-none focus:!outline-none select-bordered w-full max-w-xs"
+            className="select select-bordered w-full max-w-xs outline-none hover:outline-none focus:!outline-none"
           >
             <option selected>All Users</option>
             <option>Admin</option>
@@ -120,10 +150,10 @@ const AllUsers = () => {
       </div>
 
       <div className="overflow-x-auto">
-        <table className="table  border border-gray-3 bg-white table-zebra">
+        <table className="table  table-zebra border border-gray-3 bg-white">
           {/* head */}
-          <thead className="rounded-lg bg-my-primary/90  rounded-t-md text-white text-[14px]">
-            <tr className="text-center rounded-t-md">
+          <thead className="rounded-lg rounded-t-md  bg-my-primary/90 text-[14px] text-white">
+            <tr className="rounded-t-md text-center">
               <th className="rounded-tl-md">#</th>
               <th>Photo</th>
               <th>Name</th>
@@ -138,33 +168,49 @@ const AllUsers = () => {
               {/* row 1 */}
               {paginatedUsers?.map((user, idx) => (
                 <tr key={user._id} className="">
-                  <td className="font-bold text-center">{idx + 1}</td>
+                  <td className="text-center font-bold">{idx + 1}</td>
                   <td className="flex justify-center">
-                    <img className="w-10 h-10  rounded-full" src={user?.image} alt="" />
+                    <img
+                      className="h-10 w-10  rounded-full"
+                      src={user?.image}
+                      alt=""
+                    />
                   </td>
-                  <td className="font-semibold text-center">{user?.name}</td>
-                  <td className="font-semibold text-center">{user?.email}</td>
-                  <td className="font-semibold text-center">
+                  <td className="text-center font-semibold">{user?.name}</td>
+                  <td className="text-center font-semibold">{user?.email}</td>
+                  <td className="text-center font-semibold">
                     <Menu
                       menuButton={
                         // eslint-disable-next-line react/jsx-wrap-multilines
-                        <MenuButton className="my-btn !btn-sm !bg-my-accent  !rounded w-full">
+                        <MenuButton className="my-btn !btn-sm w-full  !rounded !bg-my-accent">
                           {user?.role} <BsChevronDown />
                         </MenuButton>
                       }
                       transition
                     >
-                      <MenuItem onClick={() => updateRole(user?._id, "user")} disabled={user?.role === "user"} className="font-semibold text-gray-6">
+                      <MenuItem
+                        onClick={() => updateRole(user?._id, "user")}
+                        disabled={user?.role === "user"}
+                        className="font-semibold text-gray-6"
+                      >
                         User
                       </MenuItem>
-                      <MenuItem onClick={() => updateRole(user?._id, "admin")} disabled={user?.role === "admin"} className="font-semibold text-gray-6">
+                      <MenuItem
+                        onClick={() => updateRole(user?._id, "admin")}
+                        disabled={user?.role === "admin"}
+                        className="font-semibold text-gray-6"
+                      >
                         Admin
                       </MenuItem>
                     </Menu>
                   </td>
-                  <td className="flex justify-center items-center gap-4">
-                    <button type="button" onClick={() => handelDeleteUser(user?._id)} className=" bg-red-500/30 rounded-full">
-                      <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
+                  <td className="flex items-center justify-center gap-4">
+                    <button
+                      type="button"
+                      onClick={() => handelDeleteUser(user?._id)}
+                      className=" rounded-full bg-red-500/30"
+                    >
+                      <RiDeleteBinLine className="p-1  text-3xl text-red-500" />
                     </button>
                   </td>
                 </tr>
@@ -172,7 +218,7 @@ const AllUsers = () => {
             </tbody>
           )}
         </table>
-        <div className="flex items-center justify-end gap-5 lg:gap-7 pt-5">
+        <div className="flex items-center justify-end gap-5 pt-5 lg:gap-7">
           {/* Row per page view */}
           <div>
             <label className="mr-2 text-gray-6">Rows Per Page:</label>
@@ -198,10 +244,14 @@ const AllUsers = () => {
                 }
               }}
               disabled={currentPage === 1}
-              className={`${currentPage === 1 ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              className={`${
+                currentPage === 1
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "hover:bg-gray-200 bg-white"
+              }`}
               type="button"
             >
-              <LiaAngleLeftSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
+              <LiaAngleLeftSolid className="text-xl font-semibold lg:text-2xl lg:font-extrabold" />
             </button>
             <button
               onClick={() => {
@@ -210,10 +260,14 @@ const AllUsers = () => {
                 }
               }}
               disabled={currentPage * perPage >= filteredUsers?.length}
-              className={`${currentPage * perPage >= filteredUsers?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              className={`${
+                currentPage * perPage >= filteredUsers?.length
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "hover:bg-gray-200 bg-white"
+              }`}
               type="button"
             >
-              <LiaAngleRightSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
+              <LiaAngleRightSolid className="text-xl font-semibold lg:text-2xl lg:font-extrabold" />
             </button>
           </div>
         </div>

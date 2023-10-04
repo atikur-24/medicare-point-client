@@ -1,10 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchAllOrder = createAsyncThunk("orderHistory/fetchAllOrder", async () => {
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}/medicinesOrderByAdmin`);
-  return res.data;
-});
+export const fetchAllOrder = createAsyncThunk(
+  "orderHistory/fetchAllOrder",
+  async () => {
+    const res = await axios.get(
+      `${import.meta.env.VITE_API_URL}/medicinesOrderByAdmin`,
+    );
+    return res.data;
+  },
+);
 
 const orderSlice = createSlice({
   name: "orderHistory",

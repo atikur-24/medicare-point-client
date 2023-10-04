@@ -6,25 +6,40 @@ const NewsLetter = () => {
     event.preventDefault();
     const email = event.target.email.value;
     if (email) {
-      toast.success("Newsletter Subscribe Success ", { position: "top-center", theme: "colored", autoClose: 2000, pauseOnHover: false });
+      toast.success("Newsletter Subscribe Success ", {
+        position: "top-center",
+        theme: "colored",
+        autoClose: 2000,
+        pauseOnHover: false,
+      });
       event.target.reset();
     }
   };
 
   return (
     <div className="bg-title-color py-8">
-      <div className="w-full md:w-10/12 mx-auto text-center space-y-4 ">
-        <p className="text-lg font-semibold text-white tracking-wide">NEWS LETTER</p>
-        <h1 className="text-2xl md:text-3xl font-bold text-my-accent">GET DISCOUNT 30% OFF</h1>
-        <form onSubmit={handleSubmit} className="flex justify-center items-center px-4 xl:w-1/2 mx-auto gap-4">
+      <div className="mx-auto w-full space-y-4 text-center md:w-10/12 ">
+        <p className="text-lg font-semibold tracking-wide text-white">
+          NEWS LETTER
+        </p>
+        <h1 className="text-2xl font-bold text-my-accent md:text-3xl">
+          GET DISCOUNT 30% OFF
+        </h1>
+        <form
+          onSubmit={handleSubmit}
+          className="mx-auto flex items-center justify-center gap-4 px-4 xl:w-1/2"
+        >
           <input
             required
             name="email"
-            className="w-full ps-4 lg:h-12 text-sm md:text-base outline-my-primary rounded-3xl border border-my-accent  placeholder-gray-4 p-1 md:p-2 font-medium focus:border-2 focus:outline-none  focus:border-accent"
+            className="w-full rounded-3xl border border-my-accent p-1 ps-4 text-sm font-medium placeholder-gray-4  outline-my-primary focus:border-2 focus:border-accent focus:outline-none md:p-2 md:text-base  lg:h-12"
             type="email"
             placeholder="xyz@gmail.com"
           />
-          <button type="submit" className="my-btn-outline md:tracking-wide text-sm md:text-lg !bg-opacity-90 !hover:bg-opacity-90">
+          <button
+            type="submit"
+            className="my-btn-outline !hover:bg-opacity-90 !bg-opacity-90 text-sm md:text-lg md:tracking-wide"
+          >
             <HiOutlineMail size={24} /> SUBSCRIBE
           </button>
         </form>

@@ -1,10 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchDetailData = createAsyncThunk("data/fetchDetailData", async (api) => {
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}/${api}`);
-  return res.data;
-});
+export const fetchDetailData = createAsyncThunk(
+  "data/fetchDetailData",
+  async (api) => {
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/${api}`);
+    return res.data;
+  },
+);
 
 const detailDataSlices = createSlice({
   name: "data",

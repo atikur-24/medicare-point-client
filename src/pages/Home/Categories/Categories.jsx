@@ -30,7 +30,10 @@ const Categories = () => {
   return (
     <div className="my-container">
       <div>
-        <SectionTitle title="Shop by Category" content="Discover essential healthcare solutions through our diverse medicine categories." />
+        <SectionTitle
+          title="Shop by Category"
+          content="Discover essential healthcare solutions through our diverse medicine categories."
+        />
       </div>
       <div className="shopby-category">
         <Swiper

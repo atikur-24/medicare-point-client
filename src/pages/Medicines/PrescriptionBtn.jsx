@@ -28,7 +28,12 @@ const PrescriptionBtn = () => {
   };
 
   return (
-    <button type="button" className="my-btn-outline !rounded-md tracking-wide" title="upload prescription" onClick={handleUploadPrescription}>
+    <button
+      type="button"
+      className="my-btn-outline !rounded-md tracking-wide"
+      title="upload prescription"
+      onClick={handleUploadPrescription}
+    >
       <FaFilePrescription className="text-xl" /> Upload Prescription
     </button>
   );

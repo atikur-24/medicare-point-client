@@ -1,11 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const uploadImageApi = createAsyncThunk("uploadImage/uploadImageApi", async (formData) => {
-  const res = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`, formData);
-  // console.log(res.data);
-  return res.data;
-});
+export const uploadImageApi = createAsyncThunk(
+  "uploadImage/uploadImageApi",
+  async (formData) => {
+    const res = await axios.post(
+      `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_KEY}`,
+      formData,
+    );
+    // console.log(res.data);
+    return res.data;
+  },
+);
 
 const uploadImageSlice = createSlice({
   name: "uploadImage",

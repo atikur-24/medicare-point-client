@@ -76,38 +76,73 @@ const UpdateLabTest = ({ id }) => {
     <div>
       <input type="checkbox" id="my-modal-3" className="modal-toggle" />
       <div className="modal">
-        <div className="modal-box w-11/12 md:w-3/5 max-w-5xl md:flex justify-around items-start p-5 rounded-lg shadow-lg">
-          <form onSubmit={handleSubmit(onSubmit)} className=" rounded-2xl box-shadow bg-white p-6">
-            <h3 className="text-center text-xl md:text-3xl font-semibold my-5 text-my-primary">Update Lab Test</h3>
+        <div className="modal-box w-11/12 max-w-5xl items-start justify-around rounded-lg p-5 shadow-lg md:flex md:w-3/5">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className=" box-shadow rounded-2xl bg-white p-6"
+          >
+            <h3 className="my-5 text-center text-xl font-semibold text-my-primary md:text-3xl">
+              Update Lab Test
+            </h3>
             <div className="divider" />
 
-            <div className="two-input-field lg:flex gap-5">
+            <div className="two-input-field gap-5 lg:flex">
               <div>
                 <label className="label">
-                  <span className="label-text md:text-base font-bold font-nunito">Test Name</span>
+                  <span className="label-text font-nunito font-bold md:text-base">
+                    Test Name
+                  </span>
                 </label>
-                <input required placeholder="Enter lab test name" type="text" {...register("test_name")} className="w-full max-w-md  outline-none  input input-bordered focus:outline-none " />
+                <input
+                  required
+                  placeholder="Enter lab test name"
+                  type="text"
+                  {...register("test_name")}
+                  className="input input-bordered  w-full  max-w-md outline-none focus:outline-none "
+                />
               </div>
               <div>
                 <label className="label">
-                  <span className="label-text md:text-base font-bold font-nunito">Price</span>
+                  <span className="label-text font-nunito font-bold md:text-base">
+                    Price
+                  </span>
                 </label>
-                <input required placeholder="Enter lab test name" type="number" {...register("price")} className="w-full max-w-md focus:outline-none  outline-none input input-bordered" />
+                <input
+                  required
+                  placeholder="Enter lab test name"
+                  type="number"
+                  {...register("price")}
+                  className="input input-bordered w-full  max-w-md outline-none focus:outline-none"
+                />
               </div>
               <div>
                 <label className="label">
-                  <span className="label-text md:text-base font-bold font-nunito">Discount</span>
+                  <span className="label-text font-nunito font-bold md:text-base">
+                    Discount
+                  </span>
                 </label>
-                <input required placeholder="Enter fees" defaultValue={0} type="number" {...register("discount")} className="w-full max-w-md focus:outline-none  outline-none input input-bordered" />
+                <input
+                  required
+                  placeholder="Enter fees"
+                  defaultValue={0}
+                  type="number"
+                  {...register("discount")}
+                  className="input input-bordered w-full  max-w-md outline-none focus:outline-none"
+                />
               </div>
             </div>
 
-            <div className="two-input-field lg:flex gap-5">
+            <div className="two-input-field gap-5 lg:flex">
               <div>
                 <label className="label">
-                  <span className="label-text md:text-base font-bold font-nunito">Category Name</span>
+                  <span className="label-text font-nunito font-bold md:text-base">
+                    Category Name
+                  </span>
                 </label>
-                <select {...register("category_name", { required: true })} className="select select-bordered w-full max-w-md focus:outline-none  outline-none ">
+                <select
+                  {...register("category_name", { required: true })}
+                  className="select select-bordered w-full max-w-md outline-none  focus:outline-none "
+                >
                   {labCategories.map((option) => (
                     <option key={option} value={option}>
                       {option}
@@ -117,36 +152,63 @@ const UpdateLabTest = ({ id }) => {
               </div>
               <div>
                 <label className="label">
-                  <span className="label-text md:text-base font-bold font-nunito">Phone Number</span>
+                  <span className="label-text font-nunito font-bold md:text-base">
+                    Phone Number
+                  </span>
                 </label>
-                <input required type="text" placeholder="Enter lab's phone Number" {...register("PhoneNumber")} className="w-full max-w-md focus:outline-none  outline-none input input-bordered" />
+                <input
+                  required
+                  type="text"
+                  placeholder="Enter lab's phone Number"
+                  {...register("PhoneNumber")}
+                  className="input input-bordered w-full  max-w-md outline-none focus:outline-none"
+                />
               </div>
             </div>
 
-            <div className=" lg:flex gap-5">
+            <div className=" gap-5 lg:flex">
               <div className="md:w-1/2">
                 <label className="label">
-                  <span className="label-text md:text-base font-bold font-nunito">Report</span>
+                  <span className="label-text font-nunito font-bold md:text-base">
+                    Report
+                  </span>
                 </label>
                 <div>
                   {/* <Controller name="city" control={control} render={({ field }) => <CreatableSelect required {...field} options={cities} isMulti placeholder="Select city" />} /> */}
 
-                  <input className="input input-bordered w-full max-w-md focus:outline-none  outline-none" type="number" placeholder="Enter Report Time" {...register("report")} />
+                  <input
+                    className="input input-bordered w-full max-w-md outline-none  focus:outline-none"
+                    type="number"
+                    placeholder="Enter Report Time"
+                    {...register("report")}
+                  />
                 </div>
               </div>
               <div className="md:w-1/2">
                 <label className="label">
-                  <span className="label-text md:text-base font-bold font-nunito">All labs (separated by &)</span>
+                  <span className="label-text font-nunito font-bold md:text-base">
+                    All labs (separated by &)
+                  </span>
                 </label>
-                <input className="input input-bordered w-full max-w-md focus:outline-none  outline-none" type="text" placeholder="Enter lab names" {...register("labNames")} />
+                <input
+                  className="input input-bordered w-full max-w-md outline-none  focus:outline-none"
+                  type="text"
+                  placeholder="Enter lab names"
+                  {...register("labNames")}
+                />
               </div>
             </div>
-            <div className="two-input-field lg:flex gap-5">
+            <div className="two-input-field gap-5 lg:flex">
               <div>
                 <label className="label">
-                  <span className="label-text md:text-base font-bold font-nunito">Gender</span>
+                  <span className="label-text font-nunito font-bold md:text-base">
+                    Gender
+                  </span>
                 </label>
-                <select {...register("gender")} className="select select-bordered w-full max-w-md focus:outline-none  outline-none">
+                <select
+                  {...register("gender")}
+                  className="select select-bordered w-full max-w-md outline-none  focus:outline-none"
+                >
                   <option value="female">female</option>
                   <option value="male">male</option>
                   <option value="both">both</option>
@@ -154,18 +216,32 @@ const UpdateLabTest = ({ id }) => {
               </div>
               <div>
                 <label className="label">
-                  <span className="label-text md:text-base font-bold font-nunito">Age</span>
+                  <span className="label-text font-nunito font-bold md:text-base">
+                    Age
+                  </span>
                 </label>
-                <input className="input input-bordered w-full max-w-md focus:outline-none  outline-none" max="80" min="0" type="number" placeholder="Enter Age" {...register("age")} />
+                <input
+                  className="input input-bordered w-full max-w-md outline-none  focus:outline-none"
+                  max="80"
+                  min="0"
+                  type="number"
+                  placeholder="Enter Age"
+                  {...register("age")}
+                />
               </div>
             </div>
 
-            <div className="two-input-field lg:flex gap-5">
+            <div className="two-input-field gap-5 lg:flex">
               <div className="">
                 <label className="label">
-                  <span className="label-text md:text-base font-bold font-nunito">Category</span>
+                  <span className="label-text font-nunito font-bold md:text-base">
+                    Category
+                  </span>
                 </label>
-                <select {...register("category", { required: true })} className="select select-bordered w-full max-w-md focus:outline-none ">
+                <select
+                  {...register("category", { required: true })}
+                  className="select select-bordered w-full max-w-md focus:outline-none "
+                >
                   {labCategories2.map((option) => (
                     <option key={option} value={option}>
                       {option}
@@ -175,20 +251,34 @@ const UpdateLabTest = ({ id }) => {
               </div>
               <div className="input-btn">
                 <label className="label">
-                  <span className="label-text md:text-base font-bold font-nunito">Photo</span>
+                  <span className="label-text font-nunito font-bold md:text-base">
+                    Photo
+                  </span>
                 </label>
-                <input placeholder="Photo Url" required type="url" {...register("image_url")} className="input input-bordered w-full max-w-md focus:outline-none  outline-none" />
+                <input
+                  placeholder="Photo Url"
+                  required
+                  type="url"
+                  {...register("image_url")}
+                  className="input input-bordered w-full max-w-md outline-none  focus:outline-none"
+                />
               </div>
             </div>
 
             <div>
               <label className="label">
-                <span className="label-text md:text-base font-bold font-nunito">Details About The Test</span>
+                <span className="label-text font-nunito font-bold md:text-base">
+                  Details About The Test
+                </span>
               </label>
-              <JoditEditor ref={editor} value={description} onChange={(newContent) => setDescription(newContent)} />
+              <JoditEditor
+                ref={editor}
+                value={description}
+                onChange={(newContent) => setDescription(newContent)}
+              />
             </div>
 
-            <div className="flex items-center gap-4 mt-4">
+            <div className="mt-4 flex items-center gap-4">
               <button type="submit" className="my-btn ">
                 sumbit
               </button>
@@ -197,7 +287,10 @@ const UpdateLabTest = ({ id }) => {
           </form>
 
           <div className="modal-action">
-            <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2  bg-red-500 hover:bg-red-400 text-white">
+            <label
+              htmlFor="my-modal-3"
+              className="btn btn-circle btn-sm absolute right-2 top-2  bg-red-500 text-white hover:bg-red-400"
+            >
               ✕
             </label>
           </div>

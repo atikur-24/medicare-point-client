@@ -23,7 +23,7 @@ const Category = ({ category }) => {
         url: "/medicines",
         query: updatedQuery,
       },
-      { skipNull: true }
+      { skipNull: true },
     );
     navigate(url);
   };
@@ -33,13 +33,17 @@ const Category = ({ category }) => {
       tabIndex={0}
       role="button"
       onClick={handelClick}
-      className="bg-white my-10 relative py-6 rounded-xl cursor-pointer border-2 border-gray-3 flex justify-center items-center flex-col group hover:border-my-primary ease-in-out duration-500"
+      className="group relative my-10 flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-gray-3 bg-white py-6 duration-500 ease-in-out hover:border-my-primary"
     >
-      <h2 className="text-center font-semibold mt-2 border-gray-3 border-2 whitespace-nowrap absolute -top-5   text-sm group-hover:border-my-primary bg-white px-2 rounded-full ease-in-out duration-500">
+      <h2 className="absolute -top-5 mt-2 whitespace-nowrap rounded-full border-2 border-gray-3 bg-white   px-2 text-center text-sm font-semibold duration-500 ease-in-out group-hover:border-my-primary">
         {category?.category_name}
       </h2>
 
-      <img src={category?.image_url} alt="Category_photo" className=" rounded-md h-28 object-cover" />
+      <img
+        src={category?.image_url}
+        alt="Category_photo"
+        className=" h-28 rounded-md object-cover"
+      />
     </div>
   );
 };

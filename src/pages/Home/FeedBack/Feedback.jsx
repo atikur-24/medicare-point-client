@@ -25,7 +25,9 @@ const Feedback = () => {
     const source = axios.CancelToken.source();
 
     axios
-      .get(`${import.meta.env.VITE_API_URL}/feedback`, { cancelToken: source.token })
+      .get(`${import.meta.env.VITE_API_URL}/feedback`, {
+        cancelToken: source.token,
+      })
       .then((res) => setFeedbacks(res?.data))
       .catch((error) => {
         console.error("An error occurred while fetching feedback:", error);
@@ -38,7 +40,10 @@ const Feedback = () => {
 
   return (
     <div className="my-container">
-      <SectionTitle title="Customer Feedback" content="Our customers have spoken of our products and the reliability of our health solutions." />
+      <SectionTitle
+        title="Customer Feedback"
+        content="Our customers have spoken of our products and the reliability of our health solutions."
+      />
       <Swiper
         freeMode
         pagination={{
@@ -73,20 +78,33 @@ const Feedback = () => {
         {feedbacks.map((feedback) => (
           <SwiperSlide key={feedback?._id}>
             <div className="mb-10 px-4">
-              <div className="bg-card p-6 rounded-lg shadow-xl ">
-                <div className="grid justify-center items-center mb-4">
-                  <h3 className="text-lg text-center text-title-color tracking-wide font-semibold -mb-20">{feedback?.name}</h3>
-                  <div className="grid items-center justify-center translate-y-[90px]">
-                    <figure className="ring-offset-2 ring-2  ring-[#10847e]  rounded-full ">
-                      <img src={feedback?.image} alt={feedback?.name} className="rounded-full  h-20 w-20 object-cover" />
+              <div className="bg-card rounded-lg p-6 shadow-xl ">
+                <div className="mb-4 grid items-center justify-center">
+                  <h3 className="-mb-20 text-center text-lg font-semibold tracking-wide text-title-color">
+                    {feedback?.name}
+                  </h3>
+                  <div className="grid translate-y-[90px] items-center justify-center">
+                    <figure className="rounded-full ring-2  ring-[#10847e]  ring-offset-2 ">
+                      <img
+                        src={feedback?.image}
+                        alt={feedback?.name}
+                        className="h-20  w-20 rounded-full object-cover"
+                      />
                     </figure>
-                    <Rating style={{ maxWidth: 80 }} className="mt-4" value={feedback?.rating} readOnly itemStyles={customStyles} />
+                    <Rating
+                      style={{ maxWidth: 80 }}
+                      className="mt-4"
+                      value={feedback?.rating}
+                      readOnly
+                      itemStyles={customStyles}
+                    />
                   </div>
                 </div>
-                <div className="text-slate-7 p-4 pt-20 rounded-lg bg-white border text-justify font-nunito border-gray-3">
+                <div className="rounded-lg border border-gray-3 bg-white p-4 pt-20 text-justify font-nunito text-slate-7">
                   <p>
-                    <BiSolidQuoteAltLeft className="w-5 h-5 inline text-[#10847e]" />
-                    <span> {feedback?.quote?.slice(0, 200)}</span> <BiSolidQuoteAltRight className="w-5 h-5 inline text-[#10847e]" />
+                    <BiSolidQuoteAltLeft className="inline h-5 w-5 text-[#10847e]" />
+                    <span> {feedback?.quote?.slice(0, 200)}</span>{" "}
+                    <BiSolidQuoteAltRight className="inline h-5 w-5 text-[#10847e]" />
                   </p>
                 </div>
               </div>

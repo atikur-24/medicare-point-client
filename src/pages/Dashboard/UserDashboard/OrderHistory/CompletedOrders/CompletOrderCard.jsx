@@ -5,9 +5,14 @@ const CompletOrderCard = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex border-b flex-col md:flex-row gap-5 border-gray-3 md:items-center md:justify-between p-5">
+    <div className="flex flex-col gap-5 border-b border-gray-3 p-5 md:flex-row md:items-center md:justify-between">
       <h2 className="text-base lg:text-lg">No Delivered Product</h2>
-      <button disabled onClick={() => setIsOpen(!isOpen)} type="button" className="text-white bg-red-500 opacity-50 py-1 px-2 rounded-md">
+      <button
+        disabled
+        onClick={() => setIsOpen(!isOpen)}
+        type="button"
+        className="rounded-md bg-red-500 px-2 py-1 text-white opacity-50"
+      >
         Return
       </button>
       {/* <div className="flex gap-3">

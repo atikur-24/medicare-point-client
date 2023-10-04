@@ -1,7 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CountUp from "react-countup";
-import { Bar, BarChart, CartesianGrid, ComposedChart, Legend, Line, Tooltip, XAxis, YAxis } from "recharts";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  ComposedChart,
+  Legend,
+  Line,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import pharmacyImg from "../../../../assets/Dashboard-icons/industry.png";
 import medicinesImg from "../../../../assets/Dashboard-icons/medicines.png";
 import pharmacistImg from "../../../../assets/Dashboard-icons/pharmacist.png";
@@ -11,7 +21,8 @@ import usersImg from "../../../../assets/Dashboard-icons/users.png";
 const AdminHome = ({ user }) => {
   const [adminHomeData, setAdminHomeData] = useState({});
   const [loading, setLoading] = useState(false);
-  const { users, medicines, labTests, brands, labs, pharmacist } = adminHomeData;
+  const { users, medicines, labTests, brands, labs, pharmacist } =
+    adminHomeData;
 
   useEffect(() => {
     const source = axios.CancelToken.source();
@@ -19,15 +30,21 @@ const AdminHome = ({ user }) => {
     if (user?.email && !loading) {
       setLoading(true);
       axios
-        .get(`${import.meta.env.VITE_API_URL}/dashboardHomeData/${user.email}`, {
-          cancelToken: source.token, // Pass the cancel token to the request
-        })
+        .get(
+          `${import.meta.env.VITE_API_URL}/dashboardHomeData/${user.email}`,
+          {
+            cancelToken: source.token, // Pass the cancel token to the request
+          },
+        )
         .then((res) => {
           setAdminHomeData(res.data);
           setLoading(false);
         })
         .catch((error) => {
-          console.error("An error occurred while fetching dashboard home data:", error);
+          console.error(
+            "An error occurred while fetching dashboard home data:",
+            error,
+          );
           setLoading(false);
         });
     }
@@ -74,9 +91,13 @@ const AdminHome = ({ user }) => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mx-2 mt-1">
-        <div className="rounded-2xl box-shadow bg-white py-3 flex items-center justify-center gap-5">
-          <img className="w-28 py-4 object-cover" src={usersImg} alt="pharmacyImg" />
+      <div className="mx-2 mt-1 grid grid-cols-1 gap-3 md:grid-cols-3">
+        <div className="box-shadow flex items-center justify-center gap-5 rounded-2xl bg-white py-3">
+          <img
+            className="w-28 object-cover py-4"
+            src={usersImg}
+            alt="pharmacyImg"
+          />
           <div>
             <h4 className="text-2xl">
               <CountUp enableScrollSpy end={users || 10} duration={3} /> Users
@@ -84,8 +105,12 @@ const AdminHome = ({ user }) => {
             <p className="text-base">All Registered Users</p>
           </div>
         </div>
-        <div className="rounded-2xl box-shadow bg-white py-3 flex items-center justify-center gap-5">
-          <img className="w-28 py-4 object-cover" src={pharmacyImg} alt="pharmacyImg" />
+        <div className="box-shadow flex items-center justify-center gap-5 rounded-2xl bg-white py-3">
+          <img
+            className="w-28 object-cover py-4"
+            src={pharmacyImg}
+            alt="pharmacyImg"
+          />
           <div>
             <h4 className="text-2xl">
               <CountUp enableScrollSpy end={brands || 10} duration={3} /> Brands
@@ -93,38 +118,58 @@ const AdminHome = ({ user }) => {
             <p className="text-base">All collaborated Brands</p>
           </div>
         </div>
-        <div className="rounded-2xl box-shadow bg-white py-3 flex items-center justify-center gap-5">
-          <img className="w-28 py-4 object-cover" src="https://i.ibb.co/VxWbs9S/laboratory.png" alt="pharmacyImg" />
+        <div className="box-shadow flex items-center justify-center gap-5 rounded-2xl bg-white py-3">
+          <img
+            className="w-28 object-cover py-4"
+            src="https://i.ibb.co/VxWbs9S/laboratory.png"
+            alt="pharmacyImg"
+          />
           <div>
             <h4 className="text-2xl">
-              <CountUp enableScrollSpy end={labs || 10} duration={3} /> Laboratory
+              <CountUp enableScrollSpy end={labs || 10} duration={3} />{" "}
+              Laboratory
             </h4>
             <p className="text-base">Available Laboratory</p>
           </div>
         </div>
-        <div className="rounded-2xl box-shadow bg-white py-3 flex items-center justify-center gap-5">
-          <img className="w-28 py-4 object-cover" src={medicinesImg} alt="pharmacyImg" />
+        <div className="box-shadow flex items-center justify-center gap-5 rounded-2xl bg-white py-3">
+          <img
+            className="w-28 object-cover py-4"
+            src={medicinesImg}
+            alt="pharmacyImg"
+          />
           <div>
             <h4 className="text-2xl">
-              <CountUp enableScrollSpy end={medicines || 10} duration={3} />+ Medicines
+              <CountUp enableScrollSpy end={medicines || 10} duration={3} />+
+              Medicines
             </h4>
             <p className="text-base">Available Medicines</p>
           </div>
         </div>
-        <div className="rounded-2xl box-shadow bg-white py-3 flex items-center justify-center gap-5">
-          <img className="w-28 py-4 object-cover" src={testImg} alt="pharmacyImg" />
+        <div className="box-shadow flex items-center justify-center gap-5 rounded-2xl bg-white py-3">
+          <img
+            className="w-28 object-cover py-4"
+            src={testImg}
+            alt="pharmacyImg"
+          />
           <div>
             <h4 className="text-2xl">
-              <CountUp enableScrollSpy end={labTests || 10} duration={3} />+ Lab Tests
+              <CountUp enableScrollSpy end={labTests || 10} duration={3} />+ Lab
+              Tests
             </h4>
             <p className="text-base">Available Lab Tests</p>
           </div>
         </div>
-        <div className="rounded-2xl box-shadow bg-white py-3 flex items-center justify-center gap-5">
-          <img className="w-28 py-4 object-cover" src={pharmacistImg} alt="pharmacyImg" />
+        <div className="box-shadow flex items-center justify-center gap-5 rounded-2xl bg-white py-3">
+          <img
+            className="w-28 object-cover py-4"
+            src={pharmacistImg}
+            alt="pharmacyImg"
+          />
           <div>
             <h4 className="text-2xl">
-              <CountUp enableScrollSpy end={pharmacist || 10} duration={3} /> Pharmacists
+              <CountUp enableScrollSpy end={pharmacist || 10} duration={3} />{" "}
+              Pharmacists
             </h4>
             <p className="text-base">Available Pharmacists</p>
           </div>
@@ -132,17 +177,29 @@ const AdminHome = ({ user }) => {
       </div>
 
       {/* recharts  */}
-      <div className="my-14 grid grid-cols-1 lg:grid-cols-2 gap-5 items-center text-center">
+      <div className="my-14 grid grid-cols-1 items-center gap-5 text-center lg:grid-cols-2">
         <div>
           <BarChart width={500} height={300} data={data}>
             <XAxis dataKey="name" stroke="#10B6A8" />
             <YAxis />
             <Tooltip wrapperStyle={{ width: 120, backgroundColor: "#ccc" }} />
-            <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: "#f5f5f5", border: "1px solid #d5d5d5", borderRadius: 3, lineHeight: "40px" }} />
+            <Legend
+              width={100}
+              wrapperStyle={{
+                top: 40,
+                right: 20,
+                backgroundColor: "#f5f5f5",
+                border: "1px solid #d5d5d5",
+                borderRadius: 3,
+                lineHeight: "40px",
+              }}
+            />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             <Bar dataKey="Orders" fill="#10B6A8" barSize={30} />
           </BarChart>
-          <h3 className="relative -top-8 text-xl font-semibold text-my-primary">All Sells of the year 2023</h3>
+          <h3 className="relative -top-8 text-xl font-semibold text-my-primary">
+            All Sells of the year 2023
+          </h3>
         </div>
 
         <div>
@@ -165,7 +222,9 @@ const AdminHome = ({ user }) => {
             <Bar dataKey="Users" barSize={20} fill="#10B6A8" />
             <Line type="monotone" dataKey="Users" stroke="#ff7300" />
           </ComposedChart>
-          <h3 className="relative -top-4 text-xl font-semibold text-my-primary">All users of the year 2023</h3>
+          <h3 className="relative -top-4 text-xl font-semibold text-my-primary">
+            All users of the year 2023
+          </h3>
         </div>
       </div>
     </div>

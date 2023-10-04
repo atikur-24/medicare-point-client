@@ -1,6 +1,6 @@
-
 .reward-bg {
-  background: radial-gradient(657px 657px at 2% 90%, #b4cdff 0, #dcf1f600 40%), radial-gradient(642px 642px at 82% 115%, #b4cdff 0, #dcf1f600 25%),
+  background: radial-gradient(657px 657px at 2% 90%, #b4cdff 0, #dcf1f600 40%),
+    radial-gradient(642px 642px at 82% 115%, #b4cdff 0, #dcf1f600 25%),
     linear-gradient(-73.25deg, #dcf2f7 7.43%, #9accd5 94.82%);
   color: #000 !important;
 }

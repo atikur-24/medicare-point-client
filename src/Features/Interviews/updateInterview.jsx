@@ -2,17 +2,23 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export const updateInterviewApi = createAsyncThunk("updateInterview/updateInterviewApi", async (data) => {
-  const res = await axios.put(`${import.meta.env.VITE_API_URL}/interviews/${data._id}`, {
-    body: data.data,
-  });
+export const updateInterviewApi = createAsyncThunk(
+  "updateInterview/updateInterviewApi",
+  async (data) => {
+    const res = await axios.put(
+      `${import.meta.env.VITE_API_URL}/interviews/${data._id}`,
+      {
+        body: data.data,
+      },
+    );
 
-  if (res.data.modifiedCount > 0) {
-    Swal.fire("Updated Successfully", "success");
-  }
+    if (res.data.modifiedCount > 0) {
+      Swal.fire("Updated Successfully", "success");
+    }
 
-  return res.data;
-});
+    return res.data;
+  },
+);
 
 const updateInterviewSlice = createSlice({
   name: "updateInterview",

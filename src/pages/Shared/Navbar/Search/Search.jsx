@@ -13,7 +13,9 @@ const Search = () => {
 
   useEffect(() => {
     if (search) {
-      fetch(`${import.meta.env.VITE_API_URL}/searchMedicinesByName?name=${search}`)
+      fetch(
+        `${import.meta.env.VITE_API_URL}/searchMedicinesByName?name=${search}`,
+      )
         .then((res) => res.json())
         .then((data) => {
           setMedicines(data);
@@ -46,64 +48,102 @@ const Search = () => {
 
   return (
     <div className="relative">
-      <form onSubmit={handleSubmit} className="flex items-center relative">
+      <form onSubmit={handleSubmit} className="relative flex items-center">
         <input
           ref={searchRef}
           onChange={handleSearch}
-          className="w-full xl:w-[450px] h-10 rounded-full  dropdown-end shadow-sm border-[1px] border-gray-3 px-6 focus:input-bordered input-accent"
+          className="dropdown-end input-accent h-10 w-full  rounded-full border-[1px] border-gray-3 px-6 shadow-sm focus:input-bordered xl:w-[450px]"
           type="text"
           name="searchField"
           value={search}
           placeholder="Search Medicines"
         />
-        <button type="submit" onClick={() => setSearch("")} className={`pr-3 cursor-pointer right-10 absolute h-full rounded-e-full ${search ? "" : "hidden"}`}>
-          <RxCross1 className="text-xl text-gray-5 ml-2" />
+        <button
+          type="submit"
+          onClick={() => setSearch("")}
+          className={`absolute right-10 h-full cursor-pointer rounded-e-full pr-3 ${
+            search ? "" : "hidden"
+          }`}
+        >
+          <RxCross1 className="ml-2 text-xl text-gray-5" />
         </button>
 
-        <div className="pr-2 my-4 cursor-pointer right-0 absolute bg-my-primary h-full rounded-e-full">
-          <FiSearch className="text-3xl text-white mt-[5px] ml-2" />
+        <div className="absolute right-0 my-4 h-full cursor-pointer rounded-e-full bg-my-primary pr-2">
+          <FiSearch className="ml-2 mt-[5px] text-3xl text-white" />
         </div>
       </form>
 
-      <div className={`${search ? "block" : "hidden"} hide-scrollbar border border-gray-3 border-t-0 w-full lg:w-[420px] max-h-[80vh] overflow-y-scroll absolute xl:right-[15px] bg-card p-2 z-50 rounded-b-lg`}>
+      <div
+        className={`${
+          search ? "block" : "hidden"
+        } hide-scrollbar bg-card absolute z-50 max-h-[80vh] w-full overflow-y-scroll rounded-b-lg border border-t-0 border-gray-3 p-2 lg:w-[420px] xl:right-[15px]`}
+      >
         {medicines.length === 0 && (
-          <div className="flex gap-2 mt-2 bg-my-pink/5  rounded-xl  text-primary p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <div className="mt-2 flex gap-2 rounded-xl  bg-my-pink/5  p-2 text-primary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              className="h-6 w-6 shrink-0 stroke-current"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
             </svg>
             <span>No results found. Please search by right name</span>
           </div>
         )}
 
-        <p className={`text-gray-5 ${medicines?.length === 0 && "hidden"}`}>(Showing {medicines?.length} results)</p>
+        <p className={`text-gray-5 ${medicines?.length === 0 && "hidden"}`}>
+          (Showing {medicines?.length} results)
+        </p>
 
         {medicines.map((m) => (
-          <div key={m?._id} className="flex px-4 py-2 md:px-5 md:gap-20 items-center  space-x-3 text-gray-6 bg-white rounded-2xl border border-gray-3 my-2">
+          <div
+            key={m?._id}
+            className="my-2 flex items-center space-x-3 rounded-2xl border  border-gray-3 bg-white px-4 py-2 text-gray-6 md:gap-20 md:px-5"
+          >
             <div className="relative">
               <Link onClick={() => setSearch("")} to={`/details/${m?._id}`}>
                 {m?.discount > 0 && (
-                  <div className="bg-my-accent z-10 rounded-md p-1 text-xs font-medium text-white absolute -top-2 -left-2 flex">
+                  <div className="absolute -left-2 -top-2 z-10 flex rounded-md bg-my-accent p-1 text-xs font-medium text-white">
                     <p>{m?.discount}</p>
                     <p>% OFF</p>
                   </div>
                 )}
-                <img className="w-20 h-20" src={m?.image} alt="medicine" />
+                <img className="h-20 w-20" src={m?.image} alt="medicine" />
               </Link>
             </div>
 
-            <div className="p-2 space-y-1 relative ">
+            <div className="relative space-y-1 p-2 ">
               <div className="space-y-1">
-                <p className="text-gray-5 text-xs font-medium">{m?.category?.label}, personal care</p>
+                <p className="text-xs font-medium text-gray-5">
+                  {m?.category?.label}, personal care
+                </p>
                 <Link onClick={() => setSearch("")} to={`/details/${m?._id}`}>
-                  <h2 className="text-[1.125rem] font-semibold text-title-color tracking-wide hover:underline inline-block hover:cursor-pointer">{m?.medicine_name}</h2>
+                  <h2 className="inline-block text-[1.125rem] font-semibold tracking-wide text-title-color hover:cursor-pointer hover:underline">
+                    {m?.medicine_name}
+                  </h2>
                 </Link>
               </div>
               <p className="inline-flex gap-1">
-                <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">৳ {m?.discount > 0 ? (m?.price - (m?.price / 100) * m?.discount)?.toFixed(2) : m?.price?.toFixed(2)}</span>
-                {m?.discount > 0 && <span className="font-medium inline-flex items-center text-[16px] text-gray-5 line-through">৳ {m?.price}</span>}
+                <span className="inline-flex items-center text-[1.125rem] font-bold text-my-pink">
+                  ৳{" "}
+                  {m?.discount > 0
+                    ? (m?.price - (m?.price / 100) * m?.discount)?.toFixed(2)
+                    : m?.price?.toFixed(2)}
+                </span>
+                {m?.discount > 0 && (
+                  <span className="inline-flex items-center text-[16px] font-medium text-gray-5 line-through">
+                    ৳ {m?.price}
+                  </span>
+                )}
               </p>
 
-              <div className="flex flex-col md:flex-row justify-center gap-3 items-center" />
+              <div className="flex flex-col items-center justify-center gap-3 md:flex-row" />
             </div>
           </div>
         ))}

@@ -1,10 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const deletePrescriptionApi = createAsyncThunk("deletePrescription/deletePrescriptionApi", async (id) => {
-  const res = await axios.delete(`${import.meta.env.VITE_API_URL}/prescriptions/${id}`);
-  return res.data;
-});
+export const deletePrescriptionApi = createAsyncThunk(
+  "deletePrescription/deletePrescriptionApi",
+  async (id) => {
+    const res = await axios.delete(
+      `${import.meta.env.VITE_API_URL}/prescriptions/${id}`,
+    );
+    return res.data;
+  },
+);
 
 const deletePrescriptionSlice = createSlice({
   name: "deletePrescription",

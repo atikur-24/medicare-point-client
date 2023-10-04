@@ -25,9 +25,13 @@ const AllMedicines = () => {
   let filteredMedi = allMedicines;
 
   if (searchName) {
-    filteredMedi = allMedicines.filter((medi) => medi?.medicine_name?.toLowerCase().includes(searchName?.toLowerCase()));
+    filteredMedi = allMedicines.filter((medi) =>
+      medi?.medicine_name?.toLowerCase().includes(searchName?.toLowerCase()),
+    );
   } else if (filterStatus !== "All Medicine") {
-    filteredMedi = allMedicines.filter((medi) => medi?.status?.toLowerCase().includes(filterStatus?.toLowerCase()));
+    filteredMedi = allMedicines.filter((medi) =>
+      medi?.status?.toLowerCase().includes(filterStatus?.toLowerCase()),
+    );
   }
 
   const paginatedMedicine = filteredMedi?.slice(startIndex, endIndex);
@@ -48,7 +52,9 @@ const AllMedicines = () => {
 
   const handelFiltering = (status) => {
     if (status) {
-      const filterMedicines = medicines.filter((medicine) => medicine?.status === status);
+      const filterMedicines = medicines.filter(
+        (medicine) => medicine?.status === status,
+      );
       setAllMedicines(filterMedicines);
     } else {
       setAllMedicines(medicines);
@@ -66,49 +72,95 @@ const AllMedicines = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`${import.meta.env.VITE_API_URL}/medicines/${id}`).then((res) => {
-          if (res.data.deletedCount > 0) {
-            dispatch(fetchAllMedicines());
-            Swal.fire("Deleted!", "This Medicine Deleted successfully", "success");
-          }
-        });
+        axios
+          .delete(`${import.meta.env.VITE_API_URL}/medicines/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              dispatch(fetchAllMedicines());
+              Swal.fire(
+                "Deleted!",
+                "This Medicine Deleted successfully",
+                "success",
+              );
+            }
+          });
       }
     });
   };
 
-  const approvedMedicines = medicines.filter((medicine) => medicine?.status === "approved");
-  const pendingMedicines = medicines.filter((medicine) => medicine?.status === "pending");
-  const deniedMedicines = medicines.filter((medicine) => medicine?.status === "denied");
+  const approvedMedicines = medicines.filter(
+    (medicine) => medicine?.status === "approved",
+  );
+  const pendingMedicines = medicines.filter(
+    (medicine) => medicine?.status === "pending",
+  );
+  const deniedMedicines = medicines.filter(
+    (medicine) => medicine?.status === "denied",
+  );
 
   return (
     <div>
-      <div className="flex mb-8">
+      <div className="mb-8 flex">
         <div className="stats shadow">
-          <div onClick={() => handelFiltering()} className="stat place-items-center space-y-2 cursor-pointer">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">All Medicines</div>
-            <div className="stat-value text-my-primary">{medicines?.length}</div>
+          <div
+            onClick={() => handelFiltering()}
+            className="stat cursor-pointer place-items-center space-y-2"
+          >
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              All Medicines
+            </div>
+            <div className="stat-value text-my-primary">
+              {medicines?.length}
+            </div>
           </div>
 
-          <div onClick={() => handelFiltering("approved")} className="stat place-items-center space-y-2 cursor-pointer">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Approved Medicines</div>
-            <div className="stat-value text-my-accent">{approvedMedicines?.length}</div>
+          <div
+            onClick={() => handelFiltering("approved")}
+            className="stat cursor-pointer place-items-center space-y-2"
+          >
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Approved Medicines
+            </div>
+            <div className="stat-value text-my-accent">
+              {approvedMedicines?.length}
+            </div>
           </div>
 
-          <div onClick={() => handelFiltering("pending")} className="stat place-items-center space-y-2 cursor-pointer">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Pending Medicines</div>
-            <div className="stat-value text-yellow-500">{pendingMedicines?.length}</div>
+          <div
+            onClick={() => handelFiltering("pending")}
+            className="stat cursor-pointer place-items-center space-y-2"
+          >
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Pending Medicines
+            </div>
+            <div className="stat-value text-yellow-500">
+              {pendingMedicines?.length}
+            </div>
           </div>
 
-          <div onClick={() => handelFiltering("denied")} className="stat place-items-center space-y-2 cursor-pointer">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Denied Medicines</div>
-            <div className="stat-value text-red-500">{deniedMedicines?.length}</div>
+          <div
+            onClick={() => handelFiltering("denied")}
+            className="stat cursor-pointer place-items-center space-y-2"
+          >
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Denied Medicines
+            </div>
+            <div className="stat-value text-red-500">
+              {deniedMedicines?.length}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="flex justify-between mb-6">
+      <div className="mb-6 flex justify-between">
         <div className="join">
-          <input value={searchName} onChange={(e) => setSearchName(e.target.value)} type="search" className="input input-bordered join-item outline-none !rounded-md f placeholder:text-gray-6 focus:!outline-none" placeholder="search by name" />
+          <input
+            value={searchName}
+            onChange={(e) => setSearchName(e.target.value)}
+            type="search"
+            className="f input join-item input-bordered !rounded-md outline-none placeholder:text-gray-6 focus:!outline-none"
+            placeholder="search by name"
+          />
         </div>
         <div className="flex items-center gap-4 ">
           <h2 className="w-[120px]">Filter by</h2>
@@ -116,7 +168,7 @@ const AllMedicines = () => {
             onChange={(e) => {
               setFilterStatus(e?.target?.value);
             }}
-            className="select outline-none hover:outline-none focus:!outline-none select-bordered w-full max-w-xs"
+            className="select select-bordered w-full max-w-xs outline-none hover:outline-none focus:!outline-none"
           >
             <option selected>All Medicine</option>
             <option>Approved</option>
@@ -127,9 +179,9 @@ const AllMedicines = () => {
       </div>
 
       <div className="mb-20">
-        <table className="overflow-x-auto table  border border-gray-3 bg-white table-zebra">
+        <table className="table table-zebra  overflow-x-auto border border-gray-3 bg-white">
           {/* head */}
-          <thead className="bg-my-primary text-white font-normal text-sm">
+          <thead className="bg-my-primary text-sm font-normal text-white">
             <tr className="">
               <th>#</th>
               <th>Photo</th>
@@ -148,7 +200,11 @@ const AllMedicines = () => {
                 <tr key={medicine?._id} className="border-b border-slate-3">
                   <td>{idx + 1}</td>
                   <td>
-                    <img className="mask rounded w-14 h-14" src={medicine?.image} alt="medicine" />
+                    <img
+                      className="mask h-14 w-14 rounded"
+                      src={medicine?.image}
+                      alt="medicine"
+                    />
                   </td>
                   <td className="font-medium">{medicine?.medicine_name}</td>
                   <td className="flex flex-col">
@@ -156,16 +212,30 @@ const AllMedicines = () => {
                     <span>{medicine?.pharmacist_email}</span>
                   </td>
 
-                  <td className={`${medicine.status === "approved" && "text-my-accent"} ${medicine.status === "denied" && "text-red-500"} ${medicine.status === "pending" && "text-yellow-500"} capitalize font-medium`}>{medicine?.status}</td>
+                  <td
+                    className={`${
+                      medicine.status === "approved" && "text-my-accent"
+                    } ${medicine.status === "denied" && "text-red-500"} ${
+                      medicine.status === "pending" && "text-yellow-500"
+                    } font-medium capitalize`}
+                  >
+                    {medicine?.status}
+                  </td>
                   <td className="space-x-2">
                     <Link to={`/dashboard/medicine-detail/${medicine?._id}`}>
-                      <button type="button" className="relative group">
-                        <TbListDetails className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
-                        <p className="absolute hidden group-hover:block whitespace-nowrap ">Detail</p>
+                      <button type="button" className="group relative">
+                        <TbListDetails className="rounded-full bg-my-primary p-1 text-3xl text-[white]" />
+                        <p className="absolute hidden whitespace-nowrap group-hover:block ">
+                          Detail
+                        </p>
                       </button>
                     </Link>
-                    <button type="button" onClick={() => handelDelete(medicine?._id)} className=" bg-red-500/30 rounded-full  ">
-                      <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
+                    <button
+                      type="button"
+                      onClick={() => handelDelete(medicine?._id)}
+                      className=" rounded-full bg-red-500/30  "
+                    >
+                      <RiDeleteBinLine className="p-1  text-3xl text-red-500" />
                     </button>
                   </td>
                 </tr>
@@ -178,7 +248,7 @@ const AllMedicines = () => {
             <Loader spinner />
           </div>
         )}
-        <div className="flex items-center justify-end gap-5 lg:gap-7 pt-5 pr-8">
+        <div className="flex items-center justify-end gap-5 pr-8 pt-5 lg:gap-7">
           {/* Row per page view */}
           <div>
             <label className="mr-2 text-gray-6">Rows Per Page:</label>
@@ -204,10 +274,14 @@ const AllMedicines = () => {
                 }
               }}
               disabled={currentPage === 1}
-              className={`${currentPage === 1 ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              className={`${
+                currentPage === 1
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "hover:bg-gray-200 bg-white"
+              }`}
               type="button"
             >
-              <LiaAngleLeftSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
+              <LiaAngleLeftSolid className="text-xl font-semibold lg:text-2xl lg:font-extrabold" />
             </button>
             <button
               onClick={() => {
@@ -216,10 +290,14 @@ const AllMedicines = () => {
                 }
               }}
               disabled={currentPage * perPage >= filteredMedi?.length}
-              className={`${currentPage * perPage >= filteredMedi?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              className={`${
+                currentPage * perPage >= filteredMedi?.length
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "hover:bg-gray-200 bg-white"
+              }`}
               type="button"
             >
-              <LiaAngleRightSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
+              <LiaAngleRightSolid className="text-xl font-semibold lg:text-2xl lg:font-extrabold" />
             </button>
           </div>
         </div>

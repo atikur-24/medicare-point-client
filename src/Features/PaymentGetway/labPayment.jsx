@@ -2,28 +2,41 @@ import emailjs from "@emailjs/browser";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const labSSLPaymentApi = createAsyncThunk("labSSLPayment/labSSLPaymentApi", async (data) => {
-  const templateParams = data?.personalInfo;
+export const labSSLPaymentApi = createAsyncThunk(
+  "labSSLPayment/labSSLPaymentApi",
+  async (data) => {
+    const templateParams = data?.personalInfo;
 
-  const res = await axios.post(`${import.meta.env.VITE_API_URL}/labPayment`, data);
-
-  if (res.data.url) {
-    // window.location.replace(res.data.url);
-    templateParams.transId = res.data.transId;
-    templateParams.totalPayment = res.data.totalPayment;
-    emailjs.send(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID2, templateParams, import.meta.env.VITE_PUBLIC_KEY).then(
-      (response) => {
-        window.location.replace(res.data.url);
-        console.log("SUCCESS!", response.status, response.text);
-      },
-      (error) => {
-        console.log("FAILED...", error);
-      }
+    const res = await axios.post(
+      `${import.meta.env.VITE_API_URL}/labPayment`,
+      data,
     );
-  }
 
-  return res.data;
-});
+    if (res.data.url) {
+      // window.location.replace(res.data.url);
+      templateParams.transId = res.data.transId;
+      templateParams.totalPayment = res.data.totalPayment;
+      emailjs
+        .send(
+          import.meta.env.VITE_SERVICE_ID,
+          import.meta.env.VITE_TEMPLATE_ID2,
+          templateParams,
+          import.meta.env.VITE_PUBLIC_KEY,
+        )
+        .then(
+          (response) => {
+            window.location.replace(res.data.url);
+            console.log("SUCCESS!", response.status, response.text);
+          },
+          (error) => {
+            console.log("FAILED...", error);
+          },
+        );
+    }
+
+    return res.data;
+  },
+);
 
 const labSSLPaymentSlice = createSlice({
   name: "labSSLPayment",

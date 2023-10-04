@@ -33,9 +33,13 @@ const DiscountCodes = () => {
   let filteredDiscount = discountCodes;
 
   if (searchName) {
-    filteredDiscount = discountCodes.filter((discount) => discount.discountName.toLowerCase().includes(searchName.toLowerCase()));
+    filteredDiscount = discountCodes.filter((discount) =>
+      discount.discountName.toLowerCase().includes(searchName.toLowerCase()),
+    );
   } else if (filterStatus !== "All Status") {
-    filteredDiscount = discountCodes.filter((status) => status.status.toLowerCase().includes(filterStatus.toLowerCase()));
+    filteredDiscount = discountCodes.filter((status) =>
+      status.status.toLowerCase().includes(filterStatus.toLowerCase()),
+    );
   }
 
   const paginatedDiscount = filteredDiscount?.slice(startIndex, endIndex);
@@ -91,17 +95,19 @@ const DiscountCodes = () => {
 
     const data = { discountName, discount, discountType, status };
     setLoading(true);
-    dispatch(updateDiscountCodeApi({ data, id: singleDiscount?._id })).then((res) => {
-      if (res.payload.modifiedCount) {
-        window.my_modal_updateDiscountCode.close();
-        dispatch(fetchAllDiscountCodes(user?.email)).then((res2) => {
-          setDiscountCodes(res2.payload);
-        });
-        form.reset();
-        toast.success("Discount code has been updated");
-      }
-      setLoading(false);
-    });
+    dispatch(updateDiscountCodeApi({ data, id: singleDiscount?._id })).then(
+      (res) => {
+        if (res.payload.modifiedCount) {
+          window.my_modal_updateDiscountCode.close();
+          dispatch(fetchAllDiscountCodes(user?.email)).then((res2) => {
+            setDiscountCodes(res2.payload);
+          });
+          form.reset();
+          toast.success("Discount code has been updated");
+        }
+        setLoading(false);
+      },
+    );
   };
 
   const handelDelete = (id) => {
@@ -127,30 +133,50 @@ const DiscountCodes = () => {
     });
   };
 
-  const totalActive = discountCodes.filter((statusCode) => statusCode?.status === "Active");
-  const totalExprired = discountCodes.filter((statusCode) => statusCode?.status === "Expired");
+  const totalActive = discountCodes.filter(
+    (statusCode) => statusCode?.status === "Active",
+  );
+  const totalExprired = discountCodes.filter(
+    (statusCode) => statusCode?.status === "Expired",
+  );
 
   return (
     <div>
-      <div className="flex justify-between  mb-8">
+      <div className="mb-8 flex  justify-between">
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Discount Codes</div>
-            <div className="stat-value text-gray-7">{discountCodes?.length || 0} </div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Discount Codes
+            </div>
+            <div className="stat-value text-gray-7">
+              {discountCodes?.length || 0}{" "}
+            </div>
           </div>
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Active Codes</div>
-            <div className="stat-value text-my-primary">{totalActive?.length || 0} </div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Active Codes
+            </div>
+            <div className="stat-value text-my-primary">
+              {totalActive?.length || 0}{" "}
+            </div>
           </div>
           <div className="stat place-items-center space-y-2">
-            <div className="stat-title text-title-color font-nunito font-bold uppercase ">Expired Codes</div>
-            <div className="stat-value text-red-400">{totalExprired?.length || 0} </div>
+            <div className="stat-title font-nunito font-bold uppercase text-title-color ">
+              Expired Codes
+            </div>
+            <div className="stat-value text-red-400">
+              {totalExprired?.length || 0}{" "}
+            </div>
           </div>
         </div>
 
         <div className="stats shadow">
           <div className="stat place-items-center space-y-2">
-            <button onClick={() => window.my_modal_addDiscountCode.showModal()} type="button" className="text-xl">
+            <button
+              onClick={() => window.my_modal_addDiscountCode.showModal()}
+              type="button"
+              className="text-xl"
+            >
               <span className="text-3xl font-bold">+</span>
               <p>Create discount code</p>
             </button>
@@ -158,9 +184,15 @@ const DiscountCodes = () => {
         </div>
       </div>
 
-      <div className="flex justify-between mb-6">
+      <div className="mb-6 flex justify-between">
         <div className="join">
-          <input value={searchName} onChange={(e) => setSearchName(e.target.value)} type="search" className="input input-bordered join-item outline-none !rounded-md f placeholder:text-gray-6 focus:!outline-none" placeholder="search by name" />
+          <input
+            value={searchName}
+            onChange={(e) => setSearchName(e.target.value)}
+            type="search"
+            className="f input join-item input-bordered !rounded-md outline-none placeholder:text-gray-6 focus:!outline-none"
+            placeholder="search by name"
+          />
         </div>
         <div className="flex items-center gap-4 ">
           <h2 className="w-[120px]">Filter by</h2>
@@ -168,7 +200,7 @@ const DiscountCodes = () => {
             onChange={(e) => {
               setFilterStatus(e?.target?.value);
             }}
-            className="select outline-none hover:outline-none focus:!outline-none select-bordered w-full max-w-xs"
+            className="select select-bordered w-full max-w-xs outline-none hover:outline-none focus:!outline-none"
           >
             <option selected>All Status</option>
             <option>Active</option>
@@ -176,10 +208,10 @@ const DiscountCodes = () => {
           </select>
         </div>
       </div>
-      <div className="overflow-x-auto mb-20  ">
-        <table className="table  border border-gray-3 bg-white table-zebra">
+      <div className="mb-20 overflow-x-auto  ">
+        <table className="table  table-zebra border border-gray-3 bg-white">
           {/* head */}
-          <thead className="rounded-lg bg-my-primary/90 rounded-t-md text-white text-sm">
+          <thead className="rounded-lg rounded-t-md bg-my-primary/90 text-sm text-white">
             <tr className=" rounded-t-md">
               <th className="rounded-tl-md">#</th>
               <th>Discount Code</th>
@@ -200,10 +232,20 @@ const DiscountCodes = () => {
                   </td>
                   <td className="font-medium ">
                     <span>{disc?.discount}</span>
-                    <span>{disc?.discountType === "percent" ? " %" : " Taka"}</span>
+                    <span>
+                      {disc?.discountType === "percent" ? " %" : " Taka"}
+                    </span>
                   </td>
                   <td className=" font-medium">{disc?.createdDate}</td>
-                  <td className={`font-medium ${disc?.status === "Active" ? "text-my-primary" : "text-red-500"}`}>{disc?.status}</td>
+                  <td
+                    className={`font-medium ${
+                      disc?.status === "Active"
+                        ? "text-my-primary"
+                        : "text-red-500"
+                    }`}
+                  >
+                    {disc?.status}
+                  </td>
                   <td className="flex items-center gap-4">
                     <button
                       onClick={() => {
@@ -212,10 +254,14 @@ const DiscountCodes = () => {
                       }}
                       type="button"
                     >
-                      <BiEdit className="text-3xl p-1 rounded-full text-[white] bg-my-primary" />
+                      <BiEdit className="rounded-full bg-my-primary p-1 text-3xl text-[white]" />
                     </button>
-                    <button type="button" onClick={() => handelDelete(disc?._id)} className=" bg-red-500/30 rounded-full">
-                      <RiDeleteBinLine className="text-3xl  text-red-500 p-1" />
+                    <button
+                      type="button"
+                      onClick={() => handelDelete(disc?._id)}
+                      className=" rounded-full bg-red-500/30"
+                    >
+                      <RiDeleteBinLine className="p-1  text-3xl text-red-500" />
                     </button>
                   </td>
                 </tr>
@@ -224,7 +270,7 @@ const DiscountCodes = () => {
           )}
         </table>
         {/* <div className="mt-44">{isLoading && <Loader spinner />}</div> */}
-        <div className="flex items-center justify-end gap-5 lg:gap-7 pt-5">
+        <div className="flex items-center justify-end gap-5 pt-5 lg:gap-7">
           {/* Row per page view */}
           <div>
             <label className="mr-2 text-gray-6">Rows Per Page:</label>
@@ -251,10 +297,14 @@ const DiscountCodes = () => {
                 }
               }}
               disabled={currentPage === 1}
-              className={`${currentPage === 1 ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              className={`${
+                currentPage === 1
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "hover:bg-gray-200 bg-white"
+              }`}
               type="button"
             >
-              <LiaAngleLeftSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
+              <LiaAngleLeftSolid className="text-xl font-semibold lg:text-2xl lg:font-extrabold" />
             </button>
             <button
               onClick={() => {
@@ -263,10 +313,14 @@ const DiscountCodes = () => {
                 }
               }}
               disabled={currentPage * perPage >= filteredDiscount?.length}
-              className={`${currentPage * perPage >= filteredDiscount?.length ? "cursor-not-allowed bg-gray-300" : "hover:bg-gray-200 bg-white"}`}
+              className={`${
+                currentPage * perPage >= filteredDiscount?.length
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "hover:bg-gray-200 bg-white"
+              }`}
               type="button"
             >
-              <LiaAngleRightSolid className="text-xl lg:text-2xl font-semibold lg:font-extrabold" />
+              <LiaAngleRightSolid className="text-xl font-semibold lg:text-2xl lg:font-extrabold" />
             </button>
           </div>
         </div>
@@ -276,27 +330,61 @@ const DiscountCodes = () => {
       <dialog id="my_modal_addDiscountCode" className="modal">
         <div className="modal-box w-96">
           <form method="dialog" className="space-y-2">
-            <button type="submit" className="btn btn-sm btn-circle btn-ghost bg-red-500 hover:bg-red-400 text-white absolute right-2 top-2">
+            <button
+              type="submit"
+              className="btn btn-circle btn-ghost btn-sm absolute right-2 top-2 bg-red-500 text-white hover:bg-red-400"
+            >
               ✕
             </button>
           </form>
           <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
-            <h4 className="text-lg font-bold font-nunito text-center uppercase">Add New Discount Code</h4>
+            <h4 className="text-center font-nunito text-lg font-bold uppercase">
+              Add New Discount Code
+            </h4>
             <div>
-              <img className="w-60 mx-auto" src="https://i.ibb.co/pWf1PLL/coupon.png" alt="" />
+              <img
+                className="mx-auto w-60"
+                src="https://i.ibb.co/pWf1PLL/coupon.png"
+                alt=""
+              />
             </div>
 
             <div className="space-y-2">
-              <input required placeholder="Enter discount name" type="text" name="discountName" {...register("discountName")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" id="" />
-              <input required placeholder="Enter discount amount/percent" type="number" name="discount" {...register("discount")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full" id="" />
-              <select placeholder="Select discount Type" name="discountType" {...register("discountType")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
+              <input
+                required
+                placeholder="Enter discount name"
+                type="text"
+                name="discountName"
+                {...register("discountName")}
+                className="w-full rounded border border-my-accent p-2 outline-1   outline-my-accent"
+                id=""
+              />
+              <input
+                required
+                placeholder="Enter discount amount/percent"
+                type="number"
+                name="discount"
+                {...register("discount")}
+                className="w-full rounded border border-my-accent p-2 outline-1 outline-my-accent"
+                id=""
+              />
+              <select
+                placeholder="Select discount Type"
+                name="discountType"
+                {...register("discountType")}
+                className="w-full rounded border border-my-accent p-2 outline-1 outline-my-accent"
+              >
                 <option selected disabled value="percent">
                   Select discount Type
                 </option>
                 <option value="percent">Percent</option>
                 <option value="fixed">Fixed</option>
               </select>
-              <select name="status" {...register("status")} className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
+              <select
+                name="status"
+                {...register("status")}
+                className="w-full rounded border border-my-accent p-2 outline-1 outline-my-accent"
+              >
                 <option selected disabled value="Active">
                   Select discount status
                 </option>
@@ -305,7 +393,10 @@ const DiscountCodes = () => {
               </select>
             </div>
 
-            <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
+            <button
+              className="submit-btn rounded- w-full cursor-pointer rounded-md py-2"
+              type="submit"
+            >
               {isLoading2 ? "Adding...." : "Add Discount Code"}
             </button>
           </form>
@@ -316,35 +407,73 @@ const DiscountCodes = () => {
       <dialog id="my_modal_updateDiscountCode" className="modal">
         <div className="modal-box w-96">
           <form method="dialog" className="space-y-2">
-            <button type="submit" className="btn btn-sm btn-circle btn-ghost bg-red-500 hover:bg-red-400 text-white absolute right-2 top-2">
+            <button
+              type="submit"
+              className="btn btn-circle btn-ghost btn-sm absolute right-2 top-2 bg-red-500 text-white hover:bg-red-400"
+            >
               ✕
             </button>
           </form>
           <form className="space-y-3" onSubmit={handleUpdate}>
-            <h4 className="text-lg font-bold font-nunito text-center uppercase">Update Discount Code</h4>
+            <h4 className="text-center font-nunito text-lg font-bold uppercase">
+              Update Discount Code
+            </h4>
             <div>
-              <img className="w-60 mx-auto" src="https://i.ibb.co/pWf1PLL/coupon.png" alt="" />
+              <img
+                className="mx-auto w-60"
+                src="https://i.ibb.co/pWf1PLL/coupon.png"
+                alt=""
+              />
             </div>
 
             <div className="space-y-2">
-              <input readOnly defaultValue={singleDiscount?.discountName} type="text" name="discountName" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" id="" />
-              <input required defaultValue={singleDiscount?.discount} placeholder="Enter discount amount/percent" type="number" name="discount" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full" id="" />
-              <select placeholder="Select discount Type" name="discountType" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
-                <option value={singleDiscount?.discountType}>{singleDiscount?.discountType}</option>
+              <input
+                readOnly
+                defaultValue={singleDiscount?.discountName}
+                type="text"
+                name="discountName"
+                className="w-full rounded border border-my-accent p-2 outline-1   outline-my-accent"
+                id=""
+              />
+              <input
+                required
+                defaultValue={singleDiscount?.discount}
+                placeholder="Enter discount amount/percent"
+                type="number"
+                name="discount"
+                className="w-full rounded border border-my-accent p-2 outline-1 outline-my-accent"
+                id=""
+              />
+              <select
+                placeholder="Select discount Type"
+                name="discountType"
+                className="w-full rounded border border-my-accent p-2 outline-1 outline-my-accent"
+              >
+                <option value={singleDiscount?.discountType}>
+                  {singleDiscount?.discountType}
+                </option>
                 {/* <option disabled value="percent">
                   Select discount Type
                 </option> */}
                 <option value="percent">Percent</option>
                 <option value="fixed">Fixed</option>
               </select>
-              <select name="status" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
-                <option value={singleDiscount?.status}>{singleDiscount?.status}</option>
+              <select
+                name="status"
+                className="w-full rounded border border-my-accent p-2 outline-1 outline-my-accent"
+              >
+                <option value={singleDiscount?.status}>
+                  {singleDiscount?.status}
+                </option>
                 <option value="Active">Active</option>
                 <option value="Expired">Expired</option>
               </select>
             </div>
 
-            <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
+            <button
+              className="submit-btn rounded- w-full cursor-pointer rounded-md py-2"
+              type="submit"
+            >
               {isLoading2 ? "Uploading...." : " Update Discount Code"}
             </button>
           </form>

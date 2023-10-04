@@ -27,7 +27,12 @@ const MediRequest = () => {
     }
   };
   return (
-    <button type="button" className="my-btn-outline !rounded-md tracking-wide" title="Request Medicine" onClick={handleRequestMedicine}>
+    <button
+      type="button"
+      className="my-btn-outline !rounded-md tracking-wide"
+      title="Request Medicine"
+      onClick={handleRequestMedicine}
+    >
       <FaCapsules className="text-xl" /> Request Medicine
     </button>
   );

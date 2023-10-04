@@ -38,9 +38,12 @@ const HighestSellings = () => {
   }, []);
 
   return (
-    <div className=" lg:pb-10 px-4 rounded-lg bg-lite">
+    <div className=" rounded-lg bg-lite px-4 lg:pb-10">
       <div className="my-container">
-        <SectionTitle title="Height selling Medicines" content="This is the most bought and used treatment for health issues." />
+        <SectionTitle
+          title="Height selling Medicines"
+          content="This is the most bought and used treatment for health issues."
+        />
         {isLoading ? (
           <Loader spinner />
         ) : (

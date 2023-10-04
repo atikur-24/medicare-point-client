@@ -1,10 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchAllUsers = createAsyncThunk("allUsers/fetchAllUsers", async () => {
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}/users`);
-  return res.data;
-});
+export const fetchAllUsers = createAsyncThunk(
+  "allUsers/fetchAllUsers",
+  async () => {
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/users`);
+    return res.data;
+  },
+);
 
 const allUsersSlice = createSlice({
   name: "allUsers",

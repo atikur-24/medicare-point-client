@@ -1,11 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const addPrescriptionCardApi = createAsyncThunk("addPrescriptionCard/addPrescriptionCardApi", async (data) => {
-  // console.log(data);
-  const res = await axios.post(`${import.meta.env.VITE_API_URL}/prescriptions`, data);
-  return res.data;
-});
+export const addPrescriptionCardApi = createAsyncThunk(
+  "addPrescriptionCard/addPrescriptionCardApi",
+  async (data) => {
+    // console.log(data);
+    const res = await axios.post(
+      `${import.meta.env.VITE_API_URL}/prescriptions`,
+      data,
+    );
+    return res.data;
+  },
+);
 
 const addPrescriptionCardSlice = createSlice({
   name: "addPrescriptionCard",

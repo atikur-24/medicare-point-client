@@ -11,7 +11,7 @@ import image3 from "../../assets/Medicine/medi-banner.jpg";
 
 const MedicineSwiper = () => {
   return (
-    <div className="w-full swiper-medicine">
+    <div className="swiper-medicine w-full">
       <Swiper
         className="w-full"
         spaceBetween={0}
@@ -29,11 +29,14 @@ const MedicineSwiper = () => {
         // onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
-          <div className="carousel-item h-96 w-full   relative">
-            <div className="absolute top-8 left-16 text-center space-y-2">
-              <h1 className="text-white text-xl font-semibold">New Nowosc</h1>
-              <h1 className="text-white text-3xl font-bold">MEGA SALE</h1>
-              <Link to="/details/6507073d6b95c8f9aa872aef" className="text-base font-medium p-1 text-white border rounded bg-transparent hover:bg-my-primary">
+          <div className="carousel-item relative h-96   w-full">
+            <div className="absolute left-16 top-8 space-y-2 text-center">
+              <h1 className="text-xl font-semibold text-white">New Nowosc</h1>
+              <h1 className="text-3xl font-bold text-white">MEGA SALE</h1>
+              <Link
+                to="/details/6507073d6b95c8f9aa872aef"
+                className="rounded border bg-transparent p-1 text-base font-medium text-white hover:bg-my-primary"
+              >
                 Order Now
               </Link>
             </div>
@@ -41,11 +44,18 @@ const MedicineSwiper = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="carousel-item h-96 w-full  relative">
-            <div className="absolute top-8 left-12 text-center space-y-2 ">
-              <h1 className="text-my-primary text-xl font-semibold">MediCare Shop</h1>
-              <h1 className="text-my-primary text-3xl font-bold">UP TO 50% OFF</h1>
-              <Link to="/details/6506812448c96f8bbaf0107e" className="text-base font-medium p-1 text-my-primary border rounded bg-transparent hover:bg-lite">
+          <div className="carousel-item relative h-96  w-full">
+            <div className="absolute left-12 top-8 space-y-2 text-center ">
+              <h1 className="text-xl font-semibold text-my-primary">
+                MediCare Shop
+              </h1>
+              <h1 className="text-3xl font-bold text-my-primary">
+                UP TO 50% OFF
+              </h1>
+              <Link
+                to="/details/6506812448c96f8bbaf0107e"
+                className="rounded border bg-transparent p-1 text-base font-medium text-my-primary hover:bg-lite"
+              >
                 Order Now
               </Link>
             </div>
@@ -53,11 +63,16 @@ const MedicineSwiper = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="carousel-item h-96 w-full  relative">
-            <div className="absolute top-8 left-12 text-center space-y-2">
-              <h1 className="text-white text-xl font-semibold">Probiocare Complete</h1>
-              <h1 className="text-white text-3xl font-bold">MEGA SALE</h1>
-              <Link to="/details/650700a16b95c8f9aa872ae7" className="text-base font-medium p-1 text-white border rounded bg-transparent hover:bg-my-primary">
+          <div className="carousel-item relative h-96  w-full">
+            <div className="absolute left-12 top-8 space-y-2 text-center">
+              <h1 className="text-xl font-semibold text-white">
+                Probiocare Complete
+              </h1>
+              <h1 className="text-3xl font-bold text-white">MEGA SALE</h1>
+              <Link
+                to="/details/650700a16b95c8f9aa872ae7"
+                className="rounded border bg-transparent p-1 text-base font-medium text-white hover:bg-my-primary"
+              >
                 Order Now
               </Link>
             </div>

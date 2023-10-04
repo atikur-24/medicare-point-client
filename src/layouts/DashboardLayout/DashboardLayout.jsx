@@ -2,11 +2,28 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { BsBagCheck, BsGrid1X2Fill, BsImage } from "react-icons/bs";
-import { FaCaretDown, FaCaretUp, FaFilePrescription, FaUsers, FaWpforms } from "react-icons/fa";
+import {
+  FaCaretDown,
+  FaCaretUp,
+  FaFilePrescription,
+  FaUsers,
+  FaWpforms,
+} from "react-icons/fa";
 import { GiHypodermicTest, GiMedicines } from "react-icons/gi";
 import { HiClipboardList, HiHome, HiOutlineLogout } from "react-icons/hi";
-import { MdAddShoppingCart, MdFeedback, MdOutlineInventory, MdOutlineLibraryBooks, MdOutlineWorkHistory } from "react-icons/md";
-import { RiArrowUpDownFill, RiFileList3Fill, RiFileList3Line, RiUserStarFill } from "react-icons/ri";
+import {
+  MdAddShoppingCart,
+  MdFeedback,
+  MdOutlineInventory,
+  MdOutlineLibraryBooks,
+  MdOutlineWorkHistory,
+} from "react-icons/md";
+import {
+  RiArrowUpDownFill,
+  RiFileList3Fill,
+  RiFileList3Line,
+  RiUserStarFill,
+} from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import { TbDiscount2 } from "react-icons/tb";
 import { TfiMenu } from "react-icons/tfi";
@@ -111,8 +128,12 @@ const DashboardLayout = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/dashboard/pharmacyRegistration" className="dashboard-link">
-          <MdOutlineLibraryBooks className="dashboard-icon" /> Pharmacy Registration Form
+        <NavLink
+          to="/dashboard/pharmacyRegistration"
+          className="dashboard-link"
+        >
+          <MdOutlineLibraryBooks className="dashboard-icon" /> Pharmacy
+          Registration Form
         </NavLink>
       </li>
       <li>
@@ -146,7 +167,10 @@ const DashboardLayout = () => {
       </li>
 
       <li>
-        <NavLink to="/dashboard/pharmacists-order-history" className="dashboard-link">
+        <NavLink
+          to="/dashboard/pharmacists-order-history"
+          className="dashboard-link"
+        >
           <RiFileList3Fill className="dashboard-icon" />
           <span>Order History</span>
         </NavLink>
@@ -160,11 +184,19 @@ const DashboardLayout = () => {
       </li>
 
       <li className="dashboard-link flex">
-        <NavLink to="/dashboard/medicine-inventory" onClick={() => setMedicineBtn(!medicineBtn)} className="dashboard-link flex">
+        <NavLink
+          to="/dashboard/medicine-inventory"
+          onClick={() => setMedicineBtn(!medicineBtn)}
+          className="dashboard-link flex"
+        >
           <MdOutlineInventory className="dashboard-icon" />
           <button type="button">Medicine Inventory</button>
-          <FaCaretDown className={`${medicineBtn ? "hidden" : "block"} dashboard-icon`} />
-          <FaCaretUp className={`${medicineBtn ? "block" : "hidden"} dashboard-icon`} />
+          <FaCaretDown
+            className={`${medicineBtn ? "hidden" : "block"} dashboard-icon`}
+          />
+          <FaCaretUp
+            className={`${medicineBtn ? "block" : "hidden"} dashboard-icon`}
+          />
         </NavLink>
         <ul className={`${medicineBtn ? "block" : "hidden"}`}>
           <li>
@@ -181,11 +213,19 @@ const DashboardLayout = () => {
       </li>
 
       <li className="dashboard-link flex">
-        <NavLink to="/dashboard/requested-stock" onClick={() => setMediReqBtn(!mediReqBtn)} className="dashboard-link flex">
+        <NavLink
+          to="/dashboard/requested-stock"
+          onClick={() => setMediReqBtn(!mediReqBtn)}
+          className="dashboard-link flex"
+        >
           <GiMedicines className="dashboard-icon" />
           <button type="button">Requested Medicines</button>
-          <FaCaretDown className={`${mediReqBtn ? "hidden" : "block"} dashboard-icon`} />
-          <FaCaretUp className={`${mediReqBtn ? "block" : "hidden"} dashboard-icon`} />
+          <FaCaretDown
+            className={`${mediReqBtn ? "hidden" : "block"} dashboard-icon`}
+          />
+          <FaCaretUp
+            className={`${mediReqBtn ? "block" : "hidden"} dashboard-icon`}
+          />
         </NavLink>
         <ul className={`${mediReqBtn ? "block" : "hidden"}`}>
           <li>
@@ -249,25 +289,39 @@ const DashboardLayout = () => {
       </li>
 
       <li>
-        <NavLink to="/dashboard/medicine-order-history" className="dashboard-link">
+        <NavLink
+          to="/dashboard/medicine-order-history"
+          className="dashboard-link"
+        >
           <RiFileList3Fill className="dashboard-icon" />
           <span>Order History</span>
         </NavLink>
       </li>
 
       <li>
-        <NavLink to="/dashboard/delivery-medicine-return" className="dashboard-link">
+        <NavLink
+          to="/dashboard/delivery-medicine-return"
+          className="dashboard-link"
+        >
           <RiArrowUpDownFill className="dashboard-icon" />
           <span>Return</span>
         </NavLink>
       </li>
 
       <li className="dashboard-link flex">
-        <NavLink to="/dashboard/manage-confirm-lab" onClick={() => setLabtest(!labtest)} className="dashboard-link flex">
+        <NavLink
+          to="/dashboard/manage-confirm-lab"
+          onClick={() => setLabtest(!labtest)}
+          className="dashboard-link flex"
+        >
           <GiHypodermicTest className="dashboard-icon" />
           <button type="button">Lab Tests</button>
-          <FaCaretDown className={`${labtest ? "hidden" : "block"} dashboard-icon`} />
-          <FaCaretUp className={`${labtest ? "block" : "hidden"} dashboard-icon`} />
+          <FaCaretDown
+            className={`${labtest ? "hidden" : "block"} dashboard-icon`}
+          />
+          <FaCaretUp
+            className={`${labtest ? "block" : "hidden"} dashboard-icon`}
+          />
         </NavLink>
         <ul className={`${labtest ? "block" : "hidden"}`}>
           <li>
@@ -288,15 +342,25 @@ const DashboardLayout = () => {
         </ul>
       </li>
       <li className="dashboard-link flex">
-        <NavLink to="/dashboard/edit-health-tips" onClick={toggleDropdown2} className="dashboard-link flex cursor-pointer">
+        <NavLink
+          to="/dashboard/edit-health-tips"
+          onClick={toggleDropdown2}
+          className="dashboard-link flex cursor-pointer"
+        >
           <RiFileList3Line className="dashboard-icon" />
           <button type="button">Health Tips</button>
-          <FaCaretDown className={`${showDropdown2 ? "hidden" : "block"} dashboard-icon`} />
-          <FaCaretUp className={`${showDropdown2 ? "block" : "hidden"} dashboard-icon`} />
+          <FaCaretDown
+            className={`${showDropdown2 ? "hidden" : "block"} dashboard-icon`}
+          />
+          <FaCaretUp
+            className={`${showDropdown2 ? "block" : "hidden"} dashboard-icon`}
+          />
         </NavLink>
         <ul className={`${showDropdown2 ? "block" : "hidden"}`}>
           <li>
-            <NavLink to="/dashboard/edit-health-tips">Manage Health Tips</NavLink>
+            <NavLink to="/dashboard/edit-health-tips">
+              Manage Health Tips
+            </NavLink>
           </li>
           <li>
             <NavLink to="/dashboard/add-health-tips">Add Health Tip</NavLink>
@@ -305,15 +369,25 @@ const DashboardLayout = () => {
       </li>
 
       <li className="dashboard-link flex">
-        <NavLink to="/dashboard/manage-health-articles" onClick={toggleDropdown3} className="dashboard-link flex cursor-pointer">
+        <NavLink
+          to="/dashboard/manage-health-articles"
+          onClick={toggleDropdown3}
+          className="dashboard-link flex cursor-pointer"
+        >
           <RiFileList3Line className="dashboard-icon" />
           <button type="button">Blogs</button>
-          <FaCaretDown className={`${showDropdown3 ? "hidden" : "block"} dashboard-icon`} />
-          <FaCaretUp className={`${showDropdown3 ? "block" : "hidden"} dashboard-icon`} />
+          <FaCaretDown
+            className={`${showDropdown3 ? "hidden" : "block"} dashboard-icon`}
+          />
+          <FaCaretUp
+            className={`${showDropdown3 ? "block" : "hidden"} dashboard-icon`}
+          />
         </NavLink>
         <ul className={`${showDropdown3 ? "block" : "hidden"}`}>
           <li>
-            <NavLink to="/dashboard/manage-health-articles">Manage Blogs</NavLink>
+            <NavLink to="/dashboard/manage-health-articles">
+              Manage Blogs
+            </NavLink>
           </li>
           <li>
             <NavLink to="/dashboard/add-blog">Add Blog</NavLink>
@@ -321,7 +395,10 @@ const DashboardLayout = () => {
         </ul>
       </li>
       <li>
-        <NavLink to="/dashboard/PharmacyApplications" className="dashboard-link">
+        <NavLink
+          to="/dashboard/PharmacyApplications"
+          className="dashboard-link"
+        >
           <FaWpforms className="dashboard-icon" />
           <span>Pharmacy Applications</span>
         </NavLink>
@@ -340,41 +417,63 @@ const DashboardLayout = () => {
   return (
     <div className="drawer xl:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content relative font-Alexandria min-h-screen bg-[#F1F6FA] px-2 xl:px-8  2xl:px-20">
+      <div className="drawer-content relative min-h-screen bg-[#F1F6FA] px-2 font-Alexandria xl:px-8  2xl:px-20">
         {/* Page content here */}
-        <DashBoardNavbar allNotificationsData={allNotificationsData} setShowNotification={setShowNotification} showNotification={showNotification} />
-        <div ref={notificationRef}>{showNotification && <Notification setLoading={setLoading} allNotifications={allNotificationsData} />}</div>
+        <DashBoardNavbar
+          allNotificationsData={allNotificationsData}
+          setShowNotification={setShowNotification}
+          showNotification={showNotification}
+        />
+        <div ref={notificationRef}>
+          {showNotification && (
+            <Notification
+              setLoading={setLoading}
+              allNotifications={allNotificationsData}
+            />
+          )}
+        </div>
         <Outlet />
-        <label htmlFor="my-drawer-2" className="toggle-dashboard-btn  drawer-button xl:hidden">
-          <TfiMenu className="text-2xl  cursor-pointer" />
+        <label
+          htmlFor="my-drawer-2"
+          className="toggle-dashboard-btn  drawer-button xl:hidden"
+        >
+          <TfiMenu className="cursor-pointer  text-2xl" />
         </label>
       </div>
-      <div className="drawer-side md:shadow-2xl !z-50">
+      <div className="drawer-side !z-50 md:shadow-2xl">
         <label htmlFor="my-drawer-2" className="drawer-overlay" />
 
-        <ul className="dashboard-ul bg-white flex-nowrap font-Alexandria  menu p-4 w-80 text-base-content space-y-4 !h-full md:h-fit ">
+        <ul className="dashboard-ul menu !h-full w-80  flex-nowrap space-y-4 bg-white p-4 font-Alexandria text-base-content md:h-fit ">
           {/* Sidebar content here */}
 
           <li className="relative">
             <NavLink to="/" className="pb-3">
               <img className="h-10 w-full" src={logo} alt="" />
             </NavLink>
-            <label htmlFor="my-drawer-2" className="toggle-dashboard-btn2 xl:hidden">
-              <RxCross1 className="text-lg cursor-pointer" />
+            <label
+              htmlFor="my-drawer-2"
+              className="toggle-dashboard-btn2 xl:hidden"
+            >
+              <RxCross1 className="cursor-pointer text-lg" />
             </label>
           </li>
           {isUser && userLinks}
           {isPharmacist && pharmacistLinks}
           {isAdmin && adminLinks}
-          <hr className="text-gray-3 mx-4" />
+          <hr className="mx-4 text-gray-3" />
           <li>
             <Link to="/" className="dashboard-link">
               <HiHome className="dashboard-icon" /> <span>Home</span>
             </Link>
           </li>
           <li>
-            <button onClick={handelLogOut} className="dashboard-link" type="button">
-              <HiOutlineLogout className="dashboard-icon" /> <span>Log Out</span>
+            <button
+              onClick={handelLogOut}
+              className="dashboard-link"
+              type="button"
+            >
+              <HiOutlineLogout className="dashboard-icon" />{" "}
+              <span>Log Out</span>
             </button>
           </li>
         </ul>

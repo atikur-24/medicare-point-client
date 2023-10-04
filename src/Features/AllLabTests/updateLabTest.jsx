@@ -2,15 +2,21 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export const updateLabTestApi = createAsyncThunk("updateLabTest/updateLabTestApi", async (data) => {
-  const res = await axios.put(`${import.meta.env.VITE_API_URL}/labItems/${data._id}`, data);
+export const updateLabTestApi = createAsyncThunk(
+  "updateLabTest/updateLabTestApi",
+  async (data) => {
+    const res = await axios.put(
+      `${import.meta.env.VITE_API_URL}/labItems/${data._id}`,
+      data,
+    );
 
-  if (res.data.modifiedCount > 0) {
-    Swal.fire("Updated Successfully", "success");
-  }
+    if (res.data.modifiedCount > 0) {
+      Swal.fire("Updated Successfully", "success");
+    }
 
-  return res.data;
-});
+    return res.data;
+  },
+);
 
 const updateLabTestsSlice = createSlice({
   name: "updateLabTest",

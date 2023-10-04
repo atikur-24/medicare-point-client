@@ -15,8 +15,11 @@ const Brands = () => {
   return (
     <section className="bg-lite">
       <div className="my-container">
-        <SectionTitle title="Featured Brands" content="We proudly present a handpicked collection of reputable names in the health and wellness industry." />
-        <div className="block lg:hidden my-4">
+        <SectionTitle
+          title="Featured Brands"
+          content="We proudly present a handpicked collection of reputable names in the health and wellness industry."
+        />
+        <div className="my-4 block lg:hidden">
           <Swiper
             // modules={[Pagination]}
             pagination={{
@@ -52,71 +55,106 @@ const Brands = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-              <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-                <img className="w-32 h-16 py-4 object-cover" src={brand1} alt="brand" />
+              <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+                <img
+                  className="h-16 w-32 object-cover py-4"
+                  src={brand1}
+                  alt="brand"
+                />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-                <img className="w-32 h-16  py-4 object-cover" src={brand2} alt="brand" />
+              <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+                <img
+                  className="h-16 w-32  object-cover py-4"
+                  src={brand2}
+                  alt="brand"
+                />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-                <img className="w-32 h-16  py-4 object-cover" src={brand3} alt="brand" />
+              <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+                <img
+                  className="h-16 w-32  object-cover py-4"
+                  src={brand3}
+                  alt="brand"
+                />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-                <img className="w-32 h-16  py-4 object-cover" src={brand4} alt="brand" />
+              <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+                <img
+                  className="h-16 w-32  object-cover py-4"
+                  src={brand4}
+                  alt="brand"
+                />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-                <img className="w-32 h-16  py-4 object-cover" src={brand5} alt="brand" />
+              <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+                <img
+                  className="h-16 w-32  object-cover py-4"
+                  src={brand5}
+                  alt="brand"
+                />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-                <img className="w-32 h-16  py-4 object-cover" src={brand6} alt="brand" />
+              <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+                <img
+                  className="h-16 w-32  object-cover py-4"
+                  src={brand6}
+                  alt="brand"
+                />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-                <img className="w-32 h-16  py-4 object-cover" src={brand7} alt="brand" />
+              <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+                <img
+                  className="h-16 w-32  object-cover py-4"
+                  src={brand7}
+                  alt="brand"
+                />
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-                <img className="w-32 h-16  py-4 object-cover" src={brand8} alt="brand" />
+              <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+                <img
+                  className="h-16 w-32  object-cover py-4"
+                  src={brand8}
+                  alt="brand"
+                />
               </div>
             </SwiperSlide>
           </Swiper>
         </div>
-        <div data-testid="brands-container" className="hidden lg:block lg:grid lg:grid-cols-4 xl:grid-cols-4 gap-4 md:gap-6">
-          <div className="brandsCard rounded-md bg-white  py-3 flex items-center justify-center">
-            <img className="w-32 py-4 object-cover" src={brand1} alt="brand" />
+        <div
+          data-testid="brands-container"
+          className="hidden gap-4 md:gap-6 lg:block lg:grid lg:grid-cols-4 xl:grid-cols-4"
+        >
+          <div className="brandsCard flex items-center  justify-center rounded-md bg-white py-3">
+            <img className="w-32 object-cover py-4" src={brand1} alt="brand" />
           </div>
-          <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-            <img className="w-32 py-4 object-cover" src={brand2} alt="brand" />
+          <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+            <img className="w-32 object-cover py-4" src={brand2} alt="brand" />
           </div>
-          <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-            <img className="w-32 py-4 object-cover" src={brand3} alt="brand" />
+          <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+            <img className="w-32 object-cover py-4" src={brand3} alt="brand" />
           </div>
-          <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-            <img className="w-32 py-4 object-cover" src={brand4} alt="brand" />
+          <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+            <img className="w-32 object-cover py-4" src={brand4} alt="brand" />
           </div>
-          <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-            <img className="w-32 py-4 object-cover" src={brand5} alt="brand" />
+          <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+            <img className="w-32 object-cover py-4" src={brand5} alt="brand" />
           </div>
-          <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-            <img className="w-32 py-4 object-cover" src={brand6} alt="brand" />
+          <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+            <img className="w-32 object-cover py-4" src={brand6} alt="brand" />
           </div>
-          <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-            <img className="w-32 py-4 object-cover" src={brand7} alt="brand" />
+          <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+            <img className="w-32 object-cover py-4" src={brand7} alt="brand" />
           </div>
-          <div className="brandsCard rounded-md bg-white py-3 flex items-center justify-center">
-            <img className="w-32 py-4 object-cover" src={brand8} alt="brand" />
+          <div className="brandsCard flex items-center justify-center rounded-md bg-white py-3">
+            <img className="w-32 object-cover py-4" src={brand8} alt="brand" />
           </div>
         </div>
       </div>

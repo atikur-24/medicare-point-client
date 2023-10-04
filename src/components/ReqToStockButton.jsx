@@ -12,11 +12,20 @@ const ReqToStockButton = ({ reqToStock, cls }) => {
   const date = moment().format("L");
   const handleReqToStock = () => {
     if (user) {
-      axios.post(`${import.meta.env.VITE_API_URL}/requestToStock`, { ...reqToStock, date }).then((result) => {
-        if (result.data.insertedId || result.data.modifiedCount) {
-          toast.success("Request Sent Successfully", { position: "top-center", autoClose: 3000, pauseOnHover: false });
-        }
-      });
+      axios
+        .post(`${import.meta.env.VITE_API_URL}/requestToStock`, {
+          ...reqToStock,
+          date,
+        })
+        .then((result) => {
+          if (result.data.insertedId || result.data.modifiedCount) {
+            toast.success("Request Sent Successfully", {
+              position: "top-center",
+              autoClose: 3000,
+              pauseOnHover: false,
+            });
+          }
+        });
     } else {
       Swal.fire({
         title: "Please login for cart item",

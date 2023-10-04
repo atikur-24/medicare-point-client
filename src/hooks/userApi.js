@@ -15,41 +15,56 @@ export const updateUserPharmacist = (id) => {
   const userData = {
     role: "Pharmacist",
   };
-  axios.patch(`${import.meta.env.VITE_API_URL}/updateUserRole/${id}`, userData).then((res) => {
-    if (res?.data?.modifiedCount > 0) {
-      Swal.fire("Successful", "Convert User Role to pharmacist", "success");
-    }
-  });
+  axios
+    .patch(`${import.meta.env.VITE_API_URL}/updateUserRole/${id}`, userData)
+    .then((res) => {
+      if (res?.data?.modifiedCount > 0) {
+        Swal.fire("Successful", "Convert User Role to pharmacist", "success");
+      }
+    });
 };
 
 export const updateUserAdmin = (id) => {
   const userData = {
     role: "admin",
   };
-  axios.patch(`${import.meta.env.VITE_API_URL}/updateUserRole/${id}`, userData).then((res) => {
-    if (res?.data?.modifiedCount > 0) {
-      Swal.fire("Successful", "Convert User Role to Admin", "success");
-    }
-  });
+  axios
+    .patch(`${import.meta.env.VITE_API_URL}/updateUserRole/${id}`, userData)
+    .then((res) => {
+      if (res?.data?.modifiedCount > 0) {
+        Swal.fire("Successful", "Convert User Role to Admin", "success");
+      }
+    });
 };
 
 export const updateUser = (id) => {
   const userData = {
     role: "user",
   };
-  axios.patch(`${import.meta.env.VITE_API_URL}/updateUserRole/${id}`, userData).then((res) => {
-    if (res?.data?.modifiedCount > 0) {
-      Swal.fire("Successful", "Convert User Role to User", "success");
-    }
-  });
+  axios
+    .patch(`${import.meta.env.VITE_API_URL}/updateUserRole/${id}`, userData)
+    .then((res) => {
+      if (res?.data?.modifiedCount > 0) {
+        Swal.fire("Successful", "Convert User Role to User", "success");
+      }
+    });
 };
 
 export const applicationForPharmacist = (application) => {
-  axios.post(`${import.meta.env.VITE_API_URL}/pharmacyRegistrationApplication`, application).then((res) => {
-    if (res.data.insertedId) {
-      Swal.fire("Successful", "Your Application Success fully added", "success");
-    }
-  });
+  axios
+    .post(
+      `${import.meta.env.VITE_API_URL}/pharmacyRegistrationApplication`,
+      application,
+    )
+    .then((res) => {
+      if (res.data.insertedId) {
+        Swal.fire(
+          "Successful",
+          "Your Application Success fully added",
+          "success",
+        );
+      }
+    });
 };
 
 // User delete api

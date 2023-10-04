@@ -1,10 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const isValidDiscountApi = createAsyncThunk("isValidDiscount/isValidDiscountApi", async (data) => {
-  const res = await axios.post(`${import.meta.env.VITE_API_URL}/isValidDiscount`, data);
-  return res.data;
-});
+export const isValidDiscountApi = createAsyncThunk(
+  "isValidDiscount/isValidDiscountApi",
+  async (data) => {
+    const res = await axios.post(
+      `${import.meta.env.VITE_API_URL}/isValidDiscount`,
+      data,
+    );
+    return res.data;
+  },
+);
 
 const isValidDiscountSlice = createSlice({
   name: "isValidDiscount",

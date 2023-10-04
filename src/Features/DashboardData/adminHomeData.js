@@ -1,10 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchAdminHomeData = createAsyncThunk("adminHomeData/fetchAdminHomeData", async (api) => {
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}/${api}`);
-  return res.data;
-});
+export const fetchAdminHomeData = createAsyncThunk(
+  "adminHomeData/fetchAdminHomeData",
+  async (api) => {
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/${api}`);
+    return res.data;
+  },
+);
 
 const allUsersSlice = createSlice({
   name: "adminHomeData",

@@ -28,7 +28,10 @@ const UpdateHealthTips = () => {
       // data.image = imageData.data.display_url;
 
       // Update health tip data using axios
-      const updateResponse = await axios.put(`${import.meta.env.VITE_API_URL}/allHealthTips/${data._id}`, data);
+      const updateResponse = await axios.put(
+        `${import.meta.env.VITE_API_URL}/allHealthTips/${data._id}`,
+        data,
+      );
 
       if (updateResponse.status === 200) {
         Swal.fire({
@@ -58,40 +61,62 @@ const UpdateHealthTips = () => {
   }, [existingData, setValue]);
 
   return (
-    <div className="mt-8 bg-white box-shadow rounded-2xl p-10">
+    <div className="box-shadow mt-8 rounded-2xl bg-white p-10">
       <div className="grid grid-cols-1">
         <div className="">
-          <h1 className="text-2xl text-center font-bold mb-10 font-nunito uppercase">Update Health Tip</h1>
+          <h1 className="mb-10 text-center font-nunito text-2xl font-bold uppercase">
+            Update Health Tip
+          </h1>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label className="label">
                   <span className="label-text font-bold">Category</span>
                 </label>
-                <input type="text" {...register("category")} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  {...register("category")}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div>
                 <label className="label">
                   <span className="label-text font-bold">Name</span>
                 </label>
-                <input type="text" {...register("name")} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  {...register("name")}
+                  className="input input-bordered w-full"
+                />
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <label className="text-sm font-semibold">Image</label>
-                <input type="text" {...register("image")} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  {...register("image")}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div>
                 <label className="text-sm font-semibold">Date</label>
-                <input type="date" {...register("date")} className="input input-bordered w-full" />
+                <input
+                  type="date"
+                  {...register("date")}
+                  className="input input-bordered w-full"
+                />
               </div>
             </div>
             <div>
               <label className="label">
-                <span className="label-text font-bold w-full">Type</span>
+                <span className="label-text w-full font-bold">Type</span>
               </label>
-              <input type="text" {...register("type")} className="input input-bordered w-full" />
+              <input
+                type="text"
+                {...register("type")}
+                className="input input-bordered w-full"
+              />
             </div>
             <div>
               <label className="label">
@@ -153,13 +178,25 @@ const UpdateHealthTips = () => {
                   <span className="label-text font-bold">Name of Doctor</span>
                 </label>
 
-                <input type="text" placeholder="Type here" {...register("doctorName")} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  placeholder="Type here"
+                  {...register("doctorName")}
+                  className="input input-bordered w-full"
+                />
               </div>
               <div>
                 <label className="label">
-                  <span className="label-text font-bold">Speciality of Doctor</span>
+                  <span className="label-text font-bold">
+                    Speciality of Doctor
+                  </span>
                 </label>
-                <input type="text" placeholder="Type here" {...register("doctorDepartment")} className="input input-bordered w-full" />
+                <input
+                  type="text"
+                  placeholder="Type here"
+                  {...register("doctorDepartment")}
+                  className="input input-bordered w-full"
+                />
               </div>
             </div>
             <button type="submit" className="my-btn">

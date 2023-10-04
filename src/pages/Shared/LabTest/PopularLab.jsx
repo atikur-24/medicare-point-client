@@ -81,14 +81,14 @@ const PopularLab = () => {
             <PopularCategories category={category} />
           </SwiperSlide>
         ))}
-        <div className="absolute top-1/2 right-4 z-10">
-          <div className="bg-white rounded-full ">
-            <FaArrowCircleRight className="text-2xl xl:text-3xl text-my-primary" />
+        <div className="absolute right-4 top-1/2 z-10">
+          <div className="rounded-full bg-white ">
+            <FaArrowCircleRight className="text-2xl text-my-primary xl:text-3xl" />
           </div>
         </div>
-        <div className="absolute top-1/2 left-0 z-10">
-          <div className="bg-white rounded-full">
-            <FaArrowCircleLeft className="text-2xl xl:text-3xl text-my-primary" />
+        <div className="absolute left-0 top-1/2 z-10">
+          <div className="rounded-full bg-white">
+            <FaArrowCircleLeft className="text-2xl text-my-primary xl:text-3xl" />
           </div>
         </div>
       </Swiper>

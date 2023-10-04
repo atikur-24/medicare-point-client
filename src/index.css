@@ -12,66 +12,66 @@
 
 @layer components {
   .nav-container {
-    @apply max-w-[2550px] px-2 md:px-6 lg:px-12 mx-auto;
+    @apply mx-auto max-w-[2550px] px-2 md:px-6 lg:px-12;
   }
 
   .szh-menu-container .szh-menu {
-    @apply lg:w-48 2xl:h-28  rounded-md !top-6 xl:!top-2 xl:!-left-32 border border-gray-3;
+    @apply !top-6 rounded-md  border border-gray-3 lg:w-48 xl:!-left-32 xl:!top-2 2xl:h-28;
   }
 
   .navMenu .szh-menu-container .szh-menu {
-    @apply lg:w-48 2xl:h-28  rounded-md !top-2 xl:!top-2 xl:!-left-32 border border-gray-3;
+    @apply !top-2 rounded-md  border border-gray-3 lg:w-48 xl:!-left-32 xl:!top-2 2xl:h-28;
   }
 
   .filter-medicine .szh-menu {
-    @apply !h-fit !left-0;
+    @apply !left-0 !h-fit;
   }
   .medicine-types .szh-menu {
-    @apply !h-fit !-top-44;
+    @apply !-top-44 !h-fit;
   }
 
   .my-container {
-    @apply px-4 xl:px-6 container mx-auto py-14 lg:py-16;
+    @apply container mx-auto px-4 py-14 lg:py-16 xl:px-6;
   }
 
   .active {
-    @apply font-bold text-base tracking-wide text-title-color  uppercase underline decoration-my-accent decoration-2 underline-offset-8;
+    @apply text-base font-bold uppercase tracking-wide  text-title-color underline decoration-my-accent decoration-2 underline-offset-8;
   }
   .default {
-    @apply font-semibold text-base text-gray-6 tracking-wide  uppercase  hover:text-my-accent;
+    @apply text-base font-semibold uppercase tracking-wide  text-gray-6  hover:text-my-accent;
   }
 
   /* button  */
 
   .cart-btn {
-    @apply py-1 md:py-2 lg:py-4 px-2 md:px-3 lg:px-5 rounded-full text-xs lg:text-sm uppercase font-medium lg:font-semibold inline-flex items-center justify-center gap-1 lg:gap-2 transition duration-300 text-white bg-my-primary hover:bg-my-accent;
+    @apply inline-flex items-center justify-center gap-1 rounded-full bg-my-primary px-2 py-1 text-xs font-medium uppercase text-white transition duration-300 hover:bg-my-accent md:px-3 md:py-2 lg:gap-2 lg:px-5 lg:py-4 lg:text-sm lg:font-semibold;
   }
   .cart-btn-outline {
-    @apply rounded-full w-full p-1 text-[10px] lg:text-xs uppercase font-medium inline-flex items-center justify-center gap-2 transition duration-300 border hover:bg-my-primary hover:text-white border-my-primary text-my-primary;
+    @apply inline-flex w-full items-center justify-center gap-2 rounded-full border border-my-primary p-1 text-[10px] font-medium uppercase text-my-primary transition duration-300 hover:bg-my-primary hover:text-white lg:text-xs;
   }
   .req-btn-lg {
-    @apply py-3 lg:py-4 px-3 lg:px-5 rounded-full text-sm uppercase font-semibold inline-flex items-center justify-center gap-2 transition duration-300 text-white bg-red-500 hover:bg-red-400;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-red-500 px-3 py-3 text-sm font-semibold uppercase text-white transition duration-300 hover:bg-red-400 lg:px-5 lg:py-4;
   }
   .req-btn-sm {
-    @apply rounded-full  w-full p-1 text-[10px] lg:text-xs transition duration-300 border uppercase bg-red-500 hover:bg-red-400 text-white border-red-500 hover:border-red-400;
+    @apply w-full  rounded-full border border-red-500 bg-red-500 p-1 text-[10px] uppercase text-white transition duration-300 hover:border-red-400 hover:bg-red-400 lg:text-xs;
   }
   .my-btn {
-    @apply bg-my-primary hover:bg-[#16b4ac] btn tracking-wide font-medium md:font-semibold text-white transition duration-200 border-0  active:hover:transform-none active:focus:transform-none;
+    @apply btn border-0 bg-my-primary font-medium tracking-wide text-white transition duration-200 hover:bg-[#16b4ac] active:hover:transform-none  active:focus:transform-none md:font-semibold;
   }
   .my-btn-outline {
-    @apply hover:bg-my-primary hover:text-white btn-sm lg:btn-md btn rounded-full font-medium md:font-semibold lg:font-bold transition-all duration-300 border border-my-primary text-my-primary active:hover:transform-none active:focus:transform-none;
+    @apply btn btn-sm rounded-full border border-my-primary font-medium text-my-primary transition-all duration-300 lg:btn-md hover:bg-my-primary hover:text-white active:hover:transform-none active:focus:transform-none md:font-semibold lg:font-bold;
   }
   .circle-btn {
-    @apply bg-my-primary hover:bg-[#16b4ac] tracking-wide hover:text-white btn rounded-full font-bold transition duration-300 border text-white active:hover:transform-none active:focus:transform-none;
+    @apply btn rounded-full border bg-my-primary font-bold tracking-wide text-white transition duration-300 hover:bg-[#16b4ac] hover:text-white active:hover:transform-none active:focus:transform-none;
   }
   .login-btn {
-    @apply bg-my-accent hover:bg-[#16b4ac]  btn  font-medium md:font-semibold text-white transition duration-200 border-0 active:hover:transform-none active:focus:transform-none;
+    @apply btn border-0  bg-my-accent  font-medium text-white transition duration-200 hover:bg-[#16b4ac] active:hover:transform-none active:focus:transform-none md:font-semibold;
   }
   .submit-btn {
-    @apply bg-my-primary hover:bg-my-accent text-white py-2 lg:py-3 px-3 lg:px-6 text-sm lg:text-base font-medium lg:font-semibold tracking-wide rounded-md transition-all uppercase;
+    @apply rounded-md bg-my-primary px-3 py-2 text-sm font-medium uppercase tracking-wide text-white transition-all hover:bg-my-accent lg:px-6 lg:py-3 lg:text-base lg:font-semibold;
   }
   .reset-btn {
-    @apply bg-red-500 hover:bg-red-400 text-white py-2 lg:py-3 px-3 lg:px-6 text-sm lg:text-base font-medium lg:font-semibold tracking-wide rounded-md transition-all uppercase;
+    @apply rounded-md bg-red-500 px-3 py-2 text-sm font-medium uppercase tracking-wide text-white transition-all hover:bg-red-400 lg:px-6 lg:py-3 lg:text-base lg:font-semibold;
   }
   /* button  */
 }
@@ -79,19 +79,44 @@
 @layer utilities {
   /* choose us  */
   .choose-inside {
-    clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 80%, 90% 100%, 0 100%, 0% 80%, 0% 20%);
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 20%,
+      100% 80%,
+      90% 100%,
+      0 100%,
+      0% 80%,
+      0% 20%
+    );
     border: 1px solid #10847e;
     background-color: #fff;
   }
   .choose-outside {
-    clip-path: polygon(0 0, 100% 0, 100% 20%, 100% 80%, 90% 100%, 0 100%, 0% 80%, 0% 20%);
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 20%,
+      100% 80%,
+      90% 100%,
+      0 100%,
+      0% 80%,
+      0% 20%
+    );
     background-color: #10847e;
     padding: 1px;
     border-radius: 8px;
   }
 
   .bg {
-    background-image: linear-gradient(to right top, #176b87, #007288, #007886, #007e83, #10847e);
+    background-image: linear-gradient(
+      to right top,
+      #176b87,
+      #007288,
+      #007886,
+      #007e83,
+      #10847e
+    );
   }
   /* feedback  */
   .bg-card {

@@ -27,7 +27,9 @@ const CheckouForm = () => {
   const totalPrices = [];
   let subTotal = 0;
   for (const items of cart) {
-    pricesWithDiscount.push(items?.quantity * (items?.price - (items?.price / 100) * items?.discount));
+    pricesWithDiscount.push(
+      items?.quantity * (items?.price - (items?.price / 100) * items?.discount),
+    );
   }
   for (const price of pricesWithDiscount) {
     totalPrice += price;
@@ -54,7 +56,10 @@ const CheckouForm = () => {
   } = useForm();
   const onSubmit = (data, event) => {
     event.preventDefault();
-    const paymentDetails = { ...data, totalPayment: parseFloat((allTotal - disAmount).toFixed(2)) };
+    const paymentDetails = {
+      ...data,
+      totalPayment: parseFloat((allTotal - disAmount).toFixed(2)),
+    };
     dispatch(sslPaymentApi({ paymentDetails, cart, discountCode }));
   };
 
@@ -62,24 +67,39 @@ const CheckouForm = () => {
     event.preventDefault();
     const promoCode = event.target.promoCode.value;
 
-    dispatch(isValidDiscountApi({ promoCode, email: user?.email })).then((res) => {
-      const response = res.payload;
+    dispatch(isValidDiscountApi({ promoCode, email: user?.email })).then(
+      (res) => {
+        const response = res.payload;
 
-      if (response?.success) {
-        setDiscountCode(promoCode);
-        if (response?.discountType === "percent") {
-          const discountAmount = ((allTotal * parseFloat(response?.discount)) / 100).toFixed(2);
-          setDisAmount(discountAmount);
+        if (response?.success) {
+          setDiscountCode(promoCode);
+          if (response?.discountType === "percent") {
+            const discountAmount = (
+              (allTotal * parseFloat(response?.discount)) /
+              100
+            ).toFixed(2);
+            setDisAmount(discountAmount);
+          } else {
+            setDisAmount(response?.discount);
+          }
+          toast.success(response?.message, {
+            autoClose: 1000,
+            hideProgressBar: true,
+            theme: "colored",
+            pauseOnHover: false,
+          });
+          event.target.reset();
         } else {
-          setDisAmount(response?.discount);
+          setDisAmount(0);
+          toast.error(response?.message, {
+            autoClose: 1000,
+            hideProgressBar: true,
+            theme: "colored",
+            pauseOnHover: false,
+          });
         }
-        toast.success(response?.message, { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
-        event.target.reset();
-      } else {
-        setDisAmount(0);
-        toast.error(response?.message, { autoClose: 1000, hideProgressBar: true, theme: "colored", pauseOnHover: false });
-      }
-    });
+      },
+    );
 
     // if (promoCode === "WELCOME50") {
     //   setAllTotal(allTotal - 50);
@@ -90,7 +110,16 @@ const CheckouForm = () => {
     // }
   };
 
-  const divisions = ["Dhaka", "Chattogram", "Barishal", "Khulna", "Rajshahi", "Rangpur", "Mymensingh", "Sylhet"];
+  const divisions = [
+    "Dhaka",
+    "Chattogram",
+    "Barishal",
+    "Khulna",
+    "Rajshahi",
+    "Rangpur",
+    "Mymensingh",
+    "Sylhet",
+  ];
   const districts = [
     "Dhaka",
     "Chittagong",
@@ -166,20 +195,38 @@ const CheckouForm = () => {
   return (
     <div className="bg-lite">
       <div className="my-container  ">
-        <div className=" md:px-10 grid gap-12 grid-cols-1 lg:grid-cols-3">
+        <div className=" grid grid-cols-1 gap-12 md:px-10 lg:grid-cols-3">
           <div className="w-full md:col-span-2 ">
-            <h4 className="lg:text-xl font-bold ">
-              <span className="  md:text-xl lg:text-2xl font-bold bg-black text-white rounded-full px-2 md:px-3 py-1">1</span> Please Give you information
+            <h4 className="font-bold lg:text-xl ">
+              <span className="  rounded-full bg-black px-2 py-1 font-bold text-white md:px-3 md:text-xl lg:text-2xl">
+                1
+              </span>{" "}
+              Please Give you information
             </h4>
-            <form onSubmit={handleSubmit(onSubmit)} className=" grid grid-cols-1 gap-4 lg:mt-12 mt-4 bg-white p-4 md:p-8 lg:p-14 rounded-lg">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className=" mt-4 grid grid-cols-1 gap-4 rounded-lg bg-white p-4 md:p-8 lg:mt-12 lg:p-14"
+            >
               <div>
-                <input onChange={(e) => handelFillUp(e)} id="select" type="checkbox" name="select" className=" focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2" />
-                <label htmlFor="select" className="font-medium lg:font-semibold pl-2 cursor-pointer">
+                <input
+                  onChange={(e) => handelFillUp(e)}
+                  id="select"
+                  type="checkbox"
+                  name="select"
+                  className=" input-accent rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
+                />
+                <label
+                  htmlFor="select"
+                  className="cursor-pointer pl-2 font-medium lg:font-semibold"
+                >
                   Fill up Information from your Profile
                 </label>
               </div>
               <div>
-                <label htmlFor="name" className="font-medium lg:font-semibold pl-2 cursor-pointer">
+                <label
+                  htmlFor="name"
+                  className="cursor-pointer pl-2 font-medium lg:font-semibold"
+                >
                   Name:
                 </label>
                 <input
@@ -188,12 +235,15 @@ const CheckouForm = () => {
                   type="text"
                   defaultValue={user?.displayName}
                   {...register("name", { required: true })}
-                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+                  className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
                 />
                 {errors.name && <small>Please write your name</small>}
               </div>
               <div>
-                <label htmlFor="email" className="font-medium lg:font-semibold pl-2 cursor-pointer">
+                <label
+                  htmlFor="email"
+                  className="cursor-pointer pl-2 font-medium lg:font-semibold"
+                >
                   Write your Email:
                 </label>
                 <input
@@ -202,17 +252,24 @@ const CheckouForm = () => {
                   type="email"
                   defaultValue={user?.email}
                   {...register("email", { required: true })}
-                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+                  className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
                 />
                 {errors.email && <small>Please wite your email</small>}
               </div>
 
-              <div className=" grid  grid-cols-1 md:grid-cols-2 gap-4">
+              <div className=" grid  grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
-                  <label htmlFor="division" className="font-medium lg:font-semibold pl-2 cursor-pointer">
+                  <label
+                    htmlFor="division"
+                    className="cursor-pointer pl-2 font-medium lg:font-semibold"
+                  >
                     Select your Division
                   </label>
-                  <select id="division" {...register("division", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2">
+                  <select
+                    id="division"
+                    {...register("division", { required: true })}
+                    className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
+                  >
                     <option>Select Your Division Name</option>
                     {divisions.map((division, index) => (
                       <option key={index} value={division}>
@@ -220,14 +277,23 @@ const CheckouForm = () => {
                       </option>
                     ))}
                   </select>
-                  {errors.division && <small>please select your division</small>}
+                  {errors.division && (
+                    <small>please select your division</small>
+                  )}
                 </div>
 
                 <div>
-                  <label htmlFor="district" className="font-medium lg:font-semibold pl-2 cursor-pointer">
+                  <label
+                    htmlFor="district"
+                    className="cursor-pointer pl-2 font-medium lg:font-semibold"
+                  >
                     Select your District
                   </label>
-                  <select id="district" {...register("district", { required: true })} className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2">
+                  <select
+                    id="district"
+                    {...register("district", { required: true })}
+                    className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
+                  >
                     <option>Select Your Division Name</option>
                     {districts.map((district, index) => (
                       <option key={index} value={district}>
@@ -235,12 +301,17 @@ const CheckouForm = () => {
                       </option>
                     ))}
                   </select>
-                  {errors.district && <small>please select your district </small>}
+                  {errors.district && (
+                    <small>please select your district </small>
+                  )}
                 </div>
               </div>
 
               <div>
-                <label htmlFor="location" className="font-medium lg:font-semibold pl-2 cursor-pointer">
+                <label
+                  htmlFor="location"
+                  className="cursor-pointer pl-2 font-medium lg:font-semibold"
+                >
                   Write your Full Location:
                 </label>
                 <input
@@ -248,13 +319,16 @@ const CheckouForm = () => {
                   type="text"
                   placeholder="write your full location"
                   {...register("location", { required: true })}
-                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+                  className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
                 />
                 {errors.email && <small>Please wite your full location</small>}
               </div>
 
               <div>
-                <label htmlFor="number" className="font-medium lg:font-semibold pl-2 cursor-pointer">
+                <label
+                  htmlFor="number"
+                  className="cursor-pointer pl-2 font-medium lg:font-semibold"
+                >
                   Give your Phone Number:
                 </label>
                 <input
@@ -263,7 +337,7 @@ const CheckouForm = () => {
                   type="number"
                   placeholder="Give your phone number"
                   {...register("number", { required: true })}
-                  className="w-full focus:input-bordered input-accent border-2 rounded-lg border-gray-3 p-2"
+                  className="input-accent w-full rounded-lg border-2 border-gray-3 p-2 focus:input-bordered"
                 />
                 {errors.email && <small>Please Give your phone number</small>}
               </div>
@@ -273,51 +347,68 @@ const CheckouForm = () => {
           </div>
           <div className="w-full">
             <h4 className="text-xl font-bold ">
-              <span className="md:text-xl lg:text-2xl font-bold bg-black text-white rounded-full px-[10px] py-1">2</span> Your Order
+              <span className="rounded-full bg-black px-[10px] py-1 font-bold text-white md:text-xl lg:text-2xl">
+                2
+              </span>{" "}
+              Your Order
             </h4>
-            <div className="lg:mt-12 mt-4 px-4 py-6 bg-white rounded-lg">
-              <form onSubmit={handelPromoCode} className="flex items-start gap-3">
+            <div className="mt-4 rounded-lg bg-white px-4 py-6 lg:mt-12">
+              <form
+                onSubmit={handelPromoCode}
+                className="flex items-start gap-3"
+              >
                 <input
                   type="text"
                   name="promoCode"
                   id=""
                   placeholder="Use Promo Code"
-                  className="placeholder-gray-4 max-w-xs rounded text-sm font-medium border-gray-3 border-b-2 focus:border-b-2 focus:outline-none mb-4 focus:border-accent"
+                  className="mb-4 max-w-xs rounded border-b-2 border-gray-3 text-sm font-medium placeholder-gray-4 focus:border-b-2 focus:border-accent focus:outline-none"
                 />
-                <input type="submit" value="Apply" className="bg-my-accent hover:bg-my-primary cursor-pointer text-white px-2 rounded-md" />
+                <input
+                  type="submit"
+                  value="Apply"
+                  className="cursor-pointer rounded-md bg-my-accent px-2 text-white hover:bg-my-primary"
+                />
               </form>
 
-              <h3 className="text-lg font-semibold lg:font-bold">Your Totals Order Items: {cart?.length}</h3>
-              <hr className="border-gray-3 my-2" />
-              <div className="flex justify-between items-center font-medium lg:font-semibold">
+              <h3 className="text-lg font-semibold lg:font-bold">
+                Your Totals Order Items: {cart?.length}
+              </h3>
+              <hr className="my-2 border-gray-3" />
+              <div className="flex items-center justify-between font-medium lg:font-semibold">
                 <h4>Expected Delivery:</h4>
                 <h4 className="flex items-center">
                   {oneDaysAhead} - {threeDaysAhead}
                 </h4>
               </div>
-              <hr className=" border-gray-3 my-2" />
-              <div className="flex justify-between items-center font-medium lg:font-semibold">
+              <hr className=" my-2 border-gray-3" />
+              <div className="flex items-center justify-between font-medium lg:font-semibold">
                 <h4>Sub Total: </h4>
                 <h4 className="flex items-center">৳ {subTotal}</h4>
               </div>
               {disAmount !== 0 && (
-                <div className="flex justify-between items-center my-1 font-medium">
+                <div className="my-1 flex items-center justify-between font-medium">
                   <h4 className="text-my-primary">{discountCode}: </h4>
                   <h4 className="flex items-center">- ৳ {disAmount}</h4>
                 </div>
               )}
-              <div className="flex justify-between items-center font-medium lg:font-semibold mt-2">
+              <div className="mt-2 flex items-center justify-between font-medium lg:font-semibold">
                 <h4>Save Amount: </h4>
-                <h4 className="flex items-center">৳ {(parseFloat(saveMoney) + parseFloat(disAmount))?.toFixed(2)}</h4>
+                <h4 className="flex items-center">
+                  ৳{" "}
+                  {(parseFloat(saveMoney) + parseFloat(disAmount))?.toFixed(2)}
+                </h4>
               </div>
-              <div className="flex justify-between items-center font-medium lg:font-semibold mt-2">
+              <div className="mt-2 flex items-center justify-between font-medium lg:font-semibold">
                 <h4>Delivery Charge: </h4>
                 <h4 className="flex items-center">৳ 75</h4>
               </div>
-              <hr className=" border-gray-3 my-2" />
-              <div className="flex justify-between items-center text-lg font-semibold lg:font-bold mt-2">
+              <hr className=" my-2 border-gray-3" />
+              <div className="mt-2 flex items-center justify-between text-lg font-semibold lg:font-bold">
                 <h4>Total Price: </h4>
-                <h4 className="flex items-center">৳ {(allTotal - disAmount)?.toFixed(2)}</h4>
+                <h4 className="flex items-center">
+                  ৳ {(allTotal - disAmount)?.toFixed(2)}
+                </h4>
               </div>
               {/* <div>dd</div> */}
             </div>

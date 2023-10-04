@@ -85,11 +85,15 @@ const Navbar = () => {
 
   return (
     <div className="mb-[122px]">
-      <div className={`${visible ? "block" : "hidden"} z-20 fixed top-0 left-0 w-full bg-white transition-all duration-700 ease-in-out`}>
+      <div
+        className={`${
+          visible ? "block" : "hidden"
+        } fixed left-0 top-0 z-20 w-full bg-white transition-all duration-700 ease-in-out`}
+      >
         <div className="nav-container">
           <div className="hidden xl:block">
             <div className="flex items-center justify-between py-2 ">
-              <div className="flex items-center gap-10 justify-between">
+              <div className="flex items-center justify-between gap-10">
                 <Logo />
                 <Search />
               </div>
@@ -107,28 +111,43 @@ const Navbar = () => {
                   >
                     {user ? (
                       <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
-                        <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
-                          <MenuItem className="gap-4 items-center">
+                        <NavLink
+                          to="/dashboard"
+                          type="submit"
+                          className="font-semibold text-neutral-600"
+                        >
+                          <MenuItem className="items-center gap-4">
                             <MdOutlineDashboardCustomize className="text-xl 2xl:text-3xl" />
                             Dashboard
                           </MenuItem>
                         </NavLink>
-                        <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
-                          <MenuItem className="gap-4 items-center">
-                            <HiOutlineLogout className="text-xl 2xl:text-3xl" /> Log Out
+                        <button
+                          type="submit"
+                          className="font-semibold text-neutral-600"
+                          onClick={handelLogOut}
+                        >
+                          <MenuItem className="items-center gap-4">
+                            <HiOutlineLogout className="text-xl 2xl:text-3xl" />{" "}
+                            Log Out
                           </MenuItem>
                         </button>
                       </div>
                     ) : (
                       <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
-                        <Link className=" font-semibold text-neutral-600" to="/login">
-                          <MenuItem className="gap-4 items-center">
+                        <Link
+                          className=" font-semibold text-neutral-600"
+                          to="/login"
+                        >
+                          <MenuItem className="items-center gap-4">
                             <BiLogInCircle className="text-xl 2xl:text-3xl" />
                             Login
                           </MenuItem>
                         </Link>
-                        <Link className=" font-semibold text-neutral-600" to="/signUp">
-                          <MenuItem className="gap-4 items-center">
+                        <Link
+                          className=" font-semibold text-neutral-600"
+                          to="/signUp"
+                        >
+                          <MenuItem className="items-center gap-4">
                             <CgUserlane className="text-xl 2xl:text-3xl" />
                             Sign Up
                           </MenuItem>
@@ -145,7 +164,9 @@ const Navbar = () => {
         <div className="hidden xl:block ">
           <div className="nav-container ">
             <div className="py-2">
-              <ul className="flex items-center justify-between text-md font-semibold text-gray-5 hover:text-gray-6 py-1 2xl:py-2">{menuItems}</ul>
+              <ul className="text-md flex items-center justify-between py-1 font-semibold text-gray-5 hover:text-gray-6 2xl:py-2">
+                {menuItems}
+              </ul>
             </div>
           </div>
           <hr className=" border-1 border-gray-3 drop-shadow-xl" />

@@ -53,7 +53,9 @@ const HealthTipsDetails = () => {
     const diseaseCategory = diseaseDetails.category;
 
     // Filter healthTips based on the diseaseCategory
-    const filteredTips = healthTips.filter((tip) => tip.category === diseaseCategory);
+    const filteredTips = healthTips.filter(
+      (tip) => tip.category === diseaseCategory,
+    );
 
     // Set the categories state with the filtered tips
     setCategories(filteredTips);
@@ -62,33 +64,45 @@ const HealthTipsDetails = () => {
   return (
     <div className="my-container">
       <WebSiteTitle title={diseaseDetails.name} />
-      <div className="max-w-6xl mx-auto">
+      <div className="mx-auto max-w-6xl">
         <div className="mx-2">
-          <h1 className="text-xl md:text-3xl font-bold my-4">{diseaseDetails.name} Cause,Prevention and Cure</h1>
-          <h2 className="md:text-2xl font-semibold my-4">
+          <h1 className="my-4 text-xl font-bold md:text-3xl">
+            {diseaseDetails.name} Cause,Prevention and Cure
+          </h1>
+          <h2 className="my-4 font-semibold md:text-2xl">
             {diseaseDetails.doctorName} ({diseaseDetails.doctorDepartment})
           </h2>
-          <h1 className="text-sm italic font-semibold my-4">Date:{diseaseDetails.date}</h1>
+          <h1 className="my-4 text-sm font-semibold italic">
+            Date:{diseaseDetails.date}
+          </h1>
           <div className=" md:space-y-6">
-            <img className="h-[70%] lg:max-w-4xl mx-auto my-1 md:my-8" src={diseaseDetails.image} alt="" />
-            <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 items-center mt-5">
+            <img
+              className="mx-auto my-1 h-[70%] md:my-8 lg:max-w-4xl"
+              src={diseaseDetails.image}
+              alt=""
+            />
+            <div className="mt-5 grid grid-cols-1 items-center gap-4 lg:grid-cols-1">
               <div className="h-full p-1">
-                <h3 className="text-2xl font-semibold my-2">Type of the disease</h3>
+                <h3 className="my-2 text-2xl font-semibold">
+                  Type of the disease
+                </h3>
                 <p>{diseaseDetails.type}</p>
               </div>
               <div className=" h-full p-1">
-                <h3 className="text-2xl font-semibold my-2">Cause of the disease</h3>
+                <h3 className="my-2 text-2xl font-semibold">
+                  Cause of the disease
+                </h3>
                 <p>{HtmlParser(diseaseDetails.cause)}</p>
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 items-center mt-5">
+          <div className="mt-5 grid grid-cols-1 items-center gap-4 lg:grid-cols-1">
             <div className=" h-full p-1">
-              <h3 className="text-2xl font-semibold my-2">How To Prevent?</h3>
+              <h3 className="my-2 text-2xl font-semibold">How To Prevent?</h3>
               <div>{HtmlParser(diseaseDetails.prevention)}</div>
             </div>
             <div className="h-full p-1">
-              <h3 className="text-2xl font-semibold my-2">What is the cure?</h3>
+              <h3 className="my-2 text-2xl font-semibold">What is the cure?</h3>
               <div>{HtmlParser(diseaseDetails.cure)}</div>
             </div>
           </div>
@@ -127,19 +141,36 @@ const HealthTipsDetails = () => {
           className="mySwiper"
         >
           {categories.map((healthTip) => (
-            <div key={healthTip._id} className="mx-auto container">
+            <div key={healthTip._id} className="container mx-auto">
               <SwiperSlide className=" container">
                 <div>
-                  <div key={healthTip._id} className="card card-compact h-80 w-full bg-base-100 shadow-xl my-4">
+                  <div
+                    key={healthTip._id}
+                    className="card card-compact my-4 h-80 w-full bg-base-100 shadow-xl"
+                  >
                     <figure className="w-full object-cover">
-                      <img className="w-full" src={healthTip.image} alt="Shoes" />
+                      <img
+                        className="w-full"
+                        src={healthTip.image}
+                        alt="Shoes"
+                      />
                     </figure>
                     <div className="card-body mt-1">
                       <h2 className="text-base font-bold">{healthTip.name}</h2>
-                      <p className="mt-2">{HtmlParser(healthTip.cause.slice(0, 45))}...</p>
-                      <Link to={`/healthtips/${healthTip._id}`} className="flex justify-center mt-4">
-                        <button type="button" className="my-btn w-full" style={{ borderRadius: "50px" }}>
-                          <MdOutlineTipsAndUpdates className="text-2xl" /> Get Tips
+                      <p className="mt-2">
+                        {HtmlParser(healthTip.cause.slice(0, 45))}...
+                      </p>
+                      <Link
+                        to={`/healthtips/${healthTip._id}`}
+                        className="mt-4 flex justify-center"
+                      >
+                        <button
+                          type="button"
+                          className="my-btn w-full"
+                          style={{ borderRadius: "50px" }}
+                        >
+                          <MdOutlineTipsAndUpdates className="text-2xl" /> Get
+                          Tips
                         </button>
                       </Link>
                     </div>

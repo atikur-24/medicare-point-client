@@ -1,10 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchUserByEmail = createAsyncThunk("userByEmail/fetchUserByEmail", async (email) => {
-  const res = await axios.get(`${import.meta.env.VITE_API_URL}/users/${email}`);
-  return res.data;
-});
+export const fetchUserByEmail = createAsyncThunk(
+  "userByEmail/fetchUserByEmail",
+  async (email) => {
+    const res = await axios.get(
+      `${import.meta.env.VITE_API_URL}/users/${email}`,
+    );
+    return res.data;
+  },
+);
 
 const userByEmailSlice = createSlice({
   name: "userByEmail",

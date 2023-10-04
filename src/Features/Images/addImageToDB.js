@@ -1,11 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const addImageToDBApi = createAsyncThunk("addImageToDB/addImageToDBApi", async (data) => {
-  // console.log(data);
-  const res = await axios.post(`${import.meta.env.VITE_API_URL}/images?collectionName=${data.collectionName}`, data.imageData);
-  return res.data;
-});
+export const addImageToDBApi = createAsyncThunk(
+  "addImageToDB/addImageToDBApi",
+  async (data) => {
+    // console.log(data);
+    const res = await axios.post(
+      `${import.meta.env.VITE_API_URL}/images?collectionName=${
+        data.collectionName
+      }`,
+      data.imageData,
+    );
+    return res.data;
+  },
+);
 
 const addImageToDBSlice = createSlice({
   name: "addImageToDB",

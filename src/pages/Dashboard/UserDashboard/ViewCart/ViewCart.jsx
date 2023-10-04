@@ -17,28 +17,51 @@ const ViewCart = () => {
   return (
     <div className="grid grid-cols-3 gap-4 p-6">
       {cartMedicines.map((cartMedicine, index) => (
-        <div key={index} className="card card-compact bg-white rounded-md hover:shadow-lg transition-shadow relative">
-          {cartMedicine.discount && <p className="bg-my-accent rounded-md py-1 px-2 text-xs font-medium text-white absolute top-4 left-4">-{cartMedicine.discount}% OFF</p>}
+        <div
+          key={index}
+          className="card card-compact relative rounded-md bg-white transition-shadow hover:shadow-lg"
+        >
+          {cartMedicine.discount && (
+            <p className="absolute left-4 top-4 rounded-md bg-my-accent px-2 py-1 text-xs font-medium text-white">
+              -{cartMedicine.discount}% OFF
+            </p>
+          )}
           <figure>
-            <img className="h-72 w-full object-cover" src={cartMedicine.image} alt="medicine" />
+            <img
+              className="h-72 w-full object-cover"
+              src={cartMedicine.image}
+              alt="medicine"
+            />
           </figure>
           <div className="card-body space-y-2 lg:space-y-3">
             <div className="space-y-1">
-              <p className="text-gray-5 text-xs font-medium">{cartMedicine.category}, personal care</p>
-              <h2 className="text-[1.125rem] font-semibold title-color tracking-wide hover:underline inline-block hover:cursor-pointer">{cartMedicine.medicine_name}</h2>
+              <p className="text-xs font-medium text-gray-5">
+                {cartMedicine.category}, personal care
+              </p>
+              <h2 className="title-color inline-block text-[1.125rem] font-semibold tracking-wide hover:cursor-pointer hover:underline">
+                {cartMedicine.medicine_name}
+              </h2>
             </div>
             <div className="space-y-3">
-              <Rating style={{ maxWidth: 70 }} value={cartMedicine.rating} readOnly />
+              <Rating
+                style={{ maxWidth: 70 }}
+                value={cartMedicine.rating}
+                readOnly
+              />
               <p className="inline-flex gap-1">
-                <span className="font-bold text-my-pink inline-flex items-center text-[1.125rem]">৳ {cartMedicine.price}</span>
-                <span className="font-semibold inline-flex items-center text-[16px] text-gray-5 line-through">৳ 170</span>
+                <span className="inline-flex items-center text-[1.125rem] font-bold text-my-pink">
+                  ৳ {cartMedicine.price}
+                </span>
+                <span className="inline-flex items-center text-[16px] font-semibold text-gray-5 line-through">
+                  ৳ 170
+                </span>
               </p>
             </div>
             <div className="flex w-full space-x-4">
-              <button type="button" className="btn btn-outline btn-success">
+              <button type="button" className="btn btn-success btn-outline">
                 Confirm
               </button>
-              <button type="button" className="btn btn-outline btn-error">
+              <button type="button" className="btn btn-error btn-outline">
                 Delete
               </button>
             </div>

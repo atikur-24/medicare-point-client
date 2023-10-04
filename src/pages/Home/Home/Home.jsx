@@ -31,7 +31,7 @@ const Home = () => {
       <Feedback />
       <DeliveryOffer />
       <ChooseUs />
-      <div className="fixed z-50 bottom-10 right-10 ">
+      <div className="fixed bottom-10 right-10 z-50 ">
         {/* <button type="button">
           <img className="w-16 md:w-20 hover:w-24 cursor-pointer ease-in-out duration-500" src={chatImg} alt="Message Icon" />
         </button> */}

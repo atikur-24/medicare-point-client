@@ -2,22 +2,28 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export const addInterviewApi = createAsyncThunk("addInterview/addInterviewApi", async (data) => {
-  // console.log(data);
-  const res = await axios.post(`${import.meta.env.VITE_API_URL}/interviews`, data.data);
+export const addInterviewApi = createAsyncThunk(
+  "addInterview/addInterviewApi",
+  async (data) => {
+    // console.log(data);
+    const res = await axios.post(
+      `${import.meta.env.VITE_API_URL}/interviews`,
+      data.data,
+    );
 
-  if (res.data.insertedId) {
-    Swal.fire({
-      title: "success",
-      text: "Lab added Successfully",
-      icon: "success",
-      confirmButtonText: "Cool",
-    });
-    data.form.reset();
-  }
+    if (res.data.insertedId) {
+      Swal.fire({
+        title: "success",
+        text: "Lab added Successfully",
+        icon: "success",
+        confirmButtonText: "Cool",
+      });
+      data.form.reset();
+    }
 
-  return res.data;
-});
+    return res.data;
+  },
+);
 
 const addInterviewSlice = createSlice({
   name: "addInterview",

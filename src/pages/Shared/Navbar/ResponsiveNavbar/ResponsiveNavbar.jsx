@@ -51,15 +51,15 @@ const ResponsiveNavbar = ({ menuItems }) => {
 
   return (
     <div className="">
-      <div className="px-4 flex items-center justify-between gap-1 w-full py-4">
+      <div className="flex w-full items-center justify-between gap-1 px-4 py-4">
         <div onClick={() => setIsOpen("")}>
-          <RiMenu2Line className=" text-my-accent w-6 h-6 cursor-pointer " />
+          <RiMenu2Line className=" h-6 w-6 cursor-pointer text-my-accent " />
         </div>
         <span>
           <Logo />
         </span>
 
-        <div className="flex gap-10 items-center">
+        <div className="flex items-center gap-10">
           <div>
             <span>
               <NavCart />
@@ -68,67 +68,83 @@ const ResponsiveNavbar = ({ menuItems }) => {
           <div className="navMenu">
             <Menu
               menuButton={
-              // eslint-disable-next-line react/jsx-wrap-multilines
+                // eslint-disable-next-line react/jsx-wrap-multilines
                 <MenuButton>
                   <Avatar />
                 </MenuButton>
-            }
+              }
               transition
             >
               {user ? (
                 <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
-                  <NavLink to="/dashboard" type="submit" className="font-semibold text-neutral-600">
-                    <MenuItem className="gap-4 items-center">
+                  <NavLink
+                    to="/dashboard"
+                    type="submit"
+                    className="font-semibold text-neutral-600"
+                  >
+                    <MenuItem className="items-center gap-4">
                       <MdOutlineDashboardCustomize className="text-xl" />
                       Dashboard
                     </MenuItem>
                   </NavLink>
-                  <button type="submit" className="font-semibold text-neutral-600" onClick={handelLogOut}>
-                    <MenuItem className="gap-4 items-center">
+                  <button
+                    type="submit"
+                    className="font-semibold text-neutral-600"
+                    onClick={handelLogOut}
+                  >
+                    <MenuItem className="items-center gap-4">
                       <HiOutlineLogout className="text-xl" /> Log Out
                     </MenuItem>
                   </button>
                 </div>
-            ) : (
-              <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
-                <Link className=" font-semibold text-neutral-600" to="/login">
-                  <MenuItem className="gap-4 items-center">
-                    <BiLogInCircle className="text-xl" />
-                    Login
-                  </MenuItem>
-                </Link>
-                <Link className=" font-semibold text-neutral-600" to="/signUp">
-                  <MenuItem className="gap-4 items-center">
-                    <CgUserlane className="text-xl" />
-                    Sign Up
-                  </MenuItem>
-                </Link>
-              </div>
-            )}
+              ) : (
+                <div className="flex flex-col gap-2 divide-y-2 divide-gray-3">
+                  <Link className=" font-semibold text-neutral-600" to="/login">
+                    <MenuItem className="items-center gap-4">
+                      <BiLogInCircle className="text-xl" />
+                      Login
+                    </MenuItem>
+                  </Link>
+                  <Link
+                    className=" font-semibold text-neutral-600"
+                    to="/signUp"
+                  >
+                    <MenuItem className="items-center gap-4">
+                      <CgUserlane className="text-xl" />
+                      Sign Up
+                    </MenuItem>
+                  </Link>
+                </div>
+              )}
             </Menu>
           </div>
         </div>
       </div>
-      <hr className="w-full  shadow-md border border-my-primary" />
+      <hr className="w-full  border border-my-primary shadow-md" />
 
-      <div className={`z-50 !h-full shadow-2xl bg-white w-[60%]  md:w-[40%] lg:w-[30%]  border-2 rounded-lg border-gray-3 fixed top-0 left-0 ${isOpen} transition-all duration-500`} ref={menuRef}>
+      <div
+        className={`fixed left-0 top-0 z-50 !h-full  w-[60%] rounded-lg  border-2 border-gray-3 bg-white shadow-2xl md:w-[40%] lg:w-[30%] ${isOpen} transition-all duration-500`}
+        ref={menuRef}
+      >
         <div className="pt-9">
-          <div className=" px-4 flex justify-between items-center mb-5">
+          <div className=" mb-5 flex items-center justify-between px-4">
             <div>
-              <p className=" text-my-primary  font-bold xl:hidden">
+              <p className=" font-bold  text-my-primary xl:hidden">
                 Medicare <span className="text-my-accent">Point</span>
               </p>
             </div>
-            <div className="text-2xl border-2 border-my-primary rounded-full p-1">
+            <div className="rounded-full border-2 border-my-primary p-1 text-2xl">
               <div onClick={() => setIsOpen("-ml-96")}>
-                <MdClose className="text-my-primary w-4 h-4 cursor-pointer" />
+                <MdClose className="h-4 w-4 cursor-pointer text-my-primary" />
               </div>
             </div>
           </div>
 
-          <hr className=" shadow-md border  border-my-primary " />
-          <div className=" rounded-lg px-4 py-6 bg-white h-[100vh] drop-shadow-xl">
-            <ul className=" space-y-4 text-2xl text-neutral-600">{menuItems}</ul>
+          <hr className=" border border-my-primary  shadow-md " />
+          <div className=" h-[100vh] rounded-lg bg-white px-4 py-6 drop-shadow-xl">
+            <ul className=" space-y-4 text-2xl text-neutral-600">
+              {menuItems}
+            </ul>
           </div>
         </div>
       </div>

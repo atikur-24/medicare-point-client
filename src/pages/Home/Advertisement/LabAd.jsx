@@ -3,7 +3,7 @@ import lab from "../../../assets/Lab/labAd.webp";
 
 const LabAd = () => {
   return (
-    <div className="flex justify-center py-2 px-4 md:py-10">
+    <div className="flex justify-center px-4 py-2 md:py-10">
       <Link to="/lab-test">
         <img src={lab} alt="" className="rounded" />
       </Link>

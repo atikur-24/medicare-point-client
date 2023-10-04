@@ -57,9 +57,12 @@ const Medicines = () => {
 
     if (category) {
       axios
-        .get(`${import.meta.env.VITE_API_URL}/medicinesc?category=${category}`, {
-          cancelToken: source.token, // Pass the cancel token to the request
-        })
+        .get(
+          `${import.meta.env.VITE_API_URL}/medicinesc?category=${category}`,
+          {
+            cancelToken: source.token, // Pass the cancel token to the request
+          },
+        )
         .then((res) => setMedicines(res.data))
         .catch((error) => {
           console.error("Error fetching data:", error);
@@ -95,7 +98,9 @@ const Medicines = () => {
   };
 
   const handelCategoryFilter = (fCategory) => {
-    const filterData = allData.filter((item) => item?.category?.value === fCategory);
+    const filterData = allData.filter(
+      (item) => item?.category?.value === fCategory,
+    );
     setCurrentPage(0);
     setMedicines(filterData);
     setIsOpen(fCategory);
@@ -105,13 +110,21 @@ const Medicines = () => {
   const filterItems = (
     <div>
       <div className="rounded border border-gray-3 bg-white">
-        <h3 className="text-title-color text-lg lg:text-xl font-medium lg:font-extrabold pl-3 py-3 font-nunito uppercase border-l-4 border-my-primary">Medicine Categories</h3>
-        <div className="px-6 text-sm border-t border-gray-3 divide-y divide-gray-3 text-gray-7 font-medium lg:text-base">
-          <button type="button" onClick={() => dispatch(fetchMedicines())} className="flex items-center">
+        <h3 className="border-l-4 border-my-primary py-3 pl-3 font-nunito text-lg font-medium uppercase text-title-color lg:text-xl lg:font-extrabold">
+          Medicine Categories
+        </h3>
+        <div className="divide-y divide-gray-3 border-t border-gray-3 px-6 text-sm font-medium text-gray-7 lg:text-base">
+          <button
+            type="button"
+            onClick={() => dispatch(fetchMedicines())}
+            className="flex items-center"
+          >
             <Link
               onClick={() => setIsOpen("allMedicine")}
               to="/medicines"
-              className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "allMedicine" ? "text-my-accent underline" : ""}`}
+              className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+                isOpen === "allMedicine" ? "text-my-accent underline" : ""
+              }`}
             >
               <LiaAngleRightSolid /> All Medicines
             </Link>
@@ -119,112 +132,144 @@ const Medicines = () => {
           <button
             type="button"
             onClick={() => handelCategoryFilter("Pain-Relief")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Pain-Relief" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Pain-Relief" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Pain Relief
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Digestive-Health")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Digestive-Health" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Digestive-Health" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Digestive Health
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Cough-Cold")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Cough-Cold" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Cough-Cold" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Cough & Cold
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Diabetes-Care")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Diabetes-Care" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Diabetes-Care" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Diabetes Care
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Heart-Health")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Heart-Health" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Heart-Health" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Heart Health
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Laundry-Household")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Laundry-Household" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Laundry-Household" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Laundry Household
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Skin-Care")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Skin-Care" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Skin-Care" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Skin Care
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Eye-Care")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Eye-Care" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Eye-Care" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Eye Care
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Women-Care")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Women-Care" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Women-Care" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Women Care
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Mens-Products")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Mens-Products" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Mens-Products" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Men's Products
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Vitamins")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Vitamins" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Vitamins" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Vitamins
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Devices-Equipment")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Devices-Equipment" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Devices-Equipment" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Devices & Equipment
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Bone-Health-care")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Bone-Health-care" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Bone-Health-care" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Bone Health care
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Weight")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Weight" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Weight" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Weight
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Dental-Care")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Dental-Care" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Dental-Care" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Dental Care
           </button>
           <button
             type="button"
             onClick={() => handelCategoryFilter("Baby-Care")}
-            className={`inline-flex items-center gap-1 w-full py-2 lg:py-3 hover:text-my-accent hover:cursor-pointer ${isOpen === "Baby-Care" ? "text-my-accent underline" : ""}`}
+            className={`inline-flex w-full items-center gap-1 py-2 hover:cursor-pointer hover:text-my-accent lg:py-3 ${
+              isOpen === "Baby-Care" ? "text-my-accent underline" : ""
+            }`}
           >
             <LiaAngleRightSolid /> Baby Care
           </button>
@@ -254,7 +299,9 @@ const Medicines = () => {
         status: "pending",
       };
 
-      dispatch(addImageToDBApi({ imageData, collectionName: "prescription" })).then((res2) => {
+      dispatch(
+        addImageToDBApi({ imageData, collectionName: "prescription" }),
+      ).then((res2) => {
         if (res2.payload.insertedId) {
           const notificationData = {
             name: "New prescription uploaded",
@@ -269,7 +316,11 @@ const Medicines = () => {
 
           dispatch(addNotificationApi(notificationData)).then((res3) => {
             if (res3.payload.insertedId) {
-              Swal.fire("Prescription uploaded!", "As early as possible, we will add the medicines to your cart and send you an email.", "success");
+              Swal.fire(
+                "Prescription uploaded!",
+                "As early as possible, we will add the medicines to your cart and send you an email.",
+                "success",
+              );
               setLoading(false);
               window.my_modal_PrescriptionUpload.close();
               reset();
@@ -294,12 +345,27 @@ const Medicines = () => {
     const district = form.district.value;
     const need_days = form.need_days.value;
     const user_comment = form.user_comment.value;
-    const userData = { name, user_email: user?.email, number, req_medi_name, req_medi_quantity, district, need_days, user_comment, req_date: dateAndTime, status: "requesting" };
+    const userData = {
+      name,
+      user_email: user?.email,
+      number,
+      req_medi_name,
+      req_medi_quantity,
+      district,
+      need_days,
+      user_comment,
+      req_date: dateAndTime,
+      status: "requesting",
+    };
     axios
       .post(`${import.meta.env.VITE_API_URL}/requestNewMedicine`, userData)
       .then((result) => {
         if (result.data.insertedId) {
-          Swal.fire("Medicine Request Sent!", "Stay tuned for a notification and send email when it's available on our website.", "success");
+          Swal.fire(
+            "Medicine Request Sent!",
+            "Stay tuned for a notification and send email when it's available on our website.",
+            "success",
+          );
           setLoading(false);
           form.reset();
           document.getElementById("my_modal_mediRequest").close();
@@ -318,19 +384,26 @@ const Medicines = () => {
 
   return (
     <section className="bg-lite">
-      <div className="bg-my-primary py-3 lg:py-6 flex flex-col md:flex-row items-center justify-center gap-3 lg:gap-10">
+      <div className="flex flex-col items-center justify-center gap-3 bg-my-primary py-3 md:flex-row lg:gap-10 lg:py-6">
         <MediRequest />
         <PrescriptionBtn />
       </div>
-      <div className="container mx-auto relative">
-        <div className=" flex items-center mx-auto py-5 px-4 md:py-8 lg:pt-10 lg:px-10">
-          <button onClick={() => setShowFilter("")} className="lg:hidden" type="button">
-            <BsFilterLeft className="text-lg font-bold text-my-primary mr-2" />
+      <div className="container relative mx-auto">
+        <div className=" mx-auto flex items-center px-4 py-5 md:py-8 lg:px-10 lg:pt-10">
+          <button
+            onClick={() => setShowFilter("")}
+            className="lg:hidden"
+            type="button"
+          >
+            <BsFilterLeft className="mr-2 text-lg font-bold text-my-primary" />
           </button>
 
-          <div className="flex items-center justify-between w-full">
-            <p className="inline-flex items-center gap-1 font-medium md:font-semibold tracking-wider text-black-2 lg:text-lg">
-              <Link to="/" className="hover:text-my-accent cursor-pointer transition-colors">
+          <div className="flex w-full items-center justify-between">
+            <p className="inline-flex items-center gap-1 font-medium tracking-wider text-black-2 md:font-semibold lg:text-lg">
+              <Link
+                to="/"
+                className="cursor-pointer transition-colors hover:text-my-accent"
+              >
                 Home
               </Link>
               <HiOutlineChevronRight />
@@ -341,25 +414,40 @@ const Medicines = () => {
               <div className="filter-medicine">
                 <Menu
                   menuButton={
-                    <MenuButton className="flex items-center gap-2 font-semibold p-2 rounded-md  ease-in text-sm duration-150">
+                    <MenuButton className="flex items-center gap-2 rounded-md p-2 text-sm  font-semibold duration-150 ease-in">
                       Filter Medicines <AiOutlineDown />
                     </MenuButton>
                   }
                   transition
                 >
-                  <MenuItem onClick={() => handelSort("phtl")} className="font-medium text-gray-5">
+                  <MenuItem
+                    onClick={() => handelSort("phtl")}
+                    className="font-medium text-gray-5"
+                  >
                     Price low to high
                   </MenuItem>
-                  <MenuItem onClick={() => handelSort("plth")} className="font-medium text-gray-5">
+                  <MenuItem
+                    onClick={() => handelSort("plth")}
+                    className="font-medium text-gray-5"
+                  >
                     Price High to low
                   </MenuItem>
-                  <MenuItem onClick={() => handelSort("byRating")} className="font-medium text-gray-5">
+                  <MenuItem
+                    onClick={() => handelSort("byRating")}
+                    className="font-medium text-gray-5"
+                  >
                     Height selling
                   </MenuItem>
-                  <MenuItem onClick={() => handelSort("fNew")} className="font-medium text-gray-5">
+                  <MenuItem
+                    onClick={() => handelSort("fNew")}
+                    className="font-medium text-gray-5"
+                  >
                     New Product
                   </MenuItem>
-                  <MenuItem onClick={() => handelSort("fOld")} className="font-medium text-gray-5">
+                  <MenuItem
+                    onClick={() => handelSort("fOld")}
+                    className="font-medium text-gray-5"
+                  >
                     Old product
                   </MenuItem>
                 </Menu>
@@ -368,19 +456,27 @@ const Medicines = () => {
           </div>
         </div>
 
-        <div className={`w-64 rounded-md lg:hidden absolute top-0 z-30 h-screen ${showFilter} transition-all duration-500`}>
-          <div className="flex justify-between items-center">
-            <button onClick={() => setShowFilter("-ml-96")} className="lg:hidden" type="button">
-              <RxCross1 className="text-lg font-bold text-my-primary mr-2 btn btn-circle btn-sm p-1" />
+        <div
+          className={`absolute top-0 z-30 h-screen w-64 rounded-md lg:hidden ${showFilter} transition-all duration-500`}
+        >
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => setShowFilter("-ml-96")}
+              className="lg:hidden"
+              type="button"
+            >
+              <RxCross1 className="btn btn-circle btn-sm mr-2 p-1 text-lg font-bold text-my-primary" />
             </button>
           </div>
           {filterItems}
         </div>
 
-        <div className="mx-auto px-4 lg:px-10 pb-10 lg:grid grid-cols-[1fr_4fr] gap-6">
+        <div className="mx-auto grid-cols-[1fr_4fr] gap-6 px-4 pb-10 lg:grid lg:px-10">
           <div>
-            <div className="w-72 h-fit rounded-md hidden lg:block">{filterItems}</div>
-            <div className="hidden lg:block w-72">
+            <div className="hidden h-fit w-72 rounded-md lg:block">
+              {filterItems}
+            </div>
+            <div className="hidden w-72 lg:block">
               <div className="my-8">
                 <MedicineSwiper />
               </div>
@@ -395,7 +491,7 @@ const Medicines = () => {
               {PaginationMedicines?.length === 0 ? (
                 <NoMedicineText />
               ) : (
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
+                <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-2 lg:gap-6 xl:grid-cols-4">
                   {PaginationMedicines?.map((medicine) => (
                     <MediCard key={medicine._id} medicine={medicine} />
                   ))}
@@ -405,7 +501,7 @@ const Medicines = () => {
             </div>
             <div className="mt-10">
               <ReactPaginate
-                className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
+                className="my-auto flex items-center justify-center space-x-3 pb-5 text-center  align-middle font-semibold"
                 activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
                 breakLabel="..."
                 nextLabel="Next"
@@ -427,26 +523,45 @@ const Medicines = () => {
       <dialog id="my_modal_PrescriptionUpload" className="modal">
         <div className="modal-box w-96">
           <form method="dialog" className="space-y-2">
-            <button type="submit" className="btn btn-sm btn-circle btn-ghost bg-red-500 hover:bg-red-400 text-white absolute right-2 top-2">
+            <button
+              type="submit"
+              className="btn btn-circle btn-ghost btn-sm absolute right-2 top-2 bg-red-500 text-white hover:bg-red-400"
+            >
               ✕
             </button>
           </form>
           <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
-            <h4 className="text-lg font-bold font-nunito text-center uppercase">Upload Prescription</h4>
+            <h4 className="text-center font-nunito text-lg font-bold uppercase">
+              Upload Prescription
+            </h4>
             <div>
-              <img className="w-60 mx-auto" src="https://i.ibb.co/0hW0C2K/medical-record.png" alt="" />
+              <img
+                className="mx-auto w-60"
+                src="https://i.ibb.co/0hW0C2K/medical-record.png"
+                alt=""
+              />
             </div>
-            <input required type="file" className="file-input rounded file-input-bordered file-input-secondary w-full" name="image" id="" {...register("image")} />
+            <input
+              required
+              type="file"
+              className="file-input file-input-bordered file-input-secondary w-full rounded"
+              name="image"
+              id=""
+              {...register("image")}
+            />
             <input
               placeholder="Enter patient name.."
               required
               type="text"
-              className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full"
+              className="w-full rounded border border-my-accent p-2 outline-1   outline-my-accent"
               name="name"
               id=""
               {...register("name")}
             />
-            <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
+            <button
+              className="submit-btn rounded- w-full cursor-pointer rounded-md py-2"
+              type="submit"
+            >
               {loading ? "Uploading...." : "Upload Prescription"}
             </button>
           </form>
@@ -457,14 +572,19 @@ const Medicines = () => {
       <dialog id="my_modal_mediRequest" className="modal">
         <div className="modal-box md:w-1/2">
           <form method="dialog" className="space-y-2">
-            <button type="submit" className="btn btn-sm btn-circle btn-ghost bg-red-500 hover:bg-red-400 text-white absolute right-2 top-2">
+            <button
+              type="submit"
+              className="btn btn-circle btn-ghost btn-sm absolute right-2 top-2 bg-red-500 text-white hover:bg-red-400"
+            >
               ✕
             </button>
           </form>
-          <h4 className="text-xl font-bold font-nunito text-center">Request For New Medicine</h4>
+          <h4 className="text-center font-nunito text-xl font-bold">
+            Request For New Medicine
+          </h4>
           <div>
             <img
-              className="w-60 mx-auto my-4"
+              className="mx-auto my-4 w-60"
               src="https://img.freepik.com/free-vector/physical-pain-injury-flat-composition-with-human-characters-suffering-patient-doctor-inside-smartphone-vector-illustration_1284-80339.jpg?size=626&ext=jpg&ga=GA1.2.1613183627.1673832056&semt=ais"
               alt=""
             />
@@ -475,41 +595,68 @@ const Medicines = () => {
                 <label className="text-base font-medium">
                   Your Name<span className="font-bold text-red-500">*</span>
                 </label>
-                <input placeholder="Enter Your Name.." required type="text" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="name" />
+                <input
+                  placeholder="Enter Your Name.."
+                  required
+                  type="text"
+                  className="w-full rounded border border-my-accent p-2 outline-1   outline-my-accent"
+                  name="name"
+                />
               </div>
               <div>
                 <label className="text-base font-medium">
-                  Your Phone No.<span className="font-bold text-red-500">*</span>
+                  Your Phone No.
+                  <span className="font-bold text-red-500">*</span>
                 </label>
-                <input placeholder="012.." required type="number" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="number" />
+                <input
+                  placeholder="012.."
+                  required
+                  type="number"
+                  className="w-full rounded border border-my-accent p-2 outline-1   outline-my-accent"
+                  name="number"
+                />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-3 my-4">
+            <div className="my-4 grid grid-cols-2 gap-3">
               <div>
                 <label className="text-base font-medium">
-                  Request Medicine Name <span className="font-bold text-red-500">*</span>
+                  Request Medicine Name{" "}
+                  <span className="font-bold text-red-500">*</span>
                 </label>
                 <input
                   placeholder="Enter Your Request Medicine Name.."
                   required
                   type="text"
-                  className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full"
+                  className="w-full rounded border border-my-accent p-2 outline-1   outline-my-accent"
                   name="req_medi_name"
                 />
               </div>
               <div>
                 <label className="text-base font-medium">
-                  Request Quantity <span className="font-bold text-red-500">*</span>
+                  Request Quantity{" "}
+                  <span className="font-bold text-red-500">*</span>
                 </label>
-                <input placeholder="Request Medicine Quantity" required type="number" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="req_medi_quantity" />
+                <input
+                  placeholder="Request Medicine Quantity"
+                  required
+                  type="number"
+                  className="w-full rounded border border-my-accent p-2 outline-1   outline-my-accent"
+                  name="req_medi_quantity"
+                />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-3 my-4">
+            <div className="my-4 grid grid-cols-2 gap-3">
               <div>
                 <label className="text-base font-medium">
-                  Your District <span className="font-bold text-red-500">*</span>
+                  Your District{" "}
+                  <span className="font-bold text-red-500">*</span>
                 </label>
-                <select required name="district" id="" className="rounded border outline-my-accent outline-1 p-2 border-my-accent w-full">
+                <select
+                  required
+                  name="district"
+                  id=""
+                  className="w-full rounded border border-my-accent p-2 outline-1 outline-my-accent"
+                >
                   <option defaultValue>Select Your District</option>
                   {districts?.map((district) => (
                     <option key={district?.id} value={district?.name}>
@@ -522,7 +669,14 @@ const Medicines = () => {
                 <label className="text-base font-medium">
                   Need Day<span className="font-bold text-red-500">*</span>
                 </label>
-                <input placeholder="2 days" min={2} required type="number" className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full" name="need_days" />
+                <input
+                  placeholder="2 days"
+                  min={2}
+                  required
+                  type="number"
+                  className="w-full rounded border border-my-accent p-2 outline-1   outline-my-accent"
+                  name="need_days"
+                />
               </div>
             </div>
             <div className="my-4">
@@ -532,13 +686,16 @@ const Medicines = () => {
               <textarea
                 maxLength={100}
                 placeholder="Description (optional)"
-                className="rounded border outline-my-accent outline-1 p-2 border-my-accent   w-full mt-4"
+                className="mt-4 w-full rounded border border-my-accent p-2   outline-1 outline-my-accent"
                 name="user_comment"
                 rows="3"
                 cols="50"
               />
             </div>
-            <button className="submit-btn cursor-pointer w-full rounded- py-2 rounded-md" type="submit">
+            <button
+              className="submit-btn rounded- w-full cursor-pointer rounded-md py-2"
+              type="submit"
+            >
               {loading ? "Requesting...." : "Request"}
             </button>
           </form>

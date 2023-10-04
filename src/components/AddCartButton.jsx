@@ -13,12 +13,19 @@ const AddCartButton = ({ cartMedicine, cls }) => {
   const location = useLocation();
   const handleAddToCart = () => {
     if (user) {
-      axios.post(`${import.meta.env.VITE_API_URL}/medicineCarts`, cartMedicine).then((result) => {
-        if (result.data.insertedId || result.data.modifiedCount) {
-          toast.success("Item Added Success", { position: "top-center", theme: "colored", autoClose: 3000, pauseOnHover: false });
-          refetch();
-        }
-      });
+      axios
+        .post(`${import.meta.env.VITE_API_URL}/medicineCarts`, cartMedicine)
+        .then((result) => {
+          if (result.data.insertedId || result.data.modifiedCount) {
+            toast.success("Item Added Success", {
+              position: "top-center",
+              theme: "colored",
+              autoClose: 3000,
+              pauseOnHover: false,
+            });
+            refetch();
+          }
+        });
     } else {
       Swal.fire({
         title: "Please login for cart item",

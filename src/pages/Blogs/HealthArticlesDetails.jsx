@@ -30,17 +30,22 @@ const HealthArticlesDetails = () => {
     };
   }, []);
   return (
-    <div className="space-y-8 my-container">
+    <div className="my-container space-y-8">
       <WebSiteTitle title={healthArticle.title} />
-      <div className="md:mx-1 mx-auto">
+      <div className="mx-auto md:mx-1">
         <div>
           {/* Ensure to provide a unique key */}
-          <h1 className="text-4xl font-extrabold pb-4">{healthArticle.title}</h1>
-          <div className="flex justify-between items-center py-8 pe-4">
-            <div className="flex gap-4 items-center">
+          <h1 className="pb-4 text-4xl font-extrabold">
+            {healthArticle.title}
+          </h1>
+          <div className="flex items-center justify-between py-8 pe-4">
+            <div className="flex items-center gap-4">
               <div className="avatar">
-                <div className="w-12 rounded-full ring ring-my-primary ring-offset-base-100 ring-offset-2">
-                  <img src={healthArticle.authorImage} alt={healthArticle.author} />
+                <div className="w-12 rounded-full ring ring-my-primary ring-offset-2 ring-offset-base-100">
+                  <img
+                    src={healthArticle.authorImage}
+                    alt={healthArticle.author}
+                  />
                 </div>
               </div>
               <div>
@@ -60,7 +65,11 @@ const HealthArticlesDetails = () => {
               </p>
             </div>
           </div>
-          <img className="rounded-es-3xl rounded-tr-3xl w-full md:w-1/2 mx-auto h-56 md:h-72 mb-8" src={healthArticle.image} alt="" />
+          <img
+            className="mx-auto mb-8 h-56 w-full rounded-es-3xl rounded-tr-3xl md:h-72 md:w-1/2"
+            src={healthArticle.image}
+            alt=""
+          />
           <div className="space-y-6">
             <p className="">
               {/* Render blog content here */}
@@ -68,7 +77,9 @@ const HealthArticlesDetails = () => {
             </p>
             {/* Add more content rendering for sub-title and lists if needed */}
           </div>
-          <h2 className="text-2xl font-semibold my-4">{healthArticle.sectionTitle}</h2>
+          <h2 className="my-4 text-2xl font-semibold">
+            {healthArticle.sectionTitle}
+          </h2>
           <div className="space-y-6">
             <p className="">
               {/* Render blog content here */}
@@ -85,7 +96,7 @@ const HealthArticlesDetails = () => {
             <Blog range={200} blog={blog} key={blog._id} />
           ))}
         </div>
-        <div className="w-full mx-auto">
+        <div className="mx-auto w-full">
           <Link to="/blogs" className="my-btn !tracking-wider">
             See All &rarr;
           </Link>

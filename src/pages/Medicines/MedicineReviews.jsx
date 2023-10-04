@@ -11,15 +11,22 @@ const MedicineReviews = ({ allRatings }) => {
       <div className="lg:w-4/5">
         {allRatings.map((singleR, idx) => (
           <div key={idx}>
-            <div className="flex justify-between items-center mb-5">
+            <div className="mb-5 flex items-center justify-between">
               <div>
-                <Rating style={{ maxWidth: 100 }} value={singleR?.rating} readOnly itemStyles={customStyles} />
+                <Rating
+                  style={{ maxWidth: 100 }}
+                  value={singleR?.rating}
+                  readOnly
+                  itemStyles={customStyles}
+                />
               </div>
               <small>{singleR.date}</small>
             </div>
-            <p className="text-gray-5 text-xs lg:text-sm xl:text-base text-justify">{singleR?.reviewMessage}</p>
+            <p className="text-justify text-xs text-gray-5 lg:text-sm xl:text-base">
+              {singleR?.reviewMessage}
+            </p>
             <div className="flex items-center justify-between">
-              <h3 className="my-5 font-medium text-sm">–– {singleR?.name}</h3>
+              <h3 className="my-5 text-sm font-medium">–– {singleR?.name}</h3>
             </div>
             <div className="divider" />
           </div>

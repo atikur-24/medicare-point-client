@@ -15,7 +15,7 @@ import Search from "../../Shared/Navbar/Search/Search";
 const Banner = () => {
   return (
     <div className="">
-      <div className="px-4 py-2 block xl:hidden">
+      <div className="block px-4 py-2 xl:hidden">
         <Search />
       </div>
       <Swiper

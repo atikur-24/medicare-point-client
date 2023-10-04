@@ -11,30 +11,49 @@ const PopUp = ({ isPopUp, setPopUp }) => {
   };
 
   return (
-    <div className={`fixed top-0 z-50 w-full h-screen flex justify-center items-center transition-all duration-700 ${isPopUp} bg-black/70`}>
-      <div className="w-10/12 lg:w-11/12 xl:w-1/2 bg-card rounded-xl relative">
-        <button onClick={() => setPopUp("hidden")} type="button" className="btn btn-circle btn-sm bg-red-500 hover:bg-red-400 text-white transition-all duration-300 border-none absolute -right-3 -top-3">
+    <div
+      className={`fixed top-0 z-50 flex h-screen w-full items-center justify-center transition-all duration-700 ${isPopUp} bg-black/70`}
+    >
+      <div className="bg-card relative w-10/12 rounded-xl lg:w-11/12 xl:w-1/2">
+        <button
+          onClick={() => setPopUp("hidden")}
+          type="button"
+          className="btn btn-circle btn-sm absolute -right-3 -top-3 border-none bg-red-500 text-white transition-all duration-300 hover:bg-red-400"
+        >
           x
         </button>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 text-my-primary lg:gap-0 items-center">
-          <div className="text-left px-5 lg:pl-8 lg:pr-0 pb-5 lg:pb-0 space-y-3 lg:space-y-5 order-2 lg:order-1">
+        <div className="grid grid-cols-1 items-center gap-5 text-my-primary lg:grid-cols-2 lg:gap-0">
+          <div className="order-2 space-y-3 px-5 pb-5 text-left lg:order-1 lg:space-y-5 lg:pb-0 lg:pl-8 lg:pr-0">
             <p>Limited time only</p>
-            <h2 className="text-xl lg:text-3xl font-medium lg:font-semibold">
+            <h2 className="text-xl font-medium lg:text-3xl lg:font-semibold">
               Get 50Taka off <br />
               on your first order
             </h2>
-            <div className="flex items-center gap-3 justify-center border border-my-accent py-1 lg:py-2 rounded text-lg lg:text-xl font-medium lg:font-semibold">
+            <div className="flex items-center justify-center gap-3 rounded border border-my-accent py-1 text-lg font-medium lg:py-2 lg:text-xl lg:font-semibold">
               <p className="">Promo code:</p>
-              <button type="button" onClick={copyPromoCode} className="cursor-pointer text-my-accent">
+              <button
+                type="button"
+                onClick={copyPromoCode}
+                className="cursor-pointer text-my-accent"
+              >
                 WELCOME50
               </button>
             </div>
-            <Link onClick={() => setPopUp("hidden")} to="/medicines" className="cart-btn-outline" style={{ width: "50%" }}>
+            <Link
+              onClick={() => setPopUp("hidden")}
+              to="/medicines"
+              className="cart-btn-outline"
+              style={{ width: "50%" }}
+            >
               Shop Now
             </Link>
           </div>
-          <div className="order-1 lg:order-2 mx-auto">
-            <img className="h-[200px] md:h-[300px] lg:h-[350px] w-full object-cover" src={img} alt="pop-up" />
+          <div className="order-1 mx-auto lg:order-2">
+            <img
+              className="h-[200px] w-full object-cover md:h-[300px] lg:h-[350px]"
+              src={img}
+              alt="pop-up"
+            />
           </div>
         </div>
       </div>

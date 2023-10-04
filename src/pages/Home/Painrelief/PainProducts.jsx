@@ -21,19 +21,26 @@ const MediCards = () => {
   useEffect(() => {
     const abortController = new AbortController();
 
-    dispatch(fetchMedicines(), { signal: abortController.signal }).catch((error) => {
-      console.error("An error occurred while fetching data:", error);
-    });
+    dispatch(fetchMedicines(), { signal: abortController.signal }).catch(
+      (error) => {
+        console.error("An error occurred while fetching data:", error);
+      },
+    );
 
     return () => abortController.abort();
   }, [dispatch]);
 
-  const PainRefilMedicins = allData.filter((item) => item?.category?.value === "Pain-Relief");
+  const PainRefilMedicins = allData.filter(
+    (item) => item?.category?.value === "Pain-Relief",
+  );
 
   return (
     <>
       <div className="my-container my-10">
-        <SectionTitle title="Pain Relief" content="Pain Relief medicines is like a helper for when something hurts." />
+        <SectionTitle
+          title="Pain Relief"
+          content="Pain Relief medicines is like a helper for when something hurts."
+        />
 
         {isloading ? (
           <Loader spinner />

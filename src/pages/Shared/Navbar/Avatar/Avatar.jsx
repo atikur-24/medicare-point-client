@@ -6,9 +6,13 @@ const Avatar = () => {
   return (
     <div className="cursor-pointer">
       {user?.photoURL ? (
-        <img alt="User" className="w-8 h-8 object-cover rounded-full ring ring-my-primary  ring-offset-2" src={user?.photoURL} />
+        <img
+          alt="User"
+          className="h-8 w-8 rounded-full object-cover ring ring-my-primary  ring-offset-2"
+          src={user?.photoURL}
+        />
       ) : (
-        <p className="bg-lite p-2 rounded-full ">
+        <p className="rounded-full bg-lite p-2 ">
           <FaUserAlt className="text-xl text-my-primary " />
         </p>
       )}

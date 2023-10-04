@@ -51,9 +51,9 @@ const Blogs = () => {
         )}
 
         {/* Pagination */}
-        <div className="text-center mt-4">
+        <div className="mt-4 text-center">
           <ReactPaginate
-            className="flex text-center items-center justify-center my-auto space-x-3 font-semibold  pb-5 align-middle"
+            className="my-auto flex items-center justify-center space-x-3 pb-5 text-center  align-middle font-semibold"
             activeClassName="bg-my-primary text-white rounded-full px-4 py-2"
             breakLabel="..."
             nextLabel="Next"

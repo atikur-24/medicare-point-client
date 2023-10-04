@@ -1,10 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const updateDiscountCodeApi = createAsyncThunk("updateDiscountCode/updateDiscountCodeApi", async (data) => {
-  const res = await axios.patch(`${import.meta.env.VITE_API_URL}/discountCodes`, data);
-  return res.data;
-});
+export const updateDiscountCodeApi = createAsyncThunk(
+  "updateDiscountCode/updateDiscountCodeApi",
+  async (data) => {
+    const res = await axios.patch(
+      `${import.meta.env.VITE_API_URL}/discountCodes`,
+      data,
+    );
+    return res.data;
+  },
+);
 
 const updateDiscountCodeSlice = createSlice({
   name: "updateDiscountCode",
